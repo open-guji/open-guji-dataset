@@ -2,34 +2,44 @@
   "evaluated": 24,
   "field_accuracy": {
     "layout": {
-      "correct": 24,
+      "correct": 22,
       "total": 24,
-      "accuracy": 1.0
+      "accuracy": 0.9166666666666666
     },
     "banxin_position": {
-      "correct": 0,
+      "correct": 5,
       "total": 8,
-      "accuracy": 0.0
+      "accuracy": 0.625
     },
     "content_format": {
-      "correct": 24,
+      "correct": 10,
       "total": 24,
-      "accuracy": 1.0
+      "accuracy": 0.4166666666666667
+    },
+    "font_type": {
+      "correct": 12,
+      "total": 24,
+      "accuracy": 0.5
     },
     "lines_per_page": {
-      "correct": 23,
+      "correct": 13,
       "total": 24,
-      "accuracy": 0.9583333333333334
+      "accuracy": 0.5416666666666666
+    },
+    "fixed_chars_per_line": {
+      "correct": 21,
+      "total": 24,
+      "accuracy": 0.875
     },
     "chars_per_line": {
+      "correct": 11,
+      "total": 21,
+      "accuracy": 0.5238095238095238
+    },
+    "has_marginal_notes": {
       "correct": 17,
       "total": 24,
       "accuracy": 0.7083333333333334
-    },
-    "has_marginal_notes": {
-      "correct": 23,
-      "total": 24,
-      "accuracy": 0.9583333333333334
     },
     "color_mode": {
       "correct": 24,
@@ -47,32 +57,32 @@
       "accuracy": 1.0
     },
     "border_color": {
-      "correct": 24,
+      "correct": 11,
       "total": 24,
-      "accuracy": 1.0
+      "accuracy": 0.4583333333333333
     },
     "border_style": {
-      "correct": 23,
+      "correct": 17,
       "total": 24,
-      "accuracy": 0.9583333333333334
+      "accuracy": 0.7083333333333334
     },
     "border_wear": {
-      "correct": 23,
+      "correct": 5,
       "total": 24,
-      "accuracy": 0.9583333333333334
+      "accuracy": 0.20833333333333334
     },
     "interferences": {
-      "correct": 21,
+      "correct": 15,
       "total": 24,
-      "accuracy": 0.875
+      "accuracy": 0.625
     },
     "margin_color": {
-      "correct": 2,
-      "total": 2,
-      "accuracy": 1.0
+      "correct": 1,
+      "total": 7,
+      "accuracy": 0.14285714285714285
     }
   },
-  "overall_accuracy": 0.9261744966442953,
+  "overall_accuracy": 0.6666666666666666,
   "errors": [
     {
       "id": "001",
@@ -81,12 +91,22 @@
         {
           "field": "banxin_position",
           "expected": "left",
-          "got": null
+          "got": "right"
+        },
+        {
+          "field": "font_type",
+          "expected": "handwritten",
+          "got": "printed"
         },
         {
           "field": "chars_per_line",
           "expected": 21,
           "got": 19
+        },
+        {
+          "field": "border_wear",
+          "expected": "heavy",
+          "got": "medium"
         },
         {
           "field": "interferences",
@@ -102,9 +122,19 @@
       "description": "未裁全页（蝴蝶装），手写批注，有夹注，8行",
       "errors": [
         {
-          "field": "chars_per_line",
-          "expected": null,
-          "got": 16
+          "field": "lines_per_page",
+          "expected": 9,
+          "got": 8
+        },
+        {
+          "field": "fixed_chars_per_line",
+          "expected": false,
+          "got": true
+        },
+        {
+          "field": "border_wear",
+          "expected": "light",
+          "got": "medium"
         },
         {
           "field": "interferences",
@@ -120,9 +150,9 @@
       "description": "彩色（橙底），9行，有污渍干扰",
       "errors": [
         {
-          "field": "banxin_position",
-          "expected": "left",
-          "got": null
+          "field": "content_format",
+          "expected": "regular",
+          "got": "no_line"
         },
         {
           "field": "lines_per_page",
@@ -131,15 +161,22 @@
         },
         {
           "field": "chars_per_line",
-          "expected": null,
+          "expected": 21,
           "got": 19
         },
         {
           "field": "interferences",
-          "expected": [],
+          "expected": [
+            "margin"
+          ],
           "got": [
             "spine_shadow"
           ]
+        },
+        {
+          "field": "margin_color",
+          "expected": "other",
+          "got": null
         }
       ]
     },
@@ -150,12 +187,47 @@
         {
           "field": "banxin_position",
           "expected": "left",
-          "got": null
+          "got": "right"
+        },
+        {
+          "field": "font_type",
+          "expected": "printed",
+          "got": "handwritten"
+        },
+        {
+          "field": "lines_per_page",
+          "expected": 10,
+          "got": 11
         },
         {
           "field": "chars_per_line",
-          "expected": null,
+          "expected": 21,
           "got": 14
+        },
+        {
+          "field": "has_marginal_notes",
+          "expected": true,
+          "got": false
+        },
+        {
+          "field": "border_wear",
+          "expected": "medium",
+          "got": "light"
+        },
+        {
+          "field": "interferences",
+          "expected": [
+            "spine_shadow",
+            "margin"
+          ],
+          "got": [
+            "spine_shadow"
+          ]
+        },
+        {
+          "field": "margin_color",
+          "expected": "black",
+          "got": null
         }
       ]
     },
@@ -164,14 +236,39 @@
       "description": "黑白刻本，8行15字，边框严重磨损，有白边",
       "errors": [
         {
-          "field": "banxin_position",
-          "expected": "left",
-          "got": null
+          "field": "content_format",
+          "expected": "regular",
+          "got": "no_line"
+        },
+        {
+          "field": "font_type",
+          "expected": "printed",
+          "got": "handwritten"
+        },
+        {
+          "field": "lines_per_page",
+          "expected": 9,
+          "got": 8
+        },
+        {
+          "field": "chars_per_line",
+          "expected": 21,
+          "got": 15
+        },
+        {
+          "field": "has_marginal_notes",
+          "expected": true,
+          "got": false
         },
         {
           "field": "border_style",
           "expected": "double",
           "got": "single"
+        },
+        {
+          "field": "border_wear",
+          "expected": "medium",
+          "got": "heavy"
         }
       ]
     },
@@ -182,12 +279,22 @@
         {
           "field": "banxin_position",
           "expected": "left",
-          "got": null
+          "got": "right"
+        },
+        {
+          "field": "font_type",
+          "expected": "handwritten",
+          "got": "printed"
         },
         {
           "field": "chars_per_line",
-          "expected": null,
+          "expected": 21,
           "got": 19
+        },
+        {
+          "field": "has_marginal_notes",
+          "expected": true,
+          "got": false
         },
         {
           "field": "border_wear",
@@ -201,14 +308,32 @@
       "description": "表格版面（天文历法），非常规列式，书脊阴影+白边",
       "errors": [
         {
-          "field": "banxin_position",
-          "expected": "left",
-          "got": null
+          "field": "font_type",
+          "expected": "handwritten",
+          "got": "printed"
         },
         {
-          "field": "chars_per_line",
-          "expected": null,
-          "got": 12
+          "field": "lines_per_page",
+          "expected": 9,
+          "got": 0
+        },
+        {
+          "field": "fixed_chars_per_line",
+          "expected": false,
+          "got": true
+        },
+        {
+          "field": "has_marginal_notes",
+          "expected": true,
+          "got": false
+        },
+        {
+          "field": "interferences",
+          "expected": [],
+          "got": [
+            "margin",
+            "spine_shadow"
+          ]
         }
       ]
     },
@@ -217,9 +342,116 @@
       "description": "跨页摊开扫描（前汉书），彩色橙底，12行，有夹注，书脊阴影",
       "errors": [
         {
+          "field": "lines_per_page",
+          "expected": 10,
+          "got": 12
+        },
+        {
           "field": "chars_per_line",
-          "expected": null,
+          "expected": 21,
           "got": 17
+        },
+        {
+          "field": "has_marginal_notes",
+          "expected": true,
+          "got": false
+        },
+        {
+          "field": "border_color",
+          "expected": "red",
+          "got": "black"
+        },
+        {
+          "field": "border_style",
+          "expected": "hsingle_vdouble",
+          "got": "double"
+        },
+        {
+          "field": "interferences",
+          "expected": [
+            "spine_shadow",
+            "margin"
+          ],
+          "got": [
+            "spine_shadow"
+          ]
+        },
+        {
+          "field": "margin_color",
+          "expected": "black",
+          "got": null
+        }
+      ]
+    },
+    {
+      "id": "009",
+      "description": "晏子春秋卷首，未裁全页，黑白底红色圈点，单边框，约10行",
+      "errors": [
+        {
+          "field": "layout",
+          "expected": "spread",
+          "got": "uncut_full"
+        },
+        {
+          "field": "content_format",
+          "expected": "no_line",
+          "got": "regular"
+        },
+        {
+          "field": "lines_per_page",
+          "expected": 8,
+          "got": 9
+        },
+        {
+          "field": "chars_per_line",
+          "expected": 18,
+          "got": 25
+        },
+        {
+          "field": "border_color",
+          "expected": "red",
+          "got": "black"
+        },
+        {
+          "field": "border_style",
+          "expected": "single",
+          "got": "double"
+        },
+        {
+          "field": "border_wear",
+          "expected": "light",
+          "got": "none"
+        },
+        {
+          "field": "interferences",
+          "expected": [
+            "spine_shadow",
+            "margin"
+          ],
+          "got": [
+            "spine_shadow"
+          ]
+        },
+        {
+          "field": "margin_color",
+          "expected": "black",
+          "got": null
+        }
+      ]
+    },
+    {
+      "id": "010",
+      "description": "天文圖說，半页扫描，黑白，密排约13行，单边框",
+      "errors": [
+        {
+          "field": "lines_per_page",
+          "expected": 10,
+          "got": 0
+        },
+        {
+          "field": "chars_per_line",
+          "expected": 22,
+          "got": 13
         },
         {
           "field": "has_marginal_notes",
@@ -229,24 +461,386 @@
       ]
     },
     {
-      "id": "010",
-      "description": "天文圖說，半页扫描，黑白，密排约13行，单边框",
+      "id": "011",
+      "description": "天文圖說插图页，含天文图和文字混排",
       "errors": [
         {
-          "field": "banxin_position",
-          "expected": "right",
+          "field": "content_format",
+          "expected": "mixed",
+          "got": "table"
+        },
+        {
+          "field": "font_type",
+          "expected": "printed",
+          "got": "handwritten"
+        },
+        {
+          "field": "lines_per_page",
+          "expected": 10,
+          "got": 0
+        },
+        {
+          "field": "chars_per_line",
+          "expected": 22,
+          "got": 13
+        },
+        {
+          "field": "has_marginal_notes",
+          "expected": true,
+          "got": false
+        },
+        {
+          "field": "interferences",
+          "expected": [
+            "spine_shadow",
+            "margin"
+          ],
+          "got": [
+            "spine_shadow"
+          ]
+        },
+        {
+          "field": "margin_color",
+          "expected": "black",
           "got": null
         }
       ]
     },
     {
-      "id": "011",
-      "description": "天文圖說插图页，含天文图和文字混排",
+      "id": "012",
+      "description": "菜根譚，未裁全页，米黄底色，边角破损，双边框，约12行",
       "errors": [
         {
-          "field": "banxin_position",
-          "expected": "right",
+          "field": "layout",
+          "expected": "spread",
+          "got": "uncut_full"
+        },
+        {
+          "field": "content_format",
+          "expected": "regular",
+          "got": "no_line"
+        },
+        {
+          "field": "font_type",
+          "expected": "handwritten",
+          "got": "printed"
+        },
+        {
+          "field": "lines_per_page",
+          "expected": 8,
+          "got": 9
+        },
+        {
+          "field": "chars_per_line",
+          "expected": 18,
+          "got": 17
+        },
+        {
+          "field": "border_style",
+          "expected": "single",
+          "got": "hsingle_vdouble"
+        },
+        {
+          "field": "border_wear",
+          "expected": "medium",
+          "got": "none"
+        },
+        {
+          "field": "interferences",
+          "expected": [
+            "spine_shadow",
+            "margin"
+          ],
+          "got": [
+            "spine_shadow"
+          ]
+        },
+        {
+          "field": "margin_color",
+          "expected": "black",
           "got": null
+        }
+      ]
+    },
+    {
+      "id": "013",
+      "description": "兵鏡，未裁全页，白底红圈点，单边框，约10行",
+      "errors": [
+        {
+          "field": "lines_per_page",
+          "expected": 6,
+          "got": 5
+        },
+        {
+          "field": "fixed_chars_per_line",
+          "expected": false,
+          "got": true
+        },
+        {
+          "field": "border_style",
+          "expected": "single",
+          "got": "double"
+        },
+        {
+          "field": "border_wear",
+          "expected": "light",
+          "got": "none"
+        }
+      ]
+    },
+    {
+      "id": "014",
+      "description": "乐记，未裁全页，米黄底色，密排有夹注，双边框",
+      "errors": [
+        {
+          "field": "content_format",
+          "expected": "regular",
+          "got": "no_line"
+        },
+        {
+          "field": "border_color",
+          "expected": "red",
+          "got": "black"
+        },
+        {
+          "field": "border_style",
+          "expected": "double",
+          "got": "hsingle_vdouble"
+        },
+        {
+          "field": "border_wear",
+          "expected": "light",
+          "got": "none"
+        }
+      ]
+    },
+    {
+      "id": "015",
+      "description": "笑林廣記，未裁全页，蓝色边框（特殊），白底，约10行",
+      "errors": [
+        {
+          "field": "content_format",
+          "expected": "regular",
+          "got": "no_line"
+        },
+        {
+          "field": "border_color",
+          "expected": "red",
+          "got": "black"
+        },
+        {
+          "field": "border_wear",
+          "expected": "light",
+          "got": "none"
+        }
+      ]
+    },
+    {
+      "id": "016",
+      "description": "靈臺儀象志，未裁全页，黑白，单边框，约10行，干净清晰",
+      "errors": [
+        {
+          "field": "content_format",
+          "expected": "regular",
+          "got": "no_line"
+        },
+        {
+          "field": "border_color",
+          "expected": "red",
+          "got": "black"
+        },
+        {
+          "field": "border_wear",
+          "expected": "light",
+          "got": "none"
+        }
+      ]
+    },
+    {
+      "id": "017",
+      "description": "文房十二友，未裁全页，黑白，单边框，密排约12行",
+      "errors": [
+        {
+          "field": "border_color",
+          "expected": "red",
+          "got": "black"
+        },
+        {
+          "field": "border_wear",
+          "expected": "light",
+          "got": "none"
+        }
+      ]
+    },
+    {
+      "id": "018",
+      "description": "册府元龜，未裁全页，黄色底色有污渍，大字少行(约5行)，单边框",
+      "errors": [
+        {
+          "field": "content_format",
+          "expected": "regular",
+          "got": "no_line"
+        },
+        {
+          "field": "font_type",
+          "expected": "printed",
+          "got": "handwritten"
+        },
+        {
+          "field": "border_color",
+          "expected": "red",
+          "got": "black"
+        },
+        {
+          "field": "border_wear",
+          "expected": "light",
+          "got": "none"
+        }
+      ]
+    },
+    {
+      "id": "019",
+      "description": "隂海陽海二圖，医学插图页（人体脏腑图），米色底",
+      "errors": [
+        {
+          "field": "content_format",
+          "expected": "regular",
+          "got": "no_line"
+        },
+        {
+          "field": "font_type",
+          "expected": "printed",
+          "got": "handwritten"
+        },
+        {
+          "field": "border_color",
+          "expected": "red",
+          "got": "black"
+        },
+        {
+          "field": "border_style",
+          "expected": "double",
+          "got": "hsingle_vdouble"
+        },
+        {
+          "field": "border_wear",
+          "expected": "light",
+          "got": "none"
+        }
+      ]
+    },
+    {
+      "id": "020",
+      "description": "同書，未裁全页，米色底，单边框，约8行大字",
+      "errors": [
+        {
+          "field": "font_type",
+          "expected": "printed",
+          "got": "handwritten"
+        },
+        {
+          "field": "border_color",
+          "expected": "red",
+          "got": "black"
+        },
+        {
+          "field": "border_wear",
+          "expected": "light",
+          "got": "none"
+        }
+      ]
+    },
+    {
+      "id": "021",
+      "description": "古樂府目录+正文混排，未裁全页，黑白，单边框",
+      "errors": [
+        {
+          "field": "content_format",
+          "expected": "regular",
+          "got": "no_line"
+        },
+        {
+          "field": "font_type",
+          "expected": "printed",
+          "got": "handwritten"
+        },
+        {
+          "field": "border_color",
+          "expected": "red",
+          "got": "black"
+        },
+        {
+          "field": "border_wear",
+          "expected": "light",
+          "got": "none"
+        }
+      ]
+    },
+    {
+      "id": "022",
+      "description": "楚辭新註，未裁全页，黑白，单边框，密排约13行",
+      "errors": [
+        {
+          "field": "content_format",
+          "expected": "regular",
+          "got": "no_line"
+        },
+        {
+          "field": "border_color",
+          "expected": "red",
+          "got": "black"
+        },
+        {
+          "field": "border_wear",
+          "expected": "light",
+          "got": "none"
+        }
+      ]
+    },
+    {
+      "id": "023",
+      "description": "六一詩話，未裁全页，米色底，双边框，约10行",
+      "errors": [
+        {
+          "field": "content_format",
+          "expected": "regular",
+          "got": "no_line"
+        },
+        {
+          "field": "border_color",
+          "expected": "red",
+          "got": "black"
+        },
+        {
+          "field": "border_wear",
+          "expected": "light",
+          "got": "none"
+        }
+      ]
+    },
+    {
+      "id": "024",
+      "description": "婦人良方大全，未裁全页，黄色底有夹注，双边框，密排",
+      "errors": [
+        {
+          "field": "content_format",
+          "expected": "regular",
+          "got": "no_line"
+        },
+        {
+          "field": "font_type",
+          "expected": "printed",
+          "got": "handwritten"
+        },
+        {
+          "field": "border_color",
+          "expected": "red",
+          "got": "black"
+        },
+        {
+          "field": "border_wear",
+          "expected": "light",
+          "got": "none"
         }
       ]
     }

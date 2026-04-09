@@ -1,20 +1,21 @@
 {
   "layout": "cut_half",
-  "banxin_position": "right",
-  "content_format": "table",
-  "font_type": "printed",
-  "lines_per_page": 0,
-  "fixed_chars_per_line": true,
-  "chars_per_line": 13,
-  "has_marginal_notes": false,
+  "content_format": "mixed",
   "color_mode": "colored",
   "background_color": "xuan",
   "text_color": "black",
-  "border_color": "red",
-  "border_style": "double",
+  "border_color": "black",
+  "border_style": "hsingle_vdouble",
   "border_wear": "light",
+  "banxin_position": "right",
+  "margin_color": "black",
+  "font_type": "printed",
+  "lines_per_page": 10,
+  "fixed_chars_per_line": true,
+  "chars_per_line": 22,
+  "has_marginal_notes": true,
   "interferences": [
-    "spine_shadow"
-  ],
-  "margin_color": null
+    "spine_shadow",
+    "margin"
+  ]
 }

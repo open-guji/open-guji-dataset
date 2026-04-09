@@ -15,13 +15,16 @@ BENCHMARK_DIR = BASE_DIR / "book-profile"
 SAMPLES_DIR = BENCHMARK_DIR / "samples"
 RESULTS_DIR = BENCHMARK_DIR / "results"
 
-EVAL_FIELDS = [
-    "layout", "banxin_position", "content_format", "font_type",
-    "lines_per_page", "fixed_chars_per_line", "chars_per_line", "has_marginal_notes",
+BASIC_FIELDS = [
+    "layout", "banxin_position", "content_format", "lines_per_page",
+]
+ADVANCED_FIELDS = [
+    "font_type", "fixed_chars_per_line", "chars_per_line", "has_marginal_notes",
     "color_mode", "background_color", "text_color",
     "border_color", "border_style", "border_wear",
     "interferences", "margin_color",
 ]
+EVAL_FIELDS = BASIC_FIELDS + ADVANCED_FIELDS
 
 
 def read_json(path: Path) -> dict | None:
@@ -40,9 +43,9 @@ def should_eval_field(expected: dict, field: str) -> bool:
     return True
 
 
-def check_match(expected: dict, result: dict) -> bool:
-    """Check if all eval fields match between expected and result."""
-    for f in EVAL_FIELDS:
+def check_fields_match(expected: dict, result: dict, fields: list) -> bool:
+    """Check if specified fields match between expected and result."""
+    for f in fields:
         if not should_eval_field(expected, f):
             continue
         ev = expected.get(f)
@@ -67,9 +70,11 @@ def get_sample_list() -> list:
         result = read_json(result_path)
 
         has_result = result is not None
-        all_match = False
+        basic_match = False
+        advanced_match = False
         if expected and result:
-            all_match = check_match(expected, result)
+            basic_match = check_fields_match(expected, result, BASIC_FIELDS)
+            advanced_match = check_fields_match(expected, result, ADVANCED_FIELDS)
 
         samples.append({
             "id": d.name,
@@ -77,7 +82,8 @@ def get_sample_list() -> list:
             "tags": info.get("tags", []),
             "has_expected": expected is not None,
             "has_result": has_result,
-            "all_match": all_match,
+            "basic_match": basic_match,
+            "advanced_match": advanced_match,
         })
     return samples
 
