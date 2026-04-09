@@ -129,6 +129,19 @@ header .stats { font-size: 13px; color: #aaa; }
   margin-left: 16px; padding-left: 10px;
   border-left: 2px solid #e8e8e8;
 }
+
+/* 分组标题 */
+.section-header {
+  font-size: 13px; font-weight: 600; color: #1677ff;
+  margin: 16px 0 8px; padding-bottom: 4px;
+  border-bottom: 1px solid #e8e8e8;
+  cursor: pointer; user-select: none;
+  display: flex; align-items: center; gap: 6px;
+}
+.section-header:first-child { margin-top: 0; }
+.section-header .arrow { font-size: 10px; transition: transform 0.2s; }
+.section-header .arrow.collapsed { transform: rotate(-90deg); }
+.section-body.collapsed { display: none; }
 </style>
 </head>
 <body>
@@ -157,7 +170,9 @@ const FIELD_LABELS = {
   layout: '版面布局 (layout)',
   banxin_position: '版心位置 (banxin_position)',
   content_format: '内容格式 (content_format)',
+  font_type: '字体 (font_type)',
   lines_per_page: '每页行数 (lines_per_page)',
+  fixed_chars_per_line: '每行固定字数 (fixed_chars_per_line)',
   chars_per_line: '每行字数 (chars_per_line)',
   has_marginal_notes: '夹注 (has_marginal_notes)',
   color_mode: '色彩模式 (color_mode)',
@@ -181,6 +196,7 @@ const VALUE_LABELS = {
   right: '右侧 (right)',
   // content_format
   regular: '常规栏式 (regular)',
+  no_line: '无栏线 (no_line)',
   table: '表格 (table)',
   illustration: '插图 (illustration)',
   // color_mode
@@ -188,18 +204,24 @@ const VALUE_LABELS = {
   colored: '彩色 (colored)',
   // background_color
   '__null__': '无 (null)',
-  orange: '橙色 (orange)',
-  yellow: '黄色 (yellow)',
-  red: '红色 (red)',
-  // border_color
+  white: '白色 (white)',
+  xuan: '宣纸色 (xuan)',
+  other: '其他 (other)',
+  // colors
   black: '黑色 (black)',
+  red: '红色 (red)',
   // border_style
   double: '双边框 (double)',
   single: '单边框 (single)',
+  hsingle_vdouble: '上下单左右双 (hsingle_vdouble)',
   // border_wear
+  none: '无 (none)',
   light: '轻微 (light)',
   medium: '中等 (medium)',
   heavy: '严重 (heavy)',
+  // font_type
+  printed: '印刷 (printed)',
+  handwritten: '手写 (handwritten)',
   // interferences
   spine_shadow: '书脊阴影 (spine_shadow)',
   margin: '页边距 (margin)',
@@ -209,13 +231,13 @@ const VALUE_LABELS = {
 
 const FIELD_OPTIONS = {
   layout: ['cut_half', 'uncut_full', 'spread'],
-  content_format: ['regular', 'table', 'illustration'],
+  content_format: ['regular', 'no_line', 'table', 'illustration'],
   color_mode: ['bw', 'colored'],
-  background_color: [null, 'orange', 'yellow', 'red'],
-  text_color: ['black'],
-  border_color: ['black', 'orange'],
-  border_style: ['double', 'single'],
-  border_wear: ['light', 'medium', 'heavy'],
+  background_color: ['white', 'xuan', 'other'],
+  text_color: ['black', 'red', 'other'],
+  border_color: ['black', 'red', 'other'],
+  border_style: ['double', 'single', 'hsingle_vdouble'],
+  border_wear: ['none', 'light', 'medium', 'heavy'],
 };
 const BANXIN_OPTIONS = ['left', 'right'];
 const INTERFERENCE_OPTIONS = ['spine_shadow', 'margin'];
@@ -251,7 +273,7 @@ function renderSidebar() {
 }
 
 async function selectSample(id) {
-  if (dirty && !confirm('有未保存的修改，确定切换？')) return;
+  if (saveTimer) { clearTimeout(saveTimer); await saveExpected(); }
   currentId = id;
   dirty = false;
   renderSidebar();
@@ -287,8 +309,6 @@ function renderDetail(data) {
         </h3>
         <div id="editForm">${buildForm(expected, result)}</div>
         <div class="btn-group">
-          <button class="btn btn-primary" onclick="saveExpected()">保存 (Ctrl+S)</button>
-          <button class="btn" onclick="resetForm()">重置</button>
           <button class="btn" onclick="copyFromResult()">从识别结果复制</button>
         </div>
         ${buildResultCompare(expected, result)}
@@ -320,6 +340,12 @@ function buildSelectField(field, options, expected, result, extra) {
 function buildForm(expected, result) {
   let html = '';
 
+  // ===== 基础参数 =====
+  html += `<div class="section-header" onclick="toggleSection('basic')">
+    <span class="arrow" id="arrow_basic">&#9660;</span> 基础参数
+  </div>`;
+  html += `<div class="section-body" id="section_basic">`;
+
   // 版面布局
   html += buildSelectField('layout', FIELD_OPTIONS.layout, expected, result);
 
@@ -333,15 +359,56 @@ function buildForm(expected, result) {
   // 内容格式
   html += buildSelectField('content_format', FIELD_OPTIONS.content_format, expected, result);
 
-  // 数值字段
-  for (const field of ['lines_per_page', 'chars_per_line']) {
-    const val = expected[field];
-    const rval = result[field];
+  // 每页行数
+  {
+    const val = expected.lines_per_page;
+    const rval = result.lines_per_page;
     const isDiff = val !== rval;
     const diffLabel = isDiff ? `<span class="diff-label">识别: ${rval ?? 'null'}</span>` : '';
     html += `<div class="field-group">
-      <label>${FIELD_LABELS[field]} ${diffLabel}</label>
-      <input type="number" name="${field}" value="${val ?? ''}" placeholder="无 (null)"
+      <label>${FIELD_LABELS.lines_per_page} ${diffLabel}</label>
+      <input type="number" name="lines_per_page" value="${val ?? ''}" placeholder="无 (null)"
+        class="${isDiff ? 'diff' : ''}" onchange="markDirty()" />
+    </div>`;
+  }
+
+  html += `</div>`; // end section_basic
+
+  // ===== 高级参数 =====
+  html += `<div class="section-header" onclick="toggleSection('advanced')">
+    <span class="arrow" id="arrow_advanced">&#9660;</span> 高级参数
+  </div>`;
+  html += `<div class="section-body" id="section_advanced">`;
+
+  // 字体
+  html += buildSelectField('font_type', ['printed', 'handwritten'],
+    { font_type: expected.font_type || 'printed' },
+    { font_type: result.font_type },
+    {});
+
+  // 每行固定字数
+  const fixedVal = expected.fixed_chars_per_line !== false;
+  const fixedRval = result.fixed_chars_per_line;
+  const fixedDiff = (expected.fixed_chars_per_line ?? true) !== fixedRval;
+  const fixedDiffLabel = fixedDiff && fixedRval !== undefined ? `<span class="diff-label">识别: ${fixedRval ? '是' : '否'}</span>` : '';
+  html += `<div class="field-group">
+    <label>${FIELD_LABELS.fixed_chars_per_line} ${fixedDiffLabel}</label>
+    <div class="checkbox-field">
+      <input type="checkbox" name="fixed_chars_per_line" ${fixedVal ? 'checked' : ''}
+        onchange="markDirty(); onFieldChange('fixed_chars_per_line')" />
+      <span>${fixedVal ? '是（每行字数固定）' : '否（每行字数不固定）'}</span>
+    </div>
+  </div>`;
+
+  // 每行字数 — 仅 fixed_chars_per_line 为 true 时显示
+  {
+    const val = expected.chars_per_line;
+    const rval = result.chars_per_line;
+    const isDiff = val !== rval;
+    const diffLabel = isDiff ? `<span class="diff-label">识别: ${rval ?? 'null'}</span>` : '';
+    html += `<div class="field-group conditional" id="group_chars_per_line" ${fixedVal ? '' : 'style="display:none"'}>
+      <label>${FIELD_LABELS.chars_per_line} ${diffLabel}</label>
+      <input type="number" name="chars_per_line" value="${val ?? ''}" placeholder="无 (null)"
         class="${isDiff ? 'diff' : ''}" onchange="markDirty()" />
     </div>`;
   }
@@ -387,20 +454,31 @@ function buildForm(expected, result) {
 
   // 页边距颜色 — 仅当 margin 干扰项选中时显示
   const hasMargin = intVal.includes('margin');
-  const MARGIN_COLOR_OPTIONS = [null, 'white', 'black'];
+  const MARGIN_COLOR_OPTIONS = [null, 'white', 'black', 'other'];
   html += buildSelectField('margin_color', MARGIN_COLOR_OPTIONS,
     { margin_color: expected.margin_color ?? null },
     { margin_color: result.margin_color },
     { conditional: true, hidden: !hasMargin });
 
+  html += `</div>`; // end section_advanced
+
   return html;
+}
+
+function toggleSection(name) {
+  const body = document.getElementById(`section_${name}`);
+  const arrow = document.getElementById(`arrow_${name}`);
+  if (body && arrow) {
+    body.classList.toggle('collapsed');
+    arrow.classList.toggle('collapsed');
+  }
 }
 
 function buildResultCompare(expected, result) {
   if (!result || Object.keys(result).length === 0) return '<div class="result-compare"><h4>无识别结果</h4></div>';
 
   const fields = ['layout', 'banxin_position', ...Object.keys(FIELD_OPTIONS).filter(f => f !== 'layout'),
-    'lines_per_page', 'chars_per_line', 'has_marginal_notes', 'interferences', 'margin_color'];
+    'font_type', 'lines_per_page', 'fixed_chars_per_line', 'chars_per_line', 'has_marginal_notes', 'interferences', 'margin_color'];
   let rows = '';
   for (const f of fields) {
     const ev = f === 'interferences' ? JSON.stringify(expected[f] || []) : String(expected[f] ?? 'null');
@@ -426,6 +504,13 @@ function onFieldChange(field) {
     if (banxinGroup) {
       banxinGroup.style.display = layoutVal === 'cut_half' ? '' : 'none';
     }
+  }
+  if (field === 'fixed_chars_per_line') {
+    const checked = form.querySelector('[name="fixed_chars_per_line"]')?.checked;
+    const cplGroup = document.getElementById('group_chars_per_line');
+    if (cplGroup) cplGroup.style.display = checked ? '' : 'none';
+    const label = form.querySelector('[name="fixed_chars_per_line"]')?.nextElementSibling;
+    if (label) label.textContent = checked ? '是（每行字数固定）' : '否（每行字数不固定）';
   }
   if (field === 'interferences') {
     const marginChecked = form.querySelector('[name="interference_margin"]')?.checked;
@@ -457,9 +542,21 @@ function getFormValues() {
     data.margin_color = marginEl.value === '__null__' ? null : marginEl.value;
   }
 
-  for (const field of ['lines_per_page', 'chars_per_line']) {
-    const el = form.querySelector(`[name="${field}"]`);
-    data[field] = el.value === '' ? null : parseInt(el.value, 10);
+  // font_type
+  const fontEl = form.querySelector('[name="font_type"]');
+  if (fontEl) data.font_type = fontEl.value;
+
+  // lines_per_page
+  const lppEl = form.querySelector('[name="lines_per_page"]');
+  data.lines_per_page = lppEl.value === '' ? null : parseInt(lppEl.value, 10);
+
+  // fixed_chars_per_line + chars_per_line
+  data.fixed_chars_per_line = form.querySelector('[name="fixed_chars_per_line"]').checked;
+  if (data.fixed_chars_per_line) {
+    const cplEl = form.querySelector('[name="chars_per_line"]');
+    data.chars_per_line = cplEl.value === '' ? null : parseInt(cplEl.value, 10);
+  } else {
+    data.chars_per_line = null;
   }
 
   data.has_marginal_notes = form.querySelector('[name="has_marginal_notes"]').checked;
@@ -474,15 +571,20 @@ function getFormValues() {
   return data;
 }
 
+let saveTimer = null;
 function markDirty() {
   dirty = true;
   const cb = document.querySelector('[name="has_marginal_notes"]');
   if (cb) {
     cb.nextElementSibling.textContent = cb.checked ? '有夹注' : '无夹注';
   }
+  // 自动保存（防抖 500ms）
+  if (saveTimer) clearTimeout(saveTimer);
+  saveTimer = setTimeout(() => saveExpected(), 500);
 }
 
 async function saveExpected() {
+  if (!currentId) return;
   const data = getFormValues();
   const status = document.getElementById('saveStatus');
   try {
@@ -496,11 +598,9 @@ async function saveExpected() {
       status.textContent = '已保存';
       dirty = false;
       currentExpected = data;
+      // 只刷新侧边栏状态，不重建详情页
       await loadSamples();
-      const res2 = await fetch(`${API_BASE}/api/samples/${currentId}`);
-      const detail = await res2.json();
-      renderDetail(detail);
-      setTimeout(() => { status.textContent = ''; }, 2000);
+      setTimeout(() => { if (status) status.textContent = ''; }, 1500);
     } else {
       throw new Error(await res.text());
     }
@@ -508,10 +608,6 @@ async function saveExpected() {
     status.className = 'save-status save-err';
     status.textContent = '保存失败: ' + e.message;
   }
-}
-
-function resetForm() {
-  if (currentId) selectSample(currentId);
 }
 
 async function copyFromResult() {

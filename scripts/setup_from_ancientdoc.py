@@ -4,7 +4,7 @@ import shutil
 from pathlib import Path
 
 ANCIENTDOC = Path("D:/workspace/resource/AncientDoc/imgs")
-SAMPLES_DIR = Path("D:/workspace/open-guji-dataset/benchmark/book-profile/samples")
+SAMPLES_DIR = Path("D:/workspace/open-guji-dataset/book-profile/samples")
 
 # 从 009 开始编号（001-008 已被 open-guji-cv 占用）
 SAMPLES = [

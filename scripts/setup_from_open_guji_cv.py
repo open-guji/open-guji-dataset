@@ -4,7 +4,7 @@ import shutil
 from pathlib import Path
 
 OPEN_GUJI_CV_DATA = Path("D:/workspace/open-guji-cv/data")
-SAMPLES_DIR = Path("D:/workspace/open-guji-dataset/benchmark/book-profile/samples")
+SAMPLES_DIR = Path("D:/workspace/open-guji-dataset/book-profile/samples")
 
 # 每个 book 选取的图片和描述
 BOOKS = [

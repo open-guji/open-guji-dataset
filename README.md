@@ -18,7 +18,7 @@
 ### 目录结构
 
 ```
-benchmark/book-profile/
+book-profile/
 ├── metadata.json          # 数据集元信息
 ├── samples/
 │   └── 001/

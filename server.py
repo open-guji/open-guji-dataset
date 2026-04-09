@@ -11,13 +11,13 @@ from urllib.parse import unquote
 
 PORT = 8765
 BASE_DIR = Path(__file__).parent
-BENCHMARK_DIR = BASE_DIR / "benchmark" / "book-profile"
+BENCHMARK_DIR = BASE_DIR / "book-profile"
 SAMPLES_DIR = BENCHMARK_DIR / "samples"
 RESULTS_DIR = BENCHMARK_DIR / "results"
 
 EVAL_FIELDS = [
-    "layout", "banxin_position", "content_format",
-    "lines_per_page", "chars_per_line", "has_marginal_notes",
+    "layout", "banxin_position", "content_format", "font_type",
+    "lines_per_page", "fixed_chars_per_line", "chars_per_line", "has_marginal_notes",
     "color_mode", "background_color", "text_color",
     "border_color", "border_style", "border_wear",
     "interferences", "margin_color",
@@ -35,6 +35,8 @@ def should_eval_field(expected: dict, field: str) -> bool:
         return expected.get("layout") == "cut_half"
     if field == "margin_color":
         return "margin" in (expected.get("interferences") or [])
+    if field == "chars_per_line":
+        return expected.get("fixed_chars_per_line", True) is not False
     return True
 
 

@@ -6,7 +6,7 @@ import sys
 import tempfile
 from pathlib import Path
 
-BENCHMARK_DIR = Path("D:/workspace/open-guji-dataset/benchmark/book-profile")
+BENCHMARK_DIR = Path("D:/workspace/open-guji-dataset/book-profile")
 SAMPLES_DIR = BENCHMARK_DIR / "samples"
 RESULTS_DIR = BENCHMARK_DIR / "results"
 GUJI_CV = "D:/workspace/open-guji-cv"
