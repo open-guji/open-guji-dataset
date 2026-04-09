@@ -1,0 +1,35 @@
+{
+  "name": "book-profile-benchmark",
+  "version": "0.2.0",
+  "description": "古籍版面识别 (BookProfile) Benchmark 数据集",
+  "created": "2026-04-08",
+  "total_samples": 24,
+  "sources": [
+    {
+      "name": "open-guji-cv/data",
+      "count": 8,
+      "sample_range": "001-008"
+    },
+    {
+      "name": "AncientDoc",
+      "count": 16,
+      "sample_range": "009-024"
+    }
+  ],
+  "eval_fields": [
+    "layout",
+    "banxin_position",
+    "content_format",
+    "lines_per_page",
+    "chars_per_line",
+    "has_marginal_notes",
+    "color_mode",
+    "background_color",
+    "text_color",
+    "border_color",
+    "border_style",
+    "border_wear",
+    "interferences",
+    "margin_color"
+  ]
+}

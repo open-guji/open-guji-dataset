@@ -1,0 +1,254 @@
+{
+  "evaluated": 24,
+  "field_accuracy": {
+    "layout": {
+      "correct": 24,
+      "total": 24,
+      "accuracy": 1.0
+    },
+    "banxin_position": {
+      "correct": 0,
+      "total": 8,
+      "accuracy": 0.0
+    },
+    "content_format": {
+      "correct": 24,
+      "total": 24,
+      "accuracy": 1.0
+    },
+    "lines_per_page": {
+      "correct": 23,
+      "total": 24,
+      "accuracy": 0.9583333333333334
+    },
+    "chars_per_line": {
+      "correct": 17,
+      "total": 24,
+      "accuracy": 0.7083333333333334
+    },
+    "has_marginal_notes": {
+      "correct": 23,
+      "total": 24,
+      "accuracy": 0.9583333333333334
+    },
+    "color_mode": {
+      "correct": 24,
+      "total": 24,
+      "accuracy": 1.0
+    },
+    "background_color": {
+      "correct": 24,
+      "total": 24,
+      "accuracy": 1.0
+    },
+    "text_color": {
+      "correct": 24,
+      "total": 24,
+      "accuracy": 1.0
+    },
+    "border_color": {
+      "correct": 24,
+      "total": 24,
+      "accuracy": 1.0
+    },
+    "border_style": {
+      "correct": 23,
+      "total": 24,
+      "accuracy": 0.9583333333333334
+    },
+    "border_wear": {
+      "correct": 23,
+      "total": 24,
+      "accuracy": 0.9583333333333334
+    },
+    "interferences": {
+      "correct": 21,
+      "total": 24,
+      "accuracy": 0.875
+    },
+    "margin_color": {
+      "correct": 2,
+      "total": 2,
+      "accuracy": 1.0
+    }
+  },
+  "overall_accuracy": 0.9261744966442953,
+  "errors": [
+    {
+      "id": "001",
+      "description": "四库全书简明目录，标准黑白半页扫描，8行，双边框",
+      "errors": [
+        {
+          "field": "banxin_position",
+          "expected": "left",
+          "got": null
+        },
+        {
+          "field": "chars_per_line",
+          "expected": 21,
+          "got": 19
+        },
+        {
+          "field": "interferences",
+          "expected": [],
+          "got": [
+            "margin"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "002",
+      "description": "未裁全页（蝴蝶装），手写批注，有夹注，8行",
+      "errors": [
+        {
+          "field": "chars_per_line",
+          "expected": null,
+          "got": 16
+        },
+        {
+          "field": "interferences",
+          "expected": [],
+          "got": [
+            "margin"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "003",
+      "description": "彩色（橙底），9行，有污渍干扰",
+      "errors": [
+        {
+          "field": "banxin_position",
+          "expected": "left",
+          "got": null
+        },
+        {
+          "field": "lines_per_page",
+          "expected": 9,
+          "got": 8
+        },
+        {
+          "field": "chars_per_line",
+          "expected": null,
+          "got": 19
+        },
+        {
+          "field": "interferences",
+          "expected": [],
+          "got": [
+            "spine_shadow"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "004",
+      "description": "彩色（橙底），11行密排，有书脊阴影",
+      "errors": [
+        {
+          "field": "banxin_position",
+          "expected": "left",
+          "got": null
+        },
+        {
+          "field": "chars_per_line",
+          "expected": null,
+          "got": 14
+        }
+      ]
+    },
+    {
+      "id": "005",
+      "description": "黑白刻本，8行15字，边框严重磨损，有白边",
+      "errors": [
+        {
+          "field": "banxin_position",
+          "expected": "left",
+          "got": null
+        },
+        {
+          "field": "border_style",
+          "expected": "double",
+          "got": "single"
+        }
+      ]
+    },
+    {
+      "id": "006",
+      "description": "标准黑白半页扫描，8行，有夹注区域",
+      "errors": [
+        {
+          "field": "banxin_position",
+          "expected": "left",
+          "got": null
+        },
+        {
+          "field": "chars_per_line",
+          "expected": null,
+          "got": 19
+        },
+        {
+          "field": "border_wear",
+          "expected": "medium",
+          "got": "light"
+        }
+      ]
+    },
+    {
+      "id": "007",
+      "description": "表格版面（天文历法），非常规列式，书脊阴影+白边",
+      "errors": [
+        {
+          "field": "banxin_position",
+          "expected": "left",
+          "got": null
+        },
+        {
+          "field": "chars_per_line",
+          "expected": null,
+          "got": 12
+        }
+      ]
+    },
+    {
+      "id": "008",
+      "description": "跨页摊开扫描（前汉书），彩色橙底，12行，有夹注，书脊阴影",
+      "errors": [
+        {
+          "field": "chars_per_line",
+          "expected": null,
+          "got": 17
+        },
+        {
+          "field": "has_marginal_notes",
+          "expected": true,
+          "got": false
+        }
+      ]
+    },
+    {
+      "id": "010",
+      "description": "天文圖說，半页扫描，黑白，密排约13行，单边框",
+      "errors": [
+        {
+          "field": "banxin_position",
+          "expected": "right",
+          "got": null
+        }
+      ]
+    },
+    {
+      "id": "011",
+      "description": "天文圖說插图页，含天文图和文字混排",
+      "errors": [
+        {
+          "field": "banxin_position",
+          "expected": "right",
+          "got": null
+        }
+      ]
+    }
+  ]
+}
