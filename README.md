@@ -1,39 +1,82 @@
 # open-guji-dataset
 
-古籍计算机视觉 Benchmark 数据集，用于评估 [open-guji-cv](https://github.com/nichuanfang/open-guji-cv) 的识别准确率。
+古籍计算机视觉 Benchmark 数据集，用于评估 [open-guji-cv](https://github.com/open-guji/open-guji-cv) 各阶段命令的识别准确率。
 
 ## 数据集
 
-### book-profile — 版面识别 Benchmark
+| 数据集 | 评估命令 | 样本数 | 说明 |
+|--------|---------|--------|------|
+| [book-profile](doc/book-profile.md) | `recognize-profile` | 24 | 古籍版面特征识别（布局、行数、颜色、边框等） |
+| [cut-page](doc/cut-page.md) | `cut` | 18 | 页面切分类型检测（垂直/水平/无需切分） |
 
-评估 `recognize-profile` 命令对古籍版面特征的自动识别能力。
-
-**评估维度**：layout、content_format、lines_per_page、color_mode、border_style、border_wear、interferences、has_marginal_notes
-
-**数据来源**：
-1. open-guji-cv/data 测试数据（8 张）
-2. AncientDoc 古籍图片数据集（~15 张）
-3. 网络补充（缺失类型）
-
-### 目录结构
+## 目录结构
 
 ```
-book-profile/
-├── metadata.json          # 数据集元信息
-├── samples/
-│   └── 001/
-│       ├── image.jpg      # 原始图片
-│       ├── expected.json  # Ground truth (人工验证的 BookProfile)
-│       └── info.json      # 来源、描述、标签
-└── results/               # recognize-profile 输出 (gitignore)
+open-guji-dataset/
+├── book-profile/              # 版面识别数据集
+│   ├── metadata.json
+│   ├── samples/001-024/       # 每个含 image.png + expected.json + info.json
+│   └── results/               # recognize-profile 输出 (gitignore)
+├── cut-page/                  # 页面切分数据集
+│   ├── samples/001-018/
+│   └── results/
+├── doc/                       # 数据格式文档
+│   ├── book-profile.md
+│   └── cut-page.md
+├── scripts/                   # benchmark 脚本
+├── index.html                 # 标注 Web UI
+└── server.py                  # 标注服务器（已废弃，改用 File System Access API）
 ```
 
-## 使用
+## 标注 Web UI
+
+直接用浏览器打开 `index.html`，选择本项目根目录即可浏览和编辑所有数据集的标注。
+
+功能：
+- 左侧样本列表，绿色勾/红色叉显示与识别结果的匹配状态
+- 右侧图片预览 + 标注表单，修改后自动保存
+- 顶部标签页切换不同数据集
+- 上下方向键快速切换样本
+- 目录句柄缓存在 IndexedDB，下次打开自动恢复
+
+## Benchmark 脚本
 
 ```bash
-# 运行 benchmark
-python scripts/run_benchmark.py
+# 版面识别 benchmark
+python scripts/run_benchmark.py      # 对所有样本运行 recognize-profile
+python scripts/evaluate.py           # 评估准确率
 
-# 评估准确率
-python scripts/evaluate.py
+# 页面切分 benchmark
+python scripts/run_cut_benchmark.py  # 对所有样本运行 cut 检测
 ```
+
+## 数据来源
+
+1. **open-guji-cv/data** — 内置测试数据（book1-book8）
+2. **AncientDoc** — 古籍图片分类数据集（15 个分类）
+3. **PDF 提取** — 续修四库全书总目提要、四库全书总目等
+
+## 每个样本的结构
+
+```
+samples/001/
+├── image.png          # 原始图片
+├── expected.json      # Ground truth（人工标注的预期结果）
+└── info.json          # 来源、描述、标签
+```
+
+### info.json 格式
+
+```json
+{
+  "id": "001",
+  "source": "open-guji-cv/data/book1",
+  "source_file": "4.png",
+  "description": "四库全书简明目录，标准黑白半页扫描",
+  "tags": ["cut_half", "regular", "bw"]
+}
+```
+
+### expected.json 格式
+
+与对应命令的输出 JSON 格式一致，详见各数据集文档。

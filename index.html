@@ -3,21 +3,32 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>古籍版面识别 Benchmark</title>
+<title>古籍数据集 Benchmark</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: -apple-system, "Microsoft YaHei", sans-serif; background: #f5f5f5; color: #333; }
 
 header {
-  background: #1a1a2e; color: #fff; padding: 16px 24px;
-  display: flex; align-items: center; justify-content: space-between;
+  background: #1a1a2e; color: #fff; padding: 0 24px;
+  display: flex; align-items: center; justify-content: space-between; height: 52px;
 }
 header h1 { font-size: 18px; font-weight: 500; }
 header .stats { font-size: 13px; color: #aaa; }
+.header-left { display: flex; align-items: center; gap: 24px; }
+
+/* 数据集标签页 */
+.dataset-tabs { display: flex; gap: 2px; height: 52px; align-items: stretch; }
+.dataset-tab {
+  padding: 0 16px; display: flex; align-items: center;
+  font-size: 13px; cursor: pointer; color: #aaa;
+  border-bottom: 2px solid transparent; transition: all 0.2s;
+  background: none; border: none; border-bottom: 2px solid transparent;
+}
+.dataset-tab:hover { color: #fff; background: rgba(255,255,255,0.05); }
+.dataset-tab.active { color: #fff; border-bottom-color: #1677ff; }
 
 .container { display: flex; height: calc(100vh - 52px); }
 
-/* 初始化提示 */
 .init-screen {
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   height: 100%; width: 100%; color: #666;
@@ -29,7 +40,6 @@ header .stats { font-size: 13px; color: #aaa; }
 .init-screen button:hover { background: #4096ff; }
 .init-screen p { margin-top: 8px; font-size: 13px; color: #999; }
 
-/* 左侧列表 */
 .sidebar {
   width: 260px; min-width: 260px; background: #fff;
   border-right: 1px solid #ddd; overflow-y: auto;
@@ -43,189 +53,273 @@ header .stats { font-size: 13px; color: #aaa; }
 .sample-item .id { font-weight: 600; font-size: 13px; color: #1677ff; }
 .sample-item .desc { font-size: 12px; color: #666; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .sample-item .tags { margin-top: 4px; display: flex; flex-wrap: wrap; gap: 3px; }
-.sample-item .tag {
-  font-size: 10px; padding: 1px 5px; border-radius: 3px;
-  background: #f0f0f0; color: #666;
-}
+.sample-item .tag { font-size: 10px; padding: 1px 5px; border-radius: 3px; background: #f0f0f0; color: #666; }
 .sample-item .match-icons { float: right; font-size: 12px; display: flex; gap: 2px; }
 .match-yes { color: #52c41a; }
 .match-no { color: #ff4d4f; }
 
-/* 主内容区 */
 .main { flex: 1; overflow-y: auto; padding: 20px; }
 .main.empty { display: flex; align-items: center; justify-content: center; color: #999; }
 
-.detail-grid {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
-  max-width: 1200px;
-}
+.detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 1200px; }
 
-/* 图片区 */
-.image-panel {
-  background: #fff; border-radius: 8px; padding: 16px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-}
+.image-panel { background: #fff; border-radius: 8px; padding: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
 .image-panel h3 { font-size: 14px; margin-bottom: 8px; color: #666; }
-.image-panel img {
-  width: 100%; max-height: 70vh; object-fit: contain;
-  background: #fafafa; border-radius: 4px;
-}
-.info-bar {
-  margin-top: 10px; font-size: 12px; color: #888;
-  display: flex; flex-direction: column; gap: 4px;
-}
+.image-panel img { width: 100%; max-height: 70vh; object-fit: contain; background: #fafafa; border-radius: 4px; }
+.info-bar { margin-top: 10px; font-size: 12px; color: #888; display: flex; flex-direction: column; gap: 4px; }
 .info-bar .source { color: #1677ff; }
 
-/* 编辑区 */
-.edit-panel {
-  background: #fff; border-radius: 8px; padding: 16px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-  overflow-y: auto; max-height: calc(100vh - 92px);
-}
-.edit-panel h3 {
-  font-size: 14px; margin-bottom: 12px; color: #666;
-  display: flex; justify-content: space-between; align-items: center;
-}
+.edit-panel { background: #fff; border-radius: 8px; padding: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); overflow-y: auto; max-height: calc(100vh - 92px); }
+.edit-panel h3 { font-size: 14px; margin-bottom: 12px; color: #666; display: flex; justify-content: space-between; align-items: center; }
 
 .field-group { margin-bottom: 12px; }
-.field-group label {
-  display: block; font-size: 12px; font-weight: 600; color: #555;
-  margin-bottom: 4px;
-}
-.field-group select, .field-group input[type="number"] {
-  width: 100%; padding: 6px 8px; border: 1px solid #d9d9d9;
-  border-radius: 4px; font-size: 13px; background: #fff;
-}
-.field-group select:focus, .field-group input:focus {
-  outline: none; border-color: #1677ff; box-shadow: 0 0 0 2px rgba(22,119,255,0.1);
-}
+.field-group label { display: block; font-size: 12px; font-weight: 600; color: #555; margin-bottom: 4px; }
+.field-group select, .field-group input[type="number"] { width: 100%; padding: 6px 8px; border: 1px solid #d9d9d9; border-radius: 4px; font-size: 13px; background: #fff; }
+.field-group select:focus, .field-group input:focus { outline: none; border-color: #1677ff; box-shadow: 0 0 0 2px rgba(22,119,255,0.1); }
 .field-group .diff { border-color: #ff4d4f; background: #fff2f0; }
 .field-group .diff-label { color: #ff4d4f; font-size: 11px; margin-left: 6px; font-weight: normal; }
 
 .checkbox-field { display: flex; align-items: center; gap: 6px; }
 .checkbox-field input { width: auto; }
-
 .interference-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
 .interference-list label { display: flex; align-items: center; gap: 4px; font-size: 12px; cursor: pointer; }
 
 .btn-group { margin-top: 16px; display: flex; gap: 8px; }
-.btn {
-  padding: 6px 16px; border-radius: 4px; font-size: 13px;
-  cursor: pointer; border: 1px solid #d9d9d9; background: #fff;
-  transition: all 0.2s;
-}
+.btn { padding: 6px 16px; border-radius: 4px; font-size: 13px; cursor: pointer; border: 1px solid #d9d9d9; background: #fff; transition: all 0.2s; }
 .btn:hover { border-color: #1677ff; color: #1677ff; }
 
-.save-status {
-  font-size: 12px; padding: 4px 0; min-height: 20px;
-}
+.save-status { font-size: 12px; padding: 4px 0; min-height: 20px; }
 .save-ok { color: #52c41a; }
 .save-err { color: #ff4d4f; }
 
-/* 识别结果对比 */
-.result-compare {
-  margin-top: 12px; padding: 10px; background: #fafafa;
-  border-radius: 4px; font-size: 12px;
-}
+.result-compare { margin-top: 12px; padding: 10px; background: #fafafa; border-radius: 4px; font-size: 12px; }
 .result-compare h4 { font-size: 12px; color: #999; margin-bottom: 6px; }
 .result-compare .rc-row { display: flex; justify-content: space-between; padding: 2px 0; }
 .result-compare .rc-field { color: #666; }
 .result-compare .rc-value { color: #333; font-family: monospace; }
 .result-compare .rc-diff { color: #ff4d4f; font-weight: 600; }
 
-/* 条件字段的缩进 */
-.field-group.conditional {
-  margin-left: 16px; padding-left: 10px;
-  border-left: 2px solid #e8e8e8;
-}
-
-/* 分组标题 */
-.section-header {
-  font-size: 13px; font-weight: 600; color: #1677ff;
-  margin: 16px 0 8px; padding-bottom: 4px;
-  border-bottom: 1px solid #e8e8e8;
-  cursor: pointer; user-select: none;
-  display: flex; align-items: center; gap: 6px;
-}
+.field-group.conditional { margin-left: 16px; padding-left: 10px; border-left: 2px solid #e8e8e8; }
+.section-header { font-size: 13px; font-weight: 600; color: #1677ff; margin: 16px 0 8px; padding-bottom: 4px; border-bottom: 1px solid #e8e8e8; cursor: pointer; user-select: none; display: flex; align-items: center; gap: 6px; }
 .section-header:first-child { margin-top: 0; }
 .section-header .arrow { font-size: 10px; transition: transform 0.2s; }
 .section-header .arrow.collapsed { transform: rotate(-90deg); }
 .section-body.collapsed { display: none; }
+.change-dir-btn { padding: 3px 10px; font-size: 11px; background: transparent; color: #aaa; border: 1px solid #555; border-radius: 3px; cursor: pointer; }
+.change-dir-btn:hover { color: #fff; border-color: #888; }
 </style>
 </head>
 <body>
 
 <header>
-  <h1>古籍版面识别 Benchmark</h1>
-  <div class="stats" id="stats"></div>
+  <div class="header-left">
+    <h1>古籍数据集 Benchmark</h1>
+    <div class="dataset-tabs" id="datasetTabs"></div>
+  </div>
+  <div style="display:flex;align-items:center;gap:12px">
+    <div class="stats" id="stats"></div>
+    <button class="change-dir-btn" id="changeDirBtn" onclick="openRoot()" style="display:none">更换目录</button>
+  </div>
 </header>
 
 <div class="container" id="app">
-  <div class="init-screen" id="initScreen">
-    <h2>选择 book-profile 数据目录</h2>
-    <button onclick="openDirectory()">打开目录</button>
-    <p>选择 book-profile 文件夹（包含 samples/ 和 results/ 子目录）</p>
+  <div class="init-screen">
+    <h2>选择数据集根目录</h2>
+    <button onclick="openRoot()">打开 open-guji-dataset</button>
+    <p>选择 open-guji-dataset 文件夹（包含 book-profile/ 和 cut-page/ 子目录）</p>
   </div>
 </div>
 
 <script>
-// ===== File System Access API =====
-let rootHandle = null;  // book-profile 目录句柄
+// ===== IndexedDB 持久化 =====
+const DB_NAME = 'guji-dataset-bench';
+const DB_STORE = 'handles';
 
+function openDB() {
+  return new Promise((resolve, reject) => {
+    const req = indexedDB.open(DB_NAME, 1);
+    req.onupgradeneeded = () => req.result.createObjectStore(DB_STORE);
+    req.onsuccess = () => resolve(req.result);
+    req.onerror = () => reject(req.error);
+  });
+}
+
+async function saveHandle(handle) {
+  const db = await openDB();
+  const tx = db.transaction(DB_STORE, 'readwrite');
+  tx.objectStore(DB_STORE).put(handle, 'rootDir');
+  return new Promise(r => { tx.oncomplete = r; });
+}
+
+async function loadHandle() {
+  const db = await openDB();
+  const tx = db.transaction(DB_STORE, 'readonly');
+  const req = tx.objectStore(DB_STORE).get('rootDir');
+  return new Promise(r => { req.onsuccess = () => r(req.result || null); req.onerror = () => r(null); });
+}
+
+// ===== 数据集定义 =====
+const DATASETS = {
+  'book-profile': {
+    label: '版面识别',
+    buildForm: buildBookProfileForm,
+    getFormValues: getBookProfileValues,
+    buildCompare: buildBookProfileCompare,
+    matchFields: null, // uses custom logic
+  },
+  'cut-page': {
+    label: '页面切分',
+    buildForm: buildCutPageForm,
+    getFormValues: getCutPageValues,
+    buildCompare: buildCutPageCompare,
+    matchFields: ['cut_type'],
+  },
+};
+
+let projectRoot = null;   // open-guji-dataset 根目录句柄
+let datasetHandle = null; // 当前数据集目录句柄
+let currentDataset = null;
+let samples = [];
+let currentId = null;
+let dirty = false;
+let saveTimer = null;
+
+// ===== File System API =====
 async function readJsonFile(dirHandle, ...pathParts) {
   try {
     let h = dirHandle;
-    for (let i = 0; i < pathParts.length - 1; i++) {
-      h = await h.getDirectoryHandle(pathParts[i]);
-    }
-    const fileHandle = await h.getFileHandle(pathParts[pathParts.length - 1]);
-    const file = await fileHandle.getFile();
+    for (let i = 0; i < pathParts.length - 1; i++) h = await h.getDirectoryHandle(pathParts[i]);
+    const fh = await h.getFileHandle(pathParts[pathParts.length - 1]);
+    const file = await fh.getFile();
     return JSON.parse(await file.text());
   } catch { return null; }
 }
 
 async function writeJsonFile(dirHandle, pathParts, data) {
   let h = dirHandle;
-  for (let i = 0; i < pathParts.length - 1; i++) {
-    h = await h.getDirectoryHandle(pathParts[i]);
-  }
-  const fileHandle = await h.getFileHandle(pathParts[pathParts.length - 1], { create: true });
-  const writable = await fileHandle.createWritable();
-  await writable.write(JSON.stringify(data, null, 2));
-  await writable.close();
+  for (let i = 0; i < pathParts.length - 1; i++) h = await h.getDirectoryHandle(pathParts[i]);
+  const fh = await h.getFileHandle(pathParts[pathParts.length - 1], { create: true });
+  const w = await fh.createWritable();
+  await w.write(JSON.stringify(data, null, 2));
+  await w.close();
 }
 
 async function getImageUrl(sampleId) {
   try {
-    const samplesDir = await rootHandle.getDirectoryHandle('samples');
-    const sampleDir = await samplesDir.getDirectoryHandle(sampleId);
-    // 尝试常见图片扩展名
+    const sd = await datasetHandle.getDirectoryHandle('samples');
+    const d = await sd.getDirectoryHandle(sampleId);
     for (const ext of ['png', 'jpg', 'jpeg']) {
-      try {
-        const fh = await sampleDir.getFileHandle(`image.${ext}`);
-        const file = await fh.getFile();
-        return URL.createObjectURL(file);
-      } catch {}
+      try { const fh = await d.getFileHandle(`image.${ext}`); return URL.createObjectURL(await fh.getFile()); } catch {}
     }
   } catch {}
   return '';
 }
 
 async function listSampleDirs() {
-  const samplesDir = await rootHandle.getDirectoryHandle('samples');
+  const sd = await datasetHandle.getDirectoryHandle('samples');
   const dirs = [];
-  for await (const [name, handle] of samplesDir.entries()) {
-    if (handle.kind === 'directory') dirs.push(name);
-  }
+  for await (const [name, handle] of sd.entries()) { if (handle.kind === 'directory') dirs.push(name); }
   return dirs.sort();
 }
 
-// ===== 数据与状态 =====
-let samples = [];       // [{id, info, expected, result, imageUrl, basic_match, advanced_match}]
-let currentId = null;
-let dirty = false;
-let saveTimer = null;
+async function listSubDirs(handle) {
+  const dirs = [];
+  for await (const [name, h] of handle.entries()) { if (h.kind === 'directory') dirs.push(name); }
+  return dirs.sort();
+}
 
+// ===== 初始化 =====
+async function openRoot() {
+  try { projectRoot = await window.showDirectoryPicker({ mode: 'readwrite' }); } catch { return; }
+  await saveHandle(projectRoot);
+  await initFromRoot();
+}
+
+async function initFromRoot() {
+  const available = [];
+  for (const key of Object.keys(DATASETS)) {
+    try { await projectRoot.getDirectoryHandle(key); available.push(key); } catch {}
+  }
+  if (available.length === 0) { alert('未找到数据集目录'); return; }
+  document.getElementById('changeDirBtn').style.display = '';
+  renderTabs(available);
+  await switchDataset(available[0]);
+}
+
+// 页面加载时尝试恢复上次的目录
+async function tryRestore() {
+  const handle = await loadHandle();
+  if (!handle) return;
+  // 需要用户确认权限
+  const perm = await handle.queryPermission({ mode: 'readwrite' });
+  if (perm === 'granted') {
+    projectRoot = handle;
+    await initFromRoot();
+    return;
+  }
+  // 需要用户交互才能 requestPermission，显示恢复按钮
+  const app = document.getElementById('app');
+  app.innerHTML = `
+    <div class="init-screen">
+      <h2>恢复上次打开的目录</h2>
+      <button onclick="restoreWithPermission()">继续使用: ${handle.name}</button>
+      <p style="margin-top:16px"><a href="#" onclick="openRoot(); return false" style="color:#1677ff">或选择其他目录</a></p>
+    </div>
+  `;
+  window._pendingHandle = handle;
+}
+
+async function restoreWithPermission() {
+  const handle = window._pendingHandle;
+  if (!handle) return;
+  const perm = await handle.requestPermission({ mode: 'readwrite' });
+  if (perm === 'granted') {
+    projectRoot = handle;
+    await initFromRoot();
+  } else {
+    openRoot();
+  }
+}
+
+tryRestore();
+
+function renderTabs(available) {
+  const tabs = document.getElementById('datasetTabs');
+  tabs.innerHTML = available.map(key => `
+    <button class="dataset-tab" id="tab_${key}" onclick="switchDataset('${key}')">${DATASETS[key].label}</button>
+  `).join('');
+}
+
+async function switchDataset(key) {
+  if (saveTimer) { clearTimeout(saveTimer); saveTimer = null; await saveExpected(); }
+  currentDataset = key;
+  currentId = null; dirty = false;
+  datasetHandle = await projectRoot.getDirectoryHandle(key);
+
+  // 更新标签页样式
+  document.querySelectorAll('.dataset-tab').forEach(t => t.classList.remove('active'));
+  const tab = document.getElementById(`tab_${key}`);
+  if (tab) tab.classList.add('active');
+
+  await loadAllSamples();
+  renderApp();
+}
+
+async function loadAllSamples() {
+  const ids = await listSampleDirs();
+  const tasks = ids.map(async id => {
+    const info = await readJsonFile(datasetHandle, 'samples', id, 'info.json');
+    const expected = await readJsonFile(datasetHandle, 'samples', id, 'expected.json');
+    const result = await readJsonFile(datasetHandle, 'results', `${id}.json`);
+    const imageUrl = await getImageUrl(id);
+    const s = { id, info: info || {}, expected: expected || {}, result: result || {}, imageUrl };
+    updateMatchStatus(s);
+    return s;
+  });
+  samples = await Promise.all(tasks);
+}
+
+// ===== 匹配检查 =====
 const BASIC_FIELDS = ['layout', 'banxin_position', 'content_format', 'lines_per_page'];
 const ADVANCED_FIELDS = [
   'font_type', 'fixed_chars_per_line', 'chars_per_line', 'has_marginal_notes',
@@ -234,58 +328,6 @@ const ADVANCED_FIELDS = [
   'interferences', 'margin_color',
 ];
 
-const FIELD_LABELS = {
-  layout: '版面布局 (layout)',
-  banxin_position: '版心位置 (banxin_position)',
-  content_format: '内容格式 (content_format)',
-  font_type: '字体 (font_type)',
-  lines_per_page: '每页行数 (lines_per_page)',
-  fixed_chars_per_line: '每行固定字数 (fixed_chars_per_line)',
-  chars_per_line: '每行字数 (chars_per_line)',
-  has_marginal_notes: '夹注 (has_marginal_notes)',
-  color_mode: '色彩模式 (color_mode)',
-  background_color: '底色 (background_color)',
-  text_color: '文字颜色 (text_color)',
-  border_color: '边框颜色 (border_color)',
-  border_style: '边框类型 (border_style)',
-  border_wear: '边框磨损 (border_wear)',
-  interferences: '干扰项 (interferences)',
-  margin_color: '页边距颜色 (margin_color)',
-};
-
-const VALUE_LABELS = {
-  cut_half: '半页 (cut_half)', uncut_full: '筒子页 (uncut_full)', spread: '跨页 (spread)',
-  left: '左侧 (left)', right: '右侧 (right)',
-  regular: '常规栏式 (regular)', no_line: '无栏线 (no_line)', table: '表格 (table)',
-  illustration: '插图 (illustration)', mixed: '文字插图混合 (mixed)',
-  bw: '黑白 (bw)', colored: '彩色 (colored)',
-  '__null__': '无 (null)', white: '白色 (white)', xuan: '宣纸色 (xuan)', other: '其他 (other)',
-  black: '黑色 (black)', red: '红色 (red)',
-  double: '双边框 (double)', single: '单边框 (single)', hsingle_vdouble: '上下单左右双 (hsingle_vdouble)',
-  none: '无 (none)', light: '轻微 (light)', medium: '中等 (medium)', heavy: '严重 (heavy)',
-  printed: '印刷 (printed)', handwritten: '手写 (handwritten)',
-  spine_shadow: '书脊阴影 (spine_shadow)', margin: '页边距 (margin)',
-};
-
-const FIELD_OPTIONS = {
-  layout: ['cut_half', 'uncut_full', 'spread'],
-  content_format: ['regular', 'no_line', 'table', 'illustration', 'mixed'],
-  color_mode: ['bw', 'colored'],
-  background_color: ['white', 'xuan', 'other'],
-  text_color: ['black', 'red', 'other'],
-  border_color: ['black', 'red', 'other'],
-  border_style: ['double', 'single', 'hsingle_vdouble'],
-  border_wear: ['none', 'light', 'medium', 'heavy'],
-};
-const BANXIN_OPTIONS = ['left', 'right'];
-const INTERFERENCE_OPTIONS = ['spine_shadow', 'margin'];
-
-function valueLabel(val) {
-  if (val === null || val === undefined) return '无 (null)';
-  return VALUE_LABELS[val] || val;
-}
-
-// ===== 匹配检查 =====
 function shouldEval(expected, field) {
   if (field === 'banxin_position') return expected.layout === 'cut_half';
   if (field === 'margin_color') return (expected.interferences || []).includes('margin');
@@ -305,36 +347,23 @@ function fieldsMatch(expected, result, fields) {
   return true;
 }
 
+function simpleFieldsMatch(expected, result, fields) {
+  if (!result || !expected) return false;
+  return fields.every(f => expected[f] === result[f]);
+}
+
 function updateMatchStatus(s) {
-  s.basic_match = fieldsMatch(s.expected, s.result, BASIC_FIELDS);
-  s.advanced_match = fieldsMatch(s.expected, s.result, ADVANCED_FIELDS);
+  const ds = DATASETS[currentDataset];
+  if (ds.matchFields) {
+    s.basic_match = simpleFieldsMatch(s.expected, s.result, ds.matchFields);
+    s.advanced_match = true;
+  } else {
+    s.basic_match = fieldsMatch(s.expected, s.result, BASIC_FIELDS);
+    s.advanced_match = fieldsMatch(s.expected, s.result, ADVANCED_FIELDS);
+  }
 }
 
-// ===== 初始化 =====
-async function openDirectory() {
-  try {
-    rootHandle = await window.showDirectoryPicker({ mode: 'readwrite' });
-  } catch { return; }
-  await loadAllSamples();
-  renderApp();
-}
-
-async function loadAllSamples() {
-  const ids = await listSampleDirs();
-  samples = [];
-  // 并行加载所有样本数据
-  const tasks = ids.map(async id => {
-    const info = await readJsonFile(rootHandle, 'samples', id, 'info.json');
-    const expected = await readJsonFile(rootHandle, 'samples', id, 'expected.json');
-    const result = await readJsonFile(rootHandle, 'results', `${id}.json`);
-    const imageUrl = await getImageUrl(id);
-    const s = { id, info: info || {}, expected: expected || {}, result: result || {}, imageUrl };
-    updateMatchStatus(s);
-    return s;
-  });
-  samples = await Promise.all(tasks);
-}
-
+// ===== 渲染 =====
 function renderApp() {
   const app = document.getElementById('app');
   app.innerHTML = `
@@ -345,18 +374,15 @@ function renderApp() {
   document.getElementById('stats').textContent = `共 ${samples.length} 个样本`;
 }
 
-// ===== 侧边栏 =====
 function renderSidebar() {
   const sidebar = document.getElementById('sidebar');
+  if (!sidebar) return;
   const scrollTop = sidebar.scrollTop;
+  const ds = DATASETS[currentDataset];
   sidebar.innerHTML = samples.map(s => {
     const hasResult = Object.keys(s.result).length > 0;
-    const bIcon = !hasResult ? '' :
-      s.basic_match ? '<span class="match-yes">&#10003;</span>' :
-      '<span class="match-no">&#10007;</span>';
-    const aIcon = !hasResult ? '' :
-      s.advanced_match ? '<span class="match-yes">&#10003;</span>' :
-      '<span class="match-no">&#10007;</span>';
+    const bIcon = !hasResult ? '' : s.basic_match ? '<span class="match-yes">&#10003;</span>' : '<span class="match-no">&#10007;</span>';
+    const aIcon = ds.matchFields ? '' : (!hasResult ? '' : s.advanced_match ? '<span class="match-yes">&#10003;</span>' : '<span class="match-no">&#10007;</span>');
     return `
       <div class="sample-item ${s.id === currentId ? 'active' : ''}" onclick="selectSample('${s.id}')">
         <span class="match-icons">${bIcon}${aIcon}</span>
@@ -369,11 +395,9 @@ function renderSidebar() {
   sidebar.scrollTop = scrollTop;
 }
 
-// ===== 详情页 =====
 async function selectSample(id) {
   if (saveTimer) { clearTimeout(saveTimer); saveTimer = null; await saveExpected(); }
-  currentId = id;
-  dirty = false;
+  currentId = id; dirty = false;
   renderSidebar();
   const s = samples.find(x => x.id === id);
   if (s) renderDetail(s);
@@ -382,6 +406,7 @@ async function selectSample(id) {
 function renderDetail(s) {
   const main = document.getElementById('main');
   main.className = 'main';
+  const ds = DATASETS[currentDataset];
 
   main.innerHTML = `
     <div class="detail-grid">
@@ -399,17 +424,59 @@ function renderDetail(s) {
           标注数据 (expected.json)
           <span class="save-status" id="saveStatus"></span>
         </h3>
-        <div id="editForm">${buildForm(s.expected, s.result)}</div>
+        <div id="editForm">${ds.buildForm(s.expected, s.result)}</div>
         <div class="btn-group">
           <button class="btn" onclick="copyFromResult()">从识别结果复制</button>
         </div>
-        ${buildResultCompare(s.expected, s.result)}
+        ${ds.buildCompare(s.expected, s.result)}
       </div>
     </div>
   `;
 }
 
-// ===== 表单构建 =====
+// ===== 通用工具 =====
+const VALUE_LABELS = {
+  cut_half: '半页 (cut_half)', uncut_full: '筒子页 (uncut_full)', spread: '跨页 (spread)',
+  left: '左侧 (left)', right: '右侧 (right)',
+  regular: '常规栏式 (regular)', no_line: '无栏线 (no_line)', table: '表格 (table)',
+  illustration: '插图 (illustration)', mixed: '文字插图混合 (mixed)',
+  bw: '黑白 (bw)', colored: '彩色 (colored)',
+  '__null__': '无 (null)', white: '白色 (white)', xuan: '宣纸色 (xuan)', other: '其他 (other)',
+  black: '黑色 (black)', red: '红色 (red)',
+  double: '双边框 (double)', single: '单边框 (single)', hsingle_vdouble: '上下单左右双 (hsingle_vdouble)',
+  none: '无 (none)', light: '轻微 (light)', medium: '中等 (medium)', heavy: '严重 (heavy)',
+  printed: '印刷 (printed)', handwritten: '手写 (handwritten)',
+  spine_shadow: '书脊阴影 (spine_shadow)', margin: '页边距 (margin)',
+  vertical_cut: '垂直切分 (vertical_cut)', horizontal_cut: '水平切分 (horizontal_cut)',
+};
+function valueLabel(val) { return val === null || val === undefined ? '无 (null)' : VALUE_LABELS[val] || val; }
+
+const FIELD_LABELS = {
+  layout: '版面布局 (layout)', banxin_position: '版心位置 (banxin_position)',
+  content_format: '内容格式 (content_format)', font_type: '字体 (font_type)',
+  lines_per_page: '每页行数 (lines_per_page)',
+  fixed_chars_per_line: '每行固定字数 (fixed_chars_per_line)',
+  chars_per_line: '每行字数 (chars_per_line)', has_marginal_notes: '夹注 (has_marginal_notes)',
+  color_mode: '色彩模式 (color_mode)', background_color: '底色 (background_color)',
+  text_color: '文字颜色 (text_color)', border_color: '边框颜色 (border_color)',
+  border_style: '边框类型 (border_style)', border_wear: '边框磨损 (border_wear)',
+  interferences: '干扰项 (interferences)', margin_color: '页边距颜色 (margin_color)',
+  cut_type: '切分类型 (cut_type)',
+};
+
+const FIELD_OPTIONS = {
+  layout: ['cut_half', 'uncut_full', 'spread'],
+  content_format: ['regular', 'no_line', 'table', 'illustration', 'mixed'],
+  color_mode: ['bw', 'colored'],
+  background_color: ['white', 'xuan', 'other'],
+  text_color: ['black', 'red', 'other'],
+  border_color: ['black', 'red', 'other'],
+  border_style: ['double', 'single', 'hsingle_vdouble'],
+  border_wear: ['none', 'light', 'medium', 'heavy'],
+};
+const BANXIN_OPTIONS = ['left', 'right'];
+const INTERFERENCE_OPTIONS = ['spine_shadow', 'margin'];
+
 function buildSelectField(field, options, expected, result, extra) {
   const val = expected[field];
   const rval = result[field];
@@ -417,146 +484,124 @@ function buildSelectField(field, options, expected, result, extra) {
   const diffLabel = isDiff ? `<span class="diff-label">识别: ${valueLabel(rval)}</span>` : '';
   const cssClass = extra?.conditional ? 'field-group conditional' : 'field-group';
   const hidden = extra?.hidden ? 'style="display:none"' : '';
-
   return `<div class="${cssClass}" id="group_${field}" ${hidden}>
     <label>${FIELD_LABELS[field] || field} ${diffLabel}</label>
     <select name="${field}" class="${isDiff ? 'diff' : ''}" onchange="markDirty(); onFieldChange('${field}')">
       ${options.map(o => {
         const optVal = o === null ? '__null__' : o;
-        const optLabel = valueLabel(o);
-        return `<option value="${optVal}" ${val === o ? 'selected' : ''}>${optLabel}</option>`;
+        return `<option value="${optVal}" ${val === o ? 'selected' : ''}>${valueLabel(o)}</option>`;
       }).join('')}
     </select>
   </div>`;
 }
 
-function buildForm(expected, result) {
+// ===== cut-page 表单 =====
+function buildCutPageForm(expected, result) {
+  return buildSelectField('cut_type', ['none', 'vertical_cut', 'horizontal_cut'],
+    { cut_type: expected.cut_type || 'none' },
+    { cut_type: result.cut_type }, {});
+}
+
+function getCutPageValues() {
+  const el = document.querySelector('[name="cut_type"]');
+  return { cut_type: el ? el.value : 'none' };
+}
+
+function buildCutPageCompare(expected, result) {
+  if (!result || Object.keys(result).length === 0) return '<div class="result-compare"><h4>无识别结果</h4></div>';
+  const ev = expected.cut_type || 'none';
+  const rv = result.cut_type || 'none';
+  const isDiff = ev !== rv;
+  return `<div class="result-compare">
+    <h4>识别结果 (cut)</h4>
+    <div class="rc-row">
+      <span class="rc-field">${FIELD_LABELS.cut_type}</span>
+      <span class="rc-value ${isDiff ? 'rc-diff' : ''}">${valueLabel(rv)}</span>
+    </div>
+  </div>`;
+}
+
+// ===== book-profile 表单 =====
+function buildBookProfileForm(expected, result) {
   let html = '';
 
-  // ===== 基础参数 =====
-  html += `<div class="section-header" onclick="toggleSection('basic')">
-    <span class="arrow" id="arrow_basic">&#9660;</span> 基础参数
-  </div>`;
+  html += `<div class="section-header" onclick="toggleSection('basic')"><span class="arrow" id="arrow_basic">&#9660;</span> 基础参数</div>`;
   html += `<div class="section-body" id="section_basic">`;
-
   html += buildSelectField('layout', FIELD_OPTIONS.layout, expected, result);
-
   const isCutHalf = expected.layout === 'cut_half';
-  html += buildSelectField('banxin_position', BANXIN_OPTIONS,
-    { banxin_position: expected.banxin_position || 'right' },
-    { banxin_position: result.banxin_position },
-    { conditional: true, hidden: !isCutHalf });
-
+  html += buildSelectField('banxin_position', BANXIN_OPTIONS, { banxin_position: expected.banxin_position || 'right' }, { banxin_position: result.banxin_position }, { conditional: true, hidden: !isCutHalf });
   html += buildSelectField('content_format', FIELD_OPTIONS.content_format, expected, result);
-
-  {
-    const val = expected.lines_per_page;
-    const rval = result.lines_per_page;
-    const isDiff = val !== rval;
+  { const val = expected.lines_per_page, rval = result.lines_per_page, isDiff = val !== rval;
     const diffLabel = isDiff ? `<span class="diff-label">识别: ${rval ?? 'null'}</span>` : '';
-    html += `<div class="field-group">
-      <label>${FIELD_LABELS.lines_per_page} ${diffLabel}</label>
-      <input type="number" name="lines_per_page" value="${val ?? ''}" placeholder="无 (null)"
-        class="${isDiff ? 'diff' : ''}" onchange="markDirty()" />
-    </div>`;
-  }
-
+    html += `<div class="field-group"><label>${FIELD_LABELS.lines_per_page} ${diffLabel}</label><input type="number" name="lines_per_page" value="${val ?? ''}" placeholder="无 (null)" class="${isDiff ? 'diff' : ''}" onchange="markDirty()" /></div>`; }
   html += `</div>`;
 
-  // ===== 高级参数 =====
-  html += `<div class="section-header" onclick="toggleSection('advanced')">
-    <span class="arrow" id="arrow_advanced">&#9660;</span> 高级参数
-  </div>`;
+  html += `<div class="section-header" onclick="toggleSection('advanced')"><span class="arrow" id="arrow_advanced">&#9660;</span> 高级参数</div>`;
   html += `<div class="section-body" id="section_advanced">`;
-
-  html += buildSelectField('font_type', ['printed', 'handwritten'],
-    { font_type: expected.font_type || 'printed' },
-    { font_type: result.font_type }, {});
+  html += buildSelectField('font_type', ['printed', 'handwritten'], { font_type: expected.font_type || 'printed' }, { font_type: result.font_type }, {});
 
   const fixedVal = expected.fixed_chars_per_line !== false;
   const fixedRval = result.fixed_chars_per_line;
   const fixedDiff = (expected.fixed_chars_per_line ?? true) !== fixedRval;
   const fixedDiffLabel = fixedDiff && fixedRval !== undefined ? `<span class="diff-label">识别: ${fixedRval ? '是' : '否'}</span>` : '';
-  html += `<div class="field-group">
-    <label>${FIELD_LABELS.fixed_chars_per_line} ${fixedDiffLabel}</label>
-    <div class="checkbox-field">
-      <input type="checkbox" name="fixed_chars_per_line" ${fixedVal ? 'checked' : ''}
-        onchange="markDirty(); onFieldChange('fixed_chars_per_line')" />
-      <span>${fixedVal ? '是（每行字数固定）' : '否（每行字数不固定）'}</span>
-    </div>
-  </div>`;
+  html += `<div class="field-group"><label>${FIELD_LABELS.fixed_chars_per_line} ${fixedDiffLabel}</label><div class="checkbox-field"><input type="checkbox" name="fixed_chars_per_line" ${fixedVal ? 'checked' : ''} onchange="markDirty(); onFieldChange('fixed_chars_per_line')" /><span>${fixedVal ? '是（每行字数固定）' : '否（每行字数不固定）'}</span></div></div>`;
 
-  {
-    const val = expected.chars_per_line;
-    const rval = result.chars_per_line;
-    const isDiff = val !== rval;
+  { const val = expected.chars_per_line, rval = result.chars_per_line, isDiff = val !== rval;
     const diffLabel = isDiff ? `<span class="diff-label">识别: ${rval ?? 'null'}</span>` : '';
-    html += `<div class="field-group conditional" id="group_chars_per_line" ${fixedVal ? '' : 'style="display:none"'}>
-      <label>${FIELD_LABELS.chars_per_line} ${diffLabel}</label>
-      <input type="number" name="chars_per_line" value="${val ?? ''}" placeholder="无 (null)"
-        class="${isDiff ? 'diff' : ''}" onchange="markDirty()" />
-    </div>`;
-  }
+    html += `<div class="field-group conditional" id="group_chars_per_line" ${fixedVal ? '' : 'style="display:none"'}><label>${FIELD_LABELS.chars_per_line} ${diffLabel}</label><input type="number" name="chars_per_line" value="${val ?? ''}" placeholder="无 (null)" class="${isDiff ? 'diff' : ''}" onchange="markDirty()" /></div>`; }
 
-  const mnVal = expected.has_marginal_notes;
-  const mnRval = result.has_marginal_notes;
-  const mnDiff = mnVal !== mnRval;
+  const mnVal = expected.has_marginal_notes, mnRval = result.has_marginal_notes, mnDiff = mnVal !== mnRval;
   const mnDiffLabel = mnDiff ? `<span class="diff-label">识别: ${mnRval ? '有' : '无'}</span>` : '';
-  html += `<div class="field-group">
-    <label>${FIELD_LABELS.has_marginal_notes} ${mnDiffLabel}</label>
-    <div class="checkbox-field">
-      <input type="checkbox" name="has_marginal_notes" ${mnVal ? 'checked' : ''}
-        class="${mnDiff ? 'diff' : ''}" onchange="markDirty()" />
-      <span>${mnVal ? '有夹注' : '无夹注'}</span>
-    </div>
-  </div>`;
+  html += `<div class="field-group"><label>${FIELD_LABELS.has_marginal_notes} ${mnDiffLabel}</label><div class="checkbox-field"><input type="checkbox" name="has_marginal_notes" ${mnVal ? 'checked' : ''} class="${mnDiff ? 'diff' : ''}" onchange="markDirty()" /><span>${mnVal ? '有夹注' : '无夹注'}</span></div></div>`;
 
   html += buildSelectField('color_mode', FIELD_OPTIONS.color_mode, expected, result);
   html += buildSelectField('background_color', FIELD_OPTIONS.background_color, expected, result);
   html += buildSelectField('text_color', FIELD_OPTIONS.text_color, expected, result);
-
   html += buildSelectField('border_color', FIELD_OPTIONS.border_color, expected, result);
   html += buildSelectField('border_style', FIELD_OPTIONS.border_style, expected, result);
   html += buildSelectField('border_wear', FIELD_OPTIONS.border_wear, expected, result);
 
-  const intVal = expected.interferences || [];
-  const intRval = result.interferences || [];
+  const intVal = expected.interferences || [], intRval = result.interferences || [];
   const intDiff = JSON.stringify([...intVal].sort()) !== JSON.stringify([...intRval].sort());
   const intDiffLabel = intDiff ? `<span class="diff-label">识别: [${intRval.map(v => valueLabel(v)).join(', ')}]</span>` : '';
-  html += `<div class="field-group">
-    <label>${FIELD_LABELS.interferences} ${intDiffLabel}</label>
-    <div class="interference-list">
-      ${INTERFERENCE_OPTIONS.map(o => `
-        <label><input type="checkbox" name="interference_${o}" ${intVal.includes(o) ? 'checked' : ''}
-          onchange="markDirty(); onFieldChange('interferences')" /> ${valueLabel(o)}</label>
-      `).join('')}
-    </div>
-  </div>`;
+  html += `<div class="field-group"><label>${FIELD_LABELS.interferences} ${intDiffLabel}</label><div class="interference-list">${INTERFERENCE_OPTIONS.map(o => `<label><input type="checkbox" name="interference_${o}" ${intVal.includes(o) ? 'checked' : ''} onchange="markDirty(); onFieldChange('interferences')" /> ${valueLabel(o)}</label>`).join('')}</div></div>`;
 
   const hasMargin = intVal.includes('margin');
-  const MARGIN_COLOR_OPTIONS = [null, 'white', 'black', 'other'];
-  html += buildSelectField('margin_color', MARGIN_COLOR_OPTIONS,
-    { margin_color: expected.margin_color ?? null },
-    { margin_color: result.margin_color },
-    { conditional: true, hidden: !hasMargin });
-
+  html += buildSelectField('margin_color', [null, 'white', 'black', 'other'], { margin_color: expected.margin_color ?? null }, { margin_color: result.margin_color }, { conditional: true, hidden: !hasMargin });
   html += `</div>`;
-
   return html;
 }
 
-function toggleSection(name) {
-  const body = document.getElementById(`section_${name}`);
-  const arrow = document.getElementById(`arrow_${name}`);
-  if (body && arrow) {
-    body.classList.toggle('collapsed');
-    arrow.classList.toggle('collapsed');
+function getBookProfileValues() {
+  const form = document.getElementById('editForm');
+  const data = {};
+  for (const [field] of Object.entries(FIELD_OPTIONS)) {
+    const el = form.querySelector(`[name="${field}"]`);
+    data[field] = el.value === '__null__' ? null : el.value;
   }
+  if (data.layout === 'cut_half') {
+    const el = form.querySelector('[name="banxin_position"]');
+    data.banxin_position = el ? el.value : 'right';
+  }
+  const marginEl = form.querySelector('[name="margin_color"]');
+  if (marginEl) data.margin_color = marginEl.value === '__null__' ? null : marginEl.value;
+  const fontEl = form.querySelector('[name="font_type"]');
+  if (fontEl) data.font_type = fontEl.value;
+  const lppEl = form.querySelector('[name="lines_per_page"]');
+  data.lines_per_page = lppEl.value === '' ? null : parseInt(lppEl.value, 10);
+  data.fixed_chars_per_line = form.querySelector('[name="fixed_chars_per_line"]').checked;
+  if (data.fixed_chars_per_line) {
+    const cplEl = form.querySelector('[name="chars_per_line"]');
+    data.chars_per_line = cplEl.value === '' ? null : parseInt(cplEl.value, 10);
+  } else { data.chars_per_line = null; }
+  data.has_marginal_notes = form.querySelector('[name="has_marginal_notes"]').checked;
+  data.interferences = [];
+  for (const o of INTERFERENCE_OPTIONS) { if (form.querySelector(`[name="interference_${o}"]`).checked) data.interferences.push(o); }
+  return data;
 }
 
-function buildResultCompare(expected, result) {
+function buildBookProfileCompare(expected, result) {
   if (!result || Object.keys(result).length === 0) return '<div class="result-compare"><h4>无识别结果</h4></div>';
-
   const fields = ['layout', 'banxin_position', ...Object.keys(FIELD_OPTIONS).filter(f => f !== 'layout'),
     'font_type', 'lines_per_page', 'fixed_chars_per_line', 'chars_per_line', 'has_marginal_notes', 'interferences', 'margin_color'];
   let rows = '';
@@ -564,79 +609,37 @@ function buildResultCompare(expected, result) {
     const ev = f === 'interferences' ? JSON.stringify(expected[f] || []) : String(expected[f] ?? 'null');
     const rv = f === 'interferences' ? JSON.stringify(result[f] || []) : String(result[f] ?? 'null');
     const isDiff = ev !== rv;
-    rows += `<div class="rc-row">
-      <span class="rc-field">${FIELD_LABELS[f] || f}</span>
-      <span class="rc-value ${isDiff ? 'rc-diff' : ''}">${rv}</span>
-    </div>`;
+    rows += `<div class="rc-row"><span class="rc-field">${FIELD_LABELS[f] || f}</span><span class="rc-value ${isDiff ? 'rc-diff' : ''}">${rv}</span></div>`;
   }
-
-  return `<div class="result-compare">
-    <h4>识别结果 (recognize-profile)</h4>
-    ${rows}
-  </div>`;
+  return `<div class="result-compare"><h4>识别结果 (recognize-profile)</h4>${rows}</div>`;
 }
 
 // ===== 交互 =====
+function toggleSection(name) {
+  const body = document.getElementById(`section_${name}`);
+  const arrow = document.getElementById(`arrow_${name}`);
+  if (body && arrow) { body.classList.toggle('collapsed'); arrow.classList.toggle('collapsed'); }
+}
+
 function onFieldChange(field) {
   const form = document.getElementById('editForm');
   if (field === 'layout') {
-    const layoutVal = form.querySelector('[name="layout"]').value;
-    const banxinGroup = document.getElementById('group_banxin_position');
-    if (banxinGroup) banxinGroup.style.display = layoutVal === 'cut_half' ? '' : 'none';
+    const v = form.querySelector('[name="layout"]').value;
+    const g = document.getElementById('group_banxin_position');
+    if (g) g.style.display = v === 'cut_half' ? '' : 'none';
   }
   if (field === 'fixed_chars_per_line') {
-    const checked = form.querySelector('[name="fixed_chars_per_line"]')?.checked;
-    const cplGroup = document.getElementById('group_chars_per_line');
-    if (cplGroup) cplGroup.style.display = checked ? '' : 'none';
-    const label = form.querySelector('[name="fixed_chars_per_line"]')?.nextElementSibling;
-    if (label) label.textContent = checked ? '是（每行字数固定）' : '否（每行字数不固定）';
+    const c = form.querySelector('[name="fixed_chars_per_line"]')?.checked;
+    const g = document.getElementById('group_chars_per_line');
+    if (g) g.style.display = c ? '' : 'none';
+    const l = form.querySelector('[name="fixed_chars_per_line"]')?.nextElementSibling;
+    if (l) l.textContent = c ? '是（每行字数固定）' : '否（每行字数不固定）';
   }
   if (field === 'interferences') {
-    const marginChecked = form.querySelector('[name="interference_margin"]')?.checked;
-    const marginColorGroup = document.getElementById('group_margin_color');
-    if (marginColorGroup) marginColorGroup.style.display = marginChecked ? '' : 'none';
+    const c = form.querySelector('[name="interference_margin"]')?.checked;
+    const g = document.getElementById('group_margin_color');
+    if (g) g.style.display = c ? '' : 'none';
   }
-}
-
-function getFormValues() {
-  const form = document.getElementById('editForm');
-  const data = {};
-
-  for (const [field] of Object.entries(FIELD_OPTIONS)) {
-    const el = form.querySelector(`[name="${field}"]`);
-    data[field] = el.value === '__null__' ? null : el.value;
-  }
-
-  if (data.layout === 'cut_half') {
-    const el = form.querySelector('[name="banxin_position"]');
-    data.banxin_position = el ? el.value : 'right';
-  }
-
-  const marginEl = form.querySelector('[name="margin_color"]');
-  if (marginEl) data.margin_color = marginEl.value === '__null__' ? null : marginEl.value;
-
-  const fontEl = form.querySelector('[name="font_type"]');
-  if (fontEl) data.font_type = fontEl.value;
-
-  const lppEl = form.querySelector('[name="lines_per_page"]');
-  data.lines_per_page = lppEl.value === '' ? null : parseInt(lppEl.value, 10);
-
-  data.fixed_chars_per_line = form.querySelector('[name="fixed_chars_per_line"]').checked;
-  if (data.fixed_chars_per_line) {
-    const cplEl = form.querySelector('[name="chars_per_line"]');
-    data.chars_per_line = cplEl.value === '' ? null : parseInt(cplEl.value, 10);
-  } else {
-    data.chars_per_line = null;
-  }
-
-  data.has_marginal_notes = form.querySelector('[name="has_marginal_notes"]').checked;
-
-  data.interferences = [];
-  for (const o of INTERFERENCE_OPTIONS) {
-    if (form.querySelector(`[name="interference_${o}"]`).checked) data.interferences.push(o);
-  }
-
-  return data;
 }
 
 function markDirty() {
@@ -649,29 +652,18 @@ function markDirty() {
 
 async function saveExpected() {
   saveTimer = null;
-  if (!currentId) return;
-  const data = getFormValues();
+  if (!currentId || !datasetHandle) return;
+  const ds = DATASETS[currentDataset];
+  const data = ds.getFormValues();
   const status = document.getElementById('saveStatus');
   try {
-    await writeJsonFile(rootHandle, ['samples', currentId, 'expected.json'], data);
-    if (status) {
-      status.className = 'save-status save-ok';
-      status.textContent = '已保存';
-      setTimeout(() => { if (status) status.textContent = ''; }, 1500);
-    }
+    await writeJsonFile(datasetHandle, ['samples', currentId, 'expected.json'], data);
+    if (status) { status.className = 'save-status save-ok'; status.textContent = '已保存'; setTimeout(() => { if (status) status.textContent = ''; }, 1500); }
     dirty = false;
-    // 更新内存中的 expected 并刷新侧边栏
     const s = samples.find(x => x.id === currentId);
-    if (s) {
-      s.expected = data;
-      updateMatchStatus(s);
-      renderSidebar();
-    }
+    if (s) { s.expected = data; updateMatchStatus(s); renderSidebar(); }
   } catch (e) {
-    if (status) {
-      status.className = 'save-status save-err';
-      status.textContent = '保存失败: ' + e.message;
-    }
+    if (status) { status.className = 'save-status save-err'; status.textContent = '保存失败: ' + e.message; }
   }
 }
 
@@ -679,25 +671,18 @@ function copyFromResult() {
   const s = samples.find(x => x.id === currentId);
   if (!s || !s.result) return;
   const r = { ...s.result };
-  delete r.auto_detected;
-  delete r.detection_confidence;
-  delete r.skip_pages;
-  delete r.skip_steps;
+  delete r.auto_detected; delete r.detection_confidence; delete r.skip_pages; delete r.skip_steps; delete r._confidence;
   s.expected = r;
   renderDetail(s);
-  dirty = true;
-  markDirty();
+  dirty = true; markDirty();
 }
 
-// 快捷键
 document.addEventListener('keydown', e => {
-  if (!e.ctrlKey && !e.altKey) {
-    if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
-      e.preventDefault();
-      const idx = samples.findIndex(s => s.id === currentId);
-      const next = e.key === 'ArrowUp' ? idx - 1 : idx + 1;
-      if (next >= 0 && next < samples.length) selectSample(samples[next].id);
-    }
+  if (!e.ctrlKey && !e.altKey && (e.key === 'ArrowUp' || e.key === 'ArrowDown')) {
+    e.preventDefault();
+    const idx = samples.findIndex(s => s.id === currentId);
+    const next = e.key === 'ArrowUp' ? idx - 1 : idx + 1;
+    if (next >= 0 && next < samples.length) selectSample(samples[next].id);
   }
 });
 </script>
