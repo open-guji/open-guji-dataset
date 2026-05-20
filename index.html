@@ -64,8 +64,12 @@ header .stats { font-size: 13px; color: #aaa; }
 .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 1200px; }
 
 .image-panel { background: #fff; border-radius: 8px; padding: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-.image-panel h3 { font-size: 14px; margin-bottom: 8px; color: #666; }
+.image-panel h3 { font-size: 14px; margin-bottom: 8px; color: #666; display: flex; justify-content: space-between; align-items: center; }
 .image-panel img { width: 100%; max-height: 70vh; object-fit: contain; background: #fafafa; border-radius: 4px; }
+.img-tabs { display: flex; gap: 2px; }
+.img-tab { padding: 2px 8px; font-size: 11px; border: 1px solid #d9d9d9; border-radius: 3px; background: #fff; cursor: pointer; color: #666; }
+.img-tab:hover { border-color: #1677ff; color: #1677ff; }
+.img-tab.active { background: #1677ff; color: #fff; border-color: #1677ff; }
 .info-bar { margin-top: 10px; font-size: 12px; color: #888; display: flex; flex-direction: column; gap: 4px; }
 .info-bar .source { color: #1677ff; }
 
@@ -183,6 +187,7 @@ let samples = [];
 let currentId = null;
 let dirty = false;
 let saveTimer = null;
+let activeImgTab = null;  // 记住当前选中的图片标签名（null=原图）
 
 // ===== File System API =====
 async function readJsonFile(dirHandle, ...pathParts) {
@@ -213,6 +218,21 @@ async function getImageUrl(sampleId) {
     }
   } catch {}
   return '';
+}
+
+async function getDebugImageUrls(sampleId) {
+  const urls = {};
+  try {
+    const tmpDir = await projectRoot.getDirectoryHandle('tmp');
+    const sampleDir = await tmpDir.getDirectoryHandle(sampleId);
+    for await (const [name, handle] of sampleDir.entries()) {
+      if (handle.kind === 'file' && /\.(png|jpg|jpeg)$/i.test(name)) {
+        const file = await handle.getFile();
+        urls[name.replace(/\.[^.]+$/, '')] = URL.createObjectURL(file);
+      }
+    }
+  } catch {}
+  return urls;
 }
 
 async function listSampleDirs() {
@@ -400,19 +420,33 @@ async function selectSample(id) {
   currentId = id; dirty = false;
   renderSidebar();
   const s = samples.find(x => x.id === id);
-  if (s) renderDetail(s);
+  if (s) await renderDetail(s);
 }
 
-function renderDetail(s) {
+async function renderDetail(s) {
   const main = document.getElementById('main');
   main.className = 'main';
   const ds = DATASETS[currentDataset];
 
+  // 加载 debug 图片
+  const debugUrls = await getDebugImageUrls(s.id);
+  const debugNames = Object.keys(debugUrls);
+  const hasDebug = debugNames.length > 0;
+
+  // 构建图片标签页，保持上次选中的 tab
+  const showDebugTab = activeImgTab && debugNames.includes(activeImgTab);
+  const initialUrl = showDebugTab ? debugUrls[activeImgTab] : s.imageUrl;
+
+  const tabsHtml = hasDebug ? `<div class="img-tabs">
+    <button class="img-tab ${!showDebugTab ? 'active' : ''}" onclick="switchImg(this, '${s.imageUrl}', null)">原图</button>
+    ${debugNames.map(name => `<button class="img-tab ${activeImgTab === name ? 'active' : ''}" onclick="switchImg(this, '${debugUrls[name]}', '${name}')">${name}</button>`).join('')}
+  </div>` : '';
+
   main.innerHTML = `
     <div class="detail-grid">
       <div class="image-panel">
-        <h3>#${s.id} 原始图片</h3>
-        <img src="${s.imageUrl}" alt="样本 ${s.id}" />
+        <h3><span>#${s.id}</span>${tabsHtml}</h3>
+        <img id="sampleImg" src="${initialUrl}" alt="样本 ${s.id}" />
         <div class="info-bar">
           <div><b>描述：</b>${s.info.description || '-'}</div>
           <div class="source"><b>来源：</b>${s.info.source || '-'} / ${s.info.source_file || '-'}</div>
@@ -640,6 +674,13 @@ function onFieldChange(field) {
     const g = document.getElementById('group_margin_color');
     if (g) g.style.display = c ? '' : 'none';
   }
+}
+
+function switchImg(btn, url, tabName) {
+  document.getElementById('sampleImg').src = url;
+  btn.parentElement.querySelectorAll('.img-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  activeImgTab = tabName;
 }
 
 function markDirty() {
