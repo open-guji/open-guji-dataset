@@ -9,6 +9,11 @@
 | [book-profile](doc/book-profile.md) | `recognize-profile` | 24 | 古籍版面特征识别（布局、行数、颜色、边框等） |
 | [cut-page](doc/cut-page.md) | `cut` | 18 | 页面切分类型检测（垂直/水平/无需切分） |
 
+刻本字符识别管线（open-guji-cv Phase 3~6）的模块化数据集规划见
+[doc/modules-roadmap.md](doc/modules-roadmap.md)：单字分拆、归一化、
+聚类、单字 OCR、上下文纠正、参考校对六个数据集，标注主要来源为
+整理本对齐自动标注（含 label_origin 溯源）。
+
 ## 目录结构
 
 ```
