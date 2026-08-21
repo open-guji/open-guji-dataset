@@ -94,5 +94,13 @@
     "expected.json": "金标 cell 框列表 + 溯源字段",
     "info.json": "来源、描述、标签"
   },
-  "notes": "书级网格参数（格高共识、每列字数）是接口的一部分：纯页内拟合在稀疏页欠定，必须随样本一起冻结在 input.json 中，否则评测不可复现。"
+  "notes": "书级网格参数（格高共识、每列字数）是接口的一部分：纯页内拟合在稀疏页欠定，必须随样本一起冻结在 input.json 中，否则评测不可复现。",
+  "sub_datasets": [
+    {
+      "name": "cells",
+      "path": "char-segmentation/cells",
+      "description": "格内净化：一列格位里每块墨迹该归哪个字（逐像素金标，60 样本可用）",
+      "status": "可用"
+    }
+  ]
 }

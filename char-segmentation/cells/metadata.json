@@ -1,0 +1,47 @@
+{
+  "name": "char-segmentation-cell-purity",
+  "version": "0.1.0",
+  "schema_version": 1,
+  "description": "格内净化 Benchmark：一列格位里，每块墨迹该归哪个字（逐像素金标）",
+  "created": "2026-08-21",
+  "status": "可用",
+  "parent": "char-segmentation",
+  "eval_command": "python -m open_guji_cv seg-bench char-segmentation/cells/samples",
+  "eval_script": "open_guji_cv/clustering/seg_eval.py",
+  "total_samples": 60,
+  "sample_unit": "列（8 格）",
+  "problem": "图块里混入左右界行/版框，或上下邻字的小块残余；同时不能削掉「高/卞/示」这类顶部与主体不连通的部件。实测两者的纵向间隙分布（污染 p50=10px / 真部件 p50=12px）完全重叠，任何间隙阈值都必然误伤——所以本数据集用两个互相拉扯的指标同时约束。",
+  "sources": ["book9（欽定四庫全書總目·卷首一，浙大影印）"],
+  "provenance_fields": ["source_item", "pipeline_version", "label_origin"],
+  "label_origin_values": ["synth", "human"],
+  "metrics": [
+    {"name": "keep_recall", "type": "float", "direction": "higher_is_better",
+     "description": "本字墨迹保住的比例。误删「高/卞/示」顶部的点就掉这里"},
+    {"name": "drop_precision", "type": "float", "direction": "higher_is_better",
+     "description": "留下的墨里本字占比。混入界行/邻字残余就掉这里"},
+    {"name": "f1", "type": "float", "direction": "higher_is_better",
+     "description": "上两者的调和平均"},
+    {"name": "intact_rate", "type": "float", "direction": "higher_is_better",
+     "description": "keep_recall > 0.999 的格位占比（一个像素都没削掉）"},
+    {"name": "clean_rate", "type": "float", "direction": "higher_is_better",
+     "description": "drop_precision > 0.999 的格位占比（一点杂墨都没混入）"}
+  ],
+  "critical_subset": {
+    "tag": "detached_top",
+    "description": "顶部部件与主体不连通的字（高 / 卞 / 示 / 字 / 六 / 范 …）。这是净化算法最容易误伤的一类，必须单独报分。",
+    "selection": "**结构**筛选：连通体数 ≥2 且最大纵向间隙 ≥4px。刻意不按 OCR 标签挑——实测按标签挑「高/卞/示」，其中 77.8% 的实例本身就带邻字残余，正例集先脏了"
+  },
+  "sample_files": {
+    "strip.png": "列条带灰度图（算法输入）",
+    "gold.png": "逐像素归属金标，像素值 0=非本字墨/背景，i+1=第 i 格",
+    "case.json": "格线位置（cells）+ 格高/列宽 + 溯源字段 + 每格 tags"
+  },
+  "construction": "**不造假墨**。从真实页面挑出「结构上确定干净」的格位——墨迹连通体全部落在格线之内、不碰列边——按书级格高重新码成一列，每格加 ±10% 格高的纵向抖动（真实刻本里字有大有小、位置略偏，正是溢出到邻格的成因），再画上界行竖线与版框横线、加纸纹噪声。于是每个像素属于哪一格构造时就知道，而算法面对的输入与真实页面同源同分布。",
+  "baseline": {
+    "measured_on": "60 样本 / 480 格 / 154 detached_top",
+    "padding_box": {"keep_recall": 0.9881, "drop_precision": 0.8027, "f1": 0.8832, "intact_rate": 0.5771, "clean_rate": 0.0125},
+    "gap_threshold": {"keep_recall": 0.9364, "drop_precision": 0.7622, "f1": 0.8379, "intact_rate": 0.5479, "clean_rate": 0.0167},
+    "component_owner": {"keep_recall": 0.9863, "drop_precision": 0.9995, "f1": 0.9926, "intact_rate": 0.5417, "clean_rate": 0.9875}
+  },
+  "notes": "intact_rate 三个策略都在 0.55 上下，是金标构造时抗锯齿边缘 1 像素差的系统性偏置，属测量噪声、不区分算法；比较算法请看 keep_recall / drop_precision / clean_rate。"
+}
