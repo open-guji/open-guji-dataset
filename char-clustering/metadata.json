@@ -1,0 +1,73 @@
+{
+  "name": "char-clustering-benchmark",
+  "version": "0.1.0",
+  "schema_version": 1,
+  "description": "保守聚类（同字合并）purity Benchmark 数据集",
+  "created": "2026-08-21",
+  "status": "框架",
+  "eval_command": "guji-cv cluster <book> --feature hog",
+  "eval_script": null,
+  "total_samples": 0,
+  "sample_unit": "册分片",
+  "sources": [],
+  "provenance_fields": [
+    "source_item",
+    "pipeline_version",
+    "label_origin"
+  ],
+  "label_origin_values": [
+    "align",
+    "human",
+    "synth"
+  ],
+  "metrics": [
+    {
+      "name": "purity",
+      "type": "float",
+      "direction": "higher_is_better",
+      "target": ">= 0.999",
+      "description": "簇内同字比例（加权平均）。硬约束：保守聚类宁可碎不可脏"
+    },
+    {
+      "name": "fragmentation",
+      "type": "float",
+      "direction": "lower_is_better",
+      "description": "簇数 / 金标字类数，衡量碎裂程度（purity 达标前提下越低越好）"
+    },
+    {
+      "name": "hard_pair_accuracy",
+      "type": "float",
+      "direction": "higher_is_better",
+      "description": "难例对（人工 impure/split 反馈产生的 same/diff 对）判定准确率，单独报告"
+    }
+  ],
+  "fields": [
+    {
+      "name": "shard_id",
+      "type": "str",
+      "description": "分片标识（同一册内的一批实例）"
+    },
+    {
+      "name": "instances",
+      "type": "list",
+      "description": "实例列表，每项 instance_id / char（金标字）/ label_origin（可逐实例覆盖顶层值）"
+    },
+    {
+      "name": "hard_pairs",
+      "type": "list",
+      "description": "难例对，每项 a / b / relation(same|diff) / origin"
+    },
+    {
+      "name": "feature_backend",
+      "type": "str",
+      "description": "冻结的特征后端（如 hog），保证可复现"
+    }
+  ],
+  "sample_files": {
+    "crops/": "归一化后的字块图目录，文件名为 instance_id",
+    "features.npz": "可选：冻结的特征矩阵（避免归一化改动干扰聚类评测）",
+    "expected.json": "实例→字标签 + 难例对 + 溯源字段",
+    "info.json": "来源、描述、标签"
+  },
+  "notes": "合成 bench（open-guji-cv `guji-cv bench`）保留作冒烟测试，本集是真实 purity 集。3b 的质量几乎完全由 3a 归一化决定，评测时应固定 pipeline_version。"
+}

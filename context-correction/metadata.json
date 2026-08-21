@@ -1,0 +1,86 @@
+{
+  "name": "context-correction-benchmark",
+  "version": "0.1.0",
+  "schema_version": 1,
+  "description": "上下文 + LM 概率纠正 Benchmark 数据集（候选冻结）",
+  "created": "2026-08-21",
+  "status": "框架",
+  "eval_command": "guji-cv refine <book> --corpus <corpus>",
+  "eval_script": null,
+  "total_samples": 0,
+  "sample_unit": "列",
+  "sources": [],
+  "provenance_fields": [
+    "source_item",
+    "pipeline_version",
+    "label_origin"
+  ],
+  "label_origin_values": [
+    "align",
+    "human",
+    "synth"
+  ],
+  "metrics": [
+    {
+      "name": "baseline_top1",
+      "type": "float",
+      "direction": "higher_is_better",
+      "description": "冻结候选的 top-1 基线（不做上下文纠正）"
+    },
+    {
+      "name": "top1_gain",
+      "type": "float",
+      "direction": "higher_is_better",
+      "description": "纠正后 top-1 相对基线的绝对提升，本集的主指标"
+    },
+    {
+      "name": "harmful_flip_rate",
+      "type": "float",
+      "direction": "lower_is_better",
+      "description": "把原本正确改错的比例（净收益的另一面，必须一并报告）"
+    },
+    {
+      "name": "glyph_layer_immutability",
+      "type": "bool",
+      "target": "true",
+      "description": "硬约束断言：字形层不可被语义层改写——纠正只允许在候选集合内重排，不得引入候选外的字，也不得修改 surface"
+    }
+  ],
+  "fields": [
+    {
+      "name": "column_id",
+      "type": "str",
+      "description": "列标识（source_item + 页 + 列序）"
+    },
+    {
+      "name": "context",
+      "type": "object",
+      "description": "列上下文：prev / next（相邻列已确认文本）"
+    },
+    {
+      "name": "slots",
+      "type": "list",
+      "description": "槽位列表，每项 index / candidates / gold / frozen"
+    },
+    {
+      "name": "slots[].candidates",
+      "type": "list",
+      "description": "冻结的候选：char / prob / source（prior|ocr|rapidocr|vlm|glyph|ref）"
+    },
+    {
+      "name": "slots[].gold",
+      "type": "str",
+      "description": "该槽位金标字"
+    },
+    {
+      "name": "corpus",
+      "type": "str|null",
+      "description": "评测所用语料标识（open-guji-cv `corpus/`），随样本记录以保证可复现"
+    }
+  ],
+  "sample_files": {
+    "expected.json": "冻结的 (列上下文, 候选列表+概率, 金标字) + 溯源字段",
+    "info.json": "来源、描述、标签"
+  },
+  "notes": "候选必须冻结在样本内：否则上游 OCR 一变，本集指标就不可比。语料来自 open-guji-cv `corpus/`。"
+}

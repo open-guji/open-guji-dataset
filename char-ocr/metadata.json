@@ -1,0 +1,66 @@
+{
+  "name": "char-ocr-benchmark",
+  "version": "0.1.0",
+  "schema_version": 1,
+  "description": "单字识别（簇识别 OCR）Benchmark 数据集，可直接用于 Kraken / PaddleOCR 微调",
+  "created": "2026-08-21",
+  "status": "框架",
+  "eval_command": "guji-cv label <book> --sources rapidocr,glyph,prior",
+  "eval_script": null,
+  "total_samples": 0,
+  "sample_unit": "册分片",
+  "sources": [],
+  "provenance_fields": [
+    "source_item",
+    "pipeline_version",
+    "label_origin"
+  ],
+  "label_origin_values": [
+    "align",
+    "human",
+    "synth"
+  ],
+  "metrics": [
+    {
+      "name": "top1",
+      "type": "float",
+      "direction": "higher_is_better",
+      "description": "top-1 命中率；须按 label_origin 分层报告（align / human 分开）"
+    },
+    {
+      "name": "top5",
+      "type": "float",
+      "direction": "higher_is_better",
+      "description": "top-5 命中率，衡量候选召回上限"
+    },
+    {
+      "name": "variant_top1",
+      "type": "float",
+      "direction": "higher_is_better",
+      "description": "异体字子集 top-1（异体字样本全留不采样，单独报告）"
+    }
+  ],
+  "fields": [
+    {
+      "name": "shard_id",
+      "type": "str",
+      "description": "分片标识"
+    },
+    {
+      "name": "split",
+      "type": "str",
+      "description": "train | test。**按册划分**以测跨册泛化，同册不得跨 split"
+    },
+    {
+      "name": "items",
+      "type": "list",
+      "description": "样本列表，每项 instance_id / crop（图块文件名）/ char（金标字）/ label_origin / is_variant / column_id / slot_index"
+    }
+  ],
+  "sample_files": {
+    "crops/": "归一化图块目录，文件名为 instance_id",
+    "expected.json": "(图块, 金标字) 列表 + split + 溯源字段",
+    "info.json": "来源、描述、标签"
+  },
+  "notes": "train/test 必须按册（source_item）划分：分册混淆分布差异很大（如卷一易类专名 曰/葢/爻/彖/繫 是字表与语料的系统盲区），同册混切会高估跨册泛化能力。异体字样本全留不采样。"
+}

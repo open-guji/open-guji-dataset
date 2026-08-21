@@ -4,15 +4,23 @@
 
 ## 数据集
 
-| 数据集 | 评估命令 | 样本数 | 说明 |
-|--------|---------|--------|------|
-| [book-profile](doc/book-profile.md) | `recognize-profile` | 24 | 古籍版面特征识别（布局、行数、颜色、边框等） |
-| [cut-page](doc/cut-page.md) | `cut` | 18 | 页面切分类型检测（垂直/水平/无需切分） |
+| 数据集 | 评估命令 | 样本数 | 状态 | 说明 |
+|--------|---------|--------|------|------|
+| [book-profile](doc/book-profile.md) | `recognize-profile` | 24 | 可用 | 古籍版面特征识别（布局、行数、颜色、边框等） |
+| [cut-page](doc/cut-page.md) | `cut` | 18 | 可用 | 页面切分类型检测（垂直/水平/无需切分） |
+| [char-segmentation](doc/char-segmentation.md) | `segment` | 0 | 框架 | 单字分拆（刻本严格网格切分，含特殊排布与负例集） |
+| [char-normalization](doc/char-normalization.md) | `normalize`（纯函数） | 0 | 框架 | 归一化 golden 集（去残余 / 骨架化，逐像素回归） |
+| [char-clustering](doc/char-clustering.md) | `cluster` | 0 | 框架 | 保守聚类 purity 集（含人工反馈难例对） |
+| [char-ocr](doc/char-ocr.md) | `label` / `bench-ocr` | 0 | 框架 | 单字识别 (图块, 金标字)，按册划分 train/test |
+| [context-correction](doc/context-correction.md) | `refine` | 0 | 框架 | 上下文 + LM 纠正（候选冻结） |
+| [collation](doc/collation.md) | `collate`（规划中） | 0 | 框架 | 参考校对：对齐、参考质量 ρ 估计、分歧挖掘 |
 
-刻本字符识别管线（open-guji-cv Phase 3~6）的模块化数据集规划见
-[doc/modules-roadmap.md](doc/modules-roadmap.md)：单字分拆、归一化、
-聚类、单字 OCR、上下文纠正、参考校对六个数据集，标注主要来源为
-整理本对齐自动标注（含 label_origin 溯源）。
+后六个数据集是刻本字符识别管线（open-guji-cv Phase 3~6）的模块化拆分，
+规格见 [doc/modules-roadmap.md](doc/modules-roadmap.md)。目前只建了目录
+框架（metadata.json + doc + 占位样本），尚无真实样本。标注主要来源为
+整理本对齐自动标注，因此每份 `expected.json` **必须**带三个溯源字段
+`source_item` / `pipeline_version` / `label_origin`（`align` | `human` |
+`synth`）——align 标注有噪声，清洗与分层评测都依赖它。
 
 ## 目录结构
 
@@ -25,13 +33,33 @@ open-guji-dataset/
 ├── cut-page/                  # 页面切分数据集
 │   ├── samples/001-018/
 │   └── results/
+├── char-segmentation/         # 单字分拆（框架）
+│   ├── metadata.json
+│   ├── samples/000-example/   # 占位样本（placeholder: true）
+│   └── results/               # 评测输出 (gitignore)
+├── char-normalization/        # 归一化 golden 集（框架）
+├── char-clustering/           # 保守聚类（框架）
+├── char-ocr/                  # 单字识别（框架）
+├── context-correction/        # 上下文纠正（框架）
+├── collation/                 # 参考校对（框架）
 ├── doc/                       # 数据格式文档
 │   ├── book-profile.md
-│   └── cut-page.md
+│   ├── cut-page.md
+│   ├── modules-roadmap.md
+│   ├── char-segmentation.md
+│   ├── char-normalization.md
+│   ├── char-clustering.md
+│   ├── char-ocr.md
+│   ├── context-correction.md
+│   └── collation.md
 ├── scripts/                   # benchmark 脚本
 ├── index.html                 # 标注 Web UI
 └── server.py                  # 标注服务器（已废弃，改用 File System Access API）
 ```
+
+新数据集统一布局：`metadata.json` + `samples/NNN/`（`expected.json` +
+`info.json` + 各自的输入文件）+ `results/`。`results/` 只保留 `.gitkeep`
+与 `.gitignore`，评测输出不入库（沿用 book-profile / cut-page 约定）。
 
 ## 标注 Web UI
 
@@ -70,6 +98,9 @@ samples/001/
 └── info.json          # 来源、描述、标签
 ```
 
+新数据集的输入文件因模块而异（页图 + 列带、原始/golden 图对、字块目录、
+或纯 JSON 的冻结候选），详见各数据集文档。
+
 ### info.json 格式
 
 ```json
@@ -85,3 +116,23 @@ samples/001/
 ### expected.json 格式
 
 与对应命令的输出 JSON 格式一致，详见各数据集文档。
+
+六个新数据集额外要求顶层三个溯源字段：
+
+```json
+{
+  "source_item": "06061301.cn",
+  "pipeline_version": "…",
+  "label_origin": "align"
+}
+```
+
+| 字段 | 说明 |
+|------|------|
+| `source_item` | 来源册标识，支撑按册划分 train/test（跨册泛化是真实需求） |
+| `pipeline_version` | 生成样本时 open-guji-cv 的版本 / commit，支撑管线升级后判断哪些样本要重生成 |
+| `label_origin` | `align`（整理本对齐自动标注）/ `human`（人工）/ `synth`（合成） |
+
+`label_origin` 不可省略：align 是唯一能规模化的标注来源，但它有噪声
+（对齐错位、用字差异、参考本讹误），清洗、分层评测、加权使用三件事
+全靠它区分。

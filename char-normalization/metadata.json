@@ -1,0 +1,88 @@
+{
+  "name": "char-normalization-benchmark",
+  "version": "0.1.0",
+  "schema_version": 1,
+  "description": "字块归一化（去残余 / 骨架化）golden 回归数据集",
+  "created": "2026-08-21",
+  "status": "框架",
+  "eval_command": "python -m open_guji_cv.clustering.normalize（纯函数 golden 回归）",
+  "eval_script": null,
+  "total_samples": 0,
+  "sample_unit": "字块",
+  "sources": [],
+  "provenance_fields": [
+    "source_item",
+    "pipeline_version",
+    "label_origin"
+  ],
+  "label_origin_values": [
+    "align",
+    "human",
+    "synth"
+  ],
+  "metrics": [
+    {
+      "name": "pixel_diff_ratio",
+      "type": "float",
+      "direction": "lower_is_better",
+      "description": "输出图与 golden 图逐像素不一致比例，须 <= tolerance.pixel_diff_ratio"
+    },
+    {
+      "name": "binary_iou",
+      "type": "float",
+      "direction": "higher_is_better",
+      "description": "二值前景 IoU，容忍抗锯齿边缘的细微差异"
+    },
+    {
+      "name": "skeleton_endpoint_delta",
+      "type": "int",
+      "direction": "lower_is_better",
+      "description": "骨架端点/交叉点数量差，检测断笔与虚连的回归"
+    }
+  ],
+  "fields": [
+    {
+      "name": "instance_id",
+      "type": "str",
+      "description": "字块实例标识（来自 glyph_store / phase4_chars）"
+    },
+    {
+      "name": "input",
+      "type": "str",
+      "description": "原始图块文件名"
+    },
+    {
+      "name": "golden",
+      "type": "str",
+      "description": "期望归一化图文件名"
+    },
+    {
+      "name": "golden_skeleton",
+      "type": "str",
+      "description": "期望骨架图文件名"
+    },
+    {
+      "name": "tolerance",
+      "type": "object",
+      "description": "容差阈值（pixel_diff_ratio / binary_iou_min）"
+    },
+    {
+      "name": "cover",
+      "type": "list[str]",
+      "description": "覆盖类别：ink_heavy / ink_light / border_residue / neighbor_intrusion / broken_stroke"
+    },
+    {
+      "name": "char",
+      "type": "str|null",
+      "description": "该字块对应的字（可选，仅供人工检视，不参与本集指标）"
+    }
+  ],
+  "sample_files": {
+    "input.png": "原始图块（未归一化）",
+    "golden.png": "期望归一化输出",
+    "golden_skeleton.png": "期望骨架输出",
+    "expected.json": "文件名映射 + 容差 + 覆盖类别 + 溯源字段",
+    "info.json": "来源、描述、标签"
+  },
+  "notes": "归一化是纯函数：golden 图对逐像素/容差回归。骨架是匹配特征而非存储格式，字形库真源永远是原始图。"
+}

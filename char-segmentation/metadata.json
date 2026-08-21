@@ -1,0 +1,98 @@
+{
+  "name": "char-segmentation-benchmark",
+  "version": "0.1.0",
+  "schema_version": 1,
+  "description": "单字分拆（刻本严格网格切分）Benchmark 数据集",
+  "created": "2026-08-21",
+  "status": "框架",
+  "eval_command": "guji-cv segment <book>",
+  "eval_script": null,
+  "total_samples": 0,
+  "sample_unit": "页",
+  "sources": [],
+  "provenance_fields": [
+    "source_item",
+    "pipeline_version",
+    "label_origin"
+  ],
+  "label_origin_values": [
+    "align",
+    "human",
+    "synth"
+  ],
+  "metrics": [
+    {
+      "name": "straddle_ratio",
+      "type": "float",
+      "direction": "lower_is_better",
+      "description": "骑线比 = 格线处墨量 / 格心处墨量，衡量切分格线是否压在笔画上"
+    },
+    {
+      "name": "cell_iou",
+      "type": "float",
+      "direction": "higher_is_better",
+      "description": "预测 cell 与金标 cell 的纵向 IoU（按 index 对齐后平均）"
+    },
+    {
+      "name": "chars_per_column_conservation",
+      "type": "float",
+      "direction": "higher_is_better",
+      "description": "每列 char 型 cell 数与对齐参考列字数一致的列占比"
+    },
+    {
+      "name": "negative_recurrence",
+      "type": "int",
+      "direction": "lower_is_better",
+      "description": "负例集（truncated / contaminated / not_text）中再次出现的实例数，硬约束为 0"
+    }
+  ],
+  "fields": [
+    {
+      "name": "page_id",
+      "type": "str",
+      "description": "页标识（与 image.png 同名 stem）"
+    },
+    {
+      "name": "image_size",
+      "type": "object",
+      "description": "页图尺寸 width / height"
+    },
+    {
+      "name": "chars_per_line",
+      "type": "int",
+      "description": "该页每列格位数"
+    },
+    {
+      "name": "book_grid",
+      "type": "object",
+      "description": "书级网格参数包：cell_height（格高共识）、phase（行相位）。书级量，非页内拟合"
+    },
+    {
+      "name": "columns",
+      "type": "list",
+      "description": "列带列表，含 index / left_x / right_x / cells"
+    },
+    {
+      "name": "columns[].cells",
+      "type": "list",
+      "description": "格位列表，每项 type(char|empty) / index / y_top / y_bottom（列内局部坐标）"
+    },
+    {
+      "name": "special_layout",
+      "type": "list[str]",
+      "description": "特殊排布标记：spread_column（职名拉开）、sparse_toc（目录稀疏列）、raised_head（卷端抬头空格）"
+    },
+    {
+      "name": "negatives",
+      "type": "list",
+      "description": "人工审查 flag 的负例：instance_id + flag(truncated|contaminated|not_text)"
+    }
+  ],
+  "sample_files": {
+    "image.png": "页图（预处理后的半页图，与 segment 的输入一致）",
+    "input.json": "列带 + 书级网格参数包（第 1/2 部分之间的接口，随样本冻结）",
+    "expected.json": "金标 cell 框列表 + 溯源字段",
+    "info.json": "来源、描述、标签"
+  },
+  "notes": "书级网格参数（格高共识、每列字数）是接口的一部分：纯页内拟合在稀疏页欠定，必须随样本一起冻结在 input.json 中，否则评测不可复现。"
+}

@@ -1,0 +1,81 @@
+{
+  "name": "collation-benchmark",
+  "version": "0.1.0",
+  "schema_version": 1,
+  "description": "参考校对（collate）Benchmark 数据集：对齐 + 参考质量估计 + 分歧挖掘",
+  "created": "2026-08-21",
+  "status": "框架",
+  "eval_command": "guji-cv collate <book> --reference <ref>（规划中）",
+  "eval_script": null,
+  "total_samples": 0,
+  "sample_unit": "页/段",
+  "sources": [],
+  "provenance_fields": [
+    "source_item",
+    "pipeline_version",
+    "label_origin"
+  ],
+  "label_origin_values": [
+    "align",
+    "human",
+    "synth"
+  ],
+  "metrics": [
+    {
+      "name": "alignment_accuracy",
+      "type": "float",
+      "direction": "higher_is_better",
+      "description": "槽位→参考字映射与金标对齐一致的比例"
+    },
+    {
+      "name": "rho_mae",
+      "type": "float",
+      "direction": "lower_is_better",
+      "description": "参考质量估计误差 |ρ̂ - ρ| 的平均绝对值；合成样本上 ρ 已知（= 1 - 注入噪声率）"
+    },
+    {
+      "name": "rho_response_monotonic",
+      "type": "bool",
+      "target": "true",
+      "description": "ρ̂ 随注入噪声率 x（0~30%）单调下降，且候选注入权重随之退化——响应曲线断言"
+    },
+    {
+      "name": "divergence_precision",
+      "type": "float",
+      "direction": "higher_is_better",
+      "description": "分歧挖掘（我们高置信 ∧ 参考不同 → ref_conflict 队列）的查准率"
+    }
+  ],
+  "fields": [
+    {
+      "name": "transcript",
+      "type": "list",
+      "description": "冻结的转写流：每项 slot_id / top1 / prob / confidence"
+    },
+    {
+      "name": "reference",
+      "type": "object",
+      "description": "参考文本：text / origin（整理本标识）/ rho（真实质量，合成样本才有）/ noise_injected（注入替换噪声率 x，0~0.30）"
+    },
+    {
+      "name": "alignment",
+      "type": "list",
+      "description": "金标对齐：每项 slot_id / ref_index / ref_char / null 表示无对应（脱漏/衍文）"
+    },
+    {
+      "name": "reference_quality",
+      "type": "object",
+      "description": "金标质量：rho（整体）+ segments（分段 ρ，参考可能局部差：换底本、脱漏）"
+    },
+    {
+      "name": "divergences",
+      "type": "list",
+      "description": "金标分歧点：slot_id / ours / ref / verdict(ours_right|ref_right|both_wrong)"
+    }
+  ],
+  "sample_files": {
+    "expected.json": "(转写流, 参考文本, 金标对齐 + 金标 ρ) + 溯源字段",
+    "info.json": "来源、描述、标签（合成样本 label_origin=synth，记录注入噪声率）"
+  },
+  "notes": "本集可**人造**：拿高质量参考注入可控替换噪声 x%（x=0~30%），ρ 即已知真值，用于验证 ρ̂ 响应曲线与候选注入权重的退化行为。此类样本 label_origin=synth。"
+}
