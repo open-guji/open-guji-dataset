@@ -1,6 +1,6 @@
 {
   "name": "char-instance-quality",
-  "version": "0.3.2",
+  "version": "0.4.0",
   "schema_version": 1,
   "description": "单字图块切分质量：真实图块的实例级四分类标注",
   "created": "2026-08-22",
@@ -8,7 +8,7 @@
   "parent": "char-segmentation",
   "eval_command": "cd open-guji-cv && python scripts/eval_instance_quality.py <dataset>",
   "eval_script": "open-guji-cv/scripts/eval_instance_quality.py",
-  "total_samples": 62,
+  "total_samples": 61,
   "sample_unit": "单字图块",
   "sources": [
     "06061300.cn（武英殿刻本《欽定四庫全書總目》卷首一~四）"
@@ -27,12 +27,12 @@
   ],
   "quality_distribution": {
     "clean": 52,
-    "contaminated": 6,
-    "truncated": 0,
-    "not_text": 4
+    "contaminated": 5,
+    "truncated": 1,
+    "not_text": 3
   },
   "layout_distribution": {
-    "rigid": 51,
+    "rigid": 50,
     "elastic": 11
   },
   "metrics": [
@@ -56,34 +56,14 @@
     }
   ],
   "baseline": {
-    "measured_on": "62 实例（10 缺陷 / 52 正例）",
-    "pipeline_flags": [
-      "rule_bar",
-      "edge_blob",
-      "frame_bars",
-      "wide_gap",
-      "boundary_ink",
-      "suspect_empty",
-      "bad_seg"
-    ],
-    "defect_recall": 1.0,
-    "flag_precision": 0.5,
-    "false_alarm_rate": 0.19,
+    "measured_on": "61 实例（9 缺陷 / 52 正例）",
+    "defect_recall": 0.889,
+    "flag_precision": 0.47,
+    "false_alarm_rate": 0.17,
     "per_class_recall": {
       "contaminated": 1.0,
+      "truncated": 0.0,
       "not_text": 1.0
-    },
-    "by_layout": {
-      "rigid": {
-        "n_defect": 8,
-        "recall": 1.0,
-        "false_alarm_rate": 0.21
-      },
-      "elastic": {
-        "n_defect": 3,
-        "recall": 1.0,
-        "false_alarm_rate": 0.11
-      }
     },
     "layers": {
       "确定层": {
@@ -92,10 +72,9 @@
           "edge_blob",
           "frame_bars"
         ],
-        "defect_recall": 0.6,
+        "defect_recall": 0.556,
         "flag_precision": 1.0,
-        "false_alarm_rate": 0.0,
-        "note": "成因明确、零误报，下游可直接自动处理"
+        "false_alarm_rate": 0.0
       },
       "加疑似层": {
         "flags": [
@@ -104,13 +83,11 @@
           "suspect_empty",
           "bad_seg"
         ],
-        "defect_recall": 1.0,
-        "flag_precision": 0.52,
-        "false_alarm_rate": 0.19,
-        "note": "用召回换精确，只用于送人工审查队列"
+        "defect_recall": 0.889,
+        "flag_precision": 0.47,
+        "false_alarm_rate": 0.17
       }
-    },
-    "pipeline_note": "切分版本：残余错切校正 + 界行吸附 + 界行定列距 + 书级列距共识"
+    }
   },
   "notes": "**这一版的数字要连着上游一起读。** 缺陷从 17/67 降到 11/63，不是检测器变强了，是**切分本身变好了**——`segment` 加了残余错切校正与界行吸附之后，全书带界行竖线的图块从 23.7% 降到 3.5%（vol02 20.0% → 2.9%）。原来 12 个 contaminated 里有 6 个现在已经是干净的本字。精确率因此从 0.71 掉到 0.52：缺陷基数小了，同样多的误报占比自然升高——这不是退步。\n\n**分层必须分开报。** 确定层（rule_bar / edge_blob / frame_bars）召回 73% 且**零误报**，成因明确，下游可以直接自动处理（剥界行、丢版框格位），不必惊动人；疑似层（wide_gap / boundary_ink）把召回补到 100%，代价是 19% 误报，只该用来排人工审查队列。合成一个数字会同时掩盖两件事：确定层能不能免检地用，以及审查队列会被多少噪声灌满。\n\n**版框横线与「一」字只能到页级分。** 形状上两者的 w/W、h/H、笔画厚度变异全都重叠（旧的 rule_like 判据正因此把 5 个干净的「一」判成了线）。区别在列之外：版框横线横穿整版，「一」字停在本列文字带里。所以 frame_bars 现在也看列框左右两侧还有没有墨。",
   "updated": "2026-08-22",
@@ -153,6 +130,15 @@
         "97:4:9"
       ],
       "effect": "只有 2 个图块变了（36:2:3、113:8:6，重看仍是 clean），1 个 ID 消失（97:4:9 所在页改按 8 列切、列内序号前移）。样本 63 → 62，缺陷 11 → 10。"
+    },
+    {
+      "date": "2026-08-22",
+      "reason": "segment 加书级内缩共识（列框不再贴着界行走）",
+      "changed": 13,
+      "dropped_ids": [
+        "171:2:15"
+      ],
+      "effect": "只有 1 个标签要改：168:2:6 由 contaminated 转 **truncated**——界行是不混了，但该格只切到「學」的下半。这是本数据集**第一个截断实例**，此前连续四轮都没有。它一个 flag 都没触发，缺陷检出率因此 100% → 89%——这正是它的价值：暴露了管线没有截断判据。"
     }
   ],
   "baseline_history": [
@@ -182,5 +168,5 @@
       "note": "分层判据刚落地时的数字；样本为 67 个、缺陷 17 个的版本，不可直接与 0.3.0 相比"
     }
   ],
-  "known_limitation": "1) 本批样本连续两轮都没有 truncated 实例，**截断检测能力从未被验证过**，需另行抽样补充；\n2) 剩下 2 个漏检（113:8:6 下缘一排小碎块、103:5:5 左下一块残余）只有疑似层抓得到——把 edge_blob 阈值从 0.03 降到 0.015 能多抓 1 个，但要付 2 个误报，实测干净与缺陷的分布在那一段真实重叠，不值得调；\n3) 10 个误报全部来自 boundary_ink，确定层三个判据一个误报都没有；\n4) layout 字段取自抽样时的列型判断，与当前分类器不一致处尚未复核。"
+  "known_limitation": "1) **截断检测能力为 0**——唯一的 truncated 实例（168:2:6）一个 flag 都没触发。此前四轮样本里没有截断实例，这条局限一直无从验证；现在有样本了，缺口是明确的。\n2) 5 个 contaminated 全部检出，但确定层只覆盖 56%，其余靠疑似层兜底（17% 误报）。\n3) 样本量小（9 个缺陷），单个实例的增减就会让召回率跳 11 个百分点，读数要看绝对个数。\n4) layout 字段取自抽样时的列型判断，与当前分类器不一致处尚未复核。"
 }
