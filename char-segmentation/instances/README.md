@@ -67,3 +67,8 @@ python scripts/eval_instance_quality.py ../open-guji-dataset/char-segmentation/i
 每个图块渲染成左右对照：左 = 原图带图块边界（黄框）与上下文，
 右 = 图块内连通体着色。据此判断有没有多出别人的墨、有没有缺自己的墨。
 标注表在 `open-guji-cv/scripts/build_instance_dataset.py` 的 `LABELS`。
+
+---
+
+扩充样本请照 [doc/adding-samples.md](../../doc/adding-samples.md) 的流程做——
+那里固化了已经踩过的坑（金标不得循环、判不准标 uncertain、实例 ID 会随切分失效）。
