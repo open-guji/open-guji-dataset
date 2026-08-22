@@ -101,6 +101,12 @@
       "path": "char-segmentation/cells",
       "description": "格内净化：一列格位里每块墨迹该归哪个字（逐像素金标，60 样本可用）",
       "status": "可用"
+    },
+    {
+      "name": "instances",
+      "path": "char-segmentation/instances",
+      "description": "真实单字图块的切分质量四分类标注（clean/混入/截断/非文字），评管线自检能力",
+      "status": "可用"
     }
   ]
 }

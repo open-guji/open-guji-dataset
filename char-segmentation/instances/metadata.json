@@ -1,0 +1,45 @@
+{
+  "name": "char-instance-quality",
+  "version": "0.1.0",
+  "schema_version": 1,
+  "description": "单字图块切分质量：真实图块的实例级四分类标注",
+  "created": "2026-08-22",
+  "status": "可用",
+  "parent": "char-segmentation",
+  "eval_command": "cd open-guji-cv && python scripts/eval_instance_quality.py <dataset>",
+  "eval_script": "open-guji-cv/scripts/eval_instance_quality.py",
+  "total_samples": 70,
+  "sample_unit": "单字图块",
+  "sources": ["06061300.cn（武英殿刻本《欽定四庫全書總目》卷首一~四）"],
+  "label_definition": {
+    "clean": "正例：图块里就是完整的本字，没有别人的墨",
+    "contaminated": "混入了不属于本字的墨——界行竖线、版框、上下邻字残余",
+    "truncated": "本字的墨被切掉了一部分",
+    "not_text": "这个格位根本不是字（版框角、整条横线、空格位）"
+  },
+  "judging_principle": "只看墨，不看框。图块多裁一点空白不算失败——空白不影响下游归一化与识别。混入=多了别人的墨，截断=少了自己的墨，与外接框大小无关。",
+  "what_is_evaluated": "不是切分质量本身，而是**管线的自检能力**。人工标签描述的是当前输出，重跑切分后标签就不再对应，无法当作可自动重跑的回归基准；真正能自动化又有用的问题是「管线能不能自己发现坏图块、送进人工审查队列」。被测对象是 CharInstance.flags，任意 flag 即算被标记。",
+  "sampling_bias": "**各类占比不是全书真实比例**。42/70 从历史人工审查标记过的问题位置抽（值得复查），28/70 从刚性/弹性列随机抽。只能用于比较不同算法在同一批样本上的表现，不能读作缺陷率。",
+  "label_origin_values": ["human"],
+  "quality_distribution": {"clean": 46, "contaminated": 16, "truncated": 2, "not_text": 6},
+  "layout_distribution": {"rigid": 51, "elastic": 19},
+  "metrics": [
+    {"name": "defect_recall", "type": "float", "direction": "higher_is_better",
+     "description": "主指标。三类缺陷中被 flags 标记的比例——决定坏图块能否进审查队列"},
+    {"name": "false_alarm_rate", "type": "float", "direction": "lower_is_better",
+     "description": "clean 实例被误标记的比例——决定审查队列会不会被噪声淹没"},
+    {"name": "flag_precision", "type": "float", "direction": "higher_is_better",
+     "description": "被标记的实例里真是缺陷的比例"}
+  ],
+  "baseline": {
+    "measured_on": "70 实例（24 缺陷 / 46 正例）",
+    "pipeline_flags": ["suspect_empty", "rule_like", "bad_seg"],
+    "defect_recall": 0.12,
+    "flag_precision": 0.50,
+    "false_alarm_rate": 0.07,
+    "per_class_recall": {"contaminated": 0.0, "truncated": 0.0, "not_text": 0.50},
+    "by_layout": {"rigid": {"n_defect": 21, "recall": 0.14},
+                  "elastic": {"n_defect": 3, "recall": 0.0}}
+  },
+  "notes": "基线的结论很直接：**混入与截断两类当前零检出**（0/16、0/2），管线根本没有针对它们的检测器；not_text 靠 rule_like/suspect_empty 抓到一半。缺陷总检出率仅 12%，意味着绝大多数坏图块会悄无声息地流进下游。这是下一步要补的能力。"
+}
