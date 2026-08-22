@@ -1,6 +1,6 @@
 {
   "name": "char-instance-quality",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "schema_version": 1,
   "description": "单字图块切分质量：真实图块的实例级四分类标注",
   "created": "2026-08-22",
@@ -8,7 +8,7 @@
   "parent": "char-segmentation",
   "eval_command": "cd open-guji-cv && python scripts/eval_instance_quality.py <dataset>",
   "eval_script": "open-guji-cv/scripts/eval_instance_quality.py",
-  "total_samples": 67,
+  "total_samples": 63,
   "sample_unit": "单字图块",
   "sources": [
     "06061300.cn（武英殿刻本《欽定四庫全書總目》卷首一~四）"
@@ -21,18 +21,18 @@
   },
   "judging_principle": "只看墨，不看框。图块多裁一点空白不算失败——空白不影响下游归一化与识别。混入=多了别人的墨，截断=少了自己的墨，与外接框大小无关。",
   "what_is_evaluated": "不是切分质量本身，而是**管线的自检能力**。人工标签描述的是当前输出，重跑切分后标签就不再对应，无法当作可自动重跑的回归基准；真正能自动化又有用的问题是「管线能不能自己发现坏图块、送进人工审查队列」。被测对象是 CharInstance.flags，任意 flag 即算被标记。",
-  "sampling_bias": "**各类占比不是全书真实比例**。40/67 从历史人工审查标记过的问题位置抽（值得复查），27/67 从刚性/弹性列随机抽。只能用于比较不同算法在同一批样本上的表现，不能读作缺陷率——全书真实的界行竖线混入率见 notes。",
+  "sampling_bias": "**各类占比不是全书真实比例**。38/63 从历史人工审查标记过的问题位置抽（值得复查），25/63 从刚性/弹性列随机抽。只能用于比较不同算法在同一批样本上的表现，不能读作缺陷率。",
   "label_origin_values": [
     "human"
   ],
   "quality_distribution": {
-    "clean": 50,
-    "contaminated": 12,
+    "clean": 52,
+    "contaminated": 6,
     "truncated": 0,
     "not_text": 5
   },
   "layout_distribution": {
-    "rigid": 55,
+    "rigid": 51,
     "elastic": 12
   },
   "metrics": [
@@ -56,7 +56,7 @@
     }
   ],
   "baseline": {
-    "measured_on": "67 实例（17 缺陷 / 50 正例）",
+    "measured_on": "63 实例（11 缺陷 / 52 正例）",
     "pipeline_flags": [
       "rule_bar",
       "edge_blob",
@@ -67,22 +67,22 @@
       "bad_seg"
     ],
     "defect_recall": 1.0,
-    "flag_precision": 0.71,
-    "false_alarm_rate": 0.14,
+    "flag_precision": 0.52,
+    "false_alarm_rate": 0.19,
     "per_class_recall": {
       "contaminated": 1.0,
       "not_text": 1.0
     },
     "by_layout": {
       "rigid": {
-        "n_defect": 15,
+        "n_defect": 8,
         "recall": 1.0,
-        "false_alarm_rate": 0.12
+        "false_alarm_rate": 0.21
       },
       "elastic": {
-        "n_defect": 2,
+        "n_defect": 3,
         "recall": 1.0,
-        "false_alarm_rate": 0.2
+        "false_alarm_rate": 0.11
       }
     },
     "layers": {
@@ -92,23 +92,26 @@
           "edge_blob",
           "frame_bars"
         ],
-        "defect_recall": 0.71,
-        "false_alarm_rate": 0.0,
+        "defect_recall": 0.73,
         "flag_precision": 1.0,
-        "note": "按成因分开标，实测零误报，下游可直接自动处理"
+        "false_alarm_rate": 0.0,
+        "note": "成因明确、零误报，下游可直接自动处理"
       },
-      "疑似层": {
+      "加疑似层": {
         "flags": [
           "wide_gap",
-          "boundary_ink"
+          "boundary_ink",
+          "suspect_empty",
+          "bad_seg"
         ],
-        "defect_recall": 0.94,
-        "false_alarm_rate": 0.14,
-        "note": "有误报，只用于送人工审查队列"
+        "defect_recall": 1.0,
+        "flag_precision": 0.52,
+        "false_alarm_rate": 0.19,
+        "note": "用召回换精确，只用于送人工审查队列"
       }
     }
   },
-  "notes": "**分层设计是这一版的关键。** 原先只有一个笼统的 boundary_ink（上下边缘带墨量占比），实测 88% 召回 / 10% 误报——因为界行竖线贯穿全高会在边缘带留墨，可顶天立地的高字同样会，两者混在一个量里分不开。按缺陷**形状**拆成三个确定层判据后：\n  · rule_bar   细长、近满高的**独立**连通体 → 界行/版框竖线。位置不限于贴边，实测混入竖线的 x/W 从 0.08 到 0.96 都有，限定「贴边」反而漏掉一半。\n  · edge_blob  连通体**整体**落在上/下边缘带内 → 邻字残余。「整体落在带内」而非「有墨落在带内」，后者会冤枉高字。\n  · frame_bars 近满宽扁横条 **≥2 条** → 版框横线。数到 2 是因为单条就是「一」字本身，旧的 rule_like 判据把 5 个干净的「一」全判成了线，现已退休。\n确定层召回 71% 且**零误报**，疑似层（wide_gap / boundary_ink）兜底到 100%。\n\n**全书实测（vol01，24883 个图块）**：rule_bar 命中 23.7%——目视抽查 24 例全部确为图块里带着界行竖线、本字完好。也就是说约四分之一的图块仍带竖线残余，这是列条裁剪留下的系统性问题，值得单独修，而不只是标出来送审查。boundary_ink 44.1%、wide_gap 25.8%（其中 3.3% 为独立命中，误报多来自「非/林/院」这类左右结构字）、edge_blob 4.3%、frame_bars 0.4%。",
+  "notes": "**这一版的数字要连着上游一起读。** 缺陷从 17/67 降到 11/63，不是检测器变强了，是**切分本身变好了**——`segment` 加了残余错切校正与界行吸附之后，全书带界行竖线的图块从 23.7% 降到 3.5%（vol02 20.0% → 2.9%）。原来 12 个 contaminated 里有 6 个现在已经是干净的本字。精确率因此从 0.71 掉到 0.52：缺陷基数小了，同样多的误报占比自然升高——这不是退步。\n\n**分层必须分开报。** 确定层（rule_bar / edge_blob / frame_bars）召回 73% 且**零误报**，成因明确，下游可以直接自动处理（剥界行、丢版框格位），不必惊动人；疑似层（wide_gap / boundary_ink）把召回补到 100%，代价是 19% 误报，只该用来排人工审查队列。合成一个数字会同时掩盖两件事：确定层能不能免检地用，以及审查队列会被多少噪声灌满。\n\n**版框横线与「一」字只能到页级分。** 形状上两者的 w/W、h/H、笔画厚度变异全都重叠（旧的 rule_like 判据正因此把 5 个干净的「一」判成了线）。区别在列之外：版框横线横穿整版，「一」字停在本列文字带里。所以 frame_bars 现在也看列框左右两侧还有没有墨。",
   "updated": "2026-08-22",
   "relabel_history": [
     {
@@ -121,6 +124,18 @@
         "189:5:7"
       ],
       "effect": "切分本身变好：原 2 个 truncated、1 个 not_text、3 个 contaminated 重看后都是完整干净的本字；新增 1 个混入界行竖线、1 个空位吃进版框线。本批样本现已无 truncated 实例——不代表全书没有，只说明覆盖不到。"
+    },
+    {
+      "date": "2026-08-22",
+      "reason": "segment 加入残余错切校正 + 界行吸附（列宽问题的正解），几乎所有图块坐标都动了",
+      "changed": 59,
+      "dropped_ids": [
+        "159:6:5",
+        "130:7:0",
+        "205:9:0",
+        "91:3:0"
+      ],
+      "effect": "全部对着新输出重标。切分又好了一截：缺陷 17/67 → 11/63。原 12 个 contaminated 里 6 个（199:8:3 31:6:10 153:9:12 126:5:2 200:1:3 65:4:10）已经干净——界行不再被圈进图块的直接结果。代价是 3 个原本干净的格位因列相位平移落到版框横线上（146:7:20 171:2:15 97:4:9），转为 not_text；116:1:8 吃进版框横线转为 contaminated。"
     }
   ],
   "baseline_history": [
@@ -134,7 +149,21 @@
       "defect_recall": 0.12,
       "false_alarm_rate": 0.07,
       "note": "混入与截断两类零检出（0/16、0/2）；样本与标签为重标前的版本，数值不可直接与 0.2.0 相比"
+    },
+    {
+      "version": "0.2.0",
+      "flags": [
+        "rule_bar",
+        "edge_blob",
+        "frame_bars",
+        "wide_gap",
+        "boundary_ink"
+      ],
+      "defect_recall": 1.0,
+      "flag_precision": 0.71,
+      "false_alarm_rate": 0.14,
+      "note": "分层判据刚落地时的数字；样本为 67 个、缺陷 17 个的版本，不可直接与 0.3.0 相比"
     }
   ],
-  "known_limitation": "1) 本批 67 个样本已无 truncated 实例，截断检测能力**未被覆盖**，需另行抽样补充；\n2) wide_gap 会被左右结构字（非/林/院/國）误触发，故只放在疑似层；\n3) layout 字段取自**抽样时**的列型判断；当前分类器把这 67 列全判为 rigid，与 12 个 elastic_random 样本的抽样分层不一致，尚未复核哪一方对。"
+  "known_limitation": "1) 本批样本连续两轮都没有 truncated 实例，**截断检测能力从未被验证过**，需另行抽样补充；\n2) 剩下 2 个漏检（113:8:6 下缘一排小碎块、103:5:5 左下一块残余）只有疑似层抓得到——把 edge_blob 阈值从 0.03 降到 0.015 能多抓 1 个，但要付 2 个误报，实测干净与缺陷的分布在那一段真实重叠，不值得调；\n3) 10 个误报全部来自 boundary_ink，确定层三个判据一个误报都没有；\n4) layout 字段取自抽样时的列型判断，与当前分类器不一致处尚未复核。"
 }
