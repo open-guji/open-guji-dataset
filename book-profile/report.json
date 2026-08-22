@@ -2,39 +2,39 @@
   "evaluated": 24,
   "field_accuracy": {
     "layout": {
-      "correct": 22,
+      "correct": 24,
       "total": 24,
-      "accuracy": 0.9166666666666666
+      "accuracy": 1.0
     },
     "banxin_position": {
-      "correct": 5,
-      "total": 8,
-      "accuracy": 0.625
+      "correct": 21,
+      "total": 23,
+      "accuracy": 0.9130434782608695
     },
     "content_format": {
-      "correct": 10,
-      "total": 24,
-      "accuracy": 0.4166666666666667
-    },
-    "font_type": {
-      "correct": 12,
-      "total": 24,
-      "accuracy": 0.5
-    },
-    "lines_per_page": {
       "correct": 13,
       "total": 24,
       "accuracy": 0.5416666666666666
     },
-    "fixed_chars_per_line": {
-      "correct": 21,
+    "font_type": {
+      "correct": 11,
       "total": 24,
-      "accuracy": 0.875
+      "accuracy": 0.4583333333333333
+    },
+    "lines_per_page": {
+      "correct": 9,
+      "total": 24,
+      "accuracy": 0.375
+    },
+    "fixed_chars_per_line": {
+      "correct": 20,
+      "total": 24,
+      "accuracy": 0.8333333333333334
     },
     "chars_per_line": {
-      "correct": 11,
-      "total": 21,
-      "accuracy": 0.5238095238095238
+      "correct": 2,
+      "total": 20,
+      "accuracy": 0.1
     },
     "has_marginal_notes": {
       "correct": 17,
@@ -47,9 +47,9 @@
       "accuracy": 1.0
     },
     "background_color": {
-      "correct": 24,
+      "correct": 23,
       "total": 24,
-      "accuracy": 1.0
+      "accuracy": 0.9583333333333334
     },
     "text_color": {
       "correct": 24,
@@ -57,63 +57,46 @@
       "accuracy": 1.0
     },
     "border_color": {
-      "correct": 11,
+      "correct": 22,
       "total": 24,
-      "accuracy": 0.4583333333333333
+      "accuracy": 0.9166666666666666
     },
     "border_style": {
-      "correct": 17,
+      "correct": 10,
       "total": 24,
-      "accuracy": 0.7083333333333334
+      "accuracy": 0.4166666666666667
     },
     "border_wear": {
-      "correct": 5,
+      "correct": 14,
       "total": 24,
-      "accuracy": 0.20833333333333334
+      "accuracy": 0.5833333333333334
     },
     "interferences": {
-      "correct": 15,
+      "correct": 4,
       "total": 24,
-      "accuracy": 0.625
+      "accuracy": 0.16666666666666666
     },
     "margin_color": {
       "correct": 1,
-      "total": 7,
-      "accuracy": 0.14285714285714285
+      "total": 19,
+      "accuracy": 0.05263157894736842
     }
   },
-  "overall_accuracy": 0.6666666666666666,
+  "overall_accuracy": 0.6390374331550802,
   "errors": [
     {
       "id": "001",
       "description": "四库全书简明目录，标准黑白半页扫描，8行，双边框",
       "errors": [
         {
-          "field": "banxin_position",
-          "expected": "left",
-          "got": "right"
-        },
-        {
           "field": "font_type",
           "expected": "handwritten",
           "got": "printed"
         },
         {
-          "field": "chars_per_line",
-          "expected": 21,
-          "got": 19
-        },
-        {
           "field": "border_wear",
           "expected": "heavy",
           "got": "medium"
-        },
-        {
-          "field": "interferences",
-          "expected": [],
-          "got": [
-            "margin"
-          ]
         }
       ]
     },
@@ -150,28 +133,21 @@
       "description": "彩色（橙底），9行，有污渍干扰",
       "errors": [
         {
-          "field": "content_format",
-          "expected": "regular",
-          "got": "no_line"
-        },
-        {
-          "field": "lines_per_page",
-          "expected": 9,
-          "got": 8
+          "field": "font_type",
+          "expected": "handwritten",
+          "got": "printed"
         },
         {
           "field": "chars_per_line",
           "expected": 21,
-          "got": 19
+          "got": 13
         },
         {
           "field": "interferences",
           "expected": [
             "margin"
           ],
-          "got": [
-            "spine_shadow"
-          ]
+          "got": []
         },
         {
           "field": "margin_color",
@@ -185,16 +161,6 @@
       "description": "彩色（橙底），11行密排，有书脊阴影",
       "errors": [
         {
-          "field": "banxin_position",
-          "expected": "left",
-          "got": "right"
-        },
-        {
-          "field": "font_type",
-          "expected": "printed",
-          "got": "handwritten"
-        },
-        {
           "field": "lines_per_page",
           "expected": 10,
           "got": 11
@@ -202,7 +168,7 @@
         {
           "field": "chars_per_line",
           "expected": 21,
-          "got": 14
+          "got": 16
         },
         {
           "field": "has_marginal_notes",
@@ -236,19 +202,9 @@
       "description": "黑白刻本，8行15字，边框严重磨损，有白边",
       "errors": [
         {
-          "field": "content_format",
-          "expected": "regular",
-          "got": "no_line"
-        },
-        {
           "field": "font_type",
           "expected": "printed",
           "got": "handwritten"
-        },
-        {
-          "field": "lines_per_page",
-          "expected": 9,
-          "got": 8
         },
         {
           "field": "chars_per_line",
@@ -263,7 +219,7 @@
         {
           "field": "border_style",
           "expected": "double",
-          "got": "single"
+          "got": "hsingle_vdouble"
         },
         {
           "field": "border_wear",
@@ -277,11 +233,6 @@
       "description": "标准黑白半页扫描，8行，有夹注区域",
       "errors": [
         {
-          "field": "banxin_position",
-          "expected": "left",
-          "got": "right"
-        },
-        {
           "field": "font_type",
           "expected": "handwritten",
           "got": "printed"
@@ -289,12 +240,7 @@
         {
           "field": "chars_per_line",
           "expected": 21,
-          "got": 19
-        },
-        {
-          "field": "has_marginal_notes",
-          "expected": true,
-          "got": false
+          "got": 17
         },
         {
           "field": "border_wear",
@@ -311,11 +257,6 @@
           "field": "font_type",
           "expected": "handwritten",
           "got": "printed"
-        },
-        {
-          "field": "lines_per_page",
-          "expected": 9,
-          "got": 0
         },
         {
           "field": "fixed_chars_per_line",
@@ -342,14 +283,19 @@
       "description": "跨页摊开扫描（前汉书），彩色橙底，12行，有夹注，书脊阴影",
       "errors": [
         {
+          "field": "content_format",
+          "expected": "regular",
+          "got": "table"
+        },
+        {
           "field": "lines_per_page",
           "expected": 10,
-          "got": 12
+          "got": 11
         },
         {
           "field": "chars_per_line",
           "expected": 21,
-          "got": 17
+          "got": 18
         },
         {
           "field": "has_marginal_notes",
@@ -365,6 +311,11 @@
           "field": "border_style",
           "expected": "hsingle_vdouble",
           "got": "double"
+        },
+        {
+          "field": "border_wear",
+          "expected": "none",
+          "got": "light"
         },
         {
           "field": "interferences",
@@ -388,24 +339,14 @@
       "description": "晏子春秋卷首，未裁全页，黑白底红色圈点，单边框，约10行",
       "errors": [
         {
-          "field": "layout",
-          "expected": "spread",
-          "got": "uncut_full"
-        },
-        {
           "field": "content_format",
           "expected": "no_line",
           "got": "regular"
         },
         {
-          "field": "lines_per_page",
-          "expected": 8,
-          "got": 9
-        },
-        {
           "field": "chars_per_line",
           "expected": 18,
-          "got": 25
+          "got": null
         },
         {
           "field": "border_color",
@@ -416,11 +357,6 @@
           "field": "border_style",
           "expected": "single",
           "got": "double"
-        },
-        {
-          "field": "border_wear",
-          "expected": "light",
-          "got": "none"
         },
         {
           "field": "interferences",
@@ -444,14 +380,19 @@
       "description": "天文圖說，半页扫描，黑白，密排约13行，单边框",
       "errors": [
         {
+          "field": "font_type",
+          "expected": "printed",
+          "got": "handwritten"
+        },
+        {
           "field": "lines_per_page",
           "expected": 10,
-          "got": 0
+          "got": 8
         },
         {
           "field": "chars_per_line",
           "expected": 22,
-          "got": 13
+          "got": 14
         },
         {
           "field": "has_marginal_notes",
@@ -477,7 +418,7 @@
         {
           "field": "lines_per_page",
           "expected": 10,
-          "got": 0
+          "got": 11
         },
         {
           "field": "chars_per_line",
@@ -511,16 +452,6 @@
       "description": "菜根譚，未裁全页，米黄底色，边角破损，双边框，约12行",
       "errors": [
         {
-          "field": "layout",
-          "expected": "spread",
-          "got": "uncut_full"
-        },
-        {
-          "field": "content_format",
-          "expected": "regular",
-          "got": "no_line"
-        },
-        {
           "field": "font_type",
           "expected": "handwritten",
           "got": "printed"
@@ -528,7 +459,7 @@
         {
           "field": "lines_per_page",
           "expected": 8,
-          "got": 9
+          "got": 3
         },
         {
           "field": "chars_per_line",
@@ -538,12 +469,12 @@
         {
           "field": "border_style",
           "expected": "single",
-          "got": "hsingle_vdouble"
+          "got": "double"
         },
         {
           "field": "border_wear",
           "expected": "medium",
-          "got": "none"
+          "got": "light"
         },
         {
           "field": "interferences",
@@ -567,6 +498,16 @@
       "description": "兵鏡，未裁全页，白底红圈点，单边框，约10行",
       "errors": [
         {
+          "field": "content_format",
+          "expected": "no_line",
+          "got": "regular"
+        },
+        {
+          "field": "font_type",
+          "expected": "handwritten",
+          "got": "printed"
+        },
+        {
           "field": "lines_per_page",
           "expected": 6,
           "got": 5
@@ -582,9 +523,19 @@
           "got": "double"
         },
         {
-          "field": "border_wear",
-          "expected": "light",
-          "got": "none"
+          "field": "interferences",
+          "expected": [
+            "spine_shadow",
+            "margin"
+          ],
+          "got": [
+            "spine_shadow"
+          ]
+        },
+        {
+          "field": "margin_color",
+          "expected": "black",
+          "got": null
         }
       ]
     },
@@ -593,24 +544,44 @@
       "description": "乐记，未裁全页，米黄底色，密排有夹注，双边框",
       "errors": [
         {
-          "field": "content_format",
-          "expected": "regular",
-          "got": "no_line"
+          "field": "font_type",
+          "expected": "handwritten",
+          "got": "printed"
         },
         {
-          "field": "border_color",
-          "expected": "red",
-          "got": "black"
+          "field": "lines_per_page",
+          "expected": 12,
+          "got": 3
+        },
+        {
+          "field": "chars_per_line",
+          "expected": 25,
+          "got": 14
         },
         {
           "field": "border_style",
-          "expected": "double",
+          "expected": "single",
           "got": "hsingle_vdouble"
         },
         {
           "field": "border_wear",
-          "expected": "light",
-          "got": "none"
+          "expected": "heavy",
+          "got": "light"
+        },
+        {
+          "field": "interferences",
+          "expected": [
+            "spine_shadow",
+            "margin"
+          ],
+          "got": [
+            "spine_shadow"
+          ]
+        },
+        {
+          "field": "margin_color",
+          "expected": "black",
+          "got": null
         }
       ]
     },
@@ -620,18 +591,43 @@
       "errors": [
         {
           "field": "content_format",
-          "expected": "regular",
-          "got": "no_line"
+          "expected": "no_line",
+          "got": "regular"
         },
         {
-          "field": "border_color",
-          "expected": "red",
-          "got": "black"
+          "field": "font_type",
+          "expected": "handwritten",
+          "got": "printed"
         },
         {
-          "field": "border_wear",
-          "expected": "light",
-          "got": "none"
+          "field": "lines_per_page",
+          "expected": 10,
+          "got": 4
+        },
+        {
+          "field": "chars_per_line",
+          "expected": 25,
+          "got": 18
+        },
+        {
+          "field": "border_style",
+          "expected": "single",
+          "got": "hsingle_vdouble"
+        },
+        {
+          "field": "interferences",
+          "expected": [
+            "spine_shadow",
+            "margin"
+          ],
+          "got": [
+            "spine_shadow"
+          ]
+        },
+        {
+          "field": "margin_color",
+          "expected": "black",
+          "got": null
         }
       ]
     },
@@ -642,17 +638,32 @@
         {
           "field": "content_format",
           "expected": "regular",
-          "got": "no_line"
+          "got": "table"
         },
         {
-          "field": "border_color",
-          "expected": "red",
-          "got": "black"
+          "field": "chars_per_line",
+          "expected": 13,
+          "got": 17
         },
         {
-          "field": "border_wear",
-          "expected": "light",
-          "got": "none"
+          "field": "border_style",
+          "expected": "single",
+          "got": "double"
+        },
+        {
+          "field": "interferences",
+          "expected": [
+            "spine_shadow",
+            "margin"
+          ],
+          "got": [
+            "spine_shadow"
+          ]
+        },
+        {
+          "field": "margin_color",
+          "expected": "black",
+          "got": null
         }
       ]
     },
@@ -661,14 +672,34 @@
       "description": "文房十二友，未裁全页，黑白，单边框，密排约12行",
       "errors": [
         {
-          "field": "border_color",
-          "expected": "red",
-          "got": "black"
+          "field": "content_format",
+          "expected": "regular",
+          "got": "table"
         },
         {
-          "field": "border_wear",
-          "expected": "light",
-          "got": "none"
+          "field": "lines_per_page",
+          "expected": 6,
+          "got": 7
+        },
+        {
+          "field": "chars_per_line",
+          "expected": 15,
+          "got": 19
+        },
+        {
+          "field": "interferences",
+          "expected": [
+            "spine_shadow",
+            "margin"
+          ],
+          "got": [
+            "spine_shadow"
+          ]
+        },
+        {
+          "field": "margin_color",
+          "expected": "black",
+          "got": null
         }
       ]
     },
@@ -679,7 +710,7 @@
         {
           "field": "content_format",
           "expected": "regular",
-          "got": "no_line"
+          "got": "table"
         },
         {
           "field": "font_type",
@@ -687,14 +718,34 @@
           "got": "handwritten"
         },
         {
-          "field": "border_color",
-          "expected": "red",
-          "got": "black"
+          "field": "lines_per_page",
+          "expected": 4,
+          "got": 6
         },
         {
-          "field": "border_wear",
-          "expected": "light",
-          "got": "none"
+          "field": "chars_per_line",
+          "expected": 8,
+          "got": 16
+        },
+        {
+          "field": "border_style",
+          "expected": "single",
+          "got": "double"
+        },
+        {
+          "field": "interferences",
+          "expected": [
+            "spine_shadow",
+            "margin"
+          ],
+          "got": [
+            "spine_shadow"
+          ]
+        },
+        {
+          "field": "margin_color",
+          "expected": "black",
+          "got": null
         }
       ]
     },
@@ -703,29 +754,49 @@
       "description": "隂海陽海二圖，医学插图页（人体脏腑图），米色底",
       "errors": [
         {
+          "field": "banxin_position",
+          "expected": "right",
+          "got": "left"
+        },
+        {
           "field": "content_format",
-          "expected": "regular",
-          "got": "no_line"
+          "expected": "illustration",
+          "got": "regular"
         },
         {
-          "field": "font_type",
-          "expected": "printed",
-          "got": "handwritten"
+          "field": "lines_per_page",
+          "expected": 7,
+          "got": 10
         },
         {
-          "field": "border_color",
-          "expected": "red",
-          "got": "black"
+          "field": "fixed_chars_per_line",
+          "expected": false,
+          "got": true
+        },
+        {
+          "field": "background_color",
+          "expected": "other",
+          "got": "xuan"
         },
         {
           "field": "border_style",
-          "expected": "double",
-          "got": "hsingle_vdouble"
+          "expected": "single",
+          "got": "double"
         },
         {
-          "field": "border_wear",
-          "expected": "light",
-          "got": "none"
+          "field": "interferences",
+          "expected": [
+            "spine_shadow",
+            "margin"
+          ],
+          "got": [
+            "spine_shadow"
+          ]
+        },
+        {
+          "field": "margin_color",
+          "expected": "black",
+          "got": null
         }
       ]
     },
@@ -739,14 +810,29 @@
           "got": "handwritten"
         },
         {
-          "field": "border_color",
-          "expected": "red",
-          "got": "black"
+          "field": "chars_per_line",
+          "expected": 12,
+          "got": 14
         },
         {
-          "field": "border_wear",
-          "expected": "light",
-          "got": "none"
+          "field": "border_style",
+          "expected": "single",
+          "got": "hsingle_vdouble"
+        },
+        {
+          "field": "interferences",
+          "expected": [
+            "spine_shadow",
+            "margin"
+          ],
+          "got": [
+            "spine_shadow"
+          ]
+        },
+        {
+          "field": "margin_color",
+          "expected": "black",
+          "got": null
         }
       ]
     },
@@ -755,24 +841,34 @@
       "description": "古樂府目录+正文混排，未裁全页，黑白，单边框",
       "errors": [
         {
-          "field": "content_format",
-          "expected": "regular",
-          "got": "no_line"
+          "field": "lines_per_page",
+          "expected": 9,
+          "got": 10
         },
         {
-          "field": "font_type",
-          "expected": "printed",
-          "got": "handwritten"
+          "field": "chars_per_line",
+          "expected": 18,
+          "got": 20
         },
         {
-          "field": "border_color",
-          "expected": "red",
-          "got": "black"
+          "field": "has_marginal_notes",
+          "expected": false,
+          "got": true
         },
         {
-          "field": "border_wear",
-          "expected": "light",
-          "got": "none"
+          "field": "interferences",
+          "expected": [
+            "spine_shadow",
+            "margin"
+          ],
+          "got": [
+            "spine_shadow"
+          ]
+        },
+        {
+          "field": "margin_color",
+          "expected": "black",
+          "got": null
         }
       ]
     },
@@ -782,18 +878,33 @@
       "errors": [
         {
           "field": "content_format",
-          "expected": "regular",
-          "got": "no_line"
+          "expected": "no_line",
+          "got": "regular"
         },
         {
-          "field": "border_color",
-          "expected": "red",
-          "got": "black"
+          "field": "border_style",
+          "expected": "double",
+          "got": "hsingle_vdouble"
         },
         {
           "field": "border_wear",
-          "expected": "light",
-          "got": "none"
+          "expected": "medium",
+          "got": "light"
+        },
+        {
+          "field": "interferences",
+          "expected": [
+            "spine_shadow",
+            "margin"
+          ],
+          "got": [
+            "spine_shadow"
+          ]
+        },
+        {
+          "field": "margin_color",
+          "expected": "black",
+          "got": null
         }
       ]
     },
@@ -807,14 +918,34 @@
           "got": "no_line"
         },
         {
-          "field": "border_color",
-          "expected": "red",
-          "got": "black"
+          "field": "lines_per_page",
+          "expected": 8,
+          "got": 9
         },
         {
-          "field": "border_wear",
-          "expected": "light",
-          "got": "none"
+          "field": "chars_per_line",
+          "expected": 19,
+          "got": 16
+        },
+        {
+          "field": "border_style",
+          "expected": "hsingle_vdouble",
+          "got": "single"
+        },
+        {
+          "field": "interferences",
+          "expected": [
+            "spine_shadow",
+            "margin"
+          ],
+          "got": [
+            "spine_shadow"
+          ]
+        },
+        {
+          "field": "margin_color",
+          "expected": "black",
+          "got": null
         }
       ]
     },
@@ -823,24 +954,44 @@
       "description": "婦人良方大全，未裁全页，黄色底有夹注，双边框，密排",
       "errors": [
         {
-          "field": "content_format",
-          "expected": "regular",
-          "got": "no_line"
+          "field": "banxin_position",
+          "expected": "left",
+          "got": "right"
         },
         {
-          "field": "font_type",
-          "expected": "printed",
-          "got": "handwritten"
+          "field": "lines_per_page",
+          "expected": 11,
+          "got": 10
         },
         {
-          "field": "border_color",
-          "expected": "red",
-          "got": "black"
+          "field": "chars_per_line",
+          "expected": 22,
+          "got": 15
+        },
+        {
+          "field": "border_style",
+          "expected": "hsingle_vdouble",
+          "got": "double"
         },
         {
           "field": "border_wear",
-          "expected": "light",
-          "got": "none"
+          "expected": "none",
+          "got": "light"
+        },
+        {
+          "field": "interferences",
+          "expected": [
+            "spine_shadow",
+            "margin"
+          ],
+          "got": [
+            "spine_shadow"
+          ]
+        },
+        {
+          "field": "margin_color",
+          "expected": "black",
+          "got": null
         }
       ]
     }

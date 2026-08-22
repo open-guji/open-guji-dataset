@@ -6,7 +6,13 @@
 import json
 from pathlib import Path
 
-BENCHMARK_DIR = Path("D:/workspace/open-guji-dataset/book-profile")
+import os
+
+# 仓库根：从本文件位置推导，不写死绝对路径（原先硬编码 D:/workspace/…，
+# 换机器/换平台一律跑不起来）。open-guji-cv 默认取同级兄弟目录，
+# 可用环境变量 GUJI_CV 覆盖。
+REPO = Path(__file__).resolve().parent.parent
+BENCHMARK_DIR = REPO / "book-profile"
 SAMPLES_DIR = BENCHMARK_DIR / "samples"
 RESULTS_DIR = BENCHMARK_DIR / "results"
 
