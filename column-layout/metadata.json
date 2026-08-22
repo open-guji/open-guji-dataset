@@ -1,0 +1,56 @@
+{
+  "name": "column-layout-benchmark",
+  "version": "0.1.0",
+  "schema_version": 1,
+  "description": "行列识别：逐列判别「刚性列 / 弹性列」",
+  "created": "2026-08-22",
+  "status": "可用",
+  "eval_command": "python scripts/eval_layout.py <samples>",
+  "eval_script": "open-guji-cv/scripts/eval_layout.py",
+  "total_samples": 36,
+  "sample_unit": "页",
+  "total_columns": 322,
+  "sources": ["06061300.cn（卷首一~四）", "06061301.cn（卷一）"],
+  "edition": "wuyingdian-siku-zongmu 武英殿刻本《欽定四庫全書總目》",
+  "problem": "原先版式识别只输出一个标量 chars_per_line，把两个刚性程度完全不同的维度压成一个数。实测横向（列数、列位置）在职名页与正文页同样刚性（列间距变异系数 1.4%~2.4%），弹性只发生在纵向。一页之内不同列可以分属两种排布，所以判别必须做到列级。",
+  "label_definition": {
+    "rigid": "字距 = 1×格高。判据是字距，不是字数也不是相位：只有几个字后面全空仍是 rigid（目录页大量如此）；抬头列整体相位偏移但字距未变，也是 rigid。",
+    "elastic": "字距 ≠ 1×格高。两种子型都常见：拉开（职名官衔 ~3.5×）与压缩（长标题挤进同列 ~0.5×）。",
+    "blank": "整列无字。由墨量客观判定，不进分类指标。",
+    "uncertain": "人工也判不准（题名页大字、抬头列字太少）。评测跳过，宁可样本少也不灌噪声。"
+  },
+  "label_method": "人工目视。把纯刚性格线（书级 cell_h + 页相位）叠在列上，看红线落在字间（rigid）还是穿字而过／字数与格数对不上（elastic）。",
+  "label_origin_values": ["human"],
+  "provenance_fields": ["source_item", "pipeline_version", "label_origin"],
+  "column_distribution": {"rigid": 185, "elastic": 106, "blank": 9, "uncertain": 22},
+  "metrics": [
+    {"name": "elastic_f1", "type": "float", "direction": "higher_is_better",
+     "description": "主指标。elastic 是少数类（约 36%），全判 rigid 也能拿到高准确率却毫无用处，所以主指标取 F1 而非准确率"},
+    {"name": "layout_acc", "type": "float", "direction": "higher_is_better",
+     "description": "列型分类准确率，参考用"},
+    {"name": "n_cols_exact_pages", "type": "int", "direction": "higher_is_better",
+     "description": "列数完全正确的页数（横向刚性，硬约束）"},
+    {"name": "n_chars_exact_rate", "type": "float", "direction": "higher_is_better",
+     "description": "每列字数完全正确的列占比。金标 n_chars 为可选，未标注时该指标为 null"}
+  ],
+  "stratification": "必须按 page_class 分层报告。正文页占语料约 80%，职名/目录页才是增益来源，混在一起平均会互相掩盖。",
+  "sample_files": {
+    "image.png": "页图（预处理后，与 segment 的输入一致）",
+    "expected.json": "PageLayout 格式的金标（见 open_guji_cv/clustering/layout_spec.py）"
+  },
+  "baseline": {
+    "measured_on": "36 页 / 291 计分列（跳过 9 空列 + 22 存疑列）",
+    "pipeline": "cells_from_components 的隐式回退（先试弹性、证据不足退回刚性）",
+    "overall": {"layout_acc": 0.825, "elastic_precision": 0.73,
+                "elastic_recall": 0.82, "elastic_f1": 0.77},
+    "by_page_class": {
+      "body": {"n_cols": 108, "layout_acc": 0.963},
+      "toc": {"n_cols": 63, "layout_acc": 0.587},
+      "roster": {"n_cols": 106, "layout_acc": 0.821,
+                 "elastic_precision": 1.0, "elastic_recall": 0.82},
+      "edict": {"n_cols": 14, "layout_acc": 0.857}
+    },
+    "n_cols_exact_pages": "36/36"
+  },
+  "notes": "基线最大的短板是目录页（58.7%，63 列里 26 列把 rigid 误判成 elastic）——目录列字少、卷次与书名之间有整数个空格，被当成了职名页的拉开列。职名页则是精确率满分但召回 0.82，漏判 19 列。横向列数 36/36 全对，印证了「横向刚性」的结论。"
+}
