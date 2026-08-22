@@ -50,7 +50,7 @@ python scripts/eval_instance_quality.py ../open-guji-dataset/char-segmentation/i
 
 | 层 | flags | 缺陷召回 | 误报 | 精确 | 用途 |
 |---|---|---|---|---|---|
-| 确定层 | `rule_bar` `edge_blob` `frame_bars` | 73% | **0%** | **100%** | 成因明确，下游直接自动处理 |
+| 确定层 | `rule_bar` `edge_blob` `frame_bars` | 55% | **0%** | **100%** | 成因明确，下游直接自动处理 |
 | ＋疑似层 | `wide_gap` `boundary_ink` | **100%** | 19% | 52% | 送人工审查队列 |
 
 合成一个数字会同时掩盖两件事：确定层能不能免检地用，以及审查队列会被

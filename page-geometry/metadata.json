@@ -1,0 +1,108 @@
+{
+  "name": "page-geometry",
+  "version": "0.1.0",
+  "schema_version": 1,
+  "description": "版面几何：界行竖线在三个高度上的位置，用于标定与评测页面形变（错切/射影）与列距列相位",
+  "created": "2026-08-22",
+  "status": "可用",
+  "eval_command": "cd open-guji-cv && python scripts/eval_geometry.py <dataset>",
+  "eval_script": "open-guji-cv/scripts/eval_geometry.py",
+  "total_samples": 39,
+  "sample_unit": "页",
+  "sources": [
+    "06061300.cn（武英殿刻本《欽定四庫全書總目》卷首一~四）"
+  ],
+  "label_origin_values": [
+    "human"
+  ],
+  "page_class_distribution": {
+    "body": 26,
+    "mixed": 9,
+    "roster": 4
+  },
+  "book_distribution": {
+    "vol01": 20,
+    "vol02": 19
+  },
+  "gold_definition": "每条界行/版框竖线在页高 16%/50%/84% 三处的 x。候选由「这条横带里有没有一根够长的黑竖线」这个弱判据自动生成，逐页人工目视确认（39 页全部核对：标出的线都落在真界行上，无误标；界行漫漶的页检出条数少，只影响样本量不影响正确性）。",
+  "why_gold_does_not_go_stale": "金标是**界行在图像里的位置**——图像自身的性质，算法怎么改它都在原地。对照 char-segmentation/instances 的 page:col:idx：那个一重跑切分就漂，实测两轮分别废掉 15 个和 59 个标注，只能反复重标。",
+  "why_three_heights": "一条线记三个点，同时钉住三件事：它在哪（列边界的直接证据）、它斜不斜（三点不齐=有错切残余）、全页的线是平行还是收敛（斜率随 x 系统变化=射影）。只记中点的话，后两件事没法判——而它们正是「该做错切校正还是该上射影矫正」的判据。",
+  "metrics": [
+    {
+      "name": "rule_in_col",
+      "type": "float",
+      "direction": "lower_is_better",
+      "description": "主指标。金标界行采样点落进管线列框内部的比例——下游「图块混入界行竖线」的直接前因，有因果链而非代理量"
+    },
+    {
+      "name": "residual_tilt",
+      "type": "float",
+      "direction": "lower_is_better",
+      "description": "对金标点施加管线声明的几何变换（grid.shear）后，同一条界行三个 x 的极差（px）——直接衡量矫正做干净没有，与列拟合无关"
+    },
+    {
+      "name": "projective_span",
+      "type": "float",
+      "direction": "diagnostic",
+      "description": "逐条界行斜率随 x 的系统变化。错切下为 0，射影下非 0。不打分，用于判断要不要上射影矫正"
+    },
+    {
+      "name": "foreshortening",
+      "type": "float",
+      "direction": "diagnostic",
+      "description": "列距沿 x 的系统变化占列距的比例——射影的第二个独立证据"
+    }
+  ],
+  "baseline": {
+    "measured_on": "39 页 353 条界行（1059 个采样点）",
+    "pipeline": "segment（残余错切校正 + 界行吸附 + 界行定列距 + 书级列距共识）",
+    "rule_in_col": 0.0529,
+    "pages_clean": 30,
+    "pages_bad": 3,
+    "residual_tilt_median": 4.0,
+    "residual_tilt_p90": 8.5,
+    "n_cols_exact_pages": 36,
+    "by_page_class": {
+      "body": {
+        "n_pages": 26,
+        "rule_in_col": 0.0108,
+        "pages_clean": 23
+      },
+      "mixed": {
+        "n_pages": 9,
+        "rule_in_col": 0.1756,
+        "pages_clean": 3
+      },
+      "roster": {
+        "n_pages": 4,
+        "rule_in_col": 0.0,
+        "pages_clean": 4
+      }
+    }
+  },
+  "finding_projective": {
+    "question": "残余形变是错切还是射影？要不要按内边框四角做单应矫正？",
+    "answer": "要。错切与列距两个问题修掉之后，**剩余失败集中在射影形变的页上**——3 张坏页全部是射影页，且列距渐变与失败率强相关。",
+    "evidence": {
+      "corr_foreshortening_vs_rule_in_col": 0.591,
+      "corr_projective_span_vs_rule_in_col": 0.031,
+      "corr_slope_scatter_vs_rule_in_col": 0.28,
+      "n_projective_pages": 16,
+      "rule_in_col_on_projective_pages": 0.102,
+      "rule_in_col_on_non_projective_pages": 0.019,
+      "projective_pages_with_zero_failures": 10,
+      "bad_pages_projective": 3,
+      "bad_pages_non_projective": 0,
+      "bad_pages": [
+        "vol01/166",
+        "vol01/174",
+        "vol01/198"
+      ]
+    },
+    "necessary_not_sufficient": "16 张射影页里有 10 张零失败——射影是失败的**必要不充分**条件。所以矫正的收益上限是那 3 张坏页（全书 rule_in_col 5.29% → ~1%），不是全部射影页。",
+    "measurement_caveat": "这个结论是在两册切分都刷新之后得到的。此前用未同步的 vol02 网格算过一版，得到的相关系数是 −0.09（看起来射影无关）——**上游没对齐时相关性分析会给出相反的结论**，跑这类分析前必须确认所有分册的产物是同一版。",
+    "残余侵入有多深": "被圈进列框的界行采样点中位探入 7.5px、64% <10px。界行本身宽 5px，多数是贴边级浅侵入；靠加余量继续压要拿列宽换（现列宽 119.8px、格高 114.4px，只剩 5px 余量），所以下一步应该是矫正几何而不是加余量。"
+  },
+  "known_limitation": "1) 界行漫漶的页只能检出 5~7 条（如 vol02/136、vol02/28），样本量小、指标方差大；2) 封面/题名页界行不足 3 条，直接排除在数据集外（vol01/3）；3) rule_in_col 以界行**中心**是否在框内计，宽 5px 的界行中心刚进框时实际只有 ~2.5px 墨在框内，指标略偏严。",
+  "next_step": "按内边框四角（或更稳健地：竖线灭点 + 横线灭点）估单应，把版面矫成矩形。本数据集可直接评测它：矫正后重跑 eval，看 rule_in_col 与 residual_tilt 降多少，以及 3 张坏页是否转清。收益上限已知（5.29% → ~1%），不必凭感觉。"
+}

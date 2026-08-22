@@ -1,17 +1,6 @@
 [
  {
   "book": "vol01",
-  "page": "168",
-  "col": 2,
-  "idx": 6,
-  "quality": "clean",
-  "layout": "rigid",
-  "seed": "hist_contaminated",
-  "label_origin": "human",
-  "schema_version": 1
- },
- {
-  "book": "vol01",
   "page": "138",
   "col": 1,
   "idx": 5,
@@ -562,12 +551,23 @@
  },
  {
   "book": "vol01",
-  "page": "65",
-  "col": 4,
-  "idx": 10,
+  "page": "113",
+  "col": 8,
+  "idx": 6,
   "quality": "clean",
   "layout": "rigid",
-  "seed": "rigid_random",
+  "seed": "hist_truncated",
+  "label_origin": "human",
+  "schema_version": 1
+ },
+ {
+  "book": "vol01",
+  "page": "188",
+  "col": 8,
+  "idx": 3,
+  "quality": "clean",
+  "layout": "rigid",
+  "seed": "hist_contaminated",
   "label_origin": "human",
   "schema_version": 1
  },
@@ -584,34 +584,12 @@
  },
  {
   "book": "vol01",
-  "page": "188",
-  "col": 8,
-  "idx": 3,
-  "quality": "contaminated",
-  "layout": "rigid",
-  "seed": "hist_contaminated",
-  "label_origin": "human",
-  "schema_version": 1
- },
- {
-  "book": "vol01",
   "page": "87",
   "col": 1,
   "idx": 18,
   "quality": "contaminated",
   "layout": "rigid",
   "seed": "hist_contaminated",
-  "label_origin": "human",
-  "schema_version": 1
- },
- {
-  "book": "vol01",
-  "page": "113",
-  "col": 8,
-  "idx": 6,
-  "quality": "contaminated",
-  "layout": "rigid",
-  "seed": "hist_truncated",
   "label_origin": "human",
   "schema_version": 1
  },
@@ -634,6 +612,28 @@
   "quality": "contaminated",
   "layout": "rigid",
   "seed": "hist_truncated",
+  "label_origin": "human",
+  "schema_version": 1
+ },
+ {
+  "book": "vol01",
+  "page": "168",
+  "col": 2,
+  "idx": 6,
+  "quality": "contaminated",
+  "layout": "rigid",
+  "seed": "hist_contaminated",
+  "label_origin": "human",
+  "schema_version": 1
+ },
+ {
+  "book": "vol01",
+  "page": "65",
+  "col": 4,
+  "idx": 10,
+  "quality": "contaminated",
+  "layout": "rigid",
+  "seed": "rigid_random",
   "label_origin": "human",
   "schema_version": 1
  },
