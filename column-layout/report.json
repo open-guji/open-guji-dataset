@@ -4,12 +4,12 @@
   "n_cols": 291,
   "n_skipped": 31,
   "n_cols_exact_pages": 36,
-  "layout_acc": 0.8247,
-  "elastic_precision": 0.7311,
-  "elastic_recall": 0.8208,
-  "elastic_f1": 0.7733,
+  "layout_acc": 0.8969,
+  "elastic_precision": 0.9419,
+  "elastic_recall": 0.7642,
+  "elastic_f1": 0.8438,
   "elastic_gold": 106,
-  "elastic_pred": 119,
+  "elastic_pred": 86,
   "n_chars_scored": 0,
   "n_chars_exact_rate": null,
   "n_chars_mae": null
@@ -20,12 +20,12 @@
    "n_cols": 108,
    "n_skipped": 0,
    "n_cols_exact_pages": 12,
-   "layout_acc": 0.963,
+   "layout_acc": 1.0,
    "elastic_precision": 0.0,
    "elastic_recall": 0.0,
    "elastic_f1": 0.0,
    "elastic_gold": 0,
-   "elastic_pred": 4,
+   "elastic_pred": 0,
    "n_chars_scored": 0,
    "n_chars_exact_rate": null,
    "n_chars_mae": null
@@ -50,12 +50,12 @@
    "n_cols": 14,
    "n_skipped": 4,
    "n_cols_exact_pages": 2,
-   "layout_acc": 0.8571,
+   "layout_acc": 1.0,
    "elastic_precision": 0.0,
    "elastic_recall": 0.0,
    "elastic_f1": 0.0,
    "elastic_gold": 0,
-   "elastic_pred": 2,
+   "elastic_pred": 0,
    "n_chars_scored": 0,
    "n_chars_exact_rate": null,
    "n_chars_mae": null
@@ -80,12 +80,12 @@
    "n_cols": 106,
    "n_skipped": 0,
    "n_cols_exact_pages": 12,
-   "layout_acc": 0.8208,
+   "layout_acc": 0.7642,
    "elastic_precision": 1.0,
-   "elastic_recall": 0.8208,
-   "elastic_f1": 0.9016,
+   "elastic_recall": 0.7642,
+   "elastic_f1": 0.8663,
    "elastic_gold": 106,
-   "elastic_pred": 87,
+   "elastic_pred": 81,
    "n_chars_scored": 0,
    "n_chars_exact_rate": null,
    "n_chars_mae": null
@@ -95,12 +95,12 @@
    "n_cols": 63,
    "n_skipped": 0,
    "n_cols_exact_pages": 7,
-   "layout_acc": 0.5873,
+   "layout_acc": 0.9206,
    "elastic_precision": 0.0,
    "elastic_recall": 0.0,
    "elastic_f1": 0.0,
    "elastic_gold": 0,
-   "elastic_pred": 26,
+   "elastic_pred": 5,
    "n_chars_scored": 0,
    "n_chars_exact_rate": null,
    "n_chars_mae": null
@@ -354,9 +354,9 @@
    "n_cols_pred": 8,
    "n_cols_exact": true,
    "n_shared": 8,
-   "tp": 8,
+   "tp": 7,
    "fp": 0,
-   "fn": 0,
+   "fn": 1,
    "tn": 0,
    "n_chars_exact": 0,
    "n_chars_abs_err": 0,
@@ -401,9 +401,9 @@
     {
      "index": 4,
      "gold": "elastic",
-     "pred": "elastic",
+     "pred": "rigid",
      "gold_n_chars": null,
-     "pred_n_chars": 7
+     "pred_n_chars": 12
     },
     {
      "index": 3,
@@ -429,9 +429,9 @@
    "n_cols_pred": 9,
    "n_cols_exact": true,
    "n_shared": 9,
-   "tp": 9,
+   "tp": 8,
    "fp": 0,
-   "fn": 0,
+   "fn": 1,
    "tn": 0,
    "n_chars_exact": 0,
    "n_chars_abs_err": 0,
@@ -497,9 +497,9 @@
     {
      "index": 1,
      "gold": "elastic",
-     "pred": "elastic",
+     "pred": "rigid",
      "gold_n_chars": null,
-     "pred_n_chars": 7
+     "pred_n_chars": 12
     }
    ]
   },
@@ -511,9 +511,9 @@
    "n_cols_pred": 9,
    "n_cols_exact": true,
    "n_shared": 9,
-   "tp": 9,
+   "tp": 7,
    "fp": 0,
-   "fn": 0,
+   "fn": 2,
    "tn": 0,
    "n_chars_exact": 0,
    "n_chars_abs_err": 0,
@@ -523,14 +523,14 @@
     {
      "index": 9,
      "gold": "elastic",
-     "pred": "elastic",
+     "pred": "rigid",
      "gold_n_chars": null,
-     "pred_n_chars": 13
+     "pred_n_chars": 11
     },
     {
      "index": 8,
      "gold": "elastic",
-     "pred": "elastic",
+     "pred": "rigid",
      "gold_n_chars": null,
      "pred_n_chars": 11
     },
@@ -1022,9 +1022,9 @@
    "n_cols_exact": true,
    "n_shared": 9,
    "tp": 0,
-   "fp": 4,
+   "fp": 2,
    "fn": 0,
-   "tn": 5,
+   "tn": 7,
    "n_chars_exact": 0,
    "n_chars_abs_err": 0,
    "n_chars_scored": 0,
@@ -1075,9 +1075,9 @@
     {
      "index": 3,
      "gold": "rigid",
-     "pred": "elastic",
+     "pred": "rigid",
      "gold_n_chars": null,
-     "pred_n_chars": 11
+     "pred_n_chars": 8
     },
     {
      "index": 2,
@@ -1089,7 +1089,7 @@
     {
      "index": 1,
      "gold": "rigid",
-     "pred": "elastic",
+     "pred": "rigid",
      "gold_n_chars": null,
      "pred_n_chars": 7
     }
@@ -1104,9 +1104,9 @@
    "n_cols_exact": true,
    "n_shared": 9,
    "tp": 0,
-   "fp": 3,
+   "fp": 0,
    "fn": 0,
-   "tn": 6,
+   "tn": 9,
    "n_chars_exact": 0,
    "n_chars_abs_err": 0,
    "n_chars_scored": 0,
@@ -1136,42 +1136,42 @@
     {
      "index": 6,
      "gold": "rigid",
-     "pred": "elastic",
+     "pred": "rigid",
      "gold_n_chars": null,
-     "pred_n_chars": 8
+     "pred_n_chars": 10
     },
     {
      "index": 5,
-     "gold": "rigid",
-     "pred": "elastic",
-     "gold_n_chars": null,
-     "pred_n_chars": 8
-    },
-    {
-     "index": 4,
-     "gold": "rigid",
-     "pred": "rigid",
-     "gold_n_chars": null,
-     "pred_n_chars": 11
-    },
-    {
-     "index": 3,
      "gold": "rigid",
      "pred": "rigid",
      "gold_n_chars": null,
      "pred_n_chars": 9
     },
     {
-     "index": 2,
+     "index": 4,
      "gold": "rigid",
      "pred": "rigid",
      "gold_n_chars": null,
      "pred_n_chars": 12
     },
     {
+     "index": 3,
+     "gold": "rigid",
+     "pred": "rigid",
+     "gold_n_chars": null,
+     "pred_n_chars": 8
+    },
+    {
+     "index": 2,
+     "gold": "rigid",
+     "pred": "rigid",
+     "gold_n_chars": null,
+     "pred_n_chars": 11
+    },
+    {
      "index": 1,
      "gold": "rigid",
-     "pred": "elastic",
+     "pred": "rigid",
      "gold_n_chars": null,
      "pred_n_chars": 10
     }
@@ -1186,9 +1186,9 @@
    "n_cols_exact": true,
    "n_shared": 9,
    "tp": 0,
-   "fp": 2,
+   "fp": 0,
    "fn": 0,
-   "tn": 7,
+   "tn": 9,
    "n_chars_exact": 0,
    "n_chars_abs_err": 0,
    "n_chars_scored": 0,
@@ -1204,9 +1204,9 @@
     {
      "index": 8,
      "gold": "rigid",
-     "pred": "elastic",
+     "pred": "rigid",
      "gold_n_chars": null,
-     "pred_n_chars": 11
+     "pred_n_chars": 9
     },
     {
      "index": 7,
@@ -1232,7 +1232,7 @@
     {
      "index": 4,
      "gold": "rigid",
-     "pred": "elastic",
+     "pred": "rigid",
      "gold_n_chars": null,
      "pred_n_chars": 10
     },
@@ -1268,9 +1268,9 @@
    "n_cols_exact": true,
    "n_shared": 9,
    "tp": 0,
-   "fp": 8,
+   "fp": 2,
    "fn": 0,
-   "tn": 1,
+   "tn": 7,
    "n_chars_exact": 0,
    "n_chars_abs_err": 0,
    "n_chars_scored": 0,
@@ -1279,44 +1279,44 @@
     {
      "index": 9,
      "gold": "rigid",
-     "pred": "elastic",
+     "pred": "rigid",
      "gold_n_chars": null,
      "pred_n_chars": 11
     },
     {
      "index": 8,
      "gold": "rigid",
-     "pred": "elastic",
+     "pred": "rigid",
      "gold_n_chars": null,
-     "pred_n_chars": 18
+     "pred_n_chars": 15
     },
     {
      "index": 7,
      "gold": "rigid",
-     "pred": "elastic",
+     "pred": "rigid",
      "gold_n_chars": null,
-     "pred_n_chars": 8
+     "pred_n_chars": 11
     },
     {
      "index": 6,
      "gold": "rigid",
-     "pred": "elastic",
+     "pred": "rigid",
      "gold_n_chars": null,
      "pred_n_chars": 14
     },
     {
      "index": 5,
      "gold": "rigid",
-     "pred": "elastic",
+     "pred": "rigid",
      "gold_n_chars": null,
-     "pred_n_chars": 9
+     "pred_n_chars": 12
     },
     {
      "index": 4,
      "gold": "rigid",
-     "pred": "elastic",
+     "pred": "rigid",
      "gold_n_chars": null,
-     "pred_n_chars": 14
+     "pred_n_chars": 15
     },
     {
      "index": 3,
@@ -1350,9 +1350,9 @@
    "n_cols_exact": true,
    "n_shared": 9,
    "tp": 0,
-   "fp": 3,
+   "fp": 1,
    "fn": 0,
-   "tn": 6,
+   "tn": 8,
    "n_chars_exact": 0,
    "n_chars_abs_err": 0,
    "n_chars_scored": 0,
@@ -1382,9 +1382,9 @@
     {
      "index": 6,
      "gold": "rigid",
-     "pred": "elastic",
+     "pred": "rigid",
      "gold_n_chars": null,
-     "pred_n_chars": 6
+     "pred_n_chars": 9
     },
     {
      "index": 5,
@@ -1410,9 +1410,9 @@
     {
      "index": 2,
      "gold": "rigid",
-     "pred": "elastic",
+     "pred": "rigid",
      "gold_n_chars": null,
-     "pred_n_chars": 7
+     "pred_n_chars": 9
     },
     {
      "index": 1,
@@ -1432,9 +1432,9 @@
    "n_cols_exact": true,
    "n_shared": 9,
    "tp": 0,
-   "fp": 6,
+   "fp": 0,
    "fn": 0,
-   "tn": 3,
+   "tn": 9,
    "n_chars_exact": 0,
    "n_chars_abs_err": 0,
    "n_chars_scored": 0,
@@ -1443,9 +1443,9 @@
     {
      "index": 9,
      "gold": "rigid",
-     "pred": "elastic",
+     "pred": "rigid",
      "gold_n_chars": null,
-     "pred_n_chars": 9
+     "pred_n_chars": 12
     },
     {
      "index": 8,
@@ -1457,9 +1457,9 @@
     {
      "index": 7,
      "gold": "rigid",
-     "pred": "elastic",
+     "pred": "rigid",
      "gold_n_chars": null,
-     "pred_n_chars": 10
+     "pred_n_chars": 11
     },
     {
      "index": 6,
@@ -1471,23 +1471,23 @@
     {
      "index": 5,
      "gold": "rigid",
-     "pred": "elastic",
+     "pred": "rigid",
      "gold_n_chars": null,
-     "pred_n_chars": 10
+     "pred_n_chars": 12
     },
     {
      "index": 4,
      "gold": "rigid",
-     "pred": "elastic",
+     "pred": "rigid",
      "gold_n_chars": null,
-     "pred_n_chars": 5
+     "pred_n_chars": 6
     },
     {
      "index": 3,
      "gold": "rigid",
-     "pred": "elastic",
+     "pred": "rigid",
      "gold_n_chars": null,
-     "pred_n_chars": 9
+     "pred_n_chars": 11
     },
     {
      "index": 2,
@@ -1499,9 +1499,9 @@
     {
      "index": 1,
      "gold": "rigid",
-     "pred": "elastic",
+     "pred": "rigid",
      "gold_n_chars": null,
-     "pred_n_chars": 9
+     "pred_n_chars": 10
     }
    ]
   },
@@ -1514,9 +1514,9 @@
    "n_cols_exact": true,
    "n_shared": 9,
    "tp": 0,
-   "fp": 1,
+   "fp": 0,
    "fn": 0,
-   "tn": 8,
+   "tn": 9,
    "n_chars_exact": 0,
    "n_chars_abs_err": 0,
    "n_chars_scored": 0,
@@ -1553,9 +1553,9 @@
     {
      "index": 5,
      "gold": "rigid",
-     "pred": "elastic",
+     "pred": "rigid",
      "gold_n_chars": null,
-     "pred_n_chars": 11
+     "pred_n_chars": 12
     },
     {
      "index": 4,
@@ -1778,9 +1778,9 @@
    "n_cols_exact": true,
    "n_shared": 9,
    "tp": 0,
-   "fp": 1,
+   "fp": 0,
    "fn": 0,
-   "tn": 8,
+   "tn": 9,
    "n_chars_exact": 0,
    "n_chars_abs_err": 0,
    "n_chars_scored": 0,
@@ -1831,9 +1831,9 @@
     {
      "index": 3,
      "gold": "rigid",
-     "pred": "elastic",
+     "pred": "rigid",
      "gold_n_chars": null,
-     "pred_n_chars": 12
+     "pred_n_chars": 13
     },
     {
      "index": 2,
@@ -1860,9 +1860,9 @@
    "n_cols_exact": true,
    "n_shared": 9,
    "tp": 0,
-   "fp": 1,
+   "fp": 0,
    "fn": 0,
-   "tn": 4,
+   "tn": 5,
    "n_chars_exact": 0,
    "n_chars_abs_err": 0,
    "n_chars_scored": 0,
@@ -1885,9 +1885,9 @@
     {
      "index": 6,
      "gold": "rigid",
-     "pred": "elastic",
+     "pred": "rigid",
      "gold_n_chars": null,
-     "pred_n_chars": 20
+     "pred_n_chars": 19
     },
     {
      "index": 2,
@@ -1913,9 +1913,9 @@
    "n_cols_pred": 9,
    "n_cols_exact": true,
    "n_shared": 9,
-   "tp": 3,
+   "tp": 1,
    "fp": 0,
-   "fn": 6,
+   "fn": 8,
    "tn": 0,
    "n_chars_exact": 0,
    "n_chars_abs_err": 0,
@@ -1960,16 +1960,16 @@
     {
      "index": 4,
      "gold": "elastic",
-     "pred": "elastic",
+     "pred": "rigid",
      "gold_n_chars": null,
-     "pred_n_chars": 22
+     "pred_n_chars": 21
     },
     {
      "index": 3,
      "gold": "elastic",
-     "pred": "elastic",
+     "pred": "rigid",
      "gold_n_chars": null,
-     "pred_n_chars": 15
+     "pred_n_chars": 19
     },
     {
      "index": 2,
@@ -2178,9 +2178,9 @@
    "n_cols_exact": true,
    "n_shared": 9,
    "tp": 0,
-   "fp": 2,
+   "fp": 0,
    "fn": 0,
-   "tn": 7,
+   "tn": 9,
    "n_chars_exact": 0,
    "n_chars_abs_err": 0,
    "n_chars_scored": 0,
@@ -2231,9 +2231,9 @@
     {
      "index": 3,
      "gold": "rigid",
-     "pred": "elastic",
+     "pred": "rigid",
      "gold_n_chars": null,
-     "pred_n_chars": 18
+     "pred_n_chars": 19
     },
     {
      "index": 2,
@@ -2245,7 +2245,7 @@
     {
      "index": 1,
      "gold": "rigid",
-     "pred": "elastic",
+     "pred": "rigid",
      "gold_n_chars": null,
      "pred_n_chars": 19
     }
@@ -2588,9 +2588,9 @@
    "n_cols_exact": true,
    "n_shared": 9,
    "tp": 0,
-   "fp": 1,
+   "fp": 0,
    "fn": 0,
-   "tn": 8,
+   "tn": 9,
    "n_chars_exact": 0,
    "n_chars_abs_err": 0,
    "n_chars_scored": 0,
@@ -2599,9 +2599,9 @@
     {
      "index": 9,
      "gold": "rigid",
-     "pred": "elastic",
+     "pred": "rigid",
      "gold_n_chars": null,
-     "pred_n_chars": 6
+     "pred_n_chars": 19
     },
     {
      "index": 8,
