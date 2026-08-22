@@ -8,16 +8,18 @@
 |--------|---------|--------|------|------|
 | [book-profile](doc/book-profile.md) | `recognize-profile` | 24 | 可用 | 古籍版面特征识别（布局、行数、颜色、边框等） |
 | [cut-page](doc/cut-page.md) | `cut` | 18 | 可用 | 页面切分类型检测（垂直/水平/无需切分） |
-| [char-segmentation](doc/char-segmentation.md) | `segment` | 0 | 框架 | 单字分拆（刻本严格网格切分，含特殊排布与负例集） |
+| [column-layout](column-layout) | `segment`（行列识别）| 36 页 / 322 列 | 可用 | 逐列刚性/弹性判别 + 统一输出格式 |
+| [char-segmentation/cells](char-segmentation/cells) | `segment`（格内净化）| 60 | 可用 | 合成逐像素金标：格内墨迹归属 |
+| [char-segmentation/instances](char-segmentation/instances) | `chars`（图块自检）| 67 | 可用 | 真实图块四分类，评管线自检能力 |
 | [char-normalization](doc/char-normalization.md) | `normalize`（纯函数） | 0 | 框架 | 归一化 golden 集（去残余 / 骨架化，逐像素回归） |
 | [char-clustering](doc/char-clustering.md) | `cluster` | 0 | 框架 | 保守聚类 purity 集（含人工反馈难例对） |
 | [char-ocr](doc/char-ocr.md) | `label` / `bench-ocr` | 0 | 框架 | 单字识别 (图块, 金标字)，按册划分 train/test |
 | [context-correction](doc/context-correction.md) | `refine` | 0 | 框架 | 上下文 + LM 纠正（候选冻结） |
 | [collation](doc/collation.md) | `collate`（规划中） | 0 | 框架 | 参考校对：对齐、参考质量 ρ 估计、分歧挖掘 |
 
-后六个数据集是刻本字符识别管线（open-guji-cv Phase 3~6）的模块化拆分，
+其余「框架」状态的数据集是刻本字符识别管线（open-guji-cv Phase 3~6）的模块化拆分，
 规格见 [doc/modules-roadmap.md](doc/modules-roadmap.md)。目前只建了目录
-框架（metadata.json + doc + 占位样本），尚无真实样本。标注主要来源为
+框架（metadata.json + doc + 占位样本），尚无真实样本；上表标「可用」的已有真实样本与基线。标注主要来源为
 整理本对齐自动标注，因此每份 `expected.json` **必须**带三个溯源字段
 `source_item` / `pipeline_version` / `label_origin`（`align` | `human` |
 `synth`）——align 标注有噪声，清洗与分层评测都依赖它。

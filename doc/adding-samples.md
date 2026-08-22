@@ -122,6 +122,41 @@
 标出坏图块）而非切分质量本身——后者的人工标签重跑即失效，当不了可
 自动重跑的回归基准。
 
+### 重跑切分之后：先查漂移，再谈数字
+
+跑完 `segment`/`chars` 之后**不要直接测**。2026-08 的教训：加了列型分类
+重跑切分，2771 个图块内容变了，直接用旧标签测出来的报告自相矛盾
+（官方 benchmark 说 truncated 检出 0%，离线分析说 100%），查下去才发现
+一部分标签已经不对应当前图块了。
+
+固定动作：
+
+```python
+# ① 哪些标注实例的图块变了 / ID 没了
+import json, hashlib
+from pathlib import Path
+gold = json.loads(Path("<dataset>/expected.json").read_text(encoding="utf-8"))
+idx = {}
+for line in open("output/<book>/phase4_chars/index.jsonl", encoding="utf-8"):
+    r = json.loads(line); idx[f"{r['page']}:{r['col']}:{r['idx']}"] = r
+for g in gold:
+    k = f"{g['page']}:{g['col']}:{g['idx']}"
+    if k not in idx:
+        print("ID 已消失", k, g["quality"])          # → 移出标注表
+    else:
+        cur = hashlib.md5(Path("<dataset>/patches"/...).read_bytes()).hexdigest()
+        # 与数据集里存的图块比对；不一致 → 进重标名单
+```
+
+② 把重标名单渲染成判读图，**对着当前图块**重新目视定标；
+③ 改 `LABELS`，重建数据集，再跑 eval；
+④ 把这一轮的变动写进 `metadata.json` 的 `relabel_history` 与 README。
+
+重标本身会带出有价值的信息：那一轮 12 个重标里，有 6 个是**切分变好了**
+（原来的 truncated/not_text/contaminated 现在已是完整干净的本字），代价是
+本批样本从此没有 truncated 实例，截断检测能力暂时无从验证——这条已经
+记进 `known_limitation`。**样本覆盖不到的能力要留痕，不能当作已验证。**
+
 ---
 
 ## char-segmentation/cells（格内净化，合成）
