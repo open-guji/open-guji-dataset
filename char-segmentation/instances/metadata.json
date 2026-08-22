@@ -1,6 +1,6 @@
 {
   "name": "char-instance-quality",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "schema_version": 1,
   "description": "单字图块切分质量：真实图块的实例级四分类标注",
   "created": "2026-08-22",
@@ -8,7 +8,7 @@
   "parent": "char-segmentation",
   "eval_command": "cd open-guji-cv && python scripts/eval_instance_quality.py <dataset>",
   "eval_script": "open-guji-cv/scripts/eval_instance_quality.py",
-  "total_samples": 63,
+  "total_samples": 62,
   "sample_unit": "单字图块",
   "sources": [
     "06061300.cn（武英殿刻本《欽定四庫全書總目》卷首一~四）"
@@ -29,11 +29,11 @@
     "clean": 52,
     "contaminated": 6,
     "truncated": 0,
-    "not_text": 5
+    "not_text": 4
   },
   "layout_distribution": {
     "rigid": 51,
-    "elastic": 12
+    "elastic": 11
   },
   "metrics": [
     {
@@ -56,7 +56,7 @@
     }
   ],
   "baseline": {
-    "measured_on": "63 实例（11 缺陷 / 52 正例）",
+    "measured_on": "62 实例（10 缺陷 / 52 正例）",
     "pipeline_flags": [
       "rule_bar",
       "edge_blob",
@@ -67,7 +67,7 @@
       "bad_seg"
     ],
     "defect_recall": 1.0,
-    "flag_precision": 0.52,
+    "flag_precision": 0.5,
     "false_alarm_rate": 0.19,
     "per_class_recall": {
       "contaminated": 1.0,
@@ -92,7 +92,7 @@
           "edge_blob",
           "frame_bars"
         ],
-        "defect_recall": 0.5455,
+        "defect_recall": 0.6,
         "flag_precision": 1.0,
         "false_alarm_rate": 0.0,
         "note": "成因明确、零误报，下游可直接自动处理"
@@ -144,6 +144,15 @@
       "changed": 61,
       "dropped_ids": [],
       "effect": "61/63 图块内容变化、ID 一个没丢。逐个重核只有 4 个标签要动：168:2:6、65:4:10 由 clean 转 contaminated（右缘吃进整条界行 / 纵向吃进下一个字），113:8:6、188:8:3 由 contaminated 转 clean。缺陷数仍是 11。"
+    },
+    {
+      "date": "2026-08-22",
+      "reason": "segment 加页型闸门 + 列梳子夹逼 + 窄页按实际列数切",
+      "changed": 2,
+      "dropped_ids": [
+        "97:4:9"
+      ],
+      "effect": "只有 2 个图块变了（36:2:3、113:8:6，重看仍是 clean），1 个 ID 消失（97:4:9 所在页改按 8 列切、列内序号前移）。样本 63 → 62，缺陷 11 → 10。"
     }
   ],
   "baseline_history": [
