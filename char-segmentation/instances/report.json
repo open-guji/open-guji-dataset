@@ -1,29 +1,41 @@
 {
  "per_class": {
   "clean": {
-   "n": 46,
-   "n_flagged": 10,
-   "rate": 0.2174
+   "n": 54,
+   "n_flagged": 11,
+   "rate": 0.2037
   },
   "contaminated": {
-   "n": 16,
-   "n_flagged": 13,
-   "rate": 0.8125
+   "n": 5,
+   "n_flagged": 5,
+   "rate": 1.0
   },
   "truncated": {
-   "n": 2,
-   "n_flagged": 0,
-   "rate": 0.0
+   "n": 4,
+   "n_flagged": 4,
+   "rate": 1.0
   },
   "not_text": {
-   "n": 6,
+   "n": 3,
    "n_flagged": 3,
-   "rate": 0.5
+   "rate": 1.0
   }
  },
- "defect_recall": 0.6667,
- "flag_precision": 0.6154,
- "false_alarm_rate": 0.2174,
- "n_defect": 24,
- "n_clean": 46
+ "defect_recall": 1.0,
+ "flag_precision": 0.5217,
+ "false_alarm_rate": 0.2037,
+ "n_defect": 12,
+ "n_clean": 54,
+ "layers": {
+  "certain": {
+   "defect_recall": 0.4167,
+   "flag_precision": 1.0,
+   "false_alarm_rate": 0.0
+  },
+  "all": {
+   "defect_recall": 1.0,
+   "flag_precision": 0.5217,
+   "false_alarm_rate": 0.2037
+  }
+ }
 }
