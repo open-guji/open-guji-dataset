@@ -24,7 +24,11 @@ def run_cut_detect(image_path: Path) -> dict | None:
         shutil.copy2(image_path, Path(tmpdir) / image_path.name)
 
         result = subprocess.run(
-            [sys.executable, "-m", "open_guji_cv", "cut", tmpdir],
+            # -o 指向同一个临时目录：cut 的切分图默认写到
+            # <output>/<输入目录名>，不传就会落进 open-guji-cv/output/tmpXXXX/，
+            # 每跑一次 benchmark 就在仓库里留一堆未跟踪垃圾。
+            [sys.executable, "-m", "open_guji_cv", "-o", tmpdir,
+             "cut", tmpdir],
             capture_output=True,
             text=True,
             cwd=GUJI_CV,
