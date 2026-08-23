@@ -1,9 +1,9 @@
 {
  "source_item": "06061300.cn",
- "pipeline_version": "869f235f2f",
+ "pipeline_version": "502fa04d0c",
  "label_origin": "human",
- "instance_id": "vol02:106:6:11",
- "book": "vol02",
+ "instance_id": "vol01:65:4:10",
+ "book": "vol01",
  "input": "input.png",
  "golden": "golden.png",
  "golden_skeleton": "golden_skeleton.png",
@@ -14,20 +14,20 @@
  },
  "tier": "degraded",
  "tier_detail": {
-  "tier": "clean",
-  "truncated": false,
+  "tier": "degraded",
+  "truncated": true,
   "residue": false,
-  "edge_ink_px": 0,
+  "edge_ink_px": 20,
   "n_foreign": 0,
   "foreign_core_px": 0
  },
  "char": null,
  "status": "known_defect",
- "sampling_cue": "flagged",
+ "sampling_cue": "human_contaminated",
  "extractor_flags": [
-  "edge_blob"
+  "boundary_ink"
  ],
- "ink_ratio": 0.235,
+ "ink_ratio": 0.1958,
  "norm_params": {
   "size": 64,
   "margin_ratio": 0.12,
@@ -35,5 +35,5 @@
   "stroke_width": 3
  },
  "schema_version": 2,
- "defect": "底部横线残留未去（疑与「重」底横粘连，粘连是分级判据的已知盲区，也是去残余的难点）。"
+ "defect": "贯穿「妙」的界行竖线：中位不贴左右边，vline 判据够不着，整条留下。"
 }

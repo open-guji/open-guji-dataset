@@ -1,8 +1,8 @@
 {
  "source_item": "06061300.cn",
- "pipeline_version": "869f235f2f",
+ "pipeline_version": "502fa04d0c",
  "label_origin": "human",
- "instance_id": "vol02:88:6:13",
+ "instance_id": "vol02:179:6:6",
  "book": "vol02",
  "input": "input.png",
  "golden": "golden.png",
@@ -15,23 +15,24 @@
  "tier": "degraded",
  "tier_detail": {
   "tier": "degraded",
-  "truncated": true,
+  "truncated": false,
   "residue": true,
-  "edge_ink_px": 14,
+  "edge_ink_px": 6,
   "n_foreign": 1,
-  "foreign_core_px": 2349
+  "foreign_core_px": 1757
  },
  "char": null,
  "status": "verified",
  "sampling_cue": "residue",
- "extractor_flags": [],
- "ink_ratio": 0.3017,
+ "extractor_flags": [
+  "boundary_ink"
+ ],
+ "ink_ratio": 0.1584,
  "norm_params": {
   "size": 64,
   "margin_ratio": 0.12,
   "noise_area": 6,
   "stroke_width": 3
  },
- "schema_version": 2,
- "note": "跨列图块，同上。"
+ "schema_version": 2
 }

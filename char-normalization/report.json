@@ -1,7 +1,7 @@
 {
  "gate": {
-  "n": 28,
-  "passed": 28,
+  "n": 26,
+  "passed": 26,
   "failed": [],
   "ok": true
  },
@@ -12,10 +12,10 @@
  },
  "by_tier": {
   "clean": {
-   "n": 19,
-   "verified": 19,
+   "n": 17,
+   "verified": 17,
    "known_defect": 0,
-   "gate_passed": 19
+   "gate_passed": 17
   },
   "degraded": {
    "n": 13,
@@ -24,7 +24,7 @@
    "gate_passed": 9
   }
  },
- "n_samples": 32,
+ "n_samples": 30,
  "samples": [
   {
    "sample": "001",
@@ -187,19 +187,9 @@
    "reasons": []
   },
   {
-   "sample": "017",
-   "status": "verified",
-   "tier": "clean",
-   "pixel_diff_ratio": 0.0,
-   "binary_iou": 1.0,
-   "skeleton_endpoint_delta": 0,
-   "passed": true,
-   "reasons": []
-  },
-  {
    "sample": "019",
    "status": "verified",
-   "tier": "clean",
+   "tier": "degraded",
    "pixel_diff_ratio": 0.0,
    "binary_iou": 1.0,
    "skeleton_endpoint_delta": 0,
@@ -228,18 +218,8 @@
   },
   {
    "sample": "022",
-   "status": "known_defect",
-   "tier": "degraded",
-   "pixel_diff_ratio": 0.0,
-   "binary_iou": 1.0,
-   "skeleton_endpoint_delta": 0,
-   "passed": true,
-   "reasons": []
-  },
-  {
-   "sample": "023",
    "status": "verified",
-   "tier": "clean",
+   "tier": "degraded",
    "pixel_diff_ratio": 0.0,
    "binary_iou": 1.0,
    "skeleton_endpoint_delta": 0,
@@ -258,16 +238,6 @@
   },
   {
    "sample": "026",
-   "status": "known_defect",
-   "tier": "degraded",
-   "pixel_diff_ratio": 0.0,
-   "binary_iou": 1.0,
-   "skeleton_endpoint_delta": 0,
-   "passed": true,
-   "reasons": []
-  },
-  {
-   "sample": "027",
    "status": "verified",
    "tier": "degraded",
    "pixel_diff_ratio": 0.0,
@@ -277,7 +247,7 @@
    "reasons": []
   },
   {
-   "sample": "028",
+   "sample": "027",
    "status": "verified",
    "tier": "degraded",
    "pixel_diff_ratio": 0.0,
@@ -297,9 +267,9 @@
    "reasons": []
   },
   {
-   "sample": "031",
+   "sample": "030",
    "status": "verified",
-   "tier": "degraded",
+   "tier": "clean",
    "pixel_diff_ratio": 0.0,
    "binary_iou": 1.0,
    "skeleton_endpoint_delta": 0,
@@ -307,7 +277,7 @@
    "reasons": []
   },
   {
-   "sample": "032",
+   "sample": "031",
    "status": "known_defect",
    "tier": "degraded",
    "pixel_diff_ratio": 0.0,
@@ -328,7 +298,7 @@
   },
   {
    "sample": "034",
-   "status": "verified",
+   "status": "known_defect",
    "tier": "degraded",
    "pixel_diff_ratio": 0.0,
    "binary_iou": 1.0,
@@ -339,6 +309,16 @@
   {
    "sample": "035",
    "status": "verified",
+   "tier": "degraded",
+   "pixel_diff_ratio": 0.0,
+   "binary_iou": 1.0,
+   "skeleton_endpoint_delta": 0,
+   "passed": true,
+   "reasons": []
+  },
+  {
+   "sample": "036",
+   "status": "known_defect",
    "tier": "degraded",
    "pixel_diff_ratio": 0.0,
    "binary_iou": 1.0,

@@ -1,13 +1,13 @@
 {
  "name": "char-normalization-benchmark",
- "version": "0.3.0",
+ "version": "0.4.0",
  "schema_version": 1,
  "description": "字块归一化（去残余 / 骨架化）golden 回归数据集",
  "created": "2026-08-21",
  "status": "可用",
  "eval_command": "cd open-guji-cv && python scripts/eval_normalize.py <dataset>",
  "eval_script": "open-guji-cv/scripts/eval_normalize.py",
- "total_samples": 32,
+ "total_samples": 30,
  "sample_unit": "字块",
  "sources": [
   {
@@ -16,7 +16,7 @@
   },
   {
    "cue": "ink_heavy",
-   "n": 5
+   "n": 4
   },
   {
    "cue": "ink_light",
@@ -24,11 +24,11 @@
   },
   {
    "cue": "residue",
-   "n": 5
+   "n": 4
   },
   {
    "cue": "truncated",
-   "n": 5
+   "n": 3
   },
   {
    "cue": "flagged",
@@ -36,7 +36,7 @@
   },
   {
    "cue": "human_contaminated",
-   "n": 2
+   "n": 4
   }
  ],
  "provenance_fields": [
@@ -116,27 +116,29 @@
  "notes": "归一化是纯函数：golden 图对逐像素/容差回归。骨架是匹配特征而非存储格式，字形库真源永远是原始图。",
  "build_script": "open-guji-cv/scripts/build_normalization_dataset.py",
  "layers": {
-  "verified": 28,
+  "verified": 26,
   "known_defect": 4
  },
- "coverage": "vol01 16 / vol02 16，全部取自 page-type 金标 body 页；每册对半",
+ "coverage": "vol01 14 / vol02 16，全部取自 page-type 金标 body 页（0.2.0 版金标，17 页职名已改判 roster）",
  "gold_definition": "golden = 当前归一化输出，逐张目视确认之后冻结。判据只有一条：归一化有没有做它该做的事（去残余/居中缩放/笔宽归一）；输入本身是坏切分不算归一化的错。确认不通过的进 known_defect 层，不进回归门——绝不能把错的输出冻成 golden",
  "sampling_cue": "线索全部来自归一化之外：ink_ratio/flags 是 extractor 的量，墨色用 Otsu 分出墨迹像素后求均值（不是归一化用的 Sauvola），human_* 直接取 char-segmentation/instances 的人工标签。除 human_* 外每档都要求该格有整理本对齐金标字，否则捞上来的全是版框横条与空格位",
  "baseline": {
   "measured_on": "2026-08-23",
-  "pipeline_version": "869f235（a435d7b P0 修复后的新切分）",
-  "gate": "28/28 通过",
+  "pipeline_version": "502fa04（逐带围栏切分）",
+  "gate": "26/26 通过",
   "by_tier": {
-   "clean": "19 样本 0 缺陷",
+   "clean": "17 样本 0 缺陷",
    "degraded": "13 样本 4 缺陷（全部记账）"
   },
   "defects": {
-   "022": "邻列字残片（左缘竖向笔画带）未去",
-   "026": "版框横线横穿图块中部（不贴上下边），未去",
-   "032": "底部横线残留未去（疑与「重」底横粘连）",
-   "033": "邻字「一」整笔在图块下部核心区内，未去"
+   "031": "「指」下方两条版框横线（不贴下边）未去",
+   "033": "字底部邻行残带未去",
+   "034": "「造」下方一条横线（邻格边线，不贴边）未去",
+   "036": "贯穿「妙」的界行竖线：中位不贴左右边，vline 判据够不着，整条留下"
   },
-  "root_cause": "四个缺陷共同点：残留不贴图块边缘时 remove_edge_specks 够不着（只删贴边组件）；与旧切分上的 024（界行内缩 7px 漏网）同根因"
+  "root_cause": "与前两轮同根因：remove_edge_specks 只删贴边组件，残留不贴边就够不着。036 是最有力的新证据：竖线贯穿字身仍然漏",
+  "dropped_not_char": 6,
+  "drop_note": "6 个剔除样本全是列尾格（idx 18~20）的版框线/邻行残带——residue/truncated 线索按残留量排序天然捞到它们"
  },
  "baseline_history": [
   {
@@ -145,6 +147,27 @@
    "gate": "32/32",
    "known_defect": 3,
    "note": "旧切分上的第一版（35 样本、单层）。不可与新版直接相比：切分重跑后样本全换、加了 tier 双层、抽样线索从 flags 换成 crop_quality"
+  },
+  {
+   "date": "2026-08-23",
+   "label": "a435d7b 切分（P0 修复后）",
+   "baseline": {
+    "measured_on": "2026-08-23",
+    "pipeline_version": "869f235（a435d7b P0 修复后的新切分）",
+    "gate": "28/28 通过",
+    "by_tier": {
+     "clean": "19 样本 0 缺陷",
+     "degraded": "13 样本 4 缺陷（全部记账）"
+    },
+    "defects": {
+     "022": "邻列字残片（左缘竖向笔画带）未去",
+     "026": "版框横线横穿图块中部（不贴上下边），未去",
+     "032": "底部横线残留未去（疑与「重」底横粘连）",
+     "033": "邻字「一」整笔在图块下部核心区内，未去"
+    },
+    "root_cause": "四个缺陷共同点：残留不贴图块边缘时 remove_edge_specks 够不着（只删贴边组件）；与旧切分上的 024（界行内缩 7px 漏网）同根因"
+   },
+   "note": "上游 502fa04（逐带围栏）重跑后样本全换，不可直接相比"
   }
  ],
  "known_limitation": [
@@ -153,13 +176,14 @@
   "只覆盖两册同一版（武英殿刻本）",
   "known_defect 层不进门：缺陷修好时门不变红，报告出现「行为变了」要去更新 golden 与 VERDICTS",
   "粘连盲区：残留与本字笔画粘连时（样本 032），分级判据与去残余算法同时失效",
-  "clean 层零缺陷是在当前切分上抽的；切分再变要重抽重验"
+  "clean 层零缺陷是在当前切分上抽的；切分再变要重抽重验",
+  "列尾格（版式最后一格）是非字块的重灾区：残留类线索高分排序会反复捞到它们，抽样时逐张目视剔除；根治要靠页型/切分层把列尾空格位识别出来"
  ],
  "tiering": {
   "definition": "clean=字完整且无外来残留（缺陷零容忍，出现即 P0）/ degraded=有残留或被切（能不崩、残留尽量去；缺陷记账）",
   "mechanism": "crop_quality.assess_crop 只当抽样线索，最终 tier 逐张目视定（TIER_OVERRIDE 记改判，本轮 2 个）",
   "distribution": {
-   "clean": 19,
+   "clean": 17,
    "degraded": 13
   },
   "defects_by_tier": {

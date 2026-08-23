@@ -1,9 +1,9 @@
 {
  "source_item": "06061300.cn",
- "pipeline_version": "869f235f2f",
+ "pipeline_version": "502fa04d0c",
  "label_origin": "human",
- "instance_id": "vol01:65:4:10",
- "book": "vol01",
+ "instance_id": "vol02:138:6:0",
+ "book": "vol02",
  "input": "input.png",
  "golden": "golden.png",
  "golden_skeleton": "golden_skeleton.png",
@@ -16,23 +16,25 @@
  "tier_detail": {
   "tier": "degraded",
   "truncated": true,
-  "residue": false,
-  "edge_ink_px": 20,
-  "n_foreign": 0,
-  "foreign_core_px": 0
+  "residue": true,
+  "edge_ink_px": 14,
+  "n_foreign": 2,
+  "foreign_core_px": 453
  },
  "char": null,
  "status": "verified",
  "sampling_cue": "human_contaminated",
  "extractor_flags": [
+  "edge_blob",
   "boundary_ink"
  ],
- "ink_ratio": 0.2043,
+ "ink_ratio": 0.2132,
  "norm_params": {
   "size": 64,
   "margin_ratio": 0.12,
   "noise_area": 6,
   "stroke_width": 3
  },
- "schema_version": 2
+ "schema_version": 2,
+ "note": "「易」顶部被切（instances 人工标 contaminated），照常处理即正确。"
 }

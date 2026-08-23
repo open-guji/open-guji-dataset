@@ -1,9 +1,9 @@
 {
  "source_item": "06061300.cn",
- "pipeline_version": "869f235f2f",
+ "pipeline_version": "502fa04d0c",
  "label_origin": "human",
- "instance_id": "vol02:120:2:18",
- "book": "vol02",
+ "instance_id": "vol01:27:8:19",
+ "book": "vol01",
  "input": "input.png",
  "golden": "golden.png",
  "golden_skeleton": "golden_skeleton.png",
@@ -15,20 +15,19 @@
  "tier": "degraded",
  "tier_detail": {
   "tier": "degraded",
-  "truncated": false,
-  "residue": true,
-  "edge_ink_px": 0,
-  "n_foreign": 1,
-  "foreign_core_px": 121
+  "truncated": true,
+  "residue": false,
+  "edge_ink_px": 105,
+  "n_foreign": 0,
+  "foreign_core_px": 0
  },
  "char": null,
  "status": "known_defect",
- "sampling_cue": "flagged",
+ "sampling_cue": "human_contaminated",
  "extractor_flags": [
-  "edge_blob",
   "boundary_ink"
  ],
- "ink_ratio": 0.1821,
+ "ink_ratio": 0.2536,
  "norm_params": {
   "size": 64,
   "margin_ratio": 0.12,
@@ -36,5 +35,5 @@
   "stroke_width": 3
  },
  "schema_version": 2,
- "defect": "邻字「一」整笔在图块下部核心区内，未去。"
+ "defect": "字底部的邻行残带未去（输入本身被切 + 残带，残带是可去的那部分）。"
 }

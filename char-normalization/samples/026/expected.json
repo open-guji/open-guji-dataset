@@ -1,9 +1,9 @@
 {
  "source_item": "06061300.cn",
- "pipeline_version": "869f235f2f",
+ "pipeline_version": "502fa04d0c",
  "label_origin": "human",
- "instance_id": "vol01:40:9:19",
- "book": "vol01",
+ "instance_id": "vol02:100:7:20",
+ "book": "vol02",
  "input": "input.png",
  "golden": "golden.png",
  "golden_skeleton": "golden_skeleton.png",
@@ -17,25 +17,22 @@
   "tier": "degraded",
   "truncated": true,
   "residue": false,
-  "edge_ink_px": 53,
+  "edge_ink_px": 86,
   "n_foreign": 0,
   "foreign_core_px": 0
  },
  "char": null,
- "status": "known_defect",
+ "status": "verified",
  "sampling_cue": "truncated",
  "extractor_flags": [
-  "edge_blob",
-  "boundary_ink",
-  "frame_bars"
+  "boundary_ink"
  ],
- "ink_ratio": 0.2043,
+ "ink_ratio": 0.2199,
  "norm_params": {
   "size": 64,
   "margin_ratio": 0.12,
   "noise_area": 6,
   "stroke_width": 3
  },
- "schema_version": 2,
- "defect": "版框横线横穿图块中部（不贴上下边），未去；字的残半与横线并存。"
+ "schema_version": 2
 }

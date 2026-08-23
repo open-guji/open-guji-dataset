@@ -1,9 +1,9 @@
 {
  "source_item": "06061300.cn",
- "pipeline_version": "869f235f2f",
+ "pipeline_version": "502fa04d0c",
  "label_origin": "human",
- "instance_id": "vol01:90:2:6",
- "book": "vol01",
+ "instance_id": "vol02:6:9:3",
+ "book": "vol02",
  "input": "input.png",
  "golden": "golden.png",
  "golden_skeleton": "golden_skeleton.png",
@@ -15,19 +15,20 @@
  "tier": "degraded",
  "tier_detail": {
   "tier": "degraded",
-  "truncated": true,
+  "truncated": false,
   "residue": true,
-  "edge_ink_px": 26,
+  "edge_ink_px": 0,
   "n_foreign": 1,
-  "foreign_core_px": 498
+  "foreign_core_px": 981
  },
  "char": null,
- "status": "verified",
+ "status": "known_defect",
  "sampling_cue": "human_contaminated",
  "extractor_flags": [
+  "edge_blob",
   "boundary_ink"
  ],
- "ink_ratio": 0.0959,
+ "ink_ratio": 0.1643,
  "norm_params": {
   "size": 64,
   "margin_ratio": 0.12,
@@ -35,5 +36,5 @@
   "stroke_width": 3
  },
  "schema_version": 2,
- "note": "跨列图块（左「文」右「大」各半，instances 人工标 contaminated），仅锁定行为。"
+ "defect": "「造」下方一条横线（邻格边线，不贴边）未去。"
 }

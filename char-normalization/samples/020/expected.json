@@ -1,9 +1,9 @@
 {
  "source_item": "06061300.cn",
- "pipeline_version": "869f235f2f",
+ "pipeline_version": "502fa04d0c",
  "label_origin": "human",
- "instance_id": "vol01:146:8:12",
- "book": "vol01",
+ "instance_id": "vol02:165:8:7",
+ "book": "vol02",
  "input": "input.png",
  "golden": "golden.png",
  "golden_skeleton": "golden_skeleton.png",
@@ -15,23 +15,24 @@
  "tier": "degraded",
  "tier_detail": {
   "tier": "degraded",
-  "truncated": true,
+  "truncated": false,
   "residue": true,
-  "edge_ink_px": 17,
-  "n_foreign": 2,
-  "foreign_core_px": 1553
+  "edge_ink_px": 0,
+  "n_foreign": 3,
+  "foreign_core_px": 1927
  },
  "char": null,
  "status": "verified",
  "sampling_cue": "residue",
- "extractor_flags": [],
- "ink_ratio": 0.2416,
+ "extractor_flags": [
+  "boundary_ink"
+ ],
+ "ink_ratio": 0.2085,
  "norm_params": {
   "size": 64,
   "margin_ratio": 0.12,
   "noise_area": 6,
   "stroke_width": 3
  },
- "schema_version": 2,
- "note": "跨列图块：相邻两列的字各占一半。归一化没有拆列的职责，仅锁定行为；该修的是切分。"
+ "schema_version": 2
 }
