@@ -1,6 +1,6 @@
 {
  "name": "char-clustering-benchmark",
- "version": "0.4.0",
+ "version": "0.5.0",
  "schema_version": 1,
  "description": "保守聚类（同字合并）purity Benchmark 数据集",
  "created": "2026-08-21",
@@ -14,19 +14,21 @@
    "shard": "001-vol01-body",
    "book": "vol01",
    "label_origin": "align",
-   "n_instances": 3001,
-   "n_chars": 975,
-   "n_pages": 19,
-   "n_hard_pairs": 79
+   "carrier": "rapidocr",
+   "n_instances": 3061,
+   "n_chars": 930,
+   "n_pages": 20,
+   "n_hard_pairs": 80
   },
   {
    "shard": "002-vol02-body",
    "book": "vol02",
    "label_origin": "align",
-   "n_instances": 3105,
-   "n_chars": 743,
-   "n_pages": 20,
-   "n_hard_pairs": 80
+   "carrier": "rapidocr",
+   "n_instances": 3025,
+   "n_chars": 757,
+   "n_pages": 21,
+   "n_hard_pairs": 74
   },
   {
    "shard": "003-book9all-human",
@@ -110,17 +112,17 @@
  },
  "notes": "合成 bench（open-guji-cv `guji-cv bench`）保留作冒烟测试，本集是真实 purity 集。3b 的质量几乎完全由 3a 归一化决定，评测时应固定 pipeline_version。",
  "build_script": "open-guji-cv/scripts/build_clustering_dataset.py",
- "n_instances": 6297,
+ "n_instances": 6177,
  "coverage": "两册正文页（page-type 金标 body）中结构一致且能锚定整理本的页，按整页随机抽至每片 3000 实例",
  "sampling_bias": "只覆盖能锚定的页（整理本收录 + 转写够好）：vol01 110 正文页 → 58 页结构一致 → 49 页锚定；vol02 186 → 65 → 35。不是全书真实分布，只能用于同一批样本上比较算法",
- "gold_definition": "字标签一律取自整理本语料（转写只作对齐载体）。equal 段与等长 replace 段都收，insert/delete 段整段丢弃。两道闸门：页结构一致性（全部 (列,格序号) 逐一相同）+ 三条清洗（非汉字 / replace 且 ink_ratio<0.05 / replace 且 frame_bars）",
+ "gold_definition": "字标签一律取自整理本语料（转写只作对齐载体）。equal 段与等长 replace 段都收，insert/delete 段整段丢弃。两道闸门：页结构一致性（全部 (列,格序号) 逐一相同）+ 三条清洗（非汉字 / replace 且 ink_ratio<0.05 / replace 且 frame_bars）。载体为 OCR（rapidocr top1+s2t）后新增采信闸（G5 规则）：replace 段长 ≤3 且两侧各有 ≥2 字 equal 夹住——OCR 载体的长 replace 段位置不可信，实测漏进来的错标全在这里",
  "label_noise": {
   "align": "清洗后抽检 96 张（vol01 equal 32 + vol01 replace 32 + vol02 混合 32）0 误标，95% 置信上界约 3%；清洗前同规模抽检有 3 张误标",
   "human": "glyph_store 的 94 个 propagated 标签逐张复核，11 个对不上（11.7%）→ 8 改标 3 丢弃"
  },
  "baseline": {
   "measured_on": "2026-08-23",
-  "pipeline_version": "23ee9a5（冻结分片）",
+  "pipeline_version": "502fa04（逐带围栏切分）",
   "params": {
    "feature": "hog",
    "verify_method": "coverage",
@@ -128,36 +130,33 @@
    "miss_wmax": 12
   },
   "001-vol01-body": {
-   "purity": 0.999,
-   "purity_num": 2998,
-   "purity_den": 3001,
-   "multi_instance_purity": 0.99348,
-   "fragmentation": 2.8,
-   "singleton_ratio": 0.93,
-   "hard_diff": "39/39",
-   "hard_leak": "15/16",
-   "hard_same": "0/40"
+   "purity": 0.99967,
+   "purity_num": 3060,
+   "purity_den": 3061,
+   "multi_instance_purity": 0.99782,
+   "fragmentation": 3.0032,
+   "singleton_ratio": 0.932,
+   "clean_tier_purity": 0.99966
   },
   "002-vol02-body": {
-   "purity": 1.0,
-   "purity_num": 3105,
-   "purity_den": 3105,
-   "multi_instance_purity": 1.0,
-   "fragmentation": 3.58,
-   "singleton_ratio": 0.892,
-   "hard_diff": "40/40",
-   "hard_leak": "7/7",
-   "hard_same": "0/40"
+   "purity": 0.99934,
+   "purity_num": 3023,
+   "purity_den": 3025,
+   "multi_instance_purity": 0.99687,
+   "fragmentation": 3.4782,
+   "singleton_ratio": 0.9058,
+   "clean_tier_purity": 0.99927
   },
   "003-book9all-human": {
    "purity": 1.0,
    "purity_num": 91,
    "purity_den": 91,
-   "fragmentation": 2.92,
-   "singleton_ratio": 0.771,
-   "hard_same": "10/60"
+   "multi_instance_purity": 1.0,
+   "fragmentation": 2.9167,
+   "singleton_ratio": 0.7714,
+   "clean_tier_purity": 1.0
   },
-  "note": "coverage 判据（有界位移覆盖率+窗口残差）对 overlap 全面 never-make-worse；unsure 带同字边全审可把碎片率压到 1.06/1.17/1.00（open-guji-cv g3g4_error_analysis.md §2.5）"
+  "note": "剩余错并全部定性且无一是聚类新错：羣/詳=equal 偶发错标；彖/象=标签歧义（彖在 PP-OCR 字表外）；一/二=归一化 shallow_tb 吃掉「二」底横（G3 实锤缺陷，实例 vol02:157:2:4）。操作点 (0.992,12) 跨三个切分版本保持 purity>=0.999"
  },
  "baseline_history": [
   {
@@ -248,6 +247,52 @@
     },
     "note_history": "overlap 判据（θ=0.80）的首版基线"
    }
+  },
+  {
+   "date": "2026-08-23",
+   "label": "coverage @ 23ee9a5 冻结分片",
+   "baseline": {
+    "measured_on": "2026-08-23",
+    "pipeline_version": "23ee9a5（冻结分片）",
+    "params": {
+     "feature": "hog",
+     "verify_method": "coverage",
+     "cov_high": 0.992,
+     "miss_wmax": 12
+    },
+    "001-vol01-body": {
+     "purity": 0.999,
+     "purity_num": 2998,
+     "purity_den": 3001,
+     "multi_instance_purity": 0.99348,
+     "fragmentation": 2.8,
+     "singleton_ratio": 0.93,
+     "hard_diff": "39/39",
+     "hard_leak": "15/16",
+     "hard_same": "0/40"
+    },
+    "002-vol02-body": {
+     "purity": 1.0,
+     "purity_num": 3105,
+     "purity_den": 3105,
+     "multi_instance_purity": 1.0,
+     "fragmentation": 3.58,
+     "singleton_ratio": 0.892,
+     "hard_diff": "40/40",
+     "hard_leak": "7/7",
+     "hard_same": "0/40"
+    },
+    "003-book9all-human": {
+     "purity": 1.0,
+     "purity_num": 91,
+     "purity_den": 91,
+     "fragmentation": 2.92,
+     "singleton_ratio": 0.771,
+     "hard_same": "10/60"
+    },
+    "note": "coverage 判据（有界位移覆盖率+窗口残差）对 overlap 全面 never-make-worse；unsure 带同字边全审可把碎片率压到 1.06/1.17/1.00（open-guji-cv g3g4_error_analysis.md §2.5）"
+   },
+   "note": "502fa04 逐带围栏切分 + OCR 载体重建后样本全换，不可直接相比"
   }
  ],
  "known_limitation": [
@@ -258,7 +303,7 @@
   "每分片 3000 实例是抽样（vol01 可标 7947 / vol02 5412），按整页随机、种子固定",
   "字块冻结为归一图，因此默认模式量的是聚类本身；归一化改动要用 --clusters 端到端模式看",
   "tier 是机器分级未逐个目视：判据实测缺陷检出 5/7、clean 误报 2/55，clean 层混着约 3% 漏网退化实例",
-  "本集冻结在 P0 修复之前的切分上（vol02 无标记率当时 44.5%、现在 68.2%），绝对数字与新切分不可比；端到端模式对新产物不可用"
+  "align 标签的载体是 rapidocr top1+s2t（页上 equal 率 ~88%）：equal 层仍可能有偶发 spurious 对齐（实测 羣/詳 1 例 / 3061）；彖 等 PP-OCR 字表外的字（1.20% 结构性天花板）永远不会出现在 equal 层"
  ],
  "relabel_history": [
   {
@@ -293,9 +338,10 @@
   "policy": "clean 层 purity 是硬约束里的硬约束、碎片率优化主要看这层；degraded 层要求不并错（单例化是正确行为）"
  },
  "pipeline_freeze": {
-  "rev": "23ee9a518",
-  "reason": "a435d7b 重跑了全部切分但 phase6 转写没重跑；格高一变 page:col:idx 指向的字就换了人（instances 第九轮实测），旧转写对新图块做对齐是系统性错标",
-  "rebuild": "build 脚本 --pipeline-rev 自动从 git 取当版产物；迁到新切分的前置条件是在新 phase4 上重跑 label/refine"
+  "rev": "502fa04d0c",
+  "carrier": "rapidocr top1 + s2t（output/*/phase4_chars/ocr_carrier.jsonl，与切分同版）",
+  "reason": "载体与切分必须同版；OCR 载体使对齐不再依赖 label 步骤的重跑节奏",
+  "rebuild": "build 脚本 --pipeline-rev 从 git 取当版 phase4（含载体）"
  },
  "hard_pair_origins": {
   "align/confusion": "转写混淆表",

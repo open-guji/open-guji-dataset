@@ -1,32 +1,32 @@
 {
- "pipeline_version": "23ee9a518",
+ "pipeline_version": "502fa04d0c",
  "shards": [
   {
    "shard": "001-vol01-body",
    "page_stats": {
-    "n_pages": 110,
-    "n_structure_ok": 58,
-    "n_anchored": 49,
-    "n_slots_total": 17315,
-    "n_slots_usable_pages": 8012,
-    "n_labeled": 7947,
-    "n_equal": 7177,
-    "n_replace": 770
+    "n_pages": 108,
+    "n_structure_ok": 108,
+    "n_anchored": 78,
+    "n_slots_total": 17252,
+    "n_slots_usable_pages": 12778,
+    "n_labeled": 11446,
+    "n_equal": 10154,
+    "n_replace": 1292
    },
    "cleaned": {
-    "non_han": 10,
-    "blank_replace": 11,
-    "frame_bars_replace": 5
+    "non_han": 11,
+    "blank_replace": 29,
+    "frame_bars_replace": 19
    },
-   "n_instances": 3001,
-   "n_pages": 19,
-   "n_chars": 975,
-   "n_equal": 2754,
-   "n_replace": 247,
-   "n_hard_pairs": 95,
+   "n_instances": 3061,
+   "n_pages": 20,
+   "n_chars": 930,
+   "n_equal": 2713,
+   "n_replace": 348,
+   "n_hard_pairs": 80,
    "tiers": {
-    "clean": 2851,
-    "degraded": 150,
+    "clean": 2901,
+    "degraded": 160,
     "empty": 0
    }
   },
@@ -34,28 +34,28 @@
    "shard": "002-vol02-body",
    "page_stats": {
     "n_pages": 186,
-    "n_structure_ok": 65,
-    "n_anchored": 35,
-    "n_slots_total": 29750,
-    "n_slots_usable_pages": 5546,
-    "n_labeled": 5412,
-    "n_equal": 4962,
-    "n_replace": 450
+    "n_structure_ok": 186,
+    "n_anchored": 142,
+    "n_slots_total": 29815,
+    "n_slots_usable_pages": 23582,
+    "n_labeled": 20257,
+    "n_equal": 17867,
+    "n_replace": 2390
    },
    "cleaned": {
-    "non_han": 14,
-    "blank_replace": 6,
-    "frame_bars_replace": 8
+    "non_han": 12,
+    "blank_replace": 55,
+    "frame_bars_replace": 24
    },
-   "n_instances": 3105,
-   "n_pages": 20,
-   "n_chars": 743,
-   "n_equal": 2874,
-   "n_replace": 231,
-   "n_hard_pairs": 87,
+   "n_instances": 3025,
+   "n_pages": 21,
+   "n_chars": 757,
+   "n_equal": 2667,
+   "n_replace": 358,
+   "n_hard_pairs": 74,
    "tiers": {
-    "clean": 2770,
-    "degraded": 335,
+    "clean": 2742,
+    "degraded": 283,
     "empty": 0
    }
   },

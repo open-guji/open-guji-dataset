@@ -3,42 +3,24 @@
  "shards": {
   "001-vol01-body": {
    "overall": {
-    "purity": 0.999,
-    "purity_num": 2998,
-    "purity_den": 3001,
-    "multi_instance_purity": 0.99348,
+    "purity": 0.99967,
+    "purity_num": 3060,
+    "purity_den": 3061,
+    "multi_instance_purity": 0.99782,
     "multi_instance_num": 457,
-    "multi_instance_den": 460,
-    "fragmentation": 2.801,
-    "n_clusters": 2731,
-    "n_gold_chars": 975,
-    "n_singletons": 2541,
-    "singleton_ratio": 0.9304,
+    "multi_instance_den": 458,
+    "fragmentation": 3.0032,
+    "n_clusters": 2793,
+    "n_gold_chars": 930,
+    "n_singletons": 2603,
+    "singleton_ratio": 0.932,
     "impure_clusters": [
      {
-      "cluster_id": "c00116",
+      "cluster_id": "c00064",
       "size": 2,
       "chars": {
-       "圓": 1,
-       "圖": 1
-      },
-      "n_wrong": 1
-     },
-     {
-      "cluster_id": "c00134",
-      "size": 2,
-      "chars": {
-       "太": 1,
-       "大": 1
-      },
-      "n_wrong": 1
-     },
-     {
-      "cluster_id": "c00182",
-      "size": 2,
-      "chars": {
-       "廣": 1,
-       "贋": 1
+       "羣": 1,
+       "詳": 1
       },
       "n_wrong": 1
      }
@@ -46,33 +28,24 @@
    },
    "strata": {
     "align_op=equal": {
-     "purity": 0.99927,
-     "purity_num": 2752,
-     "purity_den": 2754,
-     "multi_instance_purity": 0.99552,
-     "multi_instance_num": 444,
-     "multi_instance_den": 446,
-     "fragmentation": 2.9271,
-     "n_clusters": 2491,
-     "n_gold_chars": 851,
-     "n_singletons": 2308,
-     "singleton_ratio": 0.9265,
+     "purity": 0.99963,
+     "purity_num": 2712,
+     "purity_den": 2713,
+     "multi_instance_purity": 0.99772,
+     "multi_instance_num": 437,
+     "multi_instance_den": 438,
+     "fragmentation": 3.1649,
+     "n_clusters": 2456,
+     "n_gold_chars": 776,
+     "n_singletons": 2275,
+     "singleton_ratio": 0.9263,
      "impure_clusters": [
       {
-       "cluster_id": "c00116",
+       "cluster_id": "c00064",
        "size": 2,
        "chars": {
-        "圓": 1,
-        "圖": 1
-       },
-       "n_wrong": 1
-      },
-      {
-       "cluster_id": "c00134",
-       "size": 2,
-       "chars": {
-        "太": 1,
-        "大": 1
+        "羣": 1,
+        "詳": 1
        },
        "n_wrong": 1
       }
@@ -80,97 +53,61 @@
     },
     "align_op=replace": {
      "purity": 1.0,
-     "purity_num": 247,
-     "purity_den": 247,
+     "purity_num": 348,
+     "purity_den": 348,
      "multi_instance_purity": 1.0,
-     "multi_instance_num": 10,
-     "multi_instance_den": 10,
-     "fragmentation": 1.4152,
-     "n_clusters": 242,
-     "n_gold_chars": 171,
-     "n_singletons": 237,
-     "singleton_ratio": 0.9793,
+     "multi_instance_num": 8,
+     "multi_instance_den": 8,
+     "fragmentation": 1.5357,
+     "n_clusters": 344,
+     "n_gold_chars": 224,
+     "n_singletons": 340,
+     "singleton_ratio": 0.9884,
      "impure_clusters": []
     },
     "label_origin=align": {
-     "purity": 0.999,
-     "purity_num": 2998,
-     "purity_den": 3001,
-     "multi_instance_purity": 0.99348,
+     "purity": 0.99967,
+     "purity_num": 3060,
+     "purity_den": 3061,
+     "multi_instance_purity": 0.99782,
      "multi_instance_num": 457,
-     "multi_instance_den": 460,
-     "fragmentation": 2.801,
-     "n_clusters": 2731,
-     "n_gold_chars": 975,
-     "n_singletons": 2541,
-     "singleton_ratio": 0.9304,
+     "multi_instance_den": 458,
+     "fragmentation": 3.0032,
+     "n_clusters": 2793,
+     "n_gold_chars": 930,
+     "n_singletons": 2603,
+     "singleton_ratio": 0.932,
      "impure_clusters": [
       {
-       "cluster_id": "c00116",
+       "cluster_id": "c00064",
        "size": 2,
        "chars": {
-        "圓": 1,
-        "圖": 1
-       },
-       "n_wrong": 1
-      },
-      {
-       "cluster_id": "c00134",
-       "size": 2,
-       "chars": {
-        "太": 1,
-        "大": 1
-       },
-       "n_wrong": 1
-      },
-      {
-       "cluster_id": "c00182",
-       "size": 2,
-       "chars": {
-        "廣": 1,
-        "贋": 1
+        "羣": 1,
+        "詳": 1
        },
        "n_wrong": 1
       }
      ]
     },
     "tier=clean": {
-     "purity": 0.99895,
-     "purity_num": 2848,
-     "purity_den": 2851,
-     "multi_instance_purity": 0.99317,
+     "purity": 0.99966,
+     "purity_num": 2900,
+     "purity_den": 2901,
+     "multi_instance_purity": 0.99771,
      "multi_instance_num": 436,
-     "multi_instance_den": 439,
-     "fragmentation": 2.7077,
-     "n_clusters": 2594,
-     "n_gold_chars": 958,
-     "n_singletons": 2412,
-     "singleton_ratio": 0.9298,
+     "multi_instance_den": 437,
+     "fragmentation": 2.9249,
+     "n_clusters": 2647,
+     "n_gold_chars": 905,
+     "n_singletons": 2464,
+     "singleton_ratio": 0.9309,
      "impure_clusters": [
       {
-       "cluster_id": "c00116",
+       "cluster_id": "c00064",
        "size": 2,
        "chars": {
-        "圓": 1,
-        "圖": 1
-       },
-       "n_wrong": 1
-      },
-      {
-       "cluster_id": "c00134",
-       "size": 2,
-       "chars": {
-        "太": 1,
-        "大": 1
-       },
-       "n_wrong": 1
-      },
-      {
-       "cluster_id": "c00182",
-       "size": 2,
-       "chars": {
-        "廣": 1,
-        "贋": 1
+        "羣": 1,
+        "詳": 1
        },
        "n_wrong": 1
       }
@@ -178,35 +115,35 @@
     },
     "tier=degraded": {
      "purity": 1.0,
-     "purity_num": 150,
-     "purity_den": 150,
-     "multi_instance_purity": 0.0,
-     "multi_instance_num": 0,
-     "multi_instance_den": 0,
-     "fragmentation": 1.25,
-     "n_clusters": 150,
-     "n_gold_chars": 120,
-     "n_singletons": 150,
-     "singleton_ratio": 1.0,
+     "purity_num": 160,
+     "purity_den": 160,
+     "multi_instance_purity": 1.0,
+     "multi_instance_num": 4,
+     "multi_instance_den": 4,
+     "fragmentation": 1.2344,
+     "n_clusters": 158,
+     "n_gold_chars": 128,
+     "n_singletons": 156,
+     "singleton_ratio": 0.9873,
      "impure_clusters": []
     }
    },
    "hard_pairs": {
     "overall": {
-     "n": 95,
-     "correct": 54,
-     "accuracy": 0.5684
+     "n": 80,
+     "correct": 40,
+     "accuracy": 0.5
     },
     "by_group": {
      "diff/align/confusion": {
-      "n": 39,
-      "correct": 39,
+      "n": 34,
+      "correct": 34,
       "accuracy": 1.0
      },
      "diff/cluster_leak": {
-      "n": 16,
-      "correct": 15,
-      "accuracy": 0.9375
+      "n": 6,
+      "correct": 6,
+      "accuracy": 1.0
      },
      "same/align/ink_extreme": {
       "n": 40,
@@ -217,144 +154,144 @@
     "n_missing_instances": 0,
     "failures": [
      {
-      "a": "vol01:16:5:1",
-      "b": "vol01:143:1:4",
+      "a": "vol01:16:6:5",
+      "b": "vol01:4:7:7",
       "relation": "same",
       "origin": "align/ink_extreme",
-      "note": "書 墨色 0.146→0.310"
-     },
-     {
-      "a": "vol01:20:3:2",
-      "b": "vol01:155:9:6",
-      "relation": "same",
-      "origin": "align/ink_extreme",
-      "note": "繁 墨色 0.160→0.297"
+      "note": "書 墨色 0.150→0.324"
      },
      {
       "a": "vol01:20:5:3",
-      "b": "vol01:10:9:3",
+      "b": "vol01:4:7:18",
       "relation": "same",
       "origin": "align/ink_extreme",
-      "note": "著 墨色 0.138→0.269"
+      "note": "著 墨色 0.129→0.292"
      },
      {
-      "a": "vol01:55:5:3",
-      "b": "vol01:10:6:2",
+      "a": "vol01:16:8:3",
+      "b": "vol01:4:7:6",
       "relation": "same",
       "origin": "align/ink_extreme",
-      "note": "義 墨色 0.177→0.297"
+      "note": "藏 墨色 0.152→0.303"
      },
      {
-      "a": "vol01:16:9:8",
-      "b": "vol01:10:7:2",
+      "a": "vol01:57:4:7",
+      "b": "vol01:4:6:12",
       "relation": "same",
       "origin": "align/ink_extreme",
-      "note": "爲 墨色 0.117→0.236"
+      "note": "者 墨色 0.135→0.282"
      },
      {
-      "a": "vol01:15:8:13",
-      "b": "vol01:32:9:20",
+      "a": "vol01:55:4:7",
+      "b": "vol01:4:6:7",
       "relation": "same",
       "origin": "align/ink_extreme",
-      "note": "有 墨色 0.119→0.236"
+      "note": "載 墨色 0.162→0.303"
      },
      {
-      "a": "vol01:20:8:16",
-      "b": "vol01:10:5:5",
+      "a": "vol01:42:1:14",
+      "b": "vol01:4:6:3",
       "relation": "same",
       "origin": "align/ink_extreme",
-      "note": "典 墨色 0.134→0.248"
+      "note": "勢 墨色 0.165→0.305"
      },
      {
-      "a": "vol01:55:3:14",
-      "b": "vol01:79:4:1",
+      "a": "vol01:55:7:16",
+      "b": "vol01:4:6:0",
       "relation": "same",
       "origin": "align/ink_extreme",
-      "note": "斷 墨色 0.147→0.259"
+      "note": "類 墨色 0.171→0.311"
      },
      {
-      "a": "vol01:20:9:14",
-      "b": "vol01:10:7:1",
+      "a": "vol01:35:7:15",
+      "b": "vol01:4:6:5",
       "relation": "same",
       "origin": "align/ink_extreme",
-      "note": "集 墨色 0.184→0.290"
+      "note": "能 墨色 0.141→0.279"
      },
      {
-      "a": "vol01:20:2:9",
-      "b": "vol01:10:8:3",
+      "a": "vol01:15:5:0",
+      "b": "vol01:23:6:0",
       "relation": "same",
       "origin": "align/ink_extreme",
-      "note": "若 墨色 0.140→0.244"
+      "note": "上 墨色 0.063→0.194"
      },
      {
-      "a": "vol01:20:2:19",
-      "b": "vol01:155:9:3",
+      "a": "vol01:16:8:8",
+      "b": "vol01:4:7:0",
       "relation": "same",
       "origin": "align/ink_extreme",
-      "note": "篇 墨色 0.188→0.292"
+      "note": "其 墨色 0.110→0.240"
      },
      {
-      "a": "vol01:55:1:17",
-      "b": "vol01:10:5:7",
+      "a": "vol01:20:5:8",
+      "b": "vol01:4:7:2",
       "relation": "same",
       "origin": "align/ink_extreme",
-      "note": "經 墨色 0.147→0.251"
+      "note": "處 墨色 0.144→0.272"
      },
      {
-      "a": "vol01:15:5:18",
-      "b": "vol01:32:6:20",
+      "a": "vol01:57:1:20",
+      "b": "vol01:4:6:10",
       "relation": "same",
       "origin": "align/ink_extreme",
-      "note": "及 墨色 0.114→0.216"
-     },
-     {
-      "a": "vol01:20:4:7",
-      "b": "vol01:10:8:2",
-      "relation": "same",
-      "origin": "align/ink_extreme",
-      "note": "海 墨色 0.148→0.250"
+      "note": "使 墨色 0.136→0.263"
      },
      {
       "a": "vol01:20:9:8",
-      "b": "vol01:24:8:20",
+      "b": "vol01:4:7:4",
       "relation": "same",
       "origin": "align/ink_extreme",
-      "note": "內 墨色 0.102→0.204"
+      "note": "內 墨色 0.096→0.223"
      },
      {
-      "a": "vol01:16:8:5",
-      "b": "vol01:10:8:18",
+      "a": "vol01:20:5:6",
+      "b": "vol01:4:6:8",
       "relation": "same",
       "origin": "align/ink_extreme",
-      "note": "藏 墨色 0.160→0.261"
+      "note": "全 墨色 0.102→0.227"
      },
      {
-      "a": "vol01:16:5:17",
-      "b": "vol01:155:9:2",
+      "a": "vol01:20:5:10",
+      "b": "vol01:4:6:2",
       "relation": "same",
       "origin": "align/ink_extreme",
-      "note": "益 墨色 0.157→0.257"
+      "note": "裁 墨色 0.160→0.282"
      },
      {
-      "a": "vol01:20:1:12",
-      "b": "vol01:10:2:2",
+      "a": "vol01:20:5:14",
+      "b": "vol01:4:6:6",
       "relation": "same",
       "origin": "align/ink_extreme",
-      "note": "於 墨色 0.106→0.207"
+      "note": "悉 墨色 0.167→0.288"
      },
      {
-      "a": "vol01:15:9:7",
-      "b": "vol01:32:9:15",
+      "a": "vol01:16:8:17",
+      "b": "vol01:4:7:5",
       "relation": "same",
       "origin": "align/ink_extreme",
-      "note": "應 墨色 0.144→0.243"
+      "note": "府 墨色 0.129→0.249"
      },
      {
-      "a": "vol01:16:7:10",
-      "b": "vol01:53:2:2",
+      "a": "vol01:25:6:3",
+      "b": "vol01:146:9:3",
       "relation": "same",
       "origin": "align/ink_extreme",
-      "note": "四 墨色 0.112→0.211"
+      "note": "意 墨色 0.158→0.279"
+     },
+     {
+      "a": "vol01:86:5:7",
+      "b": "vol01:4:6:16",
+      "relation": "same",
+      "origin": "align/ink_extreme",
+      "note": "源 墨色 0.165→0.282"
+     },
+     {
+      "a": "vol01:6:8:9",
+      "b": "vol01:4:6:1",
+      "relation": "same",
+      "origin": "align/ink_extreme",
+      "note": "取 墨色 0.140→0.252"
      }
     ]
    },
@@ -372,110 +309,177 @@
     "n_reps": 5,
     "seed": 7
    },
-   "pipeline_version_at_build": "23ee9a518"
+   "pipeline_version_at_build": "502fa04d0c"
   },
   "002-vol02-body": {
    "overall": {
-    "purity": 1.0,
-    "purity_num": 3105,
-    "purity_den": 3105,
-    "multi_instance_purity": 1.0,
-    "multi_instance_num": 732,
-    "multi_instance_den": 732,
-    "fragmentation": 3.5801,
-    "n_clusters": 2660,
-    "n_gold_chars": 743,
-    "n_singletons": 2373,
-    "singleton_ratio": 0.8921,
-    "impure_clusters": []
+    "purity": 0.99934,
+    "purity_num": 3023,
+    "purity_den": 3025,
+    "multi_instance_purity": 0.99687,
+    "multi_instance_num": 638,
+    "multi_instance_den": 640,
+    "fragmentation": 3.4782,
+    "n_clusters": 2633,
+    "n_gold_chars": 757,
+    "n_singletons": 2385,
+    "singleton_ratio": 0.9058,
+    "impure_clusters": [
+     {
+      "cluster_id": "c00028",
+      "size": 4,
+      "chars": {
+       "彖": 3,
+       "象": 1
+      },
+      "n_wrong": 1
+     },
+     {
+      "cluster_id": "c00029",
+      "size": 3,
+      "chars": {
+       "一": 2,
+       "二": 1
+      },
+      "n_wrong": 1
+     }
+    ]
    },
    "strata": {
     "align_op=equal": {
-     "purity": 1.0,
-     "purity_num": 2874,
-     "purity_den": 2874,
-     "multi_instance_purity": 1.0,
-     "multi_instance_num": 713,
-     "multi_instance_den": 713,
-     "fragmentation": 3.721,
-     "n_clusters": 2441,
-     "n_gold_chars": 656,
-     "n_singletons": 2161,
-     "singleton_ratio": 0.8853,
-     "impure_clusters": []
+     "purity": 0.99963,
+     "purity_num": 2666,
+     "purity_den": 2667,
+     "multi_instance_purity": 0.99827,
+     "multi_instance_num": 577,
+     "multi_instance_den": 578,
+     "fragmentation": 3.5664,
+     "n_clusters": 2311,
+     "n_gold_chars": 648,
+     "n_singletons": 2089,
+     "singleton_ratio": 0.9039,
+     "impure_clusters": [
+      {
+       "cluster_id": "c00029",
+       "size": 3,
+       "chars": {
+        "一": 2,
+        "二": 1
+       },
+       "n_wrong": 1
+      }
+     ]
     },
     "align_op=replace": {
      "purity": 1.0,
-     "purity_num": 231,
-     "purity_den": 231,
+     "purity_num": 358,
+     "purity_den": 358,
      "multi_instance_purity": 1.0,
-     "multi_instance_num": 12,
-     "multi_instance_den": 12,
-     "fragmentation": 1.6,
-     "n_clusters": 224,
-     "n_gold_chars": 140,
-     "n_singletons": 219,
-     "singleton_ratio": 0.9777,
+     "multi_instance_num": 48,
+     "multi_instance_den": 48,
+     "fragmentation": 1.8701,
+     "n_clusters": 331,
+     "n_gold_chars": 177,
+     "n_singletons": 310,
+     "singleton_ratio": 0.9366,
      "impure_clusters": []
     },
     "label_origin=align": {
-     "purity": 1.0,
-     "purity_num": 3105,
-     "purity_den": 3105,
-     "multi_instance_purity": 1.0,
-     "multi_instance_num": 732,
-     "multi_instance_den": 732,
-     "fragmentation": 3.5801,
-     "n_clusters": 2660,
-     "n_gold_chars": 743,
-     "n_singletons": 2373,
-     "singleton_ratio": 0.8921,
-     "impure_clusters": []
+     "purity": 0.99934,
+     "purity_num": 3023,
+     "purity_den": 3025,
+     "multi_instance_purity": 0.99687,
+     "multi_instance_num": 638,
+     "multi_instance_den": 640,
+     "fragmentation": 3.4782,
+     "n_clusters": 2633,
+     "n_gold_chars": 757,
+     "n_singletons": 2385,
+     "singleton_ratio": 0.9058,
+     "impure_clusters": [
+      {
+       "cluster_id": "c00028",
+       "size": 4,
+       "chars": {
+        "彖": 3,
+        "象": 1
+       },
+       "n_wrong": 1
+      },
+      {
+       "cluster_id": "c00029",
+       "size": 3,
+       "chars": {
+        "一": 2,
+        "二": 1
+       },
+       "n_wrong": 1
+      }
+     ]
     },
     "tier=clean": {
-     "purity": 1.0,
-     "purity_num": 2770,
-     "purity_den": 2770,
-     "multi_instance_purity": 1.0,
-     "multi_instance_num": 687,
-     "multi_instance_den": 687,
-     "fragmentation": 3.3682,
-     "n_clusters": 2351,
-     "n_gold_chars": 698,
-     "n_singletons": 2083,
-     "singleton_ratio": 0.886,
-     "impure_clusters": []
+     "purity": 0.99927,
+     "purity_num": 2740,
+     "purity_den": 2742,
+     "multi_instance_purity": 0.99661,
+     "multi_instance_num": 588,
+     "multi_instance_den": 590,
+     "fragmentation": 3.3408,
+     "n_clusters": 2382,
+     "n_gold_chars": 713,
+     "n_singletons": 2152,
+     "singleton_ratio": 0.9034,
+     "impure_clusters": [
+      {
+       "cluster_id": "c00028",
+       "size": 4,
+       "chars": {
+        "彖": 3,
+        "象": 1
+       },
+       "n_wrong": 1
+      },
+      {
+       "cluster_id": "c00029",
+       "size": 3,
+       "chars": {
+        "一": 2,
+        "二": 1
+       },
+       "n_wrong": 1
+      }
+     ]
     },
     "tier=degraded": {
      "purity": 1.0,
-     "purity_num": 335,
-     "purity_den": 335,
+     "purity_num": 283,
+     "purity_den": 283,
      "multi_instance_purity": 1.0,
-     "multi_instance_num": 14,
-     "multi_instance_den": 14,
-     "fragmentation": 1.5327,
-     "n_clusters": 328,
-     "n_gold_chars": 214,
-     "n_singletons": 321,
-     "singleton_ratio": 0.9787,
+     "multi_instance_num": 6,
+     "multi_instance_den": 6,
+     "fragmentation": 1.466,
+     "n_clusters": 280,
+     "n_gold_chars": 191,
+     "n_singletons": 277,
+     "singleton_ratio": 0.9893,
      "impure_clusters": []
     }
    },
    "hard_pairs": {
     "overall": {
-     "n": 87,
-     "correct": 47,
-     "accuracy": 0.5402
+     "n": 74,
+     "correct": 34,
+     "accuracy": 0.4595
     },
     "by_group": {
      "diff/align/confusion": {
-      "n": 40,
-      "correct": 40,
+      "n": 28,
+      "correct": 28,
       "accuracy": 1.0
      },
      "diff/cluster_leak": {
-      "n": 7,
-      "correct": 7,
+      "n": 6,
+      "correct": 6,
       "accuracy": 1.0
      },
      "same/align/ink_extreme": {
@@ -487,144 +491,144 @@
     "n_missing_instances": 0,
     "failures": [
      {
-      "a": "vol02:72:5:11",
-      "b": "vol02:5:3:2",
+      "a": "vol02:36:7:16",
+      "b": "vol02:37:1:3",
       "relation": "same",
       "origin": "align/ink_extreme",
-      "note": "之 墨色 0.090→0.266"
-     },
-     {
-      "a": "vol02:25:1:10",
-      "b": "vol02:5:2:16",
-      "relation": "same",
-      "origin": "align/ink_extreme",
-      "note": "如 墨色 0.133→0.304"
-     },
-     {
-      "a": "vol02:56:8:9",
-      "b": "vol02:5:2:18",
-      "relation": "same",
-      "origin": "align/ink_extreme",
-      "note": "字 墨色 0.112→0.261"
-     },
-     {
-      "a": "vol02:56:7:4",
-      "b": "vol02:5:2:17",
-      "relation": "same",
-      "origin": "align/ink_extreme",
-      "note": "一 墨色 0.031→0.177"
+      "note": "書 墨色 0.166→0.302"
      },
      {
       "a": "vol02:56:3:3",
-      "b": "vol02:130:6:0",
+      "b": "vol02:129:4:18",
       "relation": "same",
       "origin": "align/ink_extreme",
-      "note": "易 墨色 0.149→0.293"
+      "note": "易 墨色 0.128→0.261"
      },
      {
-      "a": "vol02:71:1:14",
-      "b": "vol02:93:7:20",
+      "a": "vol02:36:5:17",
+      "b": "vol02:162:2:15",
       "relation": "same",
       "origin": "align/ink_extreme",
-      "note": "成 墨色 0.131→0.274"
+      "note": "漢 墨色 0.162→0.293"
      },
      {
-      "a": "vol02:56:7:1",
-      "b": "vol02:125:9:5",
+      "a": "vol02:56:2:15",
+      "b": "vol02:136:9:19",
       "relation": "same",
       "origin": "align/ink_extreme",
-      "note": "學 墨色 0.126→0.267"
+      "note": "數 墨色 0.162→0.293"
      },
      {
-      "a": "vol02:56:9:16",
-      "b": "vol02:8:7:2",
+      "a": "vol02:173:2:2",
+      "b": "vol02:100:4:14",
       "relation": "same",
       "origin": "align/ink_extreme",
-      "note": "傳 墨色 0.165→0.301"
+      "note": "周 墨色 0.144→0.264"
      },
      {
-      "a": "vol02:25:7:8",
-      "b": "vol02:93:7:19",
+      "a": "vol02:56:3:5",
+      "b": "vol02:100:1:19",
       "relation": "same",
       "origin": "align/ink_extreme",
-      "note": "而 墨色 0.110→0.245"
+      "note": "程 墨色 0.150→0.270"
      },
      {
-      "a": "vol02:56:9:2",
-      "b": "vol02:125:9:10",
+      "a": "vol02:56:4:17",
+      "b": "vol02:129:9:14",
       "relation": "same",
       "origin": "align/ink_extreme",
-      "note": "至 墨色 0.121→0.251"
+      "note": "義 墨色 0.152→0.264"
      },
      {
-      "a": "vol02:8:5:8",
-      "b": "vol02:93:3:20",
+      "a": "vol02:56:2:6",
+      "b": "vol02:136:1:10",
       "relation": "same",
       "origin": "align/ink_extreme",
-      "note": "年 墨色 0.110→0.237"
+      "note": "是 墨色 0.144→0.255"
      },
      {
-      "a": "vol02:56:9:9",
-      "b": "vol02:8:9:6",
+      "a": "vol02:36:7:14",
+      "b": "vol02:36:9:3",
       "relation": "same",
       "origin": "align/ink_extreme",
-      "note": "事 墨色 0.162→0.287"
+      "note": "考 墨色 0.137→0.248"
      },
      {
-      "a": "vol02:56:8:19",
-      "b": "vol02:122:2:16",
+      "a": "vol02:36:7:17",
+      "b": "vol02:37:1:0",
       "relation": "same",
       "origin": "align/ink_extreme",
-      "note": "後 墨色 0.137→0.262"
+      "note": "唐 墨色 0.139→0.248"
      },
      {
-      "a": "vol02:72:3:6",
-      "b": "vol02:122:1:20",
+      "a": "vol02:56:8:6",
+      "b": "vol02:22:3:9",
       "relation": "same",
       "origin": "align/ink_extreme",
-      "note": "進 墨色 0.174→0.298"
+      "note": "撰 墨色 0.148→0.255"
      },
      {
-      "a": "vol02:56:6:3",
-      "b": "vol02:125:7:7",
+      "a": "vol02:61:1:2",
+      "b": "vol02:22:1:2",
       "relation": "same",
       "origin": "align/ink_extreme",
-      "note": "本 墨色 0.120→0.244"
+      "note": "經 墨色 0.143→0.244"
      },
      {
-      "a": "vol02:71:2:17",
-      "b": "vol02:125:9:2",
+      "a": "vol02:127:2:7",
+      "b": "vol02:162:1:2",
       "relation": "same",
       "origin": "align/ink_extreme",
-      "note": "復 墨色 0.162→0.285"
+      "note": "卷 墨色 0.151→0.251"
      },
      {
-      "a": "vol02:71:1:16",
-      "b": "vol02:93:9:9",
+      "a": "vol02:36:9:18",
+      "b": "vol02:136:1:17",
       "relation": "same",
       "origin": "align/ink_extreme",
-      "note": "原 墨色 0.127→0.250"
+      "note": "藝 墨色 0.188→0.286"
      },
      {
-      "a": "vol02:71:9:5",
-      "b": "vol02:93:2:3",
+      "a": "vol02:157:8:8",
+      "b": "vol02:30:1:3",
       "relation": "same",
       "origin": "align/ink_extreme",
-      "note": "卷 墨色 0.155→0.277"
+      "note": "辨 墨色 0.146→0.244"
      },
      {
-      "a": "vol02:71:9:7",
-      "b": "vol02:93:8:10",
+      "a": "vol02:157:8:10",
+      "b": "vol02:167:7:8",
       "relation": "same",
       "origin": "align/ink_extreme",
-      "note": "其 墨色 0.107→0.226"
+      "note": "則 墨色 0.124→0.222"
      },
      {
-      "a": "vol02:62:5:11",
-      "b": "vol02:93:8:19",
+      "a": "vol02:118:2:5",
+      "b": "vol02:162:8:5",
       "relation": "same",
       "origin": "align/ink_extreme",
-      "note": "參 墨色 0.174→0.292"
+      "note": "坤 墨色 0.128→0.226"
+     },
+     {
+      "a": "vol02:129:8:12",
+      "b": "vol02:129:5:18",
+      "relation": "same",
+      "origin": "align/ink_extreme",
+      "note": "下 墨色 0.073→0.169"
+     },
+     {
+      "a": "vol02:136:8:2",
+      "b": "vol02:136:7:19",
+      "relation": "same",
+      "origin": "align/ink_extreme",
+      "note": "同 墨色 0.134→0.230"
+     },
+     {
+      "a": "vol02:56:2:7",
+      "b": "vol02:157:4:10",
+      "relation": "same",
+      "origin": "align/ink_extreme",
+      "note": "也 墨色 0.123→0.218"
      }
     ]
    },
@@ -642,7 +646,7 @@
     "n_reps": 5,
     "seed": 7
    },
-   "pipeline_version_at_build": "23ee9a518"
+   "pipeline_version_at_build": "502fa04d0c"
   },
   "003-book9all-human": {
    "overall": {
@@ -874,7 +878,7 @@
     "n_reps": 5,
     "seed": 7
    },
-   "pipeline_version_at_build": "23ee9a518"
+   "pipeline_version_at_build": "502fa04d0c"
   }
  }
 }
