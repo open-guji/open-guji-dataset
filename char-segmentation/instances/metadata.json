@@ -1,6 +1,6 @@
 {
  "name": "char-instance-quality",
- "version": "0.6.0",
+ "version": "0.6.1",
  "schema_version": 1,
  "description": "单字图块切分质量：真实图块的实例级四分类标注",
  "created": "2026-08-22",
@@ -8,7 +8,7 @@
  "parent": "char-segmentation",
  "eval_command": "cd open-guji-cv && python scripts/eval_instance_quality.py <dataset>",
  "eval_script": "open-guji-cv/scripts/eval_instance_quality.py",
- "total_samples": 66,
+ "total_samples": 65,
  "sample_unit": "单字图块",
  "sources": [
   "06061300.cn（武英殿刻本《欽定四庫全書總目》卷首一~四）"
@@ -26,7 +26,7 @@
   "human"
  ],
  "quality_distribution": {
-  "clean": 54,
+  "clean": 53,
   "contaminated": 5,
   "truncated": 4,
   "not_text": 3
@@ -56,10 +56,10 @@
   }
  ],
  "baseline": {
-  "measured_on": "66 实例（12 缺陷 / 54 正例）",
+  "measured_on": "65 实例（12 缺陷 / 53 正例）",
   "defect_recall": 1.0,
-  "flag_precision": 0.52,
-  "false_alarm_rate": 0.2,
+  "flag_precision": 0.55,
+  "false_alarm_rate": 0.19,
   "per_class_recall": {
    "contaminated": 1.0,
    "truncated": 1.0,
@@ -85,13 +85,13 @@
      "bad_seg"
     ],
     "defect_recall": 1.0,
-    "flag_precision": 0.52,
-    "false_alarm_rate": 0.2
+    "flag_precision": 0.55,
+    "false_alarm_rate": 0.19
    }
   }
  },
  "notes": "**这一版的数字要连着上游一起读。** 缺陷从 17/67 降到 11/63，不是检测器变强了，是**切分本身变好了**——`segment` 加了残余错切校正与界行吸附之后，全书带界行竖线的图块从 23.7% 降到 3.5%（vol02 20.0% → 2.9%）。原来 12 个 contaminated 里有 6 个现在已经是干净的本字。精确率因此从 0.71 掉到 0.52：缺陷基数小了，同样多的误报占比自然升高——这不是退步。\n\n**分层必须分开报。** 确定层（rule_bar / edge_blob / frame_bars）召回 73% 且**零误报**，成因明确，下游可以直接自动处理（剥界行、丢版框格位），不必惊动人；疑似层（wide_gap / boundary_ink）把召回补到 100%，代价是 19% 误报，只该用来排人工审查队列。合成一个数字会同时掩盖两件事：确定层能不能免检地用，以及审查队列会被多少噪声灌满。\n\n**版框横线与「一」字只能到页级分。** 形状上两者的 w/W、h/H、笔画厚度变异全都重叠（旧的 rule_like 判据正因此把 5 个干净的「一」判成了线）。区别在列之外：版框横线横穿整版，「一」字停在本列文字带里。所以 frame_bars 现在也看列框左右两侧还有没有墨。\n\n**新判据 off_center（横向截断）**：墨的横向重心偏离格心的比例。`boundary_ink` 只看上下带，抓得到纵向截断；横向被切时字整个被推到格位一侧，边缘墨量未必高、但重心明显偏。标注集里 clean 最大 0.088、横向截断的 3 个实例是 0.148~0.339，没有重叠；阈值 0.15，全书命中 3.1%(vol01)/1.4%(vol02)，随机抽 18 个目视 15 个属实（另 2 个是空格位，由别的 flag 覆盖）。加它之后截断检出 4/6 → **6/6**，而**误报率不变**（仍 17%）。\n\n**第七轮：图块裁切边改按界行走。** 原先图块按**文字带**裁，而文字带是「正常居中字」的范围；职名列的「臣」是小字、贴着界行写，右缘越出文字带中位 15px，于是被静默切掉。改成从文字带往外扩、扩到撞上界行为止之后（vol01 全书 24605 个字格）：被切掉笔画的字格 44.8% → 9.2%，「臣」形字格 79.7% → 35.1%，而 rule_bar 从 47 块只动到 53 块（都是 0.2%）、无标记块 67.7% → 67.0%。关键是围栏的覆盖率必须**分带**统计——整页统计对斜/弯的界行是瞎的，拿它当围栏裁切边会直接穿过界行。",
- "updated": "2026-08-22",
+ "updated": "2026-08-23",
  "relabel_history": [
   {
    "date": "2026-08-22",
@@ -154,6 +154,15 @@
    "changed": 66,
    "dropped_ids": [],
    "effect": "66 个图块全部变宽，ID 一个没丢。逐个重看只有 2 个标签要动：95:1:17 与 109:9:5 由 truncated 转 clean——正是那两个「臣」，右半边回来了。这两个恰是上一轮专为「横向截断」补进来的样本，补样的目的达到了。其余 4 个 truncated 不是横向截断（三个纵向切一半、一个宽字左右都出框），照旧。没有任何图块新增确定层 flag，说明外扩没把界行裹进来。"
+  },
+  {
+   "date": "2026-08-23",
+   "reason": "cells_from_components 的闸门不再重判列型（2 格拉开的官衔列过去判了 elastic 却切不出来 → 回落刚性 → 字被格线腰斩）",
+   "changed": 0,
+   "dropped_ids": [
+    "vol01/95:1:17"
+   ],
+   "effect": "65 个图块内容一个没变，只有 95:1:17 消失——它所在的列正是改判弹性的那种，列内序号重排。样本 66 → 65，缺陷仍 12，检出仍 100%，确定层仍零误报。"
   }
  ],
  "baseline_history": [

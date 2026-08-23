@@ -2,6 +2,15 @@
 
 古籍计算机视觉 Benchmark 数据集，用于评估 [open-guji-cv](https://github.com/open-guji/open-guji-cv) 各阶段命令的识别准确率。
 
+> **要新建一个测试集？先看 [doc/making-datasets.md](doc/making-datasets.md)**
+> ——测什么（能力还是输出）、金标怎么定义、样本怎么抽、报告怎么写，
+> 以及**哪些步骤可以并行开工**。给已有数据集补样本看
+> [doc/adding-samples.md](doc/adding-samples.md)。
+>
+> **当前策略（2026-08 起）：只优化正文页。** 新建数据集要么只收正文页，
+> 要么标出页型分层报。正文页金标见 [page-type](page-type)
+> （`page_type == "body"`，vol01 296 页 / vol02 全书 186 页）。
+
 ## 数据集
 
 | 数据集 | 评估命令 | 样本数 | 状态 | 说明 |
@@ -12,7 +21,7 @@
 | [page-geometry](page-geometry) | `segment`（版面几何）| 39 页 / 353 界行 | 可用 | 页面形变标定：错切/射影、列距列相位 |
 | [column-layout](column-layout) | `segment`（行列识别）| 36 页 / 322 列 | 可用 | 逐列刚性/弹性判别 + 统一输出格式 |
 | [char-segmentation/cells](char-segmentation/cells) | `segment`（格内净化）| 60 | 可用 | 合成逐像素金标：格内墨迹归属 |
-| [char-segmentation/instances](char-segmentation/instances) | `chars`（图块自检）| 66 | 可用 | 真实图块四分类，评管线自检能力 |
+| [char-segmentation/instances](char-segmentation/instances) | `chars`（图块自检）| 65 | 可用 | 真实图块四分类，评管线自检能力 |
 | [char-normalization](doc/char-normalization.md) | `normalize`（纯函数） | 0 | 框架 | 归一化 golden 集（去残余 / 骨架化，逐像素回归） |
 | [char-clustering](doc/char-clustering.md) | `cluster` | 0 | 框架 | 保守聚类 purity 集（含人工反馈难例对） |
 | [char-ocr](doc/char-ocr.md) | `label` / `bench-ocr` | 0 | 框架 | 单字识别 (图块, 金标字)，按册划分 train/test |
