@@ -1,6 +1,6 @@
 {
  "name": "char-instance-quality",
- "version": "0.10.0",
+ "version": "0.11.0",
  "schema_version": 1,
  "description": "单字图块切分质量：真实图块的实例级四分类标注",
  "created": "2026-08-22",
@@ -26,8 +26,8 @@
   "human"
  ],
  "quality_distribution": {
-  "clean": 76,
-  "contaminated": 9,
+  "clean": 77,
+  "contaminated": 8,
   "truncated": 2,
   "not_text": 4
  },
@@ -56,10 +56,10 @@
   }
  ],
  "baseline": {
-  "measured_on": "91 实例（15 缺陷 / 76 正例）；含 16 个 boundary_ink-only 超采样本，误报率因此偏高",
+  "measured_on": "91 实例（14 缺陷 / 77 正例）；含 16 个 boundary_ink-only 超采样本",
   "defect_recall": 1.0,
-  "flag_precision": 0.44,
-  "false_alarm_rate": 0.25,
+  "flag_precision": 0.45,
+  "false_alarm_rate": 0.22,
   "per_class_recall": {
    "contaminated": 1.0,
    "truncated": 1.0,
@@ -72,7 +72,7 @@
      "edge_blob",
      "frame_bars"
     ],
-    "defect_recall": 0.27,
+    "defect_recall": 0.21,
     "flag_precision": 1.0,
     "false_alarm_rate": 0.0
    },
@@ -85,8 +85,8 @@
      "bad_seg"
     ],
     "defect_recall": 1.0,
-    "flag_precision": 0.44,
-    "false_alarm_rate": 0.25
+    "flag_precision": 0.45,
+    "false_alarm_rate": 0.22
    }
   },
   "boundary_ink_only_precision": "16 个单独命中里真缺陷 4 个（25%）——12 个是完整干净的高字，判据混淆「墨顶到边」与「字本来就高」"
@@ -198,6 +198,13 @@
    "changed": 0,
    "dropped_ids": [],
    "effect": "补 30 个（boundary_ink-only 16 / 无标记对照 8 / 多 flag 6）。样本 61 → 91，缺陷 6 → 15。确定层在扩样后回到精确 100% / 零误报（edge_blob 间隙条件站住了）；boundary_ink-only 精确率实测 25%；无标记对照 8 个全干净，没有漏报证据。"
+  },
+  {
+   "date": "2026-08-23",
+   "reason": "第十三轮：逐带围栏（弯界行跟线）+ 外包络裁切 + jiazhu 掩蔽落地，cell_bands 波及 68% 的列",
+   "changed": 83,
+   "dropped_ids": [],
+   "effect": "83/91 内容变化、ID 一个没丢。缺陷 15 个全看 + clean 抽 10：只有 105:5:2 由 contaminated 转 clean（下一字「講」的头不再被裹进来）；66:3:3 格序号换字（購→鏐，仍 clean）。缺陷 15 → 14，检出仍 100%，确定层仍零误报。"
   }
  ],
  "baseline_history": [
