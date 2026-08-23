@@ -10,22 +10,22 @@
  ],
  "build_command": "PYTHONPATH=. python scripts/build_char_ocr_dataset.py output/vol02 --corpus corpus/zongmu_wuyingdian_reference.txt --dataset <dataset> --shard vol02 --max-items 6000",
  "upstream": {
-  "cv_commit": "a948e264b6de",
+  "cv_commit": "afdf99a86301",
   "phase4_chars": "output/vol02/phase4_chars",
   "note": "图块像素已冻结进 crops/；切分有实质改进后应重建本集"
  },
  "coverage": {
   "pages_total": 186,
-  "pages_anchored": 123,
+  "pages_anchored": 178,
   "instances_total": 29790,
-  "gold_items_total": 16808,
-  "excluded_uncertain": 12982,
-  "gold_rate": 0.5642,
+  "gold_items_total": 26484,
+  "excluded_uncertain": 3306,
+  "gold_rate": 0.889,
   "frozen_items": 6000,
   "sampling": "分层降采样至 6000",
   "align_opcode": {
-   "equal": 5136,
-   "replace": 864
+   "equal": 5427,
+   "replace": 573
   },
   "accept_rule": {
    "max_replace_run": 3,
@@ -37,76 +37,76 @@
    "body": 6000
   },
   "flag_layer": {
-   "clean": 3631,
-   "suspect": 2198,
-   "certain_defect": 171
+   "clean": 3163,
+   "suspect": 2529,
+   "certain_defect": 308
   },
   "cluster": {
-   "multi": 2195,
-   "single": 3805
+   "multi": 2517,
+   "single": 3483
   },
-  "variant_items": 174
+  "variant_items": 311
  },
  "sampling_rates": {
   "body|suspect|single|common": {
-   "total": 3085,
-   "sampled": 1748,
-   "rate": 0.5666
+   "total": 5996,
+   "sampled": 1468,
+   "rate": 0.2448
   },
   "body|clean|single|common": {
-   "total": 10934,
-   "sampled": 1748,
-   "rate": 0.1599
+   "total": 15547,
+   "sampled": 1468,
+   "rate": 0.0944
+  },
+  "body|suspect|multi|common": {
+   "total": 980,
+   "sampled": 980,
+   "rate": 1.0
   },
   "body|clean|multi|common": {
-   "total": 2032,
-   "sampled": 1747,
-   "rate": 0.8597
+   "total": 3345,
+   "sampled": 1468,
+   "rate": 0.4389
   },
   "body|certain_defect|single|common": {
-   "total": 141,
-   "sampled": 141,
+   "total": 258,
+   "sampled": 258,
    "rate": 1.0
   },
   "body|clean|single|variant": {
-   "total": 131,
-   "sampled": 131,
-   "rate": 1.0
-  },
-  "body|suspect|multi|common": {
-   "total": 413,
-   "sampled": 413,
-   "rate": 1.0
-  },
-  "body|suspect|single|variant": {
-   "total": 36,
-   "sampled": 36,
-   "rate": 1.0
-  },
-  "body|clean|multi|variant": {
-   "total": 5,
-   "sampled": 5,
+   "total": 213,
+   "sampled": 213,
    "rate": 1.0
   },
   "body|certain_defect|multi|common": {
-   "total": 29,
-   "sampled": 29,
+   "total": 47,
+   "sampled": 47,
    "rate": 1.0
   },
-  "body|suspect|multi|variant": {
-   "total": 1,
-   "sampled": 1,
+  "body|clean|multi|variant": {
+   "total": 14,
+   "sampled": 14,
+   "rate": 1.0
+  },
+  "body|suspect|single|variant": {
+   "total": 73,
+   "sampled": 73,
    "rate": 1.0
   },
   "body|certain_defect|single|variant": {
-   "total": 1,
-   "sampled": 1,
+   "total": 3,
+   "sampled": 3,
+   "rate": 1.0
+  },
+  "body|suspect|multi|variant": {
+   "total": 8,
+   "sampled": 8,
    "rate": 1.0
   }
  },
  "label_stats": {
-  "distinct_chars": 971,
-  "top_chars": "之易其以書不本子而大所有人卷也曰文一則者",
-  "hapax": 393
+  "distinct_chars": 1023,
+  "top_chars": "之易其以書而卷不本子一十所有傳大爲人說曰",
+  "hapax": 425
  }
 }

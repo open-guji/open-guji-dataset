@@ -1,13 +1,13 @@
 {
   "name": "context-correction-benchmark",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "schema_version": 2,
   "description": "上下文 + LM 概率纠正 Benchmark 数据集（候选冻结）",
   "created": "2026-08-21",
   "status": "可用",
   "eval_command": "PYTHONPATH=. python scripts/eval_context_correction.py ../open-guji-dataset/context-correction --general-corpus corpus/external/daizhige_zhaoling.txt --book-corpus corpus/zongmu_wuyingdian_reference.txt --sweep 0,0.25,0.5,0.75,0.9,1.0 --lam 0.65 --surface-pref --max-rival-freq 2",
   "eval_script": "open-guji-cv scripts/eval_context_correction.py",
-  "total_samples": 17558,
+  "total_samples": 18751,
   "sample_unit": "页（目录 = 一页，页内所有列在 columns 数组里；计数单位是槽位）",
   "sources": [
     {
@@ -154,114 +154,62 @@
   "updated": "2026-08-23",
   "build_script": "open-guji-cv scripts/build_context_correction_dataset.py",
   "baseline": {
-    "measured": "2026-08-23",
-    "n_slots": 17558,
+    "measured": "2026-08-23（v5 逐实例候选冻结）",
+    "n_slots": 18751,
     "pages": 129,
-    "columns": 1138,
-    "baseline_top1": 0.8833,
-    "baseline_top1_n": 15509,
-    "gold_in_candidates_rate": 0.9432,
-    "headroom": 0.0599,
+    "candidates_from": "rapidocr5（PP-OCRv5 mobile），unit=instance",
+    "baseline_top1": 0.9227,
+    "baseline_top1_n": 17301,
+    "gold_in_candidates_rate": 0.9812,
+    "headroom": 0.0585,
     "config": {
       "lam": 0.65,
       "order": 3,
       "surface_pref": true,
       "max_rival_freq": 2,
-      "cluster_prior": false,
-      "general_corpus": "殆知阁 史藏/诏令奏议+经世文编+政书+职官 500 万字（opencc s2t 转繁）",
-      "book_corpus": "《总目》整理本，已挖掉测试页窗口 36,290 字",
-      "leak_8gram_vs_test_gold_book": 0.008547,
-      "leak_8gram_vs_test_gold_general": 0.0
+      "cluster_prior": false
     },
     "sweep_book_weight": {
       "0.00 (纯通用)": {
-        "top1": 0.9043,
-        "top1_gain": 0.021,
-        "rescued": 672,
-        "harmed": 303,
-        "harmful_flip_rate": 0.0195
+        "top1": 0.9501,
+        "top1_gain": 0.0275,
+        "harmful_flip_rate": 0.0109
       },
       "0.25": {
-        "top1": 0.9149,
-        "top1_gain": 0.0316,
-        "rescued": 788,
-        "harmed": 234,
-        "harmful_flip_rate": 0.0151
+        "top1": 0.9591,
+        "top1_gain": 0.0364,
+        "harmful_flip_rate": 0.0066
       },
       "0.50": {
-        "top1": 0.9161,
-        "top1_gain": 0.0328,
-        "rescued": 801,
-        "harmed": 225,
-        "harmful_flip_rate": 0.0145
+        "top1": 0.9599,
+        "top1_gain": 0.0373,
+        "harmful_flip_rate": 0.0066
       },
       "0.75": {
-        "top1": 0.9168,
-        "top1_gain": 0.0335,
-        "rescued": 801,
-        "harmed": 213,
-        "harmful_flip_rate": 0.0137
+        "top1": 0.9594,
+        "top1_gain": 0.0367,
+        "harmful_flip_rate": 0.0072
       },
       "0.90": {
-        "top1": 0.916,
-        "top1_gain": 0.0327,
-        "rescued": 795,
-        "harmed": 220,
-        "harmful_flip_rate": 0.0142
+        "top1": 0.9595,
+        "top1_gain": 0.0368,
+        "harmful_flip_rate": 0.0076
       },
       "1.00 (纯本书)": {
-        "top1": 0.91,
-        "top1_gain": 0.0267,
-        "rescued": 747,
-        "harmed": 279,
-        "harmful_flip_rate": 0.018
+        "top1": 0.9559,
+        "top1_gain": 0.0332,
+        "harmful_flip_rate": 0.0098
       }
     },
     "glyph_layer_immutability": true,
-    "ablation_mechanisms": {
-      "note": "本书权重固定 0.75，λ=0.65",
-      "仅 LM 混合": {
-        "top1_gain": 0.0236,
-        "rescued": 609,
-        "harmed": 195,
-        "harmful_flip_rate": 0.0126
-      },
-      "+本版用字习惯(无闸门)": {
-        "top1_gain": 0.0268,
-        "rescued": 804,
-        "harmed": 334,
-        "harmful_flip_rate": 0.0215
-      },
-      "+本版用字习惯(闸门 0)": {
-        "top1_gain": 0.033,
-        "rescued": 787,
-        "harmed": 207,
-        "harmful_flip_rate": 0.0133
-      },
-      "+本版用字习惯(闸门 2，默认)": {
-        "top1_gain": 0.0335,
-        "rescued": 801,
-        "harmed": 213,
-        "harmful_flip_rate": 0.0137
-      },
-      "+本版用字习惯(闸门 10)": {
-        "top1_gain": 0.0321,
-        "rescued": 803,
-        "harmed": 239,
-        "harmful_flip_rate": 0.0154
-      },
-      "再+簇级边缘化(全簇)": {
-        "top1_gain": 0.0308,
-        "rescued": 868,
-        "harmed": 328,
-        "harmful_flip_rate": 0.0211
-      },
-      "再+簇级边缘化(size>=2)": {
-        "top1_gain": 0.0326,
-        "rescued": 813,
-        "harmed": 240,
-        "harmful_flip_rate": 0.0155
-      }
+    "end_to_end_eval_align": {
+      "note": "label(v5)+refine(--general-weight 0.25 --lam 0.65) 后全书真实字准确率",
+      "book9": 0.9393,
+      "vol01": 0.9303,
+      "vol02": 0.9226,
+      "overall": 0.9262,
+      "anchored_chars": 47917,
+      "v4_era_book9": 0.8008
     }
   },
   "baseline_history": [
@@ -270,13 +218,125 @@
       "n_slots": 1404,
       "best_gain": 0.0214,
       "note": "只有 book9 一册，且未含本版用字习惯；样本量与配置都变了，不可直接比"
+    },
+    {
+      "measured": "2026-08-23",
+      "n_slots": 17558,
+      "pages": 129,
+      "columns": 1138,
+      "baseline_top1": 0.8833,
+      "baseline_top1_n": 15509,
+      "gold_in_candidates_rate": 0.9432,
+      "headroom": 0.0599,
+      "config": {
+        "lam": 0.65,
+        "order": 3,
+        "surface_pref": true,
+        "max_rival_freq": 2,
+        "cluster_prior": false,
+        "general_corpus": "殆知阁 史藏/诏令奏议+经世文编+政书+职官 500 万字（opencc s2t 转繁）",
+        "book_corpus": "《总目》整理本，已挖掉测试页窗口 36,290 字",
+        "leak_8gram_vs_test_gold_book": 0.008547,
+        "leak_8gram_vs_test_gold_general": 0.0
+      },
+      "sweep_book_weight": {
+        "0.00 (纯通用)": {
+          "top1": 0.9043,
+          "top1_gain": 0.021,
+          "rescued": 672,
+          "harmed": 303,
+          "harmful_flip_rate": 0.0195
+        },
+        "0.25": {
+          "top1": 0.9149,
+          "top1_gain": 0.0316,
+          "rescued": 788,
+          "harmed": 234,
+          "harmful_flip_rate": 0.0151
+        },
+        "0.50": {
+          "top1": 0.9161,
+          "top1_gain": 0.0328,
+          "rescued": 801,
+          "harmed": 225,
+          "harmful_flip_rate": 0.0145
+        },
+        "0.75": {
+          "top1": 0.9168,
+          "top1_gain": 0.0335,
+          "rescued": 801,
+          "harmed": 213,
+          "harmful_flip_rate": 0.0137
+        },
+        "0.90": {
+          "top1": 0.916,
+          "top1_gain": 0.0327,
+          "rescued": 795,
+          "harmed": 220,
+          "harmful_flip_rate": 0.0142
+        },
+        "1.00 (纯本书)": {
+          "top1": 0.91,
+          "top1_gain": 0.0267,
+          "rescued": 747,
+          "harmed": 279,
+          "harmful_flip_rate": 0.018
+        }
+      },
+      "glyph_layer_immutability": true,
+      "ablation_mechanisms": {
+        "note": "本书权重固定 0.75，λ=0.65",
+        "仅 LM 混合": {
+          "top1_gain": 0.0236,
+          "rescued": 609,
+          "harmed": 195,
+          "harmful_flip_rate": 0.0126
+        },
+        "+本版用字习惯(无闸门)": {
+          "top1_gain": 0.0268,
+          "rescued": 804,
+          "harmed": 334,
+          "harmful_flip_rate": 0.0215
+        },
+        "+本版用字习惯(闸门 0)": {
+          "top1_gain": 0.033,
+          "rescued": 787,
+          "harmed": 207,
+          "harmful_flip_rate": 0.0133
+        },
+        "+本版用字习惯(闸门 2，默认)": {
+          "top1_gain": 0.0335,
+          "rescued": 801,
+          "harmed": 213,
+          "harmful_flip_rate": 0.0137
+        },
+        "+本版用字习惯(闸门 10)": {
+          "top1_gain": 0.0321,
+          "rescued": 803,
+          "harmed": 239,
+          "harmful_flip_rate": 0.0154
+        },
+        "再+簇级边缘化(全簇)": {
+          "top1_gain": 0.0308,
+          "rescued": 868,
+          "harmed": 328,
+          "harmful_flip_rate": 0.0211
+        },
+        "再+簇级边缘化(size>=2)": {
+          "top1_gain": 0.0326,
+          "rescued": 813,
+          "harmed": 240,
+          "harmful_flip_rate": 0.0155
+        }
+      },
+      "note": "v4 候选时代（17,558 槽位）。候选换成 v5 逐实例后基线/召回/headroom 全变，不可直接比"
     }
   ],
   "known_limitation": [
+    "候选来自 rapidocr5（PP-OCRv5 mobile）单一来源；本书权重 0.25~0.9 的差异在噪声内（平台期），具体最优取值本集分辨不出。",
     "**上下文是理想值**：context.prev/next 取相邻列**金标**文本。真实流程里相邻列同样带错，故 top1_gain 是上界。",
     "**本书语料的残余泄漏 0.85%**：测试页窗口已挖掉 36,290 字，但《總目》里本来就有重复的提要套语，8-gram 重合率压不到 0。通用语料对测试页金标是 0.0。",
     "**簇级边缘化在本集上净有害**（−0.27pp，有害翻转 1.37%→2.11%），默认已关。根因是聚类不纯（31.3% 的多元簇不纯），不是这个机制本身没用——聚类质量上去后应重测。",
-    "**候选只来自 rapidocr 一个来源**，没有 vlm / glyph / prior。多来源融合下的行为未验证。",
     "**单书**：三册同属《總目》。跨书泛化完全没测过。",
     "**页是分层抽样的**（vol01/vol02 各 60 页），页型占比不等于全册占比。"
   ]

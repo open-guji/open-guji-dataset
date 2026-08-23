@@ -1,6 +1,6 @@
 {
  "source_item": "vol01",
- "pipeline_version": "a948e264b6de",
+ "pipeline_version": "afdf99a86301",
  "label_origin": "align",
  "split": "test",
  "page": "32",
@@ -15,6 +15,144 @@
    },
    "slots": [
     {
+     "index": 2,
+     "instance_id": "vol01:32:1:2",
+     "cluster_id": "vol01:c12557",
+     "cluster_size": 1,
+     "flags": [],
+     "candidates": [
+      {
+       "char": "害",
+       "prob": 0.9844,
+       "source": "ocr",
+       "semantic": "害",
+       "surface_uncertain": true
+      },
+      {
+       "char": "窖",
+       "prob": 0.0062,
+       "source": "ocr",
+       "semantic": "窌",
+       "surface_uncertain": true
+      },
+      {
+       "char": "舍",
+       "prob": 0.0036,
+       "source": "ocr",
+       "semantic": "舍",
+       "surface_uncertain": true
+      },
+      {
+       "char": "窑",
+       "prob": 0.0032,
+       "source": "ocr",
+       "semantic": "窑",
+       "surface_uncertain": true
+      },
+      {
+       "char": "宝",
+       "prob": 0.0025,
+       "source": "ocr",
+       "semantic": "寶",
+       "surface_uncertain": true
+      }
+     ],
+     "gold": "害",
+     "frozen": true
+    },
+    {
+     "index": 3,
+     "instance_id": "vol01:32:1:3",
+     "cluster_id": "vol01:c12558",
+     "cluster_size": 1,
+     "flags": [],
+     "candidates": [
+      {
+       "char": "具",
+       "prob": 0.999,
+       "source": "ocr",
+       "semantic": "具",
+       "surface_uncertain": true
+      },
+      {
+       "char": "县",
+       "prob": 0.0006,
+       "source": "ocr",
+       "semantic": "縣",
+       "surface_uncertain": true
+      },
+      {
+       "char": "其",
+       "prob": 0.0002,
+       "source": "ocr",
+       "semantic": "其",
+       "surface_uncertain": true
+      },
+      {
+       "char": "真",
+       "prob": 0.0001,
+       "source": "ocr",
+       "semantic": "真",
+       "surface_uncertain": true
+      },
+      {
+       "char": "貝",
+       "prob": 0.0,
+       "source": "ocr",
+       "semantic": "貝",
+       "surface_uncertain": true
+      }
+     ],
+     "gold": "具",
+     "frozen": true
+    },
+    {
+     "index": 4,
+     "instance_id": "vol01:32:1:4",
+     "cluster_id": "vol01:c12559",
+     "cluster_size": 1,
+     "flags": [],
+     "candidates": [
+      {
+       "char": "載",
+       "prob": 0.8153,
+       "source": "ocr",
+       "semantic": "載",
+       "surface_uncertain": true
+      },
+      {
+       "char": "戴",
+       "prob": 0.1144,
+       "source": "ocr",
+       "semantic": "戴",
+       "surface_uncertain": true
+      },
+      {
+       "char": "载",
+       "prob": 0.0619,
+       "source": "ocr",
+       "semantic": "載",
+       "surface_uncertain": true
+      },
+      {
+       "char": "戟",
+       "prob": 0.0062,
+       "source": "ocr",
+       "semantic": "戟",
+       "surface_uncertain": true
+      },
+      {
+       "char": "戰",
+       "prob": 0.0022,
+       "source": "ocr",
+       "semantic": "戰",
+       "surface_uncertain": true
+      }
+     ],
+     "gold": "載",
+     "frozen": true
+    },
+    {
      "index": 5,
      "instance_id": "vol01:32:1:5",
      "cluster_id": "vol01:c12560",
@@ -23,41 +161,87 @@
      "candidates": [
       {
        "char": "本",
-       "prob": 0.9961,
+       "prob": 0.9409,
        "source": "ocr",
        "semantic": "本",
        "surface_uncertain": true
       },
       {
        "char": "木",
-       "prob": 0.0038,
+       "prob": 0.0588,
        "source": "ocr",
        "semantic": "木",
        "surface_uncertain": true
       },
       {
        "char": "太",
-       "prob": 0.0,
+       "prob": 0.0002,
        "source": "ocr",
        "semantic": "太",
        "surface_uncertain": true
       },
       {
-       "char": "苯",
+       "char": "末",
        "prob": 0.0,
        "source": "ocr",
-       "semantic": "苯",
+       "semantic": "末",
        "surface_uncertain": true
       },
       {
-       "char": "體",
+       "char": "ホ",
        "prob": 0.0,
        "source": "ocr",
-       "semantic": "體",
+       "semantic": "ホ",
        "surface_uncertain": true
       }
      ],
      "gold": "本",
+     "frozen": true
+    },
+    {
+     "index": 6,
+     "instance_id": "vol01:32:1:6",
+     "cluster_id": "vol01:c00814",
+     "cluster_size": 2,
+     "flags": [],
+     "candidates": [
+      {
+       "char": "末",
+       "prob": 0.9858,
+       "source": "ocr",
+       "semantic": "末",
+       "surface_uncertain": true
+      },
+      {
+       "char": "未",
+       "prob": 0.0131,
+       "source": "ocr",
+       "semantic": "未",
+       "surface_uncertain": true
+      },
+      {
+       "char": "耒",
+       "prob": 0.0006,
+       "source": "ocr",
+       "semantic": "來",
+       "surface_uncertain": true
+      },
+      {
+       "char": "夫",
+       "prob": 0.0003,
+       "source": "ocr",
+       "semantic": "夫",
+       "surface_uncertain": true
+      },
+      {
+       "char": "来",
+       "prob": 0.0003,
+       "source": "ocr",
+       "semantic": "來",
+       "surface_uncertain": true
+      }
+     ],
+     "gold": "末",
      "frozen": true
     },
     {
@@ -69,37 +253,37 @@
      "candidates": [
       {
        "char": "尤",
-       "prob": 0.9967,
+       "prob": 0.9106,
        "source": "ocr",
        "semantic": "尤",
        "surface_uncertain": true
       },
       {
-       "char": "允",
-       "prob": 0.0028,
-       "source": "ocr",
-       "semantic": "允",
-       "surface_uncertain": true
-      },
-      {
-       "char": "無",
-       "prob": 0.0003,
+       "char": "无",
+       "prob": 0.0828,
        "source": "ocr",
        "semantic": "無",
        "surface_uncertain": true
       },
       {
-       "char": "龍",
-       "prob": 0.0001,
+       "char": "光",
+       "prob": 0.0031,
        "source": "ocr",
-       "semantic": "龍",
+       "semantic": "水",
        "surface_uncertain": true
       },
       {
-       "char": "麾",
-       "prob": 0.0,
+       "char": "元",
+       "prob": 0.0028,
        "source": "ocr",
-       "semantic": "麾",
+       "semantic": "元",
+       "surface_uncertain": true
+      },
+      {
+       "char": "龙",
+       "prob": 0.0007,
+       "source": "ocr",
+       "semantic": "龍",
        "surface_uncertain": true
       }
      ],
@@ -115,37 +299,37 @@
      "candidates": [
       {
        "char": "足",
-       "prob": 0.9998,
+       "prob": 0.9984,
        "source": "ocr",
        "semantic": "足",
        "surface_uncertain": true
       },
       {
        "char": "是",
-       "prob": 0.0001,
+       "prob": 0.0008,
        "source": "ocr",
        "semantic": "是",
        "surface_uncertain": true
       },
       {
-       "char": "促",
-       "prob": 0.0001,
-       "source": "ocr",
-       "semantic": "促",
-       "surface_uncertain": true
-      },
-      {
        "char": "定",
-       "prob": 0.0,
+       "prob": 0.0007,
        "source": "ocr",
        "semantic": "定",
        "surface_uncertain": true
       },
       {
-       "char": "尼",
+       "char": "疋",
+       "prob": 0.0001,
+       "source": "ocr",
+       "semantic": "匹",
+       "surface_uncertain": true
+      },
+      {
+       "char": "尺",
        "prob": 0.0,
        "source": "ocr",
-       "semantic": "尼",
+       "semantic": "尺",
        "surface_uncertain": true
       }
      ],
@@ -160,38 +344,38 @@
      "flags": [],
      "candidates": [
       {
+       "char": "徵",
+       "prob": 0.9504,
+       "source": "ocr",
+       "semantic": "徵",
+       "surface_uncertain": true
+      },
+      {
+       "char": "徴",
+       "prob": 0.0331,
+       "source": "ocr",
+       "semantic": "徴",
+       "surface_uncertain": true
+      },
+      {
+       "char": "征",
+       "prob": 0.009,
+       "source": "ocr",
+       "semantic": "徵",
+       "surface_uncertain": true
+      },
+      {
        "char": "微",
-       "prob": 0.5746,
+       "prob": 0.0061,
        "source": "ocr",
        "semantic": "微",
        "surface_uncertain": true
       },
       {
        "char": "徽",
-       "prob": 0.2653,
+       "prob": 0.0014,
        "source": "ocr",
        "semantic": "徽",
-       "surface_uncertain": true
-      },
-      {
-       "char": "徵",
-       "prob": 0.1301,
-       "source": "ocr",
-       "semantic": "徵",
-       "surface_uncertain": true
-      },
-      {
-       "char": "徹",
-       "prob": 0.0294,
-       "source": "ocr",
-       "semantic": "徹",
-       "surface_uncertain": true
-      },
-      {
-       "char": "征",
-       "prob": 0.0007,
-       "source": "ocr",
-       "semantic": "徵",
        "surface_uncertain": true
       }
      ],
@@ -207,37 +391,37 @@
      "candidates": [
       {
        "char": "我",
-       "prob": 1.0,
+       "prob": 0.9999,
        "source": "ocr",
        "semantic": "我",
        "surface_uncertain": true
       },
       {
-       "char": "峩",
-       "prob": 0.0,
-       "source": "ocr",
-       "semantic": "峩",
-       "surface_uncertain": true
-      },
-      {
-       "char": "戮",
-       "prob": 0.0,
-       "source": "ocr",
-       "semantic": "戮",
-       "surface_uncertain": true
-      },
-      {
        "char": "找",
-       "prob": 0.0,
+       "prob": 0.0001,
        "source": "ocr",
        "semantic": "找",
        "surface_uncertain": true
       },
       {
-       "char": "莪",
+       "char": "戎",
        "prob": 0.0,
        "source": "ocr",
-       "semantic": "莪",
+       "semantic": "戎",
+       "surface_uncertain": true
+      },
+      {
+       "char": "栽",
+       "prob": 0.0,
+       "source": "ocr",
+       "semantic": "栽",
+       "surface_uncertain": true
+      },
+      {
+       "char": "线",
+       "prob": 0.0,
+       "source": "ocr",
+       "semantic": "線",
        "surface_uncertain": true
       }
      ],
@@ -253,37 +437,37 @@
      "candidates": [
       {
        "char": "朝",
-       "prob": 0.9996,
+       "prob": 0.9999,
        "source": "ocr",
        "semantic": "朝",
        "surface_uncertain": true
       },
       {
-       "char": "嘲",
-       "prob": 0.0002,
-       "source": "ocr",
-       "semantic": "嘲",
-       "surface_uncertain": true
-      },
-      {
-       "char": "期",
-       "prob": 0.0001,
-       "source": "ocr",
-       "semantic": "期",
-       "surface_uncertain": true
-      },
-      {
-       "char": "謝",
-       "prob": 0.0001,
-       "source": "ocr",
-       "semantic": "謝",
-       "surface_uncertain": true
-      },
-      {
-       "char": "潮",
+       "char": "翰",
        "prob": 0.0,
        "source": "ocr",
-       "semantic": "潮",
+       "semantic": "翰",
+       "surface_uncertain": true
+      },
+      {
+       "char": "韩",
+       "prob": 0.0,
+       "source": "ocr",
+       "semantic": "韓",
+       "surface_uncertain": true
+      },
+      {
+       "char": "戟",
+       "prob": 0.0,
+       "source": "ocr",
+       "semantic": "戟",
+       "surface_uncertain": true
+      },
+      {
+       "char": "斡",
+       "prob": 0.0,
+       "source": "ocr",
+       "semantic": "斡",
        "surface_uncertain": true
       }
      ],
@@ -295,7 +479,7 @@
   {
    "column_id": "vol01:32:2",
    "context": {
-    "prev": "本尤足徵我朝",
+    "prev": "害具載本末尤足徵我朝",
     "next": "計以怨報德伏讀"
    },
    "slots": [
@@ -311,37 +495,37 @@
      "candidates": [
       {
        "char": "宗",
-       "prob": 0.999,
+       "prob": 0.9995,
        "source": "ocr",
        "semantic": "宗",
        "surface_uncertain": true
       },
       {
-       "char": "完",
-       "prob": 0.0008,
+       "char": "崇",
+       "prob": 0.0005,
        "source": "ocr",
-       "semantic": "完",
+       "semantic": "崇",
        "surface_uncertain": true
       },
       {
        "char": "京",
-       "prob": 0.0001,
+       "prob": 0.0,
        "source": "ocr",
        "semantic": "京",
        "surface_uncertain": true
       },
       {
-       "char": "定",
-       "prob": 0.0001,
+       "char": "景",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "定",
+       "semantic": "景",
        "surface_uncertain": true
       },
       {
-       "char": "寧",
+       "char": "票",
        "prob": 0.0,
        "source": "ocr",
-       "semantic": "寧",
+       "semantic": "票",
        "surface_uncertain": true
       }
      ],
@@ -357,7 +541,7 @@
      "candidates": [
       {
        "char": "行",
-       "prob": 1.0,
+       "prob": 0.9999,
        "source": "ocr",
        "semantic": "行",
        "surface_uncertain": true
@@ -370,24 +554,24 @@
        "surface_uncertain": true
       },
       {
-       "char": "絎",
+       "char": "仃",
        "prob": 0.0,
        "source": "ocr",
-       "semantic": "絎",
+       "semantic": "仃",
        "surface_uncertain": true
       },
       {
-       "char": "街",
+       "char": "亍",
        "prob": 0.0,
        "source": "ocr",
-       "semantic": "街",
+       "semantic": "亍",
        "surface_uncertain": true
       },
       {
-       "char": "銜",
+       "char": "荇",
        "prob": 0.0,
        "source": "ocr",
-       "semantic": "銜",
+       "semantic": "荇",
        "surface_uncertain": true
       }
      ],
@@ -403,37 +587,37 @@
      "candidates": [
       {
        "char": "事",
-       "prob": 0.3334,
+       "prob": 1.0,
        "source": "ocr",
        "semantic": "事",
        "surface_uncertain": true
       },
       {
-       "char": "語",
-       "prob": 0.3332,
+       "char": "筝",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "語",
+       "semantic": "筝",
        "surface_uncertain": true
       },
       {
-       "char": "理",
-       "prob": 0.3332,
+       "char": "寧",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "理",
+       "semantic": "寧",
        "surface_uncertain": true
       },
       {
-       "char": "语",
-       "prob": 0.0001,
+       "char": "丰",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "語",
+       "semantic": "豐",
        "surface_uncertain": true
       },
       {
-       "char": "埋",
-       "prob": 0.0001,
+       "char": "争",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "埋",
+       "semantic": "爭",
        "surface_uncertain": true
       }
      ],
@@ -449,37 +633,37 @@
      "candidates": [
       {
        "char": "正",
-       "prob": 0.6101,
+       "prob": 0.9999,
        "source": "ocr",
        "semantic": "正",
        "surface_uncertain": true
       },
       {
-       "char": "名",
-       "prob": 0.2034,
+       "char": "止",
+       "prob": 0.0001,
        "source": "ocr",
-       "semantic": "名",
+       "semantic": "止",
        "surface_uncertain": true
       },
       {
-       "char": "統",
-       "prob": 0.1844,
+       "char": "亚",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "統",
+       "semantic": "亞",
        "surface_uncertain": true
       },
       {
-       "char": "航",
-       "prob": 0.0017,
+       "char": "证",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "航",
+       "semantic": "證",
        "surface_uncertain": true
       },
       {
-       "char": "统",
-       "prob": 0.0004,
+       "char": "芷",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "統",
+       "semantic": "芷",
        "surface_uncertain": true
       }
      ],
@@ -495,14 +679,14 @@
      "candidates": [
       {
        "char": "大",
-       "prob": 0.9998,
+       "prob": 0.9986,
        "source": "ocr",
        "semantic": "大",
        "surface_uncertain": true
       },
       {
        "char": "天",
-       "prob": 0.0001,
+       "prob": 0.0012,
        "source": "ocr",
        "semantic": "天",
        "surface_uncertain": true
@@ -515,17 +699,17 @@
        "surface_uncertain": true
       },
       {
-       "char": "木",
+       "char": "人",
        "prob": 0.0,
        "source": "ocr",
-       "semantic": "木",
+       "semantic": "人",
        "surface_uncertain": true
       },
       {
-       "char": "女",
+       "char": "ナ",
        "prob": 0.0,
        "source": "ocr",
-       "semantic": "女",
+       "semantic": "ナ",
        "surface_uncertain": true
       }
      ],
@@ -541,37 +725,37 @@
      "candidates": [
       {
        "char": "光",
-       "prob": 1.0,
+       "prob": 0.9998,
        "source": "ocr",
        "semantic": "水",
        "surface_uncertain": true
       },
       {
-       "char": "先",
-       "prob": 0.0,
+       "char": "北",
+       "prob": 0.0001,
        "source": "ocr",
-       "semantic": "先",
+       "semantic": "北",
        "surface_uncertain": true
       },
       {
-       "char": "米",
-       "prob": 0.0,
+       "char": "兆",
+       "prob": 0.0001,
        "source": "ocr",
-       "semantic": "米",
+       "semantic": "兆",
        "surface_uncertain": true
       },
       {
-       "char": "尤",
+       "char": "火",
        "prob": 0.0,
        "source": "ocr",
-       "semantic": "尤",
+       "semantic": "火",
        "surface_uncertain": true
       },
       {
-       "char": "允",
+       "char": "无",
        "prob": 0.0,
        "source": "ocr",
-       "semantic": "允",
+       "semantic": "無",
        "surface_uncertain": true
       }
      ],
@@ -587,23 +771,16 @@
      "candidates": [
       {
        "char": "明",
-       "prob": 0.9999,
+       "prob": 0.9988,
        "source": "ocr",
        "semantic": "明",
        "surface_uncertain": true
       },
       {
        "char": "朋",
-       "prob": 0.0001,
+       "prob": 0.0011,
        "source": "ocr",
        "semantic": "朋",
-       "surface_uncertain": true
-      },
-      {
-       "char": "朗",
-       "prob": 0.0,
-       "source": "ocr",
-       "semantic": "朗",
        "surface_uncertain": true
       },
       {
@@ -614,10 +791,17 @@
        "surface_uncertain": true
       },
       {
-       "char": "陰",
+       "char": "眀",
        "prob": 0.0,
        "source": "ocr",
-       "semantic": "陰",
+       "semantic": "眀",
+       "surface_uncertain": true
+      },
+      {
+       "char": "期",
+       "prob": 0.0,
+       "source": "ocr",
+       "semantic": "期",
        "surface_uncertain": true
       }
      ],
@@ -633,37 +817,37 @@
      "candidates": [
       {
        "char": "實",
-       "prob": 0.9879,
+       "prob": 0.985,
        "source": "ocr",
        "semantic": "實",
        "surface_uncertain": true
       },
       {
-       "char": "寶",
-       "prob": 0.0061,
+       "char": "賓",
+       "prob": 0.0123,
        "source": "ocr",
-       "semantic": "寶",
+       "semantic": "賓",
        "surface_uncertain": true
       },
       {
        "char": "寳",
-       "prob": 0.005,
+       "prob": 0.0012,
        "source": "ocr",
        "semantic": "寶",
        "surface_uncertain": true
       },
       {
-       "char": "寰",
-       "prob": 0.0007,
+       "char": "質",
+       "prob": 0.0008,
        "source": "ocr",
-       "semantic": "寰",
+       "semantic": "質",
        "surface_uncertain": true
       },
       {
-       "char": "实",
-       "prob": 0.0002,
+       "char": "寶",
+       "prob": 0.0007,
        "source": "ocr",
-       "semantic": "實",
+       "semantic": "寶",
        "surface_uncertain": true
       }
      ],
@@ -679,37 +863,37 @@
      "candidates": [
       {
        "char": "大",
-       "prob": 0.6337,
+       "prob": 0.9936,
        "source": "ocr",
        "semantic": "大",
        "surface_uncertain": true
       },
       {
-       "char": "學",
-       "prob": 0.3278,
-       "source": "ocr",
-       "semantic": "學",
-       "surface_uncertain": true
-      },
-      {
        "char": "天",
-       "prob": 0.0317,
+       "prob": 0.0056,
        "source": "ocr",
        "semantic": "天",
        "surface_uncertain": true
       },
       {
-       "char": "学",
-       "prob": 0.0057,
+       "char": "六",
+       "prob": 0.0004,
        "source": "ocr",
-       "semantic": "學",
+       "semantic": "六",
        "surface_uncertain": true
       },
       {
-       "char": "夭",
-       "prob": 0.0011,
+       "char": "太",
+       "prob": 0.0002,
        "source": "ocr",
-       "semantic": "夭",
+       "semantic": "太",
+       "surface_uncertain": true
+      },
+      {
+       "char": "人",
+       "prob": 0.0002,
+       "source": "ocr",
+       "semantic": "人",
        "surface_uncertain": true
       }
      ],
@@ -725,37 +909,37 @@
      "candidates": [
       {
        "char": "有",
-       "prob": 0.8161,
+       "prob": 1.0,
        "source": "ocr",
        "semantic": "有",
        "surface_uncertain": true
       },
       {
-       "char": "籍",
-       "prob": 0.0658,
+       "char": "育",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "籍",
+       "semantic": "毓",
        "surface_uncertain": true
       },
       {
-       "char": "稻",
-       "prob": 0.0546,
+       "char": "存",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "稻",
+       "semantic": "存",
        "surface_uncertain": true
       },
       {
-       "char": "稞",
-       "prob": 0.0227,
+       "char": "肩",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "稞",
+       "semantic": "肩",
        "surface_uncertain": true
       },
       {
-       "char": "种",
-       "prob": 0.0224,
+       "char": "宥",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "種",
+       "semantic": "宥",
        "surface_uncertain": true
       }
      ],
@@ -771,37 +955,37 @@
      "candidates": [
       {
        "char": "造",
-       "prob": 0.9988,
+       "prob": 0.9999,
        "source": "ocr",
        "semantic": "造",
        "surface_uncertain": true
       },
       {
-       "char": "糙",
-       "prob": 0.0011,
+       "char": "适",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "糙",
+       "semantic": "適",
        "surface_uncertain": true
       },
       {
-       "char": "選",
-       "prob": 0.0001,
+       "char": "遣",
+       "prob": 0.0,
+       "source": "ocr",
+       "semantic": "遣",
+       "surface_uncertain": true
+      },
+      {
+       "char": "选",
+       "prob": 0.0,
        "source": "ocr",
        "semantic": "選",
        "surface_uncertain": true
       },
       {
-       "char": "蒄",
+       "char": "范",
        "prob": 0.0,
        "source": "ocr",
-       "semantic": "蒄",
-       "surface_uncertain": true
-      },
-      {
-       "char": "遺",
-       "prob": 0.0,
-       "source": "ocr",
-       "semantic": "遺",
+       "semantic": "範",
        "surface_uncertain": true
       }
      ],
@@ -817,37 +1001,37 @@
      "candidates": [
       {
        "char": "於",
-       "prob": 0.9981,
+       "prob": 1.0,
        "source": "ocr",
        "semantic": "於",
        "surface_uncertain": true
       },
       {
-       "char": "于",
-       "prob": 0.0006,
+       "char": "大",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "於",
+       "semantic": "大",
        "surface_uncertain": true
       },
       {
-       "char": "放",
-       "prob": 0.0006,
+       "char": "太",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "放",
+       "semantic": "太",
        "surface_uncertain": true
       },
       {
-       "char": "從",
-       "prob": 0.0004,
+       "char": "菸",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "從",
+       "semantic": "完",
        "surface_uncertain": true
       },
       {
-       "char": "旅",
-       "prob": 0.0003,
+       "char": "六",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "旅",
+       "semantic": "六",
        "surface_uncertain": true
       }
      ],
@@ -863,37 +1047,37 @@
      "candidates": [
       {
        "char": "明",
-       "prob": 0.6186,
+       "prob": 0.9647,
        "source": "ocr",
        "semantic": "明",
        "surface_uncertain": true
       },
       {
-       "char": "政",
-       "prob": 0.1322,
+       "char": "期",
+       "prob": 0.0155,
        "source": "ocr",
-       "semantic": "政",
+       "semantic": "期",
        "surface_uncertain": true
       },
       {
-       "char": "歌",
-       "prob": 0.1095,
+       "char": "朋",
+       "prob": 0.0139,
        "source": "ocr",
-       "semantic": "歌",
+       "semantic": "朋",
        "surface_uncertain": true
       },
       {
-       "char": "收",
-       "prob": 0.0715,
+       "char": "月",
+       "prob": 0.0049,
        "source": "ocr",
-       "semantic": "收",
+       "semantic": "月",
        "surface_uncertain": true
       },
       {
-       "char": "歐",
-       "prob": 0.0614,
+       "char": "阴",
+       "prob": 0.001,
        "source": "ocr",
-       "semantic": "歐",
+       "semantic": "陰",
        "surface_uncertain": true
       }
      ],
@@ -909,37 +1093,37 @@
      "candidates": [
       {
        "char": "人",
-       "prob": 0.5698,
+       "prob": 0.9877,
        "source": "ocr",
        "semantic": "人",
        "surface_uncertain": true
       },
       {
-       "char": "探",
-       "prob": 0.3312,
+       "char": "八",
+       "prob": 0.0075,
        "source": "ocr",
-       "semantic": "探",
+       "semantic": "八",
        "surface_uncertain": true
       },
       {
-       "char": "援",
-       "prob": 0.0429,
+       "char": "入",
+       "prob": 0.0046,
        "source": "ocr",
-       "semantic": "援",
+       "semantic": "入",
        "surface_uncertain": true
       },
       {
-       "char": "揪",
-       "prob": 0.0283,
+       "char": "大",
+       "prob": 0.0001,
        "source": "ocr",
-       "semantic": "揪",
+       "semantic": "大",
        "surface_uncertain": true
       },
       {
-       "char": "球",
-       "prob": 0.0279,
+       "char": "へ",
+       "prob": 0.0001,
        "source": "ocr",
-       "semantic": "球",
+       "semantic": "へ",
        "surface_uncertain": true
       }
      ],
@@ -955,37 +1139,37 @@
      "candidates": [
       {
        "char": "而",
-       "prob": 0.6072,
+       "prob": 0.9921,
        "source": "ocr",
        "semantic": "而",
        "surface_uncertain": true
       },
       {
-       "char": "龍",
-       "prob": 0.2011,
+       "char": "面",
+       "prob": 0.0043,
        "source": "ocr",
-       "semantic": "龍",
+       "semantic": "面",
        "surface_uncertain": true
       },
       {
-       "char": "於",
-       "prob": 0.1866,
+       "char": "雨",
+       "prob": 0.0028,
        "source": "ocr",
-       "semantic": "於",
+       "semantic": "御",
        "surface_uncertain": true
       },
       {
-       "char": "從",
-       "prob": 0.0041,
+       "char": "丽",
+       "prob": 0.0006,
        "source": "ocr",
-       "semantic": "從",
+       "semantic": "麗",
        "surface_uncertain": true
       },
       {
-       "char": "龙",
-       "prob": 0.0005,
+       "char": "孟",
+       "prob": 0.0003,
        "source": "ocr",
-       "semantic": "龍",
+       "semantic": "孟",
        "surface_uncertain": true
       }
      ],
@@ -1001,37 +1185,37 @@
      "candidates": [
       {
        "char": "被",
-       "prob": 0.6359,
+       "prob": 0.8312,
        "source": "ocr",
        "semantic": "被",
        "surface_uncertain": true
       },
       {
        "char": "彼",
-       "prob": 0.3415,
+       "prob": 0.1638,
        "source": "ocr",
        "semantic": "彼",
        "surface_uncertain": true
       },
       {
        "char": "破",
-       "prob": 0.0217,
+       "prob": 0.0039,
        "source": "ocr",
        "semantic": "破",
        "surface_uncertain": true
       },
       {
-       "char": "筱",
-       "prob": 0.0007,
+       "char": "披",
+       "prob": 0.0006,
        "source": "ocr",
-       "semantic": "筱",
+       "semantic": "披",
        "surface_uncertain": true
       },
       {
-       "char": "莜",
-       "prob": 0.0002,
+       "char": "筱",
+       "prob": 0.0004,
        "source": "ocr",
-       "semantic": "莜",
+       "semantic": "筱",
        "surface_uncertain": true
       }
      ],
@@ -1047,37 +1231,37 @@
      "candidates": [
       {
        "char": "轉",
-       "prob": 0.9588,
+       "prob": 0.9967,
        "source": "ocr",
        "semantic": "轉",
        "surface_uncertain": true
       },
       {
-       "char": "尃",
-       "prob": 0.0165,
-       "source": "ocr",
-       "semantic": "敷",
-       "surface_uncertain": true
-      },
-      {
-       "char": "韓",
-       "prob": 0.0103,
+       "char": "韩",
+       "prob": 0.0025,
        "source": "ocr",
        "semantic": "韓",
        "surface_uncertain": true
       },
       {
-       "char": "専",
-       "prob": 0.0081,
+       "char": "丰",
+       "prob": 0.0004,
        "source": "ocr",
-       "semantic": "専",
+       "semantic": "豐",
        "surface_uncertain": true
       },
       {
-       "char": "孽",
-       "prob": 0.0052,
+       "char": "尃",
+       "prob": 0.0003,
        "source": "ocr",
-       "semantic": "孽",
+       "semantic": "敷",
+       "surface_uncertain": true
+      },
+      {
+       "char": "尊",
+       "prob": 0.0002,
+       "source": "ocr",
+       "semantic": "尊",
        "surface_uncertain": true
       }
      ],
@@ -1095,37 +1279,37 @@
      "candidates": [
       {
        "char": "逞",
-       "prob": 0.4872,
+       "prob": 0.9812,
        "source": "ocr",
        "semantic": "期",
        "surface_uncertain": true
       },
       {
-       "char": "選",
-       "prob": 0.2243,
+       "char": "遑",
+       "prob": 0.0062,
        "source": "ocr",
-       "semantic": "選",
-       "surface_uncertain": true
-      },
-      {
-       "char": "提",
-       "prob": 0.153,
-       "source": "ocr",
-       "semantic": "提",
+       "semantic": "遑",
        "surface_uncertain": true
       },
       {
        "char": "暹",
-       "prob": 0.0811,
+       "prob": 0.0049,
        "source": "ocr",
        "semantic": "暹",
        "surface_uncertain": true
       },
       {
-       "char": "遙",
-       "prob": 0.0489,
+       "char": "遥",
+       "prob": 0.0046,
        "source": "ocr",
        "semantic": "遙",
+       "surface_uncertain": true
+      },
+      {
+       "char": "是",
+       "prob": 0.0031,
+       "source": "ocr",
+       "semantic": "是",
        "surface_uncertain": true
       }
      ],
@@ -1143,37 +1327,37 @@
      "candidates": [
       {
        "char": "狡",
-       "prob": 0.7789,
+       "prob": 0.9928,
        "source": "ocr",
        "semantic": "狡",
        "surface_uncertain": true
       },
       {
-       "char": "獲",
-       "prob": 0.1404,
+       "char": "狹",
+       "prob": 0.0047,
        "source": "ocr",
-       "semantic": "獲",
+       "semantic": "陜",
        "surface_uncertain": true
       },
       {
-       "char": "穫",
-       "prob": 0.0401,
+       "char": "荻",
+       "prob": 0.0011,
        "source": "ocr",
-       "semantic": "獲",
+       "semantic": "荻",
        "surface_uncertain": true
       },
       {
        "char": "获",
-       "prob": 0.0201,
+       "prob": 0.0011,
        "source": "ocr",
        "semantic": "獲",
        "surface_uncertain": true
       },
       {
-       "char": "膠",
-       "prob": 0.0151,
+       "char": "狻",
+       "prob": 0.0002,
        "source": "ocr",
-       "semantic": "膠",
+       "semantic": "狻",
        "surface_uncertain": true
       }
      ],
@@ -1190,38 +1374,38 @@
      ],
      "candidates": [
       {
+       "char": "謀",
+       "prob": 0.9998,
+       "source": "ocr",
+       "semantic": "謀",
+       "surface_uncertain": true
+      },
+      {
+       "char": "諜",
+       "prob": 0.0002,
+       "source": "ocr",
+       "semantic": "諜",
+       "surface_uncertain": true
+      },
+      {
+       "char": "謨",
+       "prob": 0.0,
+       "source": "ocr",
+       "semantic": "謨",
+       "surface_uncertain": true
+      },
+      {
        "char": "課",
-       "prob": 0.964,
+       "prob": 0.0,
        "source": "ocr",
        "semantic": "課",
        "surface_uncertain": true
       },
       {
-       "char": "謀",
-       "prob": 0.0228,
+       "char": "諶",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "謀",
-       "surface_uncertain": true
-      },
-      {
-       "char": "謹",
-       "prob": 0.0066,
-       "source": "ocr",
-       "semantic": "謹",
-       "surface_uncertain": true
-      },
-      {
-       "char": "業",
-       "prob": 0.0028,
-       "source": "ocr",
-       "semantic": "業",
-       "surface_uncertain": true
-      },
-      {
-       "char": "谋",
-       "prob": 0.0025,
-       "source": "ocr",
-       "semantic": "謀",
+       "semantic": "諶",
        "surface_uncertain": true
       }
      ],
@@ -1239,37 +1423,37 @@
      "candidates": [
       {
        "char": "陰",
-       "prob": 0.4813,
+       "prob": 0.9999,
        "source": "ocr",
        "semantic": "陰",
        "surface_uncertain": true
       },
       {
-       "char": "院",
-       "prob": 0.2873,
+       "char": "蔭",
+       "prob": 0.0001,
        "source": "ocr",
-       "semantic": "院",
+       "semantic": "蔭",
        "surface_uncertain": true
       },
       {
-       "char": "隆",
-       "prob": 0.1036,
+       "char": "侩",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "隆",
+       "semantic": "侩",
        "surface_uncertain": true
       },
       {
        "char": "際",
-       "prob": 0.0977,
+       "prob": 0.0,
        "source": "ocr",
        "semantic": "際",
        "surface_uncertain": true
       },
       {
-       "char": "醫",
-       "prob": 0.0271,
+       "char": "除",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "醫",
+       "semantic": "除",
        "surface_uncertain": true
       }
      ],
@@ -1294,37 +1478,37 @@
      "candidates": [
       {
        "char": "計",
-       "prob": 0.9424,
+       "prob": 0.9923,
        "source": "ocr",
        "semantic": "計",
        "surface_uncertain": true
       },
       {
        "char": "计",
-       "prob": 0.04,
+       "prob": 0.0037,
        "source": "ocr",
        "semantic": "計",
        "surface_uncertain": true
       },
       {
        "char": "許",
-       "prob": 0.0169,
+       "prob": 0.0035,
        "source": "ocr",
        "semantic": "許",
        "surface_uncertain": true
       },
       {
-       "char": "舒",
-       "prob": 0.0006,
+       "char": "詳",
+       "prob": 0.0003,
        "source": "ocr",
-       "semantic": "舒",
+       "semantic": "詳",
        "surface_uncertain": true
       },
       {
-       "char": "諾",
-       "prob": 0.0001,
+       "char": "討",
+       "prob": 0.0002,
        "source": "ocr",
-       "semantic": "諾",
+       "semantic": "討",
        "surface_uncertain": true
       }
      ],
@@ -1340,37 +1524,37 @@
      "candidates": [
       {
        "char": "以",
-       "prob": 0.991,
+       "prob": 0.9461,
        "source": "ocr",
        "semantic": "以",
        "surface_uncertain": true
       },
       {
-       "char": "И",
-       "prob": 0.0035,
+       "char": "从",
+       "prob": 0.0342,
        "source": "ocr",
-       "semantic": "И",
-       "surface_uncertain": true
-      },
-      {
-       "char": "區",
-       "prob": 0.0022,
-       "source": "ocr",
-       "semantic": "區",
+       "semantic": "從",
        "surface_uncertain": true
       },
       {
        "char": "比",
-       "prob": 0.0018,
+       "prob": 0.0081,
        "source": "ocr",
        "semantic": "比",
        "surface_uncertain": true
       },
       {
-       "char": "叢",
-       "prob": 0.0011,
+       "char": "山",
+       "prob": 0.0081,
        "source": "ocr",
-       "semantic": "叢",
+       "semantic": "山",
+       "surface_uncertain": true
+      },
+      {
+       "char": "出",
+       "prob": 0.0035,
+       "source": "ocr",
+       "semantic": "出",
        "surface_uncertain": true
       }
      ],
@@ -1386,37 +1570,37 @@
      "candidates": [
       {
        "char": "怨",
-       "prob": 0.8663,
+       "prob": 0.9423,
        "source": "ocr",
        "semantic": "怨",
        "surface_uncertain": true
       },
       {
        "char": "恕",
-       "prob": 0.1204,
+       "prob": 0.0388,
        "source": "ocr",
        "semantic": "恕",
        "surface_uncertain": true
       },
       {
-       "char": "怒",
-       "prob": 0.0118,
-       "source": "ocr",
-       "semantic": "怒",
-       "surface_uncertain": true
-      },
-      {
-       "char": "懲",
-       "prob": 0.001,
+       "char": "惩",
+       "prob": 0.0167,
        "source": "ocr",
        "semantic": "懲",
        "surface_uncertain": true
       },
       {
-       "char": "紀",
-       "prob": 0.0004,
+       "char": "≈",
+       "prob": 0.0017,
        "source": "ocr",
-       "semantic": "紀",
+       "semantic": "≈",
+       "surface_uncertain": true
+      },
+      {
+       "char": "怒",
+       "prob": 0.0005,
+       "source": "ocr",
+       "semantic": "怒",
        "surface_uncertain": true
       }
      ],
@@ -1432,37 +1616,37 @@
      "candidates": [
       {
        "char": "報",
-       "prob": 0.9597,
+       "prob": 0.9148,
        "source": "ocr",
        "semantic": "報",
        "surface_uncertain": true
       },
       {
-       "char": "載",
-       "prob": 0.0277,
-       "source": "ocr",
-       "semantic": "載",
-       "surface_uncertain": true
-      },
-      {
-       "char": "幫",
-       "prob": 0.0056,
-       "source": "ocr",
-       "semantic": "幫",
-       "surface_uncertain": true
-      },
-      {
        "char": "载",
-       "prob": 0.0031,
+       "prob": 0.0806,
        "source": "ocr",
        "semantic": "載",
        "surface_uncertain": true
       },
       {
-       "char": "栽",
-       "prob": 0.0018,
+       "char": "毂",
+       "prob": 0.002,
        "source": "ocr",
-       "semantic": "栽",
+       "semantic": "轂",
+       "surface_uncertain": true
+      },
+      {
+       "char": "转",
+       "prob": 0.0014,
+       "source": "ocr",
+       "semantic": "轉",
+       "surface_uncertain": true
+      },
+      {
+       "char": "报",
+       "prob": 0.0012,
+       "source": "ocr",
+       "semantic": "報",
        "surface_uncertain": true
       }
      ],
@@ -1478,37 +1662,37 @@
      "candidates": [
       {
        "char": "德",
-       "prob": 0.9975,
+       "prob": 0.9829,
        "source": "ocr",
        "semantic": "德",
        "surface_uncertain": true
       },
       {
-       "char": "徳",
-       "prob": 0.0017,
+       "char": "瘭",
+       "prob": 0.0059,
        "source": "ocr",
-       "semantic": "徳",
+       "semantic": "瘭",
        "surface_uncertain": true
       },
       {
-       "char": "穗",
-       "prob": 0.0004,
+       "char": "只",
+       "prob": 0.0055,
        "source": "ocr",
-       "semantic": "穗",
+       "semantic": "子",
        "surface_uncertain": true
       },
       {
-       "char": "穩",
-       "prob": 0.0003,
+       "char": "惩",
+       "prob": 0.0047,
        "source": "ocr",
-       "semantic": "文",
+       "semantic": "懲",
        "surface_uncertain": true
       },
       {
-       "char": "總",
-       "prob": 0.0001,
+       "char": "應",
+       "prob": 0.0011,
        "source": "ocr",
-       "semantic": "總",
+       "semantic": "應",
        "surface_uncertain": true
       }
      ],
@@ -1524,37 +1708,37 @@
      "candidates": [
       {
        "char": "伏",
-       "prob": 0.9981,
+       "prob": 0.9966,
        "source": "ocr",
        "semantic": "伏",
        "surface_uncertain": true
       },
       {
-       "char": "狀",
-       "prob": 0.0007,
+       "char": "优",
+       "prob": 0.0033,
+       "source": "ocr",
+       "semantic": "優",
+       "surface_uncertain": true
+      },
+      {
+       "char": "快",
+       "prob": 0.0001,
+       "source": "ocr",
+       "semantic": "快",
+       "surface_uncertain": true
+      },
+      {
+       "char": "状",
+       "prob": 0.0001,
        "source": "ocr",
        "semantic": "狀",
        "surface_uncertain": true
       },
       {
        "char": "伙",
-       "prob": 0.0004,
+       "prob": 0.0,
        "source": "ocr",
        "semantic": "夥",
-       "surface_uncertain": true
-      },
-      {
-       "char": "夥",
-       "prob": 0.0003,
-       "source": "ocr",
-       "semantic": "夥",
-       "surface_uncertain": true
-      },
-      {
-       "char": "茯",
-       "prob": 0.0003,
-       "source": "ocr",
-       "semantic": "茯",
        "surface_uncertain": true
       }
      ],
@@ -1570,37 +1754,37 @@
      "candidates": [
       {
        "char": "讀",
-       "prob": 0.9941,
+       "prob": 0.9998,
        "source": "ocr",
        "semantic": "讀",
        "surface_uncertain": true
       },
       {
-       "char": "護",
-       "prob": 0.0042,
+       "char": "讃",
+       "prob": 0.0001,
        "source": "ocr",
-       "semantic": "護",
+       "semantic": "讃",
        "surface_uncertain": true
       },
       {
-       "char": "謹",
-       "prob": 0.0009,
+       "char": "賣",
+       "prob": 0.0001,
        "source": "ocr",
-       "semantic": "謹",
+       "semantic": "賣",
        "surface_uncertain": true
       },
       {
-       "char": "證",
-       "prob": 0.0004,
+       "char": "瀆",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "證",
+       "semantic": "瀆",
        "surface_uncertain": true
       },
       {
-       "char": "議",
-       "prob": 0.0003,
+       "char": "誼",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "議",
+       "semantic": "誼",
        "surface_uncertain": true
       }
      ],
@@ -1625,37 +1809,37 @@
      "candidates": [
       {
        "char": "錄",
-       "prob": 0.9837,
+       "prob": 0.9988,
        "source": "ocr",
        "semantic": "錄",
        "surface_uncertain": true
       },
       {
-       "char": "錠",
-       "prob": 0.0079,
+       "char": "録",
+       "prob": 0.0007,
        "source": "ocr",
-       "semantic": "錠",
+       "semantic": "録",
        "surface_uncertain": true
       },
       {
-       "char": "緑",
-       "prob": 0.0056,
+       "char": "鏽",
+       "prob": 0.0003,
        "source": "ocr",
-       "semantic": "緑",
+       "semantic": "鏽",
        "surface_uncertain": true
       },
       {
-       "char": "鉌",
-       "prob": 0.0012,
+       "char": "銶",
+       "prob": 0.0001,
        "source": "ocr",
-       "semantic": "鉌",
+       "semantic": "銶",
        "surface_uncertain": true
       },
       {
-       "char": "锭",
-       "prob": 0.0009,
+       "char": "籙",
+       "prob": 0.0001,
        "source": "ocr",
-       "semantic": "锭",
+       "semantic": "籙",
        "surface_uncertain": true
       }
      ],
@@ -1677,13 +1861,6 @@
        "surface_uncertain": true
       },
       {
-       "char": "義",
-       "prob": 0.0,
-       "source": "ocr",
-       "semantic": "義",
-       "surface_uncertain": true
-      },
-      {
        "char": "栽",
        "prob": 0.0,
        "source": "ocr",
@@ -1691,17 +1868,24 @@
        "surface_uncertain": true
       },
       {
-       "char": "莪",
+       "char": "找",
        "prob": 0.0,
        "source": "ocr",
-       "semantic": "莪",
+       "semantic": "找",
        "surface_uncertain": true
       },
       {
-       "char": "餓",
+       "char": "伐",
        "prob": 0.0,
        "source": "ocr",
-       "semantic": "餓",
+       "semantic": "伐",
+       "surface_uncertain": true
+      },
+      {
+       "char": "载",
+       "prob": 0.0,
+       "source": "ocr",
+       "semantic": "載",
        "surface_uncertain": true
       }
      ],
@@ -1726,37 +1910,37 @@
      "candidates": [
       {
        "char": "祖",
-       "prob": 0.8175,
+       "prob": 0.9958,
        "source": "ocr",
        "semantic": "祖",
        "surface_uncertain": true
       },
       {
        "char": "租",
-       "prob": 0.1381,
+       "prob": 0.0026,
        "source": "ocr",
        "semantic": "租",
        "surface_uncertain": true
       },
       {
-       "char": "組",
-       "prob": 0.0372,
-       "source": "ocr",
-       "semantic": "組",
-       "surface_uncertain": true
-      },
-      {
        "char": "褪",
-       "prob": 0.0059,
+       "prob": 0.0009,
        "source": "ocr",
        "semantic": "褪",
        "surface_uncertain": true
       },
       {
-       "char": "視",
-       "prob": 0.0012,
+       "char": "昶",
+       "prob": 0.0006,
        "source": "ocr",
-       "semantic": "視",
+       "semantic": "昶",
+       "surface_uncertain": true
+      },
+      {
+       "char": "粗",
+       "prob": 0.0002,
+       "source": "ocr",
+       "semantic": "粗",
        "surface_uncertain": true
       }
      ],
@@ -1772,23 +1956,30 @@
      "candidates": [
       {
        "char": "高",
-       "prob": 0.9981,
+       "prob": 0.9995,
        "source": "ocr",
        "semantic": "高",
        "surface_uncertain": true
       },
       {
        "char": "髙",
-       "prob": 0.0018,
+       "prob": 0.0005,
        "source": "ocr",
        "semantic": "高",
        "surface_uncertain": true
       },
       {
-       "char": "蒿",
-       "prob": 0.0001,
+       "char": "离",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "蒿",
+       "semantic": "離",
+       "surface_uncertain": true
+      },
+      {
+       "char": "喬",
+       "prob": 0.0,
+       "source": "ocr",
+       "semantic": "喬",
        "surface_uncertain": true
       },
       {
@@ -1796,13 +1987,6 @@
        "prob": 0.0,
        "source": "ocr",
        "semantic": "崧",
-       "surface_uncertain": true
-      },
-      {
-       "char": "離",
-       "prob": 0.0,
-       "source": "ocr",
-       "semantic": "離",
        "surface_uncertain": true
       }
      ],
@@ -1818,37 +2002,37 @@
      "candidates": [
       {
        "char": "皇",
-       "prob": 0.9994,
+       "prob": 0.9999,
        "source": "ocr",
        "semantic": "皇",
        "surface_uncertain": true
       },
       {
-       "char": "臭",
-       "prob": 0.0004,
-       "source": "ocr",
-       "semantic": "臭",
-       "surface_uncertain": true
-      },
-      {
-       "char": "蝗",
+       "char": "阜",
        "prob": 0.0001,
        "source": "ocr",
-       "semantic": "蝗",
+       "semantic": "阜",
        "surface_uncertain": true
       },
       {
-       "char": "』",
-       "prob": 0.0001,
-       "source": "ocr",
-       "semantic": "』",
-       "surface_uncertain": true
-      },
-      {
-       "char": "聖",
+       "char": "皂",
        "prob": 0.0,
        "source": "ocr",
-       "semantic": "聖",
+       "semantic": "皂",
+       "surface_uncertain": true
+      },
+      {
+       "char": "星",
+       "prob": 0.0,
+       "source": "ocr",
+       "semantic": "星",
+       "surface_uncertain": true
+      },
+      {
+       "char": "泉",
+       "prob": 0.0,
+       "source": "ocr",
+       "semantic": "泉",
        "surface_uncertain": true
       }
      ],
@@ -1864,23 +2048,9 @@
      "candidates": [
       {
        "char": "帝",
-       "prob": 1.0,
+       "prob": 0.9999,
        "source": "ocr",
        "semantic": "帝",
-       "surface_uncertain": true
-      },
-      {
-       "char": "希",
-       "prob": 0.0,
-       "source": "ocr",
-       "semantic": "希",
-       "surface_uncertain": true
-      },
-      {
-       "char": "諦",
-       "prob": 0.0,
-       "source": "ocr",
-       "semantic": "諦",
        "surface_uncertain": true
       },
       {
@@ -1891,10 +2061,24 @@
        "surface_uncertain": true
       },
       {
-       "char": "啼",
+       "char": "斋",
        "prob": 0.0,
        "source": "ocr",
-       "semantic": "啼",
+       "semantic": "齊",
+       "surface_uncertain": true
+      },
+      {
+       "char": "带",
+       "prob": 0.0,
+       "source": "ocr",
+       "semantic": "帶",
+       "surface_uncertain": true
+      },
+      {
+       "char": "希",
+       "prob": 0.0,
+       "source": "ocr",
+       "semantic": "希",
        "surface_uncertain": true
       }
      ],
@@ -1910,37 +2094,37 @@
      "candidates": [
       {
        "char": "以",
-       "prob": 0.9997,
+       "prob": 0.9999,
        "source": "ocr",
        "semantic": "以",
        "surface_uncertain": true
       },
       {
-       "char": "比",
-       "prob": 0.0001,
+       "char": "川",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "比",
+       "semantic": "川",
+       "surface_uncertain": true
+      },
+      {
+       "char": "ツ",
+       "prob": 0.0,
+       "source": "ocr",
+       "semantic": "ツ",
+       "surface_uncertain": true
+      },
+      {
+       "char": "从",
+       "prob": 0.0,
+       "source": "ocr",
+       "semantic": "從",
        "surface_uncertain": true
       },
       {
        "char": "似",
-       "prob": 0.0001,
+       "prob": 0.0,
        "source": "ocr",
        "semantic": "似",
-       "surface_uncertain": true
-      },
-      {
-       "char": "叢",
-       "prob": 0.0,
-       "source": "ocr",
-       "semantic": "叢",
-       "surface_uncertain": true
-      },
-      {
-       "char": "伙",
-       "prob": 0.0,
-       "source": "ocr",
-       "semantic": "夥",
        "surface_uncertain": true
       }
      ],
@@ -1956,37 +2140,37 @@
      "candidates": [
       {
        "char": "七",
-       "prob": 0.9908,
+       "prob": 1.0,
        "source": "ocr",
        "semantic": "七",
        "surface_uncertain": true
       },
       {
-       "char": "光",
-       "prob": 0.0031,
+       "char": "匕",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "水",
+       "semantic": "匕",
        "surface_uncertain": true
       },
       {
-       "char": "化",
-       "prob": 0.0028,
+       "char": "北",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "化",
+       "semantic": "北",
        "surface_uncertain": true
       },
       {
-       "char": "弋",
-       "prob": 0.0018,
+       "char": "士",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "弋",
+       "semantic": "士",
        "surface_uncertain": true
       },
       {
-       "char": "比",
-       "prob": 0.0014,
+       "char": "と",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "比",
+       "semantic": "と",
        "surface_uncertain": true
       }
      ],
@@ -2001,38 +2185,38 @@
      "flags": [],
      "candidates": [
       {
-       "char": "太",
-       "prob": 0.202,
-       "source": "ocr",
-       "semantic": "太",
-       "surface_uncertain": true
-      },
-      {
-       "char": "者",
-       "prob": 0.2018,
-       "source": "ocr",
-       "semantic": "者",
-       "surface_uncertain": true
-      },
-      {
        "char": "大",
-       "prob": 0.2016,
+       "prob": 0.9985,
        "source": "ocr",
        "semantic": "大",
        "surface_uncertain": true
       },
       {
-       "char": "備",
-       "prob": 0.1929,
+       "char": "天",
+       "prob": 0.0013,
        "source": "ocr",
-       "semantic": "備",
+       "semantic": "天",
        "surface_uncertain": true
       },
       {
-       "char": "家",
-       "prob": 0.111,
+       "char": "太",
+       "prob": 0.0001,
        "source": "ocr",
-       "semantic": "家",
+       "semantic": "太",
+       "surface_uncertain": true
+      },
+      {
+       "char": "人",
+       "prob": 0.0001,
+       "source": "ocr",
+       "semantic": "人",
+       "surface_uncertain": true
+      },
+      {
+       "char": "火",
+       "prob": 0.0,
+       "source": "ocr",
+       "semantic": "火",
        "surface_uncertain": true
       }
      ],
@@ -2048,37 +2232,37 @@
      "candidates": [
       {
        "char": "恨",
-       "prob": 0.9999,
+       "prob": 0.9784,
        "source": "ocr",
        "semantic": "恨",
        "surface_uncertain": true
       },
       {
        "char": "限",
-       "prob": 0.0,
+       "prob": 0.017,
        "source": "ocr",
        "semantic": "限",
        "surface_uncertain": true
       },
       {
+       "char": "很",
+       "prob": 0.0021,
+       "source": "ocr",
+       "semantic": "很",
+       "surface_uncertain": true
+      },
+      {
        "char": "根",
-       "prob": 0.0,
+       "prob": 0.0019,
        "source": "ocr",
        "semantic": "根",
        "surface_uncertain": true
       },
       {
        "char": "悵",
-       "prob": 0.0,
+       "prob": 0.0006,
        "source": "ocr",
        "semantic": "悵",
-       "surface_uncertain": true
-      },
-      {
-       "char": "很",
-       "prob": 0.0,
-       "source": "ocr",
-       "semantic": "很",
        "surface_uncertain": true
       }
      ],
@@ -2094,37 +2278,37 @@
      "candidates": [
       {
        "char": "告",
-       "prob": 0.9907,
+       "prob": 0.9999,
        "source": "ocr",
        "semantic": "告",
        "surface_uncertain": true
       },
       {
-       "char": "、",
-       "prob": 0.0049,
+       "char": "眚",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "、",
+       "semantic": "眚",
        "surface_uncertain": true
       },
       {
-       "char": "。",
-       "prob": 0.0035,
+       "char": "台",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "。",
+       "semantic": "臺",
        "surface_uncertain": true
       },
       {
-       "char": "，",
-       "prob": 0.0007,
+       "char": "吉",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "，",
+       "semantic": "吉",
        "surface_uncertain": true
       },
       {
-       "char": "—",
-       "prob": 0.0003,
+       "char": "售",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "—",
+       "semantic": "售",
        "surface_uncertain": true
       }
      ],
@@ -2137,7 +2321,7 @@
    "column_id": "vol01:32:6",
    "context": {
     "prev": "祖高皇帝以七大恨告",
-    "next": "彼之臣子亦不能變黑曲存其言并"
+    "next": "雖彼之臣子亦不能變亂黑白曲爲隱諱存其言并"
    },
    "slots": [
     {
@@ -2149,37 +2333,37 @@
      "candidates": [
       {
        "char": "師",
-       "prob": 0.9992,
+       "prob": 0.9995,
        "source": "ocr",
        "semantic": "師",
-       "surface_uncertain": true
-      },
-      {
-       "char": "郵",
-       "prob": 0.0003,
-       "source": "ocr",
-       "semantic": "郵",
-       "surface_uncertain": true
-      },
-      {
-       "char": "帥",
-       "prob": 0.0002,
-       "source": "ocr",
-       "semantic": "帥",
-       "surface_uncertain": true
-      },
-      {
-       "char": "頜",
-       "prob": 0.0002,
-       "source": "ocr",
-       "semantic": "頜",
        "surface_uncertain": true
       },
       {
        "char": "师",
-       "prob": 0.0002,
+       "prob": 0.0005,
        "source": "ocr",
        "semantic": "師",
+       "surface_uncertain": true
+      },
+      {
+       "char": "飾",
+       "prob": 0.0,
+       "source": "ocr",
+       "semantic": "飾",
+       "surface_uncertain": true
+      },
+      {
+       "char": "篩",
+       "prob": 0.0,
+       "source": "ocr",
+       "semantic": "篩",
+       "surface_uncertain": true
+      },
+      {
+       "char": "饰",
+       "prob": 0.0,
+       "source": "ocr",
+       "semantic": "飾",
        "surface_uncertain": true
       }
      ],
@@ -2195,14 +2379,14 @@
      "candidates": [
       {
        "char": "直",
-       "prob": 0.9849,
+       "prob": 0.9974,
        "source": "ocr",
        "semantic": "直",
        "surface_uncertain": true
       },
       {
        "char": "真",
-       "prob": 0.014,
+       "prob": 0.0017,
        "source": "ocr",
        "semantic": "真",
        "surface_uncertain": true
@@ -2215,17 +2399,17 @@
        "surface_uncertain": true
       },
       {
-       "char": "苴",
+       "char": "值",
        "prob": 0.0003,
        "source": "ocr",
-       "semantic": "苴",
+       "semantic": "值",
        "surface_uncertain": true
       },
       {
-       "char": "值",
-       "prob": 0.0002,
+       "char": "面",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "值",
+       "semantic": "面",
        "surface_uncertain": true
       }
      ],
@@ -2241,37 +2425,37 @@
      "candidates": [
       {
        "char": "為",
-       "prob": 0.2916,
+       "prob": 0.4424,
        "source": "ocr",
        "semantic": "爲",
        "surface_uncertain": true
       },
       {
        "char": "篇",
-       "prob": 0.2745,
+       "prob": 0.2677,
        "source": "ocr",
        "semantic": "篇",
        "surface_uncertain": true
       },
       {
-       "char": "寫",
-       "prob": 0.1587,
+       "char": "爲",
+       "prob": 0.1834,
        "source": "ocr",
-       "semantic": "寫",
+       "semantic": "爲",
        "surface_uncertain": true
       },
       {
-       "char": "萬",
-       "prob": 0.1582,
+       "char": "創",
+       "prob": 0.0609,
        "source": "ocr",
-       "semantic": "萬",
+       "semantic": "創",
        "surface_uncertain": true
       },
       {
-       "char": "万",
-       "prob": 0.0994,
+       "char": "点",
+       "prob": 0.0456,
        "source": "ocr",
-       "semantic": "萬",
+       "semantic": "點",
        "surface_uncertain": true
       }
      ],
@@ -2287,37 +2471,37 @@
      "candidates": [
       {
        "char": "壯",
-       "prob": 0.6436,
+       "prob": 0.8638,
        "source": "ocr",
        "semantic": "壯",
        "surface_uncertain": true
       },
       {
-       "char": "妝",
-       "prob": 0.1735,
-       "source": "ocr",
-       "semantic": "粧",
-       "surface_uncertain": true
-      },
-      {
        "char": "壮",
-       "prob": 0.0715,
+       "prob": 0.1313,
        "source": "ocr",
        "semantic": "壯",
        "surface_uncertain": true
       },
       {
        "char": "牡",
-       "prob": 0.06,
+       "prob": 0.0032,
        "source": "ocr",
        "semantic": "牡",
        "surface_uncertain": true
       },
       {
-       "char": "莊",
-       "prob": 0.0314,
+       "char": "肚",
+       "prob": 0.0011,
        "source": "ocr",
-       "semantic": "莊",
+       "semantic": "肚",
+       "surface_uncertain": true
+      },
+      {
+       "char": "业",
+       "prob": 0.0006,
+       "source": "ocr",
+       "semantic": "業",
        "surface_uncertain": true
       }
      ],
@@ -2333,37 +2517,37 @@
      "candidates": [
       {
        "char": "神",
-       "prob": 0.9712,
+       "prob": 0.9998,
        "source": "ocr",
        "semantic": "神",
        "surface_uncertain": true
       },
       {
        "char": "砷",
-       "prob": 0.0127,
+       "prob": 0.0001,
        "source": "ocr",
        "semantic": "砷",
        "surface_uncertain": true
       },
       {
-       "char": "种",
-       "prob": 0.005,
-       "source": "ocr",
-       "semantic": "種",
-       "surface_uncertain": true
-      },
-      {
-       "char": "種",
-       "prob": 0.0041,
-       "source": "ocr",
-       "semantic": "種",
-       "surface_uncertain": true
-      },
-      {
        "char": "袖",
-       "prob": 0.0035,
+       "prob": 0.0001,
        "source": "ocr",
        "semantic": "袖",
+       "surface_uncertain": true
+      },
+      {
+       "char": "种",
+       "prob": 0.0,
+       "source": "ocr",
+       "semantic": "種",
+       "surface_uncertain": true
+      },
+      {
+       "char": "榊",
+       "prob": 0.0,
+       "source": "ocr",
+       "semantic": "榊",
        "surface_uncertain": true
       }
      ],
@@ -2379,37 +2563,37 @@
      "candidates": [
       {
        "char": "戈",
-       "prob": 0.9988,
+       "prob": 0.9973,
        "source": "ocr",
        "semantic": "戈",
        "surface_uncertain": true
       },
       {
        "char": "弋",
-       "prob": 0.0007,
+       "prob": 0.0016,
        "source": "ocr",
        "semantic": "弋",
        "surface_uncertain": true
       },
       {
-       "char": "尤",
-       "prob": 0.0003,
-       "source": "ocr",
-       "semantic": "尤",
-       "surface_uncertain": true
-      },
-      {
-       "char": "龍",
-       "prob": 0.0001,
+       "char": "龙",
+       "prob": 0.0011,
        "source": "ocr",
        "semantic": "龍",
        "surface_uncertain": true
       },
       {
-       "char": "划",
+       "char": "尤",
        "prob": 0.0001,
        "source": "ocr",
-       "semantic": "划",
+       "semantic": "尤",
+       "surface_uncertain": true
+      },
+      {
+       "char": "式",
+       "prob": 0.0,
+       "source": "ocr",
+       "semantic": "式",
        "surface_uncertain": true
       }
      ],
@@ -2425,37 +2609,37 @@
      "candidates": [
       {
        "char": "所",
-       "prob": 1.0,
+       "prob": 0.9986,
        "source": "ocr",
        "semantic": "所",
        "surface_uncertain": true
       },
       {
-       "char": "廳",
-       "prob": 0.0,
+       "char": "斤",
+       "prob": 0.0005,
        "source": "ocr",
-       "semantic": "廳",
+       "semantic": "斤",
        "surface_uncertain": true
       },
       {
-       "char": "斥",
-       "prob": 0.0,
+       "char": "昕",
+       "prob": 0.0004,
        "source": "ocr",
-       "semantic": "斥",
-       "surface_uncertain": true
-      },
-      {
-       "char": "衍",
-       "prob": 0.0,
-       "source": "ocr",
-       "semantic": "衍",
+       "semantic": "昕",
        "surface_uncertain": true
       },
       {
        "char": "沂",
-       "prob": 0.0,
+       "prob": 0.0003,
        "source": "ocr",
        "semantic": "沂",
+       "surface_uncertain": true
+      },
+      {
+       "char": "浙",
+       "prob": 0.0002,
+       "source": "ocr",
+       "semantic": "浙",
        "surface_uncertain": true
       }
      ],
@@ -2471,37 +2655,37 @@
      "candidates": [
       {
        "char": "指",
-       "prob": 0.9934,
+       "prob": 0.9966,
        "source": "ocr",
        "semantic": "指",
        "surface_uncertain": true
       },
       {
-       "char": "捐",
-       "prob": 0.0025,
-       "source": "ocr",
-       "semantic": "捐",
-       "surface_uncertain": true
-      },
-      {
        "char": "措",
-       "prob": 0.0018,
+       "prob": 0.0021,
        "source": "ocr",
        "semantic": "措",
        "surface_uncertain": true
       },
       {
-       "char": "拍",
-       "prob": 0.0016,
+       "char": "描",
+       "prob": 0.0006,
        "source": "ocr",
-       "semantic": "拍",
+       "semantic": "描",
        "surface_uncertain": true
       },
       {
-       "char": "描",
-       "prob": 0.0007,
+       "char": "捎",
+       "prob": 0.0004,
        "source": "ocr",
-       "semantic": "描",
+       "semantic": "捎",
+       "surface_uncertain": true
+      },
+      {
+       "char": "捐",
+       "prob": 0.0003,
+       "source": "ocr",
+       "semantic": "捐",
        "surface_uncertain": true
       }
      ],
@@ -2517,37 +2701,37 @@
      "candidates": [
       {
        "char": "肇",
-       "prob": 0.9933,
+       "prob": 0.9569,
        "source": "ocr",
        "semantic": "肇",
        "surface_uncertain": true
       },
       {
        "char": "筆",
-       "prob": 0.006,
+       "prob": 0.0385,
        "source": "ocr",
        "semantic": "筆",
        "surface_uncertain": true
       },
       {
        "char": "箏",
-       "prob": 0.0006,
+       "prob": 0.0031,
        "source": "ocr",
        "semantic": "箏",
        "surface_uncertain": true
       },
       {
-       "char": "筝",
-       "prob": 0.0001,
+       "char": "華",
+       "prob": 0.0009,
        "source": "ocr",
-       "semantic": "筝",
+       "semantic": "華",
        "surface_uncertain": true
       },
       {
-       "char": "筍",
-       "prob": 0.0,
+       "char": "擎",
+       "prob": 0.0006,
        "source": "ocr",
-       "semantic": "筍",
+       "semantic": "擎",
        "surface_uncertain": true
       }
      ],
@@ -2563,37 +2747,37 @@
      "candidates": [
       {
        "char": "建",
-       "prob": 0.5,
+       "prob": 0.9999,
        "source": "ocr",
        "semantic": "建",
        "surface_uncertain": true
       },
       {
-       "char": "官",
-       "prob": 0.4983,
+       "char": "莲",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "官",
+       "semantic": "蓮",
        "surface_uncertain": true
       },
       {
-       "char": "宮",
-       "prob": 0.0011,
+       "char": "蓬",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "宫",
+       "semantic": "蓬",
        "surface_uncertain": true
       },
       {
-       "char": "管",
-       "prob": 0.0002,
+       "char": "達",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "管",
+       "semantic": "達",
        "surface_uncertain": true
       },
       {
-       "char": "館",
-       "prob": 0.0002,
+       "char": "連",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "館",
+       "semantic": "連",
        "surface_uncertain": true
       }
      ],
@@ -2609,37 +2793,37 @@
      "candidates": [
       {
        "char": "鴻",
-       "prob": 0.8915,
+       "prob": 0.9979,
        "source": "ocr",
        "semantic": "鴻",
        "surface_uncertain": true
       },
       {
        "char": "鸿",
-       "prob": 0.0913,
+       "prob": 0.001,
        "source": "ocr",
        "semantic": "鴻",
        "surface_uncertain": true
       },
       {
-       "char": "幽",
-       "prob": 0.012,
+       "char": "潟",
+       "prob": 0.0008,
        "source": "ocr",
-       "semantic": "幽",
+       "semantic": "潟",
        "surface_uncertain": true
       },
       {
-       "char": "漓",
-       "prob": 0.0018,
+       "char": "馮",
+       "prob": 0.0002,
        "source": "ocr",
-       "semantic": "漓",
+       "semantic": "馮",
        "surface_uncertain": true
       },
       {
-       "char": "編",
-       "prob": 0.0018,
+       "char": "瀉",
+       "prob": 0.0001,
        "source": "ocr",
-       "semantic": "編",
+       "semantic": "瀉",
        "surface_uncertain": true
       }
      ],
@@ -2655,37 +2839,37 @@
      "candidates": [
       {
        "char": "基",
-       "prob": 0.9997,
+       "prob": 1.0,
        "source": "ocr",
        "semantic": "基",
        "surface_uncertain": true
       },
       {
        "char": "墓",
-       "prob": 0.0001,
+       "prob": 0.0,
        "source": "ocr",
        "semantic": "墓",
        "surface_uncertain": true
       },
       {
        "char": "碁",
-       "prob": 0.0001,
+       "prob": 0.0,
        "source": "ocr",
        "semantic": "棊",
        "surface_uncertain": true
       },
       {
-       "char": "綦",
-       "prob": 0.0001,
+       "char": "塞",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "綦",
+       "semantic": "塞",
        "surface_uncertain": true
       },
       {
-       "char": "茶",
+       "char": "甚",
        "prob": 0.0,
        "source": "ocr",
-       "semantic": "茶",
+       "semantic": "甚",
        "surface_uncertain": true
       }
      ],
@@ -2703,37 +2887,37 @@
      "candidates": [
       {
        "char": "實",
-       "prob": 0.9865,
+       "prob": 0.9953,
        "source": "ocr",
        "semantic": "實",
        "surface_uncertain": true
       },
       {
        "char": "寳",
-       "prob": 0.0083,
+       "prob": 0.002,
        "source": "ocr",
        "semantic": "寶",
        "surface_uncertain": true
       },
       {
        "char": "寶",
-       "prob": 0.0043,
+       "prob": 0.0012,
        "source": "ocr",
        "semantic": "寶",
        "surface_uncertain": true
       },
       {
-       "char": "貨",
-       "prob": 0.0009,
+       "char": "賁",
+       "prob": 0.0008,
        "source": "ocr",
-       "semantic": "貨",
+       "semantic": "賁",
        "surface_uncertain": true
       },
       {
-       "char": "实",
-       "prob": 0.0001,
+       "char": "寬",
+       "prob": 0.0007,
        "source": "ocr",
-       "semantic": "實",
+       "semantic": "寬",
        "surface_uncertain": true
       }
      ],
@@ -2749,37 +2933,37 @@
      "candidates": [
       {
        "char": "自",
-       "prob": 0.4996,
+       "prob": 0.9963,
        "source": "ocr",
        "semantic": "自",
        "surface_uncertain": true
       },
       {
-       "char": "前",
-       "prob": 0.2502,
-       "source": "ocr",
-       "semantic": "前",
-       "surface_uncertain": true
-      },
-      {
-       "char": "宜",
-       "prob": 0.2493,
-       "source": "ocr",
-       "semantic": "宜",
-       "surface_uncertain": true
-      },
-      {
-       "char": "宣",
-       "prob": 0.0005,
-       "source": "ocr",
-       "semantic": "宣",
-       "surface_uncertain": true
-      },
-      {
        "char": "白",
-       "prob": 0.0004,
+       "prob": 0.0037,
        "source": "ocr",
        "semantic": "白",
+       "surface_uncertain": true
+      },
+      {
+       "char": "闫",
+       "prob": 0.0,
+       "source": "ocr",
+       "semantic": "闫",
+       "surface_uncertain": true
+      },
+      {
+       "char": "é",
+       "prob": 0.0,
+       "source": "ocr",
+       "semantic": "é",
+       "surface_uncertain": true
+      },
+      {
+       "char": "目",
+       "prob": 0.0,
+       "source": "ocr",
+       "semantic": "目",
        "surface_uncertain": true
       }
      ],
@@ -2795,16 +2979,30 @@
      "candidates": [
       {
        "char": "古",
-       "prob": 0.9916,
+       "prob": 0.9979,
        "source": "ocr",
        "semantic": "古",
        "surface_uncertain": true
       },
       {
+       "char": "台",
+       "prob": 0.0008,
+       "source": "ocr",
+       "semantic": "臺",
+       "surface_uncertain": true
+      },
+      {
        "char": "右",
-       "prob": 0.0084,
+       "prob": 0.0007,
        "source": "ocr",
        "semantic": "右",
+       "surface_uncertain": true
+      },
+      {
+       "char": "吉",
+       "prob": 0.0006,
+       "source": "ocr",
+       "semantic": "吉",
        "surface_uncertain": true
       },
       {
@@ -2812,20 +3010,6 @@
        "prob": 0.0,
        "source": "ocr",
        "semantic": "百",
-       "surface_uncertain": true
-      },
-      {
-       "char": "吉",
-       "prob": 0.0,
-       "source": "ocr",
-       "semantic": "吉",
-       "surface_uncertain": true
-      },
-      {
-       "char": "克",
-       "prob": 0.0,
-       "source": "ocr",
-       "semantic": "克",
        "surface_uncertain": true
       }
      ],
@@ -2843,37 +3027,37 @@
      "candidates": [
       {
        "char": "創",
-       "prob": 0.9638,
+       "prob": 0.9968,
        "source": "ocr",
        "semantic": "創",
        "surface_uncertain": true
       },
       {
-       "char": "割",
-       "prob": 0.028,
+       "char": "制",
+       "prob": 0.0018,
        "source": "ocr",
-       "semantic": "割",
+       "semantic": "制",
        "surface_uncertain": true
       },
       {
-       "char": "划",
-       "prob": 0.0036,
+       "char": "钊",
+       "prob": 0.0008,
        "source": "ocr",
-       "semantic": "划",
+       "semantic": "釗",
        "surface_uncertain": true
       },
       {
-       "char": "劃",
-       "prob": 0.003,
+       "char": "创",
+       "prob": 0.0004,
        "source": "ocr",
-       "semantic": "劃",
+       "semantic": "創",
        "surface_uncertain": true
       },
       {
-       "char": "劇",
-       "prob": 0.0012,
+       "char": "劊",
+       "prob": 0.0002,
        "source": "ocr",
-       "semantic": "劇",
+       "semantic": "劊",
        "surface_uncertain": true
       }
      ],
@@ -2891,37 +3075,37 @@
      "candidates": [
       {
        "char": "業",
-       "prob": 0.865,
+       "prob": 0.9996,
        "source": "ocr",
        "semantic": "業",
        "surface_uncertain": true
       },
       {
-       "char": "葉",
-       "prob": 0.1065,
+       "char": "叢",
+       "prob": 0.0001,
        "source": "ocr",
-       "semantic": "葉",
-       "surface_uncertain": true
-      },
-      {
-       "char": "親",
-       "prob": 0.0173,
-       "source": "ocr",
-       "semantic": "親",
-       "surface_uncertain": true
-      },
-      {
-       "char": "案",
-       "prob": 0.0071,
-       "source": "ocr",
-       "semantic": "案",
+       "semantic": "叢",
        "surface_uncertain": true
       },
       {
        "char": "业",
-       "prob": 0.0022,
+       "prob": 0.0001,
        "source": "ocr",
        "semantic": "業",
+       "surface_uncertain": true
+      },
+      {
+       "char": "枼",
+       "prob": 0.0001,
+       "source": "ocr",
+       "semantic": "枼",
+       "surface_uncertain": true
+      },
+      {
+       "char": "嶪",
+       "prob": 0.0,
+       "source": "ocr",
+       "semantic": "嶪",
        "surface_uncertain": true
       }
      ],
@@ -2939,37 +3123,37 @@
      "candidates": [
       {
        "char": "者",
-       "prob": 0.9998,
+       "prob": 0.9916,
        "source": "ocr",
        "semantic": "者",
        "surface_uncertain": true
       },
       {
-       "char": "考",
-       "prob": 0.0001,
-       "source": "ocr",
-       "semantic": "考",
-       "surface_uncertain": true
-      },
-      {
        "char": "省",
-       "prob": 0.0,
+       "prob": 0.0059,
        "source": "ocr",
        "semantic": "省",
        "surface_uncertain": true
       },
       {
-       "char": "耆",
-       "prob": 0.0,
+       "char": "煮",
+       "prob": 0.0012,
        "source": "ocr",
-       "semantic": "耆",
+       "semantic": "煮",
        "surface_uncertain": true
       },
       {
-       "char": "煮",
-       "prob": 0.0,
+       "char": "着",
+       "prob": 0.0009,
        "source": "ocr",
-       "semantic": "煮",
+       "semantic": "著",
+       "surface_uncertain": true
+      },
+      {
+       "char": "耆",
+       "prob": 0.0004,
+       "source": "ocr",
+       "semantic": "耆",
        "surface_uncertain": true
       }
      ],
@@ -2987,37 +3171,37 @@
      "candidates": [
       {
        "char": "所",
-       "prob": 1.0,
+       "prob": 0.9989,
        "source": "ocr",
        "semantic": "所",
        "surface_uncertain": true
       },
       {
-       "char": "昕",
-       "prob": 0.0,
-       "source": "ocr",
-       "semantic": "昕",
-       "surface_uncertain": true
-      },
-      {
-       "char": "斯",
-       "prob": 0.0,
-       "source": "ocr",
-       "semantic": "斯",
-       "surface_uncertain": true
-      },
-      {
        "char": "斤",
-       "prob": 0.0,
+       "prob": 0.0008,
        "source": "ocr",
        "semantic": "斤",
        "surface_uncertain": true
       },
       {
-       "char": "沂",
+       "char": "昕",
+       "prob": 0.0002,
+       "source": "ocr",
+       "semantic": "昕",
+       "surface_uncertain": true
+      },
+      {
+       "char": "片",
        "prob": 0.0,
        "source": "ocr",
-       "semantic": "沂",
+       "semantic": "片",
+       "surface_uncertain": true
+      },
+      {
+       "char": "听",
+       "prob": 0.0,
+       "source": "ocr",
+       "semantic": "聽",
        "surface_uncertain": true
       }
      ],
@@ -3035,37 +3219,37 @@
      "candidates": [
       {
        "char": "莫",
-       "prob": 0.9994,
+       "prob": 0.9991,
        "source": "ocr",
        "semantic": "莫",
        "surface_uncertain": true
       },
       {
        "char": "奠",
-       "prob": 0.0003,
+       "prob": 0.0008,
        "source": "ocr",
        "semantic": "奠",
        "surface_uncertain": true
       },
       {
-       "char": "募",
-       "prob": 0.0002,
+       "char": "草",
+       "prob": 0.0001,
        "source": "ocr",
-       "semantic": "募",
+       "semantic": "草",
        "surface_uncertain": true
       },
       {
-       "char": "葛",
-       "prob": 0.0001,
+       "char": "薁",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "葛",
+       "semantic": "薁",
        "surface_uncertain": true
       },
       {
-       "char": "真",
-       "prob": 0.0001,
+       "char": "英",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "真",
+       "semantic": "英",
        "surface_uncertain": true
       }
      ],
@@ -3083,37 +3267,37 @@
      "candidates": [
       {
        "char": "及",
-       "prob": 0.9992,
+       "prob": 0.9845,
        "source": "ocr",
        "semantic": "及",
        "surface_uncertain": true
       },
       {
-       "char": "發",
-       "prob": 0.0003,
-       "source": "ocr",
-       "semantic": "發",
-       "surface_uncertain": true
-      },
-      {
-       "char": "友",
-       "prob": 0.0002,
-       "source": "ocr",
-       "semantic": "友",
-       "surface_uncertain": true
-      },
-      {
        "char": "皮",
-       "prob": 0.0001,
+       "prob": 0.0134,
        "source": "ocr",
        "semantic": "皮",
        "surface_uncertain": true
       },
       {
-       "char": "髮",
-       "prob": 0.0001,
+       "char": "飞",
+       "prob": 0.0009,
        "source": "ocr",
-       "semantic": "發",
+       "semantic": "飛",
+       "surface_uncertain": true
+      },
+      {
+       "char": "改",
+       "prob": 0.0007,
+       "source": "ocr",
+       "semantic": "改",
+       "surface_uncertain": true
+      },
+      {
+       "char": "攻",
+       "prob": 0.0005,
+       "source": "ocr",
+       "semantic": "攻",
        "surface_uncertain": true
       }
      ],
@@ -3130,6 +3314,52 @@
    },
    "slots": [
     {
+     "index": 1,
+     "instance_id": "vol01:32:7:1",
+     "cluster_id": "vol01:c12492",
+     "cluster_size": 1,
+     "flags": [],
+     "candidates": [
+      {
+       "char": "雖",
+       "prob": 0.8896,
+       "source": "ocr",
+       "semantic": "雖",
+       "surface_uncertain": true
+      },
+      {
+       "char": "雌",
+       "prob": 0.0498,
+       "source": "ocr",
+       "semantic": "雌",
+       "surface_uncertain": true
+      },
+      {
+       "char": "雄",
+       "prob": 0.0328,
+       "source": "ocr",
+       "semantic": "雄",
+       "surface_uncertain": true
+      },
+      {
+       "char": "雎",
+       "prob": 0.0184,
+       "source": "ocr",
+       "semantic": "雎",
+       "surface_uncertain": true
+      },
+      {
+       "char": "虽",
+       "prob": 0.0094,
+       "source": "ocr",
+       "semantic": "雖",
+       "surface_uncertain": true
+      }
+     ],
+     "gold": "雖",
+     "frozen": true
+    },
+    {
      "index": 2,
      "instance_id": "vol01:32:7:2",
      "cluster_id": "vol01:c12493",
@@ -3138,37 +3368,37 @@
      "candidates": [
       {
        "char": "彼",
-       "prob": 0.7676,
+       "prob": 0.7042,
        "source": "ocr",
        "semantic": "彼",
        "surface_uncertain": true
       },
       {
        "char": "被",
-       "prob": 0.171,
+       "prob": 0.1934,
        "source": "ocr",
        "semantic": "被",
        "surface_uncertain": true
       },
       {
-       "char": "破",
-       "prob": 0.0562,
-       "source": "ocr",
-       "semantic": "破",
-       "surface_uncertain": true
-      },
-      {
-       "char": "疲",
-       "prob": 0.0038,
-       "source": "ocr",
-       "semantic": "疲",
-       "surface_uncertain": true
-      },
-      {
        "char": "波",
-       "prob": 0.0014,
+       "prob": 0.0799,
        "source": "ocr",
        "semantic": "波",
+       "surface_uncertain": true
+      },
+      {
+       "char": "披",
+       "prob": 0.0144,
+       "source": "ocr",
+       "semantic": "披",
+       "surface_uncertain": true
+      },
+      {
+       "char": "玻",
+       "prob": 0.0082,
+       "source": "ocr",
+       "semantic": "玻",
        "surface_uncertain": true
       }
      ],
@@ -3184,37 +3414,37 @@
      "candidates": [
       {
        "char": "之",
-       "prob": 0.4561,
+       "prob": 0.9992,
        "source": "ocr",
        "semantic": "之",
        "surface_uncertain": true
       },
       {
-       "char": "末",
-       "prob": 0.2299,
+       "char": "文",
+       "prob": 0.0004,
        "source": "ocr",
-       "semantic": "末",
+       "semantic": "文",
        "surface_uncertain": true
       },
       {
-       "char": "動",
-       "prob": 0.2213,
+       "char": "元",
+       "prob": 0.0002,
        "source": "ocr",
-       "semantic": "動",
+       "semantic": "元",
        "surface_uncertain": true
       },
       {
-       "char": "軀",
-       "prob": 0.0623,
+       "char": "芝",
+       "prob": 0.0001,
        "source": "ocr",
-       "semantic": "軀",
+       "semantic": "芝",
        "surface_uncertain": true
       },
       {
-       "char": "航",
-       "prob": 0.0234,
+       "char": "え",
+       "prob": 0.0001,
        "source": "ocr",
-       "semantic": "航",
+       "semantic": "え",
        "surface_uncertain": true
       }
      ],
@@ -3230,37 +3460,37 @@
      "candidates": [
       {
        "char": "臣",
-       "prob": 0.9986,
+       "prob": 0.9999,
        "source": "ocr",
        "semantic": "臣",
        "surface_uncertain": true
       },
       {
        "char": "巨",
-       "prob": 0.0005,
+       "prob": 0.0,
        "source": "ocr",
        "semantic": "巨",
        "surface_uncertain": true
       },
       {
-       "char": "鉅",
-       "prob": 0.0004,
-       "source": "ocr",
-       "semantic": "鉅",
-       "surface_uncertain": true
-      },
-      {
-       "char": "距",
-       "prob": 0.0002,
-       "source": "ocr",
-       "semantic": "距",
-       "surface_uncertain": true
-      },
-      {
        "char": "百",
-       "prob": 0.0001,
+       "prob": 0.0,
        "source": "ocr",
        "semantic": "百",
+       "surface_uncertain": true
+      },
+      {
+       "char": "豆",
+       "prob": 0.0,
+       "source": "ocr",
+       "semantic": "豆",
+       "surface_uncertain": true
+      },
+      {
+       "char": "互",
+       "prob": 0.0,
+       "source": "ocr",
+       "semantic": "互",
        "surface_uncertain": true
       }
      ],
@@ -3276,37 +3506,37 @@
      "candidates": [
       {
        "char": "子",
-       "prob": 0.986,
+       "prob": 0.9904,
        "source": "ocr",
        "semantic": "子",
        "surface_uncertain": true
       },
       {
+       "char": "于",
+       "prob": 0.0064,
+       "source": "ocr",
+       "semantic": "於",
+       "surface_uncertain": true
+      },
+      {
        "char": "予",
-       "prob": 0.0098,
+       "prob": 0.0022,
        "source": "ocr",
        "semantic": "餘",
        "surface_uncertain": true
       },
       {
-       "char": "于",
-       "prob": 0.0022,
-       "source": "ocr",
-       "semantic": "於",
-       "surface_uncertain": true
-      },
-      {
        "char": "於",
-       "prob": 0.0018,
+       "prob": 0.0005,
        "source": "ocr",
        "semantic": "於",
        "surface_uncertain": true
       },
       {
-       "char": "字",
-       "prob": 0.0001,
+       "char": "手",
+       "prob": 0.0004,
        "source": "ocr",
-       "semantic": "字",
+       "semantic": "手",
        "surface_uncertain": true
       }
      ],
@@ -3322,37 +3552,37 @@
      "candidates": [
       {
        "char": "亦",
-       "prob": 1.0,
+       "prob": 0.9914,
        "source": "ocr",
        "semantic": "亦",
        "surface_uncertain": true
       },
       {
-       "char": "辦",
-       "prob": 0.0,
+       "char": "办",
+       "prob": 0.0061,
        "source": "ocr",
        "semantic": "辦",
        "surface_uncertain": true
       },
       {
        "char": "赤",
-       "prob": 0.0,
+       "prob": 0.0024,
        "source": "ocr",
        "semantic": "赤",
        "surface_uncertain": true
       },
       {
-       "char": "办",
-       "prob": 0.0,
+       "char": "苏",
+       "prob": 0.0001,
        "source": "ocr",
-       "semantic": "辦",
+       "semantic": "蘇",
        "surface_uncertain": true
       },
       {
-       "char": "巒",
+       "char": "东",
        "prob": 0.0,
        "source": "ocr",
-       "semantic": "巒",
+       "semantic": "東",
        "surface_uncertain": true
       }
      ],
@@ -3368,37 +3598,37 @@
      "candidates": [
       {
        "char": "不",
-       "prob": 1.0,
+       "prob": 0.9991,
        "source": "ocr",
        "semantic": "不",
        "surface_uncertain": true
       },
       {
-       "char": "環",
-       "prob": 0.0,
+       "char": "下",
+       "prob": 0.0007,
+       "source": "ocr",
+       "semantic": "下",
+       "surface_uncertain": true
+      },
+      {
+       "char": "环",
+       "prob": 0.0001,
        "source": "ocr",
        "semantic": "環",
        "surface_uncertain": true
       },
       {
-       "char": "木",
+       "char": "石",
        "prob": 0.0,
        "source": "ocr",
-       "semantic": "木",
+       "semantic": "石",
        "surface_uncertain": true
       },
       {
-       "char": "還",
+       "char": "丕",
        "prob": 0.0,
        "source": "ocr",
-       "semantic": "還",
-       "surface_uncertain": true
-      },
-      {
-       "char": "杯",
-       "prob": 0.0,
-       "source": "ocr",
-       "semantic": "杯",
+       "semantic": "丕",
        "surface_uncertain": true
       }
      ],
@@ -3414,14 +3644,14 @@
      "candidates": [
       {
        "char": "能",
-       "prob": 0.9999,
+       "prob": 0.9998,
        "source": "ocr",
        "semantic": "能",
        "surface_uncertain": true
       },
       {
        "char": "熊",
-       "prob": 0.0001,
+       "prob": 0.0002,
        "source": "ocr",
        "semantic": "熊",
        "surface_uncertain": true
@@ -3434,17 +3664,17 @@
        "surface_uncertain": true
       },
       {
-       "char": "脂",
+       "char": "罷",
        "prob": 0.0,
        "source": "ocr",
-       "semantic": "脂",
+       "semantic": "罷",
        "surface_uncertain": true
       },
       {
-       "char": "龙",
+       "char": "é",
        "prob": 0.0,
        "source": "ocr",
-       "semantic": "龍",
+       "semantic": "é",
        "surface_uncertain": true
       }
      ],
@@ -3460,41 +3690,87 @@
      "candidates": [
       {
        "char": "變",
-       "prob": 0.9945,
+       "prob": 0.992,
        "source": "ocr",
        "semantic": "變",
        "surface_uncertain": true
       },
       {
        "char": "燮",
-       "prob": 0.0036,
+       "prob": 0.0075,
        "source": "ocr",
        "semantic": "燮",
        "surface_uncertain": true
       },
       {
-       "char": "續",
-       "prob": 0.001,
+       "char": "戀",
+       "prob": 0.0003,
        "source": "ocr",
-       "semantic": "續",
+       "semantic": "戀",
        "surface_uncertain": true
       },
       {
        "char": "雙",
-       "prob": 0.0006,
+       "prob": 0.0002,
        "source": "ocr",
        "semantic": "雙",
        "surface_uncertain": true
       },
       {
-       "char": "夔",
-       "prob": 0.0003,
+       "char": "彎",
+       "prob": 0.0001,
        "source": "ocr",
-       "semantic": "夔",
+       "semantic": "彎",
        "surface_uncertain": true
       }
      ],
      "gold": "變",
+     "frozen": true
+    },
+    {
+     "index": 10,
+     "instance_id": "vol01:32:7:10",
+     "cluster_id": "vol01:c12498",
+     "cluster_size": 1,
+     "flags": [],
+     "candidates": [
+      {
+       "char": "亂",
+       "prob": 0.719,
+       "source": "ocr",
+       "semantic": "亂",
+       "surface_uncertain": true
+      },
+      {
+       "char": "匍",
+       "prob": 0.095,
+       "source": "ocr",
+       "semantic": "匍",
+       "surface_uncertain": true
+      },
+      {
+       "char": "鼠",
+       "prob": 0.0726,
+       "source": "ocr",
+       "semantic": "鼠",
+       "surface_uncertain": true
+      },
+      {
+       "char": "氤",
+       "prob": 0.0617,
+       "source": "ocr",
+       "semantic": "氤",
+       "surface_uncertain": true
+      },
+      {
+       "char": "鬣",
+       "prob": 0.0516,
+       "source": "ocr",
+       "semantic": "鬣",
+       "surface_uncertain": true
+      }
+     ],
+     "gold": "亂",
      "frozen": true
     },
     {
@@ -3506,41 +3782,87 @@
      "candidates": [
       {
        "char": "黑",
-       "prob": 0.9998,
+       "prob": 0.9972,
        "source": "ocr",
        "semantic": "黑",
        "surface_uncertain": true
       },
       {
-       "char": "墨",
-       "prob": 0.0001,
+       "char": "黒",
+       "prob": 0.0019,
        "source": "ocr",
-       "semantic": "墨",
-       "surface_uncertain": true
-      },
-      {
-       "char": "果",
-       "prob": 0.0001,
-       "source": "ocr",
-       "semantic": "果",
+       "semantic": "黑",
        "surface_uncertain": true
       },
       {
        "char": "嘿",
-       "prob": 0.0,
+       "prob": 0.0003,
        "source": "ocr",
        "semantic": "默",
        "surface_uncertain": true
       },
       {
-       "char": "黒",
-       "prob": 0.0,
+       "char": "熙",
+       "prob": 0.0003,
        "source": "ocr",
-       "semantic": "黑",
+       "semantic": "熙",
+       "surface_uncertain": true
+      },
+      {
+       "char": "墨",
+       "prob": 0.0003,
+       "source": "ocr",
+       "semantic": "墨",
        "surface_uncertain": true
       }
      ],
      "gold": "黑",
+     "frozen": true
+    },
+    {
+     "index": 12,
+     "instance_id": "vol01:32:7:12",
+     "cluster_id": "vol01:c00686",
+     "cluster_size": 2,
+     "flags": [],
+     "candidates": [
+      {
+       "char": "白",
+       "prob": 0.9962,
+       "source": "ocr",
+       "semantic": "白",
+       "surface_uncertain": true
+      },
+      {
+       "char": "自",
+       "prob": 0.0017,
+       "source": "ocr",
+       "semantic": "自",
+       "surface_uncertain": true
+      },
+      {
+       "char": "百",
+       "prob": 0.001,
+       "source": "ocr",
+       "semantic": "百",
+       "surface_uncertain": true
+      },
+      {
+       "char": "日",
+       "prob": 0.0007,
+       "source": "ocr",
+       "semantic": "日",
+       "surface_uncertain": true
+      },
+      {
+       "char": "台",
+       "prob": 0.0004,
+       "source": "ocr",
+       "semantic": "臺",
+       "surface_uncertain": true
+      }
+     ],
+     "gold": "白",
      "frozen": true
     },
     {
@@ -3552,41 +3874,183 @@
      "candidates": [
       {
        "char": "曲",
-       "prob": 0.5497,
+       "prob": 0.9999,
        "source": "ocr",
        "semantic": "曲",
        "surface_uncertain": true
       },
       {
-       "char": "麴",
-       "prob": 0.4497,
+       "char": "典",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "麴",
+       "semantic": "典",
        "surface_uncertain": true
       },
       {
        "char": "由",
-       "prob": 0.0005,
+       "prob": 0.0,
        "source": "ocr",
        "semantic": "由",
        "surface_uncertain": true
       },
       {
-       "char": "田",
-       "prob": 0.0001,
+       "char": "油",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "田",
+       "semantic": "油",
        "surface_uncertain": true
       },
       {
-       "char": "典",
-       "prob": 0.0001,
+       "char": "亩",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "典",
+       "semantic": "畝",
        "surface_uncertain": true
       }
      ],
      "gold": "曲",
+     "frozen": true
+    },
+    {
+     "index": 14,
+     "instance_id": "vol01:32:7:14",
+     "cluster_id": "vol01:c12501",
+     "cluster_size": 1,
+     "flags": [],
+     "candidates": [
+      {
+       "char": "為",
+       "prob": 0.5641,
+       "source": "ocr",
+       "semantic": "爲",
+       "surface_uncertain": true
+      },
+      {
+       "char": "爲",
+       "prob": 0.3602,
+       "source": "ocr",
+       "semantic": "爲",
+       "surface_uncertain": true
+      },
+      {
+       "char": "馬",
+       "prob": 0.0579,
+       "source": "ocr",
+       "semantic": "馬",
+       "surface_uncertain": true
+      },
+      {
+       "char": "万",
+       "prob": 0.0138,
+       "source": "ocr",
+       "semantic": "萬",
+       "surface_uncertain": true
+      },
+      {
+       "char": "篤",
+       "prob": 0.004,
+       "source": "ocr",
+       "semantic": "篤",
+       "surface_uncertain": true
+      }
+     ],
+     "gold": "爲",
+     "frozen": true
+    },
+    {
+     "index": 15,
+     "instance_id": "vol01:32:7:15",
+     "cluster_id": "vol01:c12502",
+     "cluster_size": 1,
+     "flags": [
+      "boundary_ink"
+     ],
+     "candidates": [
+      {
+       "char": "隱",
+       "prob": 0.9407,
+       "source": "ocr",
+       "semantic": "隱",
+       "surface_uncertain": true
+      },
+      {
+       "char": "鷹",
+       "prob": 0.0517,
+       "source": "ocr",
+       "semantic": "鷹",
+       "surface_uncertain": true
+      },
+      {
+       "char": "熈",
+       "prob": 0.0029,
+       "source": "ocr",
+       "semantic": "熙",
+       "surface_uncertain": true
+      },
+      {
+       "char": "騭",
+       "prob": 0.0025,
+       "source": "ocr",
+       "semantic": "隲",
+       "surface_uncertain": true
+      },
+      {
+       "char": "騰",
+       "prob": 0.0022,
+       "source": "ocr",
+       "semantic": "騰",
+       "surface_uncertain": true
+      }
+     ],
+     "gold": "隱",
+     "frozen": true
+    },
+    {
+     "index": 16,
+     "instance_id": "vol01:32:7:16",
+     "cluster_id": "vol01:c12503",
+     "cluster_size": 1,
+     "flags": [
+      "boundary_ink"
+     ],
+     "candidates": [
+      {
+       "char": "諱",
+       "prob": 0.9992,
+       "source": "ocr",
+       "semantic": "諱",
+       "surface_uncertain": true
+      },
+      {
+       "char": "譯",
+       "prob": 0.0004,
+       "source": "ocr",
+       "semantic": "譯",
+       "surface_uncertain": true
+      },
+      {
+       "char": "譚",
+       "prob": 0.0003,
+       "source": "ocr",
+       "semantic": "談",
+       "surface_uncertain": true
+      },
+      {
+       "char": "韋",
+       "prob": 0.0,
+       "source": "ocr",
+       "semantic": "韋",
+       "surface_uncertain": true
+      },
+      {
+       "char": "瑋",
+       "prob": 0.0,
+       "source": "ocr",
+       "semantic": "瑋",
+       "surface_uncertain": true
+      }
+     ],
+     "gold": "諱",
      "frozen": true
     },
     {
@@ -3600,9 +4064,16 @@
      "candidates": [
       {
        "char": "存",
-       "prob": 1.0,
+       "prob": 0.9998,
        "source": "ocr",
        "semantic": "存",
+       "surface_uncertain": true
+      },
+      {
+       "char": "荐",
+       "prob": 0.0001,
+       "source": "ocr",
+       "semantic": "薦",
        "surface_uncertain": true
       },
       {
@@ -3613,24 +4084,17 @@
        "surface_uncertain": true
       },
       {
-       "char": "荐",
+       "char": "李",
        "prob": 0.0,
        "source": "ocr",
-       "semantic": "薦",
+       "semantic": "李",
        "surface_uncertain": true
       },
       {
-       "char": "薦",
+       "char": "疗",
        "prob": 0.0,
        "source": "ocr",
-       "semantic": "薦",
-       "surface_uncertain": true
-      },
-      {
-       "char": "不",
-       "prob": 0.0,
-       "source": "ocr",
-       "semantic": "不",
+       "semantic": "療",
        "surface_uncertain": true
       }
      ],
@@ -3648,37 +4112,37 @@
      "candidates": [
       {
        "char": "其",
-       "prob": 0.9998,
+       "prob": 0.9827,
        "source": "ocr",
        "semantic": "其",
        "surface_uncertain": true
       },
       {
-       "char": "箕",
-       "prob": 0.0001,
+       "char": "址",
+       "prob": 0.0098,
        "source": "ocr",
-       "semantic": "箕",
+       "semantic": "址",
        "surface_uncertain": true
       },
       {
-       "char": "琪",
-       "prob": 0.0001,
+       "char": "基",
+       "prob": 0.0045,
        "source": "ocr",
-       "semantic": "琪",
-       "surface_uncertain": true
-      },
-      {
-       "char": "ｔ",
-       "prob": 0.0,
-       "source": "ocr",
-       "semantic": "ｔ",
+       "semantic": "基",
        "surface_uncertain": true
       },
       {
        "char": "共",
-       "prob": 0.0,
+       "prob": 0.0018,
        "source": "ocr",
        "semantic": "共",
+       "surface_uncertain": true
+      },
+      {
+       "char": "甚",
+       "prob": 0.0012,
+       "source": "ocr",
+       "semantic": "甚",
        "surface_uncertain": true
       }
      ],
@@ -3694,37 +4158,37 @@
      "candidates": [
       {
        "char": "山",
-       "prob": 0.3981,
+       "prob": 0.3739,
        "source": "ocr",
        "semantic": "山",
        "surface_uncertain": true
       },
       {
-       "char": "業",
-       "prob": 0.1991,
+       "char": "台",
+       "prob": 0.2558,
        "source": "ocr",
-       "semantic": "業",
+       "semantic": "臺",
        "surface_uncertain": true
       },
       {
-       "char": "一",
-       "prob": 0.1906,
+       "char": "小",
+       "prob": 0.1495,
        "source": "ocr",
-       "semantic": "一",
+       "semantic": "小",
        "surface_uncertain": true
       },
       {
-       "char": "世",
-       "prob": 0.0794,
+       "char": "合",
+       "prob": 0.1257,
        "source": "ocr",
-       "semantic": "世",
+       "semantic": "合",
        "surface_uncertain": true
       },
       {
-       "char": "當",
-       "prob": 0.0774,
+       "char": "会",
+       "prob": 0.0951,
        "source": "ocr",
-       "semantic": "當",
+       "semantic": "會",
        "surface_uncertain": true
       }
      ],
@@ -3741,38 +4205,38 @@
      ],
      "candidates": [
       {
-       "char": "異",
-       "prob": 0.3653,
+       "char": "异",
+       "prob": 0.9593,
        "source": "ocr",
        "semantic": "異",
        "surface_uncertain": true
       },
       {
+       "char": "并",
+       "prob": 0.0305,
+       "source": "ocr",
+       "semantic": "並",
+       "surface_uncertain": true
+      },
+      {
        "char": "昇",
-       "prob": 0.3639,
+       "prob": 0.0042,
        "source": "ocr",
        "semantic": "昇",
        "surface_uncertain": true
       },
       {
-       "char": "並",
-       "prob": 0.1337,
+       "char": "弄",
+       "prob": 0.0033,
        "source": "ocr",
-       "semantic": "並",
+       "semantic": "弄",
        "surface_uncertain": true
       },
       {
-       "char": "异",
-       "prob": 0.0406,
+       "char": "吴",
+       "prob": 0.0027,
        "source": "ocr",
-       "semantic": "異",
-       "surface_uncertain": true
-      },
-      {
-       "char": "併",
-       "prob": 0.0382,
-       "source": "ocr",
-       "semantic": "並",
+       "semantic": "吳",
        "surface_uncertain": true
       }
      ],
@@ -3784,8 +4248,8 @@
   {
    "column_id": "vol01:32:8",
    "context": {
-    "prev": "彼之臣子亦不能變黑曲存其言并",
-    "next": "國方畧後以昭徵信近復閱江蘇所進應燬書籍內有"
+    "prev": "雖彼之臣子亦不能變亂黑白曲爲隱諱存其言并",
+    "next": "國方畧後以昭徵信近復閱江蘇所進應燬書籍有"
    },
    "slots": [
     {
@@ -3797,37 +4261,37 @@
      "candidates": [
       {
        "char": "可",
-       "prob": 0.5415,
+       "prob": 0.9985,
        "source": "ocr",
        "semantic": "可",
        "surface_uncertain": true
       },
       {
-       "char": "聘",
-       "prob": 0.4046,
+       "char": "河",
+       "prob": 0.001,
        "source": "ocr",
-       "semantic": "聘",
+       "semantic": "河",
        "surface_uncertain": true
       },
       {
-       "char": "融",
-       "prob": 0.0211,
+       "char": "司",
+       "prob": 0.0003,
        "source": "ocr",
-       "semantic": "融",
+       "semantic": "司",
        "surface_uncertain": true
       },
       {
-       "char": "馳",
-       "prob": 0.0154,
+       "char": "习",
+       "prob": 0.0001,
        "source": "ocr",
-       "semantic": "馳",
+       "semantic": "習",
        "surface_uncertain": true
       },
       {
-       "char": "職",
-       "prob": 0.0141,
+       "char": "阿",
+       "prob": 0.0001,
        "source": "ocr",
-       "semantic": "職",
+       "semantic": "阿",
        "surface_uncertain": true
       }
      ],
@@ -3843,37 +4307,37 @@
      "candidates": [
       {
        "char": "補",
-       "prob": 0.9986,
+       "prob": 0.9957,
        "source": "ocr",
        "semantic": "補",
        "surface_uncertain": true
       },
       {
-       "char": "补",
-       "prob": 0.0012,
+       "char": "铺",
+       "prob": 0.0034,
        "source": "ocr",
-       "semantic": "補",
+       "semantic": "鋪",
        "surface_uncertain": true
       },
       {
-       "char": "禕",
-       "prob": 0.0001,
+       "char": "浦",
+       "prob": 0.0004,
        "source": "ocr",
-       "semantic": "禕",
+       "semantic": "浦",
        "surface_uncertain": true
       },
       {
-       "char": "褚",
-       "prob": 0.0,
+       "char": "辅",
+       "prob": 0.0003,
        "source": "ocr",
-       "semantic": "褚",
+       "semantic": "輔",
        "surface_uncertain": true
       },
       {
-       "char": "褘",
-       "prob": 0.0,
+       "char": "輔",
+       "prob": 0.0002,
        "source": "ocr",
-       "semantic": "褘",
+       "semantic": "輔",
        "surface_uncertain": true
       }
      ],
@@ -3889,35 +4353,35 @@
      "candidates": [
       {
        "char": "當",
-       "prob": 0.9729,
+       "prob": 0.9895,
        "source": "ocr",
        "semantic": "當",
        "surface_uncertain": true
       },
       {
-       "char": "賞",
-       "prob": 0.0112,
-       "source": "ocr",
-       "semantic": "賞",
-       "surface_uncertain": true
-      },
-      {
        "char": "噹",
-       "prob": 0.0091,
+       "prob": 0.0069,
        "source": "ocr",
        "semantic": "噹",
        "surface_uncertain": true
       },
       {
        "char": "当",
-       "prob": 0.0045,
+       "prob": 0.0018,
        "source": "ocr",
        "semantic": "當",
        "surface_uncertain": true
       },
       {
        "char": "赏",
-       "prob": 0.0012,
+       "prob": 0.0016,
+       "source": "ocr",
+       "semantic": "賞",
+       "surface_uncertain": true
+      },
+      {
+       "char": "賞",
+       "prob": 0.0001,
        "source": "ocr",
        "semantic": "賞",
        "surface_uncertain": true
@@ -3935,37 +4399,37 @@
      "candidates": [
       {
        "char": "年",
-       "prob": 1.0,
+       "prob": 0.9996,
        "source": "ocr",
        "semantic": "年",
        "surface_uncertain": true
       },
       {
-       "char": "牟",
-       "prob": 0.0,
+       "char": "午",
+       "prob": 0.0003,
        "source": "ocr",
-       "semantic": "牟",
+       "semantic": "午",
        "surface_uncertain": true
       },
       {
-       "char": "妞",
+       "char": "车",
        "prob": 0.0,
        "source": "ocr",
-       "semantic": "妞",
+       "semantic": "車",
        "surface_uncertain": true
       },
       {
-       "char": "牢",
+       "char": "华",
        "prob": 0.0,
        "source": "ocr",
-       "semantic": "牢",
+       "semantic": "華",
        "surface_uncertain": true
       },
       {
-       "char": "鄭",
+       "char": "牛",
        "prob": 0.0,
        "source": "ocr",
-       "semantic": "鄭",
+       "semantic": "牛",
        "surface_uncertain": true
       }
      ],
@@ -3980,38 +4444,38 @@
      "flags": [],
      "candidates": [
       {
+       "char": "紀",
+       "prob": 0.7632,
+       "source": "ocr",
+       "semantic": "紀",
+       "surface_uncertain": true
+      },
+      {
        "char": "祀",
-       "prob": 0.6575,
+       "prob": 0.1337,
        "source": "ocr",
        "semantic": "祀",
        "surface_uncertain": true
       },
       {
-       "char": "杞",
-       "prob": 0.1115,
+       "char": "犯",
+       "prob": 0.0429,
        "source": "ocr",
-       "semantic": "杞",
+       "semantic": "犯",
+       "surface_uncertain": true
+      },
+      {
+       "char": "纪",
+       "prob": 0.0369,
+       "source": "ocr",
+       "semantic": "紀",
        "surface_uncertain": true
       },
       {
        "char": "粑",
-       "prob": 0.1054,
+       "prob": 0.0233,
        "source": "ocr",
        "semantic": "粑",
-       "surface_uncertain": true
-      },
-      {
-       "char": "耙",
-       "prob": 0.0746,
-       "source": "ocr",
-       "semantic": "耙",
-       "surface_uncertain": true
-      },
-      {
-       "char": "紀",
-       "prob": 0.051,
-       "source": "ocr",
-       "semantic": "紀",
        "surface_uncertain": true
       }
      ],
@@ -4027,37 +4491,37 @@
      "candidates": [
       {
        "char": "載",
-       "prob": 0.8263,
+       "prob": 0.9542,
        "source": "ocr",
        "semantic": "載",
        "surface_uncertain": true
       },
       {
        "char": "戴",
-       "prob": 0.1655,
+       "prob": 0.0355,
        "source": "ocr",
        "semantic": "戴",
        "surface_uncertain": true
       },
       {
        "char": "载",
-       "prob": 0.006,
+       "prob": 0.008,
        "source": "ocr",
        "semantic": "載",
        "surface_uncertain": true
       },
       {
        "char": "戟",
-       "prob": 0.0019,
+       "prob": 0.0013,
        "source": "ocr",
        "semantic": "戟",
        "surface_uncertain": true
       },
       {
-       "char": "截",
-       "prob": 0.0003,
+       "char": "戰",
+       "prob": 0.0011,
        "source": "ocr",
-       "semantic": "截",
+       "semantic": "戰",
        "surface_uncertain": true
       }
      ],
@@ -4073,37 +4537,37 @@
      "candidates": [
       {
        "char": "所",
-       "prob": 1.0,
+       "prob": 0.9988,
        "source": "ocr",
        "semantic": "所",
        "surface_uncertain": true
       },
       {
-       "char": "沂",
-       "prob": 0.0,
-       "source": "ocr",
-       "semantic": "沂",
-       "surface_uncertain": true
-      },
-      {
-       "char": "┌",
-       "prob": 0.0,
-       "source": "ocr",
-       "semantic": "┌",
-       "surface_uncertain": true
-      },
-      {
        "char": "昕",
-       "prob": 0.0,
+       "prob": 0.001,
        "source": "ocr",
        "semantic": "昕",
        "surface_uncertain": true
       },
       {
-       "char": "殲",
+       "char": "听",
+       "prob": 0.0001,
+       "source": "ocr",
+       "semantic": "聽",
+       "surface_uncertain": true
+      },
+      {
+       "char": "新",
        "prob": 0.0,
        "source": "ocr",
-       "semantic": "殲",
+       "semantic": "新",
+       "surface_uncertain": true
+      },
+      {
+       "char": "浙",
+       "prob": 0.0,
+       "source": "ocr",
+       "semantic": "浙",
        "surface_uncertain": true
       }
      ],
@@ -4119,37 +4583,37 @@
      "candidates": [
       {
        "char": "未",
-       "prob": 0.9983,
+       "prob": 0.9955,
        "source": "ocr",
        "semantic": "未",
        "surface_uncertain": true
       },
       {
+       "char": "夫",
+       "prob": 0.0032,
+       "source": "ocr",
+       "semantic": "夫",
+       "surface_uncertain": true
+      },
+      {
        "char": "末",
-       "prob": 0.0006,
+       "prob": 0.0012,
        "source": "ocr",
        "semantic": "末",
        "surface_uncertain": true
       },
       {
-       "char": "術",
-       "prob": 0.0004,
-       "source": "ocr",
-       "semantic": "術",
-       "surface_uncertain": true
-      },
-      {
-       "char": "來",
-       "prob": 0.0003,
-       "source": "ocr",
-       "semantic": "來",
-       "surface_uncertain": true
-      },
-      {
        "char": "米",
-       "prob": 0.0002,
+       "prob": 0.0001,
        "source": "ocr",
        "semantic": "米",
+       "surface_uncertain": true
+      },
+      {
+       "char": "赤",
+       "prob": 0.0001,
+       "source": "ocr",
+       "semantic": "赤",
        "surface_uncertain": true
       }
      ],
@@ -4165,37 +4629,37 @@
      "candidates": [
       {
        "char": "備",
-       "prob": 0.8102,
+       "prob": 0.9984,
        "source": "ocr",
        "semantic": "備",
        "surface_uncertain": true
       },
       {
-       "char": "俑",
-       "prob": 0.0563,
-       "source": "ocr",
-       "semantic": "俑",
-       "surface_uncertain": true
-      },
-      {
-       "char": "俏",
-       "prob": 0.0401,
-       "source": "ocr",
-       "semantic": "俏",
-       "surface_uncertain": true
-      },
-      {
        "char": "倩",
-       "prob": 0.0386,
+       "prob": 0.0012,
        "source": "ocr",
        "semantic": "倩",
        "surface_uncertain": true
       },
       {
        "char": "借",
-       "prob": 0.0301,
+       "prob": 0.0002,
        "source": "ocr",
        "semantic": "借",
+       "surface_uncertain": true
+      },
+      {
+       "char": "衛",
+       "prob": 0.0001,
+       "source": "ocr",
+       "semantic": "衛",
+       "surface_uncertain": true
+      },
+      {
+       "char": "侑",
+       "prob": 0.0001,
+       "source": "ocr",
+       "semantic": "侑",
        "surface_uncertain": true
       }
      ],
@@ -4211,37 +4675,37 @@
      "candidates": [
       {
        "char": "因",
-       "prob": 0.9994,
+       "prob": 0.9996,
        "source": "ocr",
        "semantic": "因",
        "surface_uncertain": true
       },
       {
-       "char": "囚",
+       "char": "囡",
        "prob": 0.0002,
+       "source": "ocr",
+       "semantic": "囡",
+       "surface_uncertain": true
+      },
+      {
+       "char": "囚",
+       "prob": 0.0001,
        "source": "ocr",
        "semantic": "囚",
        "surface_uncertain": true
       },
       {
-       "char": "煙",
-       "prob": 0.0001,
+       "char": "田",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "完",
+       "semantic": "田",
        "surface_uncertain": true
       },
       {
-       "char": "困",
-       "prob": 0.0001,
+       "char": "固",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "困",
-       "surface_uncertain": true
-      },
-      {
-       "char": "囡",
-       "prob": 0.0001,
-       "source": "ocr",
-       "semantic": "囡",
+       "semantic": "固",
        "surface_uncertain": true
       }
      ],
@@ -4257,30 +4721,16 @@
      "candidates": [
       {
        "char": "命",
-       "prob": 1.0,
+       "prob": 0.9971,
        "source": "ocr",
        "semantic": "命",
        "surface_uncertain": true
       },
       {
        "char": "俞",
-       "prob": 0.0,
+       "prob": 0.0028,
        "source": "ocr",
        "semantic": "俞",
-       "surface_uncertain": true
-      },
-      {
-       "char": "喻",
-       "prob": 0.0,
-       "source": "ocr",
-       "semantic": "喻",
-       "surface_uncertain": true
-      },
-      {
-       "char": "倉",
-       "prob": 0.0,
-       "source": "ocr",
-       "semantic": "倉",
        "surface_uncertain": true
       },
       {
@@ -4288,6 +4738,20 @@
        "prob": 0.0,
        "source": "ocr",
        "semantic": "合",
+       "surface_uncertain": true
+      },
+      {
+       "char": "价",
+       "prob": 0.0,
+       "source": "ocr",
+       "semantic": "價",
+       "surface_uncertain": true
+      },
+      {
+       "char": "喻",
+       "prob": 0.0,
+       "source": "ocr",
+       "semantic": "喻",
        "surface_uncertain": true
       }
      ],
@@ -4302,38 +4766,38 @@
      "flags": [],
      "candidates": [
       {
-       "char": "館",
-       "prob": 0.9546,
+       "char": "馆",
+       "prob": 0.5863,
        "source": "ocr",
        "semantic": "館",
        "surface_uncertain": true
       },
       {
-       "char": "馆",
-       "prob": 0.0426,
+       "char": "館",
+       "prob": 0.3958,
+       "source": "ocr",
+       "semantic": "館",
+       "surface_uncertain": true
+      },
+      {
+       "char": "信",
+       "prob": 0.0098,
+       "source": "ocr",
+       "semantic": "信",
+       "surface_uncertain": true
+      },
+      {
+       "char": "舘",
+       "prob": 0.0074,
        "source": "ocr",
        "semantic": "館",
        "surface_uncertain": true
       },
       {
        "char": "管",
-       "prob": 0.001,
-       "source": "ocr",
-       "semantic": "管",
-       "surface_uncertain": true
-      },
-      {
-       "char": "官",
        "prob": 0.0007,
        "source": "ocr",
-       "semantic": "官",
-       "surface_uncertain": true
-      },
-      {
-       "char": "郁",
-       "prob": 0.0006,
-       "source": "ocr",
-       "semantic": "鬱",
+       "semantic": "管",
        "surface_uncertain": true
       }
      ],
@@ -4349,16 +4813,9 @@
      "candidates": [
       {
        "char": "臣",
-       "prob": 0.9998,
+       "prob": 0.9999,
        "source": "ocr",
        "semantic": "臣",
-       "surface_uncertain": true
-      },
-      {
-       "char": "臥",
-       "prob": 0.0,
-       "source": "ocr",
-       "semantic": "卧",
        "surface_uncertain": true
       },
       {
@@ -4369,17 +4826,24 @@
        "surface_uncertain": true
       },
       {
-       "char": "距",
+       "char": "匠",
        "prob": 0.0,
        "source": "ocr",
-       "semantic": "距",
+       "semantic": "匠",
        "surface_uncertain": true
       },
       {
-       "char": "鉅",
+       "char": "亞",
        "prob": 0.0,
        "source": "ocr",
-       "semantic": "鉅",
+       "semantic": "亞",
+       "surface_uncertain": true
+      },
+      {
+       "char": "卧",
+       "prob": 0.0,
+       "source": "ocr",
+       "semantic": "卧",
        "surface_uncertain": true
       }
      ],
@@ -4395,37 +4859,37 @@
      "candidates": [
       {
        "char": "酌",
-       "prob": 0.9976,
+       "prob": 0.993,
        "source": "ocr",
        "semantic": "酌",
        "surface_uncertain": true
       },
       {
        "char": "的",
-       "prob": 0.0011,
+       "prob": 0.0064,
        "source": "ocr",
        "semantic": "的",
        "surface_uncertain": true
       },
       {
+       "char": "酶",
+       "prob": 0.0002,
+       "source": "ocr",
+       "semantic": "酶",
+       "surface_uncertain": true
+      },
+      {
        "char": "豹",
-       "prob": 0.0007,
+       "prob": 0.0002,
        "source": "ocr",
        "semantic": "豹",
        "surface_uncertain": true
       },
       {
-       "char": "酚",
-       "prob": 0.0005,
-       "source": "ocr",
-       "semantic": "酚",
-       "surface_uncertain": true
-      },
-      {
-       "char": "喲",
+       "char": "酗",
        "prob": 0.0001,
        "source": "ocr",
-       "semantic": "喲",
+       "semantic": "酗",
        "surface_uncertain": true
       }
      ],
@@ -4443,37 +4907,37 @@
      "candidates": [
       {
        "char": "加",
-       "prob": 1.0,
+       "prob": 0.9998,
        "source": "ocr",
        "semantic": "加",
        "surface_uncertain": true
       },
       {
        "char": "如",
-       "prob": 0.0,
+       "prob": 0.0001,
        "source": "ocr",
        "semantic": "如",
        "surface_uncertain": true
       },
       {
-       "char": "扣",
-       "prob": 0.0,
-       "source": "ocr",
-       "semantic": "扣",
-       "surface_uncertain": true
-      },
-      {
        "char": "伽",
-       "prob": 0.0,
+       "prob": 0.0001,
        "source": "ocr",
        "semantic": "伽",
        "surface_uncertain": true
       },
       {
-       "char": "釦",
+       "char": "咖",
        "prob": 0.0,
        "source": "ocr",
-       "semantic": "釦",
+       "semantic": "咖",
+       "surface_uncertain": true
+      },
+      {
+       "char": "旭",
+       "prob": 0.0,
+       "source": "ocr",
+       "semantic": "旭",
        "surface_uncertain": true
       }
      ],
@@ -4490,38 +4954,38 @@
      ],
      "candidates": [
       {
-       "char": "箭",
-       "prob": 0.5391,
-       "source": "ocr",
-       "semantic": "箭",
-       "surface_uncertain": true
-      },
-      {
-       "char": "簡",
-       "prob": 0.3221,
-       "source": "ocr",
-       "semantic": "簡",
-       "surface_uncertain": true
-      },
-      {
        "char": "節",
-       "prob": 0.0618,
+       "prob": 0.9986,
        "source": "ocr",
        "semantic": "節",
        "surface_uncertain": true
       },
       {
        "char": "筋",
-       "prob": 0.0616,
+       "prob": 0.0008,
        "source": "ocr",
        "semantic": "筋",
        "surface_uncertain": true
       },
       {
-       "char": "简",
-       "prob": 0.0154,
+       "char": "簡",
+       "prob": 0.0003,
        "source": "ocr",
        "semantic": "簡",
+       "surface_uncertain": true
+      },
+      {
+       "char": "飾",
+       "prob": 0.0002,
+       "source": "ocr",
+       "semantic": "飾",
+       "surface_uncertain": true
+      },
+      {
+       "char": "爺",
+       "prob": 0.0001,
+       "source": "ocr",
+       "semantic": "爺",
        "surface_uncertain": true
       }
      ],
@@ -4538,36 +5002,36 @@
      ],
      "candidates": [
       {
-       "char": "政",
-       "prob": 0.8455,
-       "source": "ocr",
-       "semantic": "政",
-       "surface_uncertain": true
-      },
-      {
-       "char": "收",
-       "prob": 0.0581,
-       "source": "ocr",
-       "semantic": "收",
-       "surface_uncertain": true
-      },
-      {
        "char": "改",
-       "prob": 0.0465,
+       "prob": 0.9371,
        "source": "ocr",
        "semantic": "改",
        "surface_uncertain": true
       },
       {
-       "char": "敗",
-       "prob": 0.0234,
+       "char": "政",
+       "prob": 0.0227,
        "source": "ocr",
-       "semantic": "敗",
+       "semantic": "政",
        "surface_uncertain": true
       },
       {
-       "char": "歐",
-       "prob": 0.0215,
+       "char": "故",
+       "prob": 0.0185,
+       "source": "ocr",
+       "semantic": "故",
+       "surface_uncertain": true
+      },
+      {
+       "char": "收",
+       "prob": 0.0183,
+       "source": "ocr",
+       "semantic": "收",
+       "surface_uncertain": true
+      },
+      {
+       "char": "欧",
+       "prob": 0.0034,
        "source": "ocr",
        "semantic": "歐",
        "surface_uncertain": true
@@ -4587,37 +5051,37 @@
      "candidates": [
       {
        "char": "附",
-       "prob": 0.3377,
+       "prob": 0.9999,
        "source": "ocr",
        "semantic": "附",
        "surface_uncertain": true
       },
       {
-       "char": "載",
-       "prob": 0.3125,
+       "char": "阴",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "載",
+       "semantic": "陰",
        "surface_uncertain": true
       },
       {
-       "char": "戴",
-       "prob": 0.2835,
+       "char": "时",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "戴",
+       "semantic": "時",
        "surface_uncertain": true
       },
       {
-       "char": "戟",
-       "prob": 0.0545,
+       "char": "阶",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "戟",
+       "semantic": "階",
        "surface_uncertain": true
       },
       {
-       "char": "载",
-       "prob": 0.0117,
+       "char": "防",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "載",
+       "semantic": "防",
        "surface_uncertain": true
       }
      ],
@@ -4635,37 +5099,37 @@
      "candidates": [
       {
        "char": "載",
-       "prob": 0.9795,
+       "prob": 0.9746,
+       "source": "ocr",
+       "semantic": "載",
+       "surface_uncertain": true
+      },
+      {
+       "char": "载",
+       "prob": 0.0241,
        "source": "ocr",
        "semantic": "載",
        "surface_uncertain": true
       },
       {
        "char": "戴",
-       "prob": 0.016,
+       "prob": 0.001,
        "source": "ocr",
        "semantic": "戴",
        "surface_uncertain": true
       },
       {
-       "char": "载",
-       "prob": 0.0037,
-       "source": "ocr",
-       "semantic": "載",
-       "surface_uncertain": true
-      },
-      {
        "char": "截",
-       "prob": 0.0005,
+       "prob": 0.0002,
        "source": "ocr",
        "semantic": "截",
        "surface_uncertain": true
       },
       {
-       "char": "報",
-       "prob": 0.0004,
+       "char": "軾",
+       "prob": 0.0001,
        "source": "ocr",
-       "semantic": "報",
+       "semantic": "軾",
        "surface_uncertain": true
       }
      ],
@@ -4690,37 +5154,37 @@
      "candidates": [
       {
        "char": "國",
-       "prob": 0.9801,
+       "prob": 0.914,
        "source": "ocr",
        "semantic": "國",
        "surface_uncertain": true
       },
       {
-       "char": "園",
-       "prob": 0.0104,
+       "char": "国",
+       "prob": 0.0849,
+       "source": "ocr",
+       "semantic": "國",
+       "surface_uncertain": true
+      },
+      {
+       "char": "囤",
+       "prob": 0.001,
+       "source": "ocr",
+       "semantic": "囤",
+       "surface_uncertain": true
+      },
+      {
+       "char": "园",
+       "prob": 0.0001,
        "source": "ocr",
        "semantic": "園",
        "surface_uncertain": true
       },
       {
-       "char": "国",
-       "prob": 0.0056,
+       "char": "園",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "國",
-       "surface_uncertain": true
-      },
-      {
-       "char": "廚",
-       "prob": 0.0034,
-       "source": "ocr",
-       "semantic": "厨",
-       "surface_uncertain": true
-      },
-      {
-       "char": "厨",
-       "prob": 0.0004,
-       "source": "ocr",
-       "semantic": "厨",
+       "semantic": "園",
        "surface_uncertain": true
       }
      ],
@@ -4736,37 +5200,37 @@
      "candidates": [
       {
        "char": "方",
-       "prob": 1.0,
+       "prob": 0.9906,
        "source": "ocr",
        "semantic": "方",
        "surface_uncertain": true
       },
       {
        "char": "万",
-       "prob": 0.0,
+       "prob": 0.0089,
        "source": "ocr",
        "semantic": "萬",
        "surface_uncertain": true
       },
       {
-       "char": "萬",
-       "prob": 0.0,
+       "char": "力",
+       "prob": 0.0005,
        "source": "ocr",
-       "semantic": "萬",
+       "semantic": "力",
        "surface_uncertain": true
       },
       {
-       "char": "坊",
+       "char": "市",
        "prob": 0.0,
        "source": "ocr",
-       "semantic": "坊",
+       "semantic": "市",
        "surface_uncertain": true
       },
       {
-       "char": "芳",
+       "char": "ガ",
        "prob": 0.0,
        "source": "ocr",
-       "semantic": "芳",
+       "semantic": "ガ",
        "surface_uncertain": true
       }
      ],
@@ -4781,36 +5245,36 @@
      "flags": [],
      "candidates": [
       {
-       "char": "磐",
-       "prob": 0.3041,
-       "source": "ocr",
-       "semantic": "磐",
-       "surface_uncertain": true
-      },
-      {
-       "char": "零",
-       "prob": 0.2583,
-       "source": "ocr",
-       "semantic": "零",
-       "surface_uncertain": true
-      },
-      {
-       "char": "署",
-       "prob": 0.2349,
-       "source": "ocr",
-       "semantic": "頴",
-       "surface_uncertain": true
-      },
-      {
        "char": "客",
-       "prob": 0.0919,
+       "prob": 0.4979,
        "source": "ocr",
        "semantic": "客",
        "surface_uncertain": true
       },
       {
+       "char": "界",
+       "prob": 0.3593,
+       "source": "ocr",
+       "semantic": "界",
+       "surface_uncertain": true
+      },
+      {
+       "char": "晷",
+       "prob": 0.0652,
+       "source": "ocr",
+       "semantic": "晷",
+       "surface_uncertain": true
+      },
+      {
+       "char": "零",
+       "prob": 0.0556,
+       "source": "ocr",
+       "semantic": "零",
+       "surface_uncertain": true
+      },
+      {
        "char": "唇",
-       "prob": 0.061,
+       "prob": 0.0221,
        "source": "ocr",
        "semantic": "唇",
        "surface_uncertain": true
@@ -4828,37 +5292,37 @@
      "candidates": [
       {
        "char": "後",
-       "prob": 0.774,
+       "prob": 0.9175,
+       "source": "ocr",
+       "semantic": "後",
+       "surface_uncertain": true
+      },
+      {
+       "char": "后",
+       "prob": 0.0454,
        "source": "ocr",
        "semantic": "後",
        "surface_uncertain": true
       },
       {
        "char": "役",
-       "prob": 0.1687,
+       "prob": 0.0264,
        "source": "ocr",
        "semantic": "役",
        "surface_uncertain": true
       },
       {
+       "char": "從",
+       "prob": 0.0075,
+       "source": "ocr",
+       "semantic": "從",
+       "surface_uncertain": true
+      },
+      {
        "char": "俊",
-       "prob": 0.0232,
+       "prob": 0.0033,
        "source": "ocr",
        "semantic": "俊",
-       "surface_uncertain": true
-      },
-      {
-       "char": "儁",
-       "prob": 0.019,
-       "source": "ocr",
-       "semantic": "儁",
-       "surface_uncertain": true
-      },
-      {
-       "char": "后",
-       "prob": 0.0089,
-       "source": "ocr",
-       "semantic": "後",
        "surface_uncertain": true
       }
      ],
@@ -4874,37 +5338,37 @@
      "candidates": [
       {
        "char": "以",
-       "prob": 0.9973,
+       "prob": 0.9926,
        "source": "ocr",
        "semantic": "以",
        "surface_uncertain": true
       },
       {
-       "char": "心",
-       "prob": 0.0012,
+       "char": "山",
+       "prob": 0.0035,
        "source": "ocr",
-       "semantic": "心",
+       "semantic": "山",
        "surface_uncertain": true
       },
       {
-       "char": "叢",
-       "prob": 0.0005,
+       "char": "从",
+       "prob": 0.0015,
        "source": "ocr",
-       "semantic": "叢",
-       "surface_uncertain": true
-      },
-      {
-       "char": "世",
-       "prob": 0.0005,
-       "source": "ocr",
-       "semantic": "世",
+       "semantic": "從",
        "surface_uncertain": true
       },
       {
        "char": "比",
-       "prob": 0.0005,
+       "prob": 0.0015,
        "source": "ocr",
        "semantic": "比",
+       "surface_uncertain": true
+      },
+      {
+       "char": "川",
+       "prob": 0.0008,
+       "source": "ocr",
+       "semantic": "川",
        "surface_uncertain": true
       }
      ],
@@ -4920,37 +5384,37 @@
      "candidates": [
       {
        "char": "昭",
-       "prob": 0.9722,
+       "prob": 0.999,
        "source": "ocr",
        "semantic": "昭",
        "surface_uncertain": true
       },
       {
        "char": "照",
-       "prob": 0.026,
+       "prob": 0.0009,
        "source": "ocr",
        "semantic": "照",
        "surface_uncertain": true
       },
       {
-       "char": "貂",
-       "prob": 0.0012,
-       "source": "ocr",
-       "semantic": "貂",
-       "surface_uncertain": true
-      },
-      {
-       "char": "紹",
-       "prob": 0.0004,
-       "source": "ocr",
-       "semantic": "紹",
-       "surface_uncertain": true
-      },
-      {
        "char": "招",
-       "prob": 0.0002,
+       "prob": 0.0001,
        "source": "ocr",
        "semantic": "招",
+       "surface_uncertain": true
+      },
+      {
+       "char": "书",
+       "prob": 0.0,
+       "source": "ocr",
+       "semantic": "書",
+       "surface_uncertain": true
+      },
+      {
+       "char": "貂",
+       "prob": 0.0,
+       "source": "ocr",
+       "semantic": "貂",
        "surface_uncertain": true
       }
      ],
@@ -4965,38 +5429,38 @@
      "flags": [],
      "candidates": [
       {
-       "char": "微",
-       "prob": 0.8481,
-       "source": "ocr",
-       "semantic": "微",
-       "surface_uncertain": true
-      },
-      {
-       "char": "徽",
-       "prob": 0.0953,
-       "source": "ocr",
-       "semantic": "徽",
-       "surface_uncertain": true
-      },
-      {
        "char": "徵",
-       "prob": 0.0424,
+       "prob": 0.8873,
        "source": "ocr",
        "semantic": "徵",
        "surface_uncertain": true
       },
       {
-       "char": "徹",
-       "prob": 0.0127,
+       "char": "徴",
+       "prob": 0.1009,
        "source": "ocr",
-       "semantic": "徹",
+       "semantic": "徴",
        "surface_uncertain": true
       },
       {
-       "char": "薇",
-       "prob": 0.0014,
+       "char": "征",
+       "prob": 0.0097,
        "source": "ocr",
-       "semantic": "薇",
+       "semantic": "徵",
+       "surface_uncertain": true
+      },
+      {
+       "char": "微",
+       "prob": 0.0016,
+       "source": "ocr",
+       "semantic": "微",
+       "surface_uncertain": true
+      },
+      {
+       "char": "澂",
+       "prob": 0.0006,
+       "source": "ocr",
+       "semantic": "澂",
        "surface_uncertain": true
       }
      ],
@@ -5012,37 +5476,37 @@
      "candidates": [
       {
        "char": "信",
-       "prob": 1.0,
+       "prob": 0.9999,
        "source": "ocr",
        "semantic": "信",
        "surface_uncertain": true
       },
       {
-       "char": "售",
+       "char": "佶",
        "prob": 0.0,
        "source": "ocr",
-       "semantic": "售",
+       "semantic": "佶",
        "surface_uncertain": true
       },
       {
-       "char": "言",
+       "char": "倍",
        "prob": 0.0,
        "source": "ocr",
-       "semantic": "言",
+       "semantic": "倍",
        "surface_uncertain": true
       },
       {
-       "char": "詹",
+       "char": "僖",
        "prob": 0.0,
        "source": "ocr",
-       "semantic": "詹",
+       "semantic": "僖",
        "surface_uncertain": true
       },
       {
-       "char": "儋",
+       "char": "停",
        "prob": 0.0,
        "source": "ocr",
-       "semantic": "儋",
+       "semantic": "停",
        "surface_uncertain": true
       }
      ],
@@ -5058,16 +5522,23 @@
      "candidates": [
       {
        "char": "近",
-       "prob": 1.0,
+       "prob": 0.9999,
        "source": "ocr",
        "semantic": "近",
        "surface_uncertain": true
       },
       {
-       "char": "逅",
+       "char": "ú",
        "prob": 0.0,
        "source": "ocr",
-       "semantic": "逅",
+       "semantic": "ú",
+       "surface_uncertain": true
+      },
+      {
+       "char": "迈",
+       "prob": 0.0,
+       "source": "ocr",
+       "semantic": "邁",
        "surface_uncertain": true
       },
       {
@@ -5083,13 +5554,6 @@
        "source": "ocr",
        "semantic": "沂",
        "surface_uncertain": true
-      },
-      {
-       "char": "邁",
-       "prob": 0.0,
-       "source": "ocr",
-       "semantic": "邁",
-       "surface_uncertain": true
       }
      ],
      "gold": "近",
@@ -5104,37 +5568,37 @@
      "candidates": [
       {
        "char": "復",
-       "prob": 0.6782,
+       "prob": 0.6111,
        "source": "ocr",
        "semantic": "復",
        "surface_uncertain": true
       },
       {
        "char": "複",
-       "prob": 0.1595,
+       "prob": 0.3842,
        "source": "ocr",
        "semantic": "復",
        "surface_uncertain": true
       },
       {
-       "char": "優",
-       "prob": 0.0976,
+       "char": "覆",
+       "prob": 0.0042,
        "source": "ocr",
-       "semantic": "優",
+       "semantic": "復",
        "surface_uncertain": true
       },
       {
        "char": "傻",
-       "prob": 0.0202,
+       "prob": 0.0003,
        "source": "ocr",
        "semantic": "傻",
        "surface_uncertain": true
       },
       {
-       "char": "覆",
-       "prob": 0.0168,
+       "char": "後",
+       "prob": 0.0003,
        "source": "ocr",
-       "semantic": "復",
+       "semantic": "後",
        "surface_uncertain": true
       }
      ],
@@ -5149,36 +5613,36 @@
      "flags": [],
      "candidates": [
       {
+       "char": "閱",
+       "prob": 0.9183,
+       "source": "ocr",
+       "semantic": "閱",
+       "surface_uncertain": true
+      },
+      {
        "char": "開",
-       "prob": 0.8674,
+       "prob": 0.025,
        "source": "ocr",
        "semantic": "開",
        "surface_uncertain": true
       },
       {
-       "char": "閣",
-       "prob": 0.0711,
+       "char": "閲",
+       "prob": 0.0225,
        "source": "ocr",
-       "semantic": "閣",
+       "semantic": "閱",
        "surface_uncertain": true
       },
       {
-       "char": "關",
-       "prob": 0.0428,
+       "char": "闊",
+       "prob": 0.0204,
        "source": "ocr",
-       "semantic": "關",
+       "semantic": "濶",
        "surface_uncertain": true
       },
       {
-       "char": "聞",
-       "prob": 0.0153,
-       "source": "ocr",
-       "semantic": "聞",
-       "surface_uncertain": true
-      },
-      {
-       "char": "关",
-       "prob": 0.0035,
+       "char": "関",
+       "prob": 0.0137,
        "source": "ocr",
        "semantic": "關",
        "surface_uncertain": true
@@ -5196,30 +5660,9 @@
      "candidates": [
       {
        "char": "江",
-       "prob": 0.9999,
+       "prob": 1.0,
        "source": "ocr",
        "semantic": "江",
-       "surface_uncertain": true
-      },
-      {
-       "char": "匯",
-       "prob": 0.0001,
-       "source": "ocr",
-       "semantic": "滙",
-       "surface_uncertain": true
-      },
-      {
-       "char": "汪",
-       "prob": 0.0,
-       "source": "ocr",
-       "semantic": "汪",
-       "surface_uncertain": true
-      },
-      {
-       "char": "彙",
-       "prob": 0.0,
-       "source": "ocr",
-       "semantic": "彙",
        "surface_uncertain": true
       },
       {
@@ -5227,6 +5670,27 @@
        "prob": 0.0,
        "source": "ocr",
        "semantic": "彙",
+       "surface_uncertain": true
+      },
+      {
+       "char": "汉",
+       "prob": 0.0,
+       "source": "ocr",
+       "semantic": "漢",
+       "surface_uncertain": true
+      },
+      {
+       "char": "冮",
+       "prob": 0.0,
+       "source": "ocr",
+       "semantic": "冮",
+       "surface_uncertain": true
+      },
+      {
+       "char": "汪",
+       "prob": 0.0,
+       "source": "ocr",
+       "semantic": "汪",
        "surface_uncertain": true
       }
      ],
@@ -5244,37 +5708,37 @@
      "candidates": [
       {
        "char": "蘇",
-       "prob": 0.9928,
+       "prob": 0.9999,
        "source": "ocr",
        "semantic": "蘇",
        "surface_uncertain": true
       },
       {
-       "char": "薪",
-       "prob": 0.0034,
+       "char": "燕",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "薪",
+       "semantic": "燕",
        "surface_uncertain": true
       },
       {
-       "char": "蒽",
-       "prob": 0.0013,
+       "char": "蔡",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "蒽",
+       "semantic": "蔡",
        "surface_uncertain": true
       },
       {
-       "char": "蕨",
-       "prob": 0.0012,
+       "char": "藥",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "蕨",
+       "semantic": "藥",
        "surface_uncertain": true
       },
       {
-       "char": "縈",
-       "prob": 0.0011,
+       "char": "靺",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "縈",
+       "semantic": "靺",
        "surface_uncertain": true
       }
      ],
@@ -5292,23 +5756,16 @@
      "candidates": [
       {
        "char": "所",
-       "prob": 1.0,
+       "prob": 0.9999,
        "source": "ocr",
        "semantic": "所",
        "surface_uncertain": true
       },
       {
-       "char": "聽",
+       "char": "斤",
        "prob": 0.0,
        "source": "ocr",
-       "semantic": "聽",
-       "surface_uncertain": true
-      },
-      {
-       "char": "沂",
-       "prob": 0.0,
-       "source": "ocr",
-       "semantic": "沂",
+       "semantic": "斤",
        "surface_uncertain": true
       },
       {
@@ -5319,10 +5776,17 @@
        "surface_uncertain": true
       },
       {
-       "char": "┌",
+       "char": "听",
        "prob": 0.0,
        "source": "ocr",
-       "semantic": "┌",
+       "semantic": "聽",
+       "surface_uncertain": true
+      },
+      {
+       "char": "沂",
+       "prob": 0.0,
+       "source": "ocr",
+       "semantic": "沂",
        "surface_uncertain": true
       }
      ],
@@ -5340,37 +5804,37 @@
      "candidates": [
       {
        "char": "進",
-       "prob": 0.999,
+       "prob": 0.9978,
        "source": "ocr",
        "semantic": "進",
        "surface_uncertain": true
       },
       {
-       "char": "譙",
-       "prob": 0.0007,
+       "char": "準",
+       "prob": 0.0018,
        "source": "ocr",
-       "semantic": "誚",
+       "semantic": "準",
        "surface_uncertain": true
       },
       {
-       "char": "維",
+       "char": "进",
+       "prob": 0.0002,
+       "source": "ocr",
+       "semantic": "進",
+       "surface_uncertain": true
+      },
+      {
+       "char": "准",
        "prob": 0.0001,
        "source": "ocr",
-       "semantic": "維",
+       "semantic": "準",
        "surface_uncertain": true
       },
       {
        "char": "逛",
-       "prob": 0.0001,
+       "prob": 0.0,
        "source": "ocr",
        "semantic": "逛",
-       "surface_uncertain": true
-      },
-      {
-       "char": "谯",
-       "prob": 0.0001,
-       "source": "ocr",
-       "semantic": "誚",
        "surface_uncertain": true
       }
      ],
@@ -5388,37 +5852,37 @@
      "candidates": [
       {
        "char": "應",
-       "prob": 0.8379,
+       "prob": 0.9927,
        "source": "ocr",
        "semantic": "應",
        "surface_uncertain": true
       },
       {
+       "char": "痣",
+       "prob": 0.0039,
+       "source": "ocr",
+       "semantic": "痣",
+       "surface_uncertain": true
+      },
+      {
        "char": "廳",
-       "prob": 0.0731,
+       "prob": 0.0012,
        "source": "ocr",
        "semantic": "廳",
        "surface_uncertain": true
       },
       {
-       "char": "廰",
-       "prob": 0.065,
+       "char": "麃",
+       "prob": 0.0011,
        "source": "ocr",
-       "semantic": "廰",
+       "semantic": "麃",
        "surface_uncertain": true
       },
       {
-       "char": "雁",
-       "prob": 0.0121,
+       "char": "焦",
+       "prob": 0.001,
        "source": "ocr",
-       "semantic": "雁",
-       "surface_uncertain": true
-      },
-      {
-       "char": "鷹",
-       "prob": 0.0107,
-       "source": "ocr",
-       "semantic": "鷹",
+       "semantic": "焦",
        "surface_uncertain": true
       }
      ],
@@ -5435,38 +5899,38 @@
      ],
      "candidates": [
       {
-       "char": "殿",
-       "prob": 0.3268,
+       "char": "燬",
+       "prob": 0.742,
        "source": "ocr",
-       "semantic": "殿",
+       "semantic": "燬",
+       "surface_uncertain": true
+      },
+      {
+       "char": "燈",
+       "prob": 0.1302,
+       "source": "ocr",
+       "semantic": "燈",
        "surface_uncertain": true
       },
       {
        "char": "熳",
-       "prob": 0.2748,
+       "prob": 0.056,
        "source": "ocr",
        "semantic": "熳",
        "surface_uncertain": true
       },
       {
-       "char": "攝",
-       "prob": 0.1803,
+       "char": "燮",
+       "prob": 0.0459,
        "source": "ocr",
-       "semantic": "攝",
+       "semantic": "燮",
        "surface_uncertain": true
       },
       {
        "char": "煨",
-       "prob": 0.1224,
+       "prob": 0.0258,
        "source": "ocr",
        "semantic": "煨",
-       "surface_uncertain": true
-      },
-      {
-       "char": "縵",
-       "prob": 0.0682,
-       "source": "ocr",
-       "semantic": "縵",
        "surface_uncertain": true
       }
      ],
@@ -5484,37 +5948,37 @@
      "candidates": [
       {
        "char": "書",
-       "prob": 0.4594,
+       "prob": 0.9802,
        "source": "ocr",
        "semantic": "書",
        "surface_uncertain": true
       },
       {
-       "char": "而",
-       "prob": 0.2302,
+       "char": "书",
+       "prob": 0.0167,
        "source": "ocr",
-       "semantic": "而",
+       "semantic": "書",
        "surface_uncertain": true
       },
       {
-       "char": "內",
-       "prob": 0.202,
+       "char": "晝",
+       "prob": 0.0027,
        "source": "ocr",
-       "semantic": "內",
+       "semantic": "晝",
        "surface_uncertain": true
       },
       {
-       "char": "善",
-       "prob": 0.0657,
+       "char": "丰",
+       "prob": 0.0003,
        "source": "ocr",
-       "semantic": "善",
+       "semantic": "豐",
        "surface_uncertain": true
       },
       {
-       "char": "内",
-       "prob": 0.0224,
+       "char": "畫",
+       "prob": 0.0002,
        "source": "ocr",
-       "semantic": "內",
+       "semantic": "畫",
        "surface_uncertain": true
       }
      ],
@@ -5532,89 +5996,41 @@
      "candidates": [
       {
        "char": "籍",
-       "prob": 0.9991,
+       "prob": 0.9997,
        "source": "ocr",
        "semantic": "籍",
        "surface_uncertain": true
       },
       {
-       "char": "稽",
-       "prob": 0.0003,
+       "char": "箱",
+       "prob": 0.0001,
        "source": "ocr",
-       "semantic": "稽",
+       "semantic": "箱",
        "surface_uncertain": true
       },
       {
        "char": "藉",
-       "prob": 0.0003,
+       "prob": 0.0001,
        "source": "ocr",
        "semantic": "借",
        "surface_uncertain": true
       },
       {
-       "char": "檐",
-       "prob": 0.0002,
+       "char": "箬",
+       "prob": 0.0001,
        "source": "ocr",
-       "semantic": "檐",
+       "semantic": "箬",
        "surface_uncertain": true
       },
       {
-       "char": "箱",
-       "prob": 0.0002,
+       "char": "矯",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "箱",
+       "semantic": "矯",
        "surface_uncertain": true
       }
      ],
      "gold": "籍",
-     "frozen": true
-    },
-    {
-     "index": 19,
-     "instance_id": "vol01:32:9:19",
-     "cluster_id": "vol01:c00154",
-     "cluster_size": 3,
-     "flags": [
-      "boundary_ink"
-     ],
-     "candidates": [
-      {
-       "char": "內",
-       "prob": 0.8932,
-       "source": "ocr",
-       "semantic": "內",
-       "surface_uncertain": true
-      },
-      {
-       "char": "内",
-       "prob": 0.0988,
-       "source": "ocr",
-       "semantic": "內",
-       "surface_uncertain": true
-      },
-      {
-       "char": "丙",
-       "prob": 0.0054,
-       "source": "ocr",
-       "semantic": "丙",
-       "surface_uncertain": true
-      },
-      {
-       "char": "肉",
-       "prob": 0.0027,
-       "source": "ocr",
-       "semantic": "肉",
-       "surface_uncertain": true
-      },
-      {
-       "char": "閃",
-       "prob": 0.0001,
-       "source": "ocr",
-       "semantic": "閃",
-       "surface_uncertain": true
-      }
-     ],
-     "gold": "內",
      "frozen": true
     },
     {
@@ -5628,37 +6044,37 @@
      "candidates": [
       {
        "char": "有",
-       "prob": 0.4841,
+       "prob": 0.9999,
        "source": "ocr",
        "semantic": "有",
        "surface_uncertain": true
       },
       {
-       "char": "求",
-       "prob": 0.242,
+       "char": "右",
+       "prob": 0.0001,
        "source": "ocr",
-       "semantic": "求",
+       "semantic": "右",
        "surface_uncertain": true
       },
       {
-       "char": "是",
-       "prob": 0.242,
+       "char": "石",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "是",
+       "semantic": "石",
        "surface_uncertain": true
       },
       {
-       "char": "漉",
-       "prob": 0.0181,
+       "char": "存",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "漉",
+       "semantic": "存",
        "surface_uncertain": true
       },
       {
-       "char": "灞",
-       "prob": 0.0138,
+       "char": "宥",
+       "prob": 0.0,
        "source": "ocr",
-       "semantic": "灞",
+       "semantic": "宥",
        "surface_uncertain": true
       }
      ],

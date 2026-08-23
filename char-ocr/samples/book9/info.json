@@ -10,7 +10,7 @@
  ],
  "build_command": "PYTHONPATH=. python scripts/build_char_ocr_dataset.py output/book9 --corpus corpus/zongmu_wuyingdian_reference.txt --dataset <dataset> --shard book9",
  "upstream": {
-  "cv_commit": "a948e264b6de",
+  "cv_commit": "afdf99a86301",
   "phase4_chars": "output/book9/phase4_chars",
   "note": "图块像素已冻结进 crops/；切分有实质改进后应重建本集"
  },
@@ -18,14 +18,14 @@
   "pages_total": 10,
   "pages_anchored": 9,
   "instances_total": 1647,
-  "gold_items_total": 1405,
-  "excluded_uncertain": 242,
-  "gold_rate": 0.8531,
-  "frozen_items": 1405,
+  "gold_items_total": 1466,
+  "excluded_uncertain": 181,
+  "gold_rate": 0.8901,
+  "frozen_items": 1466,
   "sampling": "全留",
   "align_opcode": {
-   "equal": 1255,
-   "replace": 150
+   "equal": 1341,
+   "replace": 125
   },
   "accept_rule": {
    "max_replace_run": 3,
@@ -34,48 +34,48 @@
  },
  "strata": {
   "page_type": {
-   "unknown": 1405
+   "unknown": 1466
   },
   "flag_layer": {
-   "clean": 1402,
-   "suspect": 3
+   "clean": 1461,
+   "suspect": 5
   },
   "cluster": {
-   "single": 1273,
-   "multi": 132
+   "single": 1332,
+   "multi": 134
   },
-  "variant_items": 15
+  "variant_items": 18
  },
  "sampling_rates": {
   "unknown|clean|single|common": {
-   "total": 1257,
-   "sampled": 1257,
+   "total": 1312,
+   "sampled": 1312,
    "rate": 1.0
   },
   "unknown|clean|multi|common": {
-   "total": 130,
-   "sampled": 130,
+   "total": 131,
+   "sampled": 131,
    "rate": 1.0
   },
   "unknown|clean|single|variant": {
-   "total": 15,
-   "sampled": 15,
+   "total": 18,
+   "sampled": 18,
    "rate": 1.0
   },
   "unknown|suspect|multi|common": {
-   "total": 2,
-   "sampled": 2,
+   "total": 3,
+   "sampled": 3,
    "rate": 1.0
   },
   "unknown|suspect|single|common": {
-   "total": 1,
-   "sampled": 1,
+   "total": 2,
+   "sampled": 2,
    "rate": 1.0
   }
  },
  "label_stats": {
-  "distinct_chars": 495,
-  "top_chars": "書之其以各藏家將者不有進所於此爲人今本而",
-  "hapax": 223
+  "distinct_chars": 520,
+  "top_chars": "書之其以各藏家進於者不將有爲此人所今本而",
+  "hapax": 236
  }
 }

@@ -1,47 +1,47 @@
 {
   "name": "char-ocr-benchmark",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "schema_version": 1,
   "description": "单字识别（簇识别 OCR）Benchmark 数据集，可直接用于 Kraken / PaddleOCR 微调",
   "created": "2026-08-21",
   "status": "可用",
   "eval_command": "PYTHONPATH=. python scripts/eval_char_ocr.py ../open-guji-dataset/char-ocr --engines rapidocr,tesseract [--unit instance|pipeline]",
   "eval_script": "open-guji-cv scripts/eval_char_ocr.py",
-  "total_samples": 13405,
+  "total_samples": 13466,
   "sample_unit": "册分片（一个目录 = 一册的全部 (图块, 金标字) 对）",
   "sources": [
     {
       "source_item": "book9",
-      "description": "《欽定四庫全書總目·卷首一》10 页",
       "split": "test",
       "pages_anchored": 9,
       "pages_total": 10,
       "instances": 1647,
-      "gold_items": 1405,
-      "gold_rate": 0.8531,
-      "frozen": 1405
+      "gold_items": 1466,
+      "gold_rate": 0.8901,
+      "frozen": 1466,
+      "upstream_cv_commit": "afdf99a86301"
     },
     {
       "source_item": "vol01",
-      "description": "《總目》卷首全册（上諭/職名/目錄/正文混排）",
       "split": "test",
-      "pages_anchored": 89,
+      "pages_anchored": 118,
       "pages_total": 201,
       "instances": 24614,
-      "gold_items": 12052,
-      "gold_rate": 0.4896,
-      "frozen": 6000
+      "gold_items": 16974,
+      "gold_rate": 0.6896,
+      "frozen": 6000,
+      "upstream_cv_commit": "afdf99a86301"
     },
     {
       "source_item": "vol02",
-      "description": "《總目》卷一 易類全册（整册皆正文）",
       "split": "test",
-      "pages_anchored": 123,
+      "pages_anchored": 178,
       "pages_total": 186,
       "instances": 29790,
-      "gold_items": 16808,
-      "gold_rate": 0.5642,
-      "frozen": 6000
+      "gold_items": 26484,
+      "gold_rate": 0.889,
+      "frozen": 6000,
+      "upstream_cv_commit": "afdf99a86301"
     }
   ],
   "provenance_fields": [
@@ -147,98 +147,45 @@
   "updated": "2026-08-23",
   "build_script": "open-guji-cv scripts/build_char_ocr_dataset.py",
   "baseline": {
-    "measured": "2026-08-23",
-    "n_items": 13405,
-    "n_gold_total": 30265,
-    "engine": "rapidocr+s2t（PP-OCRv4 ONNX，CTC top-5，简→繁扩展）",
-    "unit_instance": {
-      "top1_raw": 0.8878,
-      "top1_raw_n": 11901,
-      "top5_raw": 0.939,
-      "top1_weighted": 0.8932,
-      "top5_weighted": 0.9453,
-      "charset_ceiling": 0.9935
-    },
-    "unit_pipeline": {
-      "top1_raw": 0.8787,
-      "note": "簇代表结果共享给全簇之后的逐实例准确率"
-    },
-    "strata_instance": {
-      "book:book9": {
-        "n": 1405,
-        "top1": 0.8918
+    "measured": "2026-08-23（v5 逐实例重建后）",
+    "n_items": 13466,
+    "n_gold_total": 44924,
+    "build_engine": "rapidocr5（PP-OCRv5 mobile）+ unit=instance——align_opcode 对它是定义使然，对别的引擎才有信息量",
+    "engines": {
+      "rapidocr-v5-mobile": {
+        "top1_raw": 0.9134,
+        "top1_weighted": 0.9183,
+        "top5_raw": 0.9725,
+        "top5_weighted": 0.9817,
+        "charset_ceiling": 0.9952,
+        "variant_top1": 0.8071,
+        "flag_certain_defect_top1": 0.7195
       },
-      "book:vol01": {
-        "n": 6000,
-        "top1": 0.8923
-      },
-      "book:vol02": {
-        "n": 6000,
-        "top1": 0.8823
-      },
-      "page_type:body": {
-        "n": 11640,
-        "top1": 0.886,
-        "top5": 0.9378
-      },
-      "flag:clean": {
-        "n": 9690,
-        "top1": 0.8882
-      },
-      "flag:suspect": {
-        "n": 3457,
-        "top1": 0.8933,
-        "note": "疑似层标记**不**预示识别失败，比 clean 还略高"
-      },
-      "flag:certain_defect": {
-        "n": 258,
-        "top1": 0.7984,
-        "note": "确定层标记确实伤识别，低 9pp"
-      },
-      "cluster:single": {
-        "n": 9776,
-        "top1": 0.8883
-      },
-      "cluster:multi": {
-        "n": 3629,
-        "top1": 0.8865
-      },
-      "variant": {
-        "n": 358,
-        "top1": 0.6257,
-        "top5": 0.757,
-        "note": "最弱的一层，比 common 低 27pp"
-      },
-      "common": {
-        "n": 13047,
-        "top1": 0.895
-      },
-      "opcode:equal": {
-        "n": 11572,
-        "top1": 0.9846
-      },
-      "opcode:replace": {
-        "n": 1833,
-        "top1": 0.2766,
-        "top5": 0.6334
+      "rapidocr+s2t (PP-OCRv4)": {
+        "top1_raw": 0.8206,
+        "top1_weighted": 0.8279,
+        "top5_raw": 0.9084,
+        "charset_ceiling": 0.9878,
+        "variant_top1": 0.4733,
+        "note": "在 v5 判错的 1,166 条（opcode:replace）上 v4 救回 25.56%——多引擎互补仍在，只是主从换位"
       }
     },
-    "cluster_purity": {
-      "note": "非循环量法：只用金标，不用任何算法输出",
-      "clusters_with_2plus_gold": 1107,
-      "instances_covered": 2995,
-      "pure_clusters": 761,
-      "pure_rate": 0.687,
-      "instances_doomed_by_impurity": 412,
-      "doomed_rate_in_multi": 0.1376,
-      "doomed_rate_overall": 0.0136
-    },
-    "error_analysis": {
-      "top1_errors": 1504,
-      "pure_surface_form_share": 0.12,
-      "top5_misses": 645,
-      "top5_miss_in_variant_group": 0.727,
-      "head_confusions": "傅→傳×51 日→曰×49 為→爲×47 叉→又×19 説→說×19 人→入×15 郎→即×13"
+    "book9_model_tiers": {
+      "v5_mobile": {
+        "top1": 0.9039,
+        "top5": 0.9665,
+        "speed": "~80 字/秒"
+      },
+      "v5_server": {
+        "top1": 0.9359,
+        "top5": 0.9907,
+        "speed": "~0.5 字/秒（CPU）"
+      },
+      "two_tier_mobile_then_server@0.9": {
+        "top1": 0.9345,
+        "escalated": "319/1405 = 22.7%",
+        "note": "纯 server 99% 的收益、约 1/4 算力，可部署形态"
+      }
     }
   },
   "baseline_history": [
@@ -247,14 +194,110 @@
       "n_items": 1404,
       "top1": 0.8875,
       "note": "只有 book9 一册；候选排序按提案顺序而非概率，量法已修正，不可直接比"
+    },
+    {
+      "measured": "2026-08-23",
+      "n_items": 13405,
+      "n_gold_total": 30265,
+      "engine": "rapidocr+s2t（PP-OCRv4 ONNX，CTC top-5，简→繁扩展）",
+      "unit_instance": {
+        "top1_raw": 0.8878,
+        "top1_raw_n": 11901,
+        "top5_raw": 0.939,
+        "top1_weighted": 0.8932,
+        "top5_weighted": 0.9453,
+        "charset_ceiling": 0.9935
+      },
+      "unit_pipeline": {
+        "top1_raw": 0.8787,
+        "note": "簇代表结果共享给全簇之后的逐实例准确率"
+      },
+      "strata_instance": {
+        "book:book9": {
+          "n": 1405,
+          "top1": 0.8918
+        },
+        "book:vol01": {
+          "n": 6000,
+          "top1": 0.8923
+        },
+        "book:vol02": {
+          "n": 6000,
+          "top1": 0.8823
+        },
+        "page_type:body": {
+          "n": 11640,
+          "top1": 0.886,
+          "top5": 0.9378
+        },
+        "flag:clean": {
+          "n": 9690,
+          "top1": 0.8882
+        },
+        "flag:suspect": {
+          "n": 3457,
+          "top1": 0.8933,
+          "note": "疑似层标记**不**预示识别失败，比 clean 还略高"
+        },
+        "flag:certain_defect": {
+          "n": 258,
+          "top1": 0.7984,
+          "note": "确定层标记确实伤识别，低 9pp"
+        },
+        "cluster:single": {
+          "n": 9776,
+          "top1": 0.8883
+        },
+        "cluster:multi": {
+          "n": 3629,
+          "top1": 0.8865
+        },
+        "variant": {
+          "n": 358,
+          "top1": 0.6257,
+          "top5": 0.757,
+          "note": "最弱的一层，比 common 低 27pp"
+        },
+        "common": {
+          "n": 13047,
+          "top1": 0.895
+        },
+        "opcode:equal": {
+          "n": 11572,
+          "top1": 0.9846
+        },
+        "opcode:replace": {
+          "n": 1833,
+          "top1": 0.2766,
+          "top5": 0.6334
+        }
+      },
+      "cluster_purity": {
+        "note": "非循环量法：只用金标，不用任何算法输出",
+        "clusters_with_2plus_gold": 1107,
+        "instances_covered": 2995,
+        "pure_clusters": 761,
+        "pure_rate": 0.687,
+        "instances_doomed_by_impurity": 412,
+        "doomed_rate_in_multi": 0.1376,
+        "doomed_rate_overall": 0.0136
+      },
+      "error_analysis": {
+        "top1_errors": 1504,
+        "pure_surface_form_share": 0.12,
+        "top5_misses": 645,
+        "top5_miss_in_variant_group": 0.727,
+        "head_confusions": "傅→傳×51 日→曰×49 為→爲×47 叉→又×19 説→說×19 人→入×15 郎→即×13"
+      },
+      "note": "v4 时代冻结集（13,405 条，v4 转写锚定）。重建后图块集合与 opcode 定义都变了，不可直接比"
     }
   ],
   "known_limitation": [
+    "**建集引擎已换 PP-OCRv5**（unit=instance）：align_opcode 记的是 v5 管线当时对不对，对 v5 自己 equal=100%/replace=0% 是定义使然；锚定率大涨（vol02 覆盖 56.4%→88.9%）意味着锚定偏置比上一版小，但仍存在——锚不上的页（多为目录/职名）还是进不来。",
     "**锚定偏置（最重要的一条）**：锚不上参考整理本的页不进集。三册合计 56,051 个实例里进集 30,265 条（54%）。目錄/職名页整理本根本没收录，几乎全部落空（vol01 toc 47 页只锚上 1 页）。被排除的还包括切分多切/漏切的位置。故本集准确率**乐观于**全书真实字准确率。",
     "**expected.json 是分层抽样**（vol01/vol02 各 6,000 条），各层占比不等于全书占比。聚合数字要看 `weighted` 那一行；`labels_all.jsonl` 里是全部金标（不含图块）。",
     "**没有 train 集**：三册全部 split=test。跨册泛化能力**未验证**——三册同属一部书（《總目》），跨书泛化更是完全没测过。",
     "**图块随切分陈旧**：像素冻结自 upstream.cv_commit 那一版切分。",
-    "**label_origin 只有 align 一种**，human 与 synth 至今没有样本，分层评测能力未验证。",
-    "**pipeline 口径是模拟**：生产用 clusters.json 的 reps（最多 5 个），本集用的是落在集里的金标成员，两者不完全等价。要的是方向性结论，不是精确复现生产数字。"
+    "**label_origin 只有 align 一种**，human 与 synth 至今没有样本，分层评测能力未验证。"
   ]
 }
