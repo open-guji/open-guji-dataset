@@ -1,26 +1,47 @@
 {
   "name": "char-ocr-benchmark",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "schema_version": 1,
   "description": "单字识别（簇识别 OCR）Benchmark 数据集，可直接用于 Kraken / PaddleOCR 微调",
   "created": "2026-08-21",
   "status": "可用",
-  "eval_command": "PYTHONPATH=. python scripts/eval_char_ocr.py ../open-guji-dataset/char-ocr --engines rapidocr,tesseract",
+  "eval_command": "PYTHONPATH=. python scripts/eval_char_ocr.py ../open-guji-dataset/char-ocr --engines rapidocr,tesseract [--unit instance|pipeline]",
   "eval_script": "open-guji-cv scripts/eval_char_ocr.py",
-  "total_samples": 1404,
+  "total_samples": 13405,
   "sample_unit": "册分片（一个目录 = 一册的全部 (图块, 金标字) 对）",
   "sources": [
     {
       "source_item": "book9",
-      "description": "《欽定四庫全書總目·卷首一》影印本 10 页（原书第 10~19 图）",
+      "description": "《欽定四庫全書總目·卷首一》10 页",
       "split": "test",
-      "items": 1404,
-      "pages_total": 10,
       "pages_anchored": 9,
-      "instances_total": 1647,
-      "gold_rate": 0.8525,
-      "label_origin": "align",
-      "upstream_cv_commit": "5cedb11bfae8"
+      "pages_total": 10,
+      "instances": 1647,
+      "gold_items": 1405,
+      "gold_rate": 0.8531,
+      "frozen": 1405
+    },
+    {
+      "source_item": "vol01",
+      "description": "《總目》卷首全册（上諭/職名/目錄/正文混排）",
+      "split": "test",
+      "pages_anchored": 89,
+      "pages_total": 201,
+      "instances": 24614,
+      "gold_items": 12052,
+      "gold_rate": 0.4896,
+      "frozen": 6000
+    },
+    {
+      "source_item": "vol02",
+      "description": "《總目》卷一 易類全册（整册皆正文）",
+      "split": "test",
+      "pages_anchored": 123,
+      "pages_total": 186,
+      "instances": 29790,
+      "gold_items": 16808,
+      "gold_rate": 0.5642,
+      "frozen": 6000
     }
   ],
   "provenance_fields": [
@@ -57,6 +78,12 @@
       "type": "float",
       "direction": "higher_is_better",
       "description": "金标字落在「引擎字表 ∪ 简→繁扩展 ∪ 异体字扩展」内的比例。top1 与它的差 = 重排能捞回来的部分；1-它 = 只能换字表才能动的部分"
+    },
+    {
+      "name": "weighted_top1",
+      "type": "float",
+      "direction": "higher_is_better",
+      "description": "按 info.json 的 sampling_rates 反比加权还原到全部金标分布后的 top1。跨版本比较用 raw，对外说水平用 weighted"
     }
   ],
   "fields": [
@@ -84,6 +111,31 @@
       "name": "items[].transcribed_at_build",
       "type": "str",
       "description": "建集当时管线转写的字，仅供分析，**不是金标**"
+    },
+    {
+      "name": "items[].page_type",
+      "type": "str",
+      "description": "page-type 金标的页型（body/toc/roster/edict/…）"
+    },
+    {
+      "name": "items[].flags",
+      "type": "list",
+      "description": "phase4 图块自检标记原文"
+    },
+    {
+      "name": "items[].flag_layer",
+      "type": "str",
+      "description": "clean / suspect（有误报层）/ certain_defect（零误报层）"
+    },
+    {
+      "name": "items[].cluster_id",
+      "type": "str",
+      "description": "**册限定**的簇号 `<册>:<cid>`。簇号册内才唯一，不加前缀会跨册串味"
+    },
+    {
+      "name": "items[].cluster_size",
+      "type": "int",
+      "description": "簇大小（全簇，不只本集内的成员）"
     }
   ],
   "sample_files": {
@@ -96,51 +148,113 @@
   "build_script": "open-guji-cv scripts/build_char_ocr_dataset.py",
   "baseline": {
     "measured": "2026-08-23",
-    "n_items": 1404,
-    "engines": {
-      "rapidocr+s2t": {
-        "top1": 0.8875,
-        "top1_n": 1246,
-        "top5": 0.9402,
-        "top5_n": 1320,
-        "charset_ceiling": 0.9929
-      },
-      "rapidocr(无 s2t)": {
-        "top1": 0.8291,
-        "top1_n": 1164,
-        "top5": 0.9017,
-        "top5_n": 1266,
-        "charset_ceiling": 0.9929
-      },
-      "tesseract:chi_tra": {
-        "top1": 0.4459,
-        "top1_n": 626
-      }
+    "n_items": 13405,
+    "n_gold_total": 30265,
+    "engine": "rapidocr+s2t（PP-OCRv4 ONNX，CTC top-5，简→繁扩展）",
+    "unit_instance": {
+      "top1_raw": 0.8878,
+      "top1_raw_n": 11901,
+      "top5_raw": 0.939,
+      "top1_weighted": 0.8932,
+      "top5_weighted": 0.9453,
+      "charset_ceiling": 0.9935
     },
-    "strata": {
-      "opcode:equal": {
-        "n": 1254,
-        "rapidocr+s2t_top1": 0.9936,
-        "tesseract_top1": 0.4777
+    "unit_pipeline": {
+      "top1_raw": 0.8787,
+      "note": "簇代表结果共享给全簇之后的逐实例准确率"
+    },
+    "strata_instance": {
+      "book:book9": {
+        "n": 1405,
+        "top1": 0.8918
       },
-      "opcode:replace": {
-        "n": 150,
-        "rapidocr+s2t_top1": 0.0,
-        "tesseract_top1": 0.18,
-        "note": "rapidocr 恒为 0 是定义使然；tesseract 的 18% 才是这一层的信息量（多引擎互补）"
+      "book:vol01": {
+        "n": 6000,
+        "top1": 0.8923
+      },
+      "book:vol02": {
+        "n": 6000,
+        "top1": 0.8823
+      },
+      "page_type:body": {
+        "n": 11640,
+        "top1": 0.886,
+        "top5": 0.9378
+      },
+      "flag:clean": {
+        "n": 9690,
+        "top1": 0.8882
+      },
+      "flag:suspect": {
+        "n": 3457,
+        "top1": 0.8933,
+        "note": "疑似层标记**不**预示识别失败，比 clean 还略高"
+      },
+      "flag:certain_defect": {
+        "n": 258,
+        "top1": 0.7984,
+        "note": "确定层标记确实伤识别，低 9pp"
+      },
+      "cluster:single": {
+        "n": 9776,
+        "top1": 0.8883
+      },
+      "cluster:multi": {
+        "n": 3629,
+        "top1": 0.8865
       },
       "variant": {
-        "n": 15,
-        "rapidocr+s2t_top1": 0.5333
+        "n": 358,
+        "top1": 0.6257,
+        "top5": 0.757,
+        "note": "最弱的一层，比 common 低 27pp"
+      },
+      "common": {
+        "n": 13047,
+        "top1": 0.895
+      },
+      "opcode:equal": {
+        "n": 11572,
+        "top1": 0.9846
+      },
+      "opcode:replace": {
+        "n": 1833,
+        "top1": 0.2766,
+        "top5": 0.6334
       }
+    },
+    "cluster_purity": {
+      "note": "非循环量法：只用金标，不用任何算法输出",
+      "clusters_with_2plus_gold": 1107,
+      "instances_covered": 2995,
+      "pure_clusters": 761,
+      "pure_rate": 0.687,
+      "instances_doomed_by_impurity": 412,
+      "doomed_rate_in_multi": 0.1376,
+      "doomed_rate_overall": 0.0136
+    },
+    "error_analysis": {
+      "top1_errors": 1504,
+      "pure_surface_form_share": 0.12,
+      "top5_misses": 645,
+      "top5_miss_in_variant_group": 0.727,
+      "head_confusions": "傅→傳×51 日→曰×49 為→爲×47 叉→又×19 説→說×19 人→入×15 郎→即×13"
     }
   },
-  "baseline_history": [],
+  "baseline_history": [
+    {
+      "measured": "2026-08-23（首版）",
+      "n_items": 1404,
+      "top1": 0.8875,
+      "note": "只有 book9 一册；候选排序按提案顺序而非概率，量法已修正，不可直接比"
+    }
+  ],
   "known_limitation": [
-    "**锚定偏置（最重要的一条）**：锚不上参考整理本的页不进集。1,647 个实例里进集 1,404 条（85.2%），被排除的 243 条正是切分多切/漏切的位置。故本集上的准确率（89% 量级）**乐观于**全书真实字准确率（同一册 eval-align 量到 80.08%）。本集只能用于「同一批样本上比较不同算法」，不能当作全书准确率。",
-    "**单册**：只有 book9 一册，全部 split=test，**没有 train 集**，也无法测跨册泛化。整理本覆盖卷首~卷二十七，扩到多册是下一步。",
-    "**异体字样本只有 15 条**，`variant_top1` 的置信区间很宽，不足以支撑结论。正字方向按本版语料频次定（蓋→葢、略→畧），所以 is_variant 的含义是「不是本版最常用的那个表面形」，不是「Unicode 意义上的异体字」。",
-    "**图块随切分陈旧**：像素冻结自 upstream_cv_commit 那一版切分。切分有实质改进后应重建本集，否则测的是过时的输入质量。",
-    "**未验证的能力**：`label_origin` 只有 align 一种，human 与 synth 两个层级至今没有样本，分层评测的能力**尚未被验证过**。"
+    "**锚定偏置（最重要的一条）**：锚不上参考整理本的页不进集。三册合计 56,051 个实例里进集 30,265 条（54%）。目錄/職名页整理本根本没收录，几乎全部落空（vol01 toc 47 页只锚上 1 页）。被排除的还包括切分多切/漏切的位置。故本集准确率**乐观于**全书真实字准确率。",
+    "**expected.json 是分层抽样**（vol01/vol02 各 6,000 条），各层占比不等于全书占比。聚合数字要看 `weighted` 那一行；`labels_all.jsonl` 里是全部金标（不含图块）。",
+    "**没有 train 集**：三册全部 split=test。跨册泛化能力**未验证**——三册同属一部书（《總目》），跨书泛化更是完全没测过。",
+    "**图块随切分陈旧**：像素冻结自 upstream.cv_commit 那一版切分。",
+    "**label_origin 只有 align 一种**，human 与 synth 至今没有样本，分层评测能力未验证。",
+    "**pipeline 口径是模拟**：生产用 clusters.json 的 reps（最多 5 个），本集用的是落在集里的金标成员，两者不完全等价。要的是方向性结论，不是精确复现生产数字。"
   ]
 }

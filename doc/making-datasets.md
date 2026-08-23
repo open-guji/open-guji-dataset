@@ -143,8 +143,8 @@ while y < strip.shape[0]:
 | 图块自检 | `chars` | [char-segmentation/instances](../char-segmentation/instances) | 65 真实，可用 | 同上 |
 | 归一化 | `normalize` | [char-normalization](../char-normalization) | **0，待建** | **能** |
 | 聚类 | `cluster` | [char-clustering](../char-clustering) | **0，待建** | **能** |
-| 单字识别 | `label` / `bench-ocr` | [char-ocr](../char-ocr) | 1,404 实例，可用 | **能** |
-| 上下文纠正 | `refine` | [context-correction](../context-correction) | 1,404 槽位，可用 | **能** |
+| 单字识别 | `label` / `bench-ocr` | [char-ocr](../char-ocr) | 13,405 冻结 / 30,265 金标，可用 | **能** |
+| 上下文纠正 | `refine` | [context-correction](../context-correction) | 17,558 槽位，可用 | **能** |
 | 参考校对 | `collate` | [collation](../collation) | **0，规划中** | **能** |
 
 判断能否并行只有一条：**会不会改到同一个产物**。

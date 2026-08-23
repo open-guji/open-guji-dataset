@@ -1,23 +1,34 @@
 {
   "name": "context-correction-benchmark",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "schema_version": 2,
   "description": "上下文 + LM 概率纠正 Benchmark 数据集（候选冻结）",
   "created": "2026-08-21",
   "status": "可用",
-  "eval_command": "PYTHONPATH=. python scripts/eval_context_correction.py ../open-guji-dataset/context-correction --general-corpus corpus/external/daizhige_zhaoling.txt --book-corpus corpus/zongmu_wuyingdian_reference.txt --sweep 0,0.25,0.5,0.75,0.9,1.0 --lam 0.65",
+  "eval_command": "PYTHONPATH=. python scripts/eval_context_correction.py ../open-guji-dataset/context-correction --general-corpus corpus/external/daizhige_zhaoling.txt --book-corpus corpus/zongmu_wuyingdian_reference.txt --sweep 0,0.25,0.5,0.75,0.9,1.0 --lam 0.65 --surface-pref --max-rival-freq 2",
   "eval_script": "open-guji-cv scripts/eval_context_correction.py",
-  "total_samples": 1404,
+  "total_samples": 17558,
   "sample_unit": "页（目录 = 一页，页内所有列在 columns 数组里；计数单位是槽位）",
   "sources": [
     {
       "source_item": "book9",
-      "description": "《欽定四庫全書總目·卷首一》影印本 10 页",
       "split": "test",
       "pages": 9,
-      "columns": 81,
-      "slots": 1404,
-      "label_origin": "align"
+      "slots": 1405
+    },
+    {
+      "source_item": "vol01",
+      "split": "test",
+      "pages": 60,
+      "slots": 8041,
+      "note": "按页型分层抽样自 89 个锚定页"
+    },
+    {
+      "source_item": "vol02",
+      "split": "test",
+      "pages": 60,
+      "slots": 8112,
+      "note": "按页型分层抽样自 123 个锚定页"
     }
   ],
   "provenance_fields": [
@@ -118,6 +129,21 @@
       "name": "slots[].cluster_size",
       "type": "int",
       "description": "簇大小"
+    },
+    {
+      "name": "page_type",
+      "type": "str",
+      "description": "page-type 金标的页型"
+    },
+    {
+      "name": "slots[].flags",
+      "type": "list",
+      "description": "phase4 图块自检标记"
+    },
+    {
+      "name": "slots[].cluster_id",
+      "type": "str",
+      "description": "**册限定**的簇号 `<册>:<cid>`"
     }
   ],
   "sample_files": {
@@ -129,104 +155,129 @@
   "build_script": "open-guji-cv scripts/build_context_correction_dataset.py",
   "baseline": {
     "measured": "2026-08-23",
-    "n_slots": 1404,
-    "baseline_top1": 0.8932,
-    "baseline_top1_n": 1254,
-    "gold_in_candidates_rate": 0.9452,
-    "headroom": 0.052,
+    "n_slots": 17558,
+    "pages": 129,
+    "columns": 1138,
+    "baseline_top1": 0.8833,
+    "baseline_top1_n": 15509,
+    "gold_in_candidates_rate": 0.9432,
+    "headroom": 0.0599,
     "config": {
       "lam": 0.65,
       "order": 3,
-      "general_weight": 0.1,
+      "surface_pref": true,
+      "max_rival_freq": 2,
+      "cluster_prior": false,
       "general_corpus": "殆知阁 史藏/诏令奏议+经世文编+政书+职官 500 万字（opencc s2t 转繁）",
-      "book_corpus": "《总目》整理本，已挖掉测试页窗口 1,949 字",
-      "leak_8gram_vs_test_gold": 0.0
+      "book_corpus": "《总目》整理本，已挖掉测试页窗口 36,290 字",
+      "leak_8gram_vs_test_gold_book": 0.008547,
+      "leak_8gram_vs_test_gold_general": 0.0
     },
     "sweep_book_weight": {
       "0.00 (纯通用)": {
-        "top1": 0.9053,
-        "top1_gain": 0.0121,
-        "rescued": 38,
-        "harmed": 21,
-        "harmful_flip_rate": 0.0167
+        "top1": 0.9043,
+        "top1_gain": 0.021,
+        "rescued": 672,
+        "harmed": 303,
+        "harmful_flip_rate": 0.0195
+      },
+      "0.25": {
+        "top1": 0.9149,
+        "top1_gain": 0.0316,
+        "rescued": 788,
+        "harmed": 234,
+        "harmful_flip_rate": 0.0151
       },
       "0.50": {
-        "top1": 0.9117,
-        "top1_gain": 0.0185,
-        "rescued": 43,
-        "harmed": 17,
-        "harmful_flip_rate": 0.0136
+        "top1": 0.9161,
+        "top1_gain": 0.0328,
+        "rescued": 801,
+        "harmed": 225,
+        "harmful_flip_rate": 0.0145
       },
       "0.75": {
-        "top1": 0.9131,
-        "top1_gain": 0.0199,
-        "rescued": 45,
-        "harmed": 17,
-        "harmful_flip_rate": 0.0136
+        "top1": 0.9168,
+        "top1_gain": 0.0335,
+        "rescued": 801,
+        "harmed": 213,
+        "harmful_flip_rate": 0.0137
       },
       "0.90": {
-        "top1": 0.9145,
-        "top1_gain": 0.0214,
-        "rescued": 45,
-        "harmed": 15,
-        "harmful_flip_rate": 0.012
+        "top1": 0.916,
+        "top1_gain": 0.0327,
+        "rescued": 795,
+        "harmed": 220,
+        "harmful_flip_rate": 0.0142
       },
       "1.00 (纯本书)": {
-        "top1": 0.9103,
-        "top1_gain": 0.0171,
-        "rescued": 41,
-        "harmed": 17,
-        "harmful_flip_rate": 0.0136
+        "top1": 0.91,
+        "top1_gain": 0.0267,
+        "rescued": 747,
+        "harmed": 279,
+        "harmful_flip_rate": 0.018
       }
     },
     "glyph_layer_immutability": true,
-    "ablation_general_corpus_genre": {
-      "note": "同为 500 万字，只换体裁。本书卷首是上谕公文",
-      "诏令奏议/经世文编/政书/职官": {
-        "纯通用": 0.0121,
-        "纯本书": 0.0171,
-        "混合 0.9": 0.0214
+    "ablation_mechanisms": {
+      "note": "本书权重固定 0.75，λ=0.65",
+      "仅 LM 混合": {
+        "top1_gain": 0.0236,
+        "rescued": 609,
+        "harmed": 195,
+        "harmful_flip_rate": 0.0126
       },
-      "儒藏/易藏（经解）": {
-        "纯通用": 0.0,
-        "纯本书": 0.0171,
-        "混合 0.9": 0.0164
-      }
-    },
-    "ablation_lambda": {
-      "note": "lam = OCR 项与 LM 项的配比，本书权重固定 0.75",
-      "0.75": {
-        "top1_gain": 0.0128,
-        "harmful_flip_rate": 0.0104
+      "+本版用字习惯(无闸门)": {
+        "top1_gain": 0.0268,
+        "rescued": 804,
+        "harmed": 334,
+        "harmful_flip_rate": 0.0215
       },
-      "0.70": {
-        "top1_gain": 0.0164,
-        "harmful_flip_rate": 0.0104
+      "+本版用字习惯(闸门 0)": {
+        "top1_gain": 0.033,
+        "rescued": 787,
+        "harmed": 207,
+        "harmful_flip_rate": 0.0133
       },
-      "0.65": {
-        "top1_gain": 0.0164,
-        "harmful_flip_rate": 0.0144
+      "+本版用字习惯(闸门 2，默认)": {
+        "top1_gain": 0.0335,
+        "rescued": 801,
+        "harmed": 213,
+        "harmful_flip_rate": 0.0137
       },
-      "0.55 (旧默认)": {
-        "top1_gain": 0.0114,
-        "harmful_flip_rate": 0.0239
+      "+本版用字习惯(闸门 10)": {
+        "top1_gain": 0.0321,
+        "rescued": 803,
+        "harmed": 239,
+        "harmful_flip_rate": 0.0154
       },
-      "0.45": {
-        "top1_gain": 0.0014,
-        "harmful_flip_rate": 0.0359
+      "再+簇级边缘化(全簇)": {
+        "top1_gain": 0.0308,
+        "rescued": 868,
+        "harmed": 328,
+        "harmful_flip_rate": 0.0211
       },
-      "0.35": {
-        "top1_gain": -0.0107,
-        "harmful_flip_rate": 0.0502
+      "再+簇级边缘化(size>=2)": {
+        "top1_gain": 0.0326,
+        "rescued": 813,
+        "harmed": 240,
+        "harmful_flip_rate": 0.0155
       }
     }
   },
-  "baseline_history": [],
+  "baseline_history": [
+    {
+      "measured": "2026-08-23（首版）",
+      "n_slots": 1404,
+      "best_gain": 0.0214,
+      "note": "只有 book9 一册，且未含本版用字习惯；样本量与配置都变了，不可直接比"
+    }
+  ],
   "known_limitation": [
-    "**上下文是理想值**：`context.prev`/`next` 取相邻列的**金标**文本。真实流程里相邻列同样带错，故本集的 `top1_gain` 是上界，不能直接当作全书能拿到的增益。",
-    "**样本量撑不起细粒度调参**：1,404 个槽位，权重 0.5/0.75/0.90/1.00 之间的差异只有2~6 个样本，**在噪声内**。能站得住的结论只有两条：(1) 混合优于纯通用；(2) lam 从 0.55 提到 0.65~0.70 让有害翻转减半（2.39% → 1.04~1.44%），这个是跨多组权重一致复现的。具体最优权重取值**没有被本集分辨出来**。",
-    "**单册单体裁**：只有 book9（卷首上谕）。体裁消融说明通用语料必须与被测书同体裁，但这条结论本身也只在这一种体裁上验证过。",
-    "**候选来自单一来源**：冻结的候选只有 rapidocr（+简→繁扩展），没有 vlm / glyph / prior。多来源融合下的纠正行为**未经验证**。",
-    "**簇级边缘化未参与本集评测**：本集只跑 beam_search 重排。`cluster_marginalize` 的贡献没有在本集上单独量过（book9 只有 10 页，96% 的簇是单例，簇级证据几乎不存在）。"
+    "**上下文是理想值**：context.prev/next 取相邻列**金标**文本。真实流程里相邻列同样带错，故 top1_gain 是上界。",
+    "**本书语料的残余泄漏 0.85%**：测试页窗口已挖掉 36,290 字，但《總目》里本来就有重复的提要套语，8-gram 重合率压不到 0。通用语料对测试页金标是 0.0。",
+    "**簇级边缘化在本集上净有害**（−0.27pp，有害翻转 1.37%→2.11%），默认已关。根因是聚类不纯（31.3% 的多元簇不纯），不是这个机制本身没用——聚类质量上去后应重测。",
+    "**候选只来自 rapidocr 一个来源**，没有 vlm / glyph / prior。多来源融合下的行为未验证。",
+    "**单书**：三册同属《總目》。跨书泛化完全没测过。",
+    "**页是分层抽样的**（vol01/vol02 各 60 页），页型占比不等于全册占比。"
   ]
 }

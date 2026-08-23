@@ -1,0 +1,196 @@
+{
+ "dataset": "/home/user/open-guji-dataset/char-ocr",
+ "unit": "pipeline",
+ "n_samples": 3,
+ "n_items": 13405,
+ "n_crops_missing": 0,
+ "distinct_gold": 1588,
+ "books": [
+  "book9",
+  "vol01",
+  "vol02"
+ ],
+ "engines": {
+  "rapidocr+s2t": {
+   "chars_per_sec": 80.7,
+   "weighted": {
+    "top1": 0.889,
+    "top5": 0.9491,
+    "represented_items": 30265.0
+   },
+   "all": {
+    "n": 13405,
+    "top1": 0.8787,
+    "top1_n": 11779,
+    "top5": 0.947,
+    "top5_n": 12694,
+    "charset_ceiling": 0.9935,
+    "charset_ceiling_n": 13318
+   },
+   "book:book9": {
+    "n": 1405,
+    "top1": 0.8932,
+    "top1_n": 1255,
+    "top5": 0.9445,
+    "top5_n": 1327,
+    "charset_ceiling": 0.9929,
+    "charset_ceiling_n": 1395
+   },
+   "book:vol01": {
+    "n": 6000,
+    "top1": 0.8757,
+    "top1_n": 5254,
+    "top5": 0.9408,
+    "top5_n": 5645,
+    "charset_ceiling": 0.9927,
+    "charset_ceiling_n": 5956
+   },
+   "book:vol02": {
+    "n": 6000,
+    "top1": 0.8783,
+    "top1_n": 5270,
+    "top5": 0.9537,
+    "top5_n": 5722,
+    "charset_ceiling": 0.9945,
+    "charset_ceiling_n": 5967
+   },
+   "cluster:multi": {
+    "n": 3629,
+    "top1": 0.8529,
+    "top1_n": 3095,
+    "top5": 0.968,
+    "top5_n": 3513,
+    "charset_ceiling": 0.9972,
+    "charset_ceiling_n": 3619
+   },
+   "cluster:single": {
+    "n": 9776,
+    "top1": 0.8883,
+    "top1_n": 8684,
+    "top5": 0.9391,
+    "top5_n": 9181,
+    "charset_ceiling": 0.9921,
+    "charset_ceiling_n": 9699
+   },
+   "common": {
+    "n": 13047,
+    "top1": 0.8857,
+    "top1_n": 11556,
+    "top5": 0.9522,
+    "top5_n": 12424,
+    "charset_ceiling": 0.9933,
+    "charset_ceiling_n": 12960
+   },
+   "flag:certain_defect": {
+    "n": 258,
+    "top1": 0.8178,
+    "top1_n": 211,
+    "top5": 0.8682,
+    "top5_n": 224,
+    "charset_ceiling": 0.9806,
+    "charset_ceiling_n": 253
+   },
+   "flag:clean": {
+    "n": 9690,
+    "top1": 0.8753,
+    "top1_n": 8482,
+    "top5": 0.9491,
+    "top5_n": 9197,
+    "charset_ceiling": 0.9945,
+    "charset_ceiling_n": 9637
+   },
+   "flag:suspect": {
+    "n": 3457,
+    "top1": 0.8927,
+    "top1_n": 3086,
+    "top5": 0.9468,
+    "top5_n": 3273,
+    "charset_ceiling": 0.9916,
+    "charset_ceiling_n": 3428
+   },
+   "opcode:equal": {
+    "n": 11572,
+    "top1": 0.9961,
+    "top1_n": 11527,
+    "top5": 0.9983,
+    "top5_n": 11552,
+    "charset_ceiling": 1.0,
+    "charset_ceiling_n": 11572
+   },
+   "opcode:replace": {
+    "n": 1833,
+    "top1": 0.1375,
+    "top1_n": 252,
+    "top5": 0.623,
+    "top5_n": 1142,
+    "charset_ceiling": 0.9525,
+    "charset_ceiling_n": 1746
+   },
+   "page_type:body": {
+    "n": 11640,
+    "top1": 0.8754,
+    "top1_n": 10190,
+    "top5": 0.947,
+    "top5_n": 11023,
+    "charset_ceiling": 0.9937,
+    "charset_ceiling_n": 11567
+   },
+   "page_type:edict": {
+    "n": 103,
+    "top1": 0.9029,
+    "top1_n": 93,
+    "top5": 0.9515,
+    "top5_n": 98,
+    "charset_ceiling": 1.0,
+    "charset_ceiling_n": 103
+   },
+   "page_type:roster": {
+    "n": 71,
+    "top1": 0.9296,
+    "top1_n": 66,
+    "top5": 0.9577,
+    "top5_n": 68,
+    "charset_ceiling": 0.9718,
+    "charset_ceiling_n": 69
+   },
+   "page_type:toc": {
+    "n": 23,
+    "top1": 0.8696,
+    "top1_n": 20,
+    "top5": 0.913,
+    "top5_n": 21,
+    "charset_ceiling": 1.0,
+    "charset_ceiling_n": 23
+   },
+   "page_type:uncertain": {
+    "n": 163,
+    "top1": 0.9509,
+    "top1_n": 155,
+    "top5": 0.9632,
+    "top5_n": 157,
+    "charset_ceiling": 0.9877,
+    "charset_ceiling_n": 161
+   },
+   "page_type:unknown": {
+    "n": 1405,
+    "top1": 0.8932,
+    "top1_n": 1255,
+    "top5": 0.9445,
+    "top5_n": 1327,
+    "charset_ceiling": 0.9929,
+    "charset_ceiling_n": 1395
+   },
+   "variant": {
+    "n": 358,
+    "top1": 0.6229,
+    "top1_n": 223,
+    "top5": 0.7542,
+    "top5_n": 270,
+    "charset_ceiling": 1.0,
+    "charset_ceiling_n": 358
+   },
+   "engine_charset_size": 6624,
+   "reachable_charset_size": 9033
+  }
+ }
+}

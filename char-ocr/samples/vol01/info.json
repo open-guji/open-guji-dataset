@@ -1,0 +1,206 @@
+{
+ "id": "vol01",
+ "placeholder": false,
+ "source": "open-guji-cv output/vol01",
+ "source_item": "vol01",
+ "description": "vol01 逐实例单字金标，由参考整理本对齐生成",
+ "tags": [
+  "align",
+  "vol01"
+ ],
+ "build_command": "PYTHONPATH=. python scripts/build_char_ocr_dataset.py output/vol01 --corpus corpus/zongmu_wuyingdian_reference.txt --dataset <dataset> --shard vol01 --max-items 6000",
+ "upstream": {
+  "cv_commit": "a948e264b6de",
+  "phase4_chars": "output/vol01/phase4_chars",
+  "note": "图块像素已冻结进 crops/；切分有实质改进后应重建本集"
+ },
+ "coverage": {
+  "pages_total": 201,
+  "pages_anchored": 89,
+  "instances_total": 24614,
+  "gold_items_total": 12052,
+  "excluded_uncertain": 12562,
+  "gold_rate": 0.4896,
+  "frozen_items": 6000,
+  "sampling": "分层降采样至 6000",
+  "align_opcode": {
+   "equal": 5181,
+   "replace": 819
+  },
+  "accept_rule": {
+   "max_replace_run": 3,
+   "min_flank": 2
+  }
+ },
+ "strata": {
+  "page_type": {
+   "body": 5640,
+   "edict": 103,
+   "toc": 23,
+   "uncertain": 163,
+   "roster": 71
+  },
+  "flag_layer": {
+   "clean": 4657,
+   "suspect": 1256,
+   "certain_defect": 87
+  },
+  "cluster": {
+   "single": 4698,
+   "multi": 1302
+  },
+  "variant_items": 169
+ },
+ "sampling_rates": {
+  "edict|suspect|single|common": {
+   "total": 34,
+   "sampled": 34,
+   "rate": 1.0
+  },
+  "edict|clean|single|common": {
+   "total": 64,
+   "sampled": 64,
+   "rate": 1.0
+  },
+  "edict|certain_defect|single|common": {
+   "total": 1,
+   "sampled": 1,
+   "rate": 1.0
+  },
+  "edict|clean|multi|common": {
+   "total": 3,
+   "sampled": 3,
+   "rate": 1.0
+  },
+  "edict|clean|single|variant": {
+   "total": 1,
+   "sampled": 1,
+   "rate": 1.0
+  },
+  "body|clean|single|common": {
+   "total": 9152,
+   "sampled": 3100,
+   "rate": 0.3387
+  },
+  "body|suspect|single|common": {
+   "total": 1036,
+   "sampled": 1036,
+   "rate": 1.0
+  },
+  "body|clean|multi|common": {
+   "total": 1160,
+   "sampled": 1160,
+   "rate": 1.0
+  },
+  "body|suspect|multi|common": {
+   "total": 96,
+   "sampled": 96,
+   "rate": 1.0
+  },
+  "body|clean|single|variant": {
+   "total": 142,
+   "sampled": 142,
+   "rate": 1.0
+  },
+  "body|certain_defect|single|common": {
+   "total": 74,
+   "sampled": 74,
+   "rate": 1.0
+  },
+  "body|clean|multi|variant": {
+   "total": 9,
+   "sampled": 9,
+   "rate": 1.0
+  },
+  "body|suspect|single|variant": {
+   "total": 16,
+   "sampled": 16,
+   "rate": 1.0
+  },
+  "body|certain_defect|multi|common": {
+   "total": 7,
+   "sampled": 7,
+   "rate": 1.0
+  },
+  "toc|clean|single|common": {
+   "total": 14,
+   "sampled": 14,
+   "rate": 1.0
+  },
+  "toc|clean|single|variant": {
+   "total": 1,
+   "sampled": 1,
+   "rate": 1.0
+  },
+  "toc|clean|multi|common": {
+   "total": 3,
+   "sampled": 3,
+   "rate": 1.0
+  },
+  "toc|suspect|multi|common": {
+   "total": 1,
+   "sampled": 1,
+   "rate": 1.0
+  },
+  "toc|suspect|single|common": {
+   "total": 4,
+   "sampled": 4,
+   "rate": 1.0
+  },
+  "uncertain|clean|single|common": {
+   "total": 103,
+   "sampled": 103,
+   "rate": 1.0
+  },
+  "uncertain|suspect|single|common": {
+   "total": 42,
+   "sampled": 42,
+   "rate": 1.0
+  },
+  "uncertain|suspect|multi|common": {
+   "total": 5,
+   "sampled": 5,
+   "rate": 1.0
+  },
+  "uncertain|clean|multi|common": {
+   "total": 13,
+   "sampled": 13,
+   "rate": 1.0
+  },
+  "roster|clean|single|common": {
+   "total": 41,
+   "sampled": 41,
+   "rate": 1.0
+  },
+  "roster|certain_defect|single|common": {
+   "total": 4,
+   "sampled": 4,
+   "rate": 1.0
+  },
+  "roster|suspect|single|common": {
+   "total": 21,
+   "sampled": 21,
+   "rate": 1.0
+  },
+  "roster|clean|multi|common": {
+   "total": 3,
+   "sampled": 3,
+   "rate": 1.0
+  },
+  "roster|suspect|multi|common": {
+   "total": 1,
+   "sampled": 1,
+   "rate": 1.0
+  },
+  "roster|certain_defect|multi|common": {
+   "total": 1,
+   "sampled": 1,
+   "rate": 1.0
+  }
+ },
+ "label_stats": {
+  "distinct_chars": 1242,
+  "top_chars": "之書其不以而有所於一者臣人各文四可本十子",
+  "hapax": 530
+ }
+}
