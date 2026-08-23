@@ -2,12 +2,12 @@
  "per_class": {
   "clean": {
    "n": 55,
-   "n_flagged": 6,
-   "rate": 0.1091
+   "n_flagged": 5,
+   "rate": 0.0909
   },
   "contaminated": {
-   "n": 4,
-   "n_flagged": 4,
+   "n": 3,
+   "n_flagged": 3,
    "rate": 1.0
   },
   "truncated": {
@@ -22,20 +22,20 @@
   }
  },
  "defect_recall": 1.0,
- "flag_precision": 0.5385,
- "false_alarm_rate": 0.1091,
- "n_defect": 7,
+ "flag_precision": 0.5455,
+ "false_alarm_rate": 0.0909,
+ "n_defect": 6,
  "n_clean": 55,
  "layers": {
   "certain": {
-   "defect_recall": 0.2857,
-   "flag_precision": 0.6667,
+   "defect_recall": 0.1667,
+   "flag_precision": 0.5,
    "false_alarm_rate": 0.0182
   },
   "all": {
    "defect_recall": 1.0,
-   "flag_precision": 0.5385,
-   "false_alarm_rate": 0.1091
+   "flag_precision": 0.5455,
+   "false_alarm_rate": 0.0909
   }
  }
 }
