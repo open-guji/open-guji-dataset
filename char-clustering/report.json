@@ -142,6 +142,62 @@
        "n_wrong": 1
       }
      ]
+    },
+    "tier=clean": {
+     "purity": 0.99895,
+     "purity_num": 2848,
+     "purity_den": 2851,
+     "multi_instance_purity": 0.99083,
+     "multi_instance_num": 324,
+     "multi_instance_den": 327,
+     "fragmentation": 2.7714,
+     "n_clusters": 2655,
+     "n_gold_chars": 958,
+     "n_singletons": 2524,
+     "singleton_ratio": 0.9507,
+     "impure_clusters": [
+      {
+       "cluster_id": "c00001",
+       "size": 13,
+       "chars": {
+        "人": 12,
+        "入": 1
+       },
+       "n_wrong": 1
+      },
+      {
+       "cluster_id": "c00014",
+       "size": 3,
+       "chars": {
+        "太": 2,
+        "大": 1
+       },
+       "n_wrong": 1
+      },
+      {
+       "cluster_id": "c00108",
+       "size": 2,
+       "chars": {
+        "面": 1,
+        "而": 1
+       },
+       "n_wrong": 1
+      }
+     ]
+    },
+    "tier=degraded": {
+     "purity": 1.0,
+     "purity_num": 150,
+     "purity_den": 150,
+     "multi_instance_purity": 1.0,
+     "multi_instance_num": 2,
+     "multi_instance_den": 2,
+     "fragmentation": 1.2417,
+     "n_clusters": 149,
+     "n_gold_chars": 120,
+     "n_singletons": 148,
+     "singleton_ratio": 0.9933,
+     "impure_clusters": []
     }
    },
    "hard_pairs": {
@@ -450,6 +506,62 @@
        "n_wrong": 1
       }
      ]
+    },
+    "tier=clean": {
+     "purity": 0.99892,
+     "purity_num": 2767,
+     "purity_den": 2770,
+     "multi_instance_purity": 0.99423,
+     "multi_instance_num": 517,
+     "multi_instance_den": 520,
+     "fragmentation": 3.4842,
+     "n_clusters": 2432,
+     "n_gold_chars": 698,
+     "n_singletons": 2250,
+     "singleton_ratio": 0.9252,
+     "impure_clusters": [
+      {
+       "cluster_id": "c00003",
+       "size": 10,
+       "chars": {
+        "大": 9,
+        "太": 1
+       },
+       "n_wrong": 1
+      },
+      {
+       "cluster_id": "c00017",
+       "size": 4,
+       "chars": {
+        "未": 3,
+        "末": 1
+       },
+       "n_wrong": 1
+      },
+      {
+       "cluster_id": "c00171",
+       "size": 2,
+       "chars": {
+        "夬": 1,
+        "夫": 1
+       },
+       "n_wrong": 1
+      }
+     ]
+    },
+    "tier=degraded": {
+     "purity": 1.0,
+     "purity_num": 335,
+     "purity_den": 335,
+     "multi_instance_purity": 1.0,
+     "multi_instance_num": 6,
+     "multi_instance_den": 6,
+     "fragmentation": 1.5514,
+     "n_clusters": 332,
+     "n_gold_chars": 214,
+     "n_singletons": 329,
+     "singleton_ratio": 0.991,
+     "impure_clusters": []
     }
    },
    "hard_pairs": {
@@ -654,6 +766,34 @@
      "n_gold_chars": 24,
      "n_singletons": 65,
      "singleton_ratio": 0.8442,
+     "impure_clusters": []
+    },
+    "tier=clean": {
+     "purity": 1.0,
+     "purity_num": 49,
+     "purity_den": 49,
+     "multi_instance_purity": 1.0,
+     "multi_instance_num": 13,
+     "multi_instance_den": 13,
+     "fragmentation": 2.3333,
+     "n_clusters": 42,
+     "n_gold_chars": 18,
+     "n_singletons": 36,
+     "singleton_ratio": 0.8571,
+     "impure_clusters": []
+    },
+    "tier=degraded": {
+     "purity": 1.0,
+     "purity_num": 42,
+     "purity_den": 42,
+     "multi_instance_purity": 1.0,
+     "multi_instance_num": 8,
+     "multi_instance_den": 8,
+     "fragmentation": 1.8095,
+     "n_clusters": 38,
+     "n_gold_chars": 21,
+     "n_singletons": 34,
+     "singleton_ratio": 0.8947,
      "impure_clusters": []
     }
    },

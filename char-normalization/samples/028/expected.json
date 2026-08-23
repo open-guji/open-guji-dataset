@@ -1,8 +1,8 @@
 {
  "source_item": "06061300.cn",
- "pipeline_version": "23ee9a518",
+ "pipeline_version": "869f235f2f",
  "label_origin": "human",
- "instance_id": "vol02:27:3:20",
+ "instance_id": "vol02:4:7:5",
  "book": "vol02",
  "input": "input.png",
  "golden": "golden.png",
@@ -12,22 +12,26 @@
   "binary_iou_min": 0.98,
   "skeleton_endpoint_delta_max": 2
  },
- "cover": [
-  "neighbor_intrusion"
- ],
- "char": "注",
+ "tier": "degraded",
+ "tier_detail": {
+  "tier": "degraded",
+  "truncated": true,
+  "residue": false,
+  "edge_ink_px": 76,
+  "n_foreign": 0,
+  "foreign_core_px": 0
+ },
+ "char": null,
  "status": "verified",
- "sampling_cue": "neighbor_intrusion",
- "extractor_flags": [
-  "edge_blob",
-  "boundary_ink"
- ],
- "ink_ratio": 0.1658,
+ "sampling_cue": "truncated",
+ "extractor_flags": [],
+ "ink_ratio": 0.2634,
  "norm_params": {
   "size": 64,
   "margin_ratio": 0.12,
   "noise_area": 6,
   "stroke_width": 3
  },
- "schema_version": 1
+ "schema_version": 2,
+ "note": "输入被切（truncated，边缘 76px 压边），照常处理即正确。"
 }

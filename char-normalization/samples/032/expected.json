@@ -1,9 +1,9 @@
 {
  "source_item": "06061300.cn",
- "pipeline_version": "23ee9a518",
+ "pipeline_version": "869f235f2f",
  "label_origin": "human",
- "instance_id": "vol01:90:2:6",
- "book": "vol01",
+ "instance_id": "vol02:106:6:11",
+ "book": "vol02",
  "input": "input.png",
  "golden": "golden.png",
  "golden_skeleton": "golden_skeleton.png",
@@ -12,24 +12,28 @@
   "binary_iou_min": 0.98,
   "skeleton_endpoint_delta_max": 2
  },
- "cover": [
-  "border_residue",
-  "neighbor_intrusion"
- ],
+ "tier": "degraded",
+ "tier_detail": {
+  "tier": "clean",
+  "truncated": false,
+  "residue": false,
+  "edge_ink_px": 0,
+  "n_foreign": 0,
+  "foreign_core_px": 0
+ },
  "char": null,
- "status": "verified",
- "sampling_cue": "human_contaminated",
+ "status": "known_defect",
+ "sampling_cue": "flagged",
  "extractor_flags": [
-  "wide_gap",
-  "boundary_ink"
+  "edge_blob"
  ],
- "ink_ratio": 0.0949,
+ "ink_ratio": 0.235,
  "norm_params": {
   "size": 64,
   "margin_ratio": 0.12,
   "noise_area": 6,
   "stroke_width": 3
  },
- "schema_version": 1,
- "note": "输入跨列（左「土」右「自」分属两列，char-segmentation 已人工标为 contaminated）。归一化没有拆字的职责，此样本只锁定当前行为。"
+ "schema_version": 2,
+ "defect": "底部横线残留未去（疑与「重」底横粘连，粘连是分级判据的已知盲区，也是去残余的难点）。"
 }

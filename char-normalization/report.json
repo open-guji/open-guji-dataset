@@ -1,20 +1,35 @@
 {
  "gate": {
-  "n": 32,
-  "passed": 32,
+  "n": 28,
+  "passed": 28,
   "failed": [],
   "ok": true
  },
  "known_defect": {
-  "n": 3,
-  "unchanged": 3,
+  "n": 4,
+  "unchanged": 4,
   "changed": []
  },
- "n_samples": 35,
+ "by_tier": {
+  "clean": {
+   "n": 19,
+   "verified": 19,
+   "known_defect": 0,
+   "gate_passed": 19
+  },
+  "degraded": {
+   "n": 13,
+   "verified": 9,
+   "known_defect": 4,
+   "gate_passed": 9
+  }
+ },
+ "n_samples": 32,
  "samples": [
   {
    "sample": "001",
    "status": "verified",
+   "tier": "clean",
    "pixel_diff_ratio": 0.0,
    "binary_iou": 1.0,
    "skeleton_endpoint_delta": 0,
@@ -24,6 +39,7 @@
   {
    "sample": "002",
    "status": "verified",
+   "tier": "clean",
    "pixel_diff_ratio": 0.0,
    "binary_iou": 1.0,
    "skeleton_endpoint_delta": 0,
@@ -33,6 +49,7 @@
   {
    "sample": "003",
    "status": "verified",
+   "tier": "clean",
    "pixel_diff_ratio": 0.0,
    "binary_iou": 1.0,
    "skeleton_endpoint_delta": 0,
@@ -42,6 +59,7 @@
   {
    "sample": "004",
    "status": "verified",
+   "tier": "clean",
    "pixel_diff_ratio": 0.0,
    "binary_iou": 1.0,
    "skeleton_endpoint_delta": 0,
@@ -51,6 +69,7 @@
   {
    "sample": "005",
    "status": "verified",
+   "tier": "clean",
    "pixel_diff_ratio": 0.0,
    "binary_iou": 1.0,
    "skeleton_endpoint_delta": 0,
@@ -60,6 +79,7 @@
   {
    "sample": "006",
    "status": "verified",
+   "tier": "clean",
    "pixel_diff_ratio": 0.0,
    "binary_iou": 1.0,
    "skeleton_endpoint_delta": 0,
@@ -69,6 +89,7 @@
   {
    "sample": "007",
    "status": "verified",
+   "tier": "clean",
    "pixel_diff_ratio": 0.0,
    "binary_iou": 1.0,
    "skeleton_endpoint_delta": 0,
@@ -78,6 +99,7 @@
   {
    "sample": "008",
    "status": "verified",
+   "tier": "clean",
    "pixel_diff_ratio": 0.0,
    "binary_iou": 1.0,
    "skeleton_endpoint_delta": 0,
@@ -87,6 +109,7 @@
   {
    "sample": "009",
    "status": "verified",
+   "tier": "clean",
    "pixel_diff_ratio": 0.0,
    "binary_iou": 1.0,
    "skeleton_endpoint_delta": 0,
@@ -96,6 +119,7 @@
   {
    "sample": "010",
    "status": "verified",
+   "tier": "clean",
    "pixel_diff_ratio": 0.0,
    "binary_iou": 1.0,
    "skeleton_endpoint_delta": 0,
@@ -105,6 +129,7 @@
   {
    "sample": "011",
    "status": "verified",
+   "tier": "clean",
    "pixel_diff_ratio": 0.0,
    "binary_iou": 1.0,
    "skeleton_endpoint_delta": 0,
@@ -114,6 +139,7 @@
   {
    "sample": "012",
    "status": "verified",
+   "tier": "clean",
    "pixel_diff_ratio": 0.0,
    "binary_iou": 1.0,
    "skeleton_endpoint_delta": 0,
@@ -123,6 +149,7 @@
   {
    "sample": "013",
    "status": "verified",
+   "tier": "clean",
    "pixel_diff_ratio": 0.0,
    "binary_iou": 1.0,
    "skeleton_endpoint_delta": 0,
@@ -132,6 +159,7 @@
   {
    "sample": "014",
    "status": "verified",
+   "tier": "clean",
    "pixel_diff_ratio": 0.0,
    "binary_iou": 1.0,
    "skeleton_endpoint_delta": 0,
@@ -141,6 +169,7 @@
   {
    "sample": "015",
    "status": "verified",
+   "tier": "clean",
    "pixel_diff_ratio": 0.0,
    "binary_iou": 1.0,
    "skeleton_endpoint_delta": 0,
@@ -150,6 +179,7 @@
   {
    "sample": "016",
    "status": "verified",
+   "tier": "clean",
    "pixel_diff_ratio": 0.0,
    "binary_iou": 1.0,
    "skeleton_endpoint_delta": 0,
@@ -159,15 +189,7 @@
   {
    "sample": "017",
    "status": "verified",
-   "pixel_diff_ratio": 0.0,
-   "binary_iou": 1.0,
-   "skeleton_endpoint_delta": 0,
-   "passed": true,
-   "reasons": []
-  },
-  {
-   "sample": "018",
-   "status": "verified",
+   "tier": "clean",
    "pixel_diff_ratio": 0.0,
    "binary_iou": 1.0,
    "skeleton_endpoint_delta": 0,
@@ -177,6 +199,7 @@
   {
    "sample": "019",
    "status": "verified",
+   "tier": "clean",
    "pixel_diff_ratio": 0.0,
    "binary_iou": 1.0,
    "skeleton_endpoint_delta": 0,
@@ -186,6 +209,7 @@
   {
    "sample": "020",
    "status": "verified",
+   "tier": "degraded",
    "pixel_diff_ratio": 0.0,
    "binary_iou": 1.0,
    "skeleton_endpoint_delta": 0,
@@ -195,6 +219,7 @@
   {
    "sample": "021",
    "status": "verified",
+   "tier": "degraded",
    "pixel_diff_ratio": 0.0,
    "binary_iou": 1.0,
    "skeleton_endpoint_delta": 0,
@@ -203,7 +228,8 @@
   },
   {
    "sample": "022",
-   "status": "verified",
+   "status": "known_defect",
+   "tier": "degraded",
    "pixel_diff_ratio": 0.0,
    "binary_iou": 1.0,
    "skeleton_endpoint_delta": 0,
@@ -213,15 +239,7 @@
   {
    "sample": "023",
    "status": "verified",
-   "pixel_diff_ratio": 0.0,
-   "binary_iou": 1.0,
-   "skeleton_endpoint_delta": 0,
-   "passed": true,
-   "reasons": []
-  },
-  {
-   "sample": "024",
-   "status": "known_defect",
+   "tier": "clean",
    "pixel_diff_ratio": 0.0,
    "binary_iou": 1.0,
    "skeleton_endpoint_delta": 0,
@@ -230,7 +248,8 @@
   },
   {
    "sample": "025",
-   "status": "known_defect",
+   "status": "verified",
+   "tier": "degraded",
    "pixel_diff_ratio": 0.0,
    "binary_iou": 1.0,
    "skeleton_endpoint_delta": 0,
@@ -239,7 +258,8 @@
   },
   {
    "sample": "026",
-   "status": "verified",
+   "status": "known_defect",
+   "tier": "degraded",
    "pixel_diff_ratio": 0.0,
    "binary_iou": 1.0,
    "skeleton_endpoint_delta": 0,
@@ -249,6 +269,7 @@
   {
    "sample": "027",
    "status": "verified",
+   "tier": "degraded",
    "pixel_diff_ratio": 0.0,
    "binary_iou": 1.0,
    "skeleton_endpoint_delta": 0,
@@ -258,6 +279,7 @@
   {
    "sample": "028",
    "status": "verified",
+   "tier": "degraded",
    "pixel_diff_ratio": 0.0,
    "binary_iou": 1.0,
    "skeleton_endpoint_delta": 0,
@@ -267,15 +289,7 @@
   {
    "sample": "029",
    "status": "verified",
-   "pixel_diff_ratio": 0.0,
-   "binary_iou": 1.0,
-   "skeleton_endpoint_delta": 0,
-   "passed": true,
-   "reasons": []
-  },
-  {
-   "sample": "030",
-   "status": "verified",
+   "tier": "degraded",
    "pixel_diff_ratio": 0.0,
    "binary_iou": 1.0,
    "skeleton_endpoint_delta": 0,
@@ -284,7 +298,8 @@
   },
   {
    "sample": "031",
-   "status": "known_defect",
+   "status": "verified",
+   "tier": "degraded",
    "pixel_diff_ratio": 0.0,
    "binary_iou": 1.0,
    "skeleton_endpoint_delta": 0,
@@ -293,7 +308,8 @@
   },
   {
    "sample": "032",
-   "status": "verified",
+   "status": "known_defect",
+   "tier": "degraded",
    "pixel_diff_ratio": 0.0,
    "binary_iou": 1.0,
    "skeleton_endpoint_delta": 0,
@@ -302,7 +318,8 @@
   },
   {
    "sample": "033",
-   "status": "verified",
+   "status": "known_defect",
+   "tier": "degraded",
    "pixel_diff_ratio": 0.0,
    "binary_iou": 1.0,
    "skeleton_endpoint_delta": 0,
@@ -312,6 +329,7 @@
   {
    "sample": "034",
    "status": "verified",
+   "tier": "degraded",
    "pixel_diff_ratio": 0.0,
    "binary_iou": 1.0,
    "skeleton_endpoint_delta": 0,
@@ -321,6 +339,7 @@
   {
    "sample": "035",
    "status": "verified",
+   "tier": "degraded",
    "pixel_diff_ratio": 0.0,
    "binary_iou": 1.0,
    "skeleton_endpoint_delta": 0,

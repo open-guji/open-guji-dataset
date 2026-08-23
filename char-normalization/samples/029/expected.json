@@ -1,8 +1,8 @@
 {
  "source_item": "06061300.cn",
- "pipeline_version": "23ee9a518",
+ "pipeline_version": "869f235f2f",
  "label_origin": "human",
- "instance_id": "vol02:145:4:2",
+ "instance_id": "vol02:24:9:20",
  "book": "vol02",
  "input": "input.png",
  "golden": "golden.png",
@@ -12,21 +12,28 @@
   "binary_iou_min": 0.98,
   "skeleton_endpoint_delta_max": 2
  },
- "cover": [
-  "neighbor_intrusion"
- ],
- "char": "書",
+ "tier": "degraded",
+ "tier_detail": {
+  "tier": "degraded",
+  "truncated": true,
+  "residue": false,
+  "edge_ink_px": 72,
+  "n_foreign": 0,
+  "foreign_core_px": 0
+ },
+ "char": null,
  "status": "verified",
- "sampling_cue": "neighbor_intrusion",
+ "sampling_cue": "truncated",
  "extractor_flags": [
-  "edge_blob"
+  "boundary_ink"
  ],
- "ink_ratio": 0.2214,
+ "ink_ratio": 0.2349,
  "norm_params": {
   "size": 64,
   "margin_ratio": 0.12,
   "noise_area": 6,
   "stroke_width": 3
  },
- "schema_version": 1
+ "schema_version": 2,
+ "note": "输入底部笔画压边（轻度截断），照常处理即正确。"
 }

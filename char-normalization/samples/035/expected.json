@@ -1,9 +1,9 @@
 {
  "source_item": "06061300.cn",
- "pipeline_version": "23ee9a518",
+ "pipeline_version": "869f235f2f",
  "label_origin": "human",
- "instance_id": "vol02:17:8:9",
- "book": "vol02",
+ "instance_id": "vol01:65:4:10",
+ "book": "vol01",
  "input": "input.png",
  "golden": "golden.png",
  "golden_skeleton": "golden_skeleton.png",
@@ -12,22 +12,27 @@
   "binary_iou_min": 0.98,
   "skeleton_endpoint_delta_max": 2
  },
- "cover": [
-  "broken_stroke"
- ],
+ "tier": "degraded",
+ "tier_detail": {
+  "tier": "degraded",
+  "truncated": true,
+  "residue": false,
+  "edge_ink_px": 20,
+  "n_foreign": 0,
+  "foreign_core_px": 0
+ },
  "char": null,
  "status": "verified",
- "sampling_cue": "human_truncated",
+ "sampling_cue": "human_contaminated",
  "extractor_flags": [
   "boundary_ink"
  ],
- "ink_ratio": 0.1324,
+ "ink_ratio": 0.2043,
  "norm_params": {
   "size": 64,
   "margin_ratio": 0.12,
   "noise_area": 6,
   "stroke_width": 3
  },
- "schema_version": 1,
- "note": "输入被腰斩（人工标 truncated）。归一化对残字照常处理即为正确。"
+ "schema_version": 2
 }

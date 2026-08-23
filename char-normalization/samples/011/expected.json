@@ -1,8 +1,8 @@
 {
  "source_item": "06061300.cn",
- "pipeline_version": "23ee9a518",
+ "pipeline_version": "869f235f2f",
  "label_origin": "human",
- "instance_id": "vol02:46:2:19",
+ "instance_id": "vol02:65:4:13",
  "book": "vol02",
  "input": "input.png",
  "golden": "golden.png",
@@ -12,19 +12,25 @@
   "binary_iou_min": 0.98,
   "skeleton_endpoint_delta_max": 2
  },
- "cover": [
-  "ink_heavy"
- ],
- "char": "卷",
+ "tier": "clean",
+ "tier_detail": {
+  "tier": "clean",
+  "truncated": false,
+  "residue": false,
+  "edge_ink_px": 0,
+  "n_foreign": 0,
+  "foreign_core_px": 0
+ },
+ "char": null,
  "status": "verified",
  "sampling_cue": "ink_heavy",
  "extractor_flags": [],
- "ink_ratio": 0.2016,
+ "ink_ratio": 0.1598,
  "norm_params": {
   "size": 64,
   "margin_ratio": 0.12,
   "noise_area": 6,
   "stroke_width": 3
  },
- "schema_version": 1
+ "schema_version": 2
 }

@@ -1,6 +1,6 @@
 {
  "name": "char-clustering-benchmark",
- "version": "0.2.0",
+ "version": "0.3.0",
  "schema_version": 1,
  "description": "保守聚类（同字合并）purity Benchmark 数据集",
  "created": "2026-08-21",
@@ -155,7 +155,52 @@
    "singleton_ratio": 0.8442,
    "hard_same": "9/60"
   },
-  "note": "脏簇全是形近字（人/入、大/太、未/末、面/而、夬/夫）。θ_high 扫描见 README：0.80 是唯一守得住 purity>=0.999 的档"
+  "note": "脏簇全是形近字（人/入、大/太、未/末、面/而、夬/夫）。θ_high 扫描见 README：0.80 是唯一守得住 purity>=0.999 的档",
+  "by_tier": {
+   "001-vol01-body": {
+    "clean": {
+     "purity": 0.99895,
+     "num": 2848,
+     "den": 2851,
+     "frag": 2.77
+    },
+    "degraded": {
+     "purity": 1.0,
+     "num": 150,
+     "den": 150,
+     "frag": 1.24
+    }
+   },
+   "002-vol02-body": {
+    "clean": {
+     "purity": 0.99892,
+     "num": 2767,
+     "den": 2770,
+     "frag": 3.48
+    },
+    "degraded": {
+     "purity": 1.0,
+     "num": 335,
+     "den": 335,
+     "frag": 1.55
+    }
+   },
+   "003-book9all-human": {
+    "clean": {
+     "purity": 1.0,
+     "num": 49,
+     "den": 49,
+     "frag": 2.33
+    },
+    "degraded": {
+     "purity": 1.0,
+     "num": 42,
+     "den": 42,
+     "frag": 1.81
+    }
+   },
+   "note": "退化层全单例化 purity=1.0 是保守行为不是成绩；3 处混簇全在 clean 层且全是形近字"
+  }
  },
  "baseline_history": [],
  "known_limitation": [
@@ -164,7 +209,9 @@
   "人工层只有 91 实例 / 24 字类，字类少则冲突概率天然低，purity=1.0 不能单独当结论",
   "align 的 equal 段不是完全独立的证据：转写经过 LM 上下文修正，可能从上下文填对图像上没有的字（实测 1 例纯版框横线被填成「一」而语料恰好也是「一」）",
   "每分片 3000 实例是抽样（vol01 可标 7947 / vol02 5412），按整页随机、种子固定",
-  "字块冻结为归一图，因此默认模式量的是聚类本身；归一化改动要用 --clusters 端到端模式看"
+  "字块冻结为归一图，因此默认模式量的是聚类本身；归一化改动要用 --clusters 端到端模式看",
+  "tier 是机器分级未逐个目视：判据实测缺陷检出 5/7、clean 误报 2/55，clean 层混着约 3% 漏网退化实例",
+  "本集冻结在 P0 修复之前的切分上（vol02 无标记率当时 44.5%、现在 68.2%），绝对数字与新切分不可比；端到端模式对新产物不可用"
  ],
  "relabel_history": [
   {
@@ -178,5 +225,29 @@
    ],
    "effect": "94 → 91 实例；改标的实例留在集里，它们是当初脏簇的证据"
   }
- ]
+ ],
+ "tiering": {
+  "definition": "clean=字完整且无外来残留 / degraded=有残留或本字被切；判据 crop_quality.assess_crop（原始图块、Otsu+连通体，边压墨≥14px→truncated，碰边且闯核心区≥25px→residue）",
+  "calibration": "对 char-segmentation/instances 第九轮 62 个人工标签：缺陷检出 5/7、clean 误报 2/55",
+  "distribution": {
+   "001-vol01-body": {
+    "clean": 2851,
+    "degraded": 150
+   },
+   "002-vol02-body": {
+    "clean": 2770,
+    "degraded": 335
+   },
+   "003-book9all-human": {
+    "clean": 49,
+    "degraded": 42
+   }
+  },
+  "policy": "clean 层 purity 是硬约束里的硬约束、碎片率优化主要看这层；degraded 层要求不并错（单例化是正确行为）"
+ },
+ "pipeline_freeze": {
+  "rev": "23ee9a518",
+  "reason": "a435d7b 重跑了全部切分但 phase6 转写没重跑；格高一变 page:col:idx 指向的字就换了人（instances 第九轮实测），旧转写对新图块做对齐是系统性错标",
+  "rebuild": "build 脚本 --pipeline-rev 自动从 git 取当版产物；迁到新切分的前置条件是在新 phase4 上重跑 label/refine"
+ }
 }

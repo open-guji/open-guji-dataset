@@ -23,7 +23,12 @@
    "n_chars": 975,
    "n_equal": 2754,
    "n_replace": 247,
-   "n_hard_pairs": 79
+   "n_hard_pairs": 79,
+   "tiers": {
+    "clean": 2851,
+    "degraded": 150,
+    "empty": 0
+   }
   },
   {
    "shard": "002-vol02-body",
@@ -47,7 +52,12 @@
    "n_chars": 743,
    "n_equal": 2874,
    "n_replace": 231,
-   "n_hard_pairs": 80
+   "n_hard_pairs": 80,
+   "tiers": {
+    "clean": 2770,
+    "degraded": 335,
+    "empty": 0
+   }
   },
   {
    "shard": "003-book9all-human",
@@ -60,6 +70,11 @@
     "n_relabeled": 8,
     "n_dropped": 3,
     "n_pairs_flipped_to_diff": 0
+   },
+   "tiers": {
+    "clean": 49,
+    "degraded": 42,
+    "empty": 0
    }
   }
  ]

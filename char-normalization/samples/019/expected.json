@@ -1,8 +1,8 @@
 {
  "source_item": "06061300.cn",
- "pipeline_version": "23ee9a518",
+ "pipeline_version": "869f235f2f",
  "label_origin": "human",
- "instance_id": "vol01:29:5:20",
+ "instance_id": "vol01:34:1:20",
  "book": "vol01",
  "input": "input.png",
  "golden": "golden.png",
@@ -12,23 +12,27 @@
   "binary_iou_min": 0.98,
   "skeleton_endpoint_delta_max": 2
  },
- "cover": [
-  "border_residue"
- ],
- "char": "均",
+ "tier": "clean",
+ "tier_detail": {
+  "tier": "degraded",
+  "truncated": false,
+  "residue": true,
+  "edge_ink_px": 4,
+  "n_foreign": 1,
+  "foreign_core_px": 2110
+ },
+ "char": null,
  "status": "verified",
- "sampling_cue": "border_residue",
+ "sampling_cue": "residue",
  "extractor_flags": [
-  "edge_blob",
-  "boundary_ink",
-  "frame_bars"
+  "boundary_ink"
  ],
- "ink_ratio": 0.1741,
+ "ink_ratio": 0.2462,
  "norm_params": {
   "size": 64,
   "margin_ratio": 0.12,
   "noise_area": 6,
   "stroke_width": 3
  },
- "schema_version": 1
+ "schema_version": 2
 }
