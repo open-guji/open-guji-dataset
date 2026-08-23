@@ -1,6 +1,6 @@
 {
  "name": "char-instance-quality",
- "version": "0.6.1",
+ "version": "0.7.0",
  "schema_version": 1,
  "description": "单字图块切分质量：真实图块的实例级四分类标注",
  "created": "2026-08-22",
@@ -8,7 +8,7 @@
  "parent": "char-segmentation",
  "eval_command": "cd open-guji-cv && python scripts/eval_instance_quality.py <dataset>",
  "eval_script": "open-guji-cv/scripts/eval_instance_quality.py",
- "total_samples": 65,
+ "total_samples": 62,
  "sample_unit": "单字图块",
  "sources": [
   "06061300.cn（武英殿刻本《欽定四庫全書總目》卷首一~四）"
@@ -26,10 +26,10 @@
   "human"
  ],
  "quality_distribution": {
-  "clean": 53,
-  "contaminated": 5,
-  "truncated": 4,
-  "not_text": 3
+  "clean": 55,
+  "contaminated": 4,
+  "truncated": 2,
+  "not_text": 1
  },
  "layout_distribution": {
   "rigid": 55,
@@ -56,10 +56,10 @@
   }
  ],
  "baseline": {
-  "measured_on": "65 实例（12 缺陷 / 53 正例）",
+  "measured_on": "62 实例（7 缺陷 / 55 正例）",
   "defect_recall": 1.0,
-  "flag_precision": 0.55,
-  "false_alarm_rate": 0.19,
+  "flag_precision": 0.54,
+  "false_alarm_rate": 0.11,
   "per_class_recall": {
    "contaminated": 1.0,
    "truncated": 1.0,
@@ -72,9 +72,9 @@
      "edge_blob",
      "frame_bars"
     ],
-    "defect_recall": 0.417,
-    "flag_precision": 1.0,
-    "false_alarm_rate": 0.0
+    "defect_recall": 0.286,
+    "flag_precision": 0.67,
+    "false_alarm_rate": 0.018
    },
    "加疑似层": {
     "flags": [
@@ -85,8 +85,8 @@
      "bad_seg"
     ],
     "defect_recall": 1.0,
-    "flag_precision": 0.55,
-    "false_alarm_rate": 0.19
+    "flag_precision": 0.54,
+    "false_alarm_rate": 0.11
    }
   }
  },
@@ -163,6 +163,17 @@
     "vol01/95:1:17"
    ],
    "effect": "65 个图块内容一个没变，只有 95:1:17 消失——它所在的列正是改判弹性的那种，列内序号重排。样本 66 → 65，缺陷仍 12，检出仍 100%，确定层仍零误报。"
+  },
+  {
+   "date": "2026-08-23",
+   "reason": "书级格高改由实测字距定（vol01 +1.2% / vol02 +3.0%）+ 格线逐条吸附到字间空隙",
+   "changed": 49,
+   "dropped_ids": [
+    "vol01/135:5:20",
+    "vol01/179:5:20",
+    "vol01/146:7:20"
+   ],
+   "effect": "这一轮的漂移和以往不同：格高一变，**格序号对应的字就换了人**（10:2:6 从「列」变成「冬」），不是同一个字裁得不一样。65 个图块里 49 个内容变化、3 个 ID 消失（都是「空格位落在版框横线上」的 not_text，格线一动就不存在了）。逐个重看改了 5 个标签：87:1:18 与 vol02/17:8:9 转 clean；103:5:5 由 contaminated 转 truncated（外来墨没了，但只切到「式」的上半）；105:5:2 由 truncated 转 contaminated（本字完整了，却吃进下一字「講」的头）；vol02/185:4:20 转 not_text。样本 65 → 62，缺陷 12 → 7。"
   }
  ],
  "baseline_history": [
@@ -205,8 +216,15 @@
    "flag_precision": 0.61,
    "false_alarm_rate": 0.17,
    "note": "样本为 66 个、缺陷 14 个的版本（含 2 个「臣」横向截断）。第七轮把图块裁切边改成按界行外扩之后那 2 个变干净，缺陷降到 12，误报率因此从 0.17 升到 0.20——分母没变、分子多了 2 个仍被 off_center 标记的干净「臣」。"
+  },
+  {
+   "version": "0.6.1",
+   "defect_recall": 1.0,
+   "flag_precision": 0.55,
+   "false_alarm_rate": 0.19,
+   "note": "样本 65 个、缺陷 12 个的版本。第九轮上游把书级格高改由实测字距定，格线全书位移，缺陷降到 7、样本降到 62，不可直接与 0.7.0 相比。"
   }
  ],
- "known_limitation": "1) 4 个截断实例里 3 个是纵向截断、1 个是宽字左右出框，**横向截断这一类现在一个样本都没有**（原有的 2 个被第七轮的裁切改动修好了）。off_center 的阈值实质是在已经消失的案例上定的，它在别的刻本上还有没有用，无从验证——需要另行抽样补横向截断实例。\n2) 确定层召回 42%：确定层三个判据都不管截断，而缺陷里有 4 个是截断。\n3) 11 个误报里有一批是职名列的「臣」：它的墨天然偏在格位右侧，图块裁全了 off_center 照样报。误报率 17% → 20% 主要来自这个——不是检测变差，是两个「臣」从缺陷变成了正例、却仍被标记。\n4) 「臣」字系统性偏格这件事已从根上处理（裁切边按界行走，而不是按文字带走），但全书仍有约 35% 的「臣」形字格被切——都落在**根本没有界行**的页上（序、目录），那里没有围栏可依。",
+ "known_limitation": "1) 缺陷只剩 7 个（4 混入 / 2 截断 / 1 非字），样本量已经很薄，任何比值都要连着分母读。\n2) **确定层不再是零误报**：vol01/10:2:6 这个干净的「冬」被 edge_blob 误报（1/55）。\n3) 横向截断仍无样本（第七轮修好后一直没补），off_center 的阈值实质是在已消失的案例上定的。\n4) 这一轮暴露了一个新的漂移形态：格高一改，`page:col:idx` 指向的**字本身**就换了，不只是同一个字裁得不一样。凡是改动格高/周期这类尺度参数，本数据集必须整体重看，不能只看「内容变了几个」。",
  "coverage": "vol01 + vol02（第六轮起收两册；键可写 'vol02/page:col:idx'）"
 }
