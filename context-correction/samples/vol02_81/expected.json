@@ -1,6 +1,6 @@
 {
  "source_item": "vol02",
- "pipeline_version": "afdf99a86301",
+ "pipeline_version": "fe003744536a",
  "label_origin": "align",
  "split": "test",
  "page": "81",
@@ -3975,7 +3975,7 @@
    "column_id": "vol02:81:7",
    "context": {
     "prev": "易璇璣三卷江本",
-    "next": "澥詣行在獻書澥所獻宇辨歷代疆域志"
+    "next": "澥詣行在獻書澥所獻曰宇辨歷代疆域志"
    },
    "slots": [
     {
@@ -5246,6 +5246,52 @@
      "frozen": true
     },
     {
+     "index": 11,
+     "instance_id": "vol02:81:8:11",
+     "cluster_id": "vol02:c00003",
+     "cluster_size": 51,
+     "flags": [],
+     "candidates": [
+      {
+       "char": "曰",
+       "prob": 0.919187,
+       "source": "ocr",
+       "semantic": "曰",
+       "surface_uncertain": true
+      },
+      {
+       "char": "日",
+       "prob": 0.054956,
+       "source": "ocr",
+       "semantic": "日",
+       "surface_uncertain": true
+      },
+      {
+       "char": "目",
+       "prob": 0.014221,
+       "source": "ocr",
+       "semantic": "目",
+       "surface_uncertain": true
+      },
+      {
+       "char": "白",
+       "prob": 0.007757,
+       "source": "ocr",
+       "semantic": "白",
+       "surface_uncertain": true
+      },
+      {
+       "char": "旧",
+       "prob": 0.003878,
+       "source": "ocr",
+       "semantic": "舊",
+       "surface_uncertain": true
+      }
+     ],
+     "gold": "曰",
+     "frozen": true
+    },
+    {
      "index": 12,
      "instance_id": "vol02:81:8:12",
      "cluster_id": "vol02:c23988",
@@ -5576,7 +5622,7 @@
   {
    "column_id": "vol02:81:9",
    "context": {
-    "prev": "澥詣行在獻書澥所獻宇辨歷代疆域志",
+    "prev": "澥詣行在獻書澥所獻曰宇辨歷代疆域志",
     "next": null
    },
    "slots": [
@@ -5729,35 +5775,35 @@
      "candidates": [
       {
        "char": "日",
-       "prob": 0.8211,
+       "prob": 0.994604,
        "source": "ocr",
        "semantic": "日",
        "surface_uncertain": true
       },
       {
        "char": "曰",
-       "prob": 0.1767,
+       "prob": 0.002731,
        "source": "ocr",
        "semantic": "曰",
        "surface_uncertain": true
       },
       {
        "char": "田",
-       "prob": 0.0009,
+       "prob": 0.00109,
        "source": "ocr",
        "semantic": "田",
        "surface_uncertain": true
       },
       {
        "char": "臼",
-       "prob": 0.0008,
+       "prob": 0.000969,
        "source": "ocr",
        "semantic": "臼",
        "surface_uncertain": true
       },
       {
        "char": "目",
-       "prob": 0.0005,
+       "prob": 0.000606,
        "source": "ocr",
        "semantic": "目",
        "surface_uncertain": true
@@ -5912,36 +5958,36 @@
      "flags": [],
      "candidates": [
       {
-       "char": "日",
-       "prob": 0.8485,
-       "source": "ocr",
-       "semantic": "日",
-       "surface_uncertain": true
-      },
-      {
        "char": "曰",
-       "prob": 0.148,
+       "prob": 0.867844,
        "source": "ocr",
        "semantic": "曰",
        "surface_uncertain": true
       },
       {
+       "char": "日",
+       "prob": 0.112219,
+       "source": "ocr",
+       "semantic": "日",
+       "surface_uncertain": true
+      },
+      {
        "char": "旧",
-       "prob": 0.0019,
+       "prob": 0.011141,
        "source": "ocr",
        "semantic": "舊",
        "surface_uncertain": true
       },
       {
        "char": "目",
-       "prob": 0.0008,
+       "prob": 0.004691,
        "source": "ocr",
        "semantic": "目",
        "surface_uncertain": true
       },
       {
        "char": "田",
-       "prob": 0.0007,
+       "prob": 0.004105,
        "source": "ocr",
        "semantic": "田",
        "surface_uncertain": true

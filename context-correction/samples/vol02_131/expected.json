@@ -1,6 +1,6 @@
 {
  "source_item": "vol02",
- "pipeline_version": "afdf99a86301",
+ "pipeline_version": "fe003744536a",
  "label_origin": "align",
  "split": "test",
  "page": "131",
@@ -724,7 +724,7 @@
    "column_id": "vol02:131:2",
    "context": {
     "prev": "卷文獻通考於之又有外篇一卷此本",
-    "next": "篇法象極數觀序稱象"
+    "next": "篇曰法象極數觀序稱象"
    },
    "slots": [
     {
@@ -1681,6 +1681,52 @@
      "frozen": true
     },
     {
+     "index": 2,
+     "instance_id": "vol02:131:3:2",
+     "cluster_id": "vol02:c06270",
+     "cluster_size": 1,
+     "flags": [],
+     "candidates": [
+      {
+       "char": "曰",
+       "prob": 0.913407,
+       "source": "ocr",
+       "semantic": "曰",
+       "surface_uncertain": true
+      },
+      {
+       "char": "日",
+       "prob": 0.073414,
+       "source": "ocr",
+       "semantic": "日",
+       "surface_uncertain": true
+      },
+      {
+       "char": "旧",
+       "prob": 0.005069,
+       "source": "ocr",
+       "semantic": "舊",
+       "surface_uncertain": true
+      },
+      {
+       "char": "口",
+       "prob": 0.005069,
+       "source": "ocr",
+       "semantic": "口",
+       "surface_uncertain": true
+      },
+      {
+       "char": "白",
+       "prob": 0.003041,
+       "source": "ocr",
+       "semantic": "白",
+       "surface_uncertain": true
+      }
+     ],
+     "gold": "曰",
+     "frozen": true
+    },
+    {
      "index": 3,
      "instance_id": "vol02:131:3:3",
      "cluster_id": "vol02:c06271",
@@ -2059,7 +2105,7 @@
   {
    "column_id": "vol02:131:4",
    "context": {
-    "prev": "篇法象極數觀序稱象",
+    "prev": "篇曰法象極數觀序稱象",
     "next": "八變皆據易大傳之文凡論太極者惑於四之"
    },
    "slots": [

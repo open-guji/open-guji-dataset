@@ -10,7 +10,7 @@
  ],
  "build_command": "PYTHONPATH=. python scripts/build_char_ocr_dataset.py output/vol01 --corpus corpus/zongmu_wuyingdian_reference.txt --dataset <dataset> --shard vol01 --max-items 6000",
  "upstream": {
-  "cv_commit": "afdf99a86301",
+  "cv_commit": "fe003744536a",
   "phase4_chars": "output/vol01/phase4_chars",
   "note": "图块像素已冻结进 crops/；切分有实质改进后应重建本集"
  },
@@ -18,14 +18,14 @@
   "pages_total": 201,
   "pages_anchored": 118,
   "instances_total": 24614,
-  "gold_items_total": 16974,
-  "excluded_uncertain": 7640,
-  "gold_rate": 0.6896,
+  "gold_items_total": 16934,
+  "excluded_uncertain": 7680,
+  "gold_rate": 0.688,
   "frozen_items": 6000,
   "sampling": "分层降采样至 6000",
   "align_opcode": {
-   "equal": 5532,
-   "replace": 468
+   "equal": 5568,
+   "replace": 432
   },
   "accept_rule": {
    "max_replace_run": 3,
@@ -34,20 +34,20 @@
  },
  "strata": {
   "page_type": {
-   "roster": 176,
-   "body": 5144,
-   "uncertain": 459,
-   "toc": 111,
+   "roster": 173,
+   "body": 5156,
+   "uncertain": 454,
+   "toc": 107,
    "edict": 110
   },
   "flag_layer": {
-   "clean": 3924,
-   "suspect": 1917,
-   "certain_defect": 159
+   "clean": 3939,
+   "suspect": 1923,
+   "certain_defect": 138
   },
   "cluster": {
-   "single": 4162,
-   "multi": 1838
+   "single": 4154,
+   "multi": 1846
   },
   "variant_items": 288
  },
@@ -78,23 +78,23 @@
    "rate": 1.0
   },
   "body|suspect|single|common": {
-   "total": 1574,
-   "sampled": 1521,
-   "rate": 0.9663
+   "total": 1560,
+   "sampled": 1529,
+   "rate": 0.9801
   },
   "body|clean|single|common": {
-   "total": 12203,
-   "sampled": 1521,
-   "rate": 0.1246
+   "total": 12202,
+   "sampled": 1530,
+   "rate": 0.1254
   },
   "body|clean|multi|common": {
    "total": 1760,
-   "sampled": 1521,
-   "rate": 0.8642
+   "sampled": 1529,
+   "rate": 0.8688
   },
   "body|certain_defect|single|common": {
-   "total": 118,
-   "sampled": 118,
+   "total": 105,
+   "sampled": 105,
    "rate": 1.0
   },
   "body|suspect|multi|common": {
@@ -153,13 +153,13 @@
    "rate": 1.0
   },
   "uncertain|clean|single|common": {
-   "total": 303,
-   "sampled": 303,
+   "total": 301,
+   "sampled": 301,
    "rate": 1.0
   },
   "uncertain|suspect|single|common": {
-   "total": 84,
-   "sampled": 84,
+   "total": 83,
+   "sampled": 83,
    "rate": 1.0
   },
   "uncertain|clean|multi|common": {
@@ -168,8 +168,8 @@
    "rate": 1.0
   },
   "uncertain|certain_defect|single|common": {
-   "total": 8,
-   "sampled": 8,
+   "total": 6,
+   "sampled": 6,
    "rate": 1.0
   },
   "uncertain|suspect|multi|variant": {
@@ -193,8 +193,8 @@
    "rate": 1.0
   },
   "roster|suspect|single|common": {
-   "total": 32,
-   "sampled": 32,
+   "total": 31,
+   "sampled": 31,
    "rate": 1.0
   },
   "roster|suspect|multi|common": {
@@ -203,24 +203,19 @@
    "rate": 1.0
   },
   "roster|certain_defect|single|common": {
-   "total": 14,
-   "sampled": 14,
+   "total": 12,
+   "sampled": 12,
    "rate": 1.0
   },
   "uncertain|clean|single|variant": {
    "total": 3,
    "sampled": 3,
    "rate": 1.0
-  },
-  "toc|certain_defect|single|common": {
-   "total": 4,
-   "sampled": 4,
-   "rate": 1.0
   }
  },
  "label_stats": {
-  "distinct_chars": 1318,
-  "top_chars": "之書不其而一以文臣於有十者人大林\n所翰院",
-  "hapax": 593
+  "distinct_chars": 1298,
+  "top_chars": "之書不其以臣一文而有於十人林者大所翰院可",
+  "hapax": 571
  }
 }

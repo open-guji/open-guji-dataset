@@ -1,6 +1,6 @@
 {
  "source_item": "vol01",
- "pipeline_version": "afdf99a86301",
+ "pipeline_version": "fe003744536a",
  "label_origin": "align",
  "split": "test",
  "page": "93",
@@ -391,7 +391,7 @@
    "column_id": "vol01:93:2",
    "context": {
     "prev": "太常寺少卿孫士毅",
-    "next": "日起居官司經局洗馬臣夢吉"
+    "next": "起居官司經局洗馬臣夢吉"
    },
    "slots": [
     {
@@ -541,52 +541,6 @@
     "next": "翰林院修祝德"
    },
    "slots": [
-    {
-     "index": 0,
-     "instance_id": "vol01:93:3:0",
-     "cluster_id": null,
-     "cluster_size": 1,
-     "flags": [],
-     "candidates": [
-      {
-       "char": "日",
-       "prob": 0.7369,
-       "source": "ocr",
-       "semantic": "日",
-       "surface_uncertain": true
-      },
-      {
-       "char": "曰",
-       "prob": 0.2239,
-       "source": "ocr",
-       "semantic": "曰",
-       "surface_uncertain": true
-      },
-      {
-       "char": "白",
-       "prob": 0.0273,
-       "source": "ocr",
-       "semantic": "白",
-       "surface_uncertain": true
-      },
-      {
-       "char": "目",
-       "prob": 0.0085,
-       "source": "ocr",
-       "semantic": "目",
-       "surface_uncertain": true
-      },
-      {
-       "char": "百",
-       "prob": 0.0034,
-       "source": "ocr",
-       "semantic": "百",
-       "surface_uncertain": true
-      }
-     ],
-     "gold": "日",
-     "frozen": true
-    },
     {
      "index": 3,
      "instance_id": "vol01:93:3:3",
@@ -1108,8 +1062,8 @@
   {
    "column_id": "vol01:93:4",
    "context": {
-    "prev": "日起居官司經局洗馬臣夢吉",
-    "next": "掌河南道監察御史臣劉錫嘏\n"
+    "prev": "起居官司經局洗馬臣夢吉",
+    "next": "掌河南道監察御史臣劉錫嘏"
    },
    "slots": [
     {
@@ -1394,7 +1348,7 @@
    "column_id": "vol01:93:5",
    "context": {
     "prev": "翰林院修祝德",
-    "next": "日講起居官翰林侍講臣王仲愚\n"
+    "next": "日講起居官翰林侍講臣王仲愚"
    },
    "slots": [
     {
@@ -1954,62 +1908,13 @@
      ],
      "gold": "嘏",
      "frozen": true
-    },
-    {
-     "index": 12,
-     "instance_id": "vol01:93:5:12",
-     "cluster_id": "vol01:c21592",
-     "cluster_size": 1,
-     "flags": [
-      "edge_blob",
-      "boundary_ink"
-     ],
-     "candidates": [
-      {
-       "char": "皮",
-       "prob": 0.3002,
-       "source": "ocr",
-       "semantic": "皮",
-       "surface_uncertain": true
-      },
-      {
-       "char": "陵",
-       "prob": 0.2356,
-       "source": "ocr",
-       "semantic": "陵",
-       "surface_uncertain": true
-      },
-      {
-       "char": "技",
-       "prob": 0.182,
-       "source": "ocr",
-       "semantic": "技",
-       "surface_uncertain": true
-      },
-      {
-       "char": "鼓",
-       "prob": 0.1434,
-       "source": "ocr",
-       "semantic": "鼓",
-       "surface_uncertain": true
-      },
-      {
-       "char": "设",
-       "prob": 0.1388,
-       "source": "ocr",
-       "semantic": "設",
-       "surface_uncertain": true
-      }
-     ],
-     "gold": "\n",
-     "frozen": true
     }
    ]
   },
   {
    "column_id": "vol01:93:6",
    "context": {
-    "prev": "掌河南道監察御史臣劉錫嘏\n",
+    "prev": "掌河南道監察御史臣劉錫嘏",
     "next": "文淵閣校理翰林院編修百"
    },
    "slots": [
@@ -2022,35 +1927,35 @@
      "candidates": [
       {
        "char": "日",
-       "prob": 0.9759,
+       "prob": 0.995634,
        "source": "ocr",
        "semantic": "日",
        "surface_uncertain": true
       },
       {
        "char": "曰",
-       "prob": 0.0226,
+       "prob": 0.002836,
        "source": "ocr",
        "semantic": "曰",
        "surface_uncertain": true
       },
       {
        "char": "旧",
-       "prob": 0.0007,
+       "prob": 0.000714,
        "source": "ocr",
        "semantic": "舊",
        "surface_uncertain": true
       },
       {
        "char": "目",
-       "prob": 0.0006,
+       "prob": 0.000612,
        "source": "ocr",
        "semantic": "目",
        "surface_uncertain": true
       },
       {
        "char": "月",
-       "prob": 0.0002,
+       "prob": 0.000204,
        "source": "ocr",
        "semantic": "月",
        "surface_uncertain": true
@@ -2620,59 +2525,13 @@
      ],
      "gold": "愚",
      "frozen": true
-    },
-    {
-     "index": 20,
-     "instance_id": "vol01:93:6:20",
-     "cluster_id": "vol01:c21586",
-     "cluster_size": 1,
-     "flags": [],
-     "candidates": [
-      {
-       "char": "國",
-       "prob": 0.4781,
-       "source": "ocr",
-       "semantic": "國",
-       "surface_uncertain": true
-      },
-      {
-       "char": "一",
-       "prob": 0.2307,
-       "source": "ocr",
-       "semantic": "一",
-       "surface_uncertain": true
-      },
-      {
-       "char": "国",
-       "prob": 0.1046,
-       "source": "ocr",
-       "semantic": "國",
-       "surface_uncertain": true
-      },
-      {
-       "char": "圖",
-       "prob": 0.1004,
-       "source": "ocr",
-       "semantic": "圖",
-       "surface_uncertain": true
-      },
-      {
-       "char": "用",
-       "prob": 0.0862,
-       "source": "ocr",
-       "semantic": "用",
-       "surface_uncertain": true
-      }
-     ],
-     "gold": "\n",
-     "frozen": true
     }
    ]
   },
   {
    "column_id": "vol01:93:7",
    "context": {
-    "prev": "日講起居官翰林侍講臣王仲愚\n",
+    "prev": "日講起居官翰林侍講臣王仲愚",
     "next": "日講起居注文淵閣校理翰林院侍讀臣張"
    },
    "slots": [
@@ -3152,35 +3011,35 @@
      "candidates": [
       {
        "char": "百",
-       "prob": 0.9706,
+       "prob": 0.973772,
        "source": "ocr",
        "semantic": "百",
        "surface_uncertain": true
       },
       {
        "char": "直",
-       "prob": 0.0144,
+       "prob": 0.014447,
        "source": "ocr",
        "semantic": "直",
        "surface_uncertain": true
       },
       {
        "char": "下",
-       "prob": 0.0081,
+       "prob": 0.008126,
        "source": "ocr",
        "semantic": "下",
        "surface_uncertain": true
       },
       {
        "char": "白",
-       "prob": 0.0035,
+       "prob": 0.003511,
        "source": "ocr",
        "semantic": "白",
        "surface_uncertain": true
       },
       {
        "char": "日",
-       "prob": 0.0034,
+       "prob": 0.000143,
        "source": "ocr",
        "semantic": "日",
        "surface_uncertain": true
@@ -3209,35 +3068,35 @@
      "candidates": [
       {
        "char": "日",
-       "prob": 0.7869,
+       "prob": 0.865135,
        "source": "ocr",
        "semantic": "日",
        "surface_uncertain": true
       },
       {
        "char": "曰",
-       "prob": 0.2117,
+       "prob": 0.133545,
        "source": "ocr",
        "semantic": "曰",
        "surface_uncertain": true
       },
       {
        "char": "旧",
-       "prob": 0.0007,
+       "prob": 0.00077,
        "source": "ocr",
        "semantic": "舊",
        "surface_uncertain": true
       },
       {
        "char": "白",
-       "prob": 0.0003,
+       "prob": 0.00033,
        "source": "ocr",
        "semantic": "白",
        "surface_uncertain": true
       },
       {
        "char": "口",
-       "prob": 0.0002,
+       "prob": 0.00022,
        "source": "ocr",
        "semantic": "口",
        "surface_uncertain": true

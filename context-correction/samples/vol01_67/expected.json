@@ -1,6 +1,6 @@
 {
  "source_item": "vol01",
- "pipeline_version": "afdf99a86301",
+ "pipeline_version": "fe003744536a",
  "label_origin": "align",
  "split": "test",
  "page": "67",
@@ -1236,35 +1236,35 @@
      "candidates": [
       {
        "char": "目",
-       "prob": 0.8504,
+       "prob": 0.857776,
        "source": "ocr",
        "semantic": "目",
        "surface_uncertain": true
       },
       {
        "char": "日",
-       "prob": 0.1329,
+       "prob": 0.134053,
        "source": "ocr",
        "semantic": "日",
        "surface_uncertain": true
       },
       {
        "char": "曰",
-       "prob": 0.015,
+       "prob": 0.006355,
        "source": "ocr",
        "semantic": "曰",
        "surface_uncertain": true
       },
       {
        "char": "同",
-       "prob": 0.0011,
+       "prob": 0.00111,
        "source": "ocr",
        "semantic": "同",
        "surface_uncertain": true
       },
       {
        "char": "回",
-       "prob": 0.0007,
+       "prob": 0.000706,
        "source": "ocr",
        "semantic": "回",
        "surface_uncertain": true
@@ -3463,7 +3463,7 @@
    "column_id": "vol01:67:5",
    "context": {
     "prev": "極之庭稽古崇儒府丹宸之館彌綸宙合識",
-    "next": "特建寶思周融如\n"
+    "next": "特建寶思周融如"
    },
    "slots": [
     {
@@ -4672,63 +4672,14 @@
      ],
      "gold": "如",
      "frozen": true
-    },
-    {
-     "index": 20,
-     "instance_id": "vol01:67:6:20",
-     "cluster_id": null,
-     "cluster_size": 1,
-     "flags": [
-      "edge_blob",
-      "boundary_ink"
-     ],
-     "candidates": [
-      {
-       "char": "电",
-       "prob": 0.3539,
-       "source": "ocr",
-       "semantic": "電",
-       "surface_uncertain": true
-      },
-      {
-       "char": "明",
-       "prob": 0.1792,
-       "source": "ocr",
-       "semantic": "明",
-       "surface_uncertain": true
-      },
-      {
-       "char": "的",
-       "prob": 0.1684,
-       "source": "ocr",
-       "semantic": "的",
-       "surface_uncertain": true
-      },
-      {
-       "char": "我",
-       "prob": 0.1623,
-       "source": "ocr",
-       "semantic": "我",
-       "surface_uncertain": true
-      },
-      {
-       "char": "：",
-       "prob": 0.1361,
-       "source": "ocr",
-       "semantic": "：",
-       "surface_uncertain": true
-      }
-     ],
-     "gold": "\n",
-     "frozen": true
     }
    ]
   },
   {
    "column_id": "vol01:67:7",
    "context": {
-    "prev": "特建寶思周融如\n",
-    "next": "帝陛下\n"
+    "prev": "特建寶思周融如",
+    "next": "帝陛下"
    },
    "slots": [
     {
@@ -4786,21 +4737,21 @@
      "candidates": [
       {
        "char": "日",
-       "prob": 0.9938,
+       "prob": 0.994561,
        "source": "ocr",
        "semantic": "日",
        "surface_uncertain": true
       },
       {
        "char": "曰",
-       "prob": 0.0045,
+       "prob": 0.003838,
        "source": "ocr",
        "semantic": "曰",
        "surface_uncertain": true
       },
       {
        "char": "旧",
-       "prob": 0.0012,
+       "prob": 0.001201,
        "source": "ocr",
        "semantic": "舊",
        "surface_uncertain": true
@@ -5155,62 +5106,13 @@
      ],
      "gold": "下",
      "frozen": true
-    },
-    {
-     "index": 20,
-     "instance_id": "vol01:67:8:20",
-     "cluster_id": null,
-     "cluster_size": 1,
-     "flags": [
-      "boundary_ink",
-      "frame_bars"
-     ],
-     "candidates": [
-      {
-       "char": "…",
-       "prob": 0.67,
-       "source": "ocr",
-       "semantic": "…",
-       "surface_uncertain": true
-      },
-      {
-       "char": "。",
-       "prob": 0.127,
-       "source": "ocr",
-       "semantic": "。",
-       "surface_uncertain": true
-      },
-      {
-       "char": "—",
-       "prob": 0.1143,
-       "source": "ocr",
-       "semantic": "—",
-       "surface_uncertain": true
-      },
-      {
-       "char": "」",
-       "prob": 0.0493,
-       "source": "ocr",
-       "semantic": "」",
-       "surface_uncertain": true
-      },
-      {
-       "char": "”",
-       "prob": 0.0394,
-       "source": "ocr",
-       "semantic": "”",
-       "surface_uncertain": true
-      }
-     ],
-     "gold": "\n",
-     "frozen": true
     }
    ]
   },
   {
    "column_id": "vol01:67:9",
    "context": {
-    "prev": "帝陛下\n",
+    "prev": "帝陛下",
     "next": null
    },
    "slots": [

@@ -1,6 +1,6 @@
 {
  "source_item": "vol01",
- "pipeline_version": "afdf99a86301",
+ "pipeline_version": "fe003744536a",
  "label_origin": "align",
  "split": "test",
  "page": "100",
@@ -1012,7 +1012,7 @@
    "column_id": "vol01:100:3",
    "context": {
     "prev": "翰林院編修臣鄒炳泰",
-    "next": "翰林院編修臣黃壽齡\n"
+    "next": "翰林院編修臣黃壽齡"
    },
    "slots": [
     {
@@ -2105,62 +2105,13 @@
      ],
      "gold": "齡",
      "frozen": true
-    },
-    {
-     "index": 9,
-     "instance_id": "vol01:100:4:9",
-     "cluster_id": "vol01:c01132",
-     "cluster_size": 1,
-     "flags": [
-      "boundary_ink",
-      "frame_bars"
-     ],
-     "candidates": [
-      {
-       "char": "國",
-       "prob": 0.3378,
-       "source": "ocr",
-       "semantic": "國",
-       "surface_uncertain": true
-      },
-      {
-       "char": "運",
-       "prob": 0.1885,
-       "source": "ocr",
-       "semantic": "運",
-       "surface_uncertain": true
-      },
-      {
-       "char": "電",
-       "prob": 0.1853,
-       "source": "ocr",
-       "semantic": "電",
-       "surface_uncertain": true
-      },
-      {
-       "char": "家",
-       "prob": 0.1458,
-       "source": "ocr",
-       "semantic": "家",
-       "surface_uncertain": true
-      },
-      {
-       "char": "理",
-       "prob": 0.1426,
-       "source": "ocr",
-       "semantic": "理",
-       "surface_uncertain": true
-      }
-     ],
-     "gold": "\n",
-     "frozen": true
     }
    ]
   },
   {
    "column_id": "vol01:100:5",
    "context": {
-    "prev": "翰林院編修臣黃壽齡\n",
+    "prev": "翰林院編修臣黃壽齡",
     "next": "翰林院檢坦"
    },
    "slots": [

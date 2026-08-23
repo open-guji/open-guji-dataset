@@ -1,6 +1,6 @@
 {
  "source_item": "vol01",
- "pipeline_version": "afdf99a86301",
+ "pipeline_version": "fe003744536a",
  "label_origin": "align",
  "split": "test",
  "page": "12",
@@ -11,7 +11,7 @@
    "column_id": "vol01:12:1",
    "context": {
     "prev": null,
-    "next": "行詳議具奏欽此\n"
+    "next": "行詳議具奏欽此"
    },
    "slots": [
     {
@@ -575,35 +575,35 @@
      "candidates": [
       {
        "char": "日",
-       "prob": 0.9912,
+       "prob": 0.995777,
        "source": "ocr",
        "semantic": "日",
        "surface_uncertain": true
       },
       {
        "char": "曰",
-       "prob": 0.0073,
+       "prob": 0.002716,
        "source": "ocr",
        "semantic": "曰",
        "surface_uncertain": true
       },
       {
        "char": "目",
-       "prob": 0.0005,
+       "prob": 0.000502,
        "source": "ocr",
        "semantic": "目",
        "surface_uncertain": true
       },
       {
        "char": "旧",
-       "prob": 0.0005,
+       "prob": 0.000502,
        "source": "ocr",
        "semantic": "舊",
        "surface_uncertain": true
       },
       {
        "char": "口",
-       "prob": 0.0005,
+       "prob": 0.000502,
        "source": "ocr",
        "semantic": "口",
        "surface_uncertain": true
@@ -1218,61 +1218,13 @@
      ],
      "gold": "此",
      "frozen": true
-    },
-    {
-     "index": 20,
-     "instance_id": "vol01:12:2:20",
-     "cluster_id": null,
-     "cluster_size": 1,
-     "flags": [
-      "boundary_ink"
-     ],
-     "candidates": [
-      {
-       "char": "…",
-       "prob": 0.9311,
-       "source": "ocr",
-       "semantic": "…",
-       "surface_uncertain": true
-      },
-      {
-       "char": "。",
-       "prob": 0.0228,
-       "source": "ocr",
-       "semantic": "。",
-       "surface_uncertain": true
-      },
-      {
-       "char": "—",
-       "prob": 0.0214,
-       "source": "ocr",
-       "semantic": "—",
-       "surface_uncertain": true
-      },
-      {
-       "char": "》",
-       "prob": 0.0137,
-       "source": "ocr",
-       "semantic": "》",
-       "surface_uncertain": true
-      },
-      {
-       "char": "」",
-       "prob": 0.011,
-       "source": "ocr",
-       "semantic": "」",
-       "surface_uncertain": true
-      }
-     ],
-     "gold": "\n",
-     "frozen": true
     }
    ]
   },
   {
    "column_id": "vol01:12:3",
    "context": {
-    "prev": "行詳議具奏欽此\n",
+    "prev": "行詳議具奏欽此",
     "next": "諭前經降旨博採遺彙四庫全書用昭石渠美"
    },
    "slots": [
@@ -1745,37 +1697,37 @@
      "candidates": [
       {
        "char": "日",
-       "prob": 0.994,
+       "prob": 0.996567,
        "source": "ocr",
        "semantic": "日",
        "surface_uncertain": true
       },
       {
-       "char": "曰",
-       "prob": 0.0027,
-       "source": "ocr",
-       "semantic": "曰",
-       "surface_uncertain": true
-      },
-      {
        "char": "目",
-       "prob": 0.0021,
+       "prob": 0.002105,
        "source": "ocr",
        "semantic": "目",
        "surface_uncertain": true
       },
       {
        "char": "口",
-       "prob": 0.0008,
+       "prob": 0.000802,
        "source": "ocr",
        "semantic": "口",
        "surface_uncertain": true
       },
       {
        "char": "白",
-       "prob": 0.0004,
+       "prob": 0.000401,
        "source": "ocr",
        "semantic": "白",
+       "surface_uncertain": true
+      },
+      {
+       "char": "曰",
+       "prob": 0.000125,
+       "source": "ocr",
+       "semantic": "曰",
        "surface_uncertain": true
       }
      ],

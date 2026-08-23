@@ -1,6 +1,6 @@
 {
  "source_item": "vol01",
- "pipeline_version": "afdf99a86301",
+ "pipeline_version": "fe003744536a",
  "label_origin": "align",
  "split": "test",
  "page": "134",
@@ -486,7 +486,7 @@
    "column_id": "vol01:134:2",
    "context": {
     "prev": "諭卷載諸簡端俾共知我",
-    "next": "官修之本泛稱御定者迥不相同\n"
+    "next": "官修之本泛稱御定者迥不相同"
    },
    "slots": [
     {
@@ -1007,30 +1007,23 @@
      "candidates": [
       {
        "char": "日",
-       "prob": 0.9952,
+       "prob": 0.995872,
        "source": "ocr",
        "semantic": "日",
        "surface_uncertain": true
       },
       {
        "char": "旧",
-       "prob": 0.002,
+       "prob": 0.002001,
        "source": "ocr",
        "semantic": "舊",
        "surface_uncertain": true
       },
       {
        "char": "目",
-       "prob": 0.0014,
+       "prob": 0.001401,
        "source": "ocr",
        "semantic": "目",
-       "surface_uncertain": true
-      },
-      {
-       "char": "曰",
-       "prob": 0.001,
-       "source": "ocr",
-       "semantic": "曰",
        "surface_uncertain": true
       },
       {
@@ -1038,6 +1031,13 @@
        "prob": 0.0004,
        "source": "ocr",
        "semantic": "月",
+       "surface_uncertain": true
+      },
+      {
+       "char": "曰",
+       "prob": 0.000325,
+       "source": "ocr",
+       "semantic": "曰",
        "surface_uncertain": true
       }
      ],
@@ -2018,62 +2018,13 @@
      ],
      "gold": "同",
      "frozen": true
-    },
-    {
-     "index": 20,
-     "instance_id": "vol01:134:3:20",
-     "cluster_id": null,
-     "cluster_size": 1,
-     "flags": [
-      "edge_blob",
-      "boundary_ink"
-     ],
-     "candidates": [
-      {
-       "char": "·",
-       "prob": 0.6626,
-       "source": "ocr",
-       "semantic": "·",
-       "surface_uncertain": true
-      },
-      {
-       "char": "…",
-       "prob": 0.137,
-       "source": "ocr",
-       "semantic": "…",
-       "surface_uncertain": true
-      },
-      {
-       "char": "•",
-       "prob": 0.104,
-       "source": "ocr",
-       "semantic": "•",
-       "surface_uncertain": true
-      },
-      {
-       "char": "●",
-       "prob": 0.0699,
-       "source": "ocr",
-       "semantic": "●",
-       "surface_uncertain": true
-      },
-      {
-       "char": "▪",
-       "prob": 0.0264,
-       "source": "ocr",
-       "semantic": "▪",
-       "surface_uncertain": true
-      }
-     ],
-     "gold": "\n",
-     "frozen": true
     }
    ]
   },
   {
    "column_id": "vol01:134:4",
    "context": {
-    "prev": "官修之本泛稱御定者迥不相同\n",
+    "prev": "官修之本泛稱御定者迥不相同",
     "next": "分十五類子部分十四類集部分五類或流別繁"
    },
    "slots": [
@@ -2592,37 +2543,37 @@
      "candidates": [
       {
        "char": "目",
-       "prob": 0.9886,
+       "prob": 0.997708,
        "source": "ocr",
        "semantic": "目",
        "surface_uncertain": true
       },
       {
-       "char": "日",
-       "prob": 0.0094,
-       "source": "ocr",
-       "semantic": "日",
-       "surface_uncertain": true
-      },
-      {
        "char": "自",
-       "prob": 0.0008,
+       "prob": 0.000807,
        "source": "ocr",
        "semantic": "自",
        "surface_uncertain": true
       },
       {
        "char": "曰",
-       "prob": 0.0006,
+       "prob": 0.000606,
        "source": "ocr",
        "semantic": "曰",
        "surface_uncertain": true
       },
       {
        "char": "且",
-       "prob": 0.0005,
+       "prob": 0.000505,
        "source": "ocr",
        "semantic": "且",
+       "surface_uncertain": true
+      },
+      {
+       "char": "日",
+       "prob": 0.000375,
+       "source": "ocr",
+       "semantic": "日",
        "surface_uncertain": true
       }
      ],
@@ -4128,35 +4079,35 @@
      "candidates": [
       {
        "char": "目",
-       "prob": 0.9884,
+       "prob": 0.991749,
        "source": "ocr",
        "semantic": "目",
        "surface_uncertain": true
       },
       {
        "char": "日",
-       "prob": 0.0089,
+       "prob": 0.005542,
        "source": "ocr",
        "semantic": "日",
        "surface_uncertain": true
       },
       {
        "char": "自",
-       "prob": 0.001,
+       "prob": 0.001003,
        "source": "ocr",
        "semantic": "自",
        "surface_uncertain": true
       },
       {
        "char": "月",
-       "prob": 0.0009,
+       "prob": 0.000903,
        "source": "ocr",
        "semantic": "月",
        "surface_uncertain": true
       },
       {
        "char": "且",
-       "prob": 0.0008,
+       "prob": 0.000803,
        "source": "ocr",
        "semantic": "且",
        "surface_uncertain": true

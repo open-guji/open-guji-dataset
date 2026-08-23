@@ -10,7 +10,7 @@
  ],
  "build_command": "PYTHONPATH=. python scripts/build_char_ocr_dataset.py output/book9 --corpus corpus/zongmu_wuyingdian_reference.txt --dataset <dataset> --shard book9",
  "upstream": {
-  "cv_commit": "afdf99a86301",
+  "cv_commit": "fe003744536a",
   "phase4_chars": "output/book9/phase4_chars",
   "note": "图块像素已冻结进 crops/；切分有实质改进后应重建本集"
  },
@@ -18,14 +18,14 @@
   "pages_total": 10,
   "pages_anchored": 9,
   "instances_total": 1647,
-  "gold_items_total": 1466,
-  "excluded_uncertain": 181,
-  "gold_rate": 0.8901,
-  "frozen_items": 1466,
+  "gold_items_total": 1464,
+  "excluded_uncertain": 183,
+  "gold_rate": 0.8889,
+  "frozen_items": 1464,
   "sampling": "全留",
   "align_opcode": {
    "equal": 1341,
-   "replace": 125
+   "replace": 123
   },
   "accept_rule": {
    "max_replace_run": 3,
@@ -34,15 +34,15 @@
  },
  "strata": {
   "page_type": {
-   "unknown": 1466
+   "unknown": 1464
   },
   "flag_layer": {
    "clean": 1461,
-   "suspect": 5
+   "suspect": 3
   },
   "cluster": {
-   "single": 1332,
-   "multi": 134
+   "single": 1331,
+   "multi": 133
   },
   "variant_items": 18
  },
@@ -63,18 +63,18 @@
    "rate": 1.0
   },
   "unknown|suspect|multi|common": {
-   "total": 3,
-   "sampled": 3,
+   "total": 2,
+   "sampled": 2,
    "rate": 1.0
   },
   "unknown|suspect|single|common": {
-   "total": 2,
-   "sampled": 2,
+   "total": 1,
+   "sampled": 1,
    "rate": 1.0
   }
  },
  "label_stats": {
-  "distinct_chars": 520,
+  "distinct_chars": 519,
   "top_chars": "書之其以各藏家進於者不將有爲此人所今本而",
   "hapax": 236
  }

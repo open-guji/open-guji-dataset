@@ -1,6 +1,6 @@
 {
  "source_item": "vol02",
- "pipeline_version": "afdf99a86301",
+ "pipeline_version": "fe003744536a",
  "label_origin": "align",
  "split": "test",
  "page": "44",
@@ -4442,7 +4442,7 @@
    "column_id": "vol02:44:6",
    "context": {
     "prev": "爲前人所未及今核以程傳良然朱子語類亦稱",
-    "next": "易之宗也王得臣史安定胡翼之皇祐至和"
+    "next": "易之宗也王得臣麈史曰安定胡翼之皇祐至和"
    },
    "slots": [
     {
@@ -5659,6 +5659,52 @@
      "frozen": true
     },
     {
+     "index": 9,
+     "instance_id": "vol02:44:7:9",
+     "cluster_id": "vol02:c18420",
+     "cluster_size": 1,
+     "flags": [],
+     "candidates": [
+      {
+       "char": "塵",
+       "prob": 0.8635,
+       "source": "ocr",
+       "semantic": "塵",
+       "surface_uncertain": true
+      },
+      {
+       "char": "麈",
+       "prob": 0.1224,
+       "source": "ocr",
+       "semantic": "麈",
+       "surface_uncertain": true
+      },
+      {
+       "char": "座",
+       "prob": 0.0109,
+       "source": "ocr",
+       "semantic": "坐",
+       "surface_uncertain": true
+      },
+      {
+       "char": "廛",
+       "prob": 0.0018,
+       "source": "ocr",
+       "semantic": "廛",
+       "surface_uncertain": true
+      },
+      {
+       "char": "鷹",
+       "prob": 0.0014,
+       "source": "ocr",
+       "semantic": "鷹",
+       "surface_uncertain": true
+      }
+     ],
+     "gold": "麈",
+     "frozen": true
+    },
+    {
      "index": 10,
      "instance_id": "vol02:44:7:10",
      "cluster_id": "vol02:c01165",
@@ -5702,6 +5748,52 @@
       }
      ],
      "gold": "史",
+     "frozen": true
+    },
+    {
+     "index": 11,
+     "instance_id": "vol02:44:7:11",
+     "cluster_id": "vol02:c01134",
+     "cluster_size": 2,
+     "flags": [],
+     "candidates": [
+      {
+       "char": "曰",
+       "prob": 0.968065,
+       "source": "ocr",
+       "semantic": "曰",
+       "surface_uncertain": true
+      },
+      {
+       "char": "日",
+       "prob": 0.012982,
+       "source": "ocr",
+       "semantic": "日",
+       "surface_uncertain": true
+      },
+      {
+       "char": "旧",
+       "prob": 0.0077,
+       "source": "ocr",
+       "semantic": "舊",
+       "surface_uncertain": true
+      },
+      {
+       "char": "田",
+       "prob": 0.006515,
+       "source": "ocr",
+       "semantic": "田",
+       "surface_uncertain": true
+      },
+      {
+       "char": "目",
+       "prob": 0.004738,
+       "source": "ocr",
+       "semantic": "目",
+       "surface_uncertain": true
+      }
+     ],
+     "gold": "曰",
      "frozen": true
     },
     {
@@ -6127,7 +6219,7 @@
   {
    "column_id": "vol02:44:8",
    "context": {
-    "prev": "易之宗也王得臣史安定胡翼之皇祐至和",
+    "prev": "易之宗也王得臣麈史曰安定胡翼之皇祐至和",
     "next": "書殆即是時所說宋志載瑗易解十卷周易口義"
    },
    "slots": [
@@ -6832,35 +6924,35 @@
      "candidates": [
       {
        "char": "日",
-       "prob": 0.9408,
+       "prob": 0.981392,
        "source": "ocr",
        "semantic": "日",
        "surface_uncertain": true
       },
       {
        "char": "曰",
-       "prob": 0.0578,
+       "prob": 0.017148,
        "source": "ocr",
        "semantic": "曰",
        "surface_uncertain": true
       },
       {
        "char": "目",
-       "prob": 0.0007,
+       "prob": 0.00073,
        "source": "ocr",
        "semantic": "目",
        "surface_uncertain": true
       },
       {
        "char": "旧",
-       "prob": 0.0005,
+       "prob": 0.000522,
        "source": "ocr",
        "semantic": "舊",
        "surface_uncertain": true
       },
       {
        "char": "白",
-       "prob": 0.0002,
+       "prob": 0.000209,
        "source": "ocr",
        "semantic": "白",
        "surface_uncertain": true

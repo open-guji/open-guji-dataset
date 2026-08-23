@@ -1,6 +1,6 @@
 {
  "source_item": "vol01",
- "pipeline_version": "afdf99a86301",
+ "pipeline_version": "fe003744536a",
  "label_origin": "align",
  "split": "test",
  "page": "150",
@@ -529,7 +529,7 @@
      "candidates": [
       {
        "char": "田",
-       "prob": 0.9983,
+       "prob": 0.998427,
        "source": "ocr",
        "semantic": "田",
        "surface_uncertain": true
@@ -543,7 +543,7 @@
       },
       {
        "char": "日",
-       "prob": 0.0006,
+       "prob": 0.000573,
        "source": "ocr",
        "semantic": "日",
        "surface_uncertain": true
@@ -5265,7 +5265,7 @@
    "column_id": "vol01:150:7",
    "context": {
     "prev": "陳禹謨至欲使九邊將士人人皆讀左傳凡斯之",
-    "next": "求爲有用之學\n"
+    "next": "求爲有用之學"
    },
    "slots": [
     {
@@ -6426,61 +6426,13 @@
      ],
      "gold": "學",
      "frozen": true
-    },
-    {
-     "index": 20,
-     "instance_id": "vol01:150:8:20",
-     "cluster_id": null,
-     "cluster_size": 1,
-     "flags": [
-      "wide_gap"
-     ],
-     "candidates": [
-      {
-       "char": "é",
-       "prob": 0.4273,
-       "source": "ocr",
-       "semantic": "é",
-       "surface_uncertain": true
-      },
-      {
-       "char": "ī",
-       "prob": 0.2367,
-       "source": "ocr",
-       "semantic": "ī",
-       "surface_uncertain": true
-      },
-      {
-       "char": "ē",
-       "prob": 0.1718,
-       "source": "ocr",
-       "semantic": "ē",
-       "surface_uncertain": true
-      },
-      {
-       "char": "í",
-       "prob": 0.0886,
-       "source": "ocr",
-       "semantic": "í",
-       "surface_uncertain": true
-      },
-      {
-       "char": "ì",
-       "prob": 0.0756,
-       "source": "ocr",
-       "semantic": "ì",
-       "surface_uncertain": true
-      }
-     ],
-     "gold": "\n",
-     "frozen": true
     }
    ]
   },
   {
    "column_id": "vol01:150:9",
    "context": {
-    "prev": "求爲有用之學\n",
+    "prev": "求爲有用之學",
     "next": null
    },
    "slots": [

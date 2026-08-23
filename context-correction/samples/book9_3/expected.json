@@ -1,6 +1,6 @@
 {
  "source_item": "book9",
- "pipeline_version": "afdf99a86301",
+ "pipeline_version": "fe003744536a",
  "label_origin": "align",
  "split": "test",
  "page": "3",
@@ -529,21 +529,21 @@
      "candidates": [
       {
        "char": "日",
-       "prob": 0.997,
+       "prob": 0.997808,
        "source": "ocr",
        "semantic": "日",
        "surface_uncertain": true
       },
       {
        "char": "旧",
-       "prob": 0.0016,
+       "prob": 0.001601,
        "source": "ocr",
        "semantic": "舊",
        "surface_uncertain": true
       },
       {
        "char": "曰",
-       "prob": 0.0012,
+       "prob": 0.000391,
        "source": "ocr",
        "semantic": "曰",
        "surface_uncertain": true
@@ -894,7 +894,7 @@
    "column_id": "book9:3:2",
    "context": {
     "prev": "不得任意稽延徒誚汗青無日仍將應定條例即",
-    "next": "\n乾隆三十八年五月十七日奉"
+    "next": "乾隆三十八年五月十七日奉"
    },
    "slots": [
     {
@@ -1228,54 +1228,6 @@
     "next": "上諭前經降旨博採遺彙四庫全書用昭石渠美"
    },
    "slots": [
-    {
-     "index": 0,
-     "instance_id": "book9:3:3:0",
-     "cluster_id": "book9:c00000",
-     "cluster_size": 9,
-     "flags": [
-      "rule_like"
-     ],
-     "candidates": [
-      {
-       "char": "−",
-       "prob": 0.9067,
-       "source": "ocr",
-       "semantic": "−",
-       "surface_uncertain": true
-      },
-      {
-       "char": "√",
-       "prob": 0.0456,
-       "source": "ocr",
-       "semantic": "√",
-       "surface_uncertain": true
-      },
-      {
-       "char": "→",
-       "prob": 0.0393,
-       "source": "ocr",
-       "semantic": "→",
-       "surface_uncertain": true
-      },
-      {
-       "char": "—",
-       "prob": 0.0047,
-       "source": "ocr",
-       "semantic": "—",
-       "surface_uncertain": true
-      },
-      {
-       "char": "ν",
-       "prob": 0.0036,
-       "source": "ocr",
-       "semantic": "ν",
-       "surface_uncertain": true
-      }
-     ],
-     "gold": "\n",
-     "frozen": true
-    },
     {
      "index": 2,
      "instance_id": "book9:3:3:2",
@@ -1745,35 +1697,35 @@
      "candidates": [
       {
        "char": "日",
-       "prob": 0.9802,
+       "prob": 0.997093,
        "source": "ocr",
        "semantic": "日",
        "surface_uncertain": true
       },
       {
        "char": "曰",
-       "prob": 0.0181,
+       "prob": 0.001178,
        "source": "ocr",
        "semantic": "曰",
        "surface_uncertain": true
       },
       {
        "char": "目",
-       "prob": 0.0008,
+       "prob": 0.000814,
        "source": "ocr",
        "semantic": "目",
        "surface_uncertain": true
       },
       {
        "char": "旧",
-       "prob": 0.0007,
+       "prob": 0.000712,
        "source": "ocr",
        "semantic": "舊",
        "surface_uncertain": true
       },
       {
        "char": "月",
-       "prob": 0.0002,
+       "prob": 0.000203,
        "source": "ocr",
        "semantic": "月",
        "surface_uncertain": true
@@ -1833,7 +1785,7 @@
   {
    "column_id": "book9:3:4",
    "context": {
-    "prev": "\n乾隆三十八年五月十七日奉",
+    "prev": "乾隆三十八年五月十七日奉",
     "next": "備以嘉惠藝林旋據浙江江南督撫及政"
    },
    "slots": [

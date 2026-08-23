@@ -1,13 +1,13 @@
 {
   "name": "char-ocr-benchmark",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "schema_version": 1,
   "description": "单字识别（簇识别 OCR）Benchmark 数据集，可直接用于 Kraken / PaddleOCR 微调",
   "created": "2026-08-21",
   "status": "可用",
   "eval_command": "PYTHONPATH=. python scripts/eval_char_ocr.py ../open-guji-dataset/char-ocr --engines rapidocr,tesseract [--unit instance|pipeline]",
   "eval_script": "open-guji-cv scripts/eval_char_ocr.py",
-  "total_samples": 13466,
+  "total_samples": 13464,
   "sample_unit": "册分片（一个目录 = 一册的全部 (图块, 金标字) 对）",
   "sources": [
     {
@@ -16,10 +16,10 @@
       "pages_anchored": 9,
       "pages_total": 10,
       "instances": 1647,
-      "gold_items": 1466,
-      "gold_rate": 0.8901,
-      "frozen": 1466,
-      "upstream_cv_commit": "afdf99a86301"
+      "gold_items": 1464,
+      "gold_rate": 0.8889,
+      "frozen": 1464,
+      "upstream_cv_commit": "fe003744536a"
     },
     {
       "source_item": "vol01",
@@ -27,10 +27,10 @@
       "pages_anchored": 118,
       "pages_total": 201,
       "instances": 24614,
-      "gold_items": 16974,
-      "gold_rate": 0.6896,
+      "gold_items": 16934,
+      "gold_rate": 0.688,
       "frozen": 6000,
-      "upstream_cv_commit": "afdf99a86301"
+      "upstream_cv_commit": "fe003744536a"
     },
     {
       "source_item": "vol02",
@@ -38,10 +38,10 @@
       "pages_anchored": 178,
       "pages_total": 186,
       "instances": 29790,
-      "gold_items": 26484,
-      "gold_rate": 0.889,
+      "gold_items": 26521,
+      "gold_rate": 0.8903,
       "frozen": 6000,
-      "upstream_cv_commit": "afdf99a86301"
+      "upstream_cv_commit": "fe003744536a"
     }
   ],
   "provenance_fields": [
@@ -147,46 +147,25 @@
   "updated": "2026-08-23",
   "build_script": "open-guji-cv scripts/build_char_ocr_dataset.py",
   "baseline": {
-    "measured": "2026-08-23（v5 逐实例重建后）",
-    "n_items": 13466,
-    "n_gold_total": 44924,
-    "build_engine": "rapidocr5（PP-OCRv5 mobile）+ unit=instance——align_opcode 对它是定义使然，对别的引擎才有信息量",
+    "measured": "2026-08-23（v3.1：金标噪声清零 + 日/曰 几何先验入 G5）",
+    "n_items": 13464,
+    "n_gold_total": 44919,
+    "build_engine": "rapidocr5（PP-OCRv5 mobile）+ unit=instance + 几何先验（日/曰）",
     "engines": {
       "rapidocr-v5-mobile": {
-        "top1_raw": 0.9134,
-        "top1_weighted": 0.9183,
-        "top5_raw": 0.9725,
-        "top5_weighted": 0.9817,
-        "charset_ceiling": 0.9952,
+        "top1_raw": 0.9149,
+        "top1_weighted": 0.9165,
+        "top5_raw": 0.9749,
+        "top5_weighted": 0.9803,
+        "charset_ceiling": 0.9996,
         "variant_top1": 0.8071,
-        "flag_certain_defect_top1": 0.7195
-      },
-      "rapidocr+s2t (PP-OCRv4)": {
-        "top1_raw": 0.8206,
-        "top1_weighted": 0.8279,
-        "top5_raw": 0.9084,
-        "charset_ceiling": 0.9878,
-        "variant_top1": 0.4733,
-        "note": "在 v5 判错的 1,166 条（opcode:replace）上 v4 救回 25.56%——多引擎互补仍在，只是主从换位"
+        "flag_certain_defect_top1": 0.7687
       }
     },
-    "book9_model_tiers": {
-      "v5_mobile": {
-        "top1": 0.9039,
-        "top5": 0.9665,
-        "speed": "~80 字/秒"
-      },
-      "v5_server": {
-        "top1": 0.9359,
-        "top5": 0.9907,
-        "speed": "~0.5 字/秒（CPU）"
-      },
-      "two_tier_mobile_then_server@0.9": {
-        "top1": 0.9345,
-        "escalated": "319/1405 = 22.7%",
-        "note": "纯 server 99% 的收益、约 1/4 算力，可部署形态"
-      }
-    }
+    "notes": [
+      "噪声修复让 top1 从 91.34 → 91.49，其中约 0.1~0.2pp 是分母变干净（57 条非汉字金标消失），并非全是算法收益；几何先验贡献其余。",
+      "缺陷清理（patch_clean）为负结果不启用：edge_blob 清理救 7 坏 25、frame_bars 救 4 坏 9——v5 对覆盖墨迹本身鲁棒，删墨伤字。eval --clean-defects 保留作对照。"
+    ]
   },
   "baseline_history": [
     {
@@ -290,10 +269,54 @@
         "head_confusions": "傅→傳×51 日→曰×49 為→爲×47 叉→又×19 説→說×19 人→入×15 郎→即×13"
       },
       "note": "v4 时代冻结集（13,405 条，v4 转写锚定）。重建后图块集合与 opcode 定义都变了，不可直接比"
+    },
+    {
+      "measured": "2026-08-23（v5 逐实例重建后）",
+      "n_items": 13466,
+      "n_gold_total": 44924,
+      "build_engine": "rapidocr5（PP-OCRv5 mobile）+ unit=instance——align_opcode 对它是定义使然，对别的引擎才有信息量",
+      "engines": {
+        "rapidocr-v5-mobile": {
+          "top1_raw": 0.9134,
+          "top1_weighted": 0.9183,
+          "top5_raw": 0.9725,
+          "top5_weighted": 0.9817,
+          "charset_ceiling": 0.9952,
+          "variant_top1": 0.8071,
+          "flag_certain_defect_top1": 0.7195
+        },
+        "rapidocr+s2t (PP-OCRv4)": {
+          "top1_raw": 0.8206,
+          "top1_weighted": 0.8279,
+          "top5_raw": 0.9084,
+          "charset_ceiling": 0.9878,
+          "variant_top1": 0.4733,
+          "note": "在 v5 判错的 1,166 条（opcode:replace）上 v4 救回 25.56%——多引擎互补仍在，只是主从换位"
+        }
+      },
+      "book9_model_tiers": {
+        "v5_mobile": {
+          "top1": 0.9039,
+          "top5": 0.9665,
+          "speed": "~80 字/秒"
+        },
+        "v5_server": {
+          "top1": 0.9359,
+          "top5": 0.9907,
+          "speed": "~0.5 字/秒（CPU）"
+        },
+        "two_tier_mobile_then_server@0.9": {
+          "top1": 0.9345,
+          "escalated": "319/1405 = 22.7%",
+          "note": "纯 server 99% 的收益、约 1/4 算力，可部署形态"
+        }
+      },
+      "note": "v3.0（金标噪声修复前，含 57 条非汉字金标；候选无几何先验）"
     }
   ],
   "known_limitation": [
     "**建集引擎已换 PP-OCRv5**（unit=instance）：align_opcode 记的是 v5 管线当时对不对，对 v5 自己 equal=100%/replace=0% 是定义使然；锚定率大涨（vol02 覆盖 56.4%→88.9%）意味着锚定偏置比上一版小，但仍存在——锚不上的页（多为目录/职名）还是进不来。",
+    "**日/曰 几何先验的参数与验证用了同一批金标**（μ/σ 由 labels_all 拟合，救回/改坏也在同集量），有过拟合嫌疑；跨册/跨书使用前必须复验。",
     "**锚定偏置（最重要的一条）**：锚不上参考整理本的页不进集。三册合计 56,051 个实例里进集 30,265 条（54%）。目錄/職名页整理本根本没收录，几乎全部落空（vol01 toc 47 页只锚上 1 页）。被排除的还包括切分多切/漏切的位置。故本集准确率**乐观于**全书真实字准确率。",
     "**expected.json 是分层抽样**（vol01/vol02 各 6,000 条），各层占比不等于全书占比。聚合数字要看 `weighted` 那一行；`labels_all.jsonl` 里是全部金标（不含图块）。",
     "**没有 train 集**：三册全部 split=test。跨册泛化能力**未验证**——三册同属一部书（《總目》），跨书泛化更是完全没测过。",

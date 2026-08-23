@@ -1,6 +1,6 @@
 {
  "source_item": "vol01",
- "pipeline_version": "afdf99a86301",
+ "pipeline_version": "fe003744536a",
  "label_origin": "align",
  "split": "test",
  "page": "145",
@@ -11,7 +11,7 @@
    "column_id": "vol01:145:1",
    "context": {
     "prev": null,
-    "next": "斷亦古來之所未有也\n"
+    "next": "斷亦古來之所未有也"
    },
    "slots": [
     {
@@ -1052,61 +1052,13 @@
      ],
      "gold": "也",
      "frozen": true
-    },
-    {
-     "index": 19,
-     "instance_id": "vol01:145:2:19",
-     "cluster_id": null,
-     "cluster_size": 1,
-     "flags": [
-      "boundary_ink"
-     ],
-     "candidates": [
-      {
-       "char": "—",
-       "prob": 0.8067,
-       "source": "ocr",
-       "semantic": "—",
-       "surface_uncertain": true
-      },
-      {
-       "char": "一",
-       "prob": 0.093,
-       "source": "ocr",
-       "semantic": "一",
-       "surface_uncertain": true
-      },
-      {
-       "char": "□",
-       "prob": 0.0402,
-       "source": "ocr",
-       "semantic": "□",
-       "surface_uncertain": true
-      },
-      {
-       "char": "…",
-       "prob": 0.0317,
-       "source": "ocr",
-       "semantic": "…",
-       "surface_uncertain": true
-      },
-      {
-       "char": "−",
-       "prob": 0.0285,
-       "source": "ocr",
-       "semantic": "−",
-       "surface_uncertain": true
-      }
-     ],
-     "gold": "\n",
-     "frozen": true
     }
    ]
   },
   {
    "column_id": "vol01:145:3",
    "context": {
-    "prev": "斷亦古來之所未有也\n",
+    "prev": "斷亦古來之所未有也",
     "next": "綱領四十三類之首亦各冠以小序詳述其分"
    },
    "slots": [
@@ -3724,35 +3676,35 @@
      "candidates": [
       {
        "char": "目",
-       "prob": 0.9677,
+       "prob": 0.981423,
        "source": "ocr",
        "semantic": "目",
        "surface_uncertain": true
       },
       {
-       "char": "日",
-       "prob": 0.0189,
-       "source": "ocr",
-       "semantic": "日",
-       "surface_uncertain": true
-      },
-      {
        "char": "月",
-       "prob": 0.0094,
+       "prob": 0.009533,
        "source": "ocr",
        "semantic": "月",
        "surface_uncertain": true
       },
       {
+       "char": "日",
+       "prob": 0.004987,
+       "source": "ocr",
+       "semantic": "日",
+       "surface_uncertain": true
+      },
+      {
        "char": "自",
-       "prob": 0.0021,
+       "prob": 0.00213,
        "source": "ocr",
        "semantic": "自",
        "surface_uncertain": true
       },
       {
        "char": "司",
-       "prob": 0.0019,
+       "prob": 0.001927,
        "source": "ocr",
        "semantic": "司",
        "surface_uncertain": true
@@ -4563,7 +4515,7 @@
      "candidates": [
       {
        "char": "由",
-       "prob": 0.9995,
+       "prob": 0.999599,
        "source": "ocr",
        "semantic": "由",
        "surface_uncertain": true
@@ -4583,17 +4535,17 @@
        "surface_uncertain": true
       },
       {
+       "char": "曰",
+       "prob": 1e-06,
+       "source": "ocr",
+       "semantic": "曰",
+       "surface_uncertain": true
+      },
+      {
        "char": "日",
        "prob": 0.0,
        "source": "ocr",
        "semantic": "日",
-       "surface_uncertain": true
-      },
-      {
-       "char": "曰",
-       "prob": 0.0,
-       "source": "ocr",
-       "semantic": "曰",
        "surface_uncertain": true
       }
      ],

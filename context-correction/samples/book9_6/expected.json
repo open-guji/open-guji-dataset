@@ -1,6 +1,6 @@
 {
  "source_item": "book9",
- "pipeline_version": "afdf99a86301",
+ "pipeline_version": "fe003744536a",
  "label_origin": "align",
  "split": "test",
  "page": "6",
@@ -940,7 +940,7 @@
    "column_id": "book9:6:2",
    "context": {
     "prev": "二人學問本優校書亦極勤勉甚屬可嘉紀昀曾任",
-    "next": "即補以示奬勵欽此\n"
+    "next": "即補以示奬勵欽此"
    },
    "slots": [
     {
@@ -2239,61 +2239,13 @@
      ],
      "gold": "此",
      "frozen": true
-    },
-    {
-     "index": 20,
-     "instance_id": "book9:6:3:20",
-     "cluster_id": "book9:c01114",
-     "cluster_size": 1,
-     "flags": [
-      "rule_like"
-     ],
-     "candidates": [
-      {
-       "char": "广",
-       "prob": 0.7213,
-       "source": "ocr",
-       "semantic": "廣",
-       "surface_uncertain": true
-      },
-      {
-       "char": "—",
-       "prob": 0.163,
-       "source": "ocr",
-       "semantic": "—",
-       "surface_uncertain": true
-      },
-      {
-       "char": "−",
-       "prob": 0.0821,
-       "source": "ocr",
-       "semantic": "−",
-       "surface_uncertain": true
-      },
-      {
-       "char": "一",
-       "prob": 0.0177,
-       "source": "ocr",
-       "semantic": "一",
-       "surface_uncertain": true
-      },
-      {
-       "char": "□",
-       "prob": 0.0158,
-       "source": "ocr",
-       "semantic": "□",
-       "surface_uncertain": true
-      }
-     ],
-     "gold": "\n",
-     "frozen": true
     }
    ]
   },
   {
    "column_id": "book9:6:4",
    "context": {
-    "prev": "即補以示奬勵欽此\n",
+    "prev": "即補以示奬勵欽此",
     "next": "上諭國家當文治休明之會所有古今載籍宜及時蒐"
    },
    "slots": [
@@ -2766,37 +2718,37 @@
      "candidates": [
       {
        "char": "日",
-       "prob": 0.9785,
+       "prob": 0.998808,
        "source": "ocr",
        "semantic": "日",
        "surface_uncertain": true
       },
       {
-       "char": "曰",
-       "prob": 0.0205,
-       "source": "ocr",
-       "semantic": "曰",
-       "surface_uncertain": true
-      },
-      {
        "char": "旧",
-       "prob": 0.0004,
+       "prob": 0.000408,
        "source": "ocr",
        "semantic": "舊",
        "surface_uncertain": true
       },
       {
        "char": "口",
-       "prob": 0.0003,
+       "prob": 0.000306,
        "source": "ocr",
        "semantic": "口",
        "surface_uncertain": true
       },
       {
        "char": "臼",
-       "prob": 0.0003,
+       "prob": 0.000306,
        "source": "ocr",
        "semantic": "臼",
+       "surface_uncertain": true
+      },
+      {
+       "char": "曰",
+       "prob": 0.000171,
+       "source": "ocr",
+       "semantic": "曰",
        "surface_uncertain": true
       }
      ],

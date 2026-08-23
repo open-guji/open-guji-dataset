@@ -10,7 +10,7 @@
  ],
  "build_command": "PYTHONPATH=. python scripts/build_char_ocr_dataset.py output/vol02 --corpus corpus/zongmu_wuyingdian_reference.txt --dataset <dataset> --shard vol02 --max-items 6000",
  "upstream": {
-  "cv_commit": "afdf99a86301",
+  "cv_commit": "fe003744536a",
   "phase4_chars": "output/vol02/phase4_chars",
   "note": "图块像素已冻结进 crops/；切分有实质改进后应重建本集"
  },
@@ -18,14 +18,14 @@
   "pages_total": 186,
   "pages_anchored": 178,
   "instances_total": 29790,
-  "gold_items_total": 26484,
-  "excluded_uncertain": 3306,
-  "gold_rate": 0.889,
+  "gold_items_total": 26521,
+  "excluded_uncertain": 3269,
+  "gold_rate": 0.8903,
   "frozen_items": 6000,
   "sampling": "分层降采样至 6000",
   "align_opcode": {
-   "equal": 5427,
-   "replace": 573
+   "equal": 5442,
+   "replace": 558
   },
   "accept_rule": {
    "max_replace_run": 3,
@@ -37,40 +37,40 @@
    "body": 6000
   },
   "flag_layer": {
-   "clean": 3163,
-   "suspect": 2529,
-   "certain_defect": 308
+   "clean": 3166,
+   "suspect": 2531,
+   "certain_defect": 303
   },
   "cluster": {
-   "multi": 2517,
-   "single": 3483
+   "multi": 2519,
+   "single": 3481
   },
   "variant_items": 311
  },
  "sampling_rates": {
   "body|suspect|single|common": {
    "total": 5996,
-   "sampled": 1468,
-   "rate": 0.2448
+   "sampled": 1469,
+   "rate": 0.245
   },
   "body|clean|single|common": {
-   "total": 15547,
-   "sampled": 1468,
+   "total": 15572,
+   "sampled": 1470,
    "rate": 0.0944
   },
   "body|suspect|multi|common": {
-   "total": 980,
-   "sampled": 980,
+   "total": 981,
+   "sampled": 981,
    "rate": 1.0
   },
   "body|clean|multi|common": {
-   "total": 3345,
-   "sampled": 1468,
-   "rate": 0.4389
+   "total": 3361,
+   "sampled": 1469,
+   "rate": 0.4371
   },
   "body|certain_defect|single|common": {
-   "total": 258,
-   "sampled": 258,
+   "total": 253,
+   "sampled": 253,
    "rate": 1.0
   },
   "body|clean|single|variant": {
@@ -105,8 +105,8 @@
   }
  },
  "label_stats": {
-  "distinct_chars": 1023,
-  "top_chars": "之易其以書而卷不本子一十所有傳大爲人說曰",
-  "hapax": 425
+  "distinct_chars": 1043,
+  "top_chars": "之易其以書不卷一本有子十而傳說曰大所人於",
+  "hapax": 442
  }
 }

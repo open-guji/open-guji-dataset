@@ -1,13 +1,13 @@
 {
   "name": "context-correction-benchmark",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "schema_version": 2,
   "description": "上下文 + LM 概率纠正 Benchmark 数据集（候选冻结）",
   "created": "2026-08-21",
   "status": "可用",
   "eval_command": "PYTHONPATH=. python scripts/eval_context_correction.py ../open-guji-dataset/context-correction --general-corpus corpus/external/daizhige_zhaoling.txt --book-corpus corpus/zongmu_wuyingdian_reference.txt --sweep 0,0.25,0.5,0.75,0.9,1.0 --lam 0.65 --surface-pref --max-rival-freq 2",
   "eval_script": "open-guji-cv scripts/eval_context_correction.py",
-  "total_samples": 18751,
+  "total_samples": 18731,
   "sample_unit": "页（目录 = 一页，页内所有列在 columns 数组里；计数单位是槽位）",
   "sources": [
     {
@@ -154,62 +154,74 @@
   "updated": "2026-08-23",
   "build_script": "open-guji-cv scripts/build_context_correction_dataset.py",
   "baseline": {
-    "measured": "2026-08-23（v5 逐实例候选冻结）",
-    "n_slots": 18751,
+    "measured": "2026-08-23（v3.1）",
+    "n_slots": 18731,
     "pages": 129,
-    "candidates_from": "rapidocr5（PP-OCRv5 mobile），unit=instance",
-    "baseline_top1": 0.9227,
-    "baseline_top1_n": 17301,
-    "gold_in_candidates_rate": 0.9812,
-    "headroom": 0.0585,
+    "candidates_from": "rapidocr5 + unit=instance + 几何先验（日/曰）",
+    "baseline_top1": 0.9257,
+    "gold_in_candidates_rate": 0.983,
+    "headroom": 0.0573,
     "config": {
       "lam": 0.65,
       "order": 3,
       "surface_pref": true,
       "max_rival_freq": 2,
-      "cluster_prior": false
+      "cluster_prior": false,
+      "general_weight": 0.5
     },
     "sweep_book_weight": {
-      "0.00 (纯通用)": {
-        "top1": 0.9501,
-        "top1_gain": 0.0275,
-        "harmful_flip_rate": 0.0109
+      "0.00": {
+        "top1": 0.9528,
+        "top1_gain": 0.0271,
+        "harmful_flip_rate": 0.011
       },
       "0.25": {
-        "top1": 0.9591,
-        "top1_gain": 0.0364,
+        "top1": 0.9617,
+        "top1_gain": 0.036,
         "harmful_flip_rate": 0.0066
       },
       "0.50": {
-        "top1": 0.9599,
-        "top1_gain": 0.0373,
+        "top1": 0.9625,
+        "top1_gain": 0.0368,
         "harmful_flip_rate": 0.0066
       },
       "0.75": {
-        "top1": 0.9594,
-        "top1_gain": 0.0367,
-        "harmful_flip_rate": 0.0072
+        "top1": 0.962,
+        "top1_gain": 0.0363,
+        "harmful_flip_rate": 0.007
       },
       "0.90": {
-        "top1": 0.9595,
-        "top1_gain": 0.0368,
+        "top1": 0.9618,
+        "top1_gain": 0.0361,
         "harmful_flip_rate": 0.0076
       },
-      "1.00 (纯本书)": {
-        "top1": 0.9559,
-        "top1_gain": 0.0332,
-        "harmful_flip_rate": 0.0098
+      "1.00": {
+        "top1": 0.9582,
+        "top1_gain": 0.0325,
+        "harmful_flip_rate": 0.0097
       }
     },
     "glyph_layer_immutability": true,
+    "flip_review_gate": {
+      "note": "lm_ocr_conflict 且 margin<0.7 → flip_low_margin，suspects 队列置顶",
+      "flips_total": 1091,
+      "rescued": 814,
+      "harmed": 115,
+      "margin_median_rescued": 0.921,
+      "margin_median_harmed": 0.356,
+      "queue_at_0.7": 455,
+      "harm_caught": 0.79,
+      "purity": 0.2
+    },
     "end_to_end_eval_align": {
-      "note": "label(v5)+refine(--general-weight 0.25 --lam 0.65) 后全书真实字准确率",
-      "book9": 0.9393,
-      "vol01": 0.9303,
-      "vol02": 0.9226,
-      "overall": 0.9262,
+      "note": "label+refine(--general-weight 0.5 --lam 0.65)",
+      "book9": 0.9381,
+      "vol01": 0.9298,
+      "vol02": 0.9211,
+      "overall": 0.9251,
       "anchored_chars": 47917,
-      "v4_era_book9": 0.8008
+      "prev_overall": 0.9262,
+      "delta_note": "与上一轮 92.62% 差 0.11pp（53 字），在噪声内；权重 0.25/0.5 端到端等价"
     }
   },
   "baseline_history": [
@@ -330,6 +342,66 @@
         }
       },
       "note": "v4 候选时代（17,558 槽位）。候选换成 v5 逐实例后基线/召回/headroom 全变，不可直接比"
+    },
+    {
+      "measured": "2026-08-23（v5 逐实例候选冻结）",
+      "n_slots": 18751,
+      "pages": 129,
+      "candidates_from": "rapidocr5（PP-OCRv5 mobile），unit=instance",
+      "baseline_top1": 0.9227,
+      "baseline_top1_n": 17301,
+      "gold_in_candidates_rate": 0.9812,
+      "headroom": 0.0585,
+      "config": {
+        "lam": 0.65,
+        "order": 3,
+        "surface_pref": true,
+        "max_rival_freq": 2,
+        "cluster_prior": false
+      },
+      "sweep_book_weight": {
+        "0.00 (纯通用)": {
+          "top1": 0.9501,
+          "top1_gain": 0.0275,
+          "harmful_flip_rate": 0.0109
+        },
+        "0.25": {
+          "top1": 0.9591,
+          "top1_gain": 0.0364,
+          "harmful_flip_rate": 0.0066
+        },
+        "0.50": {
+          "top1": 0.9599,
+          "top1_gain": 0.0373,
+          "harmful_flip_rate": 0.0066
+        },
+        "0.75": {
+          "top1": 0.9594,
+          "top1_gain": 0.0367,
+          "harmful_flip_rate": 0.0072
+        },
+        "0.90": {
+          "top1": 0.9595,
+          "top1_gain": 0.0368,
+          "harmful_flip_rate": 0.0076
+        },
+        "1.00 (纯本书)": {
+          "top1": 0.9559,
+          "top1_gain": 0.0332,
+          "harmful_flip_rate": 0.0098
+        }
+      },
+      "glyph_layer_immutability": true,
+      "end_to_end_eval_align": {
+        "note": "label(v5)+refine(--general-weight 0.25 --lam 0.65) 后全书真实字准确率",
+        "book9": 0.9393,
+        "vol01": 0.9303,
+        "vol02": 0.9226,
+        "overall": 0.9262,
+        "anchored_chars": 47917,
+        "v4_era_book9": 0.8008
+      },
+      "note": "v3.0（金标噪声修复前，含 40 条非汉字金标；候选无几何先验）"
     }
   ],
   "known_limitation": [

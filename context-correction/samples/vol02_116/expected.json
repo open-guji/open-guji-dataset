@@ -1,6 +1,6 @@
 {
  "source_item": "vol02",
- "pipeline_version": "afdf99a86301",
+ "pipeline_version": "fe003744536a",
  "label_origin": "align",
  "split": "test",
  "page": "116",
@@ -973,35 +973,35 @@
      "candidates": [
       {
        "char": "白",
-       "prob": 0.9742,
+       "prob": 0.974438,
        "source": "ocr",
        "semantic": "白",
        "surface_uncertain": true
       },
       {
        "char": "臼",
-       "prob": 0.0156,
+       "prob": 0.015604,
        "source": "ocr",
        "semantic": "臼",
        "surface_uncertain": true
       },
       {
        "char": "自",
-       "prob": 0.0066,
+       "prob": 0.006602,
        "source": "ocr",
        "semantic": "自",
        "surface_uncertain": true
       },
       {
        "char": "百",
-       "prob": 0.0033,
+       "prob": 0.003301,
        "source": "ocr",
        "semantic": "百",
        "surface_uncertain": true
       },
       {
        "char": "日",
-       "prob": 0.0003,
+       "prob": 5.6e-05,
        "source": "ocr",
        "semantic": "日",
        "surface_uncertain": true
@@ -1019,28 +1019,21 @@
      "candidates": [
       {
        "char": "田",
-       "prob": 0.9969,
+       "prob": 0.99827,
        "source": "ocr",
        "semantic": "田",
        "surface_uncertain": true
       },
       {
-       "char": "日",
-       "prob": 0.0014,
-       "source": "ocr",
-       "semantic": "日",
-       "surface_uncertain": true
-      },
-      {
        "char": "团",
-       "prob": 0.0008,
+       "prob": 0.000801,
        "source": "ocr",
        "semantic": "團",
        "surface_uncertain": true
       },
       {
        "char": "用",
-       "prob": 0.0006,
+       "prob": 0.000601,
        "source": "ocr",
        "semantic": "用",
        "surface_uncertain": true
@@ -1050,6 +1043,13 @@
        "prob": 0.0003,
        "source": "ocr",
        "semantic": "由",
+       "surface_uncertain": true
+      },
+      {
+       "char": "日",
+       "prob": 2.8e-05,
+       "source": "ocr",
+       "semantic": "日",
        "surface_uncertain": true
       }
      ],
@@ -5409,7 +5409,7 @@
    "column_id": "vol02:116:7",
    "context": {
     "prev": "裒合成編別著於錄合觀兩書安世之經學深矣",
-    "next": "易說四卷典本\n"
+    "next": "易說四卷典本"
    },
    "slots": [
     {
@@ -5880,61 +5880,13 @@
      ],
      "gold": "本",
      "frozen": true
-    },
-    {
-     "index": 6,
-     "instance_id": "vol02:116:8:6",
-     "cluster_id": "vol02:c03921",
-     "cluster_size": 1,
-     "flags": [
-      "off_center"
-     ],
-     "candidates": [
-      {
-       "char": "大",
-       "prob": 0.994,
-       "source": "ocr",
-       "semantic": "大",
-       "surface_uncertain": true
-      },
-      {
-       "char": "天",
-       "prob": 0.0055,
-       "source": "ocr",
-       "semantic": "天",
-       "surface_uncertain": true
-      },
-      {
-       "char": "人",
-       "prob": 0.0003,
-       "source": "ocr",
-       "semantic": "人",
-       "surface_uncertain": true
-      },
-      {
-       "char": "太",
-       "prob": 0.0002,
-       "source": "ocr",
-       "semantic": "太",
-       "surface_uncertain": true
-      },
-      {
-       "char": "夫",
-       "prob": 0.0001,
-       "source": "ocr",
-       "semantic": "夫",
-       "surface_uncertain": true
-      }
-     ],
-     "gold": "\n",
-     "frozen": true
     }
    ]
   },
   {
    "column_id": "vol02:116:9",
    "context": {
-    "prev": "易說四卷典本\n",
+    "prev": "易說四卷典本",
     "next": null
    },
    "slots": [

@@ -1,6 +1,6 @@
 {
  "source_item": "vol02",
- "pipeline_version": "afdf99a86301",
+ "pipeline_version": "fe003744536a",
  "label_origin": "align",
  "split": "test",
  "page": "75",
@@ -253,7 +253,7 @@
      "candidates": [
       {
        "char": "自",
-       "prob": 0.979,
+       "prob": 0.978999,
        "source": "ocr",
        "semantic": "自",
        "surface_uncertain": true
@@ -281,7 +281,7 @@
       },
       {
        "char": "日",
-       "prob": 0.0,
+       "prob": 1e-06,
        "source": "ocr",
        "semantic": "日",
        "surface_uncertain": true
@@ -898,7 +898,7 @@
    "column_id": "vol02:75:2",
    "context": {
     "prev": "用互體互體自左氏已言亦有道理只是今推不",
-    "next": "亦變伏反納甲之屬皆不可廢豈可以失"
+    "next": "亦曰變互伏反納甲之屬皆不可廢豈可以失"
    },
    "slots": [
     {
@@ -1186,35 +1186,35 @@
      "candidates": [
       {
        "char": "日",
-       "prob": 0.9736,
+       "prob": 0.989517,
        "source": "ocr",
        "semantic": "日",
        "surface_uncertain": true
       },
       {
        "char": "曰",
-       "prob": 0.0236,
+       "prob": 0.007535,
        "source": "ocr",
        "semantic": "曰",
        "surface_uncertain": true
       },
       {
        "char": "旧",
-       "prob": 0.0019,
+       "prob": 0.001931,
        "source": "ocr",
        "semantic": "舊",
        "surface_uncertain": true
       },
       {
        "char": "白",
-       "prob": 0.0005,
+       "prob": 0.000508,
        "source": "ocr",
        "semantic": "白",
        "surface_uncertain": true
       },
       {
        "char": "目",
-       "prob": 0.0005,
+       "prob": 0.000508,
        "source": "ocr",
        "semantic": "目",
        "surface_uncertain": true
@@ -1831,6 +1831,52 @@
      "frozen": true
     },
     {
+     "index": 2,
+     "instance_id": "vol02:75:3:2",
+     "cluster_id": "vol02:c23145",
+     "cluster_size": 1,
+     "flags": [],
+     "candidates": [
+      {
+       "char": "曰",
+       "prob": 0.628486,
+       "source": "ocr",
+       "semantic": "曰",
+       "surface_uncertain": true
+      },
+      {
+       "char": "日",
+       "prob": 0.336332,
+       "source": "ocr",
+       "semantic": "日",
+       "surface_uncertain": true
+      },
+      {
+       "char": "旧",
+       "prob": 0.01919,
+       "source": "ocr",
+       "semantic": "舊",
+       "surface_uncertain": true
+      },
+      {
+       "char": "口",
+       "prob": 0.011194,
+       "source": "ocr",
+       "semantic": "口",
+       "surface_uncertain": true
+      },
+      {
+       "char": "目",
+       "prob": 0.004798,
+       "source": "ocr",
+       "semantic": "目",
+       "surface_uncertain": true
+      }
+     ],
+     "gold": "曰",
+     "frozen": true
+    },
+    {
      "index": 3,
      "instance_id": "vol02:75:3:3",
      "cluster_id": "vol02:c23146",
@@ -1874,6 +1920,52 @@
       }
      ],
      "gold": "變",
+     "frozen": true
+    },
+    {
+     "index": 4,
+     "instance_id": "vol02:75:3:4",
+     "cluster_id": "vol02:c23147",
+     "cluster_size": 1,
+     "flags": [],
+     "candidates": [
+      {
+       "char": "正",
+       "prob": 0.2924,
+       "source": "ocr",
+       "semantic": "正",
+       "surface_uncertain": true
+      },
+      {
+       "char": "五",
+       "prob": 0.2235,
+       "source": "ocr",
+       "semantic": "五",
+       "surface_uncertain": true
+      },
+      {
+       "char": "上",
+       "prob": 0.1828,
+       "source": "ocr",
+       "semantic": "上",
+       "surface_uncertain": true
+      },
+      {
+       "char": "王",
+       "prob": 0.1657,
+       "source": "ocr",
+       "semantic": "王",
+       "surface_uncertain": true
+      },
+      {
+       "char": "三",
+       "prob": 0.1356,
+       "source": "ocr",
+       "semantic": "三",
+       "surface_uncertain": true
+      }
+     ],
+     "gold": "互",
      "frozen": true
     },
     {
@@ -2525,7 +2617,7 @@
   {
    "column_id": "vol02:75:4",
    "context": {
-    "prev": "亦變伏反納甲之屬皆不可廢豈可以失",
+    "prev": "亦曰變互伏反納甲之屬皆不可廢豈可以失",
     "next": "詞繁雜使讀者茫然看來只是不善作文耳是得"
    },
    "slots": [
@@ -3320,37 +3412,37 @@
      "candidates": [
       {
        "char": "且",
-       "prob": 0.9718,
+       "prob": 0.980724,
        "source": "ocr",
        "semantic": "且",
        "surface_uncertain": true
       },
       {
        "char": "目",
-       "prob": 0.0114,
+       "prob": 0.011505,
        "source": "ocr",
        "semantic": "目",
        "surface_uncertain": true
       },
       {
-       "char": "日",
-       "prob": 0.0092,
-       "source": "ocr",
-       "semantic": "日",
-       "surface_uncertain": true
-      },
-      {
        "char": "月",
-       "prob": 0.0052,
+       "prob": 0.005248,
        "source": "ocr",
        "semantic": "月",
        "surface_uncertain": true
       },
       {
        "char": "旦",
-       "prob": 0.0025,
+       "prob": 0.002523,
        "source": "ocr",
        "semantic": "足",
+       "surface_uncertain": true
+      },
+      {
+       "char": "日",
+       "prob": 0.0,
+       "source": "ocr",
+       "semantic": "日",
        "surface_uncertain": true
       }
      ],

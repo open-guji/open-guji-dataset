@@ -1,6 +1,6 @@
 {
  "source_item": "vol01",
- "pipeline_version": "afdf99a86301",
+ "pipeline_version": "fe003744536a",
  "label_origin": "align",
  "split": "test",
  "page": "176",
@@ -630,7 +630,7 @@
      "candidates": [
       {
        "char": "目",
-       "prob": 0.9984,
+       "prob": 0.998789,
        "source": "ocr",
        "semantic": "目",
        "surface_uncertain": true
@@ -640,13 +640,6 @@
        "prob": 0.0007,
        "source": "ocr",
        "semantic": "且",
-       "surface_uncertain": true
-      },
-      {
-       "char": "日",
-       "prob": 0.0004,
-       "source": "ocr",
-       "semantic": "日",
        "surface_uncertain": true
       },
       {
@@ -661,6 +654,13 @@
        "prob": 0.0002,
        "source": "ocr",
        "semantic": "曰",
+       "surface_uncertain": true
+      },
+      {
+       "char": "日",
+       "prob": 1e-05,
+       "source": "ocr",
+       "semantic": "日",
        "surface_uncertain": true
       }
      ],
@@ -959,7 +959,7 @@
    "column_id": "vol01:176:3",
    "context": {
     "prev": "地理類存目二都會郡縣上",
-    "next": "地理類存目三都會郡縣下\n"
+    "next": "地理類存目三都會郡縣下"
    },
    "slots": [
     {
@@ -1336,7 +1336,7 @@
    "column_id": "vol01:176:4",
    "context": {
     "prev": "卷七十四史部三十",
-    "next": "卷七十五史部三十一\n"
+    "next": "卷七十五史部三十一"
    },
    "slots": [
     {
@@ -1538,28 +1538,21 @@
      "candidates": [
       {
        "char": "目",
-       "prob": 0.9913,
+       "prob": 0.992047,
        "source": "ocr",
        "semantic": "目",
        "surface_uncertain": true
       },
       {
        "char": "月",
-       "prob": 0.0067,
+       "prob": 0.006705,
        "source": "ocr",
        "semantic": "月",
        "surface_uncertain": true
       },
       {
-       "char": "日",
-       "prob": 0.0008,
-       "source": "ocr",
-       "semantic": "日",
-       "surface_uncertain": true
-      },
-      {
        "char": "自",
-       "prob": 0.0007,
+       "prob": 0.000701,
        "source": "ocr",
        "semantic": "自",
        "surface_uncertain": true
@@ -1569,6 +1562,13 @@
        "prob": 0.0005,
        "source": "ocr",
        "semantic": "且",
+       "surface_uncertain": true
+      },
+      {
+       "char": "日",
+       "prob": 4.7e-05,
+       "source": "ocr",
+       "semantic": "日",
        "surface_uncertain": true
       }
      ],
@@ -1860,63 +1860,14 @@
      ],
      "gold": "下",
      "frozen": true
-    },
-    {
-     "index": 20,
-     "instance_id": "vol01:176:4:20",
-     "cluster_id": null,
-     "cluster_size": 1,
-     "flags": [
-      "boundary_ink",
-      "frame_bars"
-     ],
-     "candidates": [
-      {
-       "char": "…",
-       "prob": 0.8714,
-       "source": "ocr",
-       "semantic": "…",
-       "surface_uncertain": true
-      },
-      {
-       "char": "。",
-       "prob": 0.0572,
-       "source": "ocr",
-       "semantic": "。",
-       "surface_uncertain": true
-      },
-      {
-       "char": "—",
-       "prob": 0.0291,
-       "source": "ocr",
-       "semantic": "—",
-       "surface_uncertain": true
-      },
-      {
-       "char": "·",
-       "prob": 0.0221,
-       "source": "ocr",
-       "semantic": "·",
-       "surface_uncertain": true
-      },
-      {
-       "char": "、",
-       "prob": 0.0201,
-       "source": "ocr",
-       "semantic": "、",
-       "surface_uncertain": true
-      }
-     ],
-     "gold": "\n",
-     "frozen": true
     }
    ]
   },
   {
    "column_id": "vol01:176:5",
    "context": {
-    "prev": "地理類存目三都會郡縣下\n",
-    "next": "地理類存目四河渠邊防\n"
+    "prev": "地理類存目三都會郡縣下",
+    "next": "地理類存目四河渠邊防"
    },
    "slots": [
     {
@@ -2332,63 +2283,14 @@
      ],
      "gold": "一",
      "frozen": true
-    },
-    {
-     "index": 20,
-     "instance_id": "vol01:176:5:20",
-     "cluster_id": null,
-     "cluster_size": 1,
-     "flags": [
-      "boundary_ink",
-      "frame_bars"
-     ],
-     "candidates": [
-      {
-       "char": "—",
-       "prob": 0.8317,
-       "source": "ocr",
-       "semantic": "—",
-       "surface_uncertain": true
-      },
-      {
-       "char": "广",
-       "prob": 0.1069,
-       "source": "ocr",
-       "semantic": "廣",
-       "surface_uncertain": true
-      },
-      {
-       "char": "一",
-       "prob": 0.0266,
-       "source": "ocr",
-       "semantic": "一",
-       "surface_uncertain": true
-      },
-      {
-       "char": "□",
-       "prob": 0.0225,
-       "source": "ocr",
-       "semantic": "□",
-       "surface_uncertain": true
-      },
-      {
-       "char": "−",
-       "prob": 0.0123,
-       "source": "ocr",
-       "semantic": "−",
-       "surface_uncertain": true
-      }
-     ],
-     "gold": "\n",
-     "frozen": true
     }
    ]
   },
   {
    "column_id": "vol01:176:6",
    "context": {
-    "prev": "卷七十五史部三十一\n",
-    "next": "卷七十六史部三十二\n"
+    "prev": "卷七十五史部三十一",
+    "next": "卷七十六史部三十二"
    },
    "slots": [
     {
@@ -2584,30 +2486,30 @@
      "candidates": [
       {
        "char": "目",
-       "prob": 0.9965,
+       "prob": 0.997798,
        "source": "ocr",
        "semantic": "目",
        "surface_uncertain": true
       },
       {
-       "char": "日",
-       "prob": 0.0018,
-       "source": "ocr",
-       "semantic": "日",
-       "surface_uncertain": true
-      },
-      {
        "char": "自",
-       "prob": 0.0012,
+       "prob": 0.001202,
        "source": "ocr",
        "semantic": "自",
        "surface_uncertain": true
       },
       {
        "char": "且",
-       "prob": 0.0005,
+       "prob": 0.000501,
        "source": "ocr",
        "semantic": "且",
+       "surface_uncertain": true
+      },
+      {
+       "char": "日",
+       "prob": 0.0004,
+       "source": "ocr",
+       "semantic": "日",
        "surface_uncertain": true
       },
       {
@@ -2860,62 +2762,13 @@
      ],
      "gold": "防",
      "frozen": true
-    },
-    {
-     "index": 20,
-     "instance_id": "vol01:176:6:20",
-     "cluster_id": null,
-     "cluster_size": 1,
-     "flags": [
-      "boundary_ink",
-      "frame_bars"
-     ],
-     "candidates": [
-      {
-       "char": "—",
-       "prob": 0.7775,
-       "source": "ocr",
-       "semantic": "—",
-       "surface_uncertain": true
-      },
-      {
-       "char": "一",
-       "prob": 0.1025,
-       "source": "ocr",
-       "semantic": "一",
-       "surface_uncertain": true
-      },
-      {
-       "char": "−",
-       "prob": 0.0641,
-       "source": "ocr",
-       "semantic": "−",
-       "surface_uncertain": true
-      },
-      {
-       "char": "√",
-       "prob": 0.0346,
-       "source": "ocr",
-       "semantic": "√",
-       "surface_uncertain": true
-      },
-      {
-       "char": "→",
-       "prob": 0.0213,
-       "source": "ocr",
-       "semantic": "→",
-       "surface_uncertain": true
-      }
-     ],
-     "gold": "\n",
-     "frozen": true
     }
    ]
   },
   {
    "column_id": "vol01:176:7",
    "context": {
-    "prev": "地理類存目四河渠邊防\n",
+    "prev": "地理類存目四河渠邊防",
     "next": "地理類存目五山川"
    },
    "slots": [
@@ -3334,62 +3187,13 @@
      ],
      "gold": "二",
      "frozen": true
-    },
-    {
-     "index": 20,
-     "instance_id": "vol01:176:7:20",
-     "cluster_id": null,
-     "cluster_size": 1,
-     "flags": [
-      "boundary_ink",
-      "frame_bars"
-     ],
-     "candidates": [
-      {
-       "char": "：",
-       "prob": 0.5583,
-       "source": "ocr",
-       "semantic": "：",
-       "surface_uncertain": true
-      },
-      {
-       "char": "广",
-       "prob": 0.1592,
-       "source": "ocr",
-       "semantic": "廣",
-       "surface_uncertain": true
-      },
-      {
-       "char": "教",
-       "prob": 0.1138,
-       "source": "ocr",
-       "semantic": "教",
-       "surface_uncertain": true
-      },
-      {
-       "char": "—",
-       "prob": 0.0878,
-       "source": "ocr",
-       "semantic": "—",
-       "surface_uncertain": true
-      },
-      {
-       "char": "的",
-       "prob": 0.0809,
-       "source": "ocr",
-       "semantic": "的",
-       "surface_uncertain": true
-      }
-     ],
-     "gold": "\n",
-     "frozen": true
     }
    ]
   },
   {
    "column_id": "vol01:176:8",
    "context": {
-    "prev": "卷七十六史部三十二\n",
+    "prev": "卷七十六史部三十二",
     "next": "卷七七史部三十三"
    },
    "slots": [
@@ -3586,37 +3390,37 @@
      "candidates": [
       {
        "char": "目",
-       "prob": 0.9871,
+       "prob": 0.990705,
        "source": "ocr",
        "semantic": "目",
        "surface_uncertain": true
       },
       {
-       "char": "日",
-       "prob": 0.0039,
-       "source": "ocr",
-       "semantic": "日",
-       "surface_uncertain": true
-      },
-      {
        "char": "且",
-       "prob": 0.0034,
+       "prob": 0.003412,
        "source": "ocr",
        "semantic": "且",
        "surface_uncertain": true
       },
       {
        "char": "回",
-       "prob": 0.0033,
+       "prob": 0.003312,
        "source": "ocr",
        "semantic": "回",
        "surface_uncertain": true
       },
       {
        "char": "同",
-       "prob": 0.0024,
+       "prob": 0.002409,
        "source": "ocr",
        "semantic": "同",
+       "surface_uncertain": true
+      },
+      {
+       "char": "日",
+       "prob": 0.000162,
+       "source": "ocr",
+       "semantic": "日",
        "surface_uncertain": true
       }
      ],
