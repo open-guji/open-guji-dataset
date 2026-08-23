@@ -1,6 +1,6 @@
 {
  "name": "char-instance-quality",
- "version": "0.9.0",
+ "version": "0.10.0",
  "schema_version": 1,
  "description": "单字图块切分质量：真实图块的实例级四分类标注",
  "created": "2026-08-22",
@@ -8,7 +8,7 @@
  "parent": "char-segmentation",
  "eval_command": "cd open-guji-cv && python scripts/eval_instance_quality.py <dataset>",
  "eval_script": "open-guji-cv/scripts/eval_instance_quality.py",
- "total_samples": 61,
+ "total_samples": 91,
  "sample_unit": "单字图块",
  "sources": [
   "06061300.cn（武英殿刻本《欽定四庫全書總目》卷首一~四）"
@@ -26,10 +26,10 @@
   "human"
  ],
  "quality_distribution": {
-  "clean": 55,
-  "contaminated": 3,
+  "clean": 76,
+  "contaminated": 9,
   "truncated": 2,
-  "not_text": 1
+  "not_text": 4
  },
  "layout_distribution": {
   "rigid": 55,
@@ -56,10 +56,10 @@
   }
  ],
  "baseline": {
-  "measured_on": "61 实例（6 缺陷 / 55 正例）",
+  "measured_on": "91 实例（15 缺陷 / 76 正例）；含 16 个 boundary_ink-only 超采样本，误报率因此偏高",
   "defect_recall": 1.0,
-  "flag_precision": 0.5,
-  "false_alarm_rate": 0.11,
+  "flag_precision": 0.44,
+  "false_alarm_rate": 0.25,
   "per_class_recall": {
    "contaminated": 1.0,
    "truncated": 1.0,
@@ -72,8 +72,8 @@
      "edge_blob",
      "frame_bars"
     ],
-    "defect_recall": 0.0,
-    "flag_precision": 0.0,
+    "defect_recall": 0.27,
+    "flag_precision": 1.0,
     "false_alarm_rate": 0.0
    },
    "加疑似层": {
@@ -85,10 +85,11 @@
      "bad_seg"
     ],
     "defect_recall": 1.0,
-    "flag_precision": 0.5,
-    "false_alarm_rate": 0.11
+    "flag_precision": 0.44,
+    "false_alarm_rate": 0.25
    }
-  }
+  },
+  "boundary_ink_only_precision": "16 个单独命中里真缺陷 4 个（25%）——12 个是完整干净的高字，判据混淆「墨顶到边」与「字本来就高」"
  },
  "notes": "**这一版的数字要连着上游一起读。** 缺陷从 17/67 降到 11/63，不是检测器变强了，是**切分本身变好了**——`segment` 加了残余错切校正与界行吸附之后，全书带界行竖线的图块从 23.7% 降到 3.5%（vol02 20.0% → 2.9%）。原来 12 个 contaminated 里有 6 个现在已经是干净的本字。精确率因此从 0.71 掉到 0.52：缺陷基数小了，同样多的误报占比自然升高——这不是退步。\n\n**分层必须分开报。** 确定层（rule_bar / edge_blob / frame_bars）召回 73% 且**零误报**，成因明确，下游可以直接自动处理（剥界行、丢版框格位），不必惊动人；疑似层（wide_gap / boundary_ink）把召回补到 100%，代价是 19% 误报，只该用来排人工审查队列。合成一个数字会同时掩盖两件事：确定层能不能免检地用，以及审查队列会被多少噪声灌满。\n\n**版框横线与「一」字只能到页级分。** 形状上两者的 w/W、h/H、笔画厚度变异全都重叠（旧的 rule_like 判据正因此把 5 个干净的「一」判成了线）。区别在列之外：版框横线横穿整版，「一」字停在本列文字带里。所以 frame_bars 现在也看列框左右两侧还有没有墨。\n\n**新判据 off_center（横向截断）**：墨的横向重心偏离格心的比例。`boundary_ink` 只看上下带，抓得到纵向截断；横向被切时字整个被推到格位一侧，边缘墨量未必高、但重心明显偏。标注集里 clean 最大 0.088、横向截断的 3 个实例是 0.148~0.339，没有重叠；阈值 0.15，全书命中 3.1%(vol01)/1.4%(vol02)，随机抽 18 个目视 15 个属实（另 2 个是空格位，由别的 flag 覆盖）。加它之后截断检出 4/6 → **6/6**，而**误报率不变**（仍 17%）。\n\n**第七轮：图块裁切边改按界行走。** 原先图块按**文字带**裁，而文字带是「正常居中字」的范围；职名列的「臣」是小字、贴着界行写，右缘越出文字带中位 15px，于是被静默切掉。改成从文字带往外扩、扩到撞上界行为止之后（vol01 全书 24605 个字格）：被切掉笔画的字格 44.8% → 9.2%，「臣」形字格 79.7% → 35.1%，而 rule_bar 从 47 块只动到 53 块（都是 0.2%）、无标记块 67.7% → 67.0%。关键是围栏的覆盖率必须**分带**统计——整页统计对斜/弯的界行是瞎的，拿它当围栏裁切边会直接穿过界行。",
  "updated": "2026-08-23",
@@ -190,6 +191,13 @@
    "changed": 18,
    "dropped_ids": [],
    "effect": "18 个图块内容变化、ID 一个没丢，没有标签要改；3 个格序号又指向了别的字（此→者、要→以、廣→一，页 18/66 正是被 rule_in_col 触发重扫的页），新指向的字都完整干净。edge_blob 全书 4.8%→1.4%(vol01) / 4.3%→1.3%(vol02)，抽 12 个存活命中目视全是真残余。"
+  },
+  {
+   "date": "2026-08-23",
+   "reason": "第十二轮补样：缺陷分母掉到 6，所有比值指标落入小样本噪声；且 boundary_ink 单独命中的精确率从未量过",
+   "changed": 0,
+   "dropped_ids": [],
+   "effect": "补 30 个（boundary_ink-only 16 / 无标记对照 8 / 多 flag 6）。样本 61 → 91，缺陷 6 → 15。确定层在扩样后回到精确 100% / 零误报（edge_blob 间隙条件站住了）；boundary_ink-only 精确率实测 25%；无标记对照 8 个全干净，没有漏报证据。"
   }
  ],
  "baseline_history": [
@@ -253,8 +261,15 @@
    "flag_precision": 0.55,
    "false_alarm_rate": 0.09,
    "note": "61 样本 / 6 缺陷（第十轮）。第十一轮 edge_blob 加间隙条件后误报率 9% → 11%（±1 个正例的波动，分母只有 55），确定层召回 17% → 0%——分母只有 6 个缺陷，两个数字都在小样本噪声里。"
+  },
+  {
+   "version": "0.9.0",
+   "defect_recall": 1.0,
+   "flag_precision": 0.5,
+   "false_alarm_rate": 0.11,
+   "note": "61 样本 / 6 缺陷。0.10.0 补样 30 个（其中 16 个从 boundary_ink-only 命中里超采）——误报率 11% → 25% 是抽样偏置的直接结果，不可与本行相比。"
   }
  ],
- "known_limitation": "1) 缺陷只剩 6 个，所有比值指标都在小样本噪声里：误报率 9%→11% 只是 ±1 个正例的波动；确定层召回 17%→0% 只是唯一被确定层抓到的缺陷换了裁法。急需补样（横向截断、邻字残余、混入界行各若干）。\n2) edge_blob 的间隙阈值 0.10 实质定在 1 个真残余样本（+0.206）与 1 个误报样本（+0.015）之间——上游修得越好，真残余样本越少，判据的验证越难。\n3) 尺度/相位参数一改，page:col:idx 就可能指向别的字（第九/十/十一轮分别 2/2/3 例）。重跑后必须整体重看。",
+ "known_limitation": "1) 误报率 25% 含抽样偏置（16/91 从 boundary_ink-only 超采），不可与历史基线直接相比；按无偏置样本估计的真实误报率应低于此。\n2) boundary_ink 单独命中精确率 ~25%：主要误报源是完整的高字（vol02 字高/格高中位 0.945，墨天然顶到 10% 边缘带）。改判据前先想清楚：真截断的切口在边缘行是**宽平的**（笔画被拦腰切断），高字的笔画尖端是**收窄的**——这可能是分得开的量，待验证。\n3) truncated 仍只有 2 个样本（均为纵向）；横向截断一个都没有。\n4) 尺度/相位参数一改 page:col:idx 就可能换字（九/十/十一轮各 2~3 例），重跑后必须整体重看。",
  "coverage": "vol01 + vol02（第六轮起收两册；键可写 'vol02/page:col:idx'）"
 }
