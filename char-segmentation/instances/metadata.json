@@ -1,6 +1,6 @@
 {
  "name": "char-instance-quality",
- "version": "0.8.0",
+ "version": "0.9.0",
  "schema_version": 1,
  "description": "单字图块切分质量：真实图块的实例级四分类标注",
  "created": "2026-08-22",
@@ -58,8 +58,8 @@
  "baseline": {
   "measured_on": "61 实例（6 缺陷 / 55 正例）",
   "defect_recall": 1.0,
-  "flag_precision": 0.55,
-  "false_alarm_rate": 0.09,
+  "flag_precision": 0.5,
+  "false_alarm_rate": 0.11,
   "per_class_recall": {
    "contaminated": 1.0,
    "truncated": 1.0,
@@ -72,9 +72,9 @@
      "edge_blob",
      "frame_bars"
     ],
-    "defect_recall": 0.17,
-    "flag_precision": 0.5,
-    "false_alarm_rate": 0.02
+    "defect_recall": 0.0,
+    "flag_precision": 0.0,
+    "false_alarm_rate": 0.0
    },
    "加疑似层": {
     "flags": [
@@ -85,8 +85,8 @@
      "bad_seg"
     ],
     "defect_recall": 1.0,
-    "flag_precision": 0.55,
-    "false_alarm_rate": 0.09
+    "flag_precision": 0.5,
+    "false_alarm_rate": 0.11
    }
   }
  },
@@ -183,6 +183,13 @@
     "vol01/116:1:8"
    ],
    "effect": "24 个图块内容变化、1 个 ID 消失。逐个重看**没有标签要改**，但有 2 个的 page:col:idx 又指向了别的字（109:9:5 从「臣」变成「裴」、vol02/17:8:9 从「書」变成「隋」）——新指向的字同样完整干净。样本 62 → 61，缺陷 7 → 6，误报率 11% → 9%。"
+  },
+  {
+   "date": "2026-08-23",
+   "reason": "rule_in_col 升级为触发条件 + edge_blob 加「离主体足够远」条件",
+   "changed": 18,
+   "dropped_ids": [],
+   "effect": "18 个图块内容变化、ID 一个没丢，没有标签要改；3 个格序号又指向了别的字（此→者、要→以、廣→一，页 18/66 正是被 rule_in_col 触发重扫的页），新指向的字都完整干净。edge_blob 全书 4.8%→1.4%(vol01) / 4.3%→1.3%(vol02)，抽 12 个存活命中目视全是真残余。"
   }
  ],
  "baseline_history": [
@@ -239,8 +246,15 @@
    "flag_precision": 0.54,
    "false_alarm_rate": 0.11,
    "note": "62 样本 / 7 缺陷（第九轮：格高改由实测字距定）。第十轮上游又动了界行检测与内缩钳制，样本 61、缺陷 6，不可直接相比。"
+  },
+  {
+   "version": "0.8.0",
+   "defect_recall": 1.0,
+   "flag_precision": 0.55,
+   "false_alarm_rate": 0.09,
+   "note": "61 样本 / 6 缺陷（第十轮）。第十一轮 edge_blob 加间隙条件后误报率 9% → 11%（±1 个正例的波动，分母只有 55），确定层召回 17% → 0%——分母只有 6 个缺陷，两个数字都在小样本噪声里。"
   }
  ],
- "known_limitation": "1) 缺陷只剩 6 个（clean 55），比值类指标的分母很小，误报率 9% 只相当于 5 个正例被标记，换一批样本波动会很大。需要补样，尤其是横向截断——那一类现在一个样本都没有。\n2) 确定层精确率 50%：唯一被确定层标记的正例是 vol01/10:2:6，一个干净的「冬」被 edge_blob 误报。确定层原本的价值就是「零误报、可自动处理」，这一条已经不成立，待查。\n3) 本数据集对**尺度参数**（格高/列距）的改动极其敏感：那类改动会让 page:col:idx 指向别的字，而不只是同一个字裁得不一样。第九、十轮各出现 2 例。重跑后必须整体重看，不能只统计「内容变了几个」。",
+ "known_limitation": "1) 缺陷只剩 6 个，所有比值指标都在小样本噪声里：误报率 9%→11% 只是 ±1 个正例的波动；确定层召回 17%→0% 只是唯一被确定层抓到的缺陷换了裁法。急需补样（横向截断、邻字残余、混入界行各若干）。\n2) edge_blob 的间隙阈值 0.10 实质定在 1 个真残余样本（+0.206）与 1 个误报样本（+0.015）之间——上游修得越好，真残余样本越少，判据的验证越难。\n3) 尺度/相位参数一改，page:col:idx 就可能指向别的字（第九/十/十一轮分别 2/2/3 例）。重跑后必须整体重看。",
  "coverage": "vol01 + vol02（第六轮起收两册；键可写 'vol02/page:col:idx'）"
 }
