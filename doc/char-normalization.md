@@ -142,3 +142,21 @@ char-normalization/
 5. 更新 `metadata.json` 的 `total_samples` 与 `sources`；
 6. 归一化算法**有意**改动时，重新生成并人工复核受影响的 golden，
    同时更新样本的 `pipeline_version`。
+
+---
+
+## 实测状态（2026-08-23）
+
+数据集已建好：**35 个字块**，两层（`verified` 32 / `known_defect` 3），
+基线、抽样线索的两次踩坑、三个已知缺陷的定位，全部记在
+[`../char-normalization/README.md`](../char-normalization/README.md)。
+
+与本文档原规格的两处差异（都是建集过程中发现的）：
+
+1. 多了 **`status` 字段与 `known_defect` 层**。原规格假设「跑一次归一化，
+   人工确认后另存为 golden」——但实测有 3 个样本当前输出就是错的
+   （界行竖线没去、邻字残画没去）。把它们冻成 golden 等于把缺陷焊死，
+   所以另立一层：只记录当前行为，不进回归门。
+2. `tolerance` 多了 **`skeleton_endpoint_delta_max`**。原规格把
+   `skeleton_endpoint_delta` 列为指标但没给容差，而它恰恰是唯一能抓住
+   「断一笔」的指标（像素比那时还在容差内）。

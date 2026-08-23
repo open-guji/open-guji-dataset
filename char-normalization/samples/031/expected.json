@@ -1,0 +1,35 @@
+{
+ "source_item": "06061300.cn",
+ "pipeline_version": "23ee9a518",
+ "label_origin": "human",
+ "instance_id": "vol01:87:1:18",
+ "book": "vol01",
+ "input": "input.png",
+ "golden": "golden.png",
+ "golden_skeleton": "golden_skeleton.png",
+ "tolerance": {
+  "pixel_diff_ratio": 0.01,
+  "binary_iou_min": 0.98,
+  "skeleton_endpoint_delta_max": 2
+ },
+ "cover": [
+  "border_residue",
+  "neighbor_intrusion"
+ ],
+ "char": "一",
+ "status": "known_defect",
+ "sampling_cue": "human_contaminated",
+ "extractor_flags": [
+  "edge_blob",
+  "boundary_ink"
+ ],
+ "ink_ratio": 0.0642,
+ "norm_params": {
+  "size": 64,
+  "margin_ratio": 0.12,
+  "noise_area": 6,
+  "stroke_width": 3
+ },
+ "schema_version": 1,
+ "defect": "邻字残画没去：金标字是「一」，图块上半还留着邻字底部的两笔，归一化把三笔一起当本字缩放，「一」被压到下半——这类是外接框被残余撑大的典型。"
+}

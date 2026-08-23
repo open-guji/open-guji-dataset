@@ -1,73 +1,182 @@
 {
-  "name": "char-clustering-benchmark",
-  "version": "0.1.0",
-  "schema_version": 1,
-  "description": "保守聚类（同字合并）purity Benchmark 数据集",
-  "created": "2026-08-21",
-  "status": "框架",
-  "eval_command": "guji-cv cluster <book> --feature hog",
-  "eval_script": null,
-  "total_samples": 0,
-  "sample_unit": "册分片",
-  "sources": [],
-  "provenance_fields": [
-    "source_item",
-    "pipeline_version",
-    "label_origin"
-  ],
-  "label_origin_values": [
-    "align",
-    "human",
-    "synth"
-  ],
-  "metrics": [
-    {
-      "name": "purity",
-      "type": "float",
-      "direction": "higher_is_better",
-      "target": ">= 0.999",
-      "description": "簇内同字比例（加权平均）。硬约束：保守聚类宁可碎不可脏"
-    },
-    {
-      "name": "fragmentation",
-      "type": "float",
-      "direction": "lower_is_better",
-      "description": "簇数 / 金标字类数，衡量碎裂程度（purity 达标前提下越低越好）"
-    },
-    {
-      "name": "hard_pair_accuracy",
-      "type": "float",
-      "direction": "higher_is_better",
-      "description": "难例对（人工 impure/split 反馈产生的 same/diff 对）判定准确率，单独报告"
-    }
-  ],
-  "fields": [
-    {
-      "name": "shard_id",
-      "type": "str",
-      "description": "分片标识（同一册内的一批实例）"
-    },
-    {
-      "name": "instances",
-      "type": "list",
-      "description": "实例列表，每项 instance_id / char（金标字）/ label_origin（可逐实例覆盖顶层值）"
-    },
-    {
-      "name": "hard_pairs",
-      "type": "list",
-      "description": "难例对，每项 a / b / relation(same|diff) / origin"
-    },
-    {
-      "name": "feature_backend",
-      "type": "str",
-      "description": "冻结的特征后端（如 hog），保证可复现"
-    }
-  ],
-  "sample_files": {
-    "crops/": "归一化后的字块图目录，文件名为 instance_id",
-    "features.npz": "可选：冻结的特征矩阵（避免归一化改动干扰聚类评测）",
-    "expected.json": "实例→字标签 + 难例对 + 溯源字段",
-    "info.json": "来源、描述、标签"
+ "name": "char-clustering-benchmark",
+ "version": "0.2.0",
+ "schema_version": 1,
+ "description": "保守聚类（同字合并）purity Benchmark 数据集",
+ "created": "2026-08-21",
+ "status": "可用",
+ "eval_command": "cd open-guji-cv && python scripts/eval_clustering.py <dataset>",
+ "eval_script": "open-guji-cv/scripts/eval_clustering.py",
+ "total_samples": 3,
+ "sample_unit": "册分片",
+ "sources": [
+  {
+   "shard": "001-vol01-body",
+   "book": "vol01",
+   "label_origin": "align",
+   "n_instances": 3001,
+   "n_chars": 975,
+   "n_pages": 19,
+   "n_hard_pairs": 79
   },
-  "notes": "合成 bench（open-guji-cv `guji-cv bench`）保留作冒烟测试，本集是真实 purity 集。3b 的质量几乎完全由 3a 归一化决定，评测时应固定 pipeline_version。"
+  {
+   "shard": "002-vol02-body",
+   "book": "vol02",
+   "label_origin": "align",
+   "n_instances": 3105,
+   "n_chars": 743,
+   "n_pages": 20,
+   "n_hard_pairs": 80
+  },
+  {
+   "shard": "003-book9all-human",
+   "book": "book9all",
+   "label_origin": "human",
+   "n_instances": 91,
+   "n_chars": 24,
+   "n_hard_pairs": 60
+  }
+ ],
+ "provenance_fields": [
+  "source_item",
+  "pipeline_version",
+  "label_origin"
+ ],
+ "label_origin_values": [
+  "align",
+  "human",
+  "synth"
+ ],
+ "metrics": [
+  {
+   "name": "purity",
+   "type": "float",
+   "direction": "higher_is_better",
+   "target": ">= 0.999",
+   "description": "簇内同字比例（按簇大小加权）。硬约束：保守聚类宁可碎不可脏。报告必须带分子分母"
+  },
+  {
+   "name": "multi_instance_purity",
+   "type": "float",
+   "direction": "higher_is_better",
+   "description": "只算 size>=2 的簇。单例天然 purity=1，单例率 93~95% 时总体 purity 大半是白送的"
+  },
+  {
+   "name": "fragmentation",
+   "type": "float",
+   "direction": "lower_is_better",
+   "description": "簇数 / 金标字类数。仅在 purity 达标时有意义"
+  },
+  {
+   "name": "singleton_ratio",
+   "type": "float",
+   "direction": "lower_is_better",
+   "description": "单例簇占比。聚类的收益（一簇只认几个代表）全靠它降下来"
+  },
+  {
+   "name": "hard_pair_accuracy",
+   "type": "float",
+   "direction": "higher_is_better",
+   "description": "难例对判定准确率。same 与 diff 分开报——前者失败是碎，后者失败是脏"
+  }
+ ],
+ "fields": [
+  {
+   "name": "shard_id",
+   "type": "str",
+   "description": "分片标识（同一册内的一批实例）"
+  },
+  {
+   "name": "instances",
+   "type": "list",
+   "description": "实例列表，每项 instance_id / char（金标字）/ label_origin（可逐实例覆盖顶层值）"
+  },
+  {
+   "name": "hard_pairs",
+   "type": "list",
+   "description": "难例对，每项 a / b / relation(same|diff) / origin"
+  },
+  {
+   "name": "feature_backend",
+   "type": "str",
+   "description": "冻结的特征后端（如 hog），保证可复现"
+  }
+ ],
+ "sample_files": {
+  "crops/": "归一化后的字块图目录，文件名为 instance_id",
+  "features.npz": "可选：冻结的特征矩阵（避免归一化改动干扰聚类评测）",
+  "expected.json": "实例→字标签 + 难例对 + 溯源字段",
+  "info.json": "来源、描述、标签"
+ },
+ "notes": "合成 bench（open-guji-cv `guji-cv bench`）保留作冒烟测试，本集是真实 purity 集。3b 的质量几乎完全由 3a 归一化决定，评测时应固定 pipeline_version。",
+ "build_script": "open-guji-cv/scripts/build_clustering_dataset.py",
+ "n_instances": 6297,
+ "coverage": "两册正文页（page-type 金标 body）中结构一致且能锚定整理本的页，按整页随机抽至每片 3000 实例",
+ "sampling_bias": "只覆盖能锚定的页（整理本收录 + 转写够好）：vol01 110 正文页 → 58 页结构一致 → 49 页锚定；vol02 186 → 65 → 35。不是全书真实分布，只能用于同一批样本上比较算法",
+ "gold_definition": "字标签一律取自整理本语料（转写只作对齐载体）。equal 段与等长 replace 段都收，insert/delete 段整段丢弃。两道闸门：页结构一致性（全部 (列,格序号) 逐一相同）+ 三条清洗（非汉字 / replace 且 ink_ratio<0.05 / replace 且 frame_bars）",
+ "label_noise": {
+  "align": "清洗后抽检 96 张（vol01 equal 32 + vol01 replace 32 + vol02 混合 32）0 误标，95% 置信上界约 3%；清洗前同规模抽检有 3 张误标",
+  "human": "glyph_store 的 94 个 propagated 标签逐张复核，11 个对不上（11.7%）→ 8 改标 3 丢弃"
+ },
+ "baseline": {
+  "measured_on": "2026-08-23",
+  "pipeline_version": "23ee9a5",
+  "params": {
+   "feature": "hog",
+   "theta_high": 0.8,
+   "knn_k": 10,
+   "cross_check_k": 3
+  },
+  "001-vol01-body": {
+   "purity": 0.999,
+   "purity_num": 2998,
+   "purity_den": 3001,
+   "multi_instance_purity": 0.99148,
+   "fragmentation": 2.86,
+   "singleton_ratio": 0.9495,
+   "hard_diff": "39/39",
+   "hard_same": "0/40"
+  },
+  "002-vol02-body": {
+   "purity": 0.99903,
+   "purity_num": 3102,
+   "purity_den": 3105,
+   "multi_instance_purity": 0.99438,
+   "fragmentation": 3.71,
+   "singleton_ratio": 0.9322,
+   "hard_diff": "40/40",
+   "hard_same": "0/40"
+  },
+  "003-book9all-human": {
+   "purity": 1.0,
+   "purity_num": 91,
+   "purity_den": 91,
+   "fragmentation": 3.21,
+   "singleton_ratio": 0.8442,
+   "hard_same": "9/60"
+  },
+  "note": "脏簇全是形近字（人/入、大/太、未/末、面/而、夬/夫）。θ_high 扫描见 README：0.80 是唯一守得住 purity>=0.999 的档"
+ },
+ "baseline_history": [],
+ "known_limitation": [
+  "只覆盖能锚定的页，系统性偏向切分与转写都还行的页面，不是全书真实分布",
+  "29 条人工 impure（diff）对全部丢失——反馈事件只导出了 confirm 的图块，impure 那些实例既无冻结图、编号又已漂。人工层现在一条硬负例都没有",
+  "人工层只有 91 实例 / 24 字类，字类少则冲突概率天然低，purity=1.0 不能单独当结论",
+  "align 的 equal 段不是完全独立的证据：转写经过 LM 上下文修正，可能从上下文填对图像上没有的字（实测 1 例纯版框横线被填成「一」而语料恰好也是「一」）",
+  "每分片 3000 实例是抽样（vol01 可标 7947 / vol02 5412），按整页随机、种子固定",
+  "字块冻结为归一图，因此默认模式量的是聚类本身；归一化改动要用 --clusters 端到端模式看"
+ ],
+ "relabel_history": [
+  {
+   "round": 1,
+   "date": "2026-08-23",
+   "changed": "human 分片：8 个 propagated 标签改标（圖→守 ×2、論→確、廢→札、興→融、書→盧、識→林、筵→熊）",
+   "dropped_ids": [
+    "book9all:45:6:18",
+    "book9all:66:6:3",
+    "book9all:89:9:3"
+   ],
+   "effect": "94 → 91 实例；改标的实例留在集里，它们是当初脏簇的证据"
+  }
+ ]
 }

@@ -1,0 +1,34 @@
+{
+ "source_item": "06061300.cn",
+ "pipeline_version": "23ee9a518",
+ "label_origin": "human",
+ "instance_id": "vol01:39:1:20",
+ "book": "vol01",
+ "input": "input.png",
+ "golden": "golden.png",
+ "golden_skeleton": "golden_skeleton.png",
+ "tolerance": {
+  "pixel_diff_ratio": 0.01,
+  "binary_iou_min": 0.98,
+  "skeleton_endpoint_delta_max": 2
+ },
+ "cover": [
+  "neighbor_intrusion"
+ ],
+ "char": "改",
+ "status": "known_defect",
+ "sampling_cue": "neighbor_intrusion",
+ "extractor_flags": [
+  "edge_blob",
+  "boundary_ink"
+ ],
+ "ink_ratio": 0.1516,
+ "norm_params": {
+  "size": 64,
+  "margin_ratio": 0.12,
+  "noise_area": 6,
+  "stroke_width": 3
+ },
+ "schema_version": 1,
+ "defect": "轻微：邻字残点未去，归一图下方留了一个孤立小点。点在字的外接框内，没撑大 bbox，对聚类影响小，但按「去残余」的职责这是没做到。"
+}

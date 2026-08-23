@@ -22,8 +22,8 @@
 | [column-layout](column-layout) | `segment`（行列识别）| 36 页 / 322 列 | 可用 | 逐列刚性/弹性判别 + 统一输出格式 |
 | [char-segmentation/cells](char-segmentation/cells) | `segment`（格内净化）| 60 | 可用 | 合成逐像素金标：格内墨迹归属 |
 | [char-segmentation/instances](char-segmentation/instances) | `chars`（图块自检）| 62 | 可用 | 真实图块四分类，评管线自检能力 |
-| [char-normalization](doc/char-normalization.md) | `normalize`（纯函数） | 0 | 框架 | 归一化 golden 集（去残余 / 骨架化，逐像素回归） |
-| [char-clustering](doc/char-clustering.md) | `cluster` | 0 | 框架 | 保守聚类 purity 集（含人工反馈难例对） |
+| [char-normalization](char-normalization) | `normalize`（纯函数） | 35 字块 | 可用 | 归一化 golden 回归门（32 verified + 3 已知缺陷）|
+| [char-clustering](char-clustering) | `cluster` | 3 分片 / 6297 实例 | 可用 | 保守聚类 purity 集（align 两册 + 人工复核层 + 难例对）|
 | [char-ocr](doc/char-ocr.md) | `label` / `bench-ocr` | 0 | 框架 | 单字识别 (图块, 金标字)，按册划分 train/test |
 | [context-correction](doc/context-correction.md) | `refine` | 0 | 框架 | 上下文 + LM 纠正（候选冻结） |
 | [collation](doc/collation.md) | `collate`（规划中） | 0 | 框架 | 参考校对：对齐、参考质量 ρ 估计、分歧挖掘 |
@@ -50,8 +50,8 @@ open-guji-dataset/
 │   ├── metadata.json
 │   ├── samples/000-example/   # 占位样本（placeholder: true）
 │   └── results/               # 评测输出 (gitignore)
-├── char-normalization/        # 归一化 golden 集（框架）
-├── char-clustering/           # 保守聚类（框架）
+├── char-normalization/        # 归一化 golden 回归门（35 字块，两层）
+├── char-clustering/           # 保守聚类 purity（3 个册分片）
 ├── char-ocr/                  # 单字识别（框架）
 ├── context-correction/        # 上下文纠正（框架）
 ├── collation/                 # 参考校对（框架）

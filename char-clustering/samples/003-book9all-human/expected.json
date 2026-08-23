@@ -1,0 +1,1309 @@
+{
+ "source_item": "06061300.cn",
+ "book": "book9all",
+ "pipeline_version": "23ee9a518",
+ "label_origin": "human",
+ "shard_id": "book9all/reviewed",
+ "review": {
+  "date": "2026-08-23",
+  "method": "逐张目视复核 94/94",
+  "relabeled": {
+   "book9all:10:5:17": "守",
+   "book9all:150:9:7": "守",
+   "book9all:148:3:7": "確",
+   "book9all:65:9:5": "札",
+   "book9all:67:6:7": "融",
+   "book9all:75:1:6": "盧",
+   "book9all:98:6:5": "林",
+   "book9all:105:1:18": "熊"
+  },
+  "dropped": {
+   "book9all:45:6:18": "标 爲，实为一条横画+界行竖线；「一」与栏线分不开，判不准",
+   "book9all:66:6:3": "标 一，实为氵旁字；沿/治两可，判不准",
+   "book9all:89:9:3": "标 薈，实为四个残字拼在一格，不是单字"
+  },
+  "propagated_label_error_rate": 0.117
+ },
+ "feature_backend": "hog",
+ "norm_params": {
+  "size": 64,
+  "margin_ratio": 0.12,
+  "noise_area": 6,
+  "stroke_width": 3
+ },
+ "instances": [
+  {
+   "instance_id": "book9all:104:5:18",
+   "crop": "crops/book9all_104_5_18.png",
+   "char": "慶",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "104",
+   "ink_ratio": 0.2323,
+   "hw_ratio": 0.8202
+  },
+  {
+   "instance_id": "book9all:105:1:18",
+   "crop": "crops/book9all_105_1_18.png",
+   "char": "熊",
+   "label_origin": "human",
+   "label_status": "relabeled(was 筵)",
+   "page": "105",
+   "ink_ratio": 0.2909,
+   "hw_ratio": 1.0012
+  },
+  {
+   "instance_id": "book9all:105:7:16",
+   "crop": "crops/book9all_105_7_16.png",
+   "char": "郎",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "105",
+   "ink_ratio": 0.2351,
+   "hw_ratio": 0.9547
+  },
+  {
+   "instance_id": "book9all:106:4:16",
+   "crop": "crops/book9all_106_4_16.png",
+   "char": "郎",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "106",
+   "ink_ratio": 0.2721,
+   "hw_ratio": 0.7995
+  },
+  {
+   "instance_id": "book9all:10:2:15",
+   "crop": "crops/book9all_10_2_15.png",
+   "char": "論",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "10",
+   "ink_ratio": 0.3109,
+   "hw_ratio": 0.9208
+  },
+  {
+   "instance_id": "book9all:10:5:17",
+   "crop": "crops/book9all_10_5_17.png",
+   "char": "守",
+   "label_origin": "human",
+   "label_status": "relabeled(was 圖)",
+   "page": "10",
+   "ink_ratio": 0.2094,
+   "hw_ratio": 0.9208
+  },
+  {
+   "instance_id": "book9all:12:6:15",
+   "crop": "crops/book9all_12_6_15.png",
+   "char": "千",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "12",
+   "ink_ratio": 0.1404,
+   "hw_ratio": 0.9996
+  },
+  {
+   "instance_id": "book9all:131:9:20",
+   "crop": "crops/book9all_131_9_20.png",
+   "char": "慶",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "131",
+   "ink_ratio": 0.2323,
+   "hw_ratio": 0.9114
+  },
+  {
+   "instance_id": "book9all:133:5:3",
+   "crop": "crops/book9all_133_5_3.png",
+   "char": "千",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "133",
+   "ink_ratio": 0.1575,
+   "hw_ratio": 0.919
+  },
+  {
+   "instance_id": "book9all:134:7:11",
+   "crop": "crops/book9all_134_7_11.png",
+   "char": "從",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "134",
+   "ink_ratio": 0.3212,
+   "hw_ratio": 0.9399
+  },
+  {
+   "instance_id": "book9all:135:3:4",
+   "crop": "crops/book9all_135_3_4.png",
+   "char": "千",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "135",
+   "ink_ratio": 0.1406,
+   "hw_ratio": 0.9328
+  },
+  {
+   "instance_id": "book9all:137:1:11",
+   "crop": "crops/book9all_137_1_11.png",
+   "char": "令",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "137",
+   "ink_ratio": 0.1869,
+   "hw_ratio": 1.0129
+  },
+  {
+   "instance_id": "book9all:137:1:8",
+   "crop": "crops/book9all_137_1_8.png",
+   "char": "從",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "137",
+   "ink_ratio": 0.2596,
+   "hw_ratio": 1.0129
+  },
+  {
+   "instance_id": "book9all:137:2:10",
+   "crop": "crops/book9all_137_2_10.png",
+   "char": "令",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "137",
+   "ink_ratio": 0.1857,
+   "hw_ratio": 1.0129
+  },
+  {
+   "instance_id": "book9all:137:2:11",
+   "crop": "crops/book9all_137_2_11.png",
+   "char": "從",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "137",
+   "ink_ratio": 0.2494,
+   "hw_ratio": 1.0129
+  },
+  {
+   "instance_id": "book9all:137:4:9",
+   "crop": "crops/book9all_137_4_9.png",
+   "char": "從",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "137",
+   "ink_ratio": 0.2553,
+   "hw_ratio": 1.0129
+  },
+  {
+   "instance_id": "book9all:137:5:16",
+   "crop": "crops/book9all_137_5_16.png",
+   "char": "從",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "137",
+   "ink_ratio": 0.2614,
+   "hw_ratio": 1.0129
+  },
+  {
+   "instance_id": "book9all:137:7:18",
+   "crop": "crops/book9all_137_7_18.png",
+   "char": "千",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "137",
+   "ink_ratio": 0.1269,
+   "hw_ratio": 1.0129
+  },
+  {
+   "instance_id": "book9all:138:1:17",
+   "crop": "crops/book9all_138_1_17.png",
+   "char": "從",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "138",
+   "ink_ratio": 0.2678,
+   "hw_ratio": 1.0046
+  },
+  {
+   "instance_id": "book9all:142:4:8",
+   "crop": "crops/book9all_142_4_8.png",
+   "char": "從",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "142",
+   "ink_ratio": 0.283,
+   "hw_ratio": 1.0188
+  },
+  {
+   "instance_id": "book9all:142:9:19",
+   "crop": "crops/book9all_142_9_19.png",
+   "char": "從",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "142",
+   "ink_ratio": 0.3004,
+   "hw_ratio": 1.0188
+  },
+  {
+   "instance_id": "book9all:142:9:7",
+   "crop": "crops/book9all_142_9_7.png",
+   "char": "從",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "142",
+   "ink_ratio": 0.2746,
+   "hw_ratio": 1.0188
+  },
+  {
+   "instance_id": "book9all:145:5:12",
+   "crop": "crops/book9all_145_5_12.png",
+   "char": "盡",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "145",
+   "ink_ratio": 0.3216,
+   "hw_ratio": 1.029
+  },
+  {
+   "instance_id": "book9all:148:3:7",
+   "crop": "crops/book9all_148_3_7.png",
+   "char": "確",
+   "label_origin": "human",
+   "label_status": "relabeled(was 論)",
+   "page": "148",
+   "ink_ratio": 0.249,
+   "hw_ratio": 0.7251
+  },
+  {
+   "instance_id": "book9all:149:3:2",
+   "crop": "crops/book9all_149_3_2.png",
+   "char": "令",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "149",
+   "ink_ratio": 0.2019,
+   "hw_ratio": 0.9479
+  },
+  {
+   "instance_id": "book9all:149:4:5",
+   "crop": "crops/book9all_149_4_5.png",
+   "char": "從",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "149",
+   "ink_ratio": 0.2721,
+   "hw_ratio": 0.9479
+  },
+  {
+   "instance_id": "book9all:149:8:14",
+   "crop": "crops/book9all_149_8_14.png",
+   "char": "論",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "149",
+   "ink_ratio": 0.2875,
+   "hw_ratio": 0.9479
+  },
+  {
+   "instance_id": "book9all:14:4:15",
+   "crop": "crops/book9all_14_4_15.png",
+   "char": "議",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "14",
+   "ink_ratio": 0.3193,
+   "hw_ratio": 1.0071
+  },
+  {
+   "instance_id": "book9all:150:9:7",
+   "crop": "crops/book9all_150_9_7.png",
+   "char": "守",
+   "label_origin": "human",
+   "label_status": "relabeled(was 圖)",
+   "page": "150",
+   "ink_ratio": 0.2174,
+   "hw_ratio": 0.9721
+  },
+  {
+   "instance_id": "book9all:151:1:4",
+   "crop": "crops/book9all_151_1_4.png",
+   "char": "論",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "151",
+   "ink_ratio": 0.289,
+   "hw_ratio": 0.9626
+  },
+  {
+   "instance_id": "book9all:151:2:14",
+   "crop": "crops/book9all_151_2_14.png",
+   "char": "千",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "151",
+   "ink_ratio": 0.1499,
+   "hw_ratio": 0.9626
+  },
+  {
+   "instance_id": "book9all:151:8:3",
+   "crop": "crops/book9all_151_8_3.png",
+   "char": "論",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "151",
+   "ink_ratio": 0.2998,
+   "hw_ratio": 0.9626
+  },
+  {
+   "instance_id": "book9all:153:7:12",
+   "crop": "crops/book9all_153_7_12.png",
+   "char": "論",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "153",
+   "ink_ratio": 0.2935,
+   "hw_ratio": 0.7217
+  },
+  {
+   "instance_id": "book9all:171:9:3",
+   "crop": "crops/book9all_171_9_3.png",
+   "char": "令",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "171",
+   "ink_ratio": 0.0892,
+   "hw_ratio": 0.7217
+  },
+  {
+   "instance_id": "book9all:172:1:3",
+   "crop": "crops/book9all_172_1_3.png",
+   "char": "令",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "172",
+   "ink_ratio": 0.2031,
+   "hw_ratio": 0.8663
+  },
+  {
+   "instance_id": "book9all:201:5:2",
+   "crop": "crops/book9all_201_5_2.png",
+   "char": "卷",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "201",
+   "ink_ratio": 0.2236,
+   "hw_ratio": 0.8607
+  },
+  {
+   "instance_id": "book9all:201:7:2",
+   "crop": "crops/book9all_201_7_2.png",
+   "char": "卷",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "201",
+   "ink_ratio": 0.1985,
+   "hw_ratio": 0.9114
+  },
+  {
+   "instance_id": "book9all:201:9:2",
+   "crop": "crops/book9all_201_9_2.png",
+   "char": "卷",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "201",
+   "ink_ratio": 0.2145,
+   "hw_ratio": 0.8543
+  },
+  {
+   "instance_id": "book9all:202:1:2",
+   "crop": "crops/book9all_202_1_2.png",
+   "char": "卷",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "202",
+   "ink_ratio": 0.2058,
+   "hw_ratio": 0.8271
+  },
+  {
+   "instance_id": "book9all:202:3:2",
+   "crop": "crops/book9all_202_3_2.png",
+   "char": "卷",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "202",
+   "ink_ratio": 0.2368,
+   "hw_ratio": 0.821
+  },
+  {
+   "instance_id": "book9all:202:5:2",
+   "crop": "crops/book9all_202_5_2.png",
+   "char": "卷",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "202",
+   "ink_ratio": 0.2415,
+   "hw_ratio": 0.7905
+  },
+  {
+   "instance_id": "book9all:202:7:2",
+   "crop": "crops/book9all_202_7_2.png",
+   "char": "卷",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "202",
+   "ink_ratio": 0.2166,
+   "hw_ratio": 0.8149
+  },
+  {
+   "instance_id": "book9all:23:6:19",
+   "crop": "crops/book9all_23_6_19.png",
+   "char": "臺",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "23",
+   "ink_ratio": 0.374,
+   "hw_ratio": 0.9458
+  },
+  {
+   "instance_id": "book9all:23:8:15",
+   "crop": "crops/book9all_23_8_15.png",
+   "char": "又",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "23",
+   "ink_ratio": 0.1873,
+   "hw_ratio": 0.9458
+  },
+  {
+   "instance_id": "book9all:24:6:10",
+   "crop": "crops/book9all_24_6_10.png",
+   "char": "又",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "24",
+   "ink_ratio": 0.1743,
+   "hw_ratio": 1.0054
+  },
+  {
+   "instance_id": "book9all:29:5:15",
+   "crop": "crops/book9all_29_5_15.png",
+   "char": "又",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "29",
+   "ink_ratio": 0.1844,
+   "hw_ratio": 0.9481
+  },
+  {
+   "instance_id": "book9all:29:5:2",
+   "crop": "crops/book9all_29_5_2.png",
+   "char": "又",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "29",
+   "ink_ratio": 0.1526,
+   "hw_ratio": 0.9481
+  },
+  {
+   "instance_id": "book9all:30:1:8",
+   "crop": "crops/book9all_30_1_8.png",
+   "char": "又",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "30",
+   "ink_ratio": 0.1593,
+   "hw_ratio": 0.9416
+  },
+  {
+   "instance_id": "book9all:30:6:1",
+   "crop": "crops/book9all_30_6_1.png",
+   "char": "又",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "30",
+   "ink_ratio": 0.1731,
+   "hw_ratio": 0.9416
+  },
+  {
+   "instance_id": "book9all:30:7:4",
+   "crop": "crops/book9all_30_7_4.png",
+   "char": "又",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "30",
+   "ink_ratio": 0.1742,
+   "hw_ratio": 0.9416
+  },
+  {
+   "instance_id": "book9all:34:7:6",
+   "crop": "crops/book9all_34_7_6.png",
+   "char": "盡",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "34",
+   "ink_ratio": 0.2887,
+   "hw_ratio": 0.8842
+  },
+  {
+   "instance_id": "book9all:34:8:12",
+   "crop": "crops/book9all_34_8_12.png",
+   "char": "諭",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "34",
+   "ink_ratio": 0.3055,
+   "hw_ratio": 0.8842
+  },
+  {
+   "instance_id": "book9all:35:1:1",
+   "crop": "crops/book9all_35_1_1.png",
+   "char": "諭",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "35",
+   "ink_ratio": 0.1826,
+   "hw_ratio": 0.7217
+  },
+  {
+   "instance_id": "book9all:38:6:6",
+   "crop": "crops/book9all_38_6_6.png",
+   "char": "又",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "38",
+   "ink_ratio": 0.179,
+   "hw_ratio": 0.9515
+  },
+  {
+   "instance_id": "book9all:40:2:4",
+   "crop": "crops/book9all_40_2_4.png",
+   "char": "諭",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "40",
+   "ink_ratio": 0.1951,
+   "hw_ratio": 0.684
+  },
+  {
+   "instance_id": "book9all:40:5:0",
+   "crop": "crops/book9all_40_5_0.png",
+   "char": "諭",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "40",
+   "ink_ratio": 0.1974,
+   "hw_ratio": 0.684
+  },
+  {
+   "instance_id": "book9all:40:7:7",
+   "crop": "crops/book9all_40_7_7.png",
+   "char": "論",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "40",
+   "ink_ratio": 0.2173,
+   "hw_ratio": 0.684
+  },
+  {
+   "instance_id": "book9all:41:2:6",
+   "crop": "crops/book9all_41_2_6.png",
+   "char": "論",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "41",
+   "ink_ratio": 0.1714,
+   "hw_ratio": 0.7265
+  },
+  {
+   "instance_id": "book9all:42:9:4",
+   "crop": "crops/book9all_42_9_4.png",
+   "char": "令",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "42",
+   "ink_ratio": 0.1636,
+   "hw_ratio": 0.9128
+  },
+  {
+   "instance_id": "book9all:43:5:19",
+   "crop": "crops/book9all_43_5_19.png",
+   "char": "諭",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "43",
+   "ink_ratio": 0.2958,
+   "hw_ratio": 0.926
+  },
+  {
+   "instance_id": "book9all:43:8:1",
+   "crop": "crops/book9all_43_8_1.png",
+   "char": "諭",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "43",
+   "ink_ratio": 0.2856,
+   "hw_ratio": 0.926
+  },
+  {
+   "instance_id": "book9all:47:5:4",
+   "crop": "crops/book9all_47_5_4.png",
+   "char": "六",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "47",
+   "ink_ratio": 0.1612,
+   "hw_ratio": 0.688
+  },
+  {
+   "instance_id": "book9all:49:2:17",
+   "crop": "crops/book9all_49_2_17.png",
+   "char": "諭",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "49",
+   "ink_ratio": 0.2904,
+   "hw_ratio": 0.9073
+  },
+  {
+   "instance_id": "book9all:49:3:20",
+   "crop": "crops/book9all_49_3_20.png",
+   "char": "諭",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "49",
+   "ink_ratio": 0.3701,
+   "hw_ratio": 0.9073
+  },
+  {
+   "instance_id": "book9all:49:8:8",
+   "crop": "crops/book9all_49_8_8.png",
+   "char": "六",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "49",
+   "ink_ratio": 0.1624,
+   "hw_ratio": 0.9073
+  },
+  {
+   "instance_id": "book9all:4:9:6",
+   "crop": "crops/book9all_4_9_6.png",
+   "char": "千",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "4",
+   "ink_ratio": 0.128,
+   "hw_ratio": 0.7217
+  },
+  {
+   "instance_id": "book9all:52:9:2",
+   "crop": "crops/book9all_52_9_2.png",
+   "char": "諭",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "52",
+   "ink_ratio": 0.2312,
+   "hw_ratio": 0.6343
+  },
+  {
+   "instance_id": "book9all:52:9:3",
+   "crop": "crops/book9all_52_9_3.png",
+   "char": "令",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "52",
+   "ink_ratio": 0.1783,
+   "hw_ratio": 0.6343
+  },
+  {
+   "instance_id": "book9all:53:1:6",
+   "crop": "crops/book9all_53_1_6.png",
+   "char": "六",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "53",
+   "ink_ratio": 0.1173,
+   "hw_ratio": 0.7283
+  },
+  {
+   "instance_id": "book9all:53:2:1",
+   "crop": "crops/book9all_53_2_1.png",
+   "char": "諭",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "53",
+   "ink_ratio": 0.203,
+   "hw_ratio": 0.7283
+  },
+  {
+   "instance_id": "book9all:53:4:7",
+   "crop": "crops/book9all_53_4_7.png",
+   "char": "體",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "53",
+   "ink_ratio": 0.2339,
+   "hw_ratio": 0.7283
+  },
+  {
+   "instance_id": "book9all:53:6:10",
+   "crop": "crops/book9all_53_6_10.png",
+   "char": "又",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "53",
+   "ink_ratio": 0.1542,
+   "hw_ratio": 0.7283
+  },
+  {
+   "instance_id": "book9all:53:7:3",
+   "crop": "crops/book9all_53_7_3.png",
+   "char": "又",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "53",
+   "ink_ratio": 0.1322,
+   "hw_ratio": 0.7283
+  },
+  {
+   "instance_id": "book9all:54:8:3",
+   "crop": "crops/book9all_54_8_3.png",
+   "char": "倫",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "54",
+   "ink_ratio": 0.2698,
+   "hw_ratio": 1.0119
+  },
+  {
+   "instance_id": "book9all:58:1:2",
+   "crop": "crops/book9all_58_1_2.png",
+   "char": "議",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "58",
+   "ink_ratio": 0.3249,
+   "hw_ratio": 1.0204
+  },
+  {
+   "instance_id": "book9all:63:8:7",
+   "crop": "crops/book9all_63_8_7.png",
+   "char": "千",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "63",
+   "ink_ratio": 0.1539,
+   "hw_ratio": 0.9778
+  },
+  {
+   "instance_id": "book9all:65:9:5",
+   "crop": "crops/book9all_65_9_5.png",
+   "char": "札",
+   "label_origin": "human",
+   "label_status": "relabeled(was 廢)",
+   "page": "65",
+   "ink_ratio": 0.218,
+   "hw_ratio": 0.7481
+  },
+  {
+   "instance_id": "book9all:67:1:5",
+   "crop": "crops/book9all_67_1_5.png",
+   "char": "臺",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "67",
+   "ink_ratio": 0.3775,
+   "hw_ratio": 0.9935
+  },
+  {
+   "instance_id": "book9all:67:6:7",
+   "crop": "crops/book9all_67_6_7.png",
+   "char": "融",
+   "label_origin": "human",
+   "label_status": "relabeled(was 興)",
+   "page": "67",
+   "ink_ratio": 0.2861,
+   "hw_ratio": 0.9935
+  },
+  {
+   "instance_id": "book9all:69:2:1",
+   "crop": "crops/book9all_69_2_1.png",
+   "char": "刊",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "69",
+   "ink_ratio": 0.1807,
+   "hw_ratio": 0.6914
+  },
+  {
+   "instance_id": "book9all:6:5:6",
+   "crop": "crops/book9all_6_5_6.png",
+   "char": "令",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "6",
+   "ink_ratio": 0.1992,
+   "hw_ratio": 0.933
+  },
+  {
+   "instance_id": "book9all:71:9:6",
+   "crop": "crops/book9all_71_9_6.png",
+   "char": "刊",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "71",
+   "ink_ratio": 0.1716,
+   "hw_ratio": 0.7217
+  },
+  {
+   "instance_id": "book9all:75:1:6",
+   "crop": "crops/book9all_75_1_6.png",
+   "char": "盧",
+   "label_origin": "human",
+   "label_status": "relabeled(was 書)",
+   "page": "75",
+   "ink_ratio": 0.3597,
+   "hw_ratio": 0.9121
+  },
+  {
+   "instance_id": "book9all:75:3:16",
+   "crop": "crops/book9all_75_3_16.png",
+   "char": "誤",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "75",
+   "ink_ratio": 0.2382,
+   "hw_ratio": 0.9121
+  },
+  {
+   "instance_id": "book9all:77:2:1",
+   "crop": "crops/book9all_77_2_1.png",
+   "char": "臺",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "77",
+   "ink_ratio": 0.3079,
+   "hw_ratio": 0.672
+  },
+  {
+   "instance_id": "book9all:7:5:12",
+   "crop": "crops/book9all_7_5_12.png",
+   "char": "體",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "7",
+   "ink_ratio": 0.2382,
+   "hw_ratio": 0.6493
+  },
+  {
+   "instance_id": "book9all:84:9:8",
+   "crop": "crops/book9all_84_9_8.png",
+   "char": "誤",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "84",
+   "ink_ratio": 0.3105,
+   "hw_ratio": 1.0107
+  },
+  {
+   "instance_id": "book9all:85:9:3",
+   "crop": "crops/book9all_85_9_3.png",
+   "char": "千",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "85",
+   "ink_ratio": 0.1495,
+   "hw_ratio": 0.9659
+  },
+  {
+   "instance_id": "book9all:91:6:16",
+   "crop": "crops/book9all_91_6_16.png",
+   "char": "郎",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "91",
+   "ink_ratio": 0.1931,
+   "hw_ratio": 0.7217
+  },
+  {
+   "instance_id": "book9all:98:6:5",
+   "crop": "crops/book9all_98_6_5.png",
+   "char": "林",
+   "label_origin": "human",
+   "label_status": "relabeled(was 識)",
+   "page": "98",
+   "ink_ratio": 0.2216,
+   "hw_ratio": 0.7973
+  },
+  {
+   "instance_id": "book9all:9:9:14",
+   "crop": "crops/book9all_9_9_14.png",
+   "char": "倫",
+   "label_origin": "human",
+   "label_status": "propagated+reviewed",
+   "page": "9",
+   "ink_ratio": 0.2834,
+   "hw_ratio": 0.9672
+  }
+ ],
+ "hard_pairs": [
+  {
+   "a": "book9all:104:5:18",
+   "b": "book9all:131:9:20",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:105:7:16",
+   "b": "book9all:106:4:16",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:105:7:16",
+   "b": "book9all:91:6:16",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:106:4:16",
+   "b": "book9all:91:6:16",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:10:2:15",
+   "b": "book9all:41:2:6",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:10:5:17",
+   "b": "book9all:150:9:7",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:12:6:15",
+   "b": "book9all:133:5:3",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:12:6:15",
+   "b": "book9all:135:3:4",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:12:6:15",
+   "b": "book9all:137:7:18",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:12:6:15",
+   "b": "book9all:151:2:14",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:12:6:15",
+   "b": "book9all:4:9:6",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:12:6:15",
+   "b": "book9all:63:8:7",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:134:7:11",
+   "b": "book9all:137:1:8",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:134:7:11",
+   "b": "book9all:137:2:11",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:134:7:11",
+   "b": "book9all:137:4:9",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:134:7:11",
+   "b": "book9all:137:5:16",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:134:7:11",
+   "b": "book9all:138:1:17",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:134:7:11",
+   "b": "book9all:142:9:7",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:137:1:11",
+   "b": "book9all:137:2:10",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:137:2:10",
+   "b": "book9all:149:3:2",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:137:2:10",
+   "b": "book9all:171:9:3",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:137:2:10",
+   "b": "book9all:172:1:3",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:137:2:10",
+   "b": "book9all:42:9:4",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:137:2:10",
+   "b": "book9all:52:9:3",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:145:5:12",
+   "b": "book9all:34:7:6",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:149:8:14",
+   "b": "book9all:151:1:4",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:149:8:14",
+   "b": "book9all:151:8:3",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:149:8:14",
+   "b": "book9all:153:7:12",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:149:8:14",
+   "b": "book9all:40:7:7",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:14:4:15",
+   "b": "book9all:58:1:2",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:151:1:4",
+   "b": "book9all:151:8:3",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:151:8:3",
+   "b": "book9all:153:7:12",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:201:5:2",
+   "b": "book9all:201:9:2",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:201:7:2",
+   "b": "book9all:201:9:2",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:201:9:2",
+   "b": "book9all:202:1:2",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:201:9:2",
+   "b": "book9all:202:3:2",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:201:9:2",
+   "b": "book9all:202:5:2",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:201:9:2",
+   "b": "book9all:202:7:2",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:23:6:19",
+   "b": "book9all:67:1:5",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:23:6:19",
+   "b": "book9all:77:2:1",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:23:8:15",
+   "b": "book9all:24:6:10",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:23:8:15",
+   "b": "book9all:29:5:15",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:23:8:15",
+   "b": "book9all:29:5:2",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:23:8:15",
+   "b": "book9all:30:1:8",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:23:8:15",
+   "b": "book9all:30:6:1",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:23:8:15",
+   "b": "book9all:30:7:4",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:34:8:12",
+   "b": "book9all:35:1:1",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:34:8:12",
+   "b": "book9all:40:2:4",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:34:8:12",
+   "b": "book9all:40:5:0",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:34:8:12",
+   "b": "book9all:43:5:19",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:34:8:12",
+   "b": "book9all:43:8:1",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:34:8:12",
+   "b": "book9all:49:3:20",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:47:5:4",
+   "b": "book9all:49:8:8",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:47:5:4",
+   "b": "book9all:53:1:6",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:49:8:8",
+   "b": "book9all:53:1:6",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:53:4:7",
+   "b": "book9all:7:5:12",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:54:8:3",
+   "b": "book9all:9:9:14",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:67:1:5",
+   "b": "book9all:77:2:1",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:69:2:1",
+   "b": "book9all:71:9:6",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  },
+  {
+   "a": "book9all:75:3:16",
+   "b": "book9all:84:9:8",
+   "relation": "same",
+   "origin": "human/confirm_same"
+  }
+ ],
+ "schema_version": 1
+}

@@ -1,0 +1,830 @@
+{
+ "mode": "frozen",
+ "shards": {
+  "001-vol01-body": {
+   "overall": {
+    "purity": 0.999,
+    "purity_num": 2998,
+    "purity_den": 3001,
+    "multi_instance_purity": 0.99148,
+    "multi_instance_num": 349,
+    "multi_instance_den": 352,
+    "fragmentation": 2.8615,
+    "n_clusters": 2790,
+    "n_gold_chars": 975,
+    "n_singletons": 2649,
+    "singleton_ratio": 0.9495,
+    "impure_clusters": [
+     {
+      "cluster_id": "c00001",
+      "size": 13,
+      "chars": {
+       "人": 12,
+       "入": 1
+      },
+      "n_wrong": 1
+     },
+     {
+      "cluster_id": "c00014",
+      "size": 3,
+      "chars": {
+       "太": 2,
+       "大": 1
+      },
+      "n_wrong": 1
+     },
+     {
+      "cluster_id": "c00108",
+      "size": 2,
+      "chars": {
+       "面": 1,
+       "而": 1
+      },
+      "n_wrong": 1
+     }
+    ]
+   },
+   "strata": {
+    "align_op=equal": {
+     "purity": 0.99891,
+     "purity_num": 2751,
+     "purity_den": 2754,
+     "multi_instance_purity": 0.99143,
+     "multi_instance_num": 347,
+     "multi_instance_den": 350,
+     "fragmentation": 2.9894,
+     "n_clusters": 2544,
+     "n_gold_chars": 851,
+     "n_singletons": 2404,
+     "singleton_ratio": 0.945,
+     "impure_clusters": [
+      {
+       "cluster_id": "c00001",
+       "size": 13,
+       "chars": {
+        "人": 12,
+        "入": 1
+       },
+       "n_wrong": 1
+      },
+      {
+       "cluster_id": "c00014",
+       "size": 3,
+       "chars": {
+        "太": 2,
+        "大": 1
+       },
+       "n_wrong": 1
+      },
+      {
+       "cluster_id": "c00108",
+       "size": 2,
+       "chars": {
+        "面": 1,
+        "而": 1
+       },
+       "n_wrong": 1
+      }
+     ]
+    },
+    "align_op=replace": {
+     "purity": 1.0,
+     "purity_num": 247,
+     "purity_den": 247,
+     "multi_instance_purity": 1.0,
+     "multi_instance_num": 2,
+     "multi_instance_den": 2,
+     "fragmentation": 1.4386,
+     "n_clusters": 246,
+     "n_gold_chars": 171,
+     "n_singletons": 245,
+     "singleton_ratio": 0.9959,
+     "impure_clusters": []
+    },
+    "label_origin=align": {
+     "purity": 0.999,
+     "purity_num": 2998,
+     "purity_den": 3001,
+     "multi_instance_purity": 0.99148,
+     "multi_instance_num": 349,
+     "multi_instance_den": 352,
+     "fragmentation": 2.8615,
+     "n_clusters": 2790,
+     "n_gold_chars": 975,
+     "n_singletons": 2649,
+     "singleton_ratio": 0.9495,
+     "impure_clusters": [
+      {
+       "cluster_id": "c00001",
+       "size": 13,
+       "chars": {
+        "人": 12,
+        "入": 1
+       },
+       "n_wrong": 1
+      },
+      {
+       "cluster_id": "c00014",
+       "size": 3,
+       "chars": {
+        "太": 2,
+        "大": 1
+       },
+       "n_wrong": 1
+      },
+      {
+       "cluster_id": "c00108",
+       "size": 2,
+       "chars": {
+        "面": 1,
+        "而": 1
+       },
+       "n_wrong": 1
+      }
+     ]
+    }
+   },
+   "hard_pairs": {
+    "overall": {
+     "n": 79,
+     "correct": 39,
+     "accuracy": 0.4937
+    },
+    "by_group": {
+     "diff/align/confusion": {
+      "n": 39,
+      "correct": 39,
+      "accuracy": 1.0
+     },
+     "same/align/ink_extreme": {
+      "n": 40,
+      "correct": 0,
+      "accuracy": 0.0
+     }
+    },
+    "n_missing_instances": 0,
+    "failures": [
+     {
+      "a": "vol01:16:5:1",
+      "b": "vol01:143:1:4",
+      "relation": "same",
+      "origin": "align/ink_extreme",
+      "note": "書 墨色 0.146→0.310"
+     },
+     {
+      "a": "vol01:20:3:2",
+      "b": "vol01:155:9:6",
+      "relation": "same",
+      "origin": "align/ink_extreme",
+      "note": "繁 墨色 0.160→0.297"
+     },
+     {
+      "a": "vol01:20:5:3",
+      "b": "vol01:10:9:3",
+      "relation": "same",
+      "origin": "align/ink_extreme",
+      "note": "著 墨色 0.138→0.269"
+     },
+     {
+      "a": "vol01:55:5:3",
+      "b": "vol01:10:6:2",
+      "relation": "same",
+      "origin": "align/ink_extreme",
+      "note": "義 墨色 0.177→0.297"
+     },
+     {
+      "a": "vol01:16:9:8",
+      "b": "vol01:10:7:2",
+      "relation": "same",
+      "origin": "align/ink_extreme",
+      "note": "爲 墨色 0.117→0.236"
+     },
+     {
+      "a": "vol01:15:8:13",
+      "b": "vol01:32:9:20",
+      "relation": "same",
+      "origin": "align/ink_extreme",
+      "note": "有 墨色 0.119→0.236"
+     },
+     {
+      "a": "vol01:20:8:16",
+      "b": "vol01:10:5:5",
+      "relation": "same",
+      "origin": "align/ink_extreme",
+      "note": "典 墨色 0.134→0.248"
+     },
+     {
+      "a": "vol01:55:3:14",
+      "b": "vol01:79:4:1",
+      "relation": "same",
+      "origin": "align/ink_extreme",
+      "note": "斷 墨色 0.147→0.259"
+     },
+     {
+      "a": "vol01:20:9:14",
+      "b": "vol01:10:7:1",
+      "relation": "same",
+      "origin": "align/ink_extreme",
+      "note": "集 墨色 0.184→0.290"
+     },
+     {
+      "a": "vol01:20:2:9",
+      "b": "vol01:10:8:3",
+      "relation": "same",
+      "origin": "align/ink_extreme",
+      "note": "若 墨色 0.140→0.244"
+     },
+     {
+      "a": "vol01:20:2:19",
+      "b": "vol01:155:9:3",
+      "relation": "same",
+      "origin": "align/ink_extreme",
+      "note": "篇 墨色 0.188→0.292"
+     },
+     {
+      "a": "vol01:55:1:17",
+      "b": "vol01:10:5:7",
+      "relation": "same",
+      "origin": "align/ink_extreme",
+      "note": "經 墨色 0.147→0.251"
+     },
+     {
+      "a": "vol01:15:5:18",
+      "b": "vol01:32:6:20",
+      "relation": "same",
+      "origin": "align/ink_extreme",
+      "note": "及 墨色 0.114→0.216"
+     },
+     {
+      "a": "vol01:20:4:7",
+      "b": "vol01:10:8:2",
+      "relation": "same",
+      "origin": "align/ink_extreme",
+      "note": "海 墨色 0.148→0.250"
+     },
+     {
+      "a": "vol01:20:9:8",
+      "b": "vol01:24:8:20",
+      "relation": "same",
+      "origin": "align/ink_extreme",
+      "note": "內 墨色 0.102→0.204"
+     },
+     {
+      "a": "vol01:16:8:5",
+      "b": "vol01:10:8:18",
+      "relation": "same",
+      "origin": "align/ink_extreme",
+      "note": "藏 墨色 0.160→0.261"
+     },
+     {
+      "a": "vol01:16:5:17",
+      "b": "vol01:155:9:2",
+      "relation": "same",
+      "origin": "align/ink_extreme",
+      "note": "益 墨色 0.157→0.257"
+     },
+     {
+      "a": "vol01:20:1:12",
+      "b": "vol01:10:2:2",
+      "relation": "same",
+      "origin": "align/ink_extreme",
+      "note": "於 墨色 0.106→0.207"
+     },
+     {
+      "a": "vol01:15:9:7",
+      "b": "vol01:32:9:15",
+      "relation": "same",
+      "origin": "align/ink_extreme",
+      "note": "應 墨色 0.144→0.243"
+     },
+     {
+      "a": "vol01:16:7:10",
+      "b": "vol01:53:2:2",
+      "relation": "same",
+      "origin": "align/ink_extreme",
+      "note": "四 墨色 0.112→0.211"
+     }
+    ]
+   },
+   "params": {
+    "feature": "hog",
+    "theta_high": 0.8,
+    "theta_low": 0.62,
+    "diff_blob_ratio": 0.06,
+    "knn_k": 10,
+    "cross_check_k": 3,
+    "n_reps": 5,
+    "seed": 7
+   },
+   "pipeline_version_at_build": "23ee9a518"
+  },
+  "002-vol02-body": {
+   "overall": {
+    "purity": 0.99903,
+    "purity_num": 3102,
+    "purity_den": 3105,
+    "multi_instance_purity": 0.99438,
+    "multi_instance_num": 531,
+    "multi_instance_den": 534,
+    "fragmentation": 3.712,
+    "n_clusters": 2758,
+    "n_gold_chars": 743,
+    "n_singletons": 2571,
+    "singleton_ratio": 0.9322,
+    "impure_clusters": [
+     {
+      "cluster_id": "c00003",
+      "size": 10,
+      "chars": {
+       "大": 9,
+       "太": 1
+      },
+      "n_wrong": 1
+     },
+     {
+      "cluster_id": "c00017",
+      "size": 4,
+      "chars": {
+       "未": 3,
+       "末": 1
+      },
+      "n_wrong": 1
+     },
+     {
+      "cluster_id": "c00171",
+      "size": 2,
+      "chars": {
+       "夬": 1,
+       "夫": 1
+      },
+      "n_wrong": 1
+     }
+    ]
+   },
+   "strata": {
+    "align_op=equal": {
+     "purity": 0.9993,
+     "purity_num": 2872,
+     "purity_den": 2874,
+     "multi_instance_purity": 0.9962,
+     "multi_instance_num": 524,
+     "multi_instance_den": 526,
+     "fragmentation": 3.8598,
+     "n_clusters": 2532,
+     "n_gold_chars": 656,
+     "n_singletons": 2348,
+     "singleton_ratio": 0.9273,
+     "impure_clusters": [
+      {
+       "cluster_id": "c00003",
+       "size": 10,
+       "chars": {
+        "大": 9,
+        "太": 1
+       },
+       "n_wrong": 1
+      },
+      {
+       "cluster_id": "c00017",
+       "size": 4,
+       "chars": {
+        "未": 3,
+        "末": 1
+       },
+       "n_wrong": 1
+      }
+     ]
+    },
+    "align_op=replace": {
+     "purity": 1.0,
+     "purity_num": 231,
+     "purity_den": 231,
+     "multi_instance_purity": 0.0,
+     "multi_instance_num": 0,
+     "multi_instance_den": 0,
+     "fragmentation": 1.65,
+     "n_clusters": 231,
+     "n_gold_chars": 140,
+     "n_singletons": 231,
+     "singleton_ratio": 1.0,
+     "impure_clusters": []
+    },
+    "label_origin=align": {
+     "purity": 0.99903,
+     "purity_num": 3102,
+     "purity_den": 3105,
+     "multi_instance_purity": 0.99438,
+     "multi_instance_num": 531,
+     "multi_instance_den": 534,
+     "fragmentation": 3.712,
+     "n_clusters": 2758,
+     "n_gold_chars": 743,
+     "n_singletons": 2571,
+     "singleton_ratio": 0.9322,
+     "impure_clusters": [
+      {
+       "cluster_id": "c00003",
+       "size": 10,
+       "chars": {
+        "大": 9,
+        "太": 1
+       },
+       "n_wrong": 1
+      },
+      {
+       "cluster_id": "c00017",
+       "size": 4,
+       "chars": {
+        "未": 3,
+        "末": 1
+       },
+       "n_wrong": 1
+      },
+      {
+       "cluster_id": "c00171",
+       "size": 2,
+       "chars": {
+        "夬": 1,
+        "夫": 1
+       },
+       "n_wrong": 1
+      }
+     ]
+    }
+   },
+   "hard_pairs": {
+    "overall": {
+     "n": 80,
+     "correct": 40,
+     "accuracy": 0.5
+    },
+    "by_group": {
+     "diff/align/confusion": {
+      "n": 40,
+      "correct": 40,
+      "accuracy": 1.0
+     },
+     "same/align/ink_extreme": {
+      "n": 40,
+      "correct": 0,
+      "accuracy": 0.0
+     }
+    },
+    "n_missing_instances": 0,
+    "failures": [
+     {
+      "a": "vol02:72:5:11",
+      "b": "vol02:5:3:2",
+      "relation": "same",
+      "origin": "align/ink_extreme",
+      "note": "之 墨色 0.090→0.266"
+     },
+     {
+      "a": "vol02:25:1:10",
+      "b": "vol02:5:2:16",
+      "relation": "same",
+      "origin": "align/ink_extreme",
+      "note": "如 墨色 0.133→0.304"
+     },
+     {
+      "a": "vol02:56:8:9",
+      "b": "vol02:5:2:18",
+      "relation": "same",
+      "origin": "align/ink_extreme",
+      "note": "字 墨色 0.112→0.261"
+     },
+     {
+      "a": "vol02:56:7:4",
+      "b": "vol02:5:2:17",
+      "relation": "same",
+      "origin": "align/ink_extreme",
+      "note": "一 墨色 0.031→0.177"
+     },
+     {
+      "a": "vol02:56:3:3",
+      "b": "vol02:130:6:0",
+      "relation": "same",
+      "origin": "align/ink_extreme",
+      "note": "易 墨色 0.149→0.293"
+     },
+     {
+      "a": "vol02:71:1:14",
+      "b": "vol02:93:7:20",
+      "relation": "same",
+      "origin": "align/ink_extreme",
+      "note": "成 墨色 0.131→0.274"
+     },
+     {
+      "a": "vol02:56:7:1",
+      "b": "vol02:125:9:5",
+      "relation": "same",
+      "origin": "align/ink_extreme",
+      "note": "學 墨色 0.126→0.267"
+     },
+     {
+      "a": "vol02:56:9:16",
+      "b": "vol02:8:7:2",
+      "relation": "same",
+      "origin": "align/ink_extreme",
+      "note": "傳 墨色 0.165→0.301"
+     },
+     {
+      "a": "vol02:25:7:8",
+      "b": "vol02:93:7:19",
+      "relation": "same",
+      "origin": "align/ink_extreme",
+      "note": "而 墨色 0.110→0.245"
+     },
+     {
+      "a": "vol02:56:9:2",
+      "b": "vol02:125:9:10",
+      "relation": "same",
+      "origin": "align/ink_extreme",
+      "note": "至 墨色 0.121→0.251"
+     },
+     {
+      "a": "vol02:8:5:8",
+      "b": "vol02:93:3:20",
+      "relation": "same",
+      "origin": "align/ink_extreme",
+      "note": "年 墨色 0.110→0.237"
+     },
+     {
+      "a": "vol02:56:9:9",
+      "b": "vol02:8:9:6",
+      "relation": "same",
+      "origin": "align/ink_extreme",
+      "note": "事 墨色 0.162→0.287"
+     },
+     {
+      "a": "vol02:56:8:19",
+      "b": "vol02:122:2:16",
+      "relation": "same",
+      "origin": "align/ink_extreme",
+      "note": "後 墨色 0.137→0.262"
+     },
+     {
+      "a": "vol02:72:3:6",
+      "b": "vol02:122:1:20",
+      "relation": "same",
+      "origin": "align/ink_extreme",
+      "note": "進 墨色 0.174→0.298"
+     },
+     {
+      "a": "vol02:56:6:3",
+      "b": "vol02:125:7:7",
+      "relation": "same",
+      "origin": "align/ink_extreme",
+      "note": "本 墨色 0.120→0.244"
+     },
+     {
+      "a": "vol02:71:2:17",
+      "b": "vol02:125:9:2",
+      "relation": "same",
+      "origin": "align/ink_extreme",
+      "note": "復 墨色 0.162→0.285"
+     },
+     {
+      "a": "vol02:71:1:16",
+      "b": "vol02:93:9:9",
+      "relation": "same",
+      "origin": "align/ink_extreme",
+      "note": "原 墨色 0.127→0.250"
+     },
+     {
+      "a": "vol02:71:9:5",
+      "b": "vol02:93:2:3",
+      "relation": "same",
+      "origin": "align/ink_extreme",
+      "note": "卷 墨色 0.155→0.277"
+     },
+     {
+      "a": "vol02:71:9:7",
+      "b": "vol02:93:8:10",
+      "relation": "same",
+      "origin": "align/ink_extreme",
+      "note": "其 墨色 0.107→0.226"
+     },
+     {
+      "a": "vol02:62:5:11",
+      "b": "vol02:93:8:19",
+      "relation": "same",
+      "origin": "align/ink_extreme",
+      "note": "參 墨色 0.174→0.292"
+     }
+    ]
+   },
+   "params": {
+    "feature": "hog",
+    "theta_high": 0.8,
+    "theta_low": 0.62,
+    "diff_blob_ratio": 0.06,
+    "knn_k": 10,
+    "cross_check_k": 3,
+    "n_reps": 5,
+    "seed": 7
+   },
+   "pipeline_version_at_build": "23ee9a518"
+  },
+  "003-book9all-human": {
+   "overall": {
+    "purity": 1.0,
+    "purity_num": 91,
+    "purity_den": 91,
+    "multi_instance_purity": 1.0,
+    "multi_instance_num": 26,
+    "multi_instance_den": 26,
+    "fragmentation": 3.2083,
+    "n_clusters": 77,
+    "n_gold_chars": 24,
+    "n_singletons": 65,
+    "singleton_ratio": 0.8442,
+    "impure_clusters": []
+   },
+   "strata": {
+    "label_origin=human": {
+     "purity": 1.0,
+     "purity_num": 91,
+     "purity_den": 91,
+     "multi_instance_purity": 1.0,
+     "multi_instance_num": 26,
+     "multi_instance_den": 26,
+     "fragmentation": 3.2083,
+     "n_clusters": 77,
+     "n_gold_chars": 24,
+     "n_singletons": 65,
+     "singleton_ratio": 0.8442,
+     "impure_clusters": []
+    }
+   },
+   "hard_pairs": {
+    "overall": {
+     "n": 60,
+     "correct": 9,
+     "accuracy": 0.15
+    },
+    "by_group": {
+     "same/human/confirm_same": {
+      "n": 60,
+      "correct": 9,
+      "accuracy": 0.15
+     }
+    },
+    "n_missing_instances": 0,
+    "failures": [
+     {
+      "a": "book9all:104:5:18",
+      "b": "book9all:131:9:20",
+      "relation": "same",
+      "origin": "human/confirm_same",
+      "note": null
+     },
+     {
+      "a": "book9all:105:7:16",
+      "b": "book9all:106:4:16",
+      "relation": "same",
+      "origin": "human/confirm_same",
+      "note": null
+     },
+     {
+      "a": "book9all:105:7:16",
+      "b": "book9all:91:6:16",
+      "relation": "same",
+      "origin": "human/confirm_same",
+      "note": null
+     },
+     {
+      "a": "book9all:106:4:16",
+      "b": "book9all:91:6:16",
+      "relation": "same",
+      "origin": "human/confirm_same",
+      "note": null
+     },
+     {
+      "a": "book9all:10:2:15",
+      "b": "book9all:41:2:6",
+      "relation": "same",
+      "origin": "human/confirm_same",
+      "note": null
+     },
+     {
+      "a": "book9all:10:5:17",
+      "b": "book9all:150:9:7",
+      "relation": "same",
+      "origin": "human/confirm_same",
+      "note": null
+     },
+     {
+      "a": "book9all:12:6:15",
+      "b": "book9all:135:3:4",
+      "relation": "same",
+      "origin": "human/confirm_same",
+      "note": null
+     },
+     {
+      "a": "book9all:12:6:15",
+      "b": "book9all:151:2:14",
+      "relation": "same",
+      "origin": "human/confirm_same",
+      "note": null
+     },
+     {
+      "a": "book9all:12:6:15",
+      "b": "book9all:4:9:6",
+      "relation": "same",
+      "origin": "human/confirm_same",
+      "note": null
+     },
+     {
+      "a": "book9all:12:6:15",
+      "b": "book9all:63:8:7",
+      "relation": "same",
+      "origin": "human/confirm_same",
+      "note": null
+     },
+     {
+      "a": "book9all:134:7:11",
+      "b": "book9all:137:1:8",
+      "relation": "same",
+      "origin": "human/confirm_same",
+      "note": null
+     },
+     {
+      "a": "book9all:134:7:11",
+      "b": "book9all:137:2:11",
+      "relation": "same",
+      "origin": "human/confirm_same",
+      "note": null
+     },
+     {
+      "a": "book9all:134:7:11",
+      "b": "book9all:137:4:9",
+      "relation": "same",
+      "origin": "human/confirm_same",
+      "note": null
+     },
+     {
+      "a": "book9all:134:7:11",
+      "b": "book9all:137:5:16",
+      "relation": "same",
+      "origin": "human/confirm_same",
+      "note": null
+     },
+     {
+      "a": "book9all:134:7:11",
+      "b": "book9all:138:1:17",
+      "relation": "same",
+      "origin": "human/confirm_same",
+      "note": null
+     },
+     {
+      "a": "book9all:134:7:11",
+      "b": "book9all:142:9:7",
+      "relation": "same",
+      "origin": "human/confirm_same",
+      "note": null
+     },
+     {
+      "a": "book9all:137:1:11",
+      "b": "book9all:137:2:10",
+      "relation": "same",
+      "origin": "human/confirm_same",
+      "note": null
+     },
+     {
+      "a": "book9all:137:2:10",
+      "b": "book9all:171:9:3",
+      "relation": "same",
+      "origin": "human/confirm_same",
+      "note": null
+     },
+     {
+      "a": "book9all:137:2:10",
+      "b": "book9all:172:1:3",
+      "relation": "same",
+      "origin": "human/confirm_same",
+      "note": null
+     },
+     {
+      "a": "book9all:137:2:10",
+      "b": "book9all:42:9:4",
+      "relation": "same",
+      "origin": "human/confirm_same",
+      "note": null
+     }
+    ]
+   },
+   "params": {
+    "feature": "hog",
+    "theta_high": 0.8,
+    "theta_low": 0.62,
+    "diff_blob_ratio": 0.06,
+    "knn_k": 10,
+    "cross_check_k": 3,
+    "n_reps": 5,
+    "seed": 7
+   },
+   "pipeline_version_at_build": "23ee9a518"
+  }
+ }
+}

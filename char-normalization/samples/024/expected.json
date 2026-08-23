@@ -1,0 +1,34 @@
+{
+ "source_item": "06061300.cn",
+ "pipeline_version": "23ee9a518",
+ "label_origin": "human",
+ "instance_id": "vol02:27:1:18",
+ "book": "vol02",
+ "input": "input.png",
+ "golden": "golden.png",
+ "golden_skeleton": "golden_skeleton.png",
+ "tolerance": {
+  "pixel_diff_ratio": 0.01,
+  "binary_iou_min": 0.98,
+  "skeleton_endpoint_delta_max": 2
+ },
+ "cover": [
+  "border_residue"
+ ],
+ "char": "兼",
+ "status": "known_defect",
+ "sampling_cue": "border_residue",
+ "extractor_flags": [
+  "rule_bar",
+  "wide_gap"
+ ],
+ "ink_ratio": 0.2607,
+ "norm_params": {
+  "size": 64,
+  "margin_ratio": 0.12,
+  "noise_area": 6,
+  "stroke_width": 3
+ },
+ "schema_version": 1,
+ "defect": "界行竖线没去掉。实测这条竖条 x=133 w=6 h=123/132（高占 93%），但左右都不贴边（x+bw=139 < 146）——remove_edge_specks 的 vline 判据要求 `x==0 or x+bw>=w`，内缩 7px 就整条漏网，归一图里它成了独立的一竖，外接框被撑宽、字被压窄。"
+}

@@ -1,0 +1,28 @@
+{
+ "source_item": "06061300.cn",
+ "pipeline_version": "23ee9a518",
+ "label_origin": "human",
+ "instance_id": "vol01:59:6:5",
+ "book": "vol01",
+ "input": "input.png",
+ "golden": "golden.png",
+ "golden_skeleton": "golden_skeleton.png",
+ "tolerance": {
+  "pixel_diff_ratio": 0.01,
+  "binary_iou_min": 0.98,
+  "skeleton_endpoint_delta_max": 2
+ },
+ "cover": [],
+ "char": "庫",
+ "status": "verified",
+ "sampling_cue": "typical",
+ "extractor_flags": [],
+ "ink_ratio": 0.1742,
+ "norm_params": {
+  "size": 64,
+  "margin_ratio": 0.12,
+  "noise_area": 6,
+  "stroke_width": 3
+ },
+ "schema_version": 1
+}
