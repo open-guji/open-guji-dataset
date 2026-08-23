@@ -102,7 +102,21 @@ glyph_store 的 94 个 propagated 标签逐张目视，**8 个改标、3 个丢�
 | `same` | **同字实例的墨色两极**（`ink_ratio`，extractor 的量）| 切分阶段的量，与聚类无关 |
 | `same`（人工层）| 人工 `confirm_same` 事件 | 人工判断 |
 
-## 基线（2026-08-23，pipeline `23ee9a5`，θ_high=0.80 / hog）
+## 基线（2026-08-23，pipeline `23ee9a5`，**coverage 判据** (cov≥0.992, wmax≤12) / hog）
+
+| 分片 | purity | 多实例簇 purity | 碎片率 | 单例率 | `diff` 对 | `cluster_leak` 对 | `same` 对 |
+|---|---|---|---|---|---|---|---|
+| 001-vol01-body | **0.99900** (2998/3001) | 0.99348 | 2.80 | 93.0% | 39/39 | 15/16* | 0/40 |
+| 002-vol02-body | **1.00000** (3105/3105) | 1.00000 | 3.58 | 89.2% | 40/40 | 7/7 | 0/40 |
+| 003-book9all-human | **1.00000** (91/91) | 1.00000 | 2.92 | 77.1% | — | — | 10/60 |
+
+*那 1 条失败是 v1 基线就存在的 人/入 错并，留作靶子。
+
+coverage 判据的由来、被否掉的四条路（自适应半径/骨架/墨芯/部件否决）、
+以及 unsure 带全审可把碎片率压到 1.06~1.17 的量化，见
+[`open-guji-cv/.claude/doc/g3g4_error_analysis.md`](https://github.com/open-guji/open-guji-cv/blob/main/.claude/doc/g3g4_error_analysis.md)。
+
+### 历史基线（overlap 判据 θ_high=0.80，2026-08-23 上午）
 
 | 分片 | purity | 多实例簇 purity | 簇数/字类 = 碎片率 | 单例率 | `diff` 对 | `same` 对 |
 |---|---|---|---|---|---|---|
@@ -134,7 +148,7 @@ glyph_store 的 94 个 propagated 标签逐张目视，**8 个改标、3 个丢�
 - `same` 难例对 0/40：墨色两极的同字对一对都没并上。着墨浓淡是刻本同字
   差异的第一大来源，笔宽归一（3a）现在扛不住它。这是 3a 的待办，不是 3b 的。
 
-### θ_high 扫描：0.80 是唯一守得住硬约束的档
+### θ_high 扫描（overlap 判据）：0.80 是唯一守得住硬约束的档
 
 | θ | vol01 purity | vol01 碎片率 | vol02 purity | vol02 碎片率 |
 |---|---|---|---|---|

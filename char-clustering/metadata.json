@@ -1,6 +1,6 @@
 {
  "name": "char-clustering-benchmark",
- "version": "0.3.0",
+ "version": "0.4.0",
  "schema_version": 1,
  "description": "保守聚类（同字合并）purity Benchmark 数据集",
  "created": "2026-08-21",
@@ -120,89 +120,136 @@
  },
  "baseline": {
   "measured_on": "2026-08-23",
-  "pipeline_version": "23ee9a5",
+  "pipeline_version": "23ee9a5（冻结分片）",
   "params": {
    "feature": "hog",
-   "theta_high": 0.8,
-   "knn_k": 10,
-   "cross_check_k": 3
+   "verify_method": "coverage",
+   "cov_high": 0.992,
+   "miss_wmax": 12
   },
   "001-vol01-body": {
    "purity": 0.999,
    "purity_num": 2998,
    "purity_den": 3001,
-   "multi_instance_purity": 0.99148,
-   "fragmentation": 2.86,
-   "singleton_ratio": 0.9495,
+   "multi_instance_purity": 0.99348,
+   "fragmentation": 2.8,
+   "singleton_ratio": 0.93,
    "hard_diff": "39/39",
+   "hard_leak": "15/16",
    "hard_same": "0/40"
   },
   "002-vol02-body": {
-   "purity": 0.99903,
-   "purity_num": 3102,
+   "purity": 1.0,
+   "purity_num": 3105,
    "purity_den": 3105,
-   "multi_instance_purity": 0.99438,
-   "fragmentation": 3.71,
-   "singleton_ratio": 0.9322,
+   "multi_instance_purity": 1.0,
+   "fragmentation": 3.58,
+   "singleton_ratio": 0.892,
    "hard_diff": "40/40",
+   "hard_leak": "7/7",
    "hard_same": "0/40"
   },
   "003-book9all-human": {
    "purity": 1.0,
    "purity_num": 91,
    "purity_den": 91,
-   "fragmentation": 3.21,
-   "singleton_ratio": 0.8442,
-   "hard_same": "9/60"
+   "fragmentation": 2.92,
+   "singleton_ratio": 0.771,
+   "hard_same": "10/60"
   },
-  "note": "脏簇全是形近字（人/入、大/太、未/末、面/而、夬/夫）。θ_high 扫描见 README：0.80 是唯一守得住 purity>=0.999 的档",
-  "by_tier": {
-   "001-vol01-body": {
-    "clean": {
-     "purity": 0.99895,
-     "num": 2848,
-     "den": 2851,
-     "frag": 2.77
-    },
-    "degraded": {
-     "purity": 1.0,
-     "num": 150,
-     "den": 150,
-     "frag": 1.24
-    }
-   },
-   "002-vol02-body": {
-    "clean": {
-     "purity": 0.99892,
-     "num": 2767,
-     "den": 2770,
-     "frag": 3.48
-    },
-    "degraded": {
-     "purity": 1.0,
-     "num": 335,
-     "den": 335,
-     "frag": 1.55
-    }
-   },
-   "003-book9all-human": {
-    "clean": {
-     "purity": 1.0,
-     "num": 49,
-     "den": 49,
-     "frag": 2.33
-    },
-    "degraded": {
-     "purity": 1.0,
-     "num": 42,
-     "den": 42,
-     "frag": 1.81
-    }
-   },
-   "note": "退化层全单例化 purity=1.0 是保守行为不是成绩；3 处混簇全在 clean 层且全是形近字"
-  }
+  "note": "coverage 判据（有界位移覆盖率+窗口残差）对 overlap 全面 never-make-worse；unsure 带同字边全审可把碎片率压到 1.06/1.17/1.00（open-guji-cv g3g4_error_analysis.md §2.5）"
  },
- "baseline_history": [],
+ "baseline_history": [
+  {
+   "date": "2026-08-23",
+   "label": "overlap θ=0.80",
+   "baseline": {
+    "measured_on": "2026-08-23",
+    "pipeline_version": "23ee9a5",
+    "params": {
+     "feature": "hog",
+     "theta_high": 0.8,
+     "knn_k": 10,
+     "cross_check_k": 3
+    },
+    "001-vol01-body": {
+     "purity": 0.999,
+     "purity_num": 2998,
+     "purity_den": 3001,
+     "multi_instance_purity": 0.99148,
+     "fragmentation": 2.86,
+     "singleton_ratio": 0.9495,
+     "hard_diff": "39/39",
+     "hard_same": "0/40"
+    },
+    "002-vol02-body": {
+     "purity": 0.99903,
+     "purity_num": 3102,
+     "purity_den": 3105,
+     "multi_instance_purity": 0.99438,
+     "fragmentation": 3.71,
+     "singleton_ratio": 0.9322,
+     "hard_diff": "40/40",
+     "hard_same": "0/40"
+    },
+    "003-book9all-human": {
+     "purity": 1.0,
+     "purity_num": 91,
+     "purity_den": 91,
+     "fragmentation": 3.21,
+     "singleton_ratio": 0.8442,
+     "hard_same": "9/60"
+    },
+    "note": "脏簇全是形近字（人/入、大/太、未/末、面/而、夬/夫）。θ_high 扫描见 README：0.80 是唯一守得住 purity>=0.999 的档",
+    "by_tier": {
+     "001-vol01-body": {
+      "clean": {
+       "purity": 0.99895,
+       "num": 2848,
+       "den": 2851,
+       "frag": 2.77
+      },
+      "degraded": {
+       "purity": 1.0,
+       "num": 150,
+       "den": 150,
+       "frag": 1.24
+      }
+     },
+     "002-vol02-body": {
+      "clean": {
+       "purity": 0.99892,
+       "num": 2767,
+       "den": 2770,
+       "frag": 3.48
+      },
+      "degraded": {
+       "purity": 1.0,
+       "num": 335,
+       "den": 335,
+       "frag": 1.55
+      }
+     },
+     "003-book9all-human": {
+      "clean": {
+       "purity": 1.0,
+       "num": 49,
+       "den": 49,
+       "frag": 2.33
+      },
+      "degraded": {
+       "purity": 1.0,
+       "num": 42,
+       "den": 42,
+       "frag": 1.81
+      }
+     },
+     "note": "退化层全单例化 purity=1.0 是保守行为不是成绩；3 处混簇全在 clean 层且全是形近字"
+    },
+    "note_history": "overlap 判据（θ=0.80）的首版基线"
+   }
+  }
+ ],
  "known_limitation": [
   "只覆盖能锚定的页，系统性偏向切分与转写都还行的页面，不是全书真实分布",
   "29 条人工 impure（diff）对全部丢失——反馈事件只导出了 confirm 的图块，impure 那些实例既无冻结图、编号又已漂。人工层现在一条硬负例都没有",
@@ -249,5 +296,11 @@
   "rev": "23ee9a518",
   "reason": "a435d7b 重跑了全部切分但 phase6 转写没重跑；格高一变 page:col:idx 指向的字就换了人（instances 第九轮实测），旧转写对新图块做对齐是系统性错标",
   "rebuild": "build 脚本 --pipeline-rev 自动从 git 取当版产物；迁到新切分的前置条件是在新 phase4 上重跑 label/refine"
+ },
+ "hard_pair_origins": {
+  "align/confusion": "转写混淆表",
+  "align/ink_extreme": "同字墨色两极",
+  "human/confirm_same": "人工确认",
+  "cluster_leak": "聚类实测漏网家族（14 族，coverage 宽松操作点下真实错并过）"
  }
 }
