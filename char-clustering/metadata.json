@@ -1,6 +1,6 @@
 {
  "name": "char-clustering-benchmark",
- "version": "0.5.0",
+ "version": "0.6.0",
  "schema_version": 1,
  "description": "保守聚类（同字合并）purity Benchmark 数据集",
  "created": "2026-08-21",
@@ -36,7 +36,7 @@
    "label_origin": "human",
    "n_instances": 91,
    "n_chars": 24,
-   "n_hard_pairs": 60
+   "n_hard_pairs": 65
   }
  ],
  "provenance_fields": [
@@ -348,5 +348,13 @@
   "align/ink_extreme": "同字墨色两极",
   "human/confirm_same": "人工确认",
   "cluster_leak": "聚类实测漏网家族（14 族，coverage 宽松操作点下真实错并过）"
- }
+ },
+ "updated": "2026-08-23",
+ "changelog": [
+  {
+   "version": "0.6.0",
+   "date": "2026-08-23",
+   "note": "P3 归一化修复轮：crops 用重写后的 remove_edge_specks 重生成（标签不变，实例数 3061/3025/91 不变）。vol02 的 一/二 错并消失（norm 层根因）。003 分片难例对 60→65：钉死 諭/論 对级漏网实锤两条（cluster_leak，151:8:3×40:2:4 cov=0.9987 穿透完美档）+ 家族生成 3 条。"
+  }
+ ]
 }

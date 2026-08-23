@@ -1,0 +1,38 @@
+{
+ "source_item": "06061300.cn",
+ "pipeline_version": "5f69cd9ed0",
+ "label_origin": "human",
+ "instance_id": "vol02:157:2:4",
+ "book": "vol02",
+ "input": "input.png",
+ "golden": "golden.png",
+ "golden_skeleton": "golden_skeleton.png",
+ "tolerance": {
+  "pixel_diff_ratio": 0.01,
+  "binary_iou_min": 0.98,
+  "skeleton_endpoint_delta_max": 2
+ },
+ "tier": "clean",
+ "tier_detail": {
+  "tier": "clean",
+  "truncated": false,
+  "residue": false,
+  "edge_ink_px": 2,
+  "n_foreign": 0,
+  "foreign_core_px": 0
+ },
+ "char": null,
+ "status": "verified",
+ "sampling_cue": "targeted",
+ "extractor_flags": [
+  "boundary_ink"
+ ],
+ "ink_ratio": 0.0717,
+ "norm_params": {
+  "size": 64,
+  "margin_ratio": 0.12,
+  "noise_area": 6,
+  "stroke_width": 3
+ },
+ "schema_version": 2
+}

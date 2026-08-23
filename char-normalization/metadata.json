@@ -1,13 +1,13 @@
 {
  "name": "char-normalization-benchmark",
- "version": "0.4.0",
+ "version": "0.5.0",
  "schema_version": 1,
  "description": "字块归一化（去残余 / 骨架化）golden 回归数据集",
  "created": "2026-08-21",
  "status": "可用",
  "eval_command": "cd open-guji-cv && python scripts/eval_normalize.py <dataset>",
  "eval_script": "open-guji-cv/scripts/eval_normalize.py",
- "total_samples": 30,
+ "total_samples": 37,
  "sample_unit": "字块",
  "sources": [
   {
@@ -37,6 +37,10 @@
   {
    "cue": "human_contaminated",
    "n": 4
+  },
+  {
+   "cue": "targeted",
+   "n": 7
   }
  ],
  "provenance_fields": [
@@ -190,5 +194,13 @@
    "clean": 0,
    "degraded": 4
   }
- }
+ },
+ "updated": "2026-08-23",
+ "changelog": [
+  {
+   "version": "0.5.0",
+   "date": "2026-08-23",
+   "note": "P3 归一化修复轮：remove_edge_specks 重写后重冻 golden。新增 targeted 线索 7 样本（101-107：二三之亦文一 + 实锤 vol02:157:2:4）；101 由 clean 层 P0 known_defect 转 verified（二的底横保住）；029/035 输出微变目视重验仍 verified；031/033/034/036 仍 known_defect（厚残留/连通残留，归切分层）。clean 层缺陷清零。"
+  }
+ ]
 }

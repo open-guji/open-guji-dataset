@@ -43,34 +43,39 @@ golden（那等于把缺陷焊死），改进 `known_defect` 层只记录行为�
 | tier | 线索 | 数量 | 说明 |
 |---|---|---|---|
 | clean | `typical` | 6 | 无 flag、ink_ratio 0.10~0.22、机器分级 clean |
-| clean | `ink_heavy` / `ink_light` | 5+6 | **墨迹像素平均灰度**两极（Otsu 分墨；`ink_ratio` 量到的是笔画数、最暗 15% 均值混进背景，都踩过坑）|
-| degraded | `residue` | 5 | 机器判残留，按核心区残留墨量降序 |
-| degraded | `truncated` | 5 | 机器判截断，按压边墨量降序 |
+| clean | `ink_heavy` / `ink_light` | 4+6 | **墨迹像素平均灰度**两极（Otsu 分墨；`ink_ratio` 量到的是笔画数、最暗 15% 均值混进背景，都踩过坑）|
+| degraded | `residue` | 4 | 机器判残留，按核心区残留墨量降序 |
+| degraded | `truncated` | 3 | 机器判截断，按压边墨量降序 |
 | degraded | `flagged` | 3 | extractor 确定层 flag（与 crop_quality 不同源的第二条线索）|
-| degraded | `human_contaminated` | 2 | instances 人工缺陷标签（最硬的线索）|
+| degraded | `human_contaminated` | 4 | instances 人工缺陷标签（最硬的线索）|
+| clean | `targeted` | 7 | **定向防护样本**（101~107）：二/三/之/亦/文/一 + 实锤实例 vol02:157:2:4——「删组件」类规则的误杀反例，改 `remove_edge_specks` 前后必须全绿 |
 
-## 基线（2026-08-23，pipeline 502fa04 = 逐带围栏切分）
+## 基线（2026-08-23 晚，pipeline 502fa04 + P3 归一化修复）
 
 ```
-回归门：26/26 通过
-  [clean]    17 样本：verified 17  known_defect 0
+回归门：33/33 通过
+  [clean]    24 样本：verified 24  known_defect 0
   [degraded] 13 样本：verified 9   known_defect 4
 已知缺陷层：4/4 行为未变
 ```
 
-四个已知缺陷（全在退化层，三轮切分版本下**同一个根因**：
-`remove_edge_specks` 只删贴边组件，残留不贴边就够不着）：
+**P3 修复记录**：`remove_edge_specks` 重写（贴边 + shallow_tb 判据废除，
+换成 细线位置无关删除 + padding 带碎屑删除 + 最大组件护栏）。此前的
+clean 层 P0（样本 101：shallow_tb 把「二」贴底边的底横当残留删掉，
+vol02:157:2:4）**已修**，golden 重冻为两横齐全的正确输出；029/035 输出
+随之微变（多保本字笔画/多去细碎片），逐张目视重验仍 verified。
+
+四个已知缺陷（全在退化层）留账原因更新：残留**厚**（版框线超细线档）
+或与字身**连通**（036 竖线与「妙」同一连通域），组件级守拙判据故意
+不删——厚块归属是切分层（component_owner）的职责，归一化层删它必然
+带上误杀本字笔画的风险（101 的教训）：
 
 | 样本 | 缺陷 |
 |---|---|
-| [031](samples/031) | 「指」下方两条版框横线（不贴下边）未去 |
-| [033](samples/033) | 字底部邻行残带未去 |
-| [034](samples/034) | 「造」下方一条横线（邻格边线）未去 |
-| [036](samples/036) | **贯穿「妙」的界行竖线**：中位不贴左右边，整条留下 |
-
-036 是根因最有力的证据：竖线从字身正中穿过仍然漏。修法方向不变：把
-「贴边」放宽成「细长且落在边缘带/贯穿带内」，落地前先补 之/亦/二/三
-类 golden 样本（见 known_limitation）。
+| [031](samples/031) | 「指」下方两条版框横线未去（厚横线）|
+| [033](samples/033) | 字底部邻行残带未去（厚残带）|
+| [034](samples/034) | 「造」下方一条横线（邻格边线）未去（厚横线）|
+| [036](samples/036) | 贯穿「妙」的界行竖线与字身连通，组件级判据原理上够不着 |
 
 另一个新发现：**列尾格（每列最后一格）是非字块的重灾区**——本轮 6 个
 剔除样本全是 idx 18~20 的版框线/邻行残带。残留类线索按残留量排序会
@@ -109,5 +114,6 @@ python scripts/build_normalization_dataset.py --dataset ../open-guji-dataset/cha
    看到要去更新 golden 与 build 脚本的 `VERDICTS`。
 5. **粘连盲区**：残留与本字笔画粘连时（样本 032），分级判据与去残余算法
    同时失效——这类只能靠人工。
-6. clean 层 19 个样本没有一个出缺陷，是在**当前切分**上抽的；切分再变，
-   clean 层要重抽重验（样本取自工作区 output/，与 `pipeline_version` 绑定）。
+6. clean 层 24 个样本没有一个出缺陷，是在**当前切分**上抽的；切分再变，
+   clean 层要重抽重验（样本取自工作区 output/，与 `pipeline_version` 绑定；
+   `targeted` 样本按 instance_id 固定，上游重跑后若实例消失要重选）。
