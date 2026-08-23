@@ -1,58 +1,121 @@
 {
-  "name": "page-type",
-  "version": "0.1.0",
-  "schema_version": 1,
-  "description": "页型判别：这一页该不该套刻本网格、套哪种",
-  "created": "2026-08-22",
-  "status": "可用",
-  "eval_command": "cd open-guji-cv && python scripts/eval_pagetype.py <dataset>",
-  "eval_script": "open-guji-cv/scripts/eval_pagetype.py",
-  "total_samples": 394,
-  "sample_unit": "页",
-  "coverage": "vol01 + vol02 **全书每一页**，不是抽样",
-  "sources": ["06061300.cn（武英殿刻本《欽定四庫全書總目》卷首一~四）"],
-  "label_origin_values": ["human"],
-  "taxonomy": {
-    "cover": "封面：页中一个双线大框，框内大字书名，无界行",
-    "label": "书签/题签：页侧一条窄长框，其余整页留白",
-    "blank": "空白/近空白：有界行，字少于一列",
-    "colophon": "牌记/刊记：有界行，仅一角有一个小框、框内大字",
-    "edict": "上諭/表文：字大、列数少于正文",
-    "body": "正文提要：九列密排",
-    "roster": "职名：九列，字距拉开",
-    "toc": "目录：九列，列上部有字下部空",
-    "uncertain": "页型过渡处人工也判不准，评测跳过"
-  },
-  "grid_policy": {
-    "skip": ["cover", "label", "blank", "colophon"],
-    "custom": ["edict"],
-    "standard": ["body", "roster", "toc"]
-  },
-  "type_distribution": {"body": 296, "toc": 47, "roster": 31, "uncertain": 11,
-                        "blank": 3, "cover": 2, "label": 2, "edict": 1, "colophon": 1},
-  "gold_definition": "把全书渲染成缩略图接触表逐页目视判读。刻本页型在缩略图尺度就能认出来（封面是页中一个大框、书签是页侧窄长框、空白页只有界行、牌记是一角一个小框），不需要看清字。**不用转写文本定页型**：转写依赖切分，拿它判页型是循环论证，且非正文页的转写质量最差——最需要判别的地方恰好最不可信。",
-  "metrics": [
-    {"name": "policy_accuracy", "type": "float", "direction": "higher_is_better",
-     "description": "网格策略（skip/custom/standard）判对的比例。不用八分类准确率作主指标：body 占 75%，全判 body 就有 75% 却毫无用处"},
-    {"name": "lost_rate", "type": "float", "direction": "lower_is_better",
-     "description": "**主指标**。把正文类页判成 skip 的比例——整页真数据丢失，下游连「这里有东西」都不知道。零容忍"},
-    {"name": "skip_recall", "type": "float", "direction": "higher_is_better",
-     "description": "该跳过的页被检出的比例。漏掉的代价是产出一页垃圾，可被 bad_seg 等事后标记，比 lost_rate 轻得多"}
+ "name": "page-type",
+ "version": "0.2.0",
+ "schema_version": 1,
+ "description": "页型判别：这一页该不该套刻本网格、套哪种",
+ "created": "2026-08-22",
+ "status": "可用",
+ "eval_command": "cd open-guji-cv && python scripts/eval_pagetype.py <dataset>",
+ "eval_script": "open-guji-cv/scripts/eval_pagetype.py",
+ "total_samples": 394,
+ "sample_unit": "页",
+ "coverage": "vol01 + vol02 **全书每一页**，不是抽样",
+ "sources": [
+  "06061300.cn（武英殿刻本《欽定四庫全書總目》卷首一~四）"
+ ],
+ "label_origin_values": [
+  "human"
+ ],
+ "taxonomy": {
+  "cover": "封面：页中一个双线大框，框内大字书名，无界行",
+  "label": "书签/题签：页侧一条窄长框，其余整页留白",
+  "blank": "空白/近空白：有界行，字少于一列",
+  "colophon": "牌记/刊记：有界行，仅一角有一个小框、框内大字",
+  "edict": "上諭/表文：字大、列数少于正文",
+  "body": "正文提要：九列密排",
+  "roster": "职名：九列，字距拉开",
+  "toc": "目录：九列，列上部有字下部空",
+  "uncertain": "页型过渡处人工也判不准，评测跳过"
+ },
+ "grid_policy": {
+  "skip": [
+   "cover",
+   "label",
+   "blank",
+   "colophon"
   ],
-  "asymmetric_cost": "两个方向的错误代价完全不对称：该跳过却切了 → 产出一页垃圾，可事后发现；该切却跳过了 → 整页真数据丢失，无人知晓。所以分类器在判不准时**默认走网格**，阈值全部按「正文类页的极值」留出一倍余量定。",
-  "baseline": {
-    "measured_on": "383 页（另 11 页 uncertain 跳过）",
-    "classifier": "page_type.classify_page_type（三条结构判据：blank/cover/label）",
-    "policy_accuracy": 0.9948,
-    "lost_pages": 0,
-    "lost_rate": 0.0,
-    "junk_pages": 1,
-    "skip_recall": 0.875,
-    "n_skip_gold": 8,
-    "per_type_policy_ok": {"body": 1.0, "toc": 1.0, "roster": 1.0,
-                           "blank": 1.0, "cover": 1.0, "label": 1.0,
-                           "edict": 0.0, "colophon": 0.0}
+  "custom": [
+   "edict"
+  ],
+  "standard": [
+   "body",
+   "roster",
+   "toc"
+  ]
+ },
+ "type_distribution": {
+  "body": 296,
+  "toc": 47,
+  "roster": 31,
+  "uncertain": 11,
+  "blank": 3,
+  "cover": 2,
+  "label": 2,
+  "edict": 1,
+  "colophon": 1
+ },
+ "gold_definition": "把全书渲染成缩略图接触表逐页目视判读。刻本页型在缩略图尺度就能认出来（封面是页中一个大框、书签是页侧窄长框、空白页只有界行、牌记是一角一个小框），不需要看清字。**不用转写文本定页型**：转写依赖切分，拿它判页型是循环论证，且非正文页的转写质量最差——最需要判别的地方恰好最不可信。",
+ "metrics": [
+  {
+   "name": "policy_accuracy",
+   "type": "float",
+   "direction": "higher_is_better",
+   "description": "网格策略（skip/custom/standard）判对的比例。不用八分类准确率作主指标：body 占 75%，全判 body 就有 75% 却毫无用处"
   },
-  "known_limitation": "1) **colophon（牌记）与 edict（上諭）没有判据**——不是忘了，是证据不足以立规则：全书各只有 1 例，且结构量与最稀疏的目录页重叠（牌记 vol01/205 是 x_cover=0.496 / n_glyph=90，目录 vol01/182 是 0.616/90，目录 vol01/61 是 0.265/60）。硬立规则会把稀疏目录页误跳过，那是丢真数据。要解决得先攒够样本。\n2) edict 的正解不是「跳过」而是「用不同列数」，属于列数自适应问题（D 类），不是页型闸门能解决的。\n3) 11 页 uncertain 全在正文→职名、职名→正文的过渡处，人工也判不准，评测跳过。\n4) 阈值在**同一部书**上标定，换刻本需重新验证——尤其 y_cover/x_cover 依赖版式比例。",
-  "notes": "这个数据集的金标是**页面结构**，和 page-geometry 一样是图像自身的性质，不随算法改动漂移。全书 394 页全覆盖，不是抽样，所以类别占比就是这两册的真实分布——非正文页只占 2.0%，但它们贡献的是**纯垃圾输出**，不修的话每一页都会污染下游。"
+  {
+   "name": "lost_rate",
+   "type": "float",
+   "direction": "lower_is_better",
+   "description": "**主指标**。把正文类页判成 skip 的比例——整页真数据丢失，下游连「这里有东西」都不知道。零容忍"
+  },
+  {
+   "name": "skip_recall",
+   "type": "float",
+   "direction": "higher_is_better",
+   "description": "该跳过的页被检出的比例。漏掉的代价是产出一页垃圾，可被 bad_seg 等事后标记，比 lost_rate 轻得多"
+  }
+ ],
+ "asymmetric_cost": "两个方向的错误代价完全不对称：该跳过却切了 → 产出一页垃圾，可事后发现；该切却跳过了 → 整页真数据丢失，无人知晓。所以分类器在判不准时**默认走网格**，阈值全部按「正文类页的极值」留出一倍余量定。",
+ "baseline": {
+  "measured_on": "383 页（另 11 页 uncertain 跳过）",
+  "classifier": "page_type.classify_page_type（三条结构判据：blank/cover/label）",
+  "policy_accuracy": 0.9948,
+  "lost_pages": 0,
+  "lost_rate": 0.0,
+  "junk_pages": 1,
+  "skip_recall": 0.875,
+  "n_skip_gold": 8,
+  "per_type_policy_ok": {
+   "body": 1.0,
+   "toc": 1.0,
+   "roster": 1.0,
+   "blank": 1.0,
+   "cover": 1.0,
+   "label": 1.0,
+   "edict": 0.0,
+   "colophon": 0.0
+  }
+ },
+ "known_limitation": "1) **colophon（牌记）与 edict（上諭）没有判据**——不是忘了，是证据不足以立规则：全书各只有 1 例，且结构量与最稀疏的目录页重叠（牌记 vol01/205 是 x_cover=0.496 / n_glyph=90，目录 vol01/182 是 0.616/90，目录 vol01/61 是 0.265/60）。硬立规则会把稀疏目录页误跳过，那是丢真数据。要解决得先攒够样本。\n2) edict 的正解不是「跳过」而是「用不同列数」，属于列数自适应问题（D 类），不是页型闸门能解决的。\n3) 11 页 uncertain 全在正文→职名、职名→正文的过渡处，人工也判不准，评测跳过。\n4) 阈值在**同一部书**上标定，换刻本需重新验证——尤其 y_cover/x_cover 依赖版式比例。",
+ "notes": "这个数据集的金标是**页面结构**，和 page-geometry 一样是图像自身的性质，不随算法改动漂移。全书 394 页全覆盖，不是抽样，所以类别占比就是这两册的真实分布——非正文页只占 2.0%，但它们贡献的是**纯垃圾输出**，不修的话每一页都会污染下游。",
+ "updated": "2026-08-23",
+ "label_distribution": {
+  "body": 294,
+  "toc": 47,
+  "roster": 44,
+  "blank": 3,
+  "cover": 2,
+  "label": 2,
+  "edict": 1,
+  "colophon": 1
+ },
+ "relabel_history": [
+  {
+   "date": "2026-08-23",
+   "reason": "做正文/职名判别时 vol01/89、91 以 body 身份出现在弹性列比例 0.33/0.67 处，与「body 弹性列应为 0」矛盾，追查发现职名段界标错",
+   "changed": 17,
+   "effect": "vol01 89-91（原 body）与 92-95、127-132（原 uncertain）逐页目视复核，全部是职名页（段首「勘閱繕校諸臣職名」、歷任副總裁官、總纂官、提調官、國子監學正、筆帖式、武英殿監造官…），改标 roster；133（凡例二十则起）改标 body。roster 31 → 44，uncertain 11 → 0。原「uncertain=过渡处判不准」的说法不成立——这些页并不难判，是当初标注者在段界偷懒。"
+  }
+ ],
+ "baseline_note": "页型判别现在分两阶段：classify_page_type（切分前，灰度统计，管 skip 闸门）+ refine_page_type（切分后，用产物的弹性列比例把 body 细分出 roster）。细化基线（修正后金标 394 页）：roster 检出 41/44（93%），**body 误判成 roster 0 页**（零容忍项），阈值 el≥0.5 距 body 极端值 0.22 有 2.3 倍余量。漏判的 3 页（vol01/89、90、107）都是弹性列检出不足的已知案例，归 body 是可接受方向。toc 不判：卷首页与 toc 在列占用形态上真重叠（body fill 最低 0.24 vs toc 最高 0.65），没有不重叠的量之前不设阈值。"
 }
