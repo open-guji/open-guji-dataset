@@ -1,0 +1,97 @@
+{
+ "dataset": "/home/user/open-guji-dataset/char-ocr",
+ "n_samples": 1,
+ "n_items": 1404,
+ "n_crops_missing": 0,
+ "distinct_gold": 495,
+ "engines": {
+  "rapidocr+s2t": {
+   "chars_per_sec": 75.7,
+   "all": {
+    "n": 1404,
+    "top1": 0.8875,
+    "top1_n": 1246,
+    "top5": 0.9402,
+    "top5_n": 1320,
+    "charset_ceiling": 0.9929,
+    "charset_ceiling_n": 1394
+   },
+   "common": {
+    "n": 1389,
+    "top1": 0.8913,
+    "top1_n": 1238,
+    "top5": 0.9438,
+    "top5_n": 1311,
+    "charset_ceiling": 0.9928,
+    "charset_ceiling_n": 1379
+   },
+   "opcode:equal": {
+    "n": 1254,
+    "top1": 0.9936,
+    "top1_n": 1246,
+    "top5": 1.0,
+    "top5_n": 1254,
+    "charset_ceiling": 1.0,
+    "charset_ceiling_n": 1254
+   },
+   "opcode:replace": {
+    "n": 150,
+    "top1": 0.0,
+    "top1_n": 0,
+    "top5": 0.44,
+    "top5_n": 66,
+    "charset_ceiling": 0.9333,
+    "charset_ceiling_n": 140
+   },
+   "variant": {
+    "n": 15,
+    "top1": 0.5333,
+    "top1_n": 8,
+    "top5": 0.6,
+    "top5_n": 9,
+    "charset_ceiling": 1.0,
+    "charset_ceiling_n": 15
+   },
+   "engine_charset_size": 6624,
+   "reachable_charset_size": 9033
+  },
+  "tesseract:chi_tra": {
+   "chars_per_sec": 6.7,
+   "all": {
+    "n": 1404,
+    "top1": 0.4459,
+    "top1_n": 626,
+    "top5": 0.4459,
+    "top5_n": 626
+   },
+   "common": {
+    "n": 1389,
+    "top1": 0.4478,
+    "top1_n": 622,
+    "top5": 0.4478,
+    "top5_n": 622
+   },
+   "opcode:equal": {
+    "n": 1254,
+    "top1": 0.4777,
+    "top1_n": 599,
+    "top5": 0.4777,
+    "top5_n": 599
+   },
+   "opcode:replace": {
+    "n": 150,
+    "top1": 0.18,
+    "top1_n": 27,
+    "top5": 0.18,
+    "top5_n": 27
+   },
+   "variant": {
+    "n": 15,
+    "top1": 0.2667,
+    "top1_n": 4,
+    "top5": 0.2667,
+    "top5_n": 4
+   }
+  }
+ }
+}

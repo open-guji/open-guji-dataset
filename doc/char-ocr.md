@@ -10,6 +10,16 @@ Kraken / PaddleOCR 微调**，不只是评测集。
 对应命令：`guji-cv label <book> --sources rapidocr,glyph,prior`
 （候选生成 + 排序），多引擎对比另见 `guji-cv bench-ocr`。
 
+**建集与评测（open-guji-cv 侧，成对提交）**
+
+```bash
+PYTHONPATH=. python scripts/build_char_ocr_dataset.py output/book9 \
+    --corpus corpus/zongmu_wuyingdian_reference.txt \
+    --dataset ../open-guji-dataset --shard book9
+PYTHONPATH=. python scripts/eval_char_ocr.py ../open-guji-dataset/char-ocr \
+    --engines rapidocr,tesseract
+```
+
 ## 处理流程
 
 ```
@@ -24,7 +34,20 @@ char-clustering 的簇（同字实例归并）
 
 | 文件 | 说明 |
 |------|------|
-| `crops/` | 归一化图块目录，文件名即 `instance_id`，与 `items[].crop` 对应 |
+| `crops/` | **原始**图块（phase4 切出来的像素），文件名 = `instance_id` 把 `:` 换成 `_`（`:` 在 Windows 上非法），与 `items[].crop` 对应 |
+
+### 为什么冻结的是原始图块而不是归一化图块
+
+框架期这里写的是「归一化图块」，实际建集时改成了原始图块。归一化
+（`normalize` 步骤）自己也还没有测试集、也还在改；把它的输出冻进来，
+本集就变成「在某一版归一化之上测识别」，归一化一改，数字既不可比、
+也说不清是哪一层变了。冻原始像素，评测时现跑当前的归一化，本集测的
+才是**从像素到字**这一整段。
+
+代价要认：图块是**某一版切分**产出的。切分变好之后，集里的图块比生产
+环境的更差。`info.json` 的 `upstream.cv_commit` 记着当时的上游 commit，
+切分有实质改进后应当**重建**本集（重建，不是重标——金标是自动对齐出来
+的，重跑脚本即可）。
 
 ## 金标 schema（expected.json）
 
@@ -43,7 +66,9 @@ char-clustering 的簇（同字实例归并）
       "label_origin": "align",
       "is_variant": false,
       "column_id": "06061301.cn/0042/c03",
-      "slot_index": 7
+      "slot_index": 7,
+      "transcribed_at_build": "交",
+      "align_opcode": "replace"
     }
   ]
 }
@@ -62,6 +87,17 @@ char-clustering 的簇（同字实例归并）
 | `items[].is_variant` | bool | 是否异体字样本 |
 | `items[].column_id` | str | 所属列，供 context-correction 交叉引用 |
 | `items[].slot_index` | int | 列内槽位序号 |
+| `items[].transcribed_at_build` | str | 建集当时管线转写出的字。**不是金标**，只供分析（谁把哪个字读错了） |
+| `items[].align_opcode` | str | `equal`（建集时转写就与参考一致）/ `replace`（当时不一致，金标取参考的那个） |
+
+### `align_opcode` 不是难度标签，别当难度用
+
+它记的是「**建集那台引擎**当时对不对」，不是这个字本身难不难。所以：
+
+- 拿它评**建集用的那台引擎**：`replace` 子集上的 top-1 恒为 0，那是
+  定义使然，不是发现；
+- 拿它评**别的**引擎才有意义：实测 rapidocr 漏掉的 150 条里
+  tesseract:chi_tra 救回 18%——这正是多引擎互补的量法。
 
 ### split 必须按册划分
 
@@ -116,6 +152,18 @@ char-clustering 的簇（同字实例归并）
 | `top1` | 越高越好 | top-1 命中率，**须按 `label_origin` 分层报告** |
 | `top5` | 越高越好 | top-5 命中率，衡量候选召回上限（决定下游纠正的天花板） |
 | `variant_top1` | 越高越好 | 异体字子集的 top-1，单独报告 |
+| `charset_ceiling` | 越高越好 | 金标字里有多少落在「引擎字表 ∪ 简→繁扩展 ∪ 异体字扩展」之内 |
+
+### `charset_ceiling`：先看天花板再看差距
+
+识别引擎字表覆盖不到的字，排序再好也出不来。PP-OCR 的字表只有 6,625 项
+（汉字 6,270），本书语料 11.03% 的字次不在里面——缺的还不是生僻字，是
+**繁体常用字**（說 則 謂 論 諸 採 稱 編 各出现上千次）。简→繁扩展把它
+压到 1.79%，再叠 Unihan 异体字扩展压到 1.20%。
+
+所以 `top1` 要和 `charset_ceiling` 一起读：**两者之差才是重排能捞回来
+的部分**，`1 - charset_ceiling` 是换个字表才能动的部分。只看 top1 会把
+「字表不够」误诊成「排序不好」，然后在排序上白折腾。
 
 **为什么必须分层**：align 标签的错误会同时污染训练与评测。若不分层，
 在 align 噪声上过拟合的模型会拿到虚高的 top-1，而在 human 子集上原地
@@ -147,6 +195,8 @@ char-ocr/
    ref 在候选中且概率不低 → `label_origin: "align"`），人工裁决过的
    改为 `"human"`；
 4. 显式填 `split`：同一 `source_item` 的所有分片必须同属一个 split；
-5. 标注 `is_variant`：异体字映射表见 open-guji-cv `config/dicts/variants.tsv`；
+5. 标注 `is_variant`：异体字映射表见 open-guji-cv `config/charset/variants.tsv`
+   （由 `scripts/build_charset.py` 从 Unihan 生成，2,727 条；旧的手工表
+   `config/dicts/variants.tsv` 只有 10 条，仍作为覆盖层保留）；
 6. 写 `expected.json`（含三个溯源字段）与 `info.json`；
 7. 更新 `metadata.json` 的 `total_samples` 与 `sources`（按册记录计数与 split）。

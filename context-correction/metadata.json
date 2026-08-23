@@ -1,15 +1,25 @@
 {
   "name": "context-correction-benchmark",
-  "version": "0.1.0",
-  "schema_version": 1,
+  "version": "1.0.0",
+  "schema_version": 2,
   "description": "上下文 + LM 概率纠正 Benchmark 数据集（候选冻结）",
   "created": "2026-08-21",
-  "status": "框架",
-  "eval_command": "guji-cv refine <book> --corpus <corpus>",
-  "eval_script": null,
-  "total_samples": 0,
-  "sample_unit": "列",
-  "sources": [],
+  "status": "可用",
+  "eval_command": "PYTHONPATH=. python scripts/eval_context_correction.py ../open-guji-dataset/context-correction --general-corpus corpus/external/daizhige_zhaoling.txt --book-corpus corpus/zongmu_wuyingdian_reference.txt --sweep 0,0.25,0.5,0.75,0.9,1.0 --lam 0.65",
+  "eval_script": "open-guji-cv scripts/eval_context_correction.py",
+  "total_samples": 1404,
+  "sample_unit": "页（目录 = 一页，页内所有列在 columns 数组里；计数单位是槽位）",
+  "sources": [
+    {
+      "source_item": "book9",
+      "description": "《欽定四庫全書總目·卷首一》影印本 10 页",
+      "split": "test",
+      "pages": 9,
+      "columns": 81,
+      "slots": 1404,
+      "label_origin": "align"
+    }
+  ],
   "provenance_fields": [
     "source_item",
     "pipeline_version",
@@ -44,6 +54,18 @@
       "type": "bool",
       "target": "true",
       "description": "硬约束断言：字形层不可被语义层改写——纠正只允许在候选集合内重排，不得引入候选外的字，也不得修改 surface"
+    },
+    {
+      "name": "gold_in_candidates_rate",
+      "type": "float",
+      "direction": "higher_is_better",
+      "description": "金标在冻结候选里的比例（本集 0.9452）。1-它是重排永远碰不到的部分"
+    },
+    {
+      "name": "headroom",
+      "type": "float",
+      "direction": "higher_is_better",
+      "description": "金标在候选里但不是首选的比例（本集 0.0520）—— 重排能拿到的全部空间。报增益必须说清占了 headroom 的几成"
     }
   ],
   "fields": [
@@ -76,11 +98,135 @@
       "name": "corpus",
       "type": "str|null",
       "description": "评测所用语料标识（open-guji-cv `corpus/`），随样本记录以保证可复现"
+    },
+    {
+      "name": "columns",
+      "type": "list",
+      "description": "页内各列；框架期骨架是一列一文件，一册几百列不可维护，故改为按页存（schema_version 2）。列的字段一个没变"
+    },
+    {
+      "name": "slots[].instance_id",
+      "type": "str",
+      "description": "对应图块实例，与 char-ocr 交叉引用"
+    },
+    {
+      "name": "slots[].cluster_id",
+      "type": "str",
+      "description": "所属簇，供簇级边缘化使用"
+    },
+    {
+      "name": "slots[].cluster_size",
+      "type": "int",
+      "description": "簇大小"
     }
   ],
   "sample_files": {
     "expected.json": "冻结的 (列上下文, 候选列表+概率, 金标字) + 溯源字段",
     "info.json": "来源、描述、标签"
   },
-  "notes": "候选必须冻结在样本内：否则上游 OCR 一变，本集指标就不可比。语料来自 open-guji-cv `corpus/`。"
+  "notes": "候选必须冻结在样本内：否则上游 OCR 一变，本集指标就不可比。语料来自 open-guji-cv `corpus/`。 本书语料必须挖掉测试页（评测脚本自动做，并打印挖掉字数）；通用语料的 8-gram 泄漏率也会打印。两个数不看就别看后面的指标。",
+  "updated": "2026-08-23",
+  "build_script": "open-guji-cv scripts/build_context_correction_dataset.py",
+  "baseline": {
+    "measured": "2026-08-23",
+    "n_slots": 1404,
+    "baseline_top1": 0.8932,
+    "baseline_top1_n": 1254,
+    "gold_in_candidates_rate": 0.9452,
+    "headroom": 0.052,
+    "config": {
+      "lam": 0.65,
+      "order": 3,
+      "general_weight": 0.1,
+      "general_corpus": "殆知阁 史藏/诏令奏议+经世文编+政书+职官 500 万字（opencc s2t 转繁）",
+      "book_corpus": "《总目》整理本，已挖掉测试页窗口 1,949 字",
+      "leak_8gram_vs_test_gold": 0.0
+    },
+    "sweep_book_weight": {
+      "0.00 (纯通用)": {
+        "top1": 0.9053,
+        "top1_gain": 0.0121,
+        "rescued": 38,
+        "harmed": 21,
+        "harmful_flip_rate": 0.0167
+      },
+      "0.50": {
+        "top1": 0.9117,
+        "top1_gain": 0.0185,
+        "rescued": 43,
+        "harmed": 17,
+        "harmful_flip_rate": 0.0136
+      },
+      "0.75": {
+        "top1": 0.9131,
+        "top1_gain": 0.0199,
+        "rescued": 45,
+        "harmed": 17,
+        "harmful_flip_rate": 0.0136
+      },
+      "0.90": {
+        "top1": 0.9145,
+        "top1_gain": 0.0214,
+        "rescued": 45,
+        "harmed": 15,
+        "harmful_flip_rate": 0.012
+      },
+      "1.00 (纯本书)": {
+        "top1": 0.9103,
+        "top1_gain": 0.0171,
+        "rescued": 41,
+        "harmed": 17,
+        "harmful_flip_rate": 0.0136
+      }
+    },
+    "glyph_layer_immutability": true,
+    "ablation_general_corpus_genre": {
+      "note": "同为 500 万字，只换体裁。本书卷首是上谕公文",
+      "诏令奏议/经世文编/政书/职官": {
+        "纯通用": 0.0121,
+        "纯本书": 0.0171,
+        "混合 0.9": 0.0214
+      },
+      "儒藏/易藏（经解）": {
+        "纯通用": 0.0,
+        "纯本书": 0.0171,
+        "混合 0.9": 0.0164
+      }
+    },
+    "ablation_lambda": {
+      "note": "lam = OCR 项与 LM 项的配比，本书权重固定 0.75",
+      "0.75": {
+        "top1_gain": 0.0128,
+        "harmful_flip_rate": 0.0104
+      },
+      "0.70": {
+        "top1_gain": 0.0164,
+        "harmful_flip_rate": 0.0104
+      },
+      "0.65": {
+        "top1_gain": 0.0164,
+        "harmful_flip_rate": 0.0144
+      },
+      "0.55 (旧默认)": {
+        "top1_gain": 0.0114,
+        "harmful_flip_rate": 0.0239
+      },
+      "0.45": {
+        "top1_gain": 0.0014,
+        "harmful_flip_rate": 0.0359
+      },
+      "0.35": {
+        "top1_gain": -0.0107,
+        "harmful_flip_rate": 0.0502
+      }
+    }
+  },
+  "baseline_history": [],
+  "known_limitation": [
+    "**上下文是理想值**：`context.prev`/`next` 取相邻列的**金标**文本。真实流程里相邻列同样带错，故本集的 `top1_gain` 是上界，不能直接当作全书能拿到的增益。",
+    "**样本量撑不起细粒度调参**：1,404 个槽位，权重 0.5/0.75/0.90/1.00 之间的差异只有2~6 个样本，**在噪声内**。能站得住的结论只有两条：(1) 混合优于纯通用；(2) lam 从 0.55 提到 0.65~0.70 让有害翻转减半（2.39% → 1.04~1.44%），这个是跨多组权重一致复现的。具体最优权重取值**没有被本集分辨出来**。",
+    "**单册单体裁**：只有 book9（卷首上谕）。体裁消融说明通用语料必须与被测书同体裁，但这条结论本身也只在这一种体裁上验证过。",
+    "**候选来自单一来源**：冻结的候选只有 rapidocr（+简→繁扩展），没有 vlm / glyph / prior。多来源融合下的纠正行为**未经验证**。",
+    "**簇级边缘化未参与本集评测**：本集只跑 beam_search 重排。`cluster_marginalize` 的贡献没有在本集上单独量过（book9 只有 10 页，96% 的簇是单例，簇级证据几乎不存在）。"
+  ]
 }

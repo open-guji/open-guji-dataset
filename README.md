@@ -24,8 +24,8 @@
 | [char-segmentation/instances](char-segmentation/instances) | `chars`（图块自检）| 62 | 可用 | 真实图块四分类，评管线自检能力 |
 | [char-normalization](doc/char-normalization.md) | `normalize`（纯函数） | 0 | 框架 | 归一化 golden 集（去残余 / 骨架化，逐像素回归） |
 | [char-clustering](doc/char-clustering.md) | `cluster` | 0 | 框架 | 保守聚类 purity 集（含人工反馈难例对） |
-| [char-ocr](doc/char-ocr.md) | `label` / `bench-ocr` | 0 | 框架 | 单字识别 (图块, 金标字)，按册划分 train/test |
-| [context-correction](doc/context-correction.md) | `refine` | 0 | 框架 | 上下文 + LM 纠正（候选冻结） |
+| [char-ocr](doc/char-ocr.md) | `label` / `bench-ocr` | 1404 | 可用 | 单字识别 (冻结图块, 金标字)；rapidocr+s2t top1 88.75% |
+| [context-correction](doc/context-correction.md) | `refine` | 1404 | 可用 | 上下文 + LM 纠正（候选冻结）；基线 89.32%，混合 LM +2.14% |
 | [collation](doc/collation.md) | `collate`（规划中） | 0 | 框架 | 参考校对：对齐、参考质量 ρ 估计、分歧挖掘 |
 
 其余「框架」状态的数据集是刻本字符识别管线（open-guji-cv Phase 3~6）的模块化拆分，
@@ -52,8 +52,8 @@ open-guji-dataset/
 │   └── results/               # 评测输出 (gitignore)
 ├── char-normalization/        # 归一化 golden 集（框架）
 ├── char-clustering/           # 保守聚类（框架）
-├── char-ocr/                  # 单字识别（框架）
-├── context-correction/        # 上下文纠正（框架）
+├── char-ocr/                  # 单字识别（1404 实例，可用）
+├── context-correction/        # 上下文纠正（1404 槽位，可用）
 ├── collation/                 # 参考校对（框架）
 ├── doc/                       # 数据格式文档
 │   ├── book-profile.md

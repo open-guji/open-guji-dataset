@@ -6,7 +6,20 @@
 路线图第 5 部分，见 [modules-roadmap.md](modules-roadmap.md)）：给定
 一列的上下文与每个槽位的候选字及概率，用语言模型重排候选。
 
-对应命令：`guji-cv refine <book> --corpus <corpus>`。
+对应命令：`guji-cv refine <book> --corpus <本书语料> --general-corpus
+<通用古文语料> --general-weight 0.1 --lam 0.65`。
+
+**建集与评测（open-guji-cv 侧，成对提交）**
+
+```bash
+PYTHONPATH=. python scripts/build_context_correction_dataset.py output/book9 \
+    --corpus corpus/zongmu_wuyingdian_reference.txt --dataset ../open-guji-dataset
+PYTHONPATH=. python scripts/eval_context_correction.py \
+    ../open-guji-dataset/context-correction \
+    --general-corpus corpus/external/daizhige_zhaoling.txt \
+    --book-corpus corpus/zongmu_wuyingdian_reference.txt \
+    --sweep 0,0.25,0.5,0.75,0.9,1.0 --lam 0.65
+```
 
 样本里的**候选是冻结的**：本集测的是纠正层，不是 OCR 层。上游 OCR
 一变指标就不可比，所以候选列表连同概率一起存进样本。
@@ -27,15 +40,21 @@ guji-cv refine（簇级边缘化 + n-gram / 外部语料）   ← 本数据集�
 
 本数据集**不含图片**，输入与金标都在 `expected.json` 里：
 
+一个 `expected.json` = 一**页**，页内所有列放在 `columns` 数组里
+（schema_version 2；框架期的骨架是一列一个文件，但一册就有几百列，
+逐列建目录不可维护）。列本身的字段一个没变。
+
 ```json
 {
-  "source_item": "06061301.cn",
+  "source_item": "book9",
   "pipeline_version": "…",
   "label_origin": "align",
-  "column_id": "06061301.cn/0042/c03",
-  "corpus": "corpus/zongmu-34w",
-  "context": {"prev": "…前一列已确认文本…", "next": "…后一列已确认文本…"},
-  "slots": [
+  "page": "10",
+  "corpus": "corpus/zongmu_wuyingdian_reference.txt",
+  "columns": [{
+   "column_id": "book9:10:3",
+   "context": {"prev": "…前一列金标文本…", "next": "…后一列金标文本…"},
+   "slots": [
     {
       "index": 7,
       "candidates": [
@@ -44,9 +63,13 @@ guji-cv refine（簇级边缘化 + n-gram / 外部语料）   ← 本数据集�
         {"char": "白", "prob": 0.07, "source": "prior"}
       ],
       "gold": "曰",
-      "frozen": true
+      "frozen": true,
+      "instance_id": "book9:10:3:7",
+      "cluster_id": "c00123",
+      "cluster_size": 4
     }
-  ]
+   ]
+  }]
 }
 ```
 
@@ -56,7 +79,15 @@ guji-cv refine（簇级边缘化 + n-gram / 外部语料）   ← 本数据集�
 |------|------|------|
 | `column_id` | str | 列标识（`source_item` + 页 + 列序） |
 | `corpus` | str\|null | 评测所用语料标识（open-guji-cv `corpus/`），随样本记录以保证可复现 |
-| `context.prev` / `next` | str | 相邻列的已确认文本 |
+| `context.prev` / `next` | str | 相邻列的**金标**文本，即「相邻列已确认好」的理想情形 |
+| `slots[].instance_id` | str | 对应的图块实例，可与 char-ocr 交叉引用 |
+| `slots[].cluster_id` / `cluster_size` | str / int | 所属簇，供簇级边缘化使用 |
+
+### `context` 取金标是上界口径
+
+真实流程里相邻列同样带错，本集给的是**理想上下文**。这样取是为了隔离
+纠正算法本身的能力；「相邻列也带噪」是另一个问题，要另建集或另加一档。
+所以本集的 `top1_gain` **不能**直接当作全书能拿到的增益。
 | `slots[].index` | int | 列内槽位序号 |
 | `slots[].candidates` | list | **冻结**的候选列表 |
 | `candidates[].char` | str | 候选字 |
@@ -121,6 +152,22 @@ guji-cv refine（簇级边缘化 + n-gram / 外部语料）   ← 本数据集�
 说明纠正过于激进——实测中同书自举 n-gram 在缺乏外部语料时净有害，
 正是这样暴露出来的。
 
+另外两个必看的量（建集时打印，写在 `info.json` / `report.json`）：
+
+- `gold_in_candidates_rate`（本集 94.52%）：金标根本不在候选里的部分，
+  **重排永远碰不到**，那是候选召回的问题；
+- `headroom`（本集 5.20%）：金标在候选里但不是首选的比例 —— 重排能拿到
+  的**全部**空间。报增益时要说清占了 headroom 的几成，否则 +2% 听起来
+  像小改进，实际已经吃掉四成可用空间。
+
+### 本书语料必须留出测试页
+
+本书语料就是本书的整理本，测试页的金标也是从同一份整理本对齐来的。
+不挖掉就是**背答案**。评测脚本会先把每个测试页的金标窗口（前后各多挖
+200 字）从语料里剔除再训练，并打印挖掉了多少字；打印为 0 就说明挖漏了，
+后面的数字一概不可信。通用语料同样要查泄漏：脚本会打印通用语料与测试页
+金标的 8-gram 重合率（当前配置为 0.0）。
+
 ## 样本目录布局
 
 ```
@@ -135,14 +182,15 @@ context-correction/
 └── results/                # refine 输出，不入库
 ```
 
-一个样本 = 一**列**：上下文纠正的作用域是列，跨列上下文由
-`context.prev` / `next` 提供。
+一个样本 = 一**页**（目录名 `<册>_<页>`），页内所有列在 `columns` 里。
+纠正的作用域仍是列，跨列上下文由 `context.prev` / `next` 提供。
 
 ## 如何添加样本
 
-1. 新建 `samples/NNN/`（三位数字，从 `001` 起顺序编号）；
-2. 跑一次 `guji-cv label` 得到该列各槽位的候选与概率，**原样冻结**
-   进 `slots[].candidates`，不要重新归一或裁剪；
+1. 跑 `scripts/build_context_correction_dataset.py`，它会为每个锚定成功
+   的页建一个 `samples/<册>_<页>/`；
+2. 候选从 `phase6_labels/candidates.json` **原样冻结**进
+   `slots[].candidates`，不要重新归一或裁剪；
 3. 金标 `gold` 由整理本对齐给出（`label_origin: "align"`），分歧点
    人工裁决后改 `"human"`；
 4. 记录 `corpus`：换语料等于换实验条件，不记录则结果不可比；

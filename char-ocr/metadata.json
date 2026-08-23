@@ -1,15 +1,28 @@
 {
   "name": "char-ocr-benchmark",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "schema_version": 1,
   "description": "单字识别（簇识别 OCR）Benchmark 数据集，可直接用于 Kraken / PaddleOCR 微调",
   "created": "2026-08-21",
-  "status": "框架",
-  "eval_command": "guji-cv label <book> --sources rapidocr,glyph,prior",
-  "eval_script": null,
-  "total_samples": 0,
-  "sample_unit": "册分片",
-  "sources": [],
+  "status": "可用",
+  "eval_command": "PYTHONPATH=. python scripts/eval_char_ocr.py ../open-guji-dataset/char-ocr --engines rapidocr,tesseract",
+  "eval_script": "open-guji-cv scripts/eval_char_ocr.py",
+  "total_samples": 1404,
+  "sample_unit": "册分片（一个目录 = 一册的全部 (图块, 金标字) 对）",
+  "sources": [
+    {
+      "source_item": "book9",
+      "description": "《欽定四庫全書總目·卷首一》影印本 10 页（原书第 10~19 图）",
+      "split": "test",
+      "items": 1404,
+      "pages_total": 10,
+      "pages_anchored": 9,
+      "instances_total": 1647,
+      "gold_rate": 0.8525,
+      "label_origin": "align",
+      "upstream_cv_commit": "5cedb11bfae8"
+    }
+  ],
   "provenance_fields": [
     "source_item",
     "pipeline_version",
@@ -38,6 +51,12 @@
       "type": "float",
       "direction": "higher_is_better",
       "description": "异体字子集 top-1（异体字样本全留不采样，单独报告）"
+    },
+    {
+      "name": "charset_ceiling",
+      "type": "float",
+      "direction": "higher_is_better",
+      "description": "金标字落在「引擎字表 ∪ 简→繁扩展 ∪ 异体字扩展」内的比例。top1 与它的差 = 重排能捞回来的部分；1-它 = 只能换字表才能动的部分"
     }
   ],
   "fields": [
@@ -55,6 +74,16 @@
       "name": "items",
       "type": "list",
       "description": "样本列表，每项 instance_id / crop（图块文件名）/ char（金标字）/ label_origin / is_variant / column_id / slot_index"
+    },
+    {
+      "name": "items[].align_opcode",
+      "type": "str",
+      "description": "equal / replace。记的是**建集那台引擎**当时对不对，不是字本身的难度；用它评建集引擎自身，replace 子集恒为 0"
+    },
+    {
+      "name": "items[].transcribed_at_build",
+      "type": "str",
+      "description": "建集当时管线转写的字，仅供分析，**不是金标**"
     }
   ],
   "sample_files": {
@@ -62,5 +91,56 @@
     "expected.json": "(图块, 金标字) 列表 + split + 溯源字段",
     "info.json": "来源、描述、标签"
   },
-  "notes": "train/test 必须按册（source_item）划分：分册混淆分布差异很大（如卷一易类专名 曰/葢/爻/彖/繫 是字表与语料的系统盲区），同册混切会高估跨册泛化能力。异体字样本全留不采样。"
+  "notes": "train/test 必须按册（source_item）划分：分册混淆分布差异很大（如卷一易类专名 曰/葢/爻/彖/繫 是字表与语料的系统盲区），同册混切会高估跨册泛化能力。异体字样本全留不采样。 建集与评测脚本在 open-guji-cv `scripts/`，与本目录成对提交。`crops/` 冻的是**原始**图块而非归一化图块，理由见 doc/char-ocr.md。",
+  "updated": "2026-08-23",
+  "build_script": "open-guji-cv scripts/build_char_ocr_dataset.py",
+  "baseline": {
+    "measured": "2026-08-23",
+    "n_items": 1404,
+    "engines": {
+      "rapidocr+s2t": {
+        "top1": 0.8875,
+        "top1_n": 1246,
+        "top5": 0.9402,
+        "top5_n": 1320,
+        "charset_ceiling": 0.9929
+      },
+      "rapidocr(无 s2t)": {
+        "top1": 0.8291,
+        "top1_n": 1164,
+        "top5": 0.9017,
+        "top5_n": 1266,
+        "charset_ceiling": 0.9929
+      },
+      "tesseract:chi_tra": {
+        "top1": 0.4459,
+        "top1_n": 626
+      }
+    },
+    "strata": {
+      "opcode:equal": {
+        "n": 1254,
+        "rapidocr+s2t_top1": 0.9936,
+        "tesseract_top1": 0.4777
+      },
+      "opcode:replace": {
+        "n": 150,
+        "rapidocr+s2t_top1": 0.0,
+        "tesseract_top1": 0.18,
+        "note": "rapidocr 恒为 0 是定义使然；tesseract 的 18% 才是这一层的信息量（多引擎互补）"
+      },
+      "variant": {
+        "n": 15,
+        "rapidocr+s2t_top1": 0.5333
+      }
+    }
+  },
+  "baseline_history": [],
+  "known_limitation": [
+    "**锚定偏置（最重要的一条）**：锚不上参考整理本的页不进集。1,647 个实例里进集 1,404 条（85.2%），被排除的 243 条正是切分多切/漏切的位置。故本集上的准确率（89% 量级）**乐观于**全书真实字准确率（同一册 eval-align 量到 80.08%）。本集只能用于「同一批样本上比较不同算法」，不能当作全书准确率。",
+    "**单册**：只有 book9 一册，全部 split=test，**没有 train 集**，也无法测跨册泛化。整理本覆盖卷首~卷二十七，扩到多册是下一步。",
+    "**异体字样本只有 15 条**，`variant_top1` 的置信区间很宽，不足以支撑结论。正字方向按本版语料频次定（蓋→葢、略→畧），所以 is_variant 的含义是「不是本版最常用的那个表面形」，不是「Unicode 意义上的异体字」。",
+    "**图块随切分陈旧**：像素冻结自 upstream_cv_commit 那一版切分。切分有实质改进后应重建本集，否则测的是过时的输入质量。",
+    "**未验证的能力**：`label_origin` 只有 align 一种，human 与 synth 两个层级至今没有样本，分层评测的能力**尚未被验证过**。"
+  ]
 }
