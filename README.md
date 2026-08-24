@@ -24,6 +24,7 @@
 | [char-segmentation/instances](char-segmentation/instances) | `chars`（图块自检）| 169 | 可用 | 真实图块四分类 + `defect` 子类（rule_bar/frame_bar），评管线自检能力。0.12 版并入 78 条进库审查涌现的坏图块，contaminated 8→49 |
 | [char-normalization](char-normalization) | `normalize`（纯函数） | 35 字块 | 可用 | 归一化 golden 回归门（32 verified + 3 已知缺陷）|
 | [char-clustering](char-clustering) | `cluster` | 3 分片 / 6297 实例 | 可用 | 保守聚类 purity 集（align 两册 + 人工复核层 + 难例对）|
+| [glyph-match](glyph-match) | `match`/`verify` | 98 三元组 | 可用 | 匹配排序：同字形须胜形近异字（体检人裁产出；hard 基线 0.079，control 护栏 1.0）|
 | [char-ocr](doc/char-ocr.md) | `label` / `bench-ocr` | 0 | 框架 | 单字识别 (图块, 金标字)，按册划分 train/test |
 | [context-correction](doc/context-correction.md) | `refine` / seed context 通道 | 11 页 / 1681 槽位 | 可用 | 上下文 + LM 纠正（候选冻结；vol01 进库协议金标，human 529 分层）。首轮基线：门槛化混合 LM +2.32%（救41/坏2）；无门槛重排任何 λ 净亏 |
 | [collation](doc/collation.md) | `collate`（规划中） | 0 | 框架 | 参考校对：对齐、参考质量 ρ 估计、分歧挖掘 |
@@ -52,6 +53,7 @@ open-guji-dataset/
 │   └── results/               # 评测输出 (gitignore)
 ├── char-normalization/        # 归一化 golden 回归门（35 字块，两层）
 ├── char-clustering/           # 保守聚类 purity（3 个册分片）
+├── glyph-match/               # 匹配排序三元组（体检人裁产出）
 ├── char-ocr/                  # 单字识别（框架）
 ├── context-correction/        # 上下文纠正（框架）
 ├── collation/                 # 参考校对（框架）
