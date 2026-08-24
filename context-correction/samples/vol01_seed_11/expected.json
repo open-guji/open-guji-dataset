@@ -1,0 +1,802 @@
+{
+ "source_item": "vol01",
+ "pipeline_version": "c89db798d916",
+ "label_origin": "align",
+ "split": "test",
+ "page": "11",
+ "corpus": "phase9_seed 进库协议（逐槽位 origin 字段细分 human/align）",
+ "columns": [
+  {
+   "column_id": "vol01:11:1",
+   "context": {
+    "prev": null,
+    "next": "書典者"
+   },
+   "slots": [
+    {
+     "index": 10,
+     "instance_id": "vol01:11:1:10",
+     "candidates": [
+      {
+       "char": "例",
+       "prob": 0.204843,
+       "source": "glyph",
+       "semantic": "例"
+      },
+      {
+       "char": "溯",
+       "prob": 0.177609,
+       "source": "glyph",
+       "semantic": "溯"
+      },
+      {
+       "char": "踴",
+       "prob": 0.17732,
+       "source": "glyph",
+       "semantic": "踴"
+      },
+      {
+       "char": "圖",
+       "prob": 0.177216,
+       "source": "glyph",
+       "semantic": "圖"
+      },
+      {
+       "char": "簡",
+       "prob": 0.176327,
+       "source": "glyph",
+       "semantic": "簡"
+      },
+      {
+       "char": "！",
+       "prob": 0.086685,
+       "source": "rapidocr",
+       "semantic": "！"
+      }
+     ],
+     "gold": "例",
+     "origin": "align",
+     "frozen": true
+    },
+    {
+     "index": 15,
+     "instance_id": "vol01:11:1:15",
+     "candidates": [
+      {
+       "char": "典",
+       "prob": 0.355772,
+       "source": "glyph",
+       "semantic": "典"
+      },
+      {
+       "char": "冀",
+       "prob": 0.220516,
+       "source": "glyph",
+       "semantic": "冀"
+      },
+      {
+       "char": "舉",
+       "prob": 0.21365,
+       "source": "glyph",
+       "semantic": "舉"
+      },
+      {
+       "char": "其",
+       "prob": 0.210062,
+       "source": "glyph",
+       "semantic": "其"
+      }
+     ],
+     "gold": "典",
+     "origin": "align",
+     "frozen": true
+    },
+    {
+     "index": 18,
+     "instance_id": "vol01:11:1:18",
+     "candidates": [
+      {
+       "char": "校",
+       "prob": 0.294299,
+       "source": "glyph",
+       "semantic": "校"
+      },
+      {
+       "char": "根",
+       "prob": 0.179451,
+       "source": "glyph",
+       "semantic": "根"
+      },
+      {
+       "char": "披",
+       "prob": 0.179016,
+       "source": "glyph",
+       "semantic": "披"
+      },
+      {
+       "char": "藏",
+       "prob": 0.174626,
+       "source": "glyph",
+       "semantic": "藏"
+      },
+      {
+       "char": "檢",
+       "prob": 0.172609,
+       "source": "glyph",
+       "semantic": "檢"
+      }
+     ],
+     "gold": "校",
+     "origin": "align",
+     "frozen": true
+    }
+   ]
+  },
+  {
+   "column_id": "vol01:11:2",
+   "context": {
+    "prev": "例典校",
+    "next": "行少其"
+   },
+   "slots": [
+    {
+     "index": 11,
+     "instance_id": "vol01:11:2:11",
+     "candidates": [
+      {
+       "char": "書",
+       "prob": 1.0,
+       "source": "glyph",
+       "semantic": "書"
+      }
+     ],
+     "gold": "書",
+     "origin": "align",
+     "frozen": true
+    },
+    {
+     "index": 17,
+     "instance_id": "vol01:11:2:17",
+     "candidates": [
+      {
+       "char": "典",
+       "prob": 0.444362,
+       "source": "glyph",
+       "semantic": "典"
+      },
+      {
+       "char": "冀",
+       "prob": 0.279981,
+       "source": "glyph",
+       "semantic": "冀"
+      },
+      {
+       "char": "其",
+       "prob": 0.275656,
+       "source": "glyph",
+       "semantic": "其"
+      }
+     ],
+     "gold": "典",
+     "origin": "align",
+     "frozen": true
+    },
+    {
+     "index": 19,
+     "instance_id": "vol01:11:2:19",
+     "candidates": [
+      {
+       "char": "者",
+       "prob": 1.0,
+       "source": "glyph",
+       "semantic": "者"
+      }
+     ],
+     "gold": "者",
+     "origin": "align",
+     "frozen": true
+    }
+   ]
+  },
+  {
+   "column_id": "vol01:11:3",
+   "context": {
+    "prev": "書典者",
+    "next": "後學名"
+   },
+   "slots": [
+    {
+     "index": 3,
+     "instance_id": "vol01:11:3:3",
+     "candidates": [
+      {
+       "char": "行",
+       "prob": 0.466315,
+       "source": "glyph",
+       "semantic": "行"
+      },
+      {
+       "char": "待",
+       "prob": 0.267046,
+       "source": "glyph",
+       "semantic": "待"
+      },
+      {
+       "char": "得",
+       "prob": 0.26664,
+       "source": "glyph",
+       "semantic": "得"
+      }
+     ],
+     "gold": "行",
+     "origin": "align",
+     "frozen": true
+    },
+    {
+     "index": 14,
+     "instance_id": "vol01:11:3:14",
+     "candidates": [
+      {
+       "char": "少",
+       "prob": 1.0,
+       "source": "glyph",
+       "semantic": "少"
+      }
+     ],
+     "gold": "少",
+     "origin": "align",
+     "frozen": true
+    },
+    {
+     "index": 15,
+     "instance_id": "vol01:11:3:15",
+     "candidates": [
+      {
+       "char": "其",
+       "prob": 1.0,
+       "source": "glyph",
+       "semantic": "其"
+      }
+     ],
+     "gold": "其",
+     "origin": "align",
+     "frozen": true
+    }
+   ]
+  },
+  {
+   "column_id": "vol01:11:4",
+   "context": {
+    "prev": "行少其",
+    "next": "呈定書可"
+   },
+   "slots": [
+    {
+     "index": 1,
+     "instance_id": "vol01:11:4:1",
+     "candidates": [
+      {
+       "char": "後",
+       "prob": 0.186615,
+       "source": "glyph",
+       "semantic": "後"
+      },
+      {
+       "char": "復",
+       "prob": 0.141701,
+       "source": "glyph",
+       "semantic": "復"
+      },
+      {
+       "char": "校",
+       "prob": 0.138935,
+       "source": "glyph",
+       "semantic": "校"
+      },
+      {
+       "char": "機",
+       "prob": 0.137155,
+       "source": "glyph",
+       "semantic": "機"
+      },
+      {
+       "char": "從",
+       "prob": 0.135611,
+       "source": "glyph",
+       "semantic": "從"
+      },
+      {
+       "char": "使",
+       "prob": 0.131918,
+       "source": "glyph",
+       "semantic": "使"
+      },
+      {
+       "char": "俟",
+       "prob": 0.128064,
+       "source": "glyph",
+       "semantic": "俟"
+      }
+     ],
+     "gold": "後",
+     "origin": "align",
+     "frozen": true
+    },
+    {
+     "index": 2,
+     "instance_id": "vol01:11:4:2",
+     "candidates": [
+      {
+       "char": "學",
+       "prob": 0.248351,
+       "source": "glyph",
+       "semantic": "學"
+      },
+      {
+       "char": "準",
+       "prob": 0.153722,
+       "source": "glyph",
+       "semantic": "準"
+      },
+      {
+       "char": "單",
+       "prob": 0.152938,
+       "source": "glyph",
+       "semantic": "單"
+      },
+      {
+       "char": "罕",
+       "prob": 0.150386,
+       "source": "glyph",
+       "semantic": "罕"
+      },
+      {
+       "char": "專",
+       "prob": 0.147318,
+       "source": "glyph",
+       "semantic": "專"
+      },
+      {
+       "char": "等",
+       "prob": 0.147285,
+       "source": "glyph",
+       "semantic": "等"
+      }
+     ],
+     "gold": "學",
+     "origin": "align",
+     "frozen": true
+    },
+    {
+     "index": 11,
+     "instance_id": "vol01:11:4:11",
+     "candidates": [
+      {
+       "char": "名",
+       "prob": 0.454711,
+       "source": "glyph",
+       "semantic": "名"
+      },
+      {
+       "char": "各",
+       "prob": 0.276343,
+       "source": "glyph",
+       "semantic": "各"
+      },
+      {
+       "char": "省",
+       "prob": 0.268946,
+       "source": "glyph",
+       "semantic": "省"
+      }
+     ],
+     "gold": "名",
+     "origin": "align",
+     "frozen": true
+    }
+   ]
+  },
+  {
+   "column_id": "vol01:11:5",
+   "context": {
+    "prev": "後學名",
+    "next": "其名者"
+   },
+   "slots": [
+    {
+     "index": 5,
+     "instance_id": "vol01:11:5:5",
+     "candidates": [
+      {
+       "char": "呈",
+       "prob": 0.618181,
+       "source": "glyph",
+       "semantic": "呈"
+      },
+      {
+       "char": "至",
+       "prob": 0.381819,
+       "source": "glyph",
+       "semantic": "至"
+      }
+     ],
+     "gold": "呈",
+     "origin": "align",
+     "frozen": true
+    },
+    {
+     "index": 9,
+     "instance_id": "vol01:11:5:9",
+     "candidates": [
+      {
+       "char": "定",
+       "prob": 0.623865,
+       "source": "glyph",
+       "semantic": "定"
+      },
+      {
+       "char": "足",
+       "prob": 0.376135,
+       "source": "glyph",
+       "semantic": "足"
+      }
+     ],
+     "gold": "定",
+     "origin": "align",
+     "frozen": true
+    },
+    {
+     "index": 17,
+     "instance_id": "vol01:11:5:17",
+     "candidates": [
+      {
+       "char": "書",
+       "prob": 1.0,
+       "source": "glyph",
+       "semantic": "書"
+      }
+     ],
+     "gold": "書",
+     "origin": "align",
+     "frozen": true
+    },
+    {
+     "index": 19,
+     "instance_id": "vol01:11:5:19",
+     "candidates": [
+      {
+       "char": "可",
+       "prob": 0.460981,
+       "source": "glyph",
+       "semantic": "可"
+      },
+      {
+       "char": "百",
+       "prob": 0.272493,
+       "source": "glyph",
+       "semantic": "百"
+      },
+      {
+       "char": "訂",
+       "prob": 0.266527,
+       "source": "glyph",
+       "semantic": "訂"
+      }
+     ],
+     "gold": "可",
+     "origin": "align",
+     "frozen": true
+    }
+   ]
+  },
+  {
+   "column_id": "vol01:11:6",
+   "context": {
+    "prev": "呈定書可",
+    "next": "之用不將嘉"
+   },
+   "slots": [
+    {
+     "index": 2,
+     "instance_id": "vol01:11:6:2",
+     "candidates": [
+      {
+       "char": "其",
+       "prob": 1.0,
+       "source": "glyph",
+       "semantic": "其"
+      }
+     ],
+     "gold": "其",
+     "origin": "align",
+     "frozen": true
+    },
+    {
+     "index": 3,
+     "instance_id": "vol01:11:6:3",
+     "candidates": [
+      {
+       "char": "名",
+       "prob": 0.627895,
+       "source": "glyph",
+       "semantic": "名"
+      },
+      {
+       "char": "省",
+       "prob": 0.372105,
+       "source": "glyph",
+       "semantic": "省"
+      }
+     ],
+     "gold": "名",
+     "origin": "align",
+     "frozen": true
+    },
+    {
+     "index": 8,
+     "instance_id": "vol01:11:6:8",
+     "candidates": [
+      {
+       "char": "者",
+       "prob": 1.0,
+       "source": "glyph",
+       "semantic": "者"
+      }
+     ],
+     "gold": "者",
+     "origin": "align",
+     "frozen": true
+    }
+   ]
+  },
+  {
+   "column_id": "vol01:11:7",
+   "context": {
+    "prev": "其名者",
+    "next": "書如此"
+   },
+   "slots": [
+    {
+     "index": 3,
+     "instance_id": "vol01:11:7:3",
+     "candidates": [
+      {
+       "char": "之",
+       "prob": 1.0,
+       "source": "glyph",
+       "semantic": "之"
+      }
+     ],
+     "gold": "之",
+     "origin": "align",
+     "frozen": true
+    },
+    {
+     "index": 4,
+     "instance_id": "vol01:11:7:4",
+     "candidates": [
+      {
+       "char": "用",
+       "prob": 0.449706,
+       "source": "glyph",
+       "semantic": "用"
+      },
+      {
+       "char": "周",
+       "prob": 0.276277,
+       "source": "glyph",
+       "semantic": "周"
+      },
+      {
+       "char": "月",
+       "prob": 0.274017,
+       "source": "glyph",
+       "semantic": "月"
+      }
+     ],
+     "gold": "用",
+     "origin": "align",
+     "frozen": true
+    },
+    {
+     "index": 5,
+     "instance_id": "vol01:11:7:5",
+     "candidates": [
+      {
+       "char": "不",
+       "prob": 1.0,
+       "source": "glyph",
+       "semantic": "不"
+      }
+     ],
+     "gold": "不",
+     "origin": "align",
+     "frozen": true
+    },
+    {
+     "index": 7,
+     "instance_id": "vol01:11:7:7",
+     "candidates": [
+      {
+       "char": "將",
+       "prob": 1.0,
+       "source": "glyph",
+       "semantic": "將"
+      }
+     ],
+     "gold": "將",
+     "origin": "align",
+     "frozen": true
+    },
+    {
+     "index": 18,
+     "instance_id": "vol01:11:7:18",
+     "candidates": [
+      {
+       "char": "嘉",
+       "prob": 0.293416,
+       "source": "glyph",
+       "semantic": "嘉"
+      },
+      {
+       "char": "壽",
+       "prob": 0.181534,
+       "source": "glyph",
+       "semantic": "壽"
+      },
+      {
+       "char": "書",
+       "prob": 0.179218,
+       "source": "glyph",
+       "semantic": "書"
+      },
+      {
+       "char": "渠",
+       "prob": 0.175939,
+       "source": "glyph",
+       "semantic": "渠"
+      },
+      {
+       "char": "完",
+       "prob": 0.169893,
+       "source": "glyph",
+       "semantic": "完"
+      }
+     ],
+     "gold": "嘉",
+     "origin": "align",
+     "frozen": true
+    }
+   ]
+  },
+  {
+   "column_id": "vol01:11:8",
+   "context": {
+    "prev": "之用不將嘉",
+    "next": "年臣"
+   },
+   "slots": [
+    {
+     "index": 6,
+     "instance_id": "vol01:11:8:6",
+     "candidates": [
+      {
+       "char": "書",
+       "prob": 1.0,
+       "source": "glyph",
+       "semantic": "書"
+      }
+     ],
+     "gold": "書",
+     "origin": "align",
+     "frozen": true
+    },
+    {
+     "index": 9,
+     "instance_id": "vol01:11:8:9",
+     "candidates": [
+      {
+       "char": "如",
+       "prob": 0.613391,
+       "source": "glyph",
+       "semantic": "如"
+      },
+      {
+       "char": "加",
+       "prob": 0.386609,
+       "source": "glyph",
+       "semantic": "加"
+      }
+     ],
+     "gold": "如",
+     "origin": "align",
+     "frozen": true
+    },
+    {
+     "index": 10,
+     "instance_id": "vol01:11:8:10",
+     "candidates": [
+      {
+       "char": "此",
+       "prob": 0.628237,
+       "source": "glyph",
+       "semantic": "此"
+      },
+      {
+       "char": "止",
+       "prob": 0.371763,
+       "source": "glyph",
+       "semantic": "止"
+      }
+     ],
+     "gold": "此",
+     "origin": "align",
+     "frozen": true
+    }
+   ]
+  },
+  {
+   "column_id": "vol01:11:9",
+   "context": {
+    "prev": "書如此",
+    "next": null
+   },
+   "slots": [
+    {
+     "index": 1,
+     "instance_id": "vol01:11:9:1",
+     "candidates": [
+      {
+       "char": "年",
+       "prob": 0.459441,
+       "source": "glyph",
+       "semantic": "年"
+      },
+      {
+       "char": "罕",
+       "prob": 0.272493,
+       "source": "glyph",
+       "semantic": "罕"
+      },
+      {
+       "char": "字",
+       "prob": 0.268066,
+       "source": "glyph",
+       "semantic": "字"
+      }
+     ],
+     "gold": "年",
+     "origin": "align",
+     "frozen": true
+    },
+    {
+     "index": 4,
+     "instance_id": "vol01:11:9:4",
+     "candidates": [
+      {
+       "char": "臣",
+       "prob": 0.464009,
+       "source": "glyph",
+       "semantic": "臣"
+      },
+      {
+       "char": "旨",
+       "prob": 0.270733,
+       "source": "glyph",
+       "semantic": "旨"
+      },
+      {
+       "char": "目",
+       "prob": 0.265259,
+       "source": "glyph",
+       "semantic": "目"
+      }
+     ],
+     "gold": "臣",
+     "origin": "align",
+     "frozen": true
+    }
+   ]
+  }
+ ]
+}

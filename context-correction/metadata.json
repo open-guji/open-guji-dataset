@@ -1,15 +1,17 @@
 {
   "name": "context-correction-benchmark",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "schema_version": 1,
   "description": "上下文 + LM 概率纠正 Benchmark 数据集（候选冻结）",
   "created": "2026-08-21",
-  "status": "框架",
-  "eval_command": "guji-cv refine <book> --corpus <corpus>",
-  "eval_script": null,
-  "total_samples": 0,
-  "sample_unit": "列",
-  "sources": [],
+  "status": "实集",
+  "eval_command": "PYTHONPATH=. python scripts/eval_context_correction.py <dataset>/context-correction --general-corpus corpus/external/daizhige_zhaoling.txt --book-corpus <本书语料> --sweep 0,0.9,1.0 --gate 0.70",
+  "eval_script": "open-guji-cv scripts/eval_context_correction.py（--gate 0.70 为生产口径）",
+  "total_samples": 11,
+  "sample_unit": "页（内含逐列冻结候选；一列 = 纠正作用域）",
+  "sources": [
+    "vol01 phase9_seed 进库协议（人工审查 + 自动通道金标；context 通道字位剔除）"
+  ],
   "provenance_fields": [
     "source_item",
     "pipeline_version",
@@ -82,5 +84,49 @@
     "expected.json": "冻结的 (列上下文, 候选列表+概率, 金标字) + 溯源字段",
     "info.json": "来源、描述、标签"
   },
-  "notes": "候选必须冻结在样本内：否则上游 OCR 一变，本集指标就不可比。语料来自 open-guji-cv `corpus/`。"
+  "notes": "候选必须冻结在样本内：否则上游 OCR 一变，本集指标就不可比。语料来自 open-guji-cv `corpus/`。",
+  "baseline": {
+    "date": "2026-08-24",
+    "slots": 1681,
+    "columns": 98,
+    "gold_in_candidates_rate": 0.9007,
+    "baseline_top1": 0.6752,
+    "gated_margin_0.70": {
+      "mixture_book0.9_general0.1": {
+        "top1_gain": 0.0232,
+        "rescued": 41,
+        "harmed": 2,
+        "harmful_flip_rate": 0.0018
+      },
+      "pure_general_zhaoling": {
+        "top1_gain": 0.0161,
+        "rescued": 30,
+        "harmed": 3
+      },
+      "pure_book": {
+        "top1_gain": 0.0173,
+        "rescued": 39,
+        "harmed": 10
+      },
+      "by_origin_mixture": {
+        "human": {
+          "n": 529,
+          "baseline": 0.4915,
+          "top1": 0.535
+        },
+        "align": {
+          "n": 1152,
+          "baseline": 0.7595,
+          "top1": 0.7734
+        }
+      }
+    },
+    "ungated_rerank": "任何 λ（0.10~0.95）下净亏（λ=0.95 仍 救17/坏34）——含库匹配证据的强先验上，LM 只配当门槛化裁判，不配当全局重排器"
+  },
+  "known_limitation": [
+    "上下文为教师强制（列内前文用金标）：上界口径，真实流程前文同样带错",
+    "候选为 fuse_priors(库匹配 cov ∪ OCR s2t) 融合先验快照，随 pipeline_version 冻结",
+    "align 层金标含自动通道噪声；human 层（529 槽）才是硬基准",
+    "本书 LM 评测时对测试页挖洞（HOLDOUT_PAD=200），8-gram 残余重合 5.9% 来自整理本内部重复用语"
+  ]
 }

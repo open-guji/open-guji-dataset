@@ -138,6 +138,25 @@ context-correction/
 一个样本 = 一**列**：上下文纠正的作用域是列，跨列上下文由
 `context.prev` / `next` 提供。
 
+## 种子队列实集（v1.0，2026-08-24）
+
+`samples/vol01_seed_<page>/` 由 open-guji-cv
+`scripts/build_context_correction_dataset.py --from-seed` 从逐页进库
+协议（phase9_seed 队列）生成，与上文 phase6 模式的差别：
+
+- **金标**来自进库协议：人工审查确认（逐槽位 `origin: "human"`，最硬的
+  一层）或自动通道（`origin: "align"`）；context 通道自动进库的字位
+  **剔除**（其金标由被测 LM 产出，循环论证）；
+- **候选**是 `fuse_priors(库匹配 cov ∪ OCR top1 s2t 扩展)` 的融合先验
+  快照——正是生产里 LM 介入前看到的分布，OCR 的 s2t 扩展在建集时
+  已冻结进候选，评测侧无需（也不许）再引入新字形；
+- 一个样本目录 = 一**页**（`columns` 数组内仍逐列组织），顶层
+  `label_origin` 取该页最弱来源（有任一自动槽位即 `align`），逐槽位
+  细分靠 `slots[].origin`；
+- 首轮基线（`eval_command` 的 `--gate 0.70` 生产口径）见
+  `metadata.json.baseline`：核心结论是**门槛化才有净收益**——无门槛
+  全局重排在该集上任何 λ 都是净亏。
+
 ## 如何添加样本
 
 1. 新建 `samples/NNN/`（三位数字，从 `001` 起顺序编号）；
