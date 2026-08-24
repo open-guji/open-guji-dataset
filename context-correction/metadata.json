@@ -93,10 +93,10 @@
     "baseline_top1": 0.6752,
     "gated_margin_0.70": {
       "mixture_book0.9_general0.1": {
-        "top1_gain": 0.0232,
-        "rescued": 41,
-        "harmed": 2,
-        "harmful_flip_rate": 0.0018
+        "top1_gain": 0.0214,
+        "rescued": 40,
+        "harmed": 4,
+        "harmful_flip_rate": 0.0035
       },
       "pure_general_zhaoling": {
         "top1_gain": 0.0161,
@@ -104,24 +104,25 @@
         "harmed": 3
       },
       "pure_book": {
-        "top1_gain": 0.0173,
-        "rescued": 39,
-        "harmed": 10
+        "top1_gain": 0.0155,
+        "rescued": 38,
+        "harmed": 12
       },
       "by_origin_mixture": {
         "human": {
           "n": 529,
           "baseline": 0.4915,
-          "top1": 0.535
+          "top1": 0.5255
         },
         "align": {
           "n": 1152,
           "baseline": 0.7595,
-          "top1": 0.7734
+          "top1": 0.7752
         }
       }
     },
-    "ungated_rerank": "任何 λ（0.10~0.95）下净亏（λ=0.95 仍 救17/坏34）——含库匹配证据的强先验上，LM 只配当门槛化裁判，不配当全局重排器"
+    "ungated_rerank": "任何 λ（0.10~0.95）下净亏（λ=0.95 仍 救17/坏34）——含库匹配证据的强先验上，LM 只配当门槛化裁判，不配当全局重排器",
+    "kernel": "context_step.gated_ngram（生产同一核心：列首无前文时纯先验，不硬套 unigram）"
   },
   "known_limitation": [
     "上下文为教师强制（列内前文用金标）：上界口径，真实流程前文同样带错",
