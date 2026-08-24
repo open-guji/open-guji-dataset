@@ -177,3 +177,19 @@ ID 一个没丢。逐个重看只有 2 个标签要动——95:1:17 与 109:9:5 
 **教训写进 `known_limitation`**：凡是改动格高/周期这类**尺度**参数，本数据集
 必须整体重看，不能只统计「内容变了几个」——内容没变的那些，指向的字也可能
 换了。
+
+## review_recrop 分片（2026-08-24）：人工重切的 bbox 金标
+
+进库审查页支持对切错位的图块**拖框重切**（纯几何事件，与选字独立）。
+每条重切都是一对金标：`old_bbox` 是切分的实际输出（坏例，patch 图
+即按它裁的），`corrected_bbox` 是用户拖出的正确外接框。由
+`open-guji-cv/scripts/build_recrop_shard.py` 从 git 历史里捞旧框回流。
+
+- 首批 9 条（vol01 14/15 页）：5 条 `grid_shift`（列尾格整体上飘
+  35~55px，**系统性**格线偏移）、3 条 `rule_bar`（最左/最右列吃进
+  断续**内边框**）、1 条 `neighbor_residue`。
+  模式分析与给切分层的整改诉求见
+  `open-guji-cv/.claude/doc/segmentation_border_feedback.md`。
+- 回归口径：新切分在这些 (page,col,idx) 上与 `corrected_bbox` 的
+  IoU ≥ 0.85；自检口径不变（至少要被 flag）。
+- 与其他 seed 一样是**定向富集**，不能读作全书切分错误率。
