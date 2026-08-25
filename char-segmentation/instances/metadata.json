@@ -1,6 +1,6 @@
 {
  "name": "char-instance-quality",
- "version": "0.13.0",
+ "version": "0.14.0",
  "schema_version": 1,
  "description": "单字图块切分质量：真实图块的实例级四分类标注",
  "created": "2026-08-22",
@@ -8,7 +8,7 @@
  "parent": "char-segmentation",
  "eval_command": "cd open-guji-cv && python scripts/eval_instance_quality.py <dataset>",
  "eval_script": "open-guji-cv/scripts/eval_instance_quality.py",
- "total_samples": 189,
+ "total_samples": 392,
  "sample_unit": "单字图块",
  "sources": [
   "06061300.cn（武英殿刻本《欽定四庫全書總目》卷首一~四）"
@@ -21,15 +21,15 @@
  },
  "judging_principle": "只看墨，不看框。图块多裁一点空白不算失败——空白不影响下游归一化与识别。混入=多了别人的墨，截断=少了自己的墨，与外接框大小无关。",
  "what_is_evaluated": "不是切分质量本身，而是**管线的自检能力**。人工标签描述的是当前输出，重跑切分后标签就不再对应，无法当作可自动重跑的回归基准；真正能自动化又有用的问题是「管线能不能自己发现坏图块、送进人工审查队列」。被测对象是 CharInstance.flags，任意 flag 即算被标记。",
- "sampling_bias": "**各类占比不是全书真实比例**。38/63 从历史人工审查标记过的问题位置抽（值得复查），25/63 从刚性/弹性列随机抽。只能用于比较不同算法在同一批样本上的表现，不能读作缺陷率。",
+ "sampling_bias": "**各类占比不是全书真实比例，合并数字不能读作缺陷率或误报率。** 历史样本（seed != evict_review_r1，242 条）全是从人工标记过的问题位置定向抽的；2026-08-25 并入的 evict_review_r1（150 条）是**分层抽样**，四层的抽样率差着量级：flagged 层从全池 606 个带旗标的块里抽（全池占比 9.96%），control 层从全池随机、任何旗标都没有的块里抽（占比 90.04%），missed 层是定向富集（专挑判据漏掉的），newrule 层是候选判据的命中集。每条带 `stratum` 与 `stratum_weight`——**要估全池的量，必须按权重加权**，直接对全集求比例会把 flagged 层的过采样算进去（例如合并后的 41% 正例误报率，按分层加权后是约 7.7%）。",
  "label_origin_values": [
   "human"
  ],
  "quality_distribution": {
-  "contaminated": 63,
+  "contaminated": 115,
   "not_text": 36,
-  "clean": 77,
-  "truncated": 13
+  "clean": 222,
+  "truncated": 19
  },
  "layout_distribution": {
   "rigid": 55,
@@ -283,5 +283,40 @@
   }
  ],
  "known_limitation": "1) 误报率 25% 含抽样偏置（16/91 从 boundary_ink-only 超采），不可与历史基线直接相比；按无偏置样本估计的真实误报率应低于此。\n2) boundary_ink 单独命中精确率 ~25%：主要误报源是完整的高字（vol02 字高/格高中位 0.945，墨天然顶到 10% 边缘带）。改判据前先想清楚：真截断的切口在边缘行是**宽平的**（笔画被拦腰切断），高字的笔画尖端是**收窄的**——这可能是分得开的量，待验证。\n3) truncated 仍只有 2 个样本（均为纵向）；横向截断一个都没有。\n4) 尺度/相位参数一改 page:col:idx 就可能换字（九/十/十一轮各 2~3 例），重跑后必须整体重看。",
- "coverage": "vol01 + vol02（第六轮起收两册；键可写 'vol02/page:col:idx'）"
+ "coverage": "vol01 + vol02（第六轮起收两册；键可写 'vol02/page:col:idx'）",
+ "strata": {
+  "evict_review_r1": {
+   "source": "图块出库裁决台 https://claude.ai/code/artifact/69cdfc83-3117-496f-8209-265887e963af",
+   "date": "2026-08-25",
+   "pool": "glyph-match/pairs 的 6086 个实例（vol01+vol02 正文，管线 502fa04d0c）",
+   "layers": {
+    "flagged": {
+     "n": 48,
+     "weight": 0.0996,
+     "缺陷率": "26.5% (13/49)",
+     "说明": "全池被现行 crop_quality 旗标的块，按旗标类型分层抽"
+    },
+    "control": {
+     "n": 40,
+     "weight": 0.9004,
+     "缺陷率": "2.5% (1/40)",
+     "说明": "全池随机、任何旗标都没有的块——**有了这层缺陷率才第一次可估**"
+    },
+    "missed": {
+     "n": 38,
+     "weight": null,
+     "缺陷率": "57.9% (22/38)",
+     "说明": "定向富集：形近误判裁决台判了「标注有误」而判据没旗标的块。不可读作率"
+    },
+    "newrule": {
+     "n": 24,
+     "weight": null,
+     "缺陷率": "12.5% (3/24)",
+     "说明": "候选新规则（墨框宽高比/投影干净缝）命中而现行判据没命中的块"
+    }
+   },
+   "全池缺陷率估计": "约 4.9%（≈298/6086）；现行判据在其上召回约 54%、精确约 27%",
+   "标签口径": "人裁给的是三档处置（出库/进测试集/留着），存在 `human_verdict`；`quality` 的 clean 由人裁直给，缺陷子类（contaminated/truncated）由旗标推出，见 `quality_subtype_origin`。主指标 defect_recall 把三类缺陷合起来算，不受子类准确度影响。"
+  }
+ }
 }
