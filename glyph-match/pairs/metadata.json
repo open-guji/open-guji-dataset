@@ -383,6 +383,16 @@
    "source": "形近误判裁决台 https://claude.ai/code/artifact/9e45a22b-da42-4bd5-9486-378fd714a80a —— 用户逐例审 202 例排序倒挂候选时当场指出这两块图的字头认错了（T047 右 / T159 右），复核原图属实。",
    "effect": "主指标不动（闸 0.996，precision 0.99909，recall 0.1067）；只有分母微调：knn 层同字对 30910→30921，random 层 3000→2994。这两个实例污染了 5 张候选卡（T041/T047/T158/T159/T177），改判后其中几张不再是倒挂。",
    "note": "align 来源的金标有噪声是本集写在 gold_definition 里的既知事实（label_noise）；这是第一批被人眼抓出来的具体条目。"
+  },
+  {
+   "round": "label_suspect_review_r1",
+   "date": "2026-08-25",
+   "source": "https://claude.ai/code/artifact/aa816ec8-3eca-4cb8-a889-87660e92d24a",
+   "reviewed": 71,
+   "relabeled": 3,
+   "dropped": 1,
+   "criterion": "「一个实例反复只跟同一个字撞」挖出 71 个疑似错标，逐张人裁。只有 3 条真错标（一→七、匕→七、注→註），1 条图块不可判剔除，其余 67 条标的都没错——这个签名不是错标特征，它同样是「形近字对 + 这个实例恰好是典型刻例」的特征。",
+   "effect": "pairs.jsonl 36 对重新定标（异字对→同字对）、17 对因剔除移除；triplets 作废 1 条（负例 vol02:28:6:12 改标后与锚点同字，那条三元组等于拿同字当负例）。"
   }
  ]
 }

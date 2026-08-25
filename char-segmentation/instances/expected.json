@@ -123,12 +123,180 @@
  {
   "book": "vol01",
   "page": "5",
+  "col": 4,
+  "idx": 8,
+  "quality": "contaminated",
+  "defect": "neighbor_residue",
+  "old_bbox": [
+   958.0,
+   959.0,
+   1081.0,
+   1099.0
+  ],
+  "corrected_bbox": [
+   958.0,
+   990.0,
+   1081.0,
+   1099.0
+  ],
+  "layout": "unknown",
+  "seed": "review_recrop",
+  "label_origin": "human",
+  "schema_version": 1
+ },
+ {
+  "book": "vol01",
+  "page": "5",
+  "col": 5,
+  "idx": 16,
+  "quality": "truncated",
+  "defect": "grid_shift",
+  "old_bbox": [
+   779.0,
+   1885.0,
+   896.0,
+   2007.0
+  ],
+  "corrected_bbox": [
+   776.0,
+   1906.0,
+   893.0,
+   2028.0
+  ],
+  "layout": "unknown",
+  "seed": "review_recrop",
+  "label_origin": "human",
+  "schema_version": 1
+ },
+ {
+  "book": "vol01",
+  "page": "5",
   "col": 5,
   "idx": 17,
   "quality": "contaminated",
   "defect": "frame_bar",
   "layout": "unknown",
   "seed": "review_label_only",
+  "label_origin": "human",
+  "schema_version": 1
+ },
+ {
+  "book": "vol01",
+  "page": "5",
+  "col": 6,
+  "idx": 4,
+  "quality": "truncated",
+  "defect": "grid_shift",
+  "old_bbox": [
+   590.0,
+   493.0,
+   708.0,
+   615.0
+  ],
+  "corrected_bbox": [
+   587.0,
+   520.0,
+   705.0,
+   642.0
+  ],
+  "layout": "unknown",
+  "seed": "review_recrop",
+  "label_origin": "human",
+  "schema_version": 1
+ },
+ {
+  "book": "vol01",
+  "page": "5",
+  "col": 6,
+  "idx": 5,
+  "quality": "contaminated",
+  "defect": "neighbor_residue",
+  "old_bbox": [
+   592.0,
+   605.0,
+   710.0,
+   760.0
+  ],
+  "corrected_bbox": [
+   592.0,
+   642.0,
+   710.0,
+   760.0
+  ],
+  "layout": "unknown",
+  "seed": "review_recrop",
+  "label_origin": "human",
+  "schema_version": 1
+ },
+ {
+  "book": "vol01",
+  "page": "5",
+  "col": 9,
+  "idx": 8,
+  "quality": "contaminated",
+  "defect": "neighbor_residue",
+  "old_bbox": [
+   41.0,
+   958.0,
+   157.0,
+   1097.0
+  ],
+  "corrected_bbox": [
+   38.0,
+   993.0,
+   154.0,
+   1103.0
+  ],
+  "layout": "unknown",
+  "seed": "review_recrop",
+  "label_origin": "human",
+  "schema_version": 1
+ },
+ {
+  "book": "vol01",
+  "page": "6",
+  "col": 1,
+  "idx": 13,
+  "quality": "contaminated",
+  "defect": "misc_trim",
+  "old_bbox": [
+   1576.0,
+   1544.0,
+   1691.0,
+   1638.0
+  ],
+  "corrected_bbox": [
+   1576.0,
+   1519.0,
+   1691.0,
+   1638.0
+  ],
+  "layout": "unknown",
+  "seed": "review_recrop",
+  "label_origin": "human",
+  "schema_version": 1
+ },
+ {
+  "book": "vol01",
+  "page": "6",
+  "col": 7,
+  "idx": 4,
+  "quality": "contaminated",
+  "defect": "neighbor_residue",
+  "old_bbox": [
+   483.0,
+   476.0,
+   582.0,
+   619.0
+  ],
+  "corrected_bbox": [
+   468.0,
+   471.0,
+   584.0,
+   596.0
+  ],
+  "layout": "unknown",
+  "seed": "review_recrop",
   "label_origin": "human",
   "schema_version": 1
  },
@@ -349,6 +517,30 @@
  },
  {
   "book": "vol01",
+  "page": "8",
+  "col": 9,
+  "idx": 11,
+  "quality": "contaminated",
+  "defect": "neighbor_residue",
+  "old_bbox": [
+   108.0,
+   1305.0,
+   226.0,
+   1432.0
+  ],
+  "corrected_bbox": [
+   108.0,
+   1324.0,
+   226.0,
+   1432.0
+  ],
+  "layout": "unknown",
+  "seed": "review_recrop",
+  "label_origin": "human",
+  "schema_version": 1
+ },
+ {
+  "book": "vol01",
   "page": "9",
   "col": 1,
   "idx": 20,
@@ -404,6 +596,30 @@
   "defect": "stroke_loss_or_scratch",
   "layout": "unknown",
   "seed": "review_label_only",
+  "label_origin": "human",
+  "schema_version": 1
+ },
+ {
+  "book": "vol01",
+  "page": "9",
+  "col": 3,
+  "idx": 20,
+  "quality": "contaminated",
+  "defect": "neighbor_residue",
+  "old_bbox": [
+   1140.0,
+   2272.0,
+   1258.0,
+   2371.0
+  ],
+  "corrected_bbox": [
+   1140.0,
+   2338.0,
+   1258.0,
+   2371.0
+  ],
+  "layout": "unknown",
+  "seed": "review_recrop",
   "label_origin": "human",
   "schema_version": 1
  },
@@ -598,6 +814,30 @@
   "label_origin": "human",
   "schema_version": 1,
   "needs_review": "rekey_low_overlap"
+ },
+ {
+  "book": "vol01",
+  "page": "11",
+  "col": 9,
+  "idx": 11,
+  "quality": "contaminated",
+  "defect": "neighbor_residue",
+  "old_bbox": [
+   35.0,
+   1266.0,
+   149.0,
+   1393.0
+  ],
+  "corrected_bbox": [
+   35.0,
+   1266.0,
+   149.0,
+   1368.0
+  ],
+  "layout": "unknown",
+  "seed": "review_recrop",
+  "label_origin": "human",
+  "schema_version": 1
  },
  {
   "book": "vol01",

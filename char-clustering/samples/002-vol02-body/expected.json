@@ -4631,8 +4631,8 @@
   {
    "instance_id": "vol02:28:6:12",
    "crop": "crops/vol02_28_6_12.png",
-   "char": "一",
-   "label_origin": "align",
+   "char": "七",
+   "label_origin": "human",
    "align_op": "equal",
    "align_run": 1,
    "page": "28",
@@ -4646,7 +4646,16 @@
     "edge_ink_px": 0,
     "n_foreign": 0,
     "foreign_core_px": 0
-   }
+   },
+   "relabel_history": [
+    {
+     "from": "一",
+     "to": "七",
+     "round": "label_suspect_review_r1",
+     "date": "2026-08-25",
+     "source": "https://claude.ai/code/artifact/aa816ec8-3eca-4cb8-a889-87660e92d24a"
+    }
+   ]
   },
   {
    "instance_id": "vol02:28:6:13",
@@ -13611,8 +13620,8 @@
   {
    "instance_id": "vol02:37:6:12",
    "crop": "crops/vol02_37_6_12.png",
-   "char": "匕",
-   "label_origin": "align",
+   "char": "七",
+   "label_origin": "human",
    "align_op": "replace",
    "align_run": 3,
    "page": "37",
@@ -13626,7 +13635,16 @@
     "edge_ink_px": 0,
     "n_foreign": 0,
     "foreign_core_px": 0
-   }
+   },
+   "relabel_history": [
+    {
+     "from": "匕",
+     "to": "七",
+     "round": "label_suspect_review_r1",
+     "date": "2026-08-25",
+     "source": "https://claude.ai/code/artifact/aa816ec8-3eca-4cb8-a889-87660e92d24a"
+    }
+   ]
   },
   {
    "instance_id": "vol02:37:6:13",
@@ -19871,8 +19889,8 @@
   {
    "instance_id": "vol02:46:8:7",
    "crop": "crops/vol02_46_8_7.png",
-   "char": "注",
-   "label_origin": "align",
+   "char": "註",
+   "label_origin": "human",
    "align_op": "replace",
    "align_run": 2,
    "page": "46",
@@ -19886,7 +19904,16 @@
     "edge_ink_px": 0,
     "n_foreign": 0,
     "foreign_core_px": 0
-   }
+   },
+   "relabel_history": [
+    {
+     "from": "注",
+     "to": "註",
+     "round": "label_suspect_review_r1",
+     "date": "2026-08-25",
+     "source": "https://claude.ai/code/artifact/aa816ec8-3eca-4cb8-a889-87660e92d24a"
+    }
+   ]
   },
   {
    "instance_id": "vol02:46:8:8",
@@ -58038,26 +58065,6 @@
    "page": "173",
    "ink_ratio": 0.1057,
    "hw_ratio": 0.9188,
-   "tier": "clean",
-   "tier_detail": {
-    "tier": "clean",
-    "truncated": false,
-    "residue": false,
-    "edge_ink_px": 0,
-    "n_foreign": 0,
-    "foreign_core_px": 0
-   }
-  },
-  {
-   "instance_id": "vol02:173:2:14",
-   "crop": "crops/vol02_173_2_14.png",
-   "char": "己",
-   "label_origin": "align",
-   "align_op": "replace",
-   "align_run": 2,
-   "page": "173",
-   "ink_ratio": 0.1186,
-   "hw_ratio": 0.927,
    "tier": "clean",
    "tier_detail": {
     "tier": "clean",
