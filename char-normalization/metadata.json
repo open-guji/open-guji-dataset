@@ -7,7 +7,7 @@
  "status": "可用",
  "eval_command": "cd open-guji-cv && python scripts/eval_normalize.py <dataset>",
  "eval_script": "open-guji-cv/scripts/eval_normalize.py",
- "total_samples": 37,
+ "total_samples": 32,
  "sample_unit": "字块",
  "sources": [
   {
@@ -221,10 +221,20 @@
    "round": 2,
    "date": "2026-08-25",
    "changed": "`_drop_stray_components` 补了一步几何判据（质心落在字身外接框内的小块收回来）后，37 张里 8 张输出变了（002/007/012/016/019/027/031/106），其中 3 张出旧容差（012/027/106）。经复核台人裁：32 张「可以」——**含全部 3 张出容差的**，已按新输出重冻 7 张（其余 25 张输出未变）；0 张「有问题」；5 张「待定」（029/031/033/035/036）不动、置 status=pending_review。",
-   "dropped_ids": [],
+   "dropped_ids": [
+    "029",
+    "031",
+    "033",
+    "035",
+    "036"
+   ],
    "source": "笔宽归一复核台 https://claude.ai/code/artifact/cd2fee67-fb9d-4519-870a-41413b9c87d3 第二轮",
    "effect": "重冻后全集 0 张出容差。改动的病因见 open-guji-cv 的 .claude/doc/glyph_match_stack.md §六.4：旧判据按面积累计到 98% 保留连通域，笔画密的字里一个「丶」占不到 2%，被当残片删了——用户在图块出库裁决台上发现的（「短横和点都给变没了」）。",
-   "pending": "5 张待定里，029（vol01:71:8:20）整块只有两条版框横线、根本不是字（列尾 idx=20，正是切分惯犯位置），按 char-segmentation 的口径属于 not_text，不该继续当归一化 golden；035（vol02:138:6:0）字头被切。用户原话：「剩的两个没有裁决的，不是完整字符」。下一轮复核台再定这几张的去留。"
+   "pending": "5 张待定（029/031/033/035/036）已于同日**摘出本集**——用户定：「待定的也都先移出去，就不审了，反正后面还会有例子」。理由：029（vol01:71:8:20）整块只有两条版框横线、根本不是字（且落在 idx=20 列尾，切分惯犯位置），035（vol02:138:6:0）字头被切，031/033/036 是界行/版框残留没去干净。五条实例一并进 open-guji-cv 的 config/crop_exclusions.jsonl，重扫之后按名单复核。"
   }
- ]
+ ],
+ "status_distribution": {
+  "verified": 31,
+  "known_defect": 1
+ }
 }
