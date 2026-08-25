@@ -195,12 +195,27 @@
    "degraded": 4
   }
  },
- "updated": "2026-08-23",
+ "updated": "2026-08-24",
  "changelog": [
+  {
+   "version": "0.3.0",
+   "date": "2026-08-24",
+   "note": "笔宽归一撤除轮：golden 全部重冻（norm_params.stroke_width 3 → None）。动机是匹配栈——triplets hard 排序 0.6842→0.7632、glyph-match/pairs 主指标 recall 0.0807→0.1130 且 precision 仍 ≥0.999。回归门 33/33 仍全过。"
+  },
   {
    "version": "0.5.0",
    "date": "2026-08-23",
    "note": "P3 归一化修复轮：remove_edge_specks 重写后重冻 golden。新增 targeted 线索 7 样本（101-107：二三之亦文一 + 实锤 vol02:157:2:4）；101 由 clean 层 P0 known_defect 转 verified（二的底横保住）；029/035 输出微变目视重验仍 verified；031/033/034/036 仍 known_defect（厚残留/连通残留，归切分层）。clean 层缺陷清零。"
+  }
+ ],
+ "relabel_history": [
+  {
+   "round": 1,
+   "date": "2026-08-24",
+   "changed": "撤除笔宽归一（stroke_normalize，骨架化+膨胀到 3px）后 37 张 golden 全部重冻；标签与样本集合不变（verified 33 / known_defect 4 原样）",
+   "dropped_ids": [],
+   "effect": "归一化输出从「统一 3px 笔宽」变成保留真实笔宽。人工目视复核见审查页 https://claude.ai/code/artifact/cd2fee67-fb9d-4519-870a-41413b9c87d3 —— 用户裁决：不做笔宽归一没有问题，归一化反而让文字更失真。提出的唯一疑问「小笔画是否消失」经实测排除：「旧版有、新版没有」的墨块 0 个/37 张（新旧同源于一张缩放后二值图，骨架化不可能删笔画）；用户看到的是 4/37 张里旧版用膨胀桥接了真实断口、以及新版 69% 的墨落在 1px 细笔上导致观感偏细。4 张 known_defect 的缺陷全在 remove_edge_specks（残留未去），本轮未触及，行为逐项未变。",
+   "review_scope": "用户目视抽查若干张 + 上述全量实测证据，非逐张 37 张过目"
   }
  ]
 }
