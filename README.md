@@ -25,6 +25,7 @@
 | [char-segmentation/frame-strip](char-segmentation/frame-strip) | `chars`（列端去框）| 65 | 可用 | 列端格「去框后」干净度：残余率/误剥率/字保全 |
 | [char-segmentation/side-rule](char-segmentation/side-rule) | `chars`（侧边去线）| 265 | 可用 | 图块左右缘的界行竖条剥没剥掉，字的边竖有没有被误剥 |
 | [char-segmentation/page-crop](char-segmentation/page-crop) | `segment`（上游裁切）| 6 页 | 可用 | 列窗越出页图多少＝最外列被 s3 吃掉多少（全自动，无需标注）|
+| [char-segmentation/seam](char-segmentation/seam) | `segment`（格线落点）| 294 页 | 可用 | 切缝墨率＝格线那一行的墨 / 上下两格字峰，量「这一刀是不是切在字上」（全自动，无需标注）|
 | [char-normalization](char-normalization) | `normalize`（纯函数） | 35 字块 | 可用 | 归一化 golden 回归门（32 verified + 3 已知缺陷）|
 | [char-clustering](char-clustering) | `cluster` | 3 分片 / 6297 实例 | 可用 | 保守聚类 purity 集（align 两册 + 人工复核层 + 难例对）|
 | [glyph-match](glyph-match) | `match`/`verify` | 98 三元组 | 可用 | 匹配排序：同字形须胜形近异字（体检人裁产出；hard 基线 0.079，control 护栏 1.0）|
