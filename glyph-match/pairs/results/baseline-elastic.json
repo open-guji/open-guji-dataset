@@ -1,0 +1,104 @@
+{
+ "method": "elastic",
+ "cov_high": 0.996,
+ "miss_wmax": 12,
+ "n_pairs": 71497,
+ "knn": {
+  "precision": 0.99909,
+  "tp": 3298,
+  "fp": 3,
+  "recall": 0.1067,
+  "n_same": 30910
+ },
+ "near_form": {
+  "precision": null,
+  "tp": 0,
+  "fp": 0,
+  "recall": null,
+  "n_same": 0
+ },
+ "random": {
+  "precision": 1.0,
+  "tp": 98,
+  "fp": 0,
+  "recall": 0.03267,
+  "n_same": 3000
+ },
+ "best_operating_point": {
+  "cov_high": 0.996,
+  "precision": 0.99909,
+  "recall": 0.1067,
+  "tp": 3298,
+  "fp": 3,
+  "n_same": 30910
+ },
+ "by_ink_bucket": {
+  "0.00-0.10": {
+   "precision": 1.0,
+   "recall": 0.58651,
+   "tp": 922,
+   "fp": 0,
+   "n_same": 1572
+  },
+  "0.10-0.14": {
+   "precision": 0.99806,
+   "recall": 0.22721,
+   "tp": 1545,
+   "fp": 3,
+   "n_same": 6800
+  },
+  "0.14-0.18": {
+   "precision": 1.0,
+   "recall": 0.05687,
+   "tp": 655,
+   "fp": 0,
+   "n_same": 11518
+  },
+  "0.18-0.25": {
+   "precision": 1.0,
+   "recall": 0.0164,
+   "tp": 168,
+   "fp": 0,
+   "n_same": 10244
+  },
+  "0.25+": {
+   "precision": 1.0,
+   "recall": 0.01031,
+   "tp": 8,
+   "fp": 0,
+   "n_same": 776
+  }
+ },
+ "by_tier": {
+  "clean": {
+   "precision": 0.99903,
+   "recall": 0.11165,
+   "tp": 3098,
+   "fp": 3,
+   "n_same": 27748
+  },
+  "degraded": {
+   "precision": 1.0,
+   "recall": 0.06325,
+   "tp": 200,
+   "fp": 0,
+   "n_same": 3162
+  }
+ },
+ "by_book": {
+  "cross": {
+   "precision": 1.0,
+   "recall": 0.09725,
+   "tp": 1108,
+   "fp": 0,
+   "n_same": 11393
+  },
+  "same": {
+   "precision": 0.99863,
+   "recall": 0.11221,
+   "tp": 2190,
+   "fp": 3,
+   "n_same": 19517
+  }
+ }
+}
