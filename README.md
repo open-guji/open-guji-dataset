@@ -21,7 +21,9 @@
 | [page-geometry](page-geometry) | `segment`（版面几何）| 39 页 / 353 界行 | 可用 | 页面形变标定：错切/射影、列距列相位 |
 | [column-layout](column-layout) | `segment`（行列识别）| 36 页 / 322 列 | 可用 | 逐列刚性/弹性判别 + 统一输出格式 |
 | [char-segmentation/cells](char-segmentation/cells) | `segment`（格内净化）| 60 | 可用 | 合成逐像素金标：格内墨迹归属 |
-| [char-segmentation/instances](char-segmentation/instances) | `chars`（图块自检）| 169 | 可用 | 真实图块四分类 + `defect` 子类（rule_bar/frame_bar），评管线自检能力。0.12 版并入 78 条进库审查涌现的坏图块，contaminated 8→49 |
+| [char-segmentation/instances](char-segmentation/instances) | `chars`（图块自检）| 426 | 可用 | 真实图块四分类 + `defect` 子类（rule_bar/frame_bar），评管线自检能力。含历次实审回流（r1~r6）与隔壁进库审查的 149 条 |
+| [char-segmentation/frame-strip](char-segmentation/frame-strip) | `chars`（列端去框）| 65 | 可用 | 列端格「去框后」干净度：残余率/误剥率/字保全 |
+| [char-segmentation/side-rule](char-segmentation/side-rule) | `chars`（侧边去线）| 265 | 可用 | 图块左右缘的界行竖条剥没剥掉，字的边竖有没有被误剥 |
 | [char-normalization](char-normalization) | `normalize`（纯函数） | 35 字块 | 可用 | 归一化 golden 回归门（32 verified + 3 已知缺陷）|
 | [char-clustering](char-clustering) | `cluster` | 3 分片 / 6297 实例 | 可用 | 保守聚类 purity 集（align 两册 + 人工复核层 + 难例对）|
 | [glyph-match](glyph-match) | `match`/`verify` | 98 三元组 | 可用 | 匹配排序：同字形须胜形近异字（体检人裁产出；hard 基线 0.079，control 护栏 1.0）|
