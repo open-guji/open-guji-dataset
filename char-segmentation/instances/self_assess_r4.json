@@ -3538,11 +3538,12 @@
   "seed": "self_assess_r4",
   "n_page": 123,
   "quality": "contaminated",
-  "defect": "jiazhu_unsplit",
+  "defect": "grid_split",
   "judged": true,
   "label_origin": "model",
   "layout": "unknown",
-  "schema_version": 1
+  "schema_version": 1,
+  "note": "复核：该格装的是「行」的下半 + 整个「乎」，两者都是正常大字——是切缝相位错，不是夹注。原判 jiazhu_unsplit 有误。"
  },
  {
   "book": "vol01",
@@ -8987,11 +8988,12 @@
   "seed": "self_assess_r4",
   "n_page": 164,
   "quality": "truncated",
-  "defect": "jiazhu_split",
+  "defect": "right_cut",
   "judged": true,
   "label_origin": "model",
   "layout": "unknown",
-  "schema_version": 1
+  "schema_version": 1,
+  "note": "复核：夹注 a 半的「總」字身右伸到 x=1729，列右界 1719、a 半框右界 1715，穿边 14px 而右缘救援上限只有 12px，够不着。是右缘救援额度不足，不是夹注拆分误判。"
  },
  {
   "book": "vol02",
