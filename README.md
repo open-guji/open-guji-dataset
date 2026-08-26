@@ -28,6 +28,7 @@
 | [char-segmentation/text-band](char-segmentation/text-band) | `segment`（版面窗口）| 294 页 | 可用 | 窗口高 /（每列字数 × 书级格高）＝列的纵向窗口够不够装下一整列（全自动，无需标注）|
 | [char-segmentation/jiazhu-tail](char-segmentation/jiazhu-tail) | `chars`（夹注段端）| 57 | 可用 | 奇数字末行单字收编成 a 行 / 漏拆末行补拆，正文拒收（三分类，非对称零容忍）|
 | [char-segmentation/right-cut](char-segmentation/right-cut) | `chars`（右缘救援）| 51 列 213 点 | 可用 | 贴界行书写的字，捺脚/横尾穿过右裁切边必须被图块盖住 |
+| [char-segmentation/left-cut](char-segmentation/left-cut) | `chars`（左缘救援）| 58 列 114 点 | 可用 | 镜像：撇尖/横笔左端穿过左裁切边必须被图块盖住（判据加横条/框线断段两道排除）|
 | [char-segmentation/seam](char-segmentation/seam) | `segment`（格线落点）| 294 页 | 可用 | 切缝墨率＝格线那一行的墨 / 上下两格字峰，量「这一刀是不是切在字上」（全自动，无需标注）|
 | [char-normalization](char-normalization) | `normalize`（纯函数） | 35 字块 | 可用 | 归一化 golden 回归门（32 verified + 3 已知缺陷）|
 | [char-clustering](char-clustering) | `cluster` | 3 分片 / 6297 实例 | 可用 | 保守聚类 purity 集（align 两册 + 人工复核层 + 难例对）|
