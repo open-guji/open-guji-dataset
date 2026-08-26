@@ -6,7 +6,7 @@
  "created": "2026-08-24",
  "status": "可用",
  "eval_command": "cd open-guji-cv && PYTHONPATH=. python scripts/eval_match_triplets.py ../open-guji-dataset/glyph-match/triplets",
- "total_samples": 197,
+ "total_samples": 193,
  "sample_unit": "三元组",
  "subsets": {
   "hard": 38,
@@ -18,9 +18,9 @@
  "provenance": "字形库体检（glyphdb-audit）rival 旗 × 审查页白名单；control 为未打旗良例抽样（seed=7）",
  "notes": "图块为原始灰度 patch——归一化属于被测算法的一部分。hard 全部是构建时算法的已知失败，基线≈0 是设计使然；指标 = 各子集排序正确率 + 平均 margin，control 不得回退。",
  "subset_distribution": {
-  "control": 60,
-  "hard": 77,
-  "nearmiss": 60
+  "control": 58,
+  "hard": 76,
+  "nearmiss": 59
  },
  "growth_history": [
   {
@@ -53,5 +53,14 @@
    "criterion": "「一个实例反复只跟同一个字撞」挖出 71 个疑似错标，逐张人裁。只有 3 条真错标（一→七、匕→七、注→註），1 条图块不可判剔除，其余 67 条标的都没错——这个签名不是错标特征，它同样是「形近字对 + 这个实例恰好是典型刻例」的特征。",
    "effect": "pairs.jsonl 36 对重新定标（异字对→同字对）、17 对因剔除移除；triplets 作废 1 条（负例 vol02:28:6:12 改标后与锚点同字，那条三元组等于拿同字当负例）。"
   }
- ]
+ ],
+ "rekey": {
+  "round": "rekey_to_current_r1",
+  "date": "2026-08-26",
+  "from": "502fa04d0c",
+  "to": "1158da9093",
+  "map": "config/rekey_502fa04d0c_to_current.json",
+  "method": "同页内归一化图块 IoU + 匈牙利指派",
+  "dropped_unmatched": 4
+ }
 }
