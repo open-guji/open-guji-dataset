@@ -22610,8 +22610,8 @@
   {
    "instance_id": "vol01:23:3:12",
    "crop": "crops/vol01_23_3_12.png",
-   "char": "羣",
-   "label_origin": "align",
+   "char": "詳",
+   "label_origin": "human",
    "align_op": "equal",
    "align_run": 1,
    "page": "23",
@@ -22625,7 +22625,16 @@
     "edge_ink_px": 0,
     "n_foreign": 0,
     "foreign_core_px": 0
-   }
+   },
+   "relabel_history": [
+    {
+     "from": "羣",
+     "to": "詳",
+     "round": "gold_sync_r1",
+     "date": "2026-08-26",
+     "source": "glyph-match/pairs 早先的人裁改判，本轮同步过来"
+    }
+   ]
   },
   {
    "instance_id": "vol01:23:3:18",
@@ -61440,9 +61449,9 @@
   {
    "a": "vol01:23:3:12",
    "b": "vol01:20:9:4",
-   "relation": "diff",
+   "relation": "same",
    "origin": "align/confusion",
-   "note": "转写混淆 羣↔詳 ×1"
+   "note": "转写混淆 羣↔詳 ×1（gold_sync_r1：羣→詳 改标后两端同字，关系翻为 same）"
   },
   {
    "a": "vol01:143:4:9",

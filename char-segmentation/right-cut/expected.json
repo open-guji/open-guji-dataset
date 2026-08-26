@@ -1,6 +1,22 @@
 {
- "note": "穿边点按当前网格 cell_right_x 量得；重切后 cell_right_x 变了要重扫",
+ "note": "穿边点按当前网格 cell_right_x 量得；重切后 cell_right_x 变了要重扫 2026-08-26 #7 重建轮：vol01/81、vol02/23、vol02/186 三页重裁（坐标变），其上条目按同判据重扫回填。",
  "columns": [
+  {
+   "book": "vol01",
+   "page": "4",
+   "col": 1,
+   "cell_right_x": 1637,
+   "crossings": [
+    {
+     "y": 1138,
+     "extent": 1642
+    },
+    {
+     "y": 1485,
+     "extent": 1643
+    }
+   ]
+  },
   {
    "book": "vol01",
    "page": "12",
@@ -14,78 +30,6 @@
     {
      "y": 29,
      "extent": 1684
-    }
-   ]
-  },
-  {
-   "book": "vol01",
-   "page": "146",
-   "col": 9,
-   "cell_right_x": 239,
-   "crossings": [
-    {
-     "y": 630,
-     "extent": 243
-    },
-    {
-     "y": 678,
-     "extent": 243
-    },
-    {
-     "y": 788,
-     "extent": 244
-    }
-   ]
-  },
-  {
-   "book": "vol01",
-   "page": "146",
-   "col": 8,
-   "cell_right_x": 424,
-   "crossings": [
-    {
-     "y": 2202,
-     "extent": 428
-    },
-    {
-     "y": 2222,
-     "extent": 428
-    }
-   ]
-  },
-  {
-   "book": "vol01",
-   "page": "146",
-   "col": 1,
-   "cell_right_x": 1687,
-   "crossings": [
-    {
-     "y": 2035,
-     "extent": 1695
-    },
-    {
-     "y": 2241,
-     "extent": 1691
-    },
-    {
-     "y": 2401,
-     "extent": 1692
-    }
-   ]
-  },
-  {
-   "book": "vol01",
-   "page": "156",
-   "col": 1,
-   "cell_right_x": 1672,
-   "crossings": [
-    {
-     "y": 982,
-     "extent": 1677
-    },
-    {
-     "y": 2392,
-     "extent": 1678
     }
    ]
   },
@@ -159,17 +103,569 @@
   },
   {
    "book": "vol01",
-   "page": "4",
+   "page": "146",
    "col": 1,
-   "cell_right_x": 1637,
+   "cell_right_x": 1687,
    "crossings": [
     {
-     "y": 1138,
-     "extent": 1642
+     "y": 2035,
+     "extent": 1695
     },
     {
-     "y": 1485,
-     "extent": 1643
+     "y": 2241,
+     "extent": 1691
+    },
+    {
+     "y": 2401,
+     "extent": 1692
+    }
+   ]
+  },
+  {
+   "book": "vol01",
+   "page": "146",
+   "col": 8,
+   "cell_right_x": 424,
+   "crossings": [
+    {
+     "y": 2202,
+     "extent": 428
+    },
+    {
+     "y": 2222,
+     "extent": 428
+    }
+   ]
+  },
+  {
+   "book": "vol01",
+   "page": "146",
+   "col": 9,
+   "cell_right_x": 239,
+   "crossings": [
+    {
+     "y": 630,
+     "extent": 243
+    },
+    {
+     "y": 678,
+     "extent": 243
+    },
+    {
+     "y": 788,
+     "extent": 244
+    }
+   ]
+  },
+  {
+   "book": "vol01",
+   "page": "156",
+   "col": 1,
+   "cell_right_x": 1672,
+   "crossings": [
+    {
+     "y": 982,
+     "extent": 1677
+    },
+    {
+     "y": 2392,
+     "extent": 1678
+    }
+   ]
+  },
+  {
+   "book": "vol02",
+   "page": "3",
+   "col": 1,
+   "cell_right_x": 1673,
+   "crossings": [
+    {
+     "y": 120,
+     "extent": 1679
+    },
+    {
+     "y": 137,
+     "extent": 1679
+    },
+    {
+     "y": 162,
+     "extent": 1680
+    },
+    {
+     "y": 193,
+     "extent": 1677
+    },
+    {
+     "y": 309,
+     "extent": 1683
+    },
+    {
+     "y": 391,
+     "extent": 1678
+    },
+    {
+     "y": 467,
+     "extent": 1682
+    },
+    {
+     "y": 513,
+     "extent": 1680
+    },
+    {
+     "y": 531,
+     "extent": 1681
+    },
+    {
+     "y": 555,
+     "extent": 1679
+    },
+    {
+     "y": 601,
+     "extent": 1677
+    },
+    {
+     "y": 649,
+     "extent": 1682
+    },
+    {
+     "y": 668,
+     "extent": 1681
+    },
+    {
+     "y": 730,
+     "extent": 1679
+    },
+    {
+     "y": 757,
+     "extent": 1677
+    },
+    {
+     "y": 855,
+     "extent": 1680
+    },
+    {
+     "y": 910,
+     "extent": 1677
+    },
+    {
+     "y": 1083,
+     "extent": 1678
+    },
+    {
+     "y": 1104,
+     "extent": 1678
+    },
+    {
+     "y": 1118,
+     "extent": 1678
+    },
+    {
+     "y": 1129,
+     "extent": 1686
+    },
+    {
+     "y": 1160,
+     "extent": 1680
+    },
+    {
+     "y": 1181,
+     "extent": 1678
+    },
+    {
+     "y": 1263,
+     "extent": 1679
+    },
+    {
+     "y": 1348,
+     "extent": 1677
+    },
+    {
+     "y": 1418,
+     "extent": 1686
+    },
+    {
+     "y": 1510,
+     "extent": 1679
+    },
+    {
+     "y": 1531,
+     "extent": 1682
+    }
+   ]
+  },
+  {
+   "book": "vol02",
+   "page": "3",
+   "col": 3,
+   "cell_right_x": 1304,
+   "crossings": [
+    {
+     "y": 1101,
+     "extent": 1311
+    },
+    {
+     "y": 1587,
+     "extent": 1314
+    },
+    {
+     "y": 1622,
+     "extent": 1318
+    }
+   ]
+  },
+  {
+   "book": "vol02",
+   "page": "3",
+   "col": 4,
+   "cell_right_x": 1120,
+   "crossings": [
+    {
+     "y": 56,
+     "extent": 1134
+    },
+    {
+     "y": 142,
+     "extent": 1131
+    },
+    {
+     "y": 199,
+     "extent": 1126
+    },
+    {
+     "y": 438,
+     "extent": 1125
+    }
+   ]
+  },
+  {
+   "book": "vol02",
+   "page": "3",
+   "col": 5,
+   "cell_right_x": 935,
+   "crossings": [
+    {
+     "y": 144,
+     "extent": 946
+    },
+    {
+     "y": 223,
+     "extent": 940
+    },
+    {
+     "y": 457,
+     "extent": 940
+    },
+    {
+     "y": 559,
+     "extent": 940
+    },
+    {
+     "y": 990,
+     "extent": 943
+    }
+   ]
+  },
+  {
+   "book": "vol02",
+   "page": "3",
+   "col": 7,
+   "cell_right_x": 566,
+   "crossings": [
+    {
+     "y": 615,
+     "extent": 575
+    },
+    {
+     "y": 1295,
+     "extent": 580
+    },
+    {
+     "y": 1543,
+     "extent": 572
+    },
+    {
+     "y": 1611,
+     "extent": 570
+    }
+   ]
+  },
+  {
+   "book": "vol02",
+   "page": "3",
+   "col": 8,
+   "cell_right_x": 381,
+   "crossings": [
+    {
+     "y": 187,
+     "extent": 387
+    },
+    {
+     "y": 209,
+     "extent": 386
+    },
+    {
+     "y": 306,
+     "extent": 385
+    },
+    {
+     "y": 698,
+     "extent": 395
+    },
+    {
+     "y": 773,
+     "extent": 390
+    },
+    {
+     "y": 874,
+     "extent": 385
+    },
+    {
+     "y": 890,
+     "extent": 387
+    },
+    {
+     "y": 1102,
+     "extent": 387
+    },
+    {
+     "y": 1150,
+     "extent": 388
+    },
+    {
+     "y": 1207,
+     "extent": 389
+    },
+    {
+     "y": 1267,
+     "extent": 395
+    },
+    {
+     "y": 1345,
+     "extent": 387
+    },
+    {
+     "y": 1405,
+     "extent": 388
+    },
+    {
+     "y": 1518,
+     "extent": 385
+    }
+   ]
+  },
+  {
+   "book": "vol02",
+   "page": "3",
+   "col": 9,
+   "cell_right_x": 197,
+   "crossings": [
+    {
+     "y": 517,
+     "extent": 204
+    },
+    {
+     "y": 615,
+     "extent": 204
+    },
+    {
+     "y": 758,
+     "extent": 201
+    },
+    {
+     "y": 1339,
+     "extent": 204
+    },
+    {
+     "y": 1500,
+     "extent": 211
+    }
+   ]
+  },
+  {
+   "book": "vol02",
+   "page": "4",
+   "col": 6,
+   "cell_right_x": 790,
+   "crossings": [
+    {
+     "y": 331,
+     "extent": 794
+    },
+    {
+     "y": 507,
+     "extent": 796
+    }
+   ]
+  },
+  {
+   "book": "vol02",
+   "page": "23",
+   "col": 3,
+   "cell_right_x": 1336,
+   "crossings": [
+    {
+     "y": 2393,
+     "extent": 1343
+    }
+   ]
+  },
+  {
+   "book": "vol02",
+   "page": "23",
+   "col": 7,
+   "cell_right_x": 598,
+   "crossings": [
+    {
+     "y": 2358,
+     "extent": 605
+    }
+   ]
+  },
+  {
+   "book": "vol02",
+   "page": "31",
+   "col": 1,
+   "cell_right_x": 1617,
+   "crossings": [
+    {
+     "y": 1462,
+     "extent": 1624
+    },
+    {
+     "y": 1689,
+     "extent": 1631
+    },
+    {
+     "y": 1723,
+     "extent": 1631
+    },
+    {
+     "y": 1757,
+     "extent": 1631
+    },
+    {
+     "y": 1924,
+     "extent": 1631
+    },
+    {
+     "y": 1976,
+     "extent": 1631
+    }
+   ]
+  },
+  {
+   "book": "vol02",
+   "page": "36",
+   "col": 1,
+   "cell_right_x": 1660,
+   "crossings": [
+    {
+     "y": 50,
+     "extent": 1674
+    },
+    {
+     "y": 556,
+     "extent": 1665
+    },
+    {
+     "y": 784,
+     "extent": 1665
+    },
+    {
+     "y": 2089,
+     "extent": 1664
+    }
+   ]
+  },
+  {
+   "book": "vol02",
+   "page": "56",
+   "col": 7,
+   "cell_right_x": 606,
+   "crossings": [
+    {
+     "y": 906,
+     "extent": 612
+    },
+    {
+     "y": 924,
+     "extent": 610
+    }
+   ]
+  },
+  {
+   "book": "vol02",
+   "page": "63",
+   "col": 9,
+   "cell_right_x": 181,
+   "crossings": [
+    {
+     "y": 1354,
+     "extent": 185
+    },
+    {
+     "y": 1592,
+     "extent": 186
+    }
+   ]
+  },
+  {
+   "book": "vol02",
+   "page": "78",
+   "col": 1,
+   "cell_right_x": 1694,
+   "crossings": [
+    {
+     "y": 406,
+     "extent": 1708
+    },
+    {
+     "y": 858,
+     "extent": 1708
+    },
+    {
+     "y": 979,
+     "extent": 1705
+    },
+    {
+     "y": 1007,
+     "extent": 1700
+    },
+    {
+     "y": 1367,
+     "extent": 1708
+    },
+    {
+     "y": 1650,
+     "extent": 1698
+    },
+    {
+     "y": 1736,
+     "extent": 1706
+    },
+    {
+     "y": 1779,
+     "extent": 1708
+    },
+    {
+     "y": 2263,
+     "extent": 1702
+    }
+   ]
+  },
+  {
+   "book": "vol02",
+   "page": "93",
+   "col": 2,
+   "cell_right_x": 1463,
+   "crossings": [
+    {
+     "y": 54,
+     "extent": 1467
+    },
+    {
+     "y": 799,
+     "extent": 1467
     }
    ]
   },
@@ -212,68 +708,28 @@
   {
    "book": "vol02",
    "page": "119",
-   "col": 9,
-   "cell_right_x": 197,
+   "col": 1,
+   "cell_right_x": 1650,
    "crossings": [
     {
-     "y": 1978,
-     "extent": 208
+     "y": 1569,
+     "extent": 1658
     },
     {
-     "y": 2389,
-     "extent": 208
-    }
-   ]
-  },
-  {
-   "book": "vol02",
-   "page": "119",
-   "col": 7,
-   "cell_right_x": 561,
-   "crossings": [
-    {
-     "y": 1839,
-     "extent": 572
+     "y": 1910,
+     "extent": 1664
     },
     {
-     "y": 1911,
-     "extent": 568
+     "y": 1943,
+     "extent": 1664
     },
     {
-     "y": 2058,
-     "extent": 570
-    }
-   ]
-  },
-  {
-   "book": "vol02",
-   "page": "119",
-   "col": 6,
-   "cell_right_x": 742,
-   "crossings": [
-    {
-     "y": 2286,
-     "extent": 756
+     "y": 2052,
+     "extent": 1654
     },
     {
-     "y": 2387,
-     "extent": 756
-    }
-   ]
-  },
-  {
-   "book": "vol02",
-   "page": "119",
-   "col": 5,
-   "cell_right_x": 924,
-   "crossings": [
-    {
-     "y": 1842,
-     "extent": 929
-    },
-    {
-     "y": 2291,
-     "extent": 938
+     "y": 2394,
+     "extent": 1664
     }
    ]
   },
@@ -300,28 +756,68 @@
   {
    "book": "vol02",
    "page": "119",
-   "col": 1,
-   "cell_right_x": 1650,
+   "col": 5,
+   "cell_right_x": 924,
    "crossings": [
     {
-     "y": 1569,
-     "extent": 1658
+     "y": 1842,
+     "extent": 929
     },
     {
-     "y": 1910,
-     "extent": 1664
+     "y": 2291,
+     "extent": 938
+    }
+   ]
+  },
+  {
+   "book": "vol02",
+   "page": "119",
+   "col": 6,
+   "cell_right_x": 742,
+   "crossings": [
+    {
+     "y": 2286,
+     "extent": 756
     },
     {
-     "y": 1943,
-     "extent": 1664
+     "y": 2387,
+     "extent": 756
+    }
+   ]
+  },
+  {
+   "book": "vol02",
+   "page": "119",
+   "col": 7,
+   "cell_right_x": 561,
+   "crossings": [
+    {
+     "y": 1839,
+     "extent": 572
     },
     {
-     "y": 2052,
-     "extent": 1654
+     "y": 1911,
+     "extent": 568
     },
     {
-     "y": 2394,
-     "extent": 1664
+     "y": 2058,
+     "extent": 570
+    }
+   ]
+  },
+  {
+   "book": "vol02",
+   "page": "119",
+   "col": 9,
+   "cell_right_x": 197,
+   "crossings": [
+    {
+     "y": 1978,
+     "extent": 208
+    },
+    {
+     "y": 2389,
+     "extent": 208
     }
    ]
   },
@@ -480,48 +976,92 @@
   {
    "book": "vol02",
    "page": "168",
-   "col": 9,
-   "cell_right_x": 199,
+   "col": 1,
+   "cell_right_x": 1675,
    "crossings": [
     {
-     "y": 285,
-     "extent": 213
+     "y": 347,
+     "extent": 1689
     },
     {
-     "y": 555,
-     "extent": 208
+     "y": 406,
+     "extent": 1682
     },
     {
-     "y": 580,
-     "extent": 210
+     "y": 1688,
+     "extent": 1689
     },
     {
-     "y": 1219,
-     "extent": 208
+     "y": 1835,
+     "extent": 1682
     },
     {
-     "y": 1615,
-     "extent": 204
+     "y": 2363,
+     "extent": 1689
+    }
+   ]
+  },
+  {
+   "book": "vol02",
+   "page": "168",
+   "col": 3,
+   "cell_right_x": 1306,
+   "crossings": [
+    {
+     "y": 576,
+     "extent": 1320
     },
     {
-     "y": 1727,
-     "extent": 206
+     "y": 1414,
+     "extent": 1318
+    },
+    {
+     "y": 2015,
+     "extent": 1320
+    },
+    {
+     "y": 2061,
+     "extent": 1310
+    },
+    {
+     "y": 2154,
+     "extent": 1320
+    },
+    {
+     "y": 2310,
+     "extent": 1310
+    }
+   ]
+  },
+  {
+   "book": "vol02",
+   "page": "168",
+   "col": 4,
+   "cell_right_x": 1121,
+   "crossings": [
+    {
+     "y": 1411,
+     "extent": 1135
+    },
+    {
+     "y": 1436,
+     "extent": 1128
+    },
+    {
+     "y": 1492,
+     "extent": 1126
     },
     {
      "y": 1840,
-     "extent": 207
+     "extent": 1135
     },
     {
-     "y": 1885,
-     "extent": 206
+     "y": 1895,
+     "extent": 1135
     },
     {
-     "y": 1908,
-     "extent": 207
-    },
-    {
-     "y": 2134,
-     "extent": 203
+     "y": 2154,
+     "extent": 1131
     }
    ]
   },
@@ -564,92 +1104,48 @@
   {
    "book": "vol02",
    "page": "168",
-   "col": 4,
-   "cell_right_x": 1121,
+   "col": 9,
+   "cell_right_x": 199,
    "crossings": [
     {
-     "y": 1411,
-     "extent": 1135
+     "y": 285,
+     "extent": 213
     },
     {
-     "y": 1436,
-     "extent": 1128
+     "y": 555,
+     "extent": 208
     },
     {
-     "y": 1492,
-     "extent": 1126
+     "y": 580,
+     "extent": 210
+    },
+    {
+     "y": 1219,
+     "extent": 208
+    },
+    {
+     "y": 1615,
+     "extent": 204
+    },
+    {
+     "y": 1727,
+     "extent": 206
     },
     {
      "y": 1840,
-     "extent": 1135
+     "extent": 207
     },
     {
-     "y": 1895,
-     "extent": 1135
+     "y": 1885,
+     "extent": 206
     },
     {
-     "y": 2154,
-     "extent": 1131
-    }
-   ]
-  },
-  {
-   "book": "vol02",
-   "page": "168",
-   "col": 3,
-   "cell_right_x": 1306,
-   "crossings": [
-    {
-     "y": 576,
-     "extent": 1320
+     "y": 1908,
+     "extent": 207
     },
     {
-     "y": 1414,
-     "extent": 1318
-    },
-    {
-     "y": 2015,
-     "extent": 1320
-    },
-    {
-     "y": 2061,
-     "extent": 1310
-    },
-    {
-     "y": 2154,
-     "extent": 1320
-    },
-    {
-     "y": 2310,
-     "extent": 1310
-    }
-   ]
-  },
-  {
-   "book": "vol02",
-   "page": "168",
-   "col": 1,
-   "cell_right_x": 1675,
-   "crossings": [
-    {
-     "y": 347,
-     "extent": 1689
-    },
-    {
-     "y": 406,
-     "extent": 1682
-    },
-    {
-     "y": 1688,
-     "extent": 1689
-    },
-    {
-     "y": 1835,
-     "extent": 1682
-    },
-    {
-     "y": 2363,
-     "extent": 1689
+     "y": 2134,
+     "extent": 203
     }
    ]
   },
@@ -770,494 +1266,6 @@
     {
      "y": 54,
      "extent": 1167
-    }
-   ]
-  },
-  {
-   "book": "vol02",
-   "page": "23",
-   "col": 2,
-   "cell_right_x": 1319,
-   "crossings": [
-    {
-     "y": 2237,
-     "extent": 1333
-    },
-    {
-     "y": 2384,
-     "extent": 1333
-    }
-   ]
-  },
-  {
-   "book": "vol02",
-   "page": "31",
-   "col": 1,
-   "cell_right_x": 1617,
-   "crossings": [
-    {
-     "y": 1462,
-     "extent": 1624
-    },
-    {
-     "y": 1689,
-     "extent": 1631
-    },
-    {
-     "y": 1723,
-     "extent": 1631
-    },
-    {
-     "y": 1757,
-     "extent": 1631
-    },
-    {
-     "y": 1924,
-     "extent": 1631
-    },
-    {
-     "y": 1976,
-     "extent": 1631
-    }
-   ]
-  },
-  {
-   "book": "vol02",
-   "page": "36",
-   "col": 1,
-   "cell_right_x": 1660,
-   "crossings": [
-    {
-     "y": 50,
-     "extent": 1674
-    },
-    {
-     "y": 556,
-     "extent": 1665
-    },
-    {
-     "y": 784,
-     "extent": 1665
-    },
-    {
-     "y": 2089,
-     "extent": 1664
-    }
-   ]
-  },
-  {
-   "book": "vol02",
-   "page": "3",
-   "col": 9,
-   "cell_right_x": 197,
-   "crossings": [
-    {
-     "y": 517,
-     "extent": 204
-    },
-    {
-     "y": 615,
-     "extent": 204
-    },
-    {
-     "y": 758,
-     "extent": 201
-    },
-    {
-     "y": 1339,
-     "extent": 204
-    },
-    {
-     "y": 1500,
-     "extent": 211
-    }
-   ]
-  },
-  {
-   "book": "vol02",
-   "page": "3",
-   "col": 8,
-   "cell_right_x": 381,
-   "crossings": [
-    {
-     "y": 187,
-     "extent": 387
-    },
-    {
-     "y": 209,
-     "extent": 386
-    },
-    {
-     "y": 306,
-     "extent": 385
-    },
-    {
-     "y": 698,
-     "extent": 395
-    },
-    {
-     "y": 773,
-     "extent": 390
-    },
-    {
-     "y": 874,
-     "extent": 385
-    },
-    {
-     "y": 890,
-     "extent": 387
-    },
-    {
-     "y": 1102,
-     "extent": 387
-    },
-    {
-     "y": 1150,
-     "extent": 388
-    },
-    {
-     "y": 1207,
-     "extent": 389
-    },
-    {
-     "y": 1267,
-     "extent": 395
-    },
-    {
-     "y": 1345,
-     "extent": 387
-    },
-    {
-     "y": 1405,
-     "extent": 388
-    },
-    {
-     "y": 1518,
-     "extent": 385
-    }
-   ]
-  },
-  {
-   "book": "vol02",
-   "page": "3",
-   "col": 7,
-   "cell_right_x": 566,
-   "crossings": [
-    {
-     "y": 615,
-     "extent": 575
-    },
-    {
-     "y": 1295,
-     "extent": 580
-    },
-    {
-     "y": 1543,
-     "extent": 572
-    },
-    {
-     "y": 1611,
-     "extent": 570
-    }
-   ]
-  },
-  {
-   "book": "vol02",
-   "page": "3",
-   "col": 5,
-   "cell_right_x": 935,
-   "crossings": [
-    {
-     "y": 144,
-     "extent": 946
-    },
-    {
-     "y": 223,
-     "extent": 940
-    },
-    {
-     "y": 457,
-     "extent": 940
-    },
-    {
-     "y": 559,
-     "extent": 940
-    },
-    {
-     "y": 990,
-     "extent": 943
-    }
-   ]
-  },
-  {
-   "book": "vol02",
-   "page": "3",
-   "col": 4,
-   "cell_right_x": 1120,
-   "crossings": [
-    {
-     "y": 56,
-     "extent": 1134
-    },
-    {
-     "y": 142,
-     "extent": 1131
-    },
-    {
-     "y": 199,
-     "extent": 1126
-    },
-    {
-     "y": 438,
-     "extent": 1125
-    }
-   ]
-  },
-  {
-   "book": "vol02",
-   "page": "3",
-   "col": 3,
-   "cell_right_x": 1304,
-   "crossings": [
-    {
-     "y": 1101,
-     "extent": 1311
-    },
-    {
-     "y": 1587,
-     "extent": 1314
-    },
-    {
-     "y": 1622,
-     "extent": 1318
-    }
-   ]
-  },
-  {
-   "book": "vol02",
-   "page": "3",
-   "col": 1,
-   "cell_right_x": 1673,
-   "crossings": [
-    {
-     "y": 120,
-     "extent": 1679
-    },
-    {
-     "y": 137,
-     "extent": 1679
-    },
-    {
-     "y": 162,
-     "extent": 1680
-    },
-    {
-     "y": 193,
-     "extent": 1677
-    },
-    {
-     "y": 309,
-     "extent": 1683
-    },
-    {
-     "y": 391,
-     "extent": 1678
-    },
-    {
-     "y": 467,
-     "extent": 1682
-    },
-    {
-     "y": 513,
-     "extent": 1680
-    },
-    {
-     "y": 531,
-     "extent": 1681
-    },
-    {
-     "y": 555,
-     "extent": 1679
-    },
-    {
-     "y": 601,
-     "extent": 1677
-    },
-    {
-     "y": 649,
-     "extent": 1682
-    },
-    {
-     "y": 668,
-     "extent": 1681
-    },
-    {
-     "y": 730,
-     "extent": 1679
-    },
-    {
-     "y": 757,
-     "extent": 1677
-    },
-    {
-     "y": 855,
-     "extent": 1680
-    },
-    {
-     "y": 910,
-     "extent": 1677
-    },
-    {
-     "y": 1083,
-     "extent": 1678
-    },
-    {
-     "y": 1104,
-     "extent": 1678
-    },
-    {
-     "y": 1118,
-     "extent": 1678
-    },
-    {
-     "y": 1129,
-     "extent": 1686
-    },
-    {
-     "y": 1160,
-     "extent": 1680
-    },
-    {
-     "y": 1181,
-     "extent": 1678
-    },
-    {
-     "y": 1263,
-     "extent": 1679
-    },
-    {
-     "y": 1348,
-     "extent": 1677
-    },
-    {
-     "y": 1418,
-     "extent": 1686
-    },
-    {
-     "y": 1510,
-     "extent": 1679
-    },
-    {
-     "y": 1531,
-     "extent": 1682
-    }
-   ]
-  },
-  {
-   "book": "vol02",
-   "page": "4",
-   "col": 6,
-   "cell_right_x": 790,
-   "crossings": [
-    {
-     "y": 331,
-     "extent": 794
-    },
-    {
-     "y": 507,
-     "extent": 796
-    }
-   ]
-  },
-  {
-   "book": "vol02",
-   "page": "56",
-   "col": 7,
-   "cell_right_x": 606,
-   "crossings": [
-    {
-     "y": 906,
-     "extent": 612
-    },
-    {
-     "y": 924,
-     "extent": 610
-    }
-   ]
-  },
-  {
-   "book": "vol02",
-   "page": "63",
-   "col": 9,
-   "cell_right_x": 181,
-   "crossings": [
-    {
-     "y": 1354,
-     "extent": 185
-    },
-    {
-     "y": 1592,
-     "extent": 186
-    }
-   ]
-  },
-  {
-   "book": "vol02",
-   "page": "78",
-   "col": 1,
-   "cell_right_x": 1694,
-   "crossings": [
-    {
-     "y": 406,
-     "extent": 1708
-    },
-    {
-     "y": 858,
-     "extent": 1708
-    },
-    {
-     "y": 979,
-     "extent": 1705
-    },
-    {
-     "y": 1007,
-     "extent": 1700
-    },
-    {
-     "y": 1367,
-     "extent": 1708
-    },
-    {
-     "y": 1650,
-     "extent": 1698
-    },
-    {
-     "y": 1736,
-     "extent": 1706
-    },
-    {
-     "y": 1779,
-     "extent": 1708
-    },
-    {
-     "y": 2263,
-     "extent": 1702
-    }
-   ]
-  },
-  {
-   "book": "vol02",
-   "page": "93",
-   "col": 2,
-   "cell_right_x": 1463,
-   "crossings": [
-    {
-     "y": 54,
-     "extent": 1467
-    },
-    {
-     "y": 799,
-     "extent": 1467
     }
    ]
   }
