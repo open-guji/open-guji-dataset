@@ -18,8 +18,8 @@
  "provenance": "字形库体检（glyphdb-audit）rival 旗 × 审查页白名单；control 为未打旗良例抽样（seed=7）",
  "notes": "图块为原始灰度 patch——归一化属于被测算法的一部分。hard 全部是构建时算法的已知失败，基线≈0 是设计使然；指标 = 各子集排序正确率 + 平均 margin，control 不得回退。",
  "subset_distribution": {
-  "control": 58,
-  "hard": 76,
+  "control": 59,
+  "hard": 75,
   "nearmiss": 59
  },
  "growth_history": [
@@ -55,12 +55,10 @@
   }
  ],
  "rekey": {
-  "round": "rekey_to_current_r1",
+  "round": "rekey_triplets_by_patch_r1",
   "date": "2026-08-26",
-  "from": "502fa04d0c",
   "to": "1158da9093",
-  "map": "config/rekey_502fa04d0c_to_current.json",
-  "method": "同页内归一化图块 IoU + 匈牙利指派",
-  "dropped_unmatched": 4
+  "min_cov": 0.95,
+  "why": "本集的图来自与 502fa04d0c 不同的产物版本（同键 印 vs 初），不能套 char-clustering 那张映射表；改用本集自带的图配对。"
  }
 }
