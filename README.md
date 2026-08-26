@@ -26,6 +26,8 @@
 | [char-segmentation/side-rule](char-segmentation/side-rule) | `chars`（侧边去线）| 265 | 可用 | 图块左右缘的界行竖条剥没剥掉，字的边竖有没有被误剥 |
 | [char-segmentation/page-crop](char-segmentation/page-crop) | `segment`（上游裁切）| 6 页 | 可用 | 列窗越出页图多少＝最外列被 s3 吃掉多少（全自动，无需标注）|
 | [char-segmentation/text-band](char-segmentation/text-band) | `segment`（版面窗口）| 294 页 | 可用 | 窗口高 /（每列字数 × 书级格高）＝列的纵向窗口够不够装下一整列（全自动，无需标注）|
+| [char-segmentation/jiazhu-tail](char-segmentation/jiazhu-tail) | `chars`（夹注段端）| 57 | 可用 | 奇数字末行单字收编成 a 行 / 漏拆末行补拆，正文拒收（三分类，非对称零容忍）|
+| [char-segmentation/right-cut](char-segmentation/right-cut) | `chars`（右缘救援）| 51 列 213 点 | 可用 | 贴界行书写的字，捺脚/横尾穿过右裁切边必须被图块盖住 |
 | [char-segmentation/seam](char-segmentation/seam) | `segment`（格线落点）| 294 页 | 可用 | 切缝墨率＝格线那一行的墨 / 上下两格字峰，量「这一刀是不是切在字上」（全自动，无需标注）|
 | [char-normalization](char-normalization) | `normalize`（纯函数） | 35 字块 | 可用 | 归一化 golden 回归门（32 verified + 3 已知缺陷）|
 | [char-clustering](char-clustering) | `cluster` | 3 分片 / 6297 实例 | 可用 | 保守聚类 purity 集（align 两册 + 人工复核层 + 难例对）|
