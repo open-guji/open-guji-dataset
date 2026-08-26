@@ -185,6 +185,10 @@ ID 一个没丢。逐个重看只有 2 个标签要动——95:1:17 与 109:9:5 
 即按它裁的），`corrected_bbox` 是用户拖出的正确外接框。由
 `open-guji-cv/scripts/build_recrop_shard.py` 从 git 历史里捞旧框回流。
 
+**拖框语义（用户 2026-08-26 裁定）**：`corrected_bbox` 是「这个字应占
+的**格位范围**」，不是贴墨紧框。评测（eval_recrop.py 含住+盖墨、
+±8px 容差）按此标定；紧框口径的算法输出与它比 IoU 永远偏低，属预期。
+
 - 首批 9 条（vol01 14/15 页）：5 条 `grid_shift`（列尾格整体上飘
   35~55px，**系统性**格线偏移）、3 条 `rule_bar`（最左/最右列吃进
   断续**内边框**）、1 条 `neighbor_residue`。
