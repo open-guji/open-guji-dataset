@@ -1,6 +1,6 @@
 {
  "name": "confusable-context",
- "version": "1.0.0",
+ "version": "1.1.0",
  "schema_version": 1,
  "description": "形近对上下文消歧：入/人、日/曰、論/諭 一类刻本高频混淆对，只给上下文（目标位挖空），二选一",
  "created": "2026-08-26",
@@ -8,7 +8,7 @@
  "parent": "char-clustering",
  "eval_command": "cd open-guji-cv && PYTHONPATH=. python scripts/eval_confusable_lm.py <dataset>/confusable-context/cases.json --book-corpus corpus/zongmu_wuyingdian_reference.txt --general-corpus corpus/external/daizhige_zhaoling.txt --mode heldout",
  "eval_script": "open-guji-cv/scripts/eval_confusable_lm.py（n-gram 臂）、scripts/score_confusable.py（各臂对答案）",
- "total_samples": 155,
+ "total_samples": 154,
  "sample_unit": "字位（一个待定字位 = 一题）",
  "sources": [
   "vol01 phase9_seed 人工审查裁决（provenance=human）"
@@ -26,14 +26,14 @@
   "hard_ref_silent": "整理本在该位没给或给了别的字（脱字/异文/未覆盖），上下文必须自己扛"
  },
  "tier_distribution": {
-  "easy_ref_gives_answer": 123,
+  "easy_ref_gives_answer": 122,
   "hard_ref_silent": 32
  },
  "pair_distribution": {
   "人/入": 22,
   "論/諭": 18,
   "大/太": 16,
-  "已/巳": 13,
+  "已/巳": 12,
   "而/面": 12,
   "未/末": 11,
   "遺/還": 11,
@@ -63,7 +63,15 @@
   }
  ],
  "known_unsolvable": {
-  "已/巳": "这一对是**字形层问题，不是语义问题**，任何上下文方法都治不了，报总分时应剔除。实锤：[016]「實在流傳巳久」与[059]「實在流傳已少」语境同构而金标相反——同一个词刻工有时刻巳有时刻已。config/variants/variants.json 里 已→巳 已登记为异体（hydzd/yitizi），语义层本来就归并，剩下的只是「刻的是哪个形」。"
+  "note": "1.0.0 版这里写的是「已/巳 治不了」——那是错的，是字形偏差污染了金标（人工按刻本封口判断，而不是按文意），不是上下文方法的真实上限。2026-08-26 用 correct_admission.py 逐条核对 align/图块改判后，n-gram 83.3%、大模型 91.7%，均大幅跑赢字形层top-1（66.7%，反而低于多数类基线）。当前 12 题的多数类基线恰好 100%（这批样本里已/巳 pair 碰巧全部是「已」，本书至今没出现真正的地支纪年用法巳），这是这批样本的巧合，不是「已/巳已解决」——巳仍有真实存在的场景（干支纪年纪日），要等审到真正的巳用例才能验证上下文方法能不能正确转向。"
  },
- "baseline_r1": "见 baseline_r1.json（2026-08-26 首轮各臂逐题选择，冻结供回归比对）"
+ "baseline_r1": "见 baseline_r1.json（2026-08-26 首轮各臂逐题选择，冻结供回归比对）",
+ "changelog": [
+  {
+   "version": "1.1.0",
+   "date": "2026-08-26",
+   "change": "人裁复核：4 条已/巳曾按字形判（刻本封口与否），改按现代语义改判为已；1 条巳误判改判为己（超出已/巳二元，align/图块目视双证）。已/巳 pair 从 13 题降到 12（一条金标变己，出这个集）。第一版「已/巳 治不了」的结论是**字形偏差污染金标造成的假象**——纠正后重测：字形层 top-1 反而降到 67%（低于多数类基线，偏差在起反作用），n-gram 83%、大模型 92%，均明显跑赢字形。详见 known_unsolvable 字段与 README。"
+  }
+ ],
+ "policy_shipped": "2026-08-26 用户定：已/巳 这类**同词异写**（非语义可分的真异字）不该被 near_form 字形护栏拦住上下文/语言模型判断——字形不重要，文意才是判据。已落地：open_guji_cv/clustering/seeding.py 的SEMANTIC_MERGED_PAIRS（当前只有已/巳）、上下文通道 near_form 护栏加了这道例外；字形层 NEVER_MATCH_FAMILIES 不动（防形状判据自己认错）。单测 test_semantic_merged_pair_context_bypasses_near_form 覆盖。"
 }
