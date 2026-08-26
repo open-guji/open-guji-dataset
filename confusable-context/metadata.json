@@ -1,0 +1,69 @@
+{
+ "name": "confusable-context",
+ "version": "1.0.0",
+ "schema_version": 1,
+ "description": "形近对上下文消歧：入/人、日/曰、論/諭 一类刻本高频混淆对，只给上下文（目标位挖空），二选一",
+ "created": "2026-08-26",
+ "status": "实集",
+ "parent": "char-clustering",
+ "eval_command": "cd open-guji-cv && PYTHONPATH=. python scripts/eval_confusable_lm.py <dataset>/confusable-context/cases.json --book-corpus corpus/zongmu_wuyingdian_reference.txt --general-corpus corpus/external/daizhige_zhaoling.txt --mode heldout",
+ "eval_script": "open-guji-cv/scripts/eval_confusable_lm.py（n-gram 臂）、scripts/score_confusable.py（各臂对答案）",
+ "total_samples": 155,
+ "sample_unit": "字位（一个待定字位 = 一题）",
+ "sources": [
+  "vol01 phase9_seed 人工审查裁决（provenance=human）"
+ ],
+ "label_origin_values": [
+  "human"
+ ],
+ "why_human_only": "金标只收人裁。人是看着字形定的，与 n-gram（在整理本上训练）、与整理本对齐通道都无关，是唯一对各臂都中立的真值。用 align 派生的标签去考一个在同一语料上训练的 LM，等于开卷考。",
+ "leakage_controls": [
+  "题面把**列内 OCR 转写**与**整理本参照**的同一个下标一起挖空（两列按位等长，实测 161/161）。只挖 OCR 那一列不够——实测 align 没锚上的 43 条里仍有 12 条参照文本直接写着答案。",
+  "n-gram 臂必须报 heldout 口径：把所有测试列的整理本原文从训练语料里剔掉。book 口径（不剔）在送分档上是 100%，那是背下来了，不是学会了。"
+ ],
+ "tiers": {
+  "easy_ref_gives_answer": "整理本在该位给出的就是金标——生产里 align 通道本来就能锚定，属送分档；挖空后仍是合格考题，且类别更均衡",
+  "hard_ref_silent": "整理本在该位没给或给了别的字（脱字/异文/未覆盖），上下文必须自己扛"
+ },
+ "tier_distribution": {
+  "easy_ref_gives_answer": 123,
+  "hard_ref_silent": 32
+ },
+ "pair_distribution": {
+  "人/入": 22,
+  "論/諭": 18,
+  "大/太": 16,
+  "已/巳": 13,
+  "而/面": 12,
+  "未/末": 11,
+  "遺/還": 11,
+  "問/間": 9,
+  "日/曰": 8,
+  "曾/會": 7,
+  "廣/贋": 6,
+  "過/選": 6,
+  "圓/圖": 5,
+  "七/匕": 5,
+  "侯/候": 4,
+  "揀/棟": 1,
+  "夫/夬": 1
+ },
+ "metrics": [
+  {
+   "name": "accuracy",
+   "type": "float",
+   "direction": "higher_is_better",
+   "description": "二选一准确率；**必须与多数类基线并列报**——先验极不平衡（日 28:曰 1），单看准确率毫无意义"
+  },
+  {
+   "name": "majority_baseline",
+   "type": "float",
+   "direction": "n/a",
+   "description": "每个形近对内部按金标众数猜的对照线"
+  }
+ ],
+ "known_unsolvable": {
+  "已/巳": "这一对是**字形层问题，不是语义问题**，任何上下文方法都治不了，报总分时应剔除。实锤：[016]「實在流傳巳久」与[059]「實在流傳已少」语境同构而金标相反——同一个词刻工有时刻巳有时刻已。config/variants/variants.json 里 已→巳 已登记为异体（hydzd/yitizi），语义层本来就归并，剩下的只是「刻的是哪个形」。"
+ },
+ "baseline_r1": "见 baseline_r1.json（2026-08-26 首轮各臂逐题选择，冻结供回归比对）"
+}
