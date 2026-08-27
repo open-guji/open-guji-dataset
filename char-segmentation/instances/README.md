@@ -36,6 +36,15 @@ cd open-guji-cv
 python scripts/eval_instance_quality.py ../open-guji-dataset/char-segmentation/instances
 ```
 
+## 标注批次
+
+- `seed: "seg_review_r1"`（113 条，2026-08-27）：用户用新的**页面级快速审阅**
+  工具（`build_seg_review.py` 的 `page_severity` 免标注挑页 → 逐页放大人工
+  标注）走了 22 张正文疑似问题页，每页只标了典型代表，**不是穷举**——
+  同一页没被标的格不能当「没问题」。全部 `quality: "truncated"`（沿用
+  该轮挑页的判据：截断率/重切缝率两把尺子），未细分子类型；`s:2`（存疑）
+  的两条在 `note` 里注明，其余按 `bad` 计入缺陷。
+
 ## 当前基线
 
 ```
