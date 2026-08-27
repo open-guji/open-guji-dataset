@@ -25,5 +25,18 @@
   "needs_review": "rekey_low_overlap",
   "retired_reason": "相位族根治前的框：corrected_bbox [615,19,770,108] 落在空白纸面上，当前网格该处是判空格，同页任何字位与它的IoU 都是 0；条目自带 needs_review=rekey_low_overlap，无法重键。2026-08-25 退役。",
   "retired_at": "2026-08-25"
+ },
+ {
+  "book": "vol01",
+  "page": "170",
+  "col": 3,
+  "idx": 20,
+  "quality": "not_text",
+  "layout": "rigid",
+  "seed": "bi_precision",
+  "label_origin": "human",
+  "schema_version": 1,
+  "retired_reason": "2026-08-27 版框线残迹归格结案：该格已知 quality=not_text（页级下边框落入格中部，够不着原边带判据）。已在 cells_from_bounds 里用页级实测框线位置直接清空该带墨迹（grid_segment._junk_free_ink 的 border_rows 参数），网格现在把这一格判成 empty，压根不再产出字符图块——不是自检漏检，是缺陷在切分层被治没了，没有图块可供自检 flags 去命中。self-detection 召回率的分母该减一。",
+  "retired_at": "2026-08-27"
  }
 ]
