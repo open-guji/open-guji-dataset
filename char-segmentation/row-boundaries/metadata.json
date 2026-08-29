@@ -1,0 +1,27 @@
+{
+  "name": "row-boundaries",
+  "version": "0.1.0",
+  "schema_version": 1,
+  "description": "正文列内字格纵向边界：每列21格(含首尾空白格)的22个分割点y坐标，人工逐点拖拽核校，用于标定/评测字符网格切分算法",
+  "created": "2026-08-29",
+  "status": "试点(1页)，待扩充",
+  "total_samples": 1,
+  "sample_unit": "页(每页9列, 每列22个边界点)",
+  "sources": [
+    "06061300.cn（武英殿刻本《欽定四庫全書總目》卷首一~四）"
+  ],
+  "label_origin_values": ["human"],
+  "page_class_distribution": {
+    "body": 1
+  },
+  "book_distribution": {
+    "vol02": 1
+  },
+  "gold_definition": "每列在射影矫正后的竖直矩形局部坐标系里，21个字格(含开头2个空白格)的22个分割点y坐标(含首尾贴版框的两条)。起点用 phase3 产物自身的格线做初始猜测，人工在交互标注页里逐点拖拽/输入核校确认。",
+  "why_gold_does_not_go_stale": "金标挂在射影矫正后列图像自身的y坐标上，不挂在当前切分产物的格序号(page:col:idx)上——重跑切分算法后，只要矫正几何(left_line/right_line)不变，这批点位仍然成立，可以直接拿来算新算法的误差。",
+  "labeling_method": "自研交互标注 artifact(可拖拽横线/键入数字微调)，逐列拖到跟row投影的墨量波谷对齐；9列全部标注人已核对(reviewed=true)。",
+  "known_limitations": [
+    "目前只有1页(vol02/135，正文中段普通页，非卷首非抬头)，样本量小，暂不能当通用基线，只能验证单页内规律",
+    "尚未覆盖抬头列、卷首/卷尾变异结构、职名页等特殊版式"
+  ]
+}
