@@ -17,6 +17,62 @@
  "bottom_outer_offset": 34.78756277901812,
  "verticals_inner": [
   {
+   "x_at_top": 333.0859235552541,
+   "slope": -0.006925119512141908
+  },
+  {
+   "x_at_top": 505.1313731109235,
+   "slope": 0.0007709639448923708
+  },
+  {
+   "x_at_top": 690.2143312553133,
+   "slope": -0.0019127231510343197
+  },
+  {
+   "x_at_top": 864.0,
+   "slope": -0.0
+  },
+  {
+   "x_at_top": 1043.6045791714182,
+   "slope": 0.0017265807585498485
+  },
+  {
+   "x_at_top": 1231.3809861150467,
+   "slope": -0.0014168319637291019
+  },
+  {
+   "x_at_top": 1418.7143666761121,
+   "slope": -0.003400396712949812
+  },
+  {
+   "x_at_top": 1596.3106929217436,
+   "slope": 0.0007270124366214005
+  },
+  {
+   "x_at_top": 1773.7159880011086,
+   "slope": 0.0024703816435955464
+  },
+  {
+   "x_at_top": 1967.214331255313,
+   "slope": -0.0019127231510342793
+  }
+ ],
+ "v_outer_side": "right",
+ "v_outer_offset": -39.009905133928896,
+ "head_raise": [
+  {
+   "col": 6,
+   "inner_y": 331.68082101004467,
+   "outer_y": 296.6365269252232,
+   "estimated": false,
+   "handle_x": 1113.1,
+   "snapped_gutter": 4,
+   "snap_dx": 8.0
+  }
+ ],
+ "likely_raised": true,
+ "verticals_inner_manual": [
+  {
    "x_at_top": 331.881092377444,
    "slope": -0.00587985264947574
   },
@@ -57,18 +113,102 @@
    "slope": -0.0019127231510342793
   }
  ],
- "v_outer_side": "right",
- "v_outer_offset": -39.009905133928896,
- "head_raise": [
-  {
-   "col": 6,
-   "inner_y": 331.68082101004467,
-   "outer_y": 296.6365269252232,
-   "estimated": false,
-   "handle_x": 1113.1,
-   "snapped_gutter": 4,
-   "snap_dx": 8.0
-  }
- ],
- "likely_raised": true
+ "refit": {
+  "method": "ink_ridge_robust_fit",
+  "note": "verticals_inner 已按真墨脊线重拟。人工拖的原值留在 verticals_inner_manual。人核过的条数/顺序/身份原样保留，只重拟几何——人眼在弯曲界行上拖直线拖不准。三道闸任一不过就保留人工值：样本量/跨度、必须真的更贴真墨、拟合区间内位移<=14px（防止最外两条跳到旁边的外边框上）。逐条结果见 refit.lines。",
+  "accepted": 5,
+  "total": 10,
+  "lines": [
+   {
+    "idx": 0,
+    "refit": true,
+    "kept_manual_because": null,
+    "n_inliers": 71,
+    "dist_to_ink_before": 0.74,
+    "dist_to_ink_after": 0.62,
+    "shift_px": 1.77
+   },
+   {
+    "idx": 1,
+    "refit": true,
+    "kept_manual_because": null,
+    "n_inliers": 91,
+    "dist_to_ink_before": 1.27,
+    "dist_to_ink_after": 1.27,
+    "shift_px": 2.98
+   },
+   {
+    "idx": 2,
+    "refit": false,
+    "kept_manual_because": "没更贴",
+    "n_inliers": 93,
+    "dist_to_ink_before": 2.19,
+    "dist_to_ink_after": 2.22,
+    "shift_px": 4.52
+   },
+   {
+    "idx": 3,
+    "refit": false,
+    "kept_manual_because": "没更贴",
+    "n_inliers": 100,
+    "dist_to_ink_before": 1.35,
+    "dist_to_ink_after": 1.58,
+    "shift_px": 2.98
+   },
+   {
+    "idx": 4,
+    "refit": true,
+    "kept_manual_because": null,
+    "n_inliers": 93,
+    "dist_to_ink_before": 2.45,
+    "dist_to_ink_after": 2.16,
+    "shift_px": 6.34
+   },
+   {
+    "idx": 5,
+    "refit": false,
+    "kept_manual_because": "没更贴",
+    "n_inliers": 117,
+    "dist_to_ink_before": 1.58,
+    "dist_to_ink_after": 1.83,
+    "shift_px": 3.31
+   },
+   {
+    "idx": 6,
+    "refit": false,
+    "kept_manual_because": "没更贴",
+    "n_inliers": 103,
+    "dist_to_ink_before": 1.27,
+    "dist_to_ink_after": 1.43,
+    "shift_px": 4.28
+   },
+   {
+    "idx": 7,
+    "refit": true,
+    "kept_manual_because": null,
+    "n_inliers": 86,
+    "dist_to_ink_before": 0.72,
+    "dist_to_ink_after": 0.61,
+    "shift_px": 0.78
+   },
+   {
+    "idx": 8,
+    "refit": true,
+    "kept_manual_because": null,
+    "n_inliers": 82,
+    "dist_to_ink_before": 4.64,
+    "dist_to_ink_after": 2.07,
+    "shift_px": 11.39
+   },
+   {
+    "idx": 9,
+    "refit": false,
+    "kept_manual_because": "没更贴",
+    "n_inliers": 104,
+    "dist_to_ink_before": 1.44,
+    "dist_to_ink_after": 1.54,
+    "shift_px": 1.57
+   }
+  ]
+ }
 }

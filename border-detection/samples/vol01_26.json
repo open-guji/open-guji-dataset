@@ -17,6 +17,71 @@
  "bottom_outer_offset": 30.857142857143117,
  "verticals_inner": [
   {
+   "x_at_top": 394.53946382774507,
+   "slope": 0.009471198905719984
+  },
+  {
+   "x_at_top": 584.5243060821861,
+   "slope": 0.00750342843418765
+  },
+  {
+   "x_at_top": 767.0225865020404,
+   "slope": 0.006101970596999554
+  },
+  {
+   "x_at_top": 947.9078545466252,
+   "slope": 0.007016315858307818
+  },
+  {
+   "x_at_top": 1139.2675832861592,
+   "slope": 0.006733862234553535
+  },
+  {
+   "x_at_top": 1318.3832889092232,
+   "slope": 0.008458441867046378
+  },
+  {
+   "x_at_top": 1501.4448132055077,
+   "slope": 0.007856858412118674
+  },
+  {
+   "x_at_top": 1683.2854797791374,
+   "slope": 0.009849276227428778
+  },
+  {
+   "x_at_top": 1866.6134601976219,
+   "slope": 0.009087528741536023
+  },
+  {
+   "x_at_top": 2047.6491478591777,
+   "slope": 0.009041713335163354
+  }
+ ],
+ "v_outer_side": "left",
+ "v_outer_offset": 38.71428571428555,
+ "head_raise": [
+  {
+   "col": 5,
+   "inner_y": 327.60797119140625,
+   "outer_y": 285.36712646484375,
+   "estimated": false,
+   "handle_x": 1253.3,
+   "snapped_gutter": 5,
+   "snap_dx": -1.2
+  },
+  {
+   "col": 6,
+   "inner_y": 324.28571428571433,
+   "outer_y": 280.194580078125,
+   "estimated": false,
+   "handle_x": 1071.6,
+   "snapped_gutter": 4,
+   "snap_dx": -2.8
+  }
+ ],
+ "likely_raised": true,
+ "verticals_inner_manual": [
+  {
    "x_at_top": 394.2854797791374,
    "slope": 0.009849276227428778
   },
@@ -57,27 +122,102 @@
    "slope": 0.009326966124459038
   }
  ],
- "v_outer_side": "left",
- "v_outer_offset": 38.71428571428555,
- "head_raise": [
-  {
-   "col": 5,
-   "inner_y": 327.60797119140625,
-   "outer_y": 285.36712646484375,
-   "estimated": false,
-   "handle_x": 1253.3,
-   "snapped_gutter": 5,
-   "snap_dx": -1.2
-  },
-  {
-   "col": 6,
-   "inner_y": 324.28571428571433,
-   "outer_y": 280.194580078125,
-   "estimated": false,
-   "handle_x": 1071.6,
-   "snapped_gutter": 4,
-   "snap_dx": -2.8
-  }
- ],
- "likely_raised": true
+ "refit": {
+  "method": "ink_ridge_robust_fit",
+  "note": "verticals_inner 已按真墨脊线重拟。人工拖的原值留在 verticals_inner_manual。人核过的条数/顺序/身份原样保留，只重拟几何——人眼在弯曲界行上拖直线拖不准。三道闸任一不过就保留人工值：样本量/跨度、必须真的更贴真墨、拟合区间内位移<=14px（防止最外两条跳到旁边的外边框上）。逐条结果见 refit.lines。",
+  "accepted": 9,
+  "total": 10,
+  "lines": [
+   {
+    "idx": 0,
+    "refit": true,
+    "kept_manual_because": null,
+    "n_inliers": 105,
+    "dist_to_ink_before": 1.12,
+    "dist_to_ink_after": 1.05,
+    "shift_px": 0.81
+   },
+   {
+    "idx": 1,
+    "refit": true,
+    "kept_manual_because": null,
+    "n_inliers": 107,
+    "dist_to_ink_before": 0.76,
+    "dist_to_ink_after": 0.6,
+    "shift_px": 0.85
+   },
+   {
+    "idx": 2,
+    "refit": true,
+    "kept_manual_because": null,
+    "n_inliers": 111,
+    "dist_to_ink_before": 0.84,
+    "dist_to_ink_after": 0.75,
+    "shift_px": 0.62
+   },
+   {
+    "idx": 3,
+    "refit": true,
+    "kept_manual_because": null,
+    "n_inliers": 106,
+    "dist_to_ink_before": 0.76,
+    "dist_to_ink_after": 0.73,
+    "shift_px": 0.83
+   },
+   {
+    "idx": 4,
+    "refit": true,
+    "kept_manual_because": null,
+    "n_inliers": 111,
+    "dist_to_ink_before": 0.84,
+    "dist_to_ink_after": 0.75,
+    "shift_px": 0.78
+   },
+   {
+    "idx": 5,
+    "refit": true,
+    "kept_manual_because": null,
+    "n_inliers": 114,
+    "dist_to_ink_before": 0.65,
+    "dist_to_ink_after": 0.61,
+    "shift_px": 0.54
+   },
+   {
+    "idx": 6,
+    "refit": true,
+    "kept_manual_because": null,
+    "n_inliers": 114,
+    "dist_to_ink_before": 0.65,
+    "dist_to_ink_after": 0.65,
+    "shift_px": 0.04
+   },
+   {
+    "idx": 7,
+    "refit": false,
+    "kept_manual_because": "没更贴",
+    "n_inliers": 114,
+    "dist_to_ink_before": 0.78,
+    "dist_to_ink_after": 0.81,
+    "shift_px": 0.58
+   },
+   {
+    "idx": 8,
+    "refit": true,
+    "kept_manual_because": null,
+    "n_inliers": 114,
+    "dist_to_ink_before": 1.24,
+    "dist_to_ink_after": 0.97,
+    "shift_px": 1.62
+   },
+   {
+    "idx": 9,
+    "refit": true,
+    "kept_manual_because": null,
+    "n_inliers": 112,
+    "dist_to_ink_before": 1.08,
+    "dist_to_ink_after": 1.03,
+    "shift_px": 0.38
+   }
+  ]
+ }
 }

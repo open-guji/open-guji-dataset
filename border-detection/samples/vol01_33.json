@@ -17,6 +17,80 @@
  "bottom_outer_offset": 39.806710379464675,
  "verticals_inner": [
   {
+   "x_at_top": 314.2409367116977,
+   "slope": 0.01154615689190512
+  },
+  {
+   "x_at_top": 497.4593049774512,
+   "slope": 0.009011775677969605
+  },
+  {
+   "x_at_top": 681.9132234644233,
+   "slope": 0.007534117367105158
+  },
+  {
+   "x_at_top": 860.3786323180602,
+   "slope": 0.007560591057081531
+  },
+  {
+   "x_at_top": 1043.3730259961756,
+   "slope": 0.007210710887748897
+  },
+  {
+   "x_at_top": 1229.4593499174925,
+   "slope": 0.005959690376184295
+  },
+  {
+   "x_at_top": 1412.5474210874845,
+   "slope": 0.008314325656684537
+  },
+  {
+   "x_at_top": 1600.6886942418882,
+   "slope": 0.006770289269071163
+  },
+  {
+   "x_at_top": 1780.6090557571415,
+   "slope": 0.007159623836230286
+  },
+  {
+   "x_at_top": 1970.8949255040473,
+   "slope": 0.005329038311046809
+  }
+ ],
+ "v_outer_side": "right",
+ "v_outer_offset": -27.589913504464448,
+ "head_raise": [
+  {
+   "col": 6,
+   "inner_y": 343.27610560825894,
+   "outer_y": 300.8367919921875,
+   "estimated": false,
+   "handle_x": 1080.7,
+   "snapped_gutter": 4,
+   "snap_dx": 4.6
+  },
+  {
+   "col": 7,
+   "inner_y": 338.5603114536831,
+   "outer_y": 297.76763916015625,
+   "estimated": false,
+   "handle_x": 894.4,
+   "snapped_gutter": 3,
+   "snap_dx": -4.4
+  },
+  {
+   "col": 8,
+   "inner_y": 332.164306640625,
+   "outer_y": 291.3887241908482,
+   "estimated": false,
+   "handle_x": 722.0,
+   "snapped_gutter": 2,
+   "snap_dx": 8.4
+  }
+ ],
+ "likely_raised": true,
+ "verticals_inner_manual": [
+  {
    "x_at_top": 314.7854462511957,
    "slope": 0.011257449782944563
   },
@@ -57,36 +131,102 @@
    "slope": 0.005371201530424554
   }
  ],
- "v_outer_side": "right",
- "v_outer_offset": -27.589913504464448,
- "head_raise": [
-  {
-   "col": 6,
-   "inner_y": 343.27610560825894,
-   "outer_y": 300.8367919921875,
-   "estimated": false,
-   "handle_x": 1080.7,
-   "snapped_gutter": 4,
-   "snap_dx": 4.6
-  },
-  {
-   "col": 7,
-   "inner_y": 338.5603114536831,
-   "outer_y": 297.76763916015625,
-   "estimated": false,
-   "handle_x": 894.4,
-   "snapped_gutter": 3,
-   "snap_dx": -4.4
-  },
-  {
-   "col": 8,
-   "inner_y": 332.164306640625,
-   "outer_y": 291.3887241908482,
-   "estimated": false,
-   "handle_x": 722.0,
-   "snapped_gutter": 2,
-   "snap_dx": 8.4
-  }
- ],
- "likely_raised": true
+ "refit": {
+  "method": "ink_ridge_robust_fit",
+  "note": "verticals_inner 已按真墨脊线重拟。人工拖的原值留在 verticals_inner_manual。人核过的条数/顺序/身份原样保留，只重拟几何——人眼在弯曲界行上拖直线拖不准。三道闸任一不过就保留人工值：样本量/跨度、必须真的更贴真墨、拟合区间内位移<=14px（防止最外两条跳到旁边的外边框上）。逐条结果见 refit.lines。",
+  "accepted": 9,
+  "total": 10,
+  "lines": [
+   {
+    "idx": 0,
+    "refit": true,
+    "kept_manual_because": null,
+    "n_inliers": 95,
+    "dist_to_ink_before": 0.68,
+    "dist_to_ink_after": 0.63,
+    "shift_px": 0.38
+   },
+   {
+    "idx": 1,
+    "refit": true,
+    "kept_manual_because": null,
+    "n_inliers": 105,
+    "dist_to_ink_before": 0.47,
+    "dist_to_ink_after": 0.47,
+    "shift_px": 0.26
+   },
+   {
+    "idx": 2,
+    "refit": true,
+    "kept_manual_because": null,
+    "n_inliers": 100,
+    "dist_to_ink_before": 0.38,
+    "dist_to_ink_after": 0.35,
+    "shift_px": 0.38
+   },
+   {
+    "idx": 3,
+    "refit": true,
+    "kept_manual_because": null,
+    "n_inliers": 109,
+    "dist_to_ink_before": 0.56,
+    "dist_to_ink_after": 0.49,
+    "shift_px": 0.6
+   },
+   {
+    "idx": 4,
+    "refit": true,
+    "kept_manual_because": null,
+    "n_inliers": 113,
+    "dist_to_ink_before": 1.65,
+    "dist_to_ink_after": 1.36,
+    "shift_px": 3.84
+   },
+   {
+    "idx": 5,
+    "refit": true,
+    "kept_manual_because": null,
+    "n_inliers": 114,
+    "dist_to_ink_before": 2.2,
+    "dist_to_ink_after": 1.8,
+    "shift_px": 5.54
+   },
+   {
+    "idx": 6,
+    "refit": false,
+    "kept_manual_because": "没更贴",
+    "n_inliers": 113,
+    "dist_to_ink_before": 1.0,
+    "dist_to_ink_after": 1.02,
+    "shift_px": 0.76
+   },
+   {
+    "idx": 7,
+    "refit": true,
+    "kept_manual_because": null,
+    "n_inliers": 114,
+    "dist_to_ink_before": 3.35,
+    "dist_to_ink_after": 2.28,
+    "shift_px": 3.39
+   },
+   {
+    "idx": 8,
+    "refit": true,
+    "kept_manual_because": null,
+    "n_inliers": 106,
+    "dist_to_ink_before": 1.96,
+    "dist_to_ink_after": 1.38,
+    "shift_px": 4.64
+   },
+   {
+    "idx": 9,
+    "refit": true,
+    "kept_manual_because": null,
+    "n_inliers": 97,
+    "dist_to_ink_before": 1.03,
+    "dist_to_ink_after": 0.86,
+    "shift_px": 0.53
+   }
+  ]
+ }
 }
