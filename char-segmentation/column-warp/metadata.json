@@ -4,8 +4,8 @@
   "schema_version": 1,
   "description": "Step2（单列射影变换+去噪+界行清除）的金标：每列矫正后「文字带」的左右边界，以及界行残墨跟字身墨分不分得开的人裁",
   "created": "2026-08-31",
-  "status": "试点（32 列 / 13 页）",
-  "total_samples": 32,
+  "status": "试点（25 列 / 13 页）",
+  "total_samples": 25,
   "sample_unit": "列（每列一个文字带边界对 + 一条裁决）",
   "sources": [
     "06061300.cn（武英殿刻本《欽定四庫全書總目》卷首一~四）"
@@ -14,23 +14,32 @@
     "human"
   ],
   "verdict_distribution": {
-    "clean": 32
+    "clean": 25
   },
   "book_distribution": {
-    "vol01": 32
+    "vol01": 25
   },
   "gold_definition": "每列经 warp_column 矫正成竖直矩形后，在该图自身的局部 x 坐标里，「文字带」的左右边界——带外只该剩界行残墨、带内字身完整；外加一条裁决：这两件事能不能同时做到（clean=分得开 / mixed=分不开，界行残墨跟字身墨在横向糊在一起 / idk=拿不准）。边界不是唯一解而是一条**走廊**：human_* 是人拖到的保守端，canonical_* 是从人标点往外推到墨占比仍 <= zero_eps(0.005) 的最远处；落在走廊内都算对。 另有 border_class：矫正图上下两端各一条人裁的**类别**（clean 有残墨且跟首字有间隙 / glued 有残墨但粘连 / none 没残墨 / idk）——**只记类别不记坐标**，类别定了切在哪一行算法自己算得准。",
   "why_gold_does_not_go_stale": "金标挂在人对矫正图的判断上，样本里一并存了复现矫正所需的全部几何量（左右边线 + top_y/bottom_y + 采用的上下界口径）。只要 Step1 那两条线的金标不变，任何新的矫正/清界行实现都能重算出同一张图，拿这两个 x 直接算误差。profile 只是快照，**不当硬金标**——改一行重采样实现就会全量出容差，char-normalization 踩过这个坑。",
   "labeling_method": "自研交互标注 artifact（整列压扁图横向 1:1 + 沿竖直方向的投影曲线，拖两条竖线定边界、可逐像素微调），种子取自 column_text_band() 自动判据，人工逐列核校；页面自存，裁决读回后导出。",
+  "pending_relabel": [
+    "vol01_137_c5",
+    "vol01_138_c4",
+    "vol01_138_c6",
+    "vol01_33_c5",
+    "vol01_47_c2",
+    "vol01_47_c4",
+    "vol01_47_c6"
+  ],
   "known_limitations": [
     "只有 vol01，且列是按「难例优先」选的（倾斜大/梯形大/锚点偏差大/抬头列各取前几名 + 少量平稳列对照），**不是随机抽样**——可以用来找失败形态，不能直接当全书比例的估计。",
     "上下界用的是定版约定 top_y=页面右端 x=0 锚点；越靠左的列这个锚点离该列真实版框越远（实测最大 60.5px），个别列首字会被切掉一截，这些列的 verdict 可能记的是 idk 而不是矫正本身的问题。"
   ],
   "border_class_distribution": {
-    "bottom:clean": 7,
-    "bottom:none": 8,
+    "bottom:clean": 5,
+    "bottom:none": 7,
     "top:clean": 3,
-    "top:idk": 2,
-    "top:none": 10
+    "top:idk": 1,
+    "top:none": 7
   }
 }
