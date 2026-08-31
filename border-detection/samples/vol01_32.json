@@ -246,5 +246,105 @@
     "shift_px": 0.74
    }
   ]
+ },
+ "head_raise_manual": [
+  {
+   "col": 2,
+   "inner_y": 259.7009713309152,
+   "outer_y": 225.00113351004467,
+   "estimated": true,
+   "handle_x": 1738.7,
+   "snapped_gutter": 8,
+   "snap_dx": -76.0
+  },
+  {
+   "col": 4,
+   "inner_y": 264.1229248046875,
+   "outer_y": 226.1540004185268,
+   "estimated": true,
+   "handle_x": 1349.8,
+   "snapped_gutter": 6,
+   "snap_dx": -95.2
+  },
+  {
+   "col": 5,
+   "inner_y": 260.4716273716518,
+   "outer_y": 226.47700718470983,
+   "estimated": true,
+   "handle_x": 1182.2,
+   "snapped_gutter": 5,
+   "snap_dx": -71.1
+  },
+  {
+   "col": 6,
+   "inner_y": 260.171639578683,
+   "outer_y": 227.45352608816967,
+   "estimated": true,
+   "handle_x": 996.5,
+   "snapped_gutter": 4,
+   "snap_dx": -69.6
+  },
+  {
+   "col": 9,
+   "inner_y": 266.9124058314732,
+   "outer_y": 230.99561418805806,
+   "estimated": true,
+   "handle_x": 419.9,
+   "snapped_gutter": 1,
+   "snap_dx": -89.7
+  }
+ ],
+ "head_raise_refit": {
+  "method": "ink_line_center_in_column",
+  "note": "head_raise.inner_y 已按真墨重拟为**线心**（墨量只在该列窄窗口里算，因为抬头框只存在于这一列）。人工原值留在 head_raise_manual。判据：绝对墨占比门槛(0.25，不能用峰值相对门槛——外框常是满墨会把浅的内框杀掉)找连通段 -> 峰值半高以上加权质心 = 线心；再要求 inner-outer 间距落在 25~52px（拦掉外框本身和下面第一个字的横画），合规候选里取**最靠里**那条；单次移动 <=15px。outer_y 保持人工值未动。",
+  "accepted": 0,
+  "total": 5,
+  "lines": [
+   {
+    "col": 2,
+    "refit": false,
+    "kept_manual_because": "estimated=true（线被裁掉了，没有可测的墨）",
+    "inner_shift_px": null,
+    "ink_at_old_inner": null,
+    "gap_after": null,
+    "ink_at_outer": 0.0
+   },
+   {
+    "col": 4,
+    "refit": false,
+    "kept_manual_because": "estimated=true（线被裁掉了，没有可测的墨）",
+    "inner_shift_px": null,
+    "ink_at_old_inner": null,
+    "gap_after": null,
+    "ink_at_outer": 0.0
+   },
+   {
+    "col": 5,
+    "refit": false,
+    "kept_manual_because": "estimated=true（线被裁掉了，没有可测的墨）",
+    "inner_shift_px": null,
+    "ink_at_old_inner": null,
+    "gap_after": null,
+    "ink_at_outer": 0.0
+   },
+   {
+    "col": 6,
+    "refit": false,
+    "kept_manual_because": "estimated=true（线被裁掉了，没有可测的墨）",
+    "inner_shift_px": null,
+    "ink_at_old_inner": null,
+    "gap_after": null,
+    "ink_at_outer": 0.0
+   },
+   {
+    "col": 9,
+    "refit": false,
+    "kept_manual_because": "estimated=true（线被裁掉了，没有可测的墨）",
+    "inner_shift_px": null,
+    "ink_at_old_inner": null,
+    "gap_after": null,
+    "ink_at_outer": 0.0
+   }
+  ]
  }
 }

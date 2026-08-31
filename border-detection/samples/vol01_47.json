@@ -62,7 +62,7 @@
  "head_raise": [
   {
    "col": 4,
-   "inner_y": 343.61749267578125,
+   "inner_y": 340.0458015267176,
    "outer_y": 301.41290283203125,
    "estimated": false,
    "handle_x": 1475.9,
@@ -71,7 +71,7 @@
   },
   {
    "col": 5,
-   "inner_y": 342.1527099609375,
+   "inner_y": 336.0759493670886,
    "outer_y": 295.33428955078125,
    "estimated": false,
    "handle_x": 1297.2,
@@ -80,7 +80,7 @@
   },
   {
    "col": 6,
-   "inner_y": 334.84039306640625,
+   "inner_y": 331.465625,
    "outer_y": 297.28826904296875,
    "estimated": false,
    "handle_x": 1116.7,
@@ -89,7 +89,7 @@
   },
   {
    "col": 9,
-   "inner_y": 324.96356201171875,
+   "inner_y": 319.8250950570342,
    "outer_y": 286.31732177734375,
    "estimated": false,
    "handle_x": 542.7,
@@ -235,6 +235,88 @@
     "dist_to_ink_before": 4.51,
     "dist_to_ink_after": 2.63,
     "shift_px": 8.13
+   }
+  ]
+ },
+ "head_raise_manual": [
+  {
+   "col": 4,
+   "inner_y": 343.61749267578125,
+   "outer_y": 301.41290283203125,
+   "estimated": false,
+   "handle_x": 1475.9,
+   "snapped_gutter": 6,
+   "snap_dx": -6.9
+  },
+  {
+   "col": 5,
+   "inner_y": 342.1527099609375,
+   "outer_y": 295.33428955078125,
+   "estimated": false,
+   "handle_x": 1297.2,
+   "snapped_gutter": 5,
+   "snap_dx": 2.9
+  },
+  {
+   "col": 6,
+   "inner_y": 334.84039306640625,
+   "outer_y": 297.28826904296875,
+   "estimated": false,
+   "handle_x": 1116.7,
+   "snapped_gutter": 4,
+   "snap_dx": 2.7
+  },
+  {
+   "col": 9,
+   "inner_y": 324.96356201171875,
+   "outer_y": 286.31732177734375,
+   "estimated": false,
+   "handle_x": 542.7,
+   "snapped_gutter": 1,
+   "snap_dx": -6.6
+  }
+ ],
+ "head_raise_refit": {
+  "method": "ink_line_center_in_column",
+  "note": "head_raise.inner_y 已按真墨重拟为**线心**（墨量只在该列窄窗口里算，因为抬头框只存在于这一列）。人工原值留在 head_raise_manual。判据：绝对墨占比门槛(0.25，不能用峰值相对门槛——外框常是满墨会把浅的内框杀掉)找连通段 -> 峰值半高以上加权质心 = 线心；再要求 inner-outer 间距落在 25~52px（拦掉外框本身和下面第一个字的横画），合规候选里取**最靠里**那条；单次移动 <=15px。outer_y 保持人工值未动。",
+  "accepted": 4,
+  "total": 4,
+  "lines": [
+   {
+    "col": 4,
+    "refit": true,
+    "kept_manual_because": null,
+    "inner_shift_px": -3.57,
+    "ink_at_old_inner": 0.0,
+    "gap_after": 38.6,
+    "ink_at_outer": 1.0
+   },
+   {
+    "col": 5,
+    "refit": true,
+    "kept_manual_because": null,
+    "inner_shift_px": -6.08,
+    "ink_at_old_inner": 0.0,
+    "gap_after": 40.7,
+    "ink_at_outer": 0.953
+   },
+   {
+    "col": 6,
+    "refit": true,
+    "kept_manual_because": null,
+    "inner_shift_px": -3.37,
+    "ink_at_old_inner": 0.072,
+    "gap_after": 34.2,
+    "ink_at_outer": 1.0
+   },
+   {
+    "col": 9,
+    "refit": true,
+    "kept_manual_because": null,
+    "inner_shift_px": -5.14,
+    "ink_at_old_inner": 0.007,
+    "gap_after": 33.5,
+    "ink_at_outer": 0.78
    }
   ]
  }

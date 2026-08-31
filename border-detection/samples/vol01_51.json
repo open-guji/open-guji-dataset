@@ -62,7 +62,7 @@
  "head_raise": [
   {
    "col": 1,
-   "inner_y": 327.9888916015625,
+   "inner_y": 318.6233421750663,
    "outer_y": 292.37158203125,
    "estimated": false,
    "handle_x": 2003.3,
@@ -71,7 +71,7 @@
   },
   {
    "col": 2,
-   "inner_y": 320.2381591796875,
+   "inner_y": 315.4651741293533,
    "outer_y": 282.5367431640625,
    "estimated": false,
    "handle_x": 1818.1,
@@ -80,7 +80,7 @@
   },
   {
    "col": 8,
-   "inner_y": 300.67498779296875,
+   "inner_y": 296.4114832535886,
    "outer_y": 261.2272644042969,
    "estimated": false,
    "handle_x": 731.4,
@@ -226,6 +226,70 @@
     "dist_to_ink_before": 0.47,
     "dist_to_ink_after": 0.47,
     "shift_px": 0.43
+   }
+  ]
+ },
+ "head_raise_manual": [
+  {
+   "col": 1,
+   "inner_y": 327.9888916015625,
+   "outer_y": 292.37158203125,
+   "estimated": false,
+   "handle_x": 2003.3,
+   "snapped_gutter": 9,
+   "snap_dx": -0.1
+  },
+  {
+   "col": 2,
+   "inner_y": 320.2381591796875,
+   "outer_y": 282.5367431640625,
+   "estimated": false,
+   "handle_x": 1818.1,
+   "snapped_gutter": 8,
+   "snap_dx": 2.9
+  },
+  {
+   "col": 8,
+   "inner_y": 300.67498779296875,
+   "outer_y": 261.2272644042969,
+   "estimated": false,
+   "handle_x": 731.4,
+   "snapped_gutter": 2,
+   "snap_dx": 5.7
+  }
+ ],
+ "head_raise_refit": {
+  "method": "ink_line_center_in_column",
+  "note": "head_raise.inner_y 已按真墨重拟为**线心**（墨量只在该列窄窗口里算，因为抬头框只存在于这一列）。人工原值留在 head_raise_manual。判据：绝对墨占比门槛(0.25，不能用峰值相对门槛——外框常是满墨会把浅的内框杀掉)找连通段 -> 峰值半高以上加权质心 = 线心；再要求 inner-outer 间距落在 25~52px（拦掉外框本身和下面第一个字的横画），合规候选里取**最靠里**那条；单次移动 <=15px。outer_y 保持人工值未动。",
+  "accepted": 3,
+  "total": 3,
+  "lines": [
+   {
+    "col": 1,
+    "refit": true,
+    "kept_manual_because": null,
+    "inner_shift_px": -9.37,
+    "ink_at_old_inner": 0.0,
+    "gap_after": 26.3,
+    "ink_at_outer": 0.231
+   },
+   {
+    "col": 2,
+    "refit": true,
+    "kept_manual_because": null,
+    "inner_shift_px": -4.77,
+    "ink_at_old_inner": 0.0,
+    "gap_after": 32.9,
+    "ink_at_outer": 0.0
+   },
+   {
+    "col": 8,
+    "refit": true,
+    "kept_manual_because": null,
+    "inner_shift_px": -4.26,
+    "ink_at_old_inner": 0.0,
+    "gap_after": 35.2,
+    "ink_at_outer": 0.0
    }
   ]
  }

@@ -62,7 +62,7 @@
  "head_raise": [
   {
    "col": 6,
-   "inner_y": 331.68082101004467,
+   "inner_y": 323.5921787709498,
    "outer_y": 296.6365269252232,
    "estimated": false,
    "handle_x": 1113.1,
@@ -208,6 +208,34 @@
     "dist_to_ink_before": 1.44,
     "dist_to_ink_after": 1.54,
     "shift_px": 1.57
+   }
+  ]
+ },
+ "head_raise_manual": [
+  {
+   "col": 6,
+   "inner_y": 331.68082101004467,
+   "outer_y": 296.6365269252232,
+   "estimated": false,
+   "handle_x": 1113.1,
+   "snapped_gutter": 4,
+   "snap_dx": 8.0
+  }
+ ],
+ "head_raise_refit": {
+  "method": "ink_line_center_in_column",
+  "note": "head_raise.inner_y 已按真墨重拟为**线心**（墨量只在该列窄窗口里算，因为抬头框只存在于这一列）。人工原值留在 head_raise_manual。判据：绝对墨占比门槛(0.25，不能用峰值相对门槛——外框常是满墨会把浅的内框杀掉)找连通段 -> 峰值半高以上加权质心 = 线心；再要求 inner-outer 间距落在 25~52px（拦掉外框本身和下面第一个字的横画），合规候选里取**最靠里**那条；单次移动 <=15px。outer_y 保持人工值未动。",
+  "accepted": 1,
+  "total": 1,
+  "lines": [
+   {
+    "col": 6,
+    "refit": true,
+    "kept_manual_because": null,
+    "inner_shift_px": -8.09,
+    "ink_at_old_inner": 0.007,
+    "gap_after": 27.0,
+    "ink_at_outer": 0.0
    }
   ]
  }
