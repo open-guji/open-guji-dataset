@@ -67,7 +67,9 @@
    "estimated": true,
    "handle_x": 1738.7,
    "snapped_gutter": 8,
-   "snap_dx": -76.0
+   "snap_dx": -76.0,
+   "inner_observed": false,
+   "outer_observed": false
   },
   {
    "col": 4,
@@ -76,7 +78,9 @@
    "estimated": true,
    "handle_x": 1349.8,
    "snapped_gutter": 6,
-   "snap_dx": -95.2
+   "snap_dx": -95.2,
+   "inner_observed": false,
+   "outer_observed": false
   },
   {
    "col": 5,
@@ -85,7 +89,9 @@
    "estimated": true,
    "handle_x": 1182.2,
    "snapped_gutter": 5,
-   "snap_dx": -71.1
+   "snap_dx": -71.1,
+   "inner_observed": false,
+   "outer_observed": false
   },
   {
    "col": 6,
@@ -94,7 +100,9 @@
    "estimated": true,
    "handle_x": 996.5,
    "snapped_gutter": 4,
-   "snap_dx": -69.6
+   "snap_dx": -69.6,
+   "inner_observed": false,
+   "outer_observed": false
   },
   {
    "col": 9,
@@ -103,7 +111,9 @@
    "estimated": true,
    "handle_x": 419.9,
    "snapped_gutter": 1,
-   "snap_dx": -89.7
+   "snap_dx": -89.7,
+   "inner_observed": false,
+   "outer_observed": false
   }
  ],
  "likely_raised": true,
@@ -295,55 +305,76 @@
   }
  ],
  "head_raise_refit": {
-  "method": "ink_line_center_in_column",
-  "note": "head_raise.inner_y 已按真墨重拟为**线心**（墨量只在该列窄窗口里算，因为抬头框只存在于这一列）。人工原值留在 head_raise_manual。判据：绝对墨占比门槛(0.25，不能用峰值相对门槛——外框常是满墨会把浅的内框杀掉)找连通段 -> 峰值半高以上加权质心 = 线心；再要求 inner-outer 间距落在 25~52px（拦掉外框本身和下面第一个字的横画），合规候选里取**最靠里**那条；单次移动 <=15px。outer_y 保持人工值未动。",
-  "accepted": 0,
+  "method": "ink_inner_center_outer_edge",
+  "note": "head_raise 已按真墨重拟：inner_y=线心、outer_y=外延，墨量只在该列窄窗口里算（抬头框只存在于这一列）。人工原值留在 head_raise_manual。inner_observed/outer_observed 记这两个坐标是不是量出来的；estimated = not(inner_observed and outer_observed)。坑：墨占比门槛必须用绝对值，外框满墨时相对门槛会把浅的内框整批杀掉。",
+  "inner_observed": 0,
+  "outer_observed": 0,
   "total": 5,
   "lines": [
    {
     "col": 2,
-    "refit": false,
-    "kept_manual_because": "estimated=true（线被裁掉了，没有可测的墨）",
-    "inner_shift_px": null,
-    "ink_at_old_inner": null,
-    "gap_after": null,
-    "ink_at_outer": 0.0
+    "inner_observed": false,
+    "outer_observed": false,
+    "inner_shift_px": 0.0,
+    "outer_shift_px": 0.0,
+    "inner_kept_because": "带内没有间距合规的候选（线被裁掉或没印上）",
+    "outer_kept_because": "带内没有任何墨（外框没印上）",
+    "ink_at_old_inner": 0.0,
+    "ink_at_old_outer": 0.0,
+    "outer_bar": null,
+    "gap_after": null
    },
    {
     "col": 4,
-    "refit": false,
-    "kept_manual_because": "estimated=true（线被裁掉了，没有可测的墨）",
-    "inner_shift_px": null,
-    "ink_at_old_inner": null,
-    "gap_after": null,
-    "ink_at_outer": 0.0
+    "inner_observed": false,
+    "outer_observed": false,
+    "inner_shift_px": 0.0,
+    "outer_shift_px": 0.0,
+    "inner_kept_because": "带内没有间距合规的候选（线被裁掉或没印上）",
+    "outer_kept_because": "带内没有任何墨（外框没印上）",
+    "ink_at_old_inner": 0.0,
+    "ink_at_old_outer": 0.0,
+    "outer_bar": null,
+    "gap_after": null
    },
    {
     "col": 5,
-    "refit": false,
-    "kept_manual_because": "estimated=true（线被裁掉了，没有可测的墨）",
-    "inner_shift_px": null,
-    "ink_at_old_inner": null,
-    "gap_after": null,
-    "ink_at_outer": 0.0
+    "inner_observed": false,
+    "outer_observed": false,
+    "inner_shift_px": 0.0,
+    "outer_shift_px": 0.0,
+    "inner_kept_because": "带内没有间距合规的候选（线被裁掉或没印上）",
+    "outer_kept_because": "带内没有任何墨（外框没印上）",
+    "ink_at_old_inner": 0.0,
+    "ink_at_old_outer": 0.0,
+    "outer_bar": null,
+    "gap_after": null
    },
    {
     "col": 6,
-    "refit": false,
-    "kept_manual_because": "estimated=true（线被裁掉了，没有可测的墨）",
-    "inner_shift_px": null,
-    "ink_at_old_inner": null,
-    "gap_after": null,
-    "ink_at_outer": 0.0
+    "inner_observed": false,
+    "outer_observed": false,
+    "inner_shift_px": 0.0,
+    "outer_shift_px": 0.0,
+    "inner_kept_because": "带内没有间距合规的候选（线被裁掉或没印上）",
+    "outer_kept_because": "带内没有任何墨（外框没印上）",
+    "ink_at_old_inner": 0.0,
+    "ink_at_old_outer": 0.0,
+    "outer_bar": null,
+    "gap_after": null
    },
    {
     "col": 9,
-    "refit": false,
-    "kept_manual_because": "estimated=true（线被裁掉了，没有可测的墨）",
-    "inner_shift_px": null,
-    "ink_at_old_inner": null,
-    "gap_after": null,
-    "ink_at_outer": 0.0
+    "inner_observed": false,
+    "outer_observed": false,
+    "inner_shift_px": 0.0,
+    "outer_shift_px": 0.0,
+    "inner_kept_because": "带内没有间距合规的候选（线被裁掉或没印上）",
+    "outer_kept_because": "带内没有任何墨（外框没印上）",
+    "ink_at_old_inner": 0.0,
+    "ink_at_old_outer": 0.0,
+    "outer_bar": null,
+    "gap_after": null
    }
   ]
  }

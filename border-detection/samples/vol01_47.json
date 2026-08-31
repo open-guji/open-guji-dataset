@@ -63,38 +63,46 @@
   {
    "col": 4,
    "inner_y": 340.0458015267176,
-   "outer_y": 301.41290283203125,
+   "outer_y": 297.6363636363636,
    "estimated": false,
    "handle_x": 1475.9,
    "snapped_gutter": 6,
-   "snap_dx": -6.9
+   "snap_dx": -6.9,
+   "inner_observed": true,
+   "outer_observed": true
   },
   {
    "col": 5,
    "inner_y": 336.0759493670886,
-   "outer_y": 295.33428955078125,
+   "outer_y": 295.2894736842105,
    "estimated": false,
    "handle_x": 1297.2,
    "snapped_gutter": 5,
-   "snap_dx": 2.9
+   "snap_dx": 2.9,
+   "inner_observed": true,
+   "outer_observed": true
   },
   {
    "col": 6,
    "inner_y": 331.465625,
-   "outer_y": 297.28826904296875,
+   "outer_y": 289.79411764705884,
    "estimated": false,
    "handle_x": 1116.7,
    "snapped_gutter": 4,
-   "snap_dx": 2.7
+   "snap_dx": 2.7,
+   "inner_observed": true,
+   "outer_observed": true
   },
   {
    "col": 9,
    "inner_y": 319.8250950570342,
-   "outer_y": 286.31732177734375,
+   "outer_y": 283.0208333333333,
    "estimated": false,
    "handle_x": 542.7,
    "snapped_gutter": 1,
-   "snap_dx": -6.6
+   "snap_dx": -6.6,
+   "inner_observed": true,
+   "outer_observed": true
   }
  ],
  "likely_raised": true,
@@ -277,46 +285,79 @@
   }
  ],
  "head_raise_refit": {
-  "method": "ink_line_center_in_column",
-  "note": "head_raise.inner_y 已按真墨重拟为**线心**（墨量只在该列窄窗口里算，因为抬头框只存在于这一列）。人工原值留在 head_raise_manual。判据：绝对墨占比门槛(0.25，不能用峰值相对门槛——外框常是满墨会把浅的内框杀掉)找连通段 -> 峰值半高以上加权质心 = 线心；再要求 inner-outer 间距落在 25~52px（拦掉外框本身和下面第一个字的横画），合规候选里取**最靠里**那条；单次移动 <=15px。outer_y 保持人工值未动。",
-  "accepted": 4,
+  "method": "ink_inner_center_outer_edge",
+  "note": "head_raise 已按真墨重拟：inner_y=线心、outer_y=外延，墨量只在该列窄窗口里算（抬头框只存在于这一列）。人工原值留在 head_raise_manual。inner_observed/outer_observed 记这两个坐标是不是量出来的；estimated = not(inner_observed and outer_observed)。坑：墨占比门槛必须用绝对值，外框满墨时相对门槛会把浅的内框整批杀掉。",
+  "inner_observed": 4,
+  "outer_observed": 4,
   "total": 4,
   "lines": [
    {
     "col": 4,
-    "refit": true,
-    "kept_manual_because": null,
+    "inner_observed": true,
+    "outer_observed": true,
     "inner_shift_px": -3.57,
+    "outer_shift_px": -3.78,
+    "inner_kept_because": null,
+    "outer_kept_because": null,
     "ink_at_old_inner": 0.0,
-    "gap_after": 38.6,
-    "ink_at_outer": 1.0
+    "ink_at_old_outer": 1.0,
+    "outer_bar": [
+     297.0,
+     320.0,
+     1.0
+    ],
+    "gap_after": 42.4
    },
    {
     "col": 5,
-    "refit": true,
-    "kept_manual_because": null,
+    "inner_observed": true,
+    "outer_observed": true,
     "inner_shift_px": -6.08,
+    "outer_shift_px": -0.04,
+    "inner_kept_because": null,
+    "outer_kept_because": null,
     "ink_at_old_inner": 0.0,
-    "gap_after": 40.7,
-    "ink_at_outer": 0.953
+    "ink_at_old_outer": 0.953,
+    "outer_bar": [
+     294.0,
+     316.0,
+     1.0
+    ],
+    "gap_after": 40.8
    },
    {
     "col": 6,
-    "refit": true,
-    "kept_manual_because": null,
+    "inner_observed": true,
+    "outer_observed": true,
     "inner_shift_px": -3.37,
+    "outer_shift_px": -7.49,
+    "inner_kept_because": null,
+    "outer_kept_because": null,
     "ink_at_old_inner": 0.072,
-    "gap_after": 34.2,
-    "ink_at_outer": 1.0
+    "ink_at_old_outer": 1.0,
+    "outer_bar": [
+     290.0,
+     311.0,
+     1.0
+    ],
+    "gap_after": 41.7
    },
    {
     "col": 9,
-    "refit": true,
-    "kept_manual_because": null,
+    "inner_observed": true,
+    "outer_observed": true,
     "inner_shift_px": -5.14,
+    "outer_shift_px": -3.3,
+    "inner_kept_because": null,
+    "outer_kept_because": null,
     "ink_at_old_inner": 0.007,
-    "gap_after": 33.5,
-    "ink_at_outer": 0.78
+    "ink_at_old_outer": 0.78,
+    "outer_bar": [
+     282.0,
+     300.0,
+     1.0
+    ],
+    "gap_after": 36.8
    }
   ]
  }
