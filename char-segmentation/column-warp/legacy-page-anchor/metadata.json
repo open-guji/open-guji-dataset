@@ -1,0 +1,48 @@
+{
+  "name": "column-warp / legacy-page-anchor",
+  "version": "0.1.0",
+  "schema_version": 1,
+  "description": "Step2（单列射影变换+去噪+界行清除）的金标：每列矫正后「文字带」的左右边界，以及界行残墨跟字身墨分不分得开的人裁",
+  "created": "2026-08-31",
+  "status": "已归档（25 列 / 13 页），不再扩充",
+  "total_samples": 25,
+  "sample_unit": "列（每列一个文字带边界对 + 一条裁决）",
+  "sources": [
+    "06061300.cn（武英殿刻本《欽定四庫全書總目》卷首一~四）"
+  ],
+  "label_origin_values": [
+    "human"
+  ],
+  "verdict_distribution": {
+    "clean": 25
+  },
+  "book_distribution": {
+    "vol01": 25
+  },
+  "gold_definition": "每列经 warp_column 矫正成竖直矩形后，在该图自身的局部 x 坐标里，「文字带」的左右边界——带外只该剩界行残墨、带内字身完整；外加一条裁决：这两件事能不能同时做到（clean=分得开 / mixed=分不开，界行残墨跟字身墨在横向糊在一起 / idk=拿不准）。边界不是唯一解而是一条**走廊**：human_* 是人拖到的保守端，canonical_* 是从人标点往外推到墨占比仍 <= zero_eps(0.005) 的最远处；落在走廊内都算对。 另有 border_class：矫正图上下两端各一条人裁的**类别**（clean 有残墨且跟首字有间隙 / glued 有残墨但粘连 / none 没残墨 / idk）——**只记类别不记坐标**，类别定了切在哪一行算法自己算得准。",
+  "why_gold_does_not_go_stale": "金标挂在人对矫正图的判断上，样本里一并存了复现矫正所需的全部几何量（左右边线 + top_y/bottom_y + 采用的上下界口径）。只要 Step1 那两条线的金标不变，任何新的矫正/清界行实现都能重算出同一张图，拿这两个 x 直接算误差。profile 只是快照，**不当硬金标**——改一行重采样实现就会全量出容差，char-normalization 踩过这个坑。",
+  "labeling_method": "自研交互标注 artifact（整列压扁图横向 1:1 + 沿竖直方向的投影曲线，拖两条竖线定边界、可逐像素微调），种子取自 column_text_band() 自动判据，人工逐列核校；页面自存，裁决读回后导出。",
+  "pending_relabel": [
+    "vol01_137_c5",
+    "vol01_138_c4",
+    "vol01_138_c6",
+    "vol01_33_c5",
+    "vol01_47_c2",
+    "vol01_47_c4",
+    "vol01_47_c6"
+  ],
+  "known_limitations": [
+    "只有 vol01，且列是按「难例优先」选的（倾斜大/梯形大/锚点偏差大/抬头列各取前几名 + 少量平稳列对照），**不是随机抽样**——可以用来找失败形态，不能直接当全书比例的估计。",
+    "【已在上游修好，本批样本的 top_y 是修好之前的快照】原先上下界用整页共用的 top_y=页面右端 x=0 锚点；版框是斜的，越靠左的列偏得越多（open-guji-cv 那边 14 页 126 列复量：均值 14.5px、最大 54.4px，且**一律偏下**），列图因此不含上版框线、抬头列更是整段被切（15 列各 106~200px，抬头字全丢）。2026-08-31 `column_projection.page_column_windows()` 改成逐列算上下界、抬头列上探到抬头框外延，首字被切的列 15→0。**本批 text_band 不用重标**：换 top_y 只通过 out_w 间接影响列图宽度，实测 111 个普通列里仅 6 个变了、幅度 −1~+2px（抬头列 −1~+3px），在走廊容差内。重算列图请改用 page_column_windows()，样本里的 top_y/top_y_source 只当历史快照。"
+  ],
+  "border_class_distribution": {
+    "bottom:clean": 5,
+    "bottom:none": 7,
+    "top:clean": 3,
+    "top:idk": 1,
+    "top:none": 7
+  },
+  "input_variant": "gold_lines@page_anchor",
+  "input_note": "列图由 `open-guji-dataset/border-detection` 的**人工金标边线**（verticals_inner / top_inner / bottom_inner）+ 页级 x=0 锚点的 top_y/bottom_y 现算（样本 geometry 那一块存了全部参数）。这条链路**隔离掉 Step1 的探测误差**，量的是「Step2 自己准不准」；现行口径量的是 Step1+Step2 端到端，两者不能混着比。",
+  "archived_because": "Step2 的输入换成 `detect_borders` 算法边线 + `page_column_windows` 逐列窗口之后，列图不是同一张了——实测边线差 0.76~27.6px、列图宽度差到 38px，上端「没残墨」的列从 24 掉到 6。32 条原始标注里 17 条经逐条复核可以迁到新口径（已迁入 ../samples），15 条失效需重标。窗口口径决定两端有什么，所以 border_class **一条都不能迁**，全部重标。"
+}

@@ -1,12 +1,14 @@
 {
   "name": "column-warp",
-  "version": "0.1.0",
-  "schema_version": 1,
-  "description": "Step2（单列射影变换+去噪+界行清除）的金标：每列矫正后「文字带」的左右边界，以及界行残墨跟字身墨分不分得开的人裁",
-  "created": "2026-08-31",
-  "status": "试点（25 列 / 13 页）",
-  "total_samples": 25,
-  "sample_unit": "列（每列一个文字带边界对 + 一条裁决）",
+  "version": "0.2.0",
+  "schema_version": 2,
+  "description": "Step2（单列射影变换+去噪+界行/版框清除）的金标：每列矫正后「文字带」的左右边界、界行残墨跟字身墨分不分得开的人裁，以及上下两端的版框残墨类别",
+  "created": "2026-09-01",
+  "status": "试点（17 列 / 11 页）",
+  "input_variant": "detected_lines@per_column_window",
+  "input_note": "列图取 open-guji-cv `output/<book>/step2_columns/<page>/c<N>.png`，由 `scripts/regen_step2_columns.py` 用 **detect_borders 算法探测的边线** + `page_column_windows` 逐列窗口生成——也就是生产链路真正会喂给 Step2 的那张图，Step1 的误差包含在内。另有一套口径不同的旧金标（人工金标边线 + 页级 x=0 锚点）归档在 `legacy-page-anchor/`。",
+  "total_samples": 17,
+  "sample_unit": "列（每列一个文字带边界对 + 一条裁决；上下版框类别另存）",
   "sources": [
     "06061300.cn（武英殿刻本《欽定四庫全書總目》卷首一~四）"
   ],
@@ -14,32 +16,34 @@
     "human"
   ],
   "verdict_distribution": {
-    "clean": 25
+    "clean": 17
   },
   "book_distribution": {
-    "vol01": 25
+    "vol01": 17
   },
-  "gold_definition": "每列经 warp_column 矫正成竖直矩形后，在该图自身的局部 x 坐标里，「文字带」的左右边界——带外只该剩界行残墨、带内字身完整；外加一条裁决：这两件事能不能同时做到（clean=分得开 / mixed=分不开，界行残墨跟字身墨在横向糊在一起 / idk=拿不准）。边界不是唯一解而是一条**走廊**：human_* 是人拖到的保守端，canonical_* 是从人标点往外推到墨占比仍 <= zero_eps(0.005) 的最远处；落在走廊内都算对。 另有 border_class：矫正图上下两端各一条人裁的**类别**（clean 有残墨且跟首字有间隙 / glued 有残墨但粘连 / none 没残墨 / idk）——**只记类别不记坐标**，类别定了切在哪一行算法自己算得准。",
-  "why_gold_does_not_go_stale": "金标挂在人对矫正图的判断上，样本里一并存了复现矫正所需的全部几何量（左右边线 + top_y/bottom_y + 采用的上下界口径）。只要 Step1 那两条线的金标不变，任何新的矫正/清界行实现都能重算出同一张图，拿这两个 x 直接算误差。profile 只是快照，**不当硬金标**——改一行重采样实现就会全量出容差，char-normalization 踩过这个坑。",
-  "labeling_method": "自研交互标注 artifact（整列压扁图横向 1:1 + 沿竖直方向的投影曲线，拖两条竖线定边界、可逐像素微调），种子取自 column_text_band() 自动判据，人工逐列核校；页面自存，裁决读回后导出。",
+  "raised_columns": 6,
+  "gold_definition": "每列经 warp_column 矫正成竖直矩形后，在该图自身的局部 x 坐标里，「文字带」的左右边界——带外只该剩界行残墨、带内字身完整；外加一条裁决：这两件事能不能同时做到（clean=分得开 / mixed=分不开，界行残墨跟字身墨在横向糊在一起 / idk=拿不准）。边界不是唯一解而是一条**走廊**：human_* 是人拖到的保守端，canonical_* 是从人标点往外推到墨占比仍 <= zero_eps(0.005) 的最远处；落在走廊内都算对。",
+  "why_gold_does_not_go_stale": "金标挂在人对**某一张具体列图**的判断上，样本里存了复现那张图所需的全部量（input 那一块）。**但 Step1 一改，列图就变、标注就可能失效**——已经发生过三次（head_raise 列号归属、verticals 按真墨重拟、输入换成算法边线+逐列窗口）。规矩是每次都逐条复核人标点处的墨占比，失效的删掉重标，绝不假设能迁。profile 只是快照，不当硬金标。",
+  "labeling_method": "自研交互标注 artifact：文字带那一页给整列压扁图（横向 1:1）+ 沿竖直方向的投影曲线，拖两条竖线定边界；上下版框那一页给两端裁剪图 + 沿水平方向的投影，**只点类别不标坐标**。种子取自算法判据，人工逐列核校。",
   "pending_relabel": [
-    "vol01_137_c5",
+    "vol01_137_c6",
     "vol01_138_c4",
+    "vol01_138_c5",
     "vol01_138_c6",
-    "vol01_33_c5",
+    "vol01_141_c2",
+    "vol01_141_c3",
+    "vol01_141_c4",
+    "vol01_33_c7",
     "vol01_47_c2",
     "vol01_47_c4",
-    "vol01_47_c6"
+    "vol01_47_c5",
+    "vol01_47_c6",
+    "vol01_47_c7",
+    "vol01_47_c8",
+    "vol01_9_c1"
   ],
   "known_limitations": [
-    "只有 vol01，且列是按「难例优先」选的（倾斜大/梯形大/锚点偏差大/抬头列各取前几名 + 少量平稳列对照），**不是随机抽样**——可以用来找失败形态，不能直接当全书比例的估计。",
-    "【已在上游修好，本批样本的 top_y 是修好之前的快照】原先上下界用整页共用的 top_y=页面右端 x=0 锚点；版框是斜的，越靠左的列偏得越多（open-guji-cv 那边 14 页 126 列复量：均值 14.5px、最大 54.4px，且**一律偏下**），列图因此不含上版框线、抬头列更是整段被切（15 列各 106~200px，抬头字全丢）。2026-08-31 `column_projection.page_column_windows()` 改成逐列算上下界、抬头列上探到抬头框外延，首字被切的列 15→0。**本批 text_band 不用重标**：换 top_y 只通过 out_w 间接影响列图宽度，实测 111 个普通列里仅 6 个变了、幅度 −1~+2px（抬头列 −1~+3px），在走廊容差内。重算列图请改用 page_column_windows()，样本里的 top_y/top_y_source 只当历史快照。"
-  ],
-  "border_class_distribution": {
-    "bottom:clean": 5,
-    "bottom:none": 7,
-    "top:clean": 3,
-    "top:idk": 1,
-    "top:none": 7
-  }
+    "只有 vol01，且列是按「难例优先」选的（倾斜大/梯形大/抬头列各取前几名 + 少量平稳列对照），**不是随机抽样**——可以用来找失败形态，不能直接当全书比例的估计。",
+    "输入用的是算法探测的边线，所以这批数字是 **Step1+Step2 端到端**的，不隔离 Step1 的误差。要单看 Step2 自己，用 legacy-page-anchor/ 那套（人工金标边线），但那套的窗口口径已经过时。"
+  ]
 }
