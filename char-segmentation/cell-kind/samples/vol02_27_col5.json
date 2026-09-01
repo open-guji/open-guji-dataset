@@ -1,0 +1,35 @@
+{
+ "id": "vol02_27_col5",
+ "book": "vol02",
+ "page": "27",
+ "col": 5,
+ "note": "短夹注段(2格)",
+ "n_total_slots_in_sample": 21,
+ "slots": [
+  {
+   "pos": 6,
+   "kind": "char"
+  },
+  {
+   "pos": 7,
+   "kind": "char"
+  },
+  {
+   "pos": 8,
+   "kind": "jiazhu"
+  },
+  {
+   "pos": 9,
+   "kind": "jiazhu"
+  },
+  {
+   "pos": 10,
+   "kind": "blank"
+  },
+  {
+   "pos": 11,
+   "kind": "blank"
+  }
+ ],
+ "reproduction": "detect_borders(expected_cols=9) + warp_column + denoise_column，页级 period/ref_w 用该页 9 列 estimate_shared_period/中位数 dst_w 算。"
+}

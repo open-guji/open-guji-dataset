@@ -1,0 +1,43 @@
+{
+ "id": "vol01_33_col2",
+ "book": "vol01",
+ "page": "33",
+ "col": 2,
+ "note": "抬头+句读提前结束的空白尾列",
+ "n_total_slots_in_sample": 22,
+ "slots": [
+  {
+   "pos": 1,
+   "kind": "char"
+  },
+  {
+   "pos": 2,
+   "kind": "char"
+  },
+  {
+   "pos": 3,
+   "kind": "char"
+  },
+  {
+   "pos": 4,
+   "kind": "blank"
+  },
+  {
+   "pos": 5,
+   "kind": "blank"
+  },
+  {
+   "pos": 6,
+   "kind": "blank"
+  },
+  {
+   "pos": 7,
+   "kind": "blank"
+  },
+  {
+   "pos": 8,
+   "kind": "blank"
+  }
+ ],
+ "reproduction": "peak_line_search.find_vertical_lines 重新配对该页竖线（与 row-boundaries/samples/vol01_33.json 的 col2 left_x/right_x 匹配误差 ≤2px），沿用该金标的 border_top_y=192.04，top_slack=border_top、n_raised=1（抬头字'天'）。"
+}
