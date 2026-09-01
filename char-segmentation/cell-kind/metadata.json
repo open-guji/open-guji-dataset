@@ -1,0 +1,28 @@
+{
+  "name": "cell-kind",
+  "version": "0.1.0",
+  "schema_version": 1,
+  "description": "列内字格的类型金标（字/空白/夹注三选一），配 open-guji-cv row_boundaries.Cell.kind 用于标定/评测。不含 raised——raised 是 Cell 上独立的几何布尔字段（顶边有没有伸到 border_top 以上），跟 kind 分开判断，见下方 gold_definition。",
+  "created": "2026-09-01",
+  "status": "试点(5列39格)，样本量小，用于验证标注流程与迁移判据；待扩量",
+  "total_samples": 39,
+  "sample_unit": "格（5 列，每个样本文件是一列，含该列若干物理格的 pos+kind）",
+  "sources": [
+    "06061300.cn（武英殿刻本《欽定四庫全書總目》），vol01/33、vol02/4、vol02/19、vol02/27、vol02/109"
+  ],
+  "label_origin_values": ["human"],
+  "book_distribution": {
+    "vol01": 1,
+    "vol02": 4
+  },
+  "gold_definition": "每个物理格（列内从上到下连续编号的 pos，不是 Cell.slot——slot 的负数编号是对外展示口径，这里存的是物理位置）标三选一：char(正文字，含抬头字——抬头不是一种 kind，是几何位置)/blank(空白格)/jiazhu(双行小注，不区分 a/b 哪一半，也不标缝的精确 x)。标注时给的是四选一(多一个'抬头')，收回后发现'抬头'这个选项本身问岔了——单格裁紧图看不出相对位置，人只能凭字面判断'这是不是字'，2 格真抬头字都被标成了'字'（不是错，是问题问岔了）。2026-09-01 定案：kind 收窄成三选一，抬头单独用 Cell.raised(bool, 由 y0 与 border_top 比较得出，纯几何量) 表示，跟 kind 完全独立，任何 kind 的格都可能 raised=True。改口径后 39/39 全部一致，未重标。",
+  "why_gold_does_not_go_stale": "vol02 四列的标注对象是从原始页面用 detect_borders + warp_column/denoise_column 现算的列图物理格，没有经过 Step2 clean_column 那条新路径；vol01/33 col2 复用了 row-boundaries 数据集里已冻结的列几何（left_x/right_x/border_top_y）。格子边界本身不随 Step1/Step2 算法迭代而变，只要能用同一套（或几何等价的）矫正方式重新切出这几列，标注就继续成立。",
+  "labeling_method": "review-artifact 交互标注页（39 张单格裁紧图卡片，四选一：字/空白/抬头/夹注），不显示算法自己的判断（避免机器判断带偏标注）。39/39 已裁；收回后按上面 gold_definition 的口径把'抬头'折叠回'字'，与算法输出核对一致。",
+  "known_limitations": [
+    "样本小（5列39格），只覆盖 vol02 的夹注列 + vol01/33 抬头列 col2，没有覆盖负例（左右结构字被误判成夹注的候选）",
+    "不含夹注缝的精确 x 坐标金标，只标到「这一格是不是夹注」这一层",
+    "raised 没有独立的人工金标——四选一试标已经证明单格裁紧图判断不了相对位置，要标就得换成带上下文/基准线的工具（比如整列缩略图 + 版框线标记），这一批完全没有验证过 raised 的检测准确率",
+    "vol02 四列的对照基准是生产 phase4_chars 存量输出（不是独立金标），只有这一批人工裁决才是真正独立的",
+    "样本挑选带偏置：4 列 vol02 是刻意挑的短/中/长夹注段+已知边界情形，不是随机抽样，不能当全书夹注分布的代表"
+  ]
+}
