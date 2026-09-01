@@ -4,10 +4,10 @@
   "schema_version": 2,
   "description": "Step2（单列射影变换+去噪+界行/版框清除）的金标：每列矫正后「文字带」的左右边界、界行残墨跟字身墨分不分得开的人裁，以及上下两端的版框残墨类别",
   "created": "2026-09-01",
-  "status": "试点（17 列 / 11 页）",
+  "status": "试点（29 列 / 13 页）",
   "input_variant": "detected_lines@per_column_window",
   "input_note": "列图取 open-guji-cv `output/<book>/step2_columns/<page>/c<N>.png`，由 `scripts/regen_step2_columns.py` 用 **detect_borders 算法探测的边线** + `page_column_windows` 逐列窗口生成——也就是生产链路真正会喂给 Step2 的那张图，Step1 的误差包含在内。另有一套口径不同的旧金标（人工金标边线 + 页级 x=0 锚点）归档在 `legacy-page-anchor/`。",
-  "total_samples": 17,
+  "total_samples": 29,
   "sample_unit": "列（每列一个文字带边界对 + 一条裁决；上下版框类别另存）",
   "sources": [
     "06061300.cn（武英殿刻本《欽定四庫全書總目》卷首一~四）"
@@ -16,34 +16,31 @@
     "human"
   ],
   "verdict_distribution": {
-    "clean": 17
+    "clean": 29
   },
   "book_distribution": {
-    "vol01": 17
+    "vol01": 29
   },
-  "raised_columns": 6,
-  "gold_definition": "每列经 warp_column 矫正成竖直矩形后，在该图自身的局部 x 坐标里，「文字带」的左右边界——带外只该剩界行残墨、带内字身完整；外加一条裁决：这两件事能不能同时做到（clean=分得开 / mixed=分不开，界行残墨跟字身墨在横向糊在一起 / idk=拿不准）。边界不是唯一解而是一条**走廊**：human_* 是人拖到的保守端，canonical_* 是从人标点往外推到墨占比仍 <= zero_eps(0.005) 的最远处；落在走廊内都算对。",
+  "raised_columns": 9,
+  "gold_definition": "每列经 warp_column 矫正成竖直矩形后，在该图自身的局部 x 坐标里，「文字带」的左右边界——带外只该剩界行残墨、带内字身完整；外加一条裁决：这两件事能不能同时做到（clean=分得开 / mixed=分不开，界行残墨跟字身墨在横向糊在一起 / idk=拿不准）。边界不是唯一解而是一条**走廊**：human_* 是人拖到的保守端，canonical_* 是从人标点往外推到墨占比仍 <= zero_eps(0.005) 的最远处；落在走廊内都算对。 另有 border_class：矫正图上下两端各一条人裁的**类别**（clean 有残墨且跟首字有间隙 / glued 有残墨但粘连 / none 没残墨 / idk）——**只记类别不记坐标**，类别定了切在哪一行算法自己算得准。",
   "why_gold_does_not_go_stale": "金标挂在人对**某一张具体列图**的判断上，样本里存了复现那张图所需的全部量（input 那一块）。**但 Step1 一改，列图就变、标注就可能失效**——已经发生过三次（head_raise 列号归属、verticals 按真墨重拟、输入换成算法边线+逐列窗口）。规矩是每次都逐条复核人标点处的墨占比，失效的删掉重标，绝不假设能迁。profile 只是快照，不当硬金标。",
   "labeling_method": "自研交互标注 artifact：文字带那一页给整列压扁图（横向 1:1）+ 沿竖直方向的投影曲线，拖两条竖线定边界；上下版框那一页给两端裁剪图 + 沿水平方向的投影，**只点类别不标坐标**。种子取自算法判据，人工逐列核校。",
   "pending_relabel": [
-    "vol01_137_c6",
-    "vol01_138_c4",
-    "vol01_138_c5",
-    "vol01_138_c6",
-    "vol01_141_c2",
-    "vol01_141_c3",
-    "vol01_141_c4",
-    "vol01_33_c7",
     "vol01_47_c2",
-    "vol01_47_c4",
-    "vol01_47_c5",
     "vol01_47_c6",
-    "vol01_47_c7",
-    "vol01_47_c8",
-    "vol01_9_c1"
+    "vol01_47_c7"
   ],
   "known_limitations": [
     "只有 vol01，且列是按「难例优先」选的（倾斜大/梯形大/抬头列各取前几名 + 少量平稳列对照），**不是随机抽样**——可以用来找失败形态，不能直接当全书比例的估计。",
     "输入用的是算法探测的边线，所以这批数字是 **Step1+Step2 端到端**的，不隔离 Step1 的误差。要单看 Step2 自己，用 legacy-page-anchor/ 那套（人工金标边线），但那套的窗口口径已经过时。"
-  ]
+  ],
+  "border_class_distribution": {
+    "bottom:clean": 17,
+    "bottom:glued": 2,
+    "bottom:idk": 1,
+    "bottom:none": 11,
+    "top:clean": 27,
+    "top:glued": 1,
+    "top:none": 2
+  }
 }
