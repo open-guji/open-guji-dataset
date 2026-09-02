@@ -1,0 +1,27 @@
+{
+  "name": "cell-truncation",
+  "version": "0.1.0",
+  "schema_version": 1,
+  "description": "Step3 新链路（open-guji-cv row_boundaries.segment_column，弹性DP切格）格线是否切进字身墨迹的人工核校金标——跟 char-segmentation/truncation（旧生产链路 phase4_chars 的截断率量法）测的是同一类问题，但对象是不同的管线，不要混用/合并统计。",
+  "created": "2026-09-02",
+  "status": "试点(4列23条唯一格线)，样本量小；已发现并修正候选生成脚本的重复计数缺陷（见 gold_definition）",
+  "total_samples": 23,
+  "sample_unit": "格线（列内相邻两格的分割 y 坐标，来自 4 列；样本文件 samples/edges.json 一条一个物理格线）",
+  "sources": [
+    "06061300.cn（武英殿刻本《欽定四庫全書總目》），vol02/4 col8、vol02/19 col9、vol02/27 col5、vol02/109 col8"
+  ],
+  "label_origin_values": ["human"],
+  "book_distribution": {
+    "vol02": 4
+  },
+  "gold_definition": "对每条格线（`row_boundaries.segment_column` 输出的相邻两格分割点），人工三选一：a=正确，没有切到墨；b=切到墨，但上下字本身重叠、这已经是唯一切法；c=切到墨，不正确，存在更好的切法。最初标注工具按'物理格'出卡片、每格上下两条边各出一张（`gen_truncation_candidates_v2.py`），收回 38 张卡片的裁决后发现：**除了列首/列尾两条边，中间的每一条格线天生同时是'上一格的下边'和'下一格的上边'，被从两侧各出了一张卡片**——38 张卡片实际只覆盖 23 条唯一格线（15 条格线各被出了 2 张卡片、8 条格线各 1 张），且抽查确认同一条线两侧的裁决从未矛盾。金标按'唯一格线'去重后存储，`source_card_ids` 记录去重前的原始卡片 id 以便溯源。三选一分布（去重后，23 条）：bad(c) 13 / overlap(b) 8 / ok(a) 2。",
+  "why_gold_does_not_go_stale": "格线 y 坐标挂在算法当前跑出来的 boundaries 数组下标(b_index)上，不是挂在人工独立量出的坐标——如果 Step1/Step2 上游几何或 Step3 DP 参数变了，这批格线位置会跟着挪，金标需要重新生成候选、重新核对，不能直接复用旧的 y 值当基准。这批的核心价值是**根因诊断记录**（`diagnosis` 字段）而不是可长期复用的坐标金标：一旦 root_cause 里描述的缺陷被修掉，这批 bad 判决大概率全部失效，需要重新出卡片、重新标注。",
+  "labeling_method": "review-artifact 交互标注页（38 张按边裁紧的候选卡片，PAD=45px 上下文 + 红线标出被质疑的那条边；候选由 EDGE_PX=2 行边缘墨量占比预筛，`gen_truncation_candidates_v2.py`/`build_truncation_review_v2.py`，均未入库），38/38 已裁；裁后按上面 gold_definition 的口径去重成 23 条唯一格线。",
+  "root_cause_of_bad_verdicts": "13 条 bad(c) 里 12 条（除 vol02_4_col8_b21 外）共享同一个 Step3 缺陷根因，已用 `fit_row_boundaries` 内部曲线数值核实（`diagnosis` 字段：±35px 窗口内搜索真实局部最低点，12 条全部 local_min=0.0，偏移 2~17px）：`blank_thresh_frac=0.08` 把曲线值刚跌破粗阈值的区间整段归类成'空白区间'后，`valid = [v for v in valleys_all if not in_any_interval(v, intervals)]` 会把落在这段区间**内部、本身已经是高凸出度真实波谷**的候选点直接丢弃（vol02_27_col5_b3 是最干净的实证：y=384 处 curve=0.0、prominence=83.2，是 find_valleys 正常检出的合法波谷，但因为落在 (371,395) 这个粗阈值区间内被过滤掉），换成区间内每隔 `synth_step=20` px 一个、墨量写死 0.03 的合成候选——合成候选的间距和位置不保证落在真零墨点上，DP 只能从这些不准的合成点里选，选中的往往还在字身衰减段的中途（curve 11~59，不是 0）。`vol02_4_col8_b0` 属于同一机制的特例：整个列图顶部到第一个字之间是一整段长零墨，`find_valleys` 自身的'连续相等值合并取中点'逻辑把这段合并成一个远超首锚点搜索窗口(`y1_max`)的候选，导致该窗口内完全没有真实波谷候选，只能退化到合成候选、而合成候选的起点恰好落在版框残墨/裁切噪声上（curve@y=7.8）而不是6px之外的真零墨点——按 a/b/c 定义字面上仍算 c，但性质是'顶边缘噪声'而非'切进字身'，跟其余 11 条不是同一档，count_as_defect 单独标注为 caveat 而非跟其余 11 条并列报告。第 13 条 vol02_4_col8_b21 是唯一质地不同的：±35px 窗口内 local_min=30.6（不是 0.0），且已用原始扫描页交叉核对，是 Step1 边框探测把该列下边框放得太高、Step2 裁图时真实版框线和真实空白已经在裁切范围之外——这是上游 Step1 的缺陷，不是 Step3 的切分缺陷，metadata 里单独标 excluded_from_defect_count=true，不计入 Step3 的 12 条缺陷统计，也不建议据此改 Step3 算法。",
+  "known_limitations": [
+    "样本小（4列23条格线），全部来自夹注列/含夹注列，没有覆盖纯正文列、抬头列、句读提前结束的空白尾列等其他版式",
+    "候选是自动预筛出来的（边缘2行墨量占比>3%），不是穷举全部格线人工过一遍——预筛漏掉的潜在截断（比如深度更浅、预筛阈值之下的）完全没有机会进入这批金标，known false negative rate 未知",
+    "13 条 bad 里 12 条共享同一个根因，等于只用一次修复验证了一类缺陷，没有其它类型截断缺陷的正例",
+    "跟 char-segmentation/truncation（旧生产链路量法）不是同一把尺子、不能互相换算：那边按'字段高度占比'算截断深度，这里是人工三选一，且管线也不同"
+  ]
+}
