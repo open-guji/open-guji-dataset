@@ -3,11 +3,11 @@
   "version": "0.2.0",
   "schema_version": 2,
   "description": "Step2（单列射影变换+去噪+界行/版框清除）的金标：每列矫正后「文字带」的左右边界、界行残墨跟字身墨分不分得开的人裁，以及上下两端的版框残墨类别",
-  "created": "2026-09-01",
-  "status": "试点（32 列 / 13 页）",
+  "created": "2026-09-02",
+  "status": "试点（55 列 / 29 页）",
   "input_variant": "detected_lines@per_column_window",
   "input_note": "列图取 open-guji-cv `output/<book>/step2_columns/<page>/c<N>.png`，由 `scripts/regen_step2_columns.py` 用 **detect_borders 算法探测的边线** + `page_column_windows` 逐列窗口生成——也就是生产链路真正会喂给 Step2 的那张图，Step1 的误差包含在内。另有一套口径不同的旧金标（人工金标边线 + 页级 x=0 锚点）归档在 `legacy-page-anchor/`。",
-  "total_samples": 32,
+  "total_samples": 55,
   "sample_unit": "列（每列一个文字带边界对 + 一条裁决；上下版框类别另存）",
   "sources": [
     "06061300.cn（武英殿刻本《欽定四庫全書總目》卷首一~四）"
@@ -16,11 +16,13 @@
     "human"
   ],
   "verdict_distribution": {
-    "clean": 30,
-    "mixed": 2
+    "clean": 43,
+    "mixed": 11,
+    "idk": 1
   },
   "book_distribution": {
-    "vol01": 32
+    "vol01": 43,
+    "vol02": 12
   },
   "raised_columns": 10,
   "gold_definition": "每列经 warp_column 矫正成竖直矩形后，在该图自身的局部 x 坐标里，「文字带」的左右边界——带外只该剩界行残墨、带内字身完整；外加一条裁决：这两件事能不能同时做到（clean=分得开 / mixed=分不开，界行残墨跟字身墨在横向糊在一起 / idk=拿不准）。边界不是唯一解而是一条**走廊**：human_* 是人拖到的保守端，canonical_* 是从人标点往外推到墨占比仍 <= zero_eps(0.005) 的最远处；落在走廊内都算对。 另有 border_class：矫正图上下两端各一条人裁的**类别**（clean 有残墨且跟首字有间隙 / glued 有残墨但粘连 / none 没残墨 / idk）——**只记类别不记坐标**，类别定了切在哪一行算法自己算得准。",
