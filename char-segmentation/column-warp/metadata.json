@@ -7,7 +7,7 @@
   "status": "试点（55 列 / 29 页）",
   "input_variant": "detected_lines@per_column_window",
   "input_note": "列图取 open-guji-cv `output/<book>/step2_columns/<page>/c<N>.png`，由 `scripts/regen_step2_columns.py` 用 **detect_borders 算法探测的边线** + `page_column_windows` 逐列窗口生成——也就是生产链路真正会喂给 Step2 的那张图，Step1 的误差包含在内。另有一套口径不同的旧金标（人工金标边线 + 页级 x=0 锚点）归档在 `legacy-page-anchor/`。",
-  "total_samples": 55,
+  "total_samples": 54,
   "sample_unit": "列（每列一个文字带边界对 + 一条裁决；上下版框类别另存）",
   "sources": [
     "06061300.cn（武英殿刻本《欽定四庫全書總目》卷首一~四）"
@@ -17,8 +17,7 @@
   ],
   "verdict_distribution": {
     "clean": 43,
-    "mixed": 11,
-    "idk": 1
+    "mixed": 11
   },
   "book_distribution": {
     "vol01": 43,
@@ -31,7 +30,8 @@
   "pending_relabel": [],
   "known_limitations": [
     "只有 vol01，且列是按「难例优先」选的（倾斜大/梯形大/抬头列各取前几名 + 少量平稳列对照），**不是随机抽样**——可以用来找失败形态，不能直接当全书比例的估计。",
-    "输入用的是算法探测的边线，所以这批数字是 **Step1+Step2 端到端**的，不隔离 Step1 的误差。要单看 Step2 自己，用 legacy-page-anchor/ 那套（人工金标边线），但那套的窗口口径已经过时。"
+    "输入用的是算法探测的边线，所以这批数字是 **Step1+Step2 端到端**的，不隔离 Step1 的误差。要单看 Step2 自己，用 legacy-page-anchor/ 那套（人工金标边线），但那套的窗口口径已经过时。",
+    "被排除的页记在 `excluded_pages`：那是**上游切错**、不是 Step2 该背的锅，留在集里会把 Step2 的准确率量低。排除要写明量化理由和回收条件。"
   ],
   "border_class_distribution": {
     "bottom:clean": 17,
@@ -41,5 +41,17 @@
     "top:clean": 28,
     "top:glued": 1,
     "top:none": 3
-  }
+  },
+  "excluded_pages": [
+    {
+      "book": "vol01",
+      "page": "42",
+      "reason": "Step1 列探测在这页出错，不是 Step2 的问题：c9 左边线（最外侧那条）三段折线的第一段斜率 k1=-0.1399，同页其余 8 条线都在 0.0027~0.0081，差 20~30 倍且符号相反——线跑飞了，把列外的墨（装订边/页缘）拉进列图，顶部出现一大块黑三角，列宽 245px 对本页中位数 187px 宽 31%（超 L1 的 ±15%）。",
+      "excluded_on": "2026-09-03",
+      "dropped_samples": [
+        "vol01_42_c9"
+      ],
+      "revisit_when": "Step1 修好折线拟合的首段离群问题之后重切，再决定要不要收回来"
+    }
+  ]
 }
