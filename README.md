@@ -2,6 +2,20 @@
 
 古籍计算机视觉 Benchmark 数据集，用于评估 [open-guji-cv](https://github.com/open-guji/open-guji-cv) 各阶段命令的识别准确率。
 
+> **怎么用这些数据？走 open-guji-cv 的控制台**（2026-09-03 起）：
+> ```bash
+> cd ../open-guji-cv && .venv/Scripts/python -m open_guji_cv console   # → 127.0.0.1:8640
+> ```
+> 审查视图管人裁与金标（收割、路由、迁移、漂移检查），评测视图一键跑评测。
+> 后台脚本化用 `python -m open_guji_cv gold|eval|batch|events`，**别直接调
+> `open-guji-cv/scripts/eval_*.py`**——那些脚本的参数约定互相打架，新命令已抹平。
+> 用法见 [open-guji-cv/.claude/doc/console_manual.md](https://github.com/open-guji/open-guji-cv/blob/main/.claude/doc/console_manual.md)，
+> **有问题先查手册**。
+>
+> **金标已统一成 `items.jsonl`**（2026-09-03，34 个分片 8879 条全部迁完，逐条校验零差异）。
+> 旧载体（`samples/`、`expected.json`、`verdicts_*.jsonl`、`cases.json`）**原样保留并存**，
+> 现有评测脚本照旧读它们；新代码一律读 `items.jsonl`。信封字段见下方「统一金标信封」。
+>
 > **要新建一个测试集？先看 [doc/making-datasets.md](doc/making-datasets.md)**
 > ——测什么（能力还是输出）、金标怎么定义、样本怎么抽、报告怎么写，
 > 以及**哪些步骤可以并行开工**。给已有数据集补样本看
@@ -9,7 +23,7 @@
 >
 > **当前策略（2026-08 起）：只优化正文页。** 新建数据集要么只收正文页，
 > 要么标出页型分层报。正文页金标见 [page-type](page-type)
-> （`page_type == "body"`，vol01 296 页 / vol02 全书 186 页）。
+> （`page_type == "body"`，vol01 108 页 / vol02 全书 186 页）。
 
 ## 数据集
 
@@ -44,6 +58,35 @@
 `source_item` / `pipeline_version` / `label_origin`（`align` | `human` |
 `synth`）——align 标注有噪声，清洗与分层评测都依赖它。
 
+## 统一金标信封（items.jsonl）
+
+每个分片一份 `items.jsonl`，一行一条金标。**把既有纪律变成字段**，不再靠人记：
+
+```json
+{"id": "cols:vol02:171",
+ "anchor": {"book": "vol02", "page": 171, "space": "raw_page_px@top-right",
+            "bbox": [x0,y0,x1,y1], "content_sha": "…"},
+ "input": {"legacy_source": "verdicts_r1.jsonl", "coord_space": "…口径说明…"},
+ "expected": {"verdict": "ok"},
+ "label_origin": "human",
+ "stratum": "抽样·随机", "stratum_weight": 1.0,
+ "status": "active",
+ "source_events": ["evt_border-cols-r1_000001"],
+ "history": [{"ts": "…", "change": "…", "why": "…"}]}
+```
+
+| 字段 | 为什么必须有 |
+|---|---|
+| `label_origin` | `align` 标注有噪声，清洗、分层、加权全靠它区分。不可省 |
+| `stratum` + `stratum_weight` | 按可疑度挑的批次估不出总体比例，权重必须随条目走 |
+| `status` | `uncertain` 评测跳过（人工也判不准）；`stale` 是上游重生后待重键的 |
+| `history` | 每次改判记 why，对齐 `relabel_history` 的要求 |
+| `source_events` | 这条金标由哪些人裁事件产生，可回溯 |
+| `anchor` | `bbox` + `content_sha` 不随产物重生失效；`product_key` 允许失效 |
+
+**`expected` 里只放金标内容**。`coord_space` 那种整段口径说明是给人看的文档，
+放进 `input`——混进 `expected` 会让「金标改没改」的比较变成比较散文。
+
 ## 目录结构
 
 ```
@@ -75,10 +118,16 @@ open-guji-dataset/
 │   ├── char-ocr.md
 │   ├── context-correction.md
 │   └── collation.md
+├── feedback/                  # 人裁事件（2026-09 起）
+│   ├── events/<批次>.jsonl    #   只追加的统一事件；两种传输的裁决都汇到这里
+│   ├── consumed/<消费者>.jsonl #   幂等记账：哪些事件已被消费
+│   └── routes.yaml            #   路由表 kind × step → 消费者（缺省用内置）
 ├── scripts/                   # benchmark 脚本
-├── index.html                 # 标注 Web UI
+├── index.html                 # 标注 Web UI（旧；新的人裁走 open-guji-cv 控制台）
 └── server.py                  # 标注服务器（已废弃，改用 File System Access API）
 ```
+
+**每个分片现在都有 `items.jsonl`**（统一金标），与各自的旧载体并存。
 
 新数据集统一布局：`metadata.json` + `samples/NNN/`（`expected.json` +
 `info.json` + 各自的输入文件）+ `results/`。`results/` 只保留 `.gitkeep`
