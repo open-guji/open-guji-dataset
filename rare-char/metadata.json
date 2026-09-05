@@ -1,0 +1,23 @@
+{
+ "name": "rare-char",
+ "version": "0.1.0",
+ "schema_version": 1,
+ "description": "生僻字候选召回：库/OCR/上下文都给不出正确答案的字位",
+ "created": "2026-09-04",
+ "status": "实集",
+ "total_samples": 21,
+ "sample_unit": "字位",
+ "metric": "top-10 命中率（分层：in_candidates=False 的那档才是真难题）",
+ "strata": {
+  "候选里没有正确答案": 14,
+  "候选里有但字稀有": 7,
+  "参考答案来自用户裁决": 20,
+  "参考答案来自整理本": 1
+ },
+ "notes": [
+  "参考答案优先用用户裁决（独立真值），没有才退回整理本金标。",
+  "候选已冻结，比较新算法时用冻结候选，别用实时候选——否则分不清是新算法强还是上游候选变了。",
+  "top-10 命中率是 KPI，不是 top-1 准确率：目标是人在候选里点，不是机器自动定字。任何新候选源都只出候选、不自动放行。"
+ ],
+ "build_command": "python scripts/build_rare_char_set.py"
+}
