@@ -1,5 +1,8 @@
 # char-segmentation / cell-truncation —— Step3 格线切没切进字身
 
+> 2026-09-05 注：本子集的 y / col_height 是**旧链路坐标系**（col_height 2366 vs 现役列图 2407），未重锚定，现役算法不能直接评。同类问题（格线切没切进字身）请用现役坐标系的 `touching-cuts`（切线卡片产出，verdict ok / moved / overlap + 折线）。本子集退役，仅保留历史。
+
+
 ## 这个子集在测什么
 
 `row-boundaries` 测的是"格线切在哪"跟人工拖拽金标差多少像素，`cell-kind`
