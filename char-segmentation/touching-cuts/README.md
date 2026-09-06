@@ -20,6 +20,7 @@ Step3 的 R2s（真粘连）格线：格线处行墨占比 > 0.02，且 ±12px �
 | `moved` | 拖到了更好的位置 | 新位置 |
 | `ok` | 现役切点就是理想位置 | = y_old |
 | `overlap` | 上下字物理重叠，切在哪都会伤字；y 是人给的折中位置 | 折中位置 |
+| `seam_ok` | 现役折线缝（卡片上的绿虚线）已经是理想切法；`polyline` = 现役缝每 6px 抽样 | 缝的平均高 |
 | `idk` | 拿不准（进 `uncertain`，不进指标） | — |
 
 事件 kind = `cutline`（`feedback/events.py`），路由 → `gold_add` → 本子集。
