@@ -328,8 +328,8 @@
     "rand_human": {
      "n": 195,
      "weight": 1.0,
-     "缺陷率": "1.54% (3/195, truncated 2 + upstream_miscut 1)",
-     "说明": "全池等概率随机、不看任何 flags——与 self_assess 系列同口径但 label_origin=human，是本分片第一批真人核校的无偏正确率估计。抽样目标 400，第一批 195 条已提交，尚未抽满。"
+     "缺陷率": "1.54% (3/195, upstream_miscut 2 + truncated 1)",
+     "说明": "全池等概率随机、不看任何 flags——与 self_assess 系列同口径但 label_origin=human，是本分片第一批真人核校的无偏正确率估计。抽样目标 400，第一批 195 条已提交，尚未抽满。2/3 缺陷复核后确认为 upstream_miscut（Step3 折线切错，非 Step4 责任）——诊断后已改生产代码，Step4 不再做跨格归属判断，严格信任 Step3 给出的格界（open-guji-cv 提交 d6284e75a6）。"
     }
    },
    "全池缺陷率估计": "clean Wilson95 下界 95.58%（n=195，未达任务判据 ≥99%，待抽满 400 复算）",
