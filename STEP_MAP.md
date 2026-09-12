@@ -43,6 +43,7 @@
 | | [rare-char](rare-char) | 21 |
 | Step5-c Paddle OCR | [char-ocr](char-ocr) | 9,571 |
 | Step5-d 整理本匹配 | [char-segmentation/align-anchor](char-segmentation/align-anchor)（锚定判据回归集，2026-09-11 新建） | 11 |
+| | [char-segmentation/align-gate](char-segmentation/align-gate)（采信闸回归集，2026-09-11 新建） | 4 |
 | | 对齐金标本身仍是自动生成，无独立分片；人裁两本对比未落 dataset 仓分片 | — |
 | Step6 上下文裁决 | [context-correction](context-correction) | 12（顶层信封）/ 嵌套槽位 ≈1,682 |
 | | [confusable-context](confusable-context) | 154 |
