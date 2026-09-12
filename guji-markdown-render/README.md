@@ -12,20 +12,41 @@ Step9（结果整理，见 `overview` 仓
 没做到"人审过的最终文本"这一步），而是**渲染逻辑本身**：给定一页的
 版面结构和定字结果，`render_column`/`render_page` 该拼出什么样的
 guji-markdown 文本——列内读序对不对、夹注该不该转 `<…>`、抬头级数
-`^`/`^^` 对不对、阙文占位 `[[…]]` 触发对不对、以及**过期数据检测**
-这条防线本身有没有被后续改动悄悄破坏。
+`^`/`^^` 对不对、挪抬 `.`/`..` 对不对、阙文占位 `[[…]]` 触发对不对、
+排除名单（excluded）该不该跳过不占位、以及**过期数据检测**这条防线
+本身有没有被后续改动悄悄破坏。
 
-## 2026-09-11 首次建档
+## 2026-09-11 首次建档 ＋ 两轮修复
 
 用户要求"挑几页做成测试集，定义好期望的输出，看看效果"。挑了 vol01
-四页，覆盖脚本目前处理的四类版面现象＋一个已知的真实数据缺陷：
+四页，覆盖脚本当时处理的四类版面现象＋一个已知的真实数据缺陷；随后
+用户拿真实产出（vol02 第 1-20 页）核实效果，暴露出两处渲染逻辑本身的
+问题，修复后追加了第五条用例：
 
 | id | 页 | 覆盖 |
 |---|---|---|
-| `render:vol01:10` | 10 | 基线：纯正文 + 1 处阙文，无夹注无抬头 |
-| `render:vol01:33` | 33 | 多级抬头（一级 `^`／二级 `^^`）+ 3 处阙文，无夹注 |
-| `render:vol01:89` | 89 | 夹注 + **一处已知过期数据**（见下） |
-| `render:vol01:146` | 146 | 夹注 + 转行 `\|`（两条独立小注，各自 a 列写满转 b 列） |
+| `render:vol01:10` | 10 | 基线：纯正文 + 1 处阙文 + 行首挪抬，无夹注无抬头 |
+| `render:vol01:33` | 33 | 多级抬头（一级 `^`／二级 `^^`）+ 3 处阙文 + 行首挪抬，无夹注 |
+| `render:vol01:89` | 89 | 夹注 + **一处已知过期数据**（见下）+ 抬头与挪抬并存（`^^....`） |
+| `render:vol01:146` | 146 | 夹注 + 转行 `\|`（两条独立小注）+ 大量 excluded + 行首挪抬 |
+| `render:vol02:3` | 3 | excluded（7 处）与真阙文（1 处）混在同一页，专门守住两者的区分（见下） |
+
+### 两处渲染逻辑修复（用户用 vol02 p1-20 效果核实发现）
+
+1. **excluded 误标成阙文**：最初版本把 Step7 排除名单命中
+   （`doubts=["excluded"]`，切坏图块/非字）也标成了 `[[]]`——用户核实
+   vol02 前 20 页时发现 20 处 `[[]]` 里 19 处其实是 excluded，只有 1 处
+   是真识别失败。两者语义完全不同："这一格本不该存在" vs "这格是字但
+   认不出"，混在一个记号里会让人误判缺字规模。修复后 excluded 跟
+   `blank` 一样直接跳过、不占位。
+2. **挪抬完全没有产出**：最初判断"挪抬没有对应几何数据支撑"（把挪抬
+   想成了必须跟具体敬语词绑定的偶发现象），实际上挪抬记号本来记的就是
+   "字前空出 n 格"这个版面事实本身——用户核实效果时指出"每一行开头的
+   空格没有显示出来"，裁定不需要先判定"是不是敬语"，行首确实空着就该
+   标 `.`。调研确认 vol02/vol03 全书 85%+ 的列固定开头空 2 格（vol01
+   固定 1 格），跟内容无关，是版框顶边到首字的固定间距——但不管几何
+   成因是什么，版面上确实空着就该标，修复后新增 `_lead_blank_count()`，
+   从 Step3 `cells` 直接数（**不能**从 Step7 `seed_admit` 数，见下）。
 
 ### `render:vol01:89` 是故意留的"脏"案例，不是干净金标
 
@@ -52,6 +73,24 @@ guji-markdown 文本——列内读序对不对、夹注该不该转 `<…>`、�
 数据时的确定性行为"，而不是"最终应该长什么样"。真要修，要去
 `open-guji-cv` 重跑这一页管线，而不是改这个分片。
 
+### `render:vol02:3` 专门守住 excluded ≠ 阙文
+
+见上面"两处渲染逻辑修复"第 1 条。这一页 col3~col6 前两格都是排除名单
+命中（图上切坏的碎块/墨污），col3 slot13 才是真正的识别失败。改动
+`_is_excluded` 或阙文判据后，如果这条测试炸了，先看是不是又把两者
+混到一起——这个分片存在的目的之一就是让这种混淆没法悄悄溜过去。
+
+### ⚠️ 快照必须带 `doubts` 字段，否则 excluded 判据的回归形同虚设
+
+首次建档时快照只存了 `slot`/`sub`/`admit`/`char`/`reading`，**漏了
+`doubts`**。`AdmitRec` 没给这个字段时默认 `doubts=[]`，`_is_excluded`
+（内部就是 `"excluded" in rec.doubts`）永远返回 `False`——也就是说
+**即使 excluded 判据本身写错了，这个分片的回归测试也测不出来**，
+因为快照给不出任何一条 `doubts` 非空的记录。修 excluded 那处 bug 时
+一并补上了这个字段，四条旧用例的快照跟着重新导出。**以后往这个分片
+新增用例，`AdmitRec` 相关字段有增删时，先看新字段是不是某个判据
+（`_is_excluded`、阙文判据……）用得到的输入，用不到才能安心漏。**
+
 ## 数据结构
 
 ```jsonc
@@ -66,7 +105,7 @@ guji-markdown 文本——列内读序对不对、夹注该不该转 `<…>`、�
     "seed_admit": [                // 对应 seed_admit 产物的最小快照
       {"col": 7,
        "chars": [{"slot": -2, "sub": null, "admit": true,
-                  "char": "天", "reading": null}, ...]}
+                  "char": "天", "reading": null, "doubts": []}, ...]}
     ]
   },
   "expected": {
@@ -80,17 +119,19 @@ guji-markdown 文本——列内读序对不对、夹注该不该转 `<…>`、�
 ```
 
 `input.cells`／`input.seed_admit` 只保留渲染逻辑用得到的字段（`slot`／
-`sub`／`kind`／`n_raised`／`admit`／`char`／`reading`），不是完整产物——
-足够离线跑，不需要 `products/`、不需要 `GUJI_WORKSPACE`。
+`sub`／`kind`／`n_raised`／`admit`／`char`／`reading`／`doubts`），不是
+完整产物——足够离线跑，不需要 `products/`、不需要 `GUJI_WORKSPACE`。
+`doubts` 是 excluded 判据的唯一依据，**必须带**，见上一节。
 
 ## 怎么跑
 
 `open-guji-cv` 仓 `tests/test_render_guji_markdown.py` 读本分片
 `items.jsonl`，用快照数据重建 `CellRec`/`AdmitRec` 直接调用
-`scripts/render_guji_markdown.py::render_column`，断言输出与
-`expected.text`/`expected.stale` 一致。纯数据输入，跑在常规 `pytest`
-回归里（`-s -p no:cacheprovider`，这个仓的 pytest 怪癖见
-`open-guji-cv` 自己的坑本）。
+`open_guji_cv/render/guji_markdown.py::render_column`（渲染逻辑本体，
+命令行入口 `scripts/render_guji_markdown.py` 与控制台路由都是薄封装，
+import 同一份函数），断言输出与 `expected.text`/`expected.stale` 一致。
+纯数据输入，跑在常规 `pytest` 回归里（`-s -p no:cacheprovider`，
+这个仓的 pytest 怪癖见 `open-guji-cv` 自己的坑本）。
 
 ## 维护口径
 
