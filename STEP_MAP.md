@@ -49,6 +49,7 @@
 | | [confusable-context](confusable-context) | 154 |
 | Step7 放行判定 | 复用人裁历史回放（`open-guji-cv` 仓 `feedback/events/`），未落 dataset 仓独立分片 | — |
 | Step8 落库与反馈 | [char-normalization](char-normalization) | 32 |
+| Step9 结果整理 · 坐标转字符位 | [guji-markdown-render](guji-markdown-render)（2026-09-11 新建） | 4 |
 | 页型/版面通用 | [page-type](page-type) | 394 |
 | | [page-geometry](page-geometry) | 39 |
 | | [column-layout](column-layout) | 36 |
