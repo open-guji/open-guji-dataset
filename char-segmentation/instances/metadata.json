@@ -317,6 +317,23 @@
    },
    "全池缺陷率估计": "约 4.9%（≈298/6086）；现行判据在其上召回约 54%、精确约 27%",
    "标签口径": "人裁给的是三档处置（出库/进测试集/留着），存在 `human_verdict`；`quality` 的 clean 由人裁直给，缺陷子类（contaminated/truncated）由旗标推出，见 `quality_subtype_origin`。主指标 defect_recall 把三类缺陷合起来算，不受子类准确度影响。"
+  },
+  "rand_human": {
+   "source": "控制台 Step4 随机层裁决台 /<book>/step/step4/（open_guji_cv/review/cell_shrink_rand.py）",
+   "date": "2026-09-12",
+   "pool": "46853 格：已跑 cell_shrink 的 vol01(206页)/vol02(188页) 正文页(page-type=body)全部 char 字格，vol03/vol04~vol10 未纳入（无 page-type 金标或无 cell_shrink 产物）",
+   "seed": 20260911,
+   "n_target": 400,
+   "layers": {
+    "rand_human": {
+     "n": 195,
+     "weight": 1.0,
+     "缺陷率": "1.54% (3/195, truncated 2 + upstream_miscut 1)",
+     "说明": "全池等概率随机、不看任何 flags——与 self_assess 系列同口径但 label_origin=human，是本分片第一批真人核校的无偏正确率估计。抽样目标 400，第一批 195 条已提交，尚未抽满。"
+    }
+   },
+   "全池缺陷率估计": "clean Wilson95 下界 95.58%（n=195，未达任务判据 ≥99%，待抽满 400 复算）",
+   "标签口径": "五分类 clean/upstream_miscut/truncated/contaminated/not_text，人裁直给，不叠算法判断（语境图对照 Step3 quad_page 与 Step4 紧裁框但不显示 flags）。upstream_miscut 是本分片新增的档，标 Step3 行切分本身错了、Step4 收缩救不回来，与 contaminated（Step4 收缩自身的残留问题）分开算。"
   }
  }
 }

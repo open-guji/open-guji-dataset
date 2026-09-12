@@ -306,6 +306,62 @@ clean 或退役。救援页（vol02 10/12/28 等 9 页）几何金标已按裁�
 ——按「只优化正文页」的既定策略，这类页连同它的审查结果一起排除，不让
 它把正文的指标带偏。
 
+## rand_human 分片（2026-09-12）：真人核校的无偏正确率，与 self_assess 系列分开
+
+`self_assess_r1~r4`（上面几节）虽然也叫 `stratum: rand`，但 `label_origin`
+全部是 `model`——是算法自己判读自己的输出，循环论证，**不能当验收基准**。
+`rand_human` 是这个数据集第一批 `label_origin: "human"` 且 `stratum` 明确
+标成随机层的样本，专门补这个缺口。
+
+- **抽样口径**（`open-guji-cv/open_guji_cv/review/cell_shrink_rand.py`）：
+  已跑过 `cell_shrink` 的书（现状 2026-09：vol01 206 页 / vol02 188 页；
+  vol03 只有 40 页且没有 page-type 金标，未纳入；vol04~vol10 还没有
+  `cell_shrink` 产物），只取 page-type 金标判为 `body` 的页，
+  `cell_type=="char"` 的全部字格，候选池 46,853 格，`random.Random(seed=
+  20260911).sample()` 等概率抽样，**不看任何 flags**，抽样框与旧的
+  `self_assess` 系列（读 v1 `output/<book>/phase4_chars/`，产物已不在磁盘
+  上）完全独立，不是同一批底层数据的复用。
+- **出题**：控制台 `/<book>/step/step4/`（`Step4Page.tsx`），语境图（原图
+  裁一块，红框=Step4 紧裁框，蓝框=Step3 `row_segment` 的 `quad_page` 原框）
+  + 成品图块并排，**不叠任何算法判断**（不显示 flags）——参照
+  `head-raise-presence` 的教训，卡上印类别会带节奏。
+- **五分类**：`clean` / `upstream_miscut`（Step3 格子本身切错了位置/范围，
+  混进相邻字的一大截笔画，Step4 收缩救不回来）/ `truncated`（Step4 收缩
+  阶段本字的墨被切掉一部分）/ `contaminated`（Step4 收缩阶段留了一点残留：
+  界行线/邻字一点残墨）/ `not_text`。`upstream_miscut` 是这一批新加的，
+  跟既有的 `contaminated` 分开算——责任不在 Step4 时不该记在它头上。
+- **落库**：走事件 `POST /api/events`（`kind=confirm, payload.v=seg_defect`）
+  → `gold_add` → 本分片，`stratum=rand_human`。
+
+### 第一批 195 条（2026-09-12，抽样目标 400，尚未抽满）
+
+```
+clean            192   98.5%
+truncated          2    1.0%
+upstream_miscut    1    0.5%
+```
+
+clean 正例 Wilson 95% 下界 **95.58%**（还没到任务书要求的 ≥99%，n 不够——
+目标是抽满 400 再看）；缺陷率（truncated+upstream_miscut）Wilson 95% 上界
+4.42%，点估计 1.54%。**这两个数字都只是阶段读数，不是最终结论**，n=195
+时置信区间还很宽，抽满 400 后要重新算。
+
+`vol02:151:3:18` 最初提交是 `contaminated`（在加 `upstream_miscut` 选项
+之前裁的），用户复核后确认应为 `upstream_miscut`，走正规改判事件更正
+（`source_events` 里第 4 条 `evt_cell-shrink-rand-r1_999001`）。
+`vol02:108:8:16` 用户复核后确认保持 `truncated`。
+
+### 两个 truncated 案例的根因诊断（已定位，未修复；详见任务书）
+
+`vol02:135:3:5`（"其"字）与 `vol02:108:8:16`（"卷"字）：字身有一笔运笔
+较开的笔画，末端跟主体断成独立连通体，被 `_assign_column`
+（`open_guji_cv/clustering/extractor.py`）的归属判定错误地判给了下一格，
+紧裁框因此缺了这一笔。**跟"两字粘连"是两回事**——这里两字之间有明显字距，
+不存在物理粘连，纯粹是归属判据把断开的部件判错了方向。诊断细节、可能的
+修复方向见 `项目进展/图片初步数字化/进度/Step4-字框收缩/01-补随机层
+金标.md`（overview 仓）。**未改动生产代码**——这段归属逻辑历史上被反复
+精调过，牵一发动全身，需要专门开一轮任务配回归金标再动手。
+
 ## 2026-08-25 夹注 a/b 拆分对金标键的影响
 
 管线自此把确认为双行夹注的格拆成 `a`（右子列）/`b`（左子列）两个半宽
