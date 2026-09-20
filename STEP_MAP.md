@@ -29,6 +29,7 @@
 | | [char-segmentation/cell-kind](char-segmentation/cell-kind) | 5 |
 | | [char-segmentation/seam](char-segmentation/seam) | 27 |
 | | [char-segmentation/char-drop](char-segmentation/char-drop) | 16 |
+| | [char-segmentation/head-raise-columns](char-segmentation/head-raise-columns)（列级抬头：抬头/几格/首字被切，2026-09-12 新建） | 0 |
 | | [char-segmentation/row-boundaries](char-segmentation/row-boundaries)（已退役，旧坐标系） | 2 |
 | | [char-segmentation/cell-truncation](char-segmentation/cell-truncation)（已退役，旧坐标系） | 23 |
 | Step3 附·夹注切分 | [char-segmentation/jiazhu-tail](char-segmentation/jiazhu-tail) | 57 |

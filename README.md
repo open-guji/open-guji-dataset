@@ -2,6 +2,9 @@
 
 古籍计算机视觉 Benchmark 数据集，用于评估 [open-guji-cv](https://github.com/open-guji/open-guji-cv) 各阶段命令的识别准确率。
 
+> **本仓目录按功能模块命名，不按管线 Step0～Step8 命名。** 要按 Step 查测试集在哪，
+> 看 [STEP_MAP.md](STEP_MAP.md)。
+
 > **怎么用这些数据？走 open-guji-cv 的控制台**（2026-09-03 起）：
 > ```bash
 > cd ../open-guji-cv && .venv/Scripts/python -m open_guji_cv console   # → 127.0.0.1:8640
@@ -35,19 +38,19 @@
 | [page-geometry](page-geometry) | `segment`（版面几何）| 39 页 / 353 界行 | 可用 | 页面形变标定：错切/射影、列距列相位 |
 | [column-layout](column-layout) | `segment`（行列识别）| 36 页 / 322 列 | 可用 | 逐列刚性/弹性判别 + 统一输出格式 |
 | [char-segmentation/cells](char-segmentation/cells) | `segment`（格内净化）| 60 | 可用 | 合成逐像素金标：格内墨迹归属 |
-| [char-segmentation/instances](char-segmentation/instances) | `chars`（图块自检）| 426 | 可用 | 真实图块四分类 + `defect` 子类（rule_bar/frame_bar），评管线自检能力。含历次实审回流（r1~r6）与隔壁进库审查的 149 条 |
+| [char-segmentation/instances](char-segmentation/instances) | `chars`（图块自检）| 829（2026-09-11 实测，持续增量，此数会再涨） | 可用 | 真实图块四分类 + `defect` 子类（rule_bar/frame_bar），评管线自检能力。含历次实审回流（r1~r6）与隔壁进库审查的 149 条 |
 | [char-segmentation/frame-strip](char-segmentation/frame-strip) | `chars`（列端去框）| 65 | 可用 | 列端格「去框后」干净度：残余率/误剥率/字保全 |
-| [char-segmentation/side-rule](char-segmentation/side-rule) | `chars`（侧边去线）| 265 | 可用 | 图块左右缘的界行竖条剥没剥掉，字的边竖有没有被误剥 |
+| [char-segmentation/side-rule](char-segmentation/side-rule) | `chars`（侧边去线）| 276（2026-09-11 实测） | 可用 | 图块左右缘的界行竖条剥没剥掉，字的边竖有没有被误剥 |
 | [char-segmentation/page-crop](char-segmentation/page-crop) | `segment`（上游裁切）| 6 页 | 可用 | 列窗越出页图多少＝最外列被 s3 吃掉多少（全自动，无需标注）|
 | [char-segmentation/text-band](char-segmentation/text-band) | `segment`（版面窗口）| 294 页 | 可用 | 窗口高 /（每列字数 × 书级格高）＝列的纵向窗口够不够装下一整列（全自动，无需标注）|
 | [char-segmentation/jiazhu-tail](char-segmentation/jiazhu-tail) | `chars`（夹注段端）| 57 | 可用 | 奇数字末行单字收编成 a 行 / 漏拆末行补拆，正文拒收（三分类，非对称零容忍）|
 | [char-segmentation/right-cut](char-segmentation/right-cut) | `chars`（右缘救援）| 51 列 213 点 | 可用 | 贴界行书写的字，捺脚/横尾穿过右裁切边必须被图块盖住 |
 | [char-segmentation/left-cut](char-segmentation/left-cut) | `chars`（左缘救援）| 58 列 114 点 | 可用 | 镜像：撇尖/横笔左端穿过左裁切边必须被图块盖住（判据加横条/框线断段两道排除）|
 | [char-segmentation/seam](char-segmentation/seam) | `segment`（格线落点）| 294 页 | 可用 | 切缝墨率＝格线那一行的墨 / 上下两格字峰，量「这一刀是不是切在字上」（全自动，无需标注）|
-| [char-normalization](char-normalization) | `normalize`（纯函数） | 35 字块 | 可用 | 归一化 golden 回归门（32 verified + 3 已知缺陷）|
+| [char-normalization](char-normalization) | `normalize`（纯函数） | 32（2026-09-11 实测；README 原写「35 字块＝32 verified + 3 已知缺陷」，实测 items.jsonl 只有 32 条 active，3 条缺陷未在当前分片里找到，需核实是否已挪走） | 可用 | 归一化 golden 回归门 |
 | [char-clustering](char-clustering) | `cluster` | 3 分片 / 6297 实例 | 可用 | 保守聚类 purity 集（align 两册 + 人工复核层 + 难例对）|
-| [glyph-match](glyph-match) | `match`/`verify` | 98 三元组 | 可用 | 匹配排序：同字形须胜形近异字（体检人裁产出；hard 基线 0.079，control 护栏 1.0）|
-| [char-ocr](doc/char-ocr.md) | `label` / `bench-ocr` | 0 | 框架 | 单字识别 (图块, 金标字)，按册划分 train/test |
+| [glyph-match](glyph-match) | `match`/`verify` | 193 三元组（2026-09-11 实测）/ 5,915 对（`pairs` 子分片） | 可用 | 匹配排序：同字形须胜形近异字（体检人裁产出；hard 基线 0.079，control 护栏 1.0）|
+| [char-ocr](doc/char-ocr.md) | `label` / `bench-ocr` | 9,571（2026-09-11 实测） | 可用 | 单字识别 (图块, 金标字)，按册划分 train/test |
 | [context-correction](doc/context-correction.md) | `refine` / seed context 通道 | 11 页 / 1681 槽位 | 可用 | 上下文 + LM 纠正（候选冻结；vol01 进库协议金标，human 529 分层）。首轮基线：门槛化混合 LM +2.32%（救41/坏2）；无门槛重排任何 λ 净亏 |
 | [collation](doc/collation.md) | `collate`（规划中） | 0 | 框架 | 参考校对：对齐、参考质量 ρ 估计、分歧挖掘 |
 
