@@ -1,0 +1,13 @@
+{
+  "name": "column-end-class",
+  "version": "0.1.0",
+  "schema_version": 2,
+  "description": "Step2 列端（上/下端）削版框之前的形态人裁：none 无框 / trim 可整段削 / glued 粘字 / double 双层框 / idk",
+  "created": "2026-10-01",
+  "status": "起步：legacy-overview 74 端（只作线索）；L3-batch 分层批次待本机点卡后收割",
+  "total_samples": 74,
+  "sample_unit": "列端（一列的上端或下端）",
+  "label_origin_values": ["human"],
+  "sources": ["open-guji-cv label-batch（L3-batch）", "overview inbox/S-列尾抽查页（legacy-overview，cv 92e75e3）"],
+  "notes": "L3-batch 条目带 stratum/stratum_weight，须加权估计；legacy-overview 的 class 一律 idk（旧卡问的是削后状态）。"
+}
