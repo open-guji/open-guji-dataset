@@ -65,3 +65,20 @@ python -m open_guji_cv eval run touching_cuts
 - 只出**正文页**（page-type 金标 body）；职名页 / 目录页格数先验不同，稍后另出。
 - 上下两格都是正文字格（`kind == "char"`）；夹注旁的切线另案。
 - 确定性抽样（seed=0），按页轮转，避免全落在两三页挤排页上。
+
+
+## L3 补标签批（2026-10-01）：页面坐标口径的新条目
+
+`input.source = L3-batch` 的条目由 `guji label-batch make cutline-gold <册>` 出的**分层抽样**批次收割而来
+（open-guji-cv `.claude/doc/console_manual.md` §11）。与旧条目的区别：
+
+- **锚在原图页面坐标**：`expected.page_x_tr / page_y / page_w`（`anchor.space = raw_page_px@top-right`，右上原点），
+  `anchor.bbox` = 上下两格外接框，`anchor.product_key` = 出卡时 `row_segment` 产物指纹；
+  `expected.y` 仍是列图行号（评测沿用），换到当前列图用 `eval/colgeom.gold_rows_now`。
+  控制台事件里原有的 `page_x/page_y` 是**左上原点**，收割时统一换成右上原点（旧值留在 `expected.page_x/page_y`，
+  `expected.page_xy_space_legacy` 标明口径）。
+- **带 `version` / `source`**：`input.version = L3-batch:<批次>`，`input.sampling` 记该切点的上下文/难度/候选数/`dis_unet`/`agree`。
+- **分层超采样**：`stratum` = `上下文|难度`，`stratum_weight` = 该层总体数 ÷ 抽样数。**不能直接数比例**，
+  加权估计：Σ wᵢ·errᵢ / Σ wᵢ。旧条目没有权重，**别把两批混着算均值**。
+- 只新增、不改旧条目；已在金标里的切点不出卡、id 撞了也不覆盖。
+- `status=stale`：事件没带页面坐标（取不到列窗几何），不进评测；`uncertain`：拿不准。
