@@ -129,5 +129,18 @@
     "候选为 fuse_priors(库匹配 cov ∪ OCR s2t) 融合先验快照，随 pipeline_version 冻结",
     "align 层金标含自动通道噪声；human 层（529 槽）才是硬基准",
     "本书 LM 评测时对测试页挖洞（HOLDOUT_PAD=200），8-gram 残余重合 5.9% 来自整理本内部重复用语"
-  ]
+  ],
+  "versions": {
+    "v1": {
+      "dir": "samples/",
+      "status": "deprecated (2026-10-01)",
+      "reason": "选择偏差/泄漏：金标只在「OCR读数=整理本字」或人审确认OCR提议时才进集，导致金标非首选时恒为OCR候选(277/277)；align 层 0 个金标池外。学出来的模型学到选择规则(+17%假提升)。见 README.md"
+    },
+    "v2": {
+      "dir": "samples_v2/",
+      "status": "current",
+      "change": "候选池与v1逐字相同(无注入)；source 改名 glyph/ocr；逐格标 gold_reach(glyph/ocr_only/unreachable) 与 selection_biased；头条只报 glyph 层，ocr_only 与 unreachable 分开计数"
+    }
+  },
+  "eval_command_v2": "PYTHONPATH=. python scripts/eval_context_correction.py <dataset>/context-correction --samples-dir samples_v2 --general-corpus corpus/external/daizhige_zhaoling.txt --book-corpus <本书语料> --sweep 0,0.9,1.0 --gate 0.70"
 }
