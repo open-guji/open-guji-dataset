@@ -1,0 +1,596 @@
+{
+ "group": "jys",
+ "members": "己已巳",
+ "doc": "现行 seed_admit 产物（快照见 ../_build_info.json）在本组 core 格上的成绩；admit_wrong 只在有强真值（人裁/看图）的放行格上数，是下界。",
+ "by_book": {
+  "vol02": {
+   "split": "dev",
+   "all": {
+    "cells": 58,
+    "admit_machine": 8,
+    "human_channel": 19,
+    "pending": 31,
+    "admit_with_strong_truth": 4,
+    "admit_wrong": 4,
+    "admit_wrong_ids": [
+     "vol02:66:7:21 巳→已",
+     "vol02:66:8:20 巳→已",
+     "vol02:95:5:14 巳→已",
+     "vol02:175:2:19 巳→已"
+    ],
+    "admit_with_weak_truth": 0,
+    "by_channel": {
+     "ji_yi_si": {
+      "admit": 4,
+      "with_strong_truth": 0,
+      "wrong": 0
+     },
+     "split_ref": {
+      "admit": 4,
+      "with_strong_truth": 4,
+      "wrong": 4
+     }
+    },
+    "sent_review": 50,
+    "review_rate": 0.8621
+   },
+   "body": {
+    "cells": 58,
+    "admit_machine": 8,
+    "human_channel": 19,
+    "pending": 31,
+    "admit_with_strong_truth": 4,
+    "admit_wrong": 4,
+    "admit_wrong_ids": [
+     "vol02:66:7:21 巳→已",
+     "vol02:66:8:20 巳→已",
+     "vol02:95:5:14 巳→已",
+     "vol02:175:2:19 巳→已"
+    ],
+    "admit_with_weak_truth": 0,
+    "by_channel": {
+     "ji_yi_si": {
+      "admit": 4,
+      "with_strong_truth": 0,
+      "wrong": 0
+     },
+     "split_ref": {
+      "admit": 4,
+      "with_strong_truth": 4,
+      "wrong": 4
+     }
+    },
+    "sent_review": 50,
+    "review_rate": 0.8621
+   }
+  },
+  "vol03": {
+   "split": "dev",
+   "all": {
+    "cells": 49,
+    "admit_machine": 15,
+    "human_channel": 33,
+    "pending": 1,
+    "admit_with_strong_truth": 15,
+    "admit_wrong": 3,
+    "admit_wrong_ids": [
+     "vol03:56:6:7 巳→已",
+     "vol03:72:3:15 巳→已",
+     "vol03:76:4:20 巳→已"
+    ],
+    "admit_with_weak_truth": 0,
+    "by_channel": {
+     "ji_yi_si": {
+      "admit": 12,
+      "with_strong_truth": 12,
+      "wrong": 0
+     },
+     "split_ref": {
+      "admit": 3,
+      "with_strong_truth": 3,
+      "wrong": 3
+     }
+    },
+    "sent_review": 34,
+    "review_rate": 0.6939
+   },
+   "body": {
+    "cells": 49,
+    "admit_machine": 15,
+    "human_channel": 33,
+    "pending": 1,
+    "admit_with_strong_truth": 15,
+    "admit_wrong": 3,
+    "admit_wrong_ids": [
+     "vol03:56:6:7 巳→已",
+     "vol03:72:3:15 巳→已",
+     "vol03:76:4:20 巳→已"
+    ],
+    "admit_with_weak_truth": 0,
+    "by_channel": {
+     "ji_yi_si": {
+      "admit": 12,
+      "with_strong_truth": 12,
+      "wrong": 0
+     },
+     "split_ref": {
+      "admit": 3,
+      "with_strong_truth": 3,
+      "wrong": 3
+     }
+    },
+    "sent_review": 34,
+    "review_rate": 0.6939
+   }
+  },
+  "vol04": {
+   "split": "val",
+   "all": {
+    "cells": 93,
+    "admit_machine": 23,
+    "human_channel": 0,
+    "pending": 70,
+    "admit_with_strong_truth": 23,
+    "admit_wrong": 1,
+    "admit_wrong_ids": [
+     "vol04:40:4:6 已→己"
+    ],
+    "admit_with_weak_truth": 0,
+    "by_channel": {
+     "ji_yi_si": {
+      "admit": 23,
+      "with_strong_truth": 23,
+      "wrong": 1
+     }
+    },
+    "sent_review": 70,
+    "review_rate": 0.7527
+   },
+   "body": {
+    "cells": 93,
+    "admit_machine": 23,
+    "human_channel": 0,
+    "pending": 70,
+    "admit_with_strong_truth": 23,
+    "admit_wrong": 1,
+    "admit_wrong_ids": [
+     "vol04:40:4:6 已→己"
+    ],
+    "admit_with_weak_truth": 0,
+    "by_channel": {
+     "ji_yi_si": {
+      "admit": 23,
+      "with_strong_truth": 23,
+      "wrong": 1
+     }
+    },
+    "sent_review": 70,
+    "review_rate": 0.7527
+   }
+  },
+  "vol05": {
+   "split": "pool",
+   "all": {
+    "cells": 68,
+    "admit_machine": 14,
+    "human_channel": 0,
+    "pending": 54,
+    "admit_with_strong_truth": 0,
+    "admit_wrong": 0,
+    "admit_wrong_ids": [],
+    "admit_with_weak_truth": 0,
+    "by_channel": {
+     "ji_yi_si": {
+      "admit": 9,
+      "with_strong_truth": 0,
+      "wrong": 0
+     },
+     "split_ref": {
+      "admit": 5,
+      "with_strong_truth": 0,
+      "wrong": 0
+     }
+    },
+    "sent_review": 54,
+    "review_rate": 0.7941
+   },
+   "body": {
+    "cells": 68,
+    "admit_machine": 14,
+    "human_channel": 0,
+    "pending": 54,
+    "admit_with_strong_truth": 0,
+    "admit_wrong": 0,
+    "admit_wrong_ids": [],
+    "admit_with_weak_truth": 0,
+    "by_channel": {
+     "ji_yi_si": {
+      "admit": 9,
+      "with_strong_truth": 0,
+      "wrong": 0
+     },
+     "split_ref": {
+      "admit": 5,
+      "with_strong_truth": 0,
+      "wrong": 0
+     }
+    },
+    "sent_review": 54,
+    "review_rate": 0.7941
+   }
+  },
+  "vol06": {
+   "split": "pool",
+   "all": {
+    "cells": 62,
+    "admit_machine": 13,
+    "human_channel": 0,
+    "pending": 49,
+    "admit_with_strong_truth": 0,
+    "admit_wrong": 0,
+    "admit_wrong_ids": [],
+    "admit_with_weak_truth": 0,
+    "by_channel": {
+     "ji_yi_si": {
+      "admit": 8,
+      "with_strong_truth": 0,
+      "wrong": 0
+     },
+     "split_ref": {
+      "admit": 5,
+      "with_strong_truth": 0,
+      "wrong": 0
+     }
+    },
+    "sent_review": 49,
+    "review_rate": 0.7903
+   },
+   "body": {
+    "cells": 62,
+    "admit_machine": 13,
+    "human_channel": 0,
+    "pending": 49,
+    "admit_with_strong_truth": 0,
+    "admit_wrong": 0,
+    "admit_wrong_ids": [],
+    "admit_with_weak_truth": 0,
+    "by_channel": {
+     "ji_yi_si": {
+      "admit": 8,
+      "with_strong_truth": 0,
+      "wrong": 0
+     },
+     "split_ref": {
+      "admit": 5,
+      "with_strong_truth": 0,
+      "wrong": 0
+     }
+    },
+    "sent_review": 49,
+    "review_rate": 0.7903
+   }
+  },
+  "vol07": {
+   "split": "pool",
+   "all": {
+    "cells": 64,
+    "admit_machine": 13,
+    "human_channel": 0,
+    "pending": 51,
+    "admit_with_strong_truth": 0,
+    "admit_wrong": 0,
+    "admit_wrong_ids": [],
+    "admit_with_weak_truth": 0,
+    "by_channel": {
+     "ji_yi_si": {
+      "admit": 1,
+      "with_strong_truth": 0,
+      "wrong": 0
+     },
+     "split_ref": {
+      "admit": 12,
+      "with_strong_truth": 0,
+      "wrong": 0
+     }
+    },
+    "sent_review": 51,
+    "review_rate": 0.7969
+   },
+   "body": {
+    "cells": 64,
+    "admit_machine": 13,
+    "human_channel": 0,
+    "pending": 51,
+    "admit_with_strong_truth": 0,
+    "admit_wrong": 0,
+    "admit_wrong_ids": [],
+    "admit_with_weak_truth": 0,
+    "by_channel": {
+     "ji_yi_si": {
+      "admit": 1,
+      "with_strong_truth": 0,
+      "wrong": 0
+     },
+     "split_ref": {
+      "admit": 12,
+      "with_strong_truth": 0,
+      "wrong": 0
+     }
+    },
+    "sent_review": 51,
+    "review_rate": 0.7969
+   }
+  },
+  "vol08": {
+   "split": "pool",
+   "all": {
+    "cells": 38,
+    "admit_machine": 3,
+    "human_channel": 0,
+    "pending": 35,
+    "admit_with_strong_truth": 0,
+    "admit_wrong": 0,
+    "admit_wrong_ids": [],
+    "admit_with_weak_truth": 0,
+    "by_channel": {
+     "ji_yi_si": {
+      "admit": 2,
+      "with_strong_truth": 0,
+      "wrong": 0
+     },
+     "split_ref": {
+      "admit": 1,
+      "with_strong_truth": 0,
+      "wrong": 0
+     }
+    },
+    "sent_review": 35,
+    "review_rate": 0.9211
+   },
+   "body": {
+    "cells": 37,
+    "admit_machine": 3,
+    "human_channel": 0,
+    "pending": 34,
+    "admit_with_strong_truth": 0,
+    "admit_wrong": 0,
+    "admit_wrong_ids": [],
+    "admit_with_weak_truth": 0,
+    "by_channel": {
+     "ji_yi_si": {
+      "admit": 2,
+      "with_strong_truth": 0,
+      "wrong": 0
+     },
+     "split_ref": {
+      "admit": 1,
+      "with_strong_truth": 0,
+      "wrong": 0
+     }
+    },
+    "sent_review": 34,
+    "review_rate": 0.9189
+   },
+   "nonbody": {
+    "cells": 1,
+    "admit_machine": 0,
+    "human_channel": 0,
+    "pending": 1,
+    "admit_with_strong_truth": 0,
+    "admit_wrong": 0,
+    "admit_wrong_ids": [],
+    "admit_with_weak_truth": 0,
+    "by_channel": {},
+    "sent_review": 1,
+    "review_rate": 1.0
+   }
+  },
+  "vol09": {
+   "split": "pool",
+   "all": {
+    "cells": 150,
+    "admit_machine": 17,
+    "human_channel": 0,
+    "pending": 133,
+    "admit_with_strong_truth": 0,
+    "admit_wrong": 0,
+    "admit_wrong_ids": [],
+    "admit_with_weak_truth": 0,
+    "by_channel": {
+     "ji_yi_si": {
+      "admit": 7,
+      "with_strong_truth": 0,
+      "wrong": 0
+     },
+     "split_ref": {
+      "admit": 10,
+      "with_strong_truth": 0,
+      "wrong": 0
+     }
+    },
+    "sent_review": 133,
+    "review_rate": 0.8867
+   },
+   "body": {
+    "cells": 148,
+    "admit_machine": 17,
+    "human_channel": 0,
+    "pending": 131,
+    "admit_with_strong_truth": 0,
+    "admit_wrong": 0,
+    "admit_wrong_ids": [],
+    "admit_with_weak_truth": 0,
+    "by_channel": {
+     "ji_yi_si": {
+      "admit": 7,
+      "with_strong_truth": 0,
+      "wrong": 0
+     },
+     "split_ref": {
+      "admit": 10,
+      "with_strong_truth": 0,
+      "wrong": 0
+     }
+    },
+    "sent_review": 131,
+    "review_rate": 0.8851
+   },
+   "nonbody": {
+    "cells": 2,
+    "admit_machine": 0,
+    "human_channel": 0,
+    "pending": 2,
+    "admit_with_strong_truth": 0,
+    "admit_wrong": 0,
+    "admit_wrong_ids": [],
+    "admit_with_weak_truth": 0,
+    "by_channel": {},
+    "sent_review": 2,
+    "review_rate": 1.0
+   }
+  },
+  "vol10": {
+   "split": "pool",
+   "all": {
+    "cells": 57,
+    "admit_machine": 12,
+    "human_channel": 0,
+    "pending": 45,
+    "admit_with_strong_truth": 0,
+    "admit_wrong": 0,
+    "admit_wrong_ids": [],
+    "admit_with_weak_truth": 0,
+    "by_channel": {
+     "ji_yi_si": {
+      "admit": 1,
+      "with_strong_truth": 0,
+      "wrong": 0
+     },
+     "split_ref": {
+      "admit": 11,
+      "with_strong_truth": 0,
+      "wrong": 0
+     }
+    },
+    "sent_review": 45,
+    "review_rate": 0.7895
+   },
+   "body": {
+    "cells": 56,
+    "admit_machine": 12,
+    "human_channel": 0,
+    "pending": 44,
+    "admit_with_strong_truth": 0,
+    "admit_wrong": 0,
+    "admit_wrong_ids": [],
+    "admit_with_weak_truth": 0,
+    "by_channel": {
+     "ji_yi_si": {
+      "admit": 1,
+      "with_strong_truth": 0,
+      "wrong": 0
+     },
+     "split_ref": {
+      "admit": 11,
+      "with_strong_truth": 0,
+      "wrong": 0
+     }
+    },
+    "sent_review": 44,
+    "review_rate": 0.7857
+   },
+   "nonbody": {
+    "cells": 1,
+    "admit_machine": 0,
+    "human_channel": 0,
+    "pending": 1,
+    "admit_with_strong_truth": 0,
+    "admit_wrong": 0,
+    "admit_wrong_ids": [],
+    "admit_with_weak_truth": 0,
+    "by_channel": {},
+    "sent_review": 1,
+    "review_rate": 1.0
+   }
+  }
+ },
+ "source_error_on_strong_truth": {
+  "vol02": {
+   "ctx": {
+    "wrong": 31,
+    "n": 54
+   },
+   "jys_rule": {
+    "wrong": 25,
+    "n": 35
+   },
+   "lib": {
+    "wrong": 44,
+    "n": 54
+   },
+   "rare": {
+    "wrong": 36,
+    "n": 54
+   },
+   "ref": {
+    "wrong": 49,
+    "n": 53
+   }
+  },
+  "vol03": {
+   "ctx": {
+    "wrong": 20,
+    "n": 48
+   },
+   "jys_rule": {
+    "wrong": 3,
+    "n": 16
+   },
+   "lib": {
+    "wrong": 38,
+    "n": 48
+   },
+   "rare": {
+    "wrong": 32,
+    "n": 48
+   },
+   "ref": {
+    "wrong": 29,
+    "n": 48
+   }
+  },
+  "vol04": {
+   "ctx": {
+    "wrong": 16,
+    "n": 30
+   },
+   "jys_rule": {
+    "wrong": 1,
+    "n": 23
+   },
+   "lib": {
+    "wrong": 18,
+    "n": 30
+   },
+   "rare": {
+    "wrong": 18,
+    "n": 30
+   },
+   "ref": {
+    "wrong": 10,
+    "n": 30
+   }
+  }
+ },
+ "peripheral_cells": {
+  "vol02": 5,
+  "vol03": 12,
+  "vol04": 2,
+  "vol05": 4,
+  "vol06": 6,
+  "vol07": 4,
+  "vol08": 1,
+  "vol09": 3,
+  "vol10": 7
+ }
+}

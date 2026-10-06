@@ -1,0 +1,546 @@
+{
+ "group": "rr",
+ "members": "入人八",
+ "doc": "现行 seed_admit 产物（快照见 ../_build_info.json）在本组 core 格上的成绩；admit_wrong 只在有强真值（人裁/看图）的放行格上数，是下界。",
+ "by_book": {
+  "vol02": {
+   "split": "dev",
+   "all": {
+    "cells": 272,
+    "admit_machine": 266,
+    "human_channel": 2,
+    "pending": 4,
+    "admit_with_strong_truth": 0,
+    "admit_wrong": 0,
+    "admit_wrong_ids": [],
+    "admit_with_weak_truth": 262,
+    "by_channel": {
+     "context": {
+      "admit": 1,
+      "with_strong_truth": 0,
+      "wrong": 0
+     },
+     "match_ref": {
+      "admit": 265,
+      "with_strong_truth": 0,
+      "wrong": 0
+     }
+    },
+    "sent_review": 6,
+    "review_rate": 0.0221
+   },
+   "body": {
+    "cells": 272,
+    "admit_machine": 266,
+    "human_channel": 2,
+    "pending": 4,
+    "admit_with_strong_truth": 0,
+    "admit_wrong": 0,
+    "admit_wrong_ids": [],
+    "admit_with_weak_truth": 262,
+    "by_channel": {
+     "context": {
+      "admit": 1,
+      "with_strong_truth": 0,
+      "wrong": 0
+     },
+     "match_ref": {
+      "admit": 265,
+      "with_strong_truth": 0,
+      "wrong": 0
+     }
+    },
+    "sent_review": 6,
+    "review_rate": 0.0221
+   }
+  },
+  "vol03": {
+   "split": "dev",
+   "all": {
+    "cells": 179,
+    "admit_machine": 174,
+    "human_channel": 5,
+    "pending": 0,
+    "admit_with_strong_truth": 0,
+    "admit_wrong": 0,
+    "admit_wrong_ids": [],
+    "admit_with_weak_truth": 171,
+    "by_channel": {
+     "context": {
+      "admit": 1,
+      "with_strong_truth": 0,
+      "wrong": 0
+     },
+     "match_ref": {
+      "admit": 173,
+      "with_strong_truth": 0,
+      "wrong": 0
+     }
+    },
+    "sent_review": 5,
+    "review_rate": 0.0279
+   },
+   "body": {
+    "cells": 179,
+    "admit_machine": 174,
+    "human_channel": 5,
+    "pending": 0,
+    "admit_with_strong_truth": 0,
+    "admit_wrong": 0,
+    "admit_wrong_ids": [],
+    "admit_with_weak_truth": 171,
+    "by_channel": {
+     "context": {
+      "admit": 1,
+      "with_strong_truth": 0,
+      "wrong": 0
+     },
+     "match_ref": {
+      "admit": 173,
+      "with_strong_truth": 0,
+      "wrong": 0
+     }
+    },
+    "sent_review": 5,
+    "review_rate": 0.0279
+   }
+  },
+  "vol04": {
+   "split": "val",
+   "all": {
+    "cells": 405,
+    "admit_machine": 399,
+    "human_channel": 0,
+    "pending": 6,
+    "admit_with_strong_truth": 1,
+    "admit_wrong": 0,
+    "admit_wrong_ids": [],
+    "admit_with_weak_truth": 390,
+    "by_channel": {
+     "context": {
+      "admit": 3,
+      "with_strong_truth": 0,
+      "wrong": 0
+     },
+     "match_ref": {
+      "admit": 391,
+      "with_strong_truth": 0,
+      "wrong": 0
+     },
+     "seal": {
+      "admit": 1,
+      "with_strong_truth": 0,
+      "wrong": 0
+     },
+     "witness3": {
+      "admit": 4,
+      "with_strong_truth": 1,
+      "wrong": 0
+     }
+    },
+    "sent_review": 6,
+    "review_rate": 0.0148
+   },
+   "body": {
+    "cells": 405,
+    "admit_machine": 399,
+    "human_channel": 0,
+    "pending": 6,
+    "admit_with_strong_truth": 1,
+    "admit_wrong": 0,
+    "admit_wrong_ids": [],
+    "admit_with_weak_truth": 390,
+    "by_channel": {
+     "context": {
+      "admit": 3,
+      "with_strong_truth": 0,
+      "wrong": 0
+     },
+     "match_ref": {
+      "admit": 391,
+      "with_strong_truth": 0,
+      "wrong": 0
+     },
+     "seal": {
+      "admit": 1,
+      "with_strong_truth": 0,
+      "wrong": 0
+     },
+     "witness3": {
+      "admit": 4,
+      "with_strong_truth": 1,
+      "wrong": 0
+     }
+    },
+    "sent_review": 6,
+    "review_rate": 0.0148
+   }
+  },
+  "vol05": {
+   "split": "pool",
+   "all": {
+    "cells": 378,
+    "admit_machine": 372,
+    "human_channel": 0,
+    "pending": 6,
+    "admit_with_strong_truth": 0,
+    "admit_wrong": 0,
+    "admit_wrong_ids": [],
+    "admit_with_weak_truth": 361,
+    "by_channel": {
+     "context": {
+      "admit": 2,
+      "with_strong_truth": 0,
+      "wrong": 0
+     },
+     "match_ref": {
+      "admit": 370,
+      "with_strong_truth": 0,
+      "wrong": 0
+     }
+    },
+    "sent_review": 6,
+    "review_rate": 0.0159
+   },
+   "body": {
+    "cells": 378,
+    "admit_machine": 372,
+    "human_channel": 0,
+    "pending": 6,
+    "admit_with_strong_truth": 0,
+    "admit_wrong": 0,
+    "admit_wrong_ids": [],
+    "admit_with_weak_truth": 361,
+    "by_channel": {
+     "context": {
+      "admit": 2,
+      "with_strong_truth": 0,
+      "wrong": 0
+     },
+     "match_ref": {
+      "admit": 370,
+      "with_strong_truth": 0,
+      "wrong": 0
+     }
+    },
+    "sent_review": 6,
+    "review_rate": 0.0159
+   }
+  },
+  "vol06": {
+   "split": "pool",
+   "all": {
+    "cells": 257,
+    "admit_machine": 251,
+    "human_channel": 0,
+    "pending": 6,
+    "admit_with_strong_truth": 0,
+    "admit_wrong": 0,
+    "admit_wrong_ids": [],
+    "admit_with_weak_truth": 236,
+    "by_channel": {
+     "context": {
+      "admit": 6,
+      "with_strong_truth": 0,
+      "wrong": 0
+     },
+     "match_ref": {
+      "admit": 245,
+      "with_strong_truth": 0,
+      "wrong": 0
+     }
+    },
+    "sent_review": 6,
+    "review_rate": 0.0233
+   },
+   "body": {
+    "cells": 257,
+    "admit_machine": 251,
+    "human_channel": 0,
+    "pending": 6,
+    "admit_with_strong_truth": 0,
+    "admit_wrong": 0,
+    "admit_wrong_ids": [],
+    "admit_with_weak_truth": 236,
+    "by_channel": {
+     "context": {
+      "admit": 6,
+      "with_strong_truth": 0,
+      "wrong": 0
+     },
+     "match_ref": {
+      "admit": 245,
+      "with_strong_truth": 0,
+      "wrong": 0
+     }
+    },
+    "sent_review": 6,
+    "review_rate": 0.0233
+   }
+  },
+  "vol07": {
+   "split": "pool",
+   "all": {
+    "cells": 164,
+    "admit_machine": 163,
+    "human_channel": 0,
+    "pending": 1,
+    "admit_with_strong_truth": 0,
+    "admit_wrong": 0,
+    "admit_wrong_ids": [],
+    "admit_with_weak_truth": 159,
+    "by_channel": {
+     "match_ref": {
+      "admit": 163,
+      "with_strong_truth": 0,
+      "wrong": 0
+     }
+    },
+    "sent_review": 1,
+    "review_rate": 0.0061
+   },
+   "body": {
+    "cells": 163,
+    "admit_machine": 163,
+    "human_channel": 0,
+    "pending": 0,
+    "admit_with_strong_truth": 0,
+    "admit_wrong": 0,
+    "admit_wrong_ids": [],
+    "admit_with_weak_truth": 159,
+    "by_channel": {
+     "match_ref": {
+      "admit": 163,
+      "with_strong_truth": 0,
+      "wrong": 0
+     }
+    },
+    "sent_review": 0,
+    "review_rate": 0.0
+   },
+   "nonbody": {
+    "cells": 1,
+    "admit_machine": 0,
+    "human_channel": 0,
+    "pending": 1,
+    "admit_with_strong_truth": 0,
+    "admit_wrong": 0,
+    "admit_wrong_ids": [],
+    "admit_with_weak_truth": 0,
+    "by_channel": {},
+    "sent_review": 1,
+    "review_rate": 1.0
+   }
+  },
+  "vol08": {
+   "split": "pool",
+   "all": {
+    "cells": 109,
+    "admit_machine": 103,
+    "human_channel": 0,
+    "pending": 6,
+    "admit_with_strong_truth": 0,
+    "admit_wrong": 0,
+    "admit_wrong_ids": [],
+    "admit_with_weak_truth": 101,
+    "by_channel": {
+     "match_ref": {
+      "admit": 103,
+      "with_strong_truth": 0,
+      "wrong": 0
+     }
+    },
+    "sent_review": 6,
+    "review_rate": 0.055
+   },
+   "body": {
+    "cells": 109,
+    "admit_machine": 103,
+    "human_channel": 0,
+    "pending": 6,
+    "admit_with_strong_truth": 0,
+    "admit_wrong": 0,
+    "admit_wrong_ids": [],
+    "admit_with_weak_truth": 101,
+    "by_channel": {
+     "match_ref": {
+      "admit": 103,
+      "with_strong_truth": 0,
+      "wrong": 0
+     }
+    },
+    "sent_review": 6,
+    "review_rate": 0.055
+   }
+  },
+  "vol09": {
+   "split": "pool",
+   "all": {
+    "cells": 364,
+    "admit_machine": 358,
+    "human_channel": 0,
+    "pending": 6,
+    "admit_with_strong_truth": 0,
+    "admit_wrong": 0,
+    "admit_wrong_ids": [],
+    "admit_with_weak_truth": 343,
+    "by_channel": {
+     "context": {
+      "admit": 4,
+      "with_strong_truth": 0,
+      "wrong": 0
+     },
+     "match_ref": {
+      "admit": 354,
+      "with_strong_truth": 0,
+      "wrong": 0
+     }
+    },
+    "sent_review": 6,
+    "review_rate": 0.0165
+   },
+   "body": {
+    "cells": 364,
+    "admit_machine": 358,
+    "human_channel": 0,
+    "pending": 6,
+    "admit_with_strong_truth": 0,
+    "admit_wrong": 0,
+    "admit_wrong_ids": [],
+    "admit_with_weak_truth": 343,
+    "by_channel": {
+     "context": {
+      "admit": 4,
+      "with_strong_truth": 0,
+      "wrong": 0
+     },
+     "match_ref": {
+      "admit": 354,
+      "with_strong_truth": 0,
+      "wrong": 0
+     }
+    },
+    "sent_review": 6,
+    "review_rate": 0.0165
+   }
+  },
+  "vol10": {
+   "split": "pool",
+   "all": {
+    "cells": 255,
+    "admit_machine": 251,
+    "human_channel": 0,
+    "pending": 4,
+    "admit_with_strong_truth": 0,
+    "admit_wrong": 0,
+    "admit_wrong_ids": [],
+    "admit_with_weak_truth": 249,
+    "by_channel": {
+     "context": {
+      "admit": 1,
+      "with_strong_truth": 0,
+      "wrong": 0
+     },
+     "match_ref": {
+      "admit": 250,
+      "with_strong_truth": 0,
+      "wrong": 0
+     }
+    },
+    "sent_review": 4,
+    "review_rate": 0.0157
+   },
+   "body": {
+    "cells": 255,
+    "admit_machine": 251,
+    "human_channel": 0,
+    "pending": 4,
+    "admit_with_strong_truth": 0,
+    "admit_wrong": 0,
+    "admit_wrong_ids": [],
+    "admit_with_weak_truth": 249,
+    "by_channel": {
+     "context": {
+      "admit": 1,
+      "with_strong_truth": 0,
+      "wrong": 0
+     },
+     "match_ref": {
+      "admit": 250,
+      "with_strong_truth": 0,
+      "wrong": 0
+     }
+    },
+    "sent_review": 4,
+    "review_rate": 0.0157
+   }
+  }
+ },
+ "source_error_on_strong_truth": {
+  "vol02": {
+   "ctx": {
+    "wrong": 5,
+    "n": 6
+   },
+   "lib": {
+    "wrong": 2,
+    "n": 6
+   },
+   "rare": {
+    "wrong": 1,
+    "n": 6
+   },
+   "ref": {
+    "wrong": 2,
+    "n": 6
+   }
+  },
+  "vol03": {
+   "ctx": {
+    "wrong": 0,
+    "n": 2
+   },
+   "lib": {
+    "wrong": 1,
+    "n": 2
+   },
+   "rare": {
+    "wrong": 1,
+    "n": 3
+   },
+   "ref": {
+    "wrong": 1,
+    "n": 5
+   }
+  },
+  "vol04": {
+   "ctx": {
+    "wrong": 1,
+    "n": 1
+   },
+   "lib": {
+    "wrong": 1,
+    "n": 1
+   },
+   "rare": {
+    "wrong": 1,
+    "n": 2
+   },
+   "ref": {
+    "wrong": 0,
+    "n": 2
+   }
+  }
+ },
+ "peripheral_cells": {
+  "vol02": 5,
+  "vol03": 3,
+  "vol04": 3,
+  "vol05": 5,
+  "vol06": 3,
+  "vol07": 2,
+  "vol08": 2,
+  "vol09": 7,
+  "vol10": 7
+ }
+}
