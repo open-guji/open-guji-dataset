@@ -10,12 +10,12 @@
     "admit_machine": 227,
     "human_channel": 20,
     "pending": 8,
-    "admit_with_strong_truth": 1,
+    "admit_with_strong_truth": 5,
     "admit_wrong": 1,
     "admit_wrong_ids": [
      "vol02:188:5:19 日→曰"
     ],
-    "admit_with_weak_truth": 221,
+    "admit_with_weak_truth": 217,
     "by_channel": {
      "context": {
       "admit": 3,
@@ -24,7 +24,7 @@
      },
      "match_ref": {
       "admit": 224,
-      "with_strong_truth": 1,
+      "with_strong_truth": 5,
       "wrong": 1
      }
     },
@@ -36,12 +36,12 @@
     "admit_machine": 227,
     "human_channel": 20,
     "pending": 8,
-    "admit_with_strong_truth": 1,
+    "admit_with_strong_truth": 5,
     "admit_wrong": 1,
     "admit_wrong_ids": [
      "vol02:188:5:19 日→曰"
     ],
-    "admit_with_weak_truth": 221,
+    "admit_with_weak_truth": 217,
     "by_channel": {
      "context": {
       "admit": 3,
@@ -50,7 +50,7 @@
      },
      "match_ref": {
       "admit": 224,
-      "with_strong_truth": 1,
+      "with_strong_truth": 5,
       "wrong": 1
      }
     },
@@ -65,10 +65,10 @@
     "admit_machine": 76,
     "human_channel": 17,
     "pending": 1,
-    "admit_with_strong_truth": 0,
+    "admit_with_strong_truth": 5,
     "admit_wrong": 0,
     "admit_wrong_ids": [],
-    "admit_with_weak_truth": 75,
+    "admit_with_weak_truth": 70,
     "by_channel": {
      "context": {
       "admit": 1,
@@ -77,7 +77,7 @@
      },
      "match_ref": {
       "admit": 75,
-      "with_strong_truth": 0,
+      "with_strong_truth": 5,
       "wrong": 0
      }
     },
@@ -89,10 +89,10 @@
     "admit_machine": 76,
     "human_channel": 17,
     "pending": 1,
-    "admit_with_strong_truth": 0,
+    "admit_with_strong_truth": 5,
     "admit_wrong": 0,
     "admit_wrong_ids": [],
-    "admit_with_weak_truth": 75,
+    "admit_with_weak_truth": 70,
     "by_channel": {
      "context": {
       "admit": 1,
@@ -101,7 +101,7 @@
      },
      "match_ref": {
       "admit": 75,
-      "with_strong_truth": 0,
+      "with_strong_truth": 5,
       "wrong": 0
      }
     },
@@ -116,12 +116,12 @@
     "admit_machine": 195,
     "human_channel": 0,
     "pending": 12,
-    "admit_with_strong_truth": 8,
+    "admit_with_strong_truth": 16,
     "admit_wrong": 1,
     "admit_wrong_ids": [
      "vol04:133:3:7 日→曰"
     ],
-    "admit_with_weak_truth": 179,
+    "admit_with_weak_truth": 171,
     "by_channel": {
      "context": {
       "admit": 2,
@@ -135,7 +135,7 @@
      },
      "match_ref": {
       "admit": 181,
-      "with_strong_truth": 2,
+      "with_strong_truth": 9,
       "wrong": 1
      },
      "rare_ref": {
@@ -150,7 +150,7 @@
      },
      "witness3": {
       "admit": 7,
-      "with_strong_truth": 2,
+      "with_strong_truth": 3,
       "wrong": 0
      }
     },
@@ -162,12 +162,12 @@
     "admit_machine": 195,
     "human_channel": 0,
     "pending": 12,
-    "admit_with_strong_truth": 8,
+    "admit_with_strong_truth": 16,
     "admit_wrong": 1,
     "admit_wrong_ids": [
      "vol04:133:3:7 日→曰"
     ],
-    "admit_with_weak_truth": 179,
+    "admit_with_weak_truth": 171,
     "by_channel": {
      "context": {
       "admit": 2,
@@ -181,7 +181,7 @@
      },
      "match_ref": {
       "admit": 181,
-      "with_strong_truth": 2,
+      "with_strong_truth": 9,
       "wrong": 1
      },
      "rare_ref": {
@@ -196,7 +196,7 @@
      },
      "witness3": {
       "admit": 7,
-      "with_strong_truth": 2,
+      "with_strong_truth": 3,
       "wrong": 0
      }
     },
@@ -528,55 +528,55 @@
   "vol02": {
    "ctx": {
     "wrong": 8,
-    "n": 26
+    "n": 30
    },
    "lib": {
     "wrong": 6,
-    "n": 27
+    "n": 31
    },
    "rare": {
-    "wrong": 15,
-    "n": 27
+    "wrong": 17,
+    "n": 31
    },
    "ref": {
     "wrong": 7,
-    "n": 28
+    "n": 32
    }
   },
   "vol03": {
    "ctx": {
     "wrong": 7,
-    "n": 16
+    "n": 21
    },
    "lib": {
     "wrong": 10,
-    "n": 16
+    "n": 21
    },
    "rare": {
-    "wrong": 10,
-    "n": 17
+    "wrong": 14,
+    "n": 22
    },
    "ref": {
     "wrong": 2,
-    "n": 17
+    "n": 22
    }
   },
   "vol04": {
    "ctx": {
     "wrong": 1,
-    "n": 5
+    "n": 11
    },
    "lib": {
     "wrong": 5,
-    "n": 6
+    "n": 13
    },
    "rare": {
-    "wrong": 4,
-    "n": 9
+    "wrong": 8,
+    "n": 16
    },
    "ref": {
     "wrong": 1,
-    "n": 10
+    "n": 17
    }
   }
  },

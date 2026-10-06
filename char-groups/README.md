@@ -49,7 +49,7 @@
 - 真值：`gold` `gold_tier` `label_origin` `gold_src` · `gold_conflict`（强真值来源之间不一致）· `golds`（**所有来源逐条**：字、档、来源、备注）
 - 现行产物：`admit` `channel` `char` `provenance` `doubts` · `ref` `ref_op`（整理本对位）`coord_ref`（坐标证人）·
   `lib` `lib_verdict` `lib_cov`（库前三）· `rare`（5-b 前三）· `ctx` `ctx_ranked` `ctx_source` `ctx_margin`（Step6）· `ocr` · `ji_yi_si`（己已巳规则的字与理由）· `snap`（取自哪个快照）
-- 上下文：`left`/`right` 刻本读序前/后各 8 字（跨列连读；未放行格用整理本字补，再没有记「□」）；`ref_left`/`ref_right` 整理本对应位；`word`（前 2【本格】后 2）
+- 上下文：`left`/`right` 刻本读序前/后各 30 字（G1 起，用户 10-06 定先多放，G0 是 8；跨列连读，到页首页尾为止；未放行格用整理本字补，再没有记「□」）；`ref_left`/`ref_right` 整理本对应位；`word`（前 2【本格】后 2）
 - 图：`crop` `ink` `wh`
 - vol01 的题（`split=extra`）没有快照，只有文本上下文与人裁金标，另带 `cc_tier` `cc_options` `cc_arms`（confusable-context 首轮各臂答案）
 
@@ -57,11 +57,12 @@
 
 | 档 | `label_origin` | 来源（`gold_src`） | 能干什么 |
 |---|---|---|---|
-| **A_human** | human | 人裁事件 `human_event`（工作区 `feedback/events`，`human_chars`，后到覆盖）；快照里 Step7 已采信的人裁 `snap_channel_human`；muse 试点 truth 里的 human；#352 样本里的人裁 `r352_human`；confusable-context 题 | 强真值 |
+| **A_human** | human | 用户审查页人裁 `user_review_<组>`（G1，`review/<组>_verdicts.jsonl`，排在 A 档最前）；人裁事件 `human_event`（工作区 `feedback/events`，`human_chars`，后到覆盖）；快照里 Step7 已采信的人裁 `snap_channel_human`；muse 试点 truth 里的 human；#352 样本里的人裁 `r352_human`；confusable-context 题 | 强真值 |
 | **B_vision** | vision | 看图结论事件 `vision_event:*`（`feedback/vision`，V1 通道，同格按 ts 取最新）；overview 看图清单 `look_v03_s8` `look_v03_jys` `look_v04_s8` `look_v04_jys`；#426 的 3 格 `card426`；muse 试点 truth 里 Z39 会话判的 | 强真值，但是模型判的，**单独分层报** |
 | **C_weak** | align | 已放行、非人裁、放行字＝整理本对位字＝坐标证人字 `witness_agree`（己已巳不给） | **对 match_ref 是循环的**，只作参考，不拿来数放行错 |
 | （无） | — | — | 只有现行产物 |
 
+另有 `X_unclear`（只出现在 `golds` 里）：用户审查页里点了「看不清」、或点了「别的字」没填字的格，不当真值。
 另有 `X_stale`（只出现在 `golds` 里）：人裁事件早于快照、快照却没采信它（Step7 当时过绑定表，判它挂错了格）——编号可能已漂，**不当真值**。
 本次共 3 格（vol02 `75:1:12`、`75:6:9`，vol03 `105:4:3`），都是整列顺移后旧编号落到了别的字上。
 
@@ -78,6 +79,34 @@
 3. **两个数一起报**：放行错（只在有强真值的放行格上数，是下界，分子分母都写）和送审率（＝(人裁+待审)/core 格）。目标是保准确率的前提下压送审率。
 4. **强真值分层**：human 与 vision 分开报；vision 是模型看图判的，可能有错。
 5. **偏差**：强真值格多是机器拿不准才送人看的难例，放行格上的强真值多来自 S8「放行错穷举」（专挑与证人不一致的）——**都不是随机样本**，错率比全书高。要量全书放行错率，得另抽随机样本看图（见各组 README「还缺什么」）。
+
+## 用户人裁（`review/`，G1，用户 10-06 定）
+
+G0 缺数据清单第 1 条（放行格随机抽样）改由用户亲自人裁，记 A 档。三批，一批一页（cv `research/char_groups/review_pages.py` 出页）：
+
+| 批 | 抽样框（都只取正文页） | 抽几格 |
+|---|---|---|
+| `ry` 日曰 | vol02/03/04 机器放行格（core、admit、channel≠human） | 每册 100，vol03 框里只有 76 格全收，共 276 |
+| `rr` 入人八 | 同上 | 每册 100 |
+| `jys` 己已巳 | vol04 待审格（core、未放行）全收；vol05 core 格 | vol04 全部 + vol05 随机 50 |
+
+- **种子 `20261006`**（`random.Random("20261006:<组>")`，框按 id 排序后 `sample`，再整批打散）。
+- `review/<组>_cards.jsonl`：冻住的卡片 id，带 `stratum`（`<册>:<框>`）、`frame_n`（框内格数）、`stratum_weight`（框内格数 / 抽中格数）。重出页面照读这份，不重抽。
+  放行错率按册估：抽中格里裁出的错数 × `stratum_weight`。
+- `review/<组>_verdicts.jsonl`：收回的裁决，一行 `{id, verdict, t}`；`verdict` 是成员字、`other:<字>`、`other`（没填字）或 `unclear`。
+  `build.py` 把它当 A 档来源收进 `golds`（src `user_review_<组>`），再跑 `baseline.py` 基线就带上了。
+- 卡面不印机器判断：上下文里目标位挖空，放行字、整理本此处的字、通道收在折叠的「机器参考」里。
+
+**第一轮收回（10-06）**：用户裁了一部分（太累没裁完；自己也难判的点了「看不清」），已裁的先进测试集。
+
+| 批 | 抽了 | 已裁 | 记 A 档 | 看不清 | 放行格里裁出的错 | 整理本错 |
+|---|---|---|---|---|---|---|
+| `ry` 日曰 | 276 | 18 | 18 | 0 | 0/18 | 0/18 |
+| `rr` 入人八 | 300 | 33 | 33 | 0 | 0/33 | 0/33 |
+| `jys` 己已巳 | 120 | 53 | 46 | 7 | 1/3（`vol05:112:9:7` 巳→已） | 26/46 |
+
+三页都留着（URL 见 cv `research/char_groups/README.md`），没裁完的可以接着裁，或按各组新开的道的需要换题重出（`review_pages.py --seed-verdicts` 续裁）。
+用户对三组各自的判法写在各组 README 的「用户人裁与观察」一节。
 
 ## 快照与复现
 
