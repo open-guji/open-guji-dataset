@@ -175,20 +175,22 @@
     "admit_machine": 14,
     "human_channel": 0,
     "pending": 54,
-    "admit_with_strong_truth": 0,
-    "admit_wrong": 0,
-    "admit_wrong_ids": [],
+    "admit_with_strong_truth": 3,
+    "admit_wrong": 1,
+    "admit_wrong_ids": [
+     "vol05:112:9:7 巳→已"
+    ],
     "admit_with_weak_truth": 0,
     "by_channel": {
      "ji_yi_si": {
       "admit": 9,
-      "with_strong_truth": 0,
+      "with_strong_truth": 2,
       "wrong": 0
      },
      "split_ref": {
       "admit": 5,
-      "with_strong_truth": 0,
-      "wrong": 0
+      "with_strong_truth": 1,
+      "wrong": 1
      }
     },
     "sent_review": 54,
@@ -199,20 +201,22 @@
     "admit_machine": 14,
     "human_channel": 0,
     "pending": 54,
-    "admit_with_strong_truth": 0,
-    "admit_wrong": 0,
-    "admit_wrong_ids": [],
+    "admit_with_strong_truth": 3,
+    "admit_wrong": 1,
+    "admit_wrong_ids": [
+     "vol05:112:9:7 巳→已"
+    ],
     "admit_with_weak_truth": 0,
     "by_channel": {
      "ji_yi_si": {
       "admit": 9,
-      "with_strong_truth": 0,
+      "with_strong_truth": 2,
       "wrong": 0
      },
      "split_ref": {
       "admit": 5,
-      "with_strong_truth": 0,
-      "wrong": 0
+      "with_strong_truth": 1,
+      "wrong": 1
      }
     },
     "sent_review": 54,
@@ -561,24 +565,46 @@
   },
   "vol04": {
    "ctx": {
-    "wrong": 16,
-    "n": 30
+    "wrong": 28,
+    "n": 54
    },
    "jys_rule": {
     "wrong": 1,
     "n": 23
    },
    "lib": {
-    "wrong": 18,
-    "n": 30
+    "wrong": 37,
+    "n": 54
    },
    "rare": {
-    "wrong": 18,
-    "n": 30
+    "wrong": 35,
+    "n": 54
    },
    "ref": {
-    "wrong": 10,
-    "n": 30
+    "wrong": 23,
+    "n": 55
+   }
+  },
+  "vol05": {
+   "ctx": {
+    "wrong": 13,
+    "n": 19
+   },
+   "jys_rule": {
+    "wrong": 6,
+    "n": 19
+   },
+   "lib": {
+    "wrong": 16,
+    "n": 19
+   },
+   "rare": {
+    "wrong": 14,
+    "n": 19
+   },
+   "ref": {
+    "wrong": 12,
+    "n": 19
    }
   }
  },
