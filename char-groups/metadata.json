@@ -1,0 +1,340 @@
+{
+ "name": "char-groups",
+ "version": "0.1.0",
+ "schema_version": 1,
+ "description": "字组测试集：形近/异体字按组拆开，每组单独积累数据（overview#437，G0，2026-10-06）。先收三组形近字：己已巳(jys)、日曰(ry)、入人八(rr)。",
+ "created": "2026-10-06",
+ "status": "实集（全量格 + 分档真值；强真值偏难例）",
+ "sample_unit": "字位×组（一格可同属多组）",
+ "groups": {
+  "jys": {
+   "members": "己已巳",
+   "type": "near_form",
+   "rows": 695,
+   "core": 651,
+   "peripheral": 44,
+   "gold_tier": {
+    "A_human": 103,
+    "B_vision": 42,
+    "C_weak": 0,
+    "none": 506
+   },
+   "by_book": {
+    "vol01": {
+     "rows": 12,
+     "core": 12,
+     "A_human": 12,
+     "crop": 0,
+     "conflict": 0,
+     "strong_in_group": 12
+    },
+    "vol02": {
+     "rows": 63,
+     "core": 58,
+     "A_human": 54,
+     "crop": 58,
+     "conflict": 0,
+     "strong_in_group": 54,
+     "peripheral": 5,
+     "none": 4
+    },
+    "vol03": {
+     "rows": 61,
+     "core": 49,
+     "A_human": 37,
+     "crop": 49,
+     "conflict": 2,
+     "strong_in_group": 48,
+     "peripheral": 12,
+     "B_vision": 12
+    },
+    "vol04": {
+     "rows": 95,
+     "peripheral": 2,
+     "core": 93,
+     "B_vision": 30,
+     "crop": 93,
+     "conflict": 0,
+     "strong_in_group": 30,
+     "none": 63
+    },
+    "vol05": {
+     "rows": 72,
+     "core": 68,
+     "none": 68,
+     "crop": 68,
+     "conflict": 0,
+     "peripheral": 4
+    },
+    "vol06": {
+     "rows": 68,
+     "core": 62,
+     "none": 62,
+     "crop": 62,
+     "conflict": 0,
+     "peripheral": 6
+    },
+    "vol07": {
+     "rows": 68,
+     "core": 64,
+     "none": 64,
+     "crop": 64,
+     "conflict": 0,
+     "peripheral": 4
+    },
+    "vol08": {
+     "rows": 39,
+     "core": 38,
+     "none": 38,
+     "crop": 38,
+     "conflict": 0,
+     "peripheral": 1
+    },
+    "vol09": {
+     "rows": 153,
+     "core": 150,
+     "none": 150,
+     "crop": 150,
+     "conflict": 0,
+     "peripheral": 3
+    },
+    "vol10": {
+     "rows": 64,
+     "core": 57,
+     "none": 57,
+     "crop": 57,
+     "conflict": 0,
+     "peripheral": 7
+    }
+   }
+  },
+  "ry": {
+   "members": "日曰",
+   "type": "near_form",
+   "rows": 1830,
+   "core": 1395,
+   "peripheral": 435,
+   "gold_tier": {
+    "A_human": 55,
+    "B_vision": 10,
+    "C_weak": 1136,
+    "none": 194
+   },
+   "by_book": {
+    "vol01": {
+     "rows": 8,
+     "core": 8,
+     "A_human": 8,
+     "crop": 0,
+     "conflict": 0,
+     "strong_in_group": 8
+    },
+    "vol02": {
+     "rows": 324,
+     "core": 255,
+     "A_human": 29,
+     "crop": 255,
+     "conflict": 2,
+     "strong_in_group": 28,
+     "C_weak": 221,
+     "peripheral": 69,
+     "none": 5
+    },
+    "vol03": {
+     "rows": 125,
+     "peripheral": 31,
+     "core": 94,
+     "C_weak": 75,
+     "crop": 94,
+     "conflict": 0,
+     "A_human": 18,
+     "strong_in_group": 17,
+     "none": 1
+    },
+    "vol04": {
+     "rows": 267,
+     "core": 207,
+     "B_vision": 10,
+     "crop": 207,
+     "conflict": 0,
+     "strong_in_group": 10,
+     "C_weak": 179,
+     "peripheral": 60,
+     "none": 18
+    },
+    "vol05": {
+     "rows": 183,
+     "peripheral": 43,
+     "core": 140,
+     "C_weak": 111,
+     "crop": 140,
+     "conflict": 0,
+     "none": 29
+    },
+    "vol06": {
+     "rows": 151,
+     "peripheral": 52,
+     "core": 99,
+     "C_weak": 80,
+     "crop": 99,
+     "conflict": 0,
+     "none": 19
+    },
+    "vol07": {
+     "rows": 150,
+     "core": 117,
+     "C_weak": 97,
+     "crop": 117,
+     "conflict": 0,
+     "peripheral": 33,
+     "none": 20
+    },
+    "vol08": {
+     "rows": 72,
+     "peripheral": 20,
+     "core": 52,
+     "none": 5,
+     "crop": 52,
+     "conflict": 0,
+     "C_weak": 47
+    },
+    "vol09": {
+     "rows": 277,
+     "peripheral": 78,
+     "core": 199,
+     "C_weak": 148,
+     "crop": 199,
+     "conflict": 0,
+     "none": 51
+    },
+    "vol10": {
+     "rows": 273,
+     "peripheral": 49,
+     "core": 224,
+     "C_weak": 178,
+     "crop": 224,
+     "conflict": 0,
+     "none": 46
+    }
+   }
+  },
+  "rr": {
+   "members": "入人八",
+   "type": "near_form",
+   "rows": 2442,
+   "core": 2405,
+   "peripheral": 37,
+   "gold_tier": {
+    "A_human": 33,
+    "B_vision": 2,
+    "C_weak": 2272,
+    "none": 98
+   },
+   "by_book": {
+    "vol01": {
+     "rows": 22,
+     "core": 22,
+     "A_human": 22,
+     "crop": 0,
+     "conflict": 0,
+     "strong_in_group": 22
+    },
+    "vol02": {
+     "rows": 277,
+     "core": 272,
+     "C_weak": 262,
+     "crop": 272,
+     "conflict": 0,
+     "A_human": 6,
+     "strong_in_group": 6,
+     "none": 4,
+     "peripheral": 5
+    },
+    "vol03": {
+     "rows": 182,
+     "core": 179,
+     "A_human": 5,
+     "crop": 179,
+     "conflict": 1,
+     "strong_in_group": 5,
+     "C_weak": 171,
+     "peripheral": 3,
+     "none": 3
+    },
+    "vol04": {
+     "rows": 408,
+     "core": 405,
+     "C_weak": 390,
+     "crop": 405,
+     "conflict": 0,
+     "none": 13,
+     "peripheral": 3,
+     "B_vision": 2,
+     "strong_in_group": 2
+    },
+    "vol05": {
+     "rows": 383,
+     "core": 378,
+     "none": 17,
+     "crop": 378,
+     "conflict": 0,
+     "C_weak": 361,
+     "peripheral": 5
+    },
+    "vol06": {
+     "rows": 260,
+     "core": 257,
+     "none": 21,
+     "crop": 257,
+     "conflict": 0,
+     "C_weak": 236,
+     "peripheral": 3
+    },
+    "vol07": {
+     "rows": 166,
+     "core": 164,
+     "none": 5,
+     "crop": 164,
+     "conflict": 0,
+     "C_weak": 159,
+     "peripheral": 2
+    },
+    "vol08": {
+     "rows": 111,
+     "core": 109,
+     "C_weak": 101,
+     "crop": 109,
+     "conflict": 0,
+     "none": 8,
+     "peripheral": 2
+    },
+    "vol09": {
+     "rows": 371,
+     "core": 364,
+     "C_weak": 343,
+     "crop": 364,
+     "conflict": 0,
+     "none": 21,
+     "peripheral": 7
+    },
+    "vol10": {
+     "rows": 262,
+     "core": 255,
+     "C_weak": 249,
+     "crop": 255,
+     "conflict": 0,
+     "peripheral": 7,
+     "none": 6
+    }
+   }
+  }
+ },
+ "total_rows": 4967,
+ "unique_cells": 4966,
+ "label_origin_values": [
+  "human",
+  "vision",
+  "align"
+ ],
+ "eval_command": "cd open-guji-cv && python research/char_groups/baseline.py <dataset>/char-groups （现行产物基线）；新方法照 README「评测口径」与 <组>/baseline.json 比"
+}

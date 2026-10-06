@@ -49,6 +49,7 @@
 | Step6 上下文裁决 | [context-correction](context-correction) | 12（顶层信封）/ 嵌套槽位 ≈1,682 |
 | | [confusable-context](confusable-context) | 154 |
 | Step7 放行判定 | 复用人裁历史回放（`open-guji-cv` 仓 `feedback/events/`），未落 dataset 仓独立分片 | — |
+| | [char-groups](char-groups)（字组：己已巳 / 日曰 / 入人八，每组一个目录，含现行产物基线；原 `near-form-groups` 已并入，2026-10-06） | 4,451 core 格（jys 651、ry 1,395、rr 2,405） |
 | Step8 落库与反馈 | [char-normalization](char-normalization) | 32 |
 | Step9 结果整理 · 坐标转字符位 | [guji-markdown-render](guji-markdown-render)（2026-09-11 新建） | 4 |
 | 页型/版面通用 | [page-type](page-type) | 394 |
