@@ -441,6 +441,36 @@
    "label_origin": "model_visual",
    "visual_check": "consistent",
    "id_v1": "vol02:9:9:12"
+  },
+  {
+   "book": "vol02",
+   "page": "100",
+   "col": 4,
+   "slot": 17,
+   "expect": "reject",
+   "label_origin": "human",
+   "visual_check": "consistent",
+   "note": "overview#415：雙行小注到第 16 格止（詳董楷周易｜傳義附錄條），第 17 格「此」是整宽正文；Step3 段尾多延一格把它劈成 a/b。人裁「正文当小注」（reason=main_as_jiazhu）后按整格出（overview#436）"
+  },
+  {
+   "book": "vol04",
+   "page": "218",
+   "col": 2,
+   "slot": 13,
+   "expect": "reject",
+   "label_origin": "model_visual",
+   "visual_check": "consistent",
+   "note": "overview#434/#436：本页无夹注。叶 216 拆出的半叶，Step1 把相邻两整列正文并成第 2 列（列宽 367≈2×185），中间界行被当成夹注缝；13 格是两列正文各一字（下｜傳），不是夹注段尾，不该按夹注拆"
+  },
+  {
+   "book": "vol04",
+   "page": "218",
+   "col": 2,
+   "slot": 21,
+   "expect": "reject",
+   "label_origin": "model_visual",
+   "visual_check": "consistent",
+   "note": "同 vol04:218:2:13（繫｜古，两列正文末字）"
   }
  ],
  "retired": [
