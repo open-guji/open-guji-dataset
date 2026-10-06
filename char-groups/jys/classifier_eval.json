@@ -1,0 +1,126 @@
+{
+ "policy": "S1: rule -> (llm & lr agree) else abstain",
+ "by_book": {
+  "vol01": {
+   "n": 12,
+   "given": 11,
+   "ok": 11,
+   "wrong": 0,
+   "give_rate": 0.917,
+   "acc": 1.0,
+   "abstain": 0.083
+  },
+  "vol02": {
+   "n": 54,
+   "given": 49,
+   "ok": 48,
+   "wrong": 1,
+   "give_rate": 0.907,
+   "acc": 0.98,
+   "abstain": 0.093
+  },
+  "vol03": {
+   "n": 48,
+   "given": 46,
+   "ok": 46,
+   "wrong": 0,
+   "give_rate": 0.958,
+   "acc": 1.0,
+   "abstain": 0.042
+  },
+  "vol04": {
+   "n": 55,
+   "given": 51,
+   "ok": 51,
+   "wrong": 0,
+   "give_rate": 0.927,
+   "acc": 1.0,
+   "abstain": 0.073
+  },
+  "vol05": {
+   "n": 19,
+   "given": 19,
+   "ok": 18,
+   "wrong": 1,
+   "give_rate": 1.0,
+   "acc": 0.947,
+   "abstain": 0.0
+  }
+ },
+ "by_split": {
+  "dev": {
+   "n": 102,
+   "given": 95,
+   "ok": 94,
+   "wrong": 1,
+   "give_rate": 0.931,
+   "acc": 0.989,
+   "abstain": 0.069
+  },
+  "val": {
+   "n": 55,
+   "given": 51,
+   "ok": 51,
+   "wrong": 0,
+   "give_rate": 0.927,
+   "acc": 1.0,
+   "abstain": 0.073
+  },
+  "pool": {
+   "n": 19,
+   "given": 19,
+   "ok": 18,
+   "wrong": 1,
+   "give_rate": 1.0,
+   "acc": 0.947,
+   "abstain": 0.0
+  },
+  "extra": {
+   "n": 12,
+   "given": 11,
+   "ok": 11,
+   "wrong": 0,
+   "give_rate": 0.917,
+   "acc": 1.0,
+   "abstain": 0.083
+  }
+ },
+ "pool_no_gold_coverage": {
+  "vol05": {
+   "n": 49,
+   "given_llm+lr": 15,
+   "given_rule": 27,
+   "given_abstain": 7
+  },
+  "vol06": {
+   "n": 62,
+   "given_rule": 39,
+   "given_llm+lr": 20,
+   "given_abstain": 3
+  },
+  "vol07": {
+   "n": 64,
+   "given_llm+lr": 30,
+   "given_rule": 32,
+   "given_abstain": 2
+  },
+  "vol08": {
+   "n": 38,
+   "given_llm+lr": 9,
+   "given_rule": 26,
+   "given_abstain": 3
+  },
+  "vol09": {
+   "n": 150,
+   "given_rule": 96,
+   "given_llm+lr": 49,
+   "given_abstain": 5
+  },
+  "vol10": {
+   "n": 57,
+   "given_rule": 40,
+   "given_llm+lr": 15,
+   "given_abstain": 2
+  }
+ }
+}
