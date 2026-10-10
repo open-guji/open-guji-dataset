@@ -1,0 +1,15 @@
+{
+ "_meta": {
+  "who": "道 A（CV·整册跑批）",
+  "date": "2026-10-10",
+  "cv_main": "2356bec",
+  "config": "guji-workspace main（含 PR#1 标准批 v1、PR#2 rare_ref）；vol02/03/07＝对已有云端产物 seed_admit 重放、vol01＝重放（旧产物非 main 配置）；沙箱",
+  "script": "research/char_groups/variant/build_variant.py（claude/B-variant-1010）＋小补丁：sys.path 指向 main 工作树；labels 额外读 decisions_*.json（vol07 用 h_cells/batch07 整理看图判定）",
+  "labels": "vol01/02/03 无看图结论或整理看图判定 → 放行有真值＝0；vol07 全册标签放行 37 格 0 错，异体相关格全在待审",
+  "note": "口径与 vol04/vol05A 同格式；放行错只在有强真值的放行格上数，是下界"
+ },
+ "vol01": {"cells_total": 24401, "admit": 23720, "variant_item_cells": 24, "by_source": {"lane_variant_guard": {"cells": 24, "pending": 24}}, "labelled_admit": 0, "labelled_admit_wrong": 0, "labelled_admit_wrong_variant": 0, "wrong_variant_ids": [], "wrong_other_ids": []},
+ "vol02": {"cells_total": 30515, "admit": 30295, "variant_item_cells": 4, "by_source": {"lane_variant_guard": {"cells": 4, "pending": 4}}, "labelled_admit": 0, "labelled_admit_wrong": 0, "labelled_admit_wrong_variant": 0, "wrong_variant_ids": [], "wrong_other_ids": []},
+ "vol03": {"cells_total": 17423, "admit": 17347, "variant_item_cells": 1, "by_source": {"lane_variant_guard": {"cells": 1, "pending": 1}}, "labelled_admit": 0, "labelled_admit_wrong": 0, "labelled_admit_wrong_variant": 0, "wrong_variant_ids": [], "wrong_other_ids": []},
+ "vol07": {"cells_total": 21176, "admit": 20909, "variant_item_cells": 43, "by_source": {"lane_variant_guard": {"cells": 26, "pending": 26}, "zl_look_variant_identity": {"cells": 12, "pending": 12}, "label_variant_diff": {"cells": 21, "pending": 21}}, "labelled_admit": 37, "labelled_admit_wrong": 0, "labelled_admit_wrong_variant": 0, "wrong_variant_ids": [], "wrong_other_ids": []}
+}
