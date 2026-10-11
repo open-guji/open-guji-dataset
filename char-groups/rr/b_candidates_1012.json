@@ -1,0 +1,147 @@
+{
+ "doc": "入人八 (b)「待审放出」候选：待审 core 格、整理本对位字∈人入八、rr_clf 同类 p≥0.8、质量闸过（字块来自 dataset rr/crops，Z-rr 同口径）；label=强真值/人裁（无则 null）",
+ "n": 10,
+ "rows": [
+  {
+   "id": "vol02:124:8:7",
+   "book": "vol02",
+   "ref": "八",
+   "cur_char": "人",
+   "clf": "八",
+   "p": 0.926,
+   "label": "八",
+   "doubts": [
+    "库 unsure(cov=0.986)",
+    "near_form",
+    "replace_align",
+    "context_vs_ref"
+   ]
+  },
+  {
+   "id": "vol05:21:8:5",
+   "book": "vol05",
+   "ref": "入",
+   "cur_char": "八",
+   "clf": "入",
+   "p": 0.803,
+   "label": null,
+   "doubts": [
+    "库 unsure(cov=0.993)",
+    "上下文 margin 不足(0.48)",
+    "near_form",
+    "replace_align"
+   ]
+  },
+  {
+   "id": "vol08:4:5:19",
+   "book": "vol08",
+   "ref": "八",
+   "cur_char": "人",
+   "clf": "八",
+   "p": 0.833,
+   "label": "八",
+   "doubts": [
+    "库 unsure(cov=0.996)",
+    "上下文 margin 不足(0.10)",
+    "near_form",
+    "replace_align"
+   ]
+  },
+  {
+   "id": "vol08:37:4:6",
+   "book": "vol08",
+   "ref": "八",
+   "cur_char": "人",
+   "clf": "八",
+   "p": 0.809,
+   "label": "八",
+   "doubts": [
+    "库 unsure(cov=0.991)",
+    "上下文 margin 不足(0.54)",
+    "near_form",
+    "replace_align"
+   ]
+  },
+  {
+   "id": "vol09:70:4:7",
+   "book": "vol09",
+   "ref": "八",
+   "cur_char": "八",
+   "clf": "八",
+   "p": 0.841,
+   "label": "八",
+   "doubts": [
+    "occluded"
+   ]
+  },
+  {
+   "id": "vol09:164:6:9",
+   "book": "vol09",
+   "ref": "人",
+   "cur_char": "人",
+   "clf": "人",
+   "p": 0.903,
+   "label": "人",
+   "doubts": [
+    "occluded"
+   ]
+  },
+  {
+   "id": "vol10:70:1:19",
+   "book": "vol10",
+   "ref": "人",
+   "cur_char": "八",
+   "clf": "人",
+   "p": 0.824,
+   "label": "人",
+   "doubts": [
+    "库 unsure(cov=0.994)",
+    "上下文 margin 不足(0.35)",
+    "near_form",
+    "replace_align"
+   ]
+  },
+  {
+   "id": "vol10:88:8:7",
+   "book": "vol10",
+   "ref": "八",
+   "cur_char": "八",
+   "clf": "八",
+   "p": 0.869,
+   "label": "八",
+   "doubts": [
+    "occluded"
+   ]
+  },
+  {
+   "id": "vol10:174:5:14",
+   "book": "vol10",
+   "ref": "八",
+   "cur_char": "八",
+   "clf": "八",
+   "p": 0.986,
+   "label": null,
+   "doubts": [
+    "护栏:never_match",
+    "库 unsure(cov=0.998)",
+    "上下文 margin 不足(0.68)",
+    "near_form"
+   ]
+  },
+  {
+   "id": "vol10:174:7:6",
+   "book": "vol10",
+   "ref": "八",
+   "cur_char": "八",
+   "clf": "八",
+   "p": 0.878,
+   "label": null,
+   "doubts": [
+    "护栏:never_match",
+    "库 unsure(cov=0.999)",
+    "上下文 margin 不足(0.03)",
+    "near_form"
+   ]
+  }
+ ]
+}
