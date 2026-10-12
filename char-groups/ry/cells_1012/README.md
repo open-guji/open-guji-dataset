@@ -13,3 +13,5 @@
 | vol07 | 133 | 9 |
 
 文件 `ry_cells.jsonl`，字段 id/book/admit/char/ref/lib_top2/channel/doubts/why/in_items（in_items=是否在 ../items.jsonl 的 core 集）。vol08–10 无导出，未含。
+
+**注意**：`char`/`admit` 是引擎识别与放行的结果，没人逐格核过，是候选线索，不是真值。
