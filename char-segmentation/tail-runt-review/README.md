@@ -35,4 +35,4 @@
 
 **根因(已验证,见 cv `research/cutline_eval/overlays/n20_resolve_*.png`)**:这些都是**实际 20 字的列被 `chars_per_line=21` 硬塞 21 格**,DP 把多出的一刀切进某个字(中段:vol02 3 格;末格:7+ 格)。对 vol02 113:1、15:9、188:4 与 vol04 196:2、196:8(本机能出列图的 5 列)用 `n_body_slots=20` 重解(rule 路径),**5/5 变成一字一格、最小格高 94–99px(现役 37–41)**。修复路径是现成的**逐列字数人裁**(`review/slot_count_cards.py` → `feedback/lookup.resolved_slots`),不是排除名单(09-20 规矩:排除名单不收 seg_defect)。
 
-该清单共 28 列(含 vol04:14:5 空列、7 个空/框尾格;这些列同样可能是 20 字列,请 Lucian 一并看)。
+该清单共 28 列(含 8 个空/框尾格;这些列同样可能是 20 字列,请 Lucian 一并看;`vol04:14:5` 是空列末格,未入清单)。
