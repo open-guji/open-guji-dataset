@@ -33,7 +33,7 @@
 | | [char-segmentation/row-boundaries](char-segmentation/row-boundaries)（已退役，旧坐标系） | 2 |
 | | [char-segmentation/cell-truncation](char-segmentation/cell-truncation)（已退役，旧坐标系） | 23 |
 | Step3 附·夹注切分 | [char-segmentation/jiazhu-tail](char-segmentation/jiazhu-tail) | 57 |
-| Step3 附·逐列字数（殿本 vol01–10，双源一致） | [char-segmentation/column-counts](char-segmentation/column-counts) | 14,989 |
+| Step3 附·逐列字数（殿本 vol01–10，双源一致） | [char-segmentation/column-counts](char-segmentation/column-counts) | 14,987 |
 | Step4 字框收缩 | [char-segmentation/instances](char-segmentation/instances) | 829 |
 | | [char-segmentation/left-cut](char-segmentation/left-cut) | 57 |
 | | [char-segmentation/right-cut](char-segmentation/right-cut) | 52 |
