@@ -30,14 +30,13 @@
 
 | 量 | 数 |
 |---|---|
-| vol01–10 列 | 14,989 |
-| 两源一致（consensus） | 14,933（99.63%） |
-| 不一致（不进金标，人裁） | 56，多在职名页长列（release 按 x 聚列把一列拆成两列） |
+| vol01–10 列 | 14,989（全部进金标） |
+| 两源一致（`consensus`） | 14,933（99.63%） |
+| 不一致（`human`） | 56：多在夹注列与职名页长列，release 按 x 聚列把一列拆成两列。人裁 7 张全判 daizhige 对；用户 2026-10-19 定其余 49 列一律取 daizhige（history 里记了是统一裁定） |
 
-**残错**：一致列里随机抽 300 列（种子 20261019）出图人看，结果回来补在这里。
-人裁页 https://claude.ai/artifact/7uz9XP9Frcr6FjevoqukWq ，卡表 open-guji-cv
-`research/yolo_release_compare/results/colgold_review_cards.jsonl`。人裁回来后重跑 `colgold --export --verdicts … --cards …`：
-不一致列裁出对的那份 → `human`；抽检判「字数不对」的一致列 → `status: retired`。
+**残错抽检没做**：原定一致列随机抽 300 列人看（种子 20261019，卡表在 open-guji-cv
+`research/yolo_release_compare/results/colgold_review_cards.jsonl`），用户 10-19 定不做（「太多、没意义」）。
+所以金标的残错率**未量**；依据只有「两份独立来源一致」与「抽看的分歧都是我们切错」这两条间接证据。
 
 **用法纪律**：报「与金标一致率」时，凡据此下结论的改动，把前后翻转的列全部出图人看——
 残错只要不偏向改动的那一边，就不影响比较。发现金标错，改金标并记 `history`。
