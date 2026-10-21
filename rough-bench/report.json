@@ -1,0 +1,90 @@
+{
+ "labels": 972,
+ "variants": {
+  "A": {
+   "cells_body": 31402,
+   "review_body": 382,
+   "review_rate_body": 0.012165,
+   "labelled_judged": 972,
+   "wrong_admits": 49,
+   "wrong_cells": [
+    "vol04:126:6:10",
+    "vol04:126:8:13",
+    "vol04:12:7:2",
+    "vol04:130:8:20",
+    "vol04:148:1:3",
+    "vol04:174:2:19",
+    "vol04:176:6:13",
+    "vol04:179:1:11",
+    "vol04:179:2:6",
+    "vol04:17:1:3",
+    "vol04:18:4:19",
+    "vol04:211:3:7",
+    "vol04:211:7:8",
+    "vol04:3:2:-1",
+    "vol04:54:6:5",
+    "vol04:93:1:18",
+    "vol04:93:1:6",
+    "vol05:104:5:5a",
+    "vol05:23:7:13",
+    "vol05:51:9:13",
+    "vol05:91:3:19",
+    "vol05:92:8:12",
+    "vol06:118:2:9",
+    "vol06:148:2:8",
+    "vol06:32:7:19",
+    "vol06:32:9:13",
+    "vol07:107:6:15",
+    "vol07:28:7:19",
+    "vol07:3:7:21",
+    "vol07:63:2:6",
+    "vol07:6:5:7",
+    "vol07:93:4:19",
+    "vol07:96:5:17",
+    "vol08:56:5:6",
+    "vol08:57:7:20",
+    "vol08:64:1:7",
+    "vol08:6:7:8",
+    "vol09:160:2:19",
+    "vol09:20:8:6",
+    "vol09:28:4:15",
+    "vol09:50:5:2",
+    "vol09:60:6:21",
+    "vol09:74:1:3",
+    "vol10:119:3:10",
+    "vol10:11:4:10",
+    "vol10:122:2:6",
+    "vol10:174:2:10",
+    "vol10:35:6:14",
+    "vol10:63:8:4"
+   ]
+  }
+ },
+ "bench": {
+  "books": [
+   "vol04",
+   "vol05",
+   "vol06",
+   "vol07",
+   "vol08",
+   "vol09",
+   "vol10"
+  ],
+  "packs": {
+   "vol04": "v0.4.6-cujiao",
+   "vol05": "cv0.4.9-c9-g-82293e-layout-prior",
+   "vol06": "cv0.4.9-c9-g-82293e-layout-prior",
+   "vol07": "cv0.4.9-c9-g-82293e-layout-prior",
+   "vol08": "cv0.4.9-c9-g-82293e-layout-prior",
+   "vol09": "cv0.4.9-c9-g-82293e-layout-prior",
+   "vol10": "cv0.4.9-c9-g-82293e-layout-prior"
+  }
+ },
+ "built": {
+  "date": "2026-10-21",
+  "cv_commit": "aaca1bb4（dev aaca1bb 上的 M9 分支）",
+  "jobs": 2,
+  "wall_s": 1414,
+  "note": "现行代码、评测口径关 use_human_verdicts；GUJI_CORPUS_DRIFT=warn（dev 上 yi_560/ids_bank.json 改了没出语料 v10）"
+ }
+}
