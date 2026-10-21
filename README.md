@@ -52,6 +52,7 @@
 | [glyph-match](glyph-match) | `match`/`verify` | 193 三元组（2026-09-11 实测）/ 5,915 对（`pairs` 子分片） | 可用 | 匹配排序：同字形须胜形近异字（体检人裁产出；hard 基线 0.079，control 护栏 1.0）|
 | [char-ocr](doc/char-ocr.md) | `label` / `bench-ocr` | 9,571（2026-09-11 实测） | 可用 | 单字识别 (图块, 金标字)，按册划分 train/test |
 | [context-correction](doc/context-correction.md) | `refine` / seed context 通道 | 11 页 / 1681 槽位 | 可用 | 上下文 + LM 纠正（候选冻结；vol01 进库协议金标，human 529 分层）。首轮基线：门槛化混合 LM +2.32%（救41/坏2）；无门槛重排任何 λ 净亏 |
+| [rough-bench](rough-bench) | `eval_rough_bench.py`（`guji exp` 重跑 seed_admit） | 196 页 / 972 格 | 可用 | 粗校基准（M9）：专家改动进 rc 前量正文送审率变化与新增错放（必须为 0） |
 | [collation](doc/collation.md) | `collate`（规划中） | 0 | 框架 | 参考校对：对齐、参考质量 ρ 估计、分歧挖掘 |
 
 其余「框架」状态的数据集是刻本字符识别管线（open-guji-cv Phase 3~6）的模块化拆分，

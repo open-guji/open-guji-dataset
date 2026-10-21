@@ -1,0 +1,24 @@
+{
+  "name": "rough-bench",
+  "version": "0.1.0",
+  "schema_version": 1,
+  "description": "粗校基准（M9 D6-5，GUJI-669）：四庫總目殿本 vol04–10 冻结的正文页与标签，量专家改动的人审率变化与新增错放",
+  "created": "2026-10-21",
+  "status": "可用",
+  "eval_command": "python scripts/eval_rough_bench.py ../open-guji-dataset/rough-bench -w $WS [--var B.yaml]（open-guji-cv 仓；或 guji eval run rough_bench）",
+  "eval_script": "open-guji-cv/scripts/eval_rough_bench.py",
+  "build_command": "python scripts/rough_bench.py build --snapshot <各册 main 包取回的根>（open-guji-cv 仓）",
+  "sample_unit": "格（页内）",
+  "provenance_fields": ["source_events", "pipeline_version", "label_origin"],
+  "label_origin_values": ["human", "vision"],
+  "selection": "无 stratum = 出口 S8 随机抽样（可估错率）；stratum=human_queue／vision_picked = 挑过的样本（只报计数）",
+  "metrics": [
+    {"name": "review_rate_body", "type": "float", "direction": "lower_is_better",
+     "description": "正文页送审格 ÷ 正文页全部格（seed_admit 产物，评测口径关 use_human_verdicts）"},
+    {"name": "new_wrong", "type": "int", "target": "0",
+     "description": "有标签的格里，基线对、变体放行且错的格数；必须为 0"},
+    {"name": "wrong_admits", "type": "int", "direction": "lower_is_better",
+     "description": "有标签的格里放行且错的格数（只跑基线时和 report.json 比，不许变多）"}
+  ],
+  "known_limitation": "标签多为挑过的样本，全册错率估不准；只管正文页（职名、目录按正文计）；重切的变体上框漂了的标签不判（label_drift）"
+}
