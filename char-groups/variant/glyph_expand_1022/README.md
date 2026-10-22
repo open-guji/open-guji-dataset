@@ -1,3 +1,3 @@
 # 字形判法扩面 确认页标注（2026-10-22）
 
-禽會俞命舍（来自曾會㑹「其他」格与产物 witness3 放行的禽）与 蒙𫎇／隸𨽾／讖識䜟 少数形候选。算法／看图预填，sheldon 在手机确认页上只改错的（confirm=corrected），其余按预填算确认。 为刻形；status=other 表示都不是（其他）。字块图  取自殿本 vol04–10 产物的 cell_shrink 框。
+禽會俞命舍（来自曾會㑹「其他」格与产物 witness3 放行的禽）与 蒙𫎇／隸𨽾／讖識䜟 少数形候选。算法／看图预填，sheldon 在手机确认页上只改错的（confirm=corrected），其余按预填算确认。form 为刻形；status=other 表示都不是（其他）。字块图 crops/<id 的 : 换 _>.png 取自殿本 vol04–10 产物的 cell_shrink 框。
