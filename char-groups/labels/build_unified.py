@@ -128,8 +128,9 @@ def parse_variant_labels():
             continue
         for r in jl(f):
             by = r.get("by") or ("sheldon" if r.get("label_status") == "human" else None)
-            yield row(r.get("id"), "shape", r.get("form"), by=by, date=r.get("date"), src=f"variant:{grp}",
-                      file=rel(f), note=r.get("fixed") or r.get("src"), extra={"ref": r.get("ref")} if r.get("ref") else None)
+            yield row(r.get("id"), "shape", r.get("form"), status="ok" if r.get("form") else "other", by=by, date=r.get("date"),
+                      src=f"variant:{grp}", file=rel(f), note=r.get("fixed") or r.get("src") or r.get("note"),
+                      extra={"ref": r.get("ref")} if r.get("ref") else None)
             if r.get("cut"):
                 yield row(r.get("id"), "cut", r.get("form"), by=by, date=r.get("date"), src=f"variant:{grp}", file=rel(f),
                           extra={"cut": {"line": r["cut"], "orient": r.get("orient"), "which": r.get("which")}})
