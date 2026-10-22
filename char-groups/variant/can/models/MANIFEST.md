@@ -5,3 +5,4 @@
 - `unet_holdout_vol09.npz`（sha256 `decb6a75a2939569`）
 
 线上用自动缝，没有用 U-Net（见 CV 仓 doc/research/形近字组实验记录.md）；这些权重只是留出评测的结果，存着免得重训。
+- R2 备份（10-22）：`derived/ids-unet/can/<文件名>`（main 桶，`datastore.packs.fetch_file` 取）。
