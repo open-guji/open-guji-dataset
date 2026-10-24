@@ -1,7 +1,7 @@
 """把 char-groups 里散在各处的形近字／异体字人裁，归并成一份统一格式 `labels/unified.jsonl`。
 
 用法（幂等，可反复跑）：
-    python char-groups/labels/build_unified.py [--events <feedback/events 目录>]
+    python char-groups/labels/build_unified.py [--events <feedback/events 目录>] [--cv <open-guji-cv 仓>]
 
 --events 缺省读 ~/.guji-data/main/siku-zongmu/feedback/events（`guji db pull` 拉下来的中心库人裁事件）。
 给了才并入中心库的 confirm 事件；没给或目录不存在就只并本仓文件。
@@ -22,11 +22,17 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 CG = HERE.parent
-GROUPS = json.loads((HERE / "group_members.json").read_text(encoding="utf-8"))
 MEMBER_GROUPS: dict[str, list[str]] = collections.defaultdict(list)
-for gid, g in GROUPS.items():
-    for ch in g["members"]:
-        MEMBER_GROUPS[ch].append(gid)
+
+
+def _load_groups():
+    MEMBER_GROUPS.clear()
+    for gid, g in json.loads((HERE / "group_members.json").read_text(encoding="utf-8")).items():
+        for ch in g["members"]:
+            MEMBER_GROUPS[ch].append(gid)
+
+
+_load_groups()
 
 ID_RE = re.compile(r"^(?:v2:)?(vol\d+):(\d+):(\d+):(-?\d+[ab]?)$")
 
@@ -167,56 +173,100 @@ def parse_yi():
 
 
 def parse_central(events_dir):
-    """中心库 confirm 事件（actor=user）：payload.shape＝人裁刻形，reading＝释读。只要落在已登记字组里的。"""
+    """中心库 confirm 事件（actor=user）：payload.shape＝人裁刻形，reading＝释读。只要落在已登记字组里的。
+    同一格的每条事件都出一行（不只留最新的），合并时据此算复核与更正（2026-10-24）。"""
     if not events_dir or not Path(events_dir).is_dir():
         return
-    latest = {}
     for f in sorted(glob.glob(str(Path(events_dir) / "*.jsonl"))):
         for e in jl(f):
             if e.get("kind") != "confirm" or e.get("actor") != "user":
                 continue
             p = e.get("payload") or {}
             sh = p.get("shape")
-            k = (e.get("target") or {}).get("key")
-            if not sh or not norm_id(k) or not groups_of(sh):
+            nk = norm_id((e.get("target") or {}).get("key"))
+            if not sh or not nk or not groups_of(sh):
                 continue
-            nk = norm_id(k)
-            if nk not in latest or str(e.get("ts")) >= str(latest[nk][0].get("ts")):
-                latest[nk] = (e, Path(f).name)
-    for nk, (e, fn) in latest.items():
-        p = e["payload"]
-        yield row(nk, "shape", p["shape"], by="user", date=date_of(e.get("ts")), src=f"central:{e.get('batch')}",
-                  file=f"central-events/{fn}", event=e.get("id"),
-                  extra={"reading": p.get("reading")} if p.get("reading") else None)
+            r = row(nk, "shape", sh, by=e.get("reviewer") or "user", date=date_of(e.get("ts")), src=f"central:{e.get('batch')}",
+                    file=f"central-events/{Path(f).name}", event=e.get("id"),
+                    extra={"reading": p.get("reading")} if p.get("reading") else None)
+            if r:
+                r["_ts"] = str(e.get("ts") or "")
+                yield r
+
+
+def merge(rows: list[dict]) -> list[dict]:
+    """同格同类的多条来源合成一行（2026-10-24 起）：
+    - 结论取**日期最晚**的一条（同日：中心库事件优先于本仓文件，事件之间取 ts 晚的）；更正写进中心库就会生效；
+    - `also`：其余来源；`verified`：独立来源数 `n` 与结论是否一致 `agree`；
+    - `corrected_from`：与最终结论不同的早先结论（`[{form, src, date}]`），即被更正过；`in_central`：有中心库来源；
+    - `central_form`：中心库最新一条与最终结论不同（流水线读的是它，本仓的更正还没写进中心库）。"""
+    by: dict = collections.defaultdict(list)
+    for r in rows:
+        by[(r["id"], r["kind"])].append(r)
+    out = []
+    for (_, _), rs in by.items():
+        key = lambda r: (r["date"] or "", r["file"].startswith("central-events/"), r.get("_ts", ""))  # noqa: E731
+        rs = sorted(rs, key=key)
+        best = dict(rs[-1])
+        best.pop("_ts", None)
+        others = rs[:-1]
+        srcs = []
+        for r in others:
+            if r["src"] not in srcs and r["src"] != best["src"]:
+                srcs.append(r["src"])
+        if srcs:
+            best["also"] = srcs
+        forms = {r["form"] for r in rs}
+        best["verified"] = {"n": len({r["src"] for r in rs}), "agree": len(forms) == 1}
+        corr = []
+        for r in others:
+            if r["form"] != best["form"] and not any(c["form"] == r["form"] and c["src"] == r["src"] for c in corr):
+                corr.append({"form": r["form"], "src": r["src"], "date": r["date"]})
+        if corr:
+            best["corrected_from"] = corr
+        cen = [r for r in rs if r["file"].startswith("central-events/")]
+        best["in_central"] = bool(cen)
+        if cen and cen[-1]["form"] != best["form"]:
+            best["central_form"] = cen[-1]["form"]     # 流水线读到的是这个：本仓更新的结论还没写进中心库
+        out.append(best)
+    return out
+
+
+def export_members(cv: Path) -> None:
+    """从 CV 仓注册表导出 `group_members.json`（字组变了就重跑；不手改）。"""
+    import subprocess
+    code = ("import json; from open_guji_cv.groups import registry as R; "
+            "print(json.dumps({g: {'name': s.name, 'kind': s.kind, 'members': ''.join(sorted(s.members))} "
+            "for g, s in R.FLOW_GROUPS.items()}, ensure_ascii=False, indent=1))")
+    txt = subprocess.run(["python3", "-c", code], cwd=cv, capture_output=True, text=True, check=True).stdout
+    (HERE / "group_members.json").write_text(txt, encoding="utf-8")
+    print("导出 group_members.json：", len(json.loads(txt)), "组")
 
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--events", default=os.path.expanduser("~/.guji-data/main/siku-zongmu/feedback/events"))
+    ap.add_argument("--cv", default="", help="CV 仓路径：先从注册表重新导出 group_members.json")
     a = ap.parse_args()
+    if a.cv:
+        export_members(Path(a.cv))
+        _load_groups()
     rows = []
     for gen in (parse_review_verdicts, parse_long_tail, parse_variant_labels, parse_pair_review, parse_yi):
         rows += [r for r in gen() if r]
     local_n = len(rows)
     central = [r for r in parse_central(a.events) if r]
-    # 同格同类：本仓文件优先于中心库事件的"补录"，日期晚者胜；中心库独有的格补进来
-    best = {}
-    for r in rows + central:
-        k = (r["id"], r["kind"])
-        old = best.get(k)
-        if old is None:
-            best[k] = r
-        else:
-            old.setdefault("also", []).append(r["src"])
-            if (r["date"] or "") > (old["date"] or "") and old["file"].startswith("central-events/") is False and r["file"].startswith("central-events/") is False:
-                r["also"] = old.get("also", []) + [old["src"]]
-                best[k] = r
-    out = sorted(best.values(), key=lambda r: (r["book"], r["page"], r["col"], r["slot"], r["kind"]))
+    out = sorted(merge(rows + central), key=lambda r: (r["book"], r["page"], r["col"], r["slot"], r["kind"]))
     (HERE / "unified.jsonl").write_text("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in out), encoding="utf-8")
     by_group = collections.Counter(g for r in out if r["kind"] == "shape" or r["kind"] == "reading" for g in (r["groups"] or ["(无组)"]))
     by_kind = collections.Counter(r["kind"] for r in out)
-    src_central = sum(1 for r in out if r["file"].startswith("central-events/"))
-    print(f"本仓文件 {local_n} 行；中心库补录 {len(central)} 行；合并后 {len(out)} 行（其中只在中心库的 {src_central}）")
+    only_central = sum(1 for r in out if r["file"].startswith("central-events/"))
+    multi = sum(1 for r in out if r["verified"]["n"] > 1)
+    disagree = sum(1 for r in out if not r["verified"]["agree"])
+    print(f"本仓文件 {local_n} 行；中心库事件 {len(central)} 条；合并后 {len(out)} 行（结论来自中心库的 {only_central}，"
+          f"有中心库来源的 {sum(r['in_central'] for r in out)}）")
+    print(f"多来源 {multi} 行，其中来源之间不一致（有更正）{disagree} 行；结论与中心库不同（更正没进中心库）"
+          f"{sum(1 for r in out if r.get('central_form'))} 行")
     print("按类型：", dict(by_kind))
     print("按组（shape+reading）：", dict(by_group.most_common()))
 

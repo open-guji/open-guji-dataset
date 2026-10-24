@@ -1,0 +1,9040 @@
+{
+ "books": [
+  "vol04",
+  "vol05",
+  "vol06",
+  "vol07",
+  "vol08",
+  "vol09",
+  "vol10",
+  "vol11",
+  "vol12",
+  "vol13",
+  "vol14",
+  "vol15",
+  "vol16",
+  "vol17",
+  "vol18",
+  "vol19",
+  "vol20"
+ ],
+ "groups": {
+  "jys": {
+   "name": "己已巳",
+   "kind": "不同义",
+   "methods": "[ctx_rule → llm]",
+   "total": {
+    "occ": 1379,
+    "admit": 1152,
+    "flow": 1359,
+    "pick": 1140,
+    "decision:fix": 391,
+    "checked": 73,
+    "decision:admit": 213,
+    "decision:keep": 536,
+    "review": 227,
+    "decision:demote": 181,
+    "decision:review": 38
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 93,
+     "admit": 89,
+     "flow": 87,
+     "pick": 84,
+     "decision:fix": 35,
+     "checked": 30,
+     "decision:admit": 13,
+     "decision:keep": 36,
+     "review": 4,
+     "decision:demote": 3
+    },
+    "vol05": {
+     "occ": 67,
+     "admit": 67,
+     "flow": 60,
+     "pick": 60,
+     "decision:fix": 20,
+     "checked": 20,
+     "decision:keep": 30,
+     "decision:admit": 10
+    },
+    "vol06": {
+     "occ": 62,
+     "admit": 54,
+     "flow": 62,
+     "pick": 54,
+     "decision:keep": 15,
+     "decision:admit": 6,
+     "decision:fix": 33,
+     "review": 8,
+     "decision:demote": 7,
+     "checked": 6,
+     "decision:review": 1
+    },
+    "vol07": {
+     "occ": 64,
+     "admit": 62,
+     "flow": 64,
+     "pick": 62,
+     "decision:fix": 40,
+     "decision:admit": 6,
+     "decision:keep": 16,
+     "checked": 2,
+     "review": 2,
+     "decision:demote": 2
+    },
+    "vol08": {
+     "occ": 38,
+     "review": 4,
+     "admit": 34,
+     "flow": 37,
+     "pick": 34,
+     "decision:admit": 8,
+     "decision:fix": 13,
+     "decision:demote": 1,
+     "decision:keep": 13,
+     "decision:review": 2,
+     "checked": 1
+    },
+    "vol09": {
+     "occ": 150,
+     "admit": 142,
+     "flow": 149,
+     "pick": 142,
+     "decision:admit": 28,
+     "decision:fix": 62,
+     "checked": 12,
+     "decision:keep": 52,
+     "review": 8,
+     "decision:review": 2,
+     "decision:demote": 5
+    },
+    "vol10": {
+     "occ": 57,
+     "admit": 52,
+     "flow": 57,
+     "pick": 52,
+     "decision:keep": 12,
+     "decision:fix": 34,
+     "checked": 2,
+     "decision:admit": 6,
+     "review": 5,
+     "decision:demote": 5
+    },
+    "vol11": {
+     "occ": 39,
+     "admit": 29,
+     "flow": 39,
+     "pick": 29,
+     "decision:keep": 12,
+     "review": 10,
+     "decision:demote": 10,
+     "decision:fix": 9,
+     "decision:admit": 8
+    },
+    "vol12": {
+     "occ": 94,
+     "admit": 73,
+     "flow": 94,
+     "pick": 73,
+     "decision:keep": 15,
+     "decision:fix": 49,
+     "decision:admit": 9,
+     "review": 21,
+     "decision:demote": 19,
+     "decision:review": 2
+    },
+    "vol13": {
+     "occ": 88,
+     "review": 20,
+     "flow": 88,
+     "pick": 68,
+     "decision:demote": 16,
+     "admit": 68,
+     "decision:keep": 38,
+     "decision:admit": 24,
+     "decision:review": 4,
+     "decision:fix": 6
+    },
+    "vol14": {
+     "occ": 134,
+     "admit": 102,
+     "flow": 132,
+     "pick": 102,
+     "decision:admit": 18,
+     "decision:fix": 32,
+     "decision:keep": 52,
+     "review": 32,
+     "decision:demote": 27,
+     "decision:review": 3
+    },
+    "vol15": {
+     "occ": 104,
+     "review": 15,
+     "admit": 89,
+     "flow": 103,
+     "pick": 89,
+     "decision:keep": 61,
+     "decision:admit": 23,
+     "decision:demote": 10,
+     "decision:review": 4,
+     "decision:fix": 5
+    },
+    "vol16": {
+     "occ": 66,
+     "admit": 49,
+     "flow": 66,
+     "pick": 49,
+     "decision:keep": 30,
+     "review": 17,
+     "decision:demote": 16,
+     "decision:fix": 12,
+     "decision:admit": 7,
+     "decision:review": 1
+    },
+    "vol17": {
+     "occ": 96,
+     "admit": 76,
+     "flow": 96,
+     "pick": 76,
+     "decision:keep": 59,
+     "decision:fix": 9,
+     "review": 20,
+     "decision:demote": 12,
+     "decision:review": 8,
+     "decision:admit": 8
+    },
+    "vol18": {
+     "occ": 96,
+     "review": 24,
+     "flow": 95,
+     "pick": 72,
+     "decision:demote": 17,
+     "admit": 72,
+     "decision:keep": 49,
+     "decision:admit": 14,
+     "decision:review": 6,
+     "decision:fix": 9
+    },
+    "vol19": {
+     "occ": 52,
+     "admit": 43,
+     "flow": 52,
+     "pick": 43,
+     "decision:admit": 13,
+     "decision:fix": 9,
+     "decision:keep": 21,
+     "review": 9,
+     "decision:demote": 8,
+     "decision:review": 1
+    },
+    "vol20": {
+     "occ": 79,
+     "admit": 51,
+     "flow": 78,
+     "pick": 51,
+     "decision:keep": 25,
+     "decision:admit": 12,
+     "review": 28,
+     "decision:demote": 23,
+     "decision:review": 4,
+     "decision:fix": 14
+    }
+   },
+   "labels": {
+    "reading": 104,
+    "shape": 153,
+    "central": 153,
+    "multi": 32,
+    "corrected": 8
+   },
+   "mismatch": []
+  },
+  "ry": {
+   "name": "日曰",
+   "kind": "不同义",
+   "methods": "[ctx_rule → llm] ＋ custom:ry_shape",
+   "total": {
+    "occ": 2757,
+    "admit": 2574,
+    "flow": 2697,
+    "pick": 1653,
+    "decision:keep": 2388,
+    "checked": 37,
+    "decision:admit": 85,
+    "mismatch": 3,
+    "review": 183,
+    "decision:review": 200,
+    "decision:demote": 24
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 204,
+     "admit": 199,
+     "flow": 199,
+     "pick": 180,
+     "decision:keep": 185,
+     "checked": 15,
+     "decision:admit": 10,
+     "mismatch": 1,
+     "review": 5,
+     "decision:review": 4
+    },
+    "vol05": {
+     "occ": 139,
+     "admit": 139,
+     "flow": 126,
+     "pick": 116,
+     "decision:keep": 112,
+     "checked": 8,
+     "decision:admit": 13,
+     "decision:review": 1
+    },
+    "vol06": {
+     "occ": 98,
+     "admit": 93,
+     "flow": 97,
+     "pick": 81,
+     "decision:keep": 91,
+     "review": 5,
+     "checked": 3,
+     "decision:admit": 2,
+     "decision:review": 2,
+     "decision:demote": 2
+    },
+    "vol07": {
+     "occ": 115,
+     "admit": 109,
+     "flow": 113,
+     "pick": 104,
+     "decision:keep": 103,
+     "checked": 3,
+     "review": 6,
+     "decision:demote": 5,
+     "decision:admit": 4,
+     "decision:review": 1
+    },
+    "vol08": {
+     "occ": 52,
+     "admit": 49,
+     "flow": 52,
+     "pick": 42,
+     "decision:keep": 46,
+     "review": 3,
+     "decision:review": 3,
+     "decision:admit": 3
+    },
+    "vol09": {
+     "occ": 198,
+     "admit": 192,
+     "flow": 197,
+     "pick": 177,
+     "decision:keep": 165,
+     "decision:admit": 25,
+     "checked": 3,
+     "mismatch": 2,
+     "review": 6,
+     "decision:review": 3,
+     "decision:demote": 4
+    },
+    "vol10": {
+     "occ": 223,
+     "admit": 215,
+     "flow": 218,
+     "pick": 188,
+     "decision:keep": 197,
+     "decision:admit": 11,
+     "checked": 5,
+     "review": 8,
+     "decision:demote": 4,
+     "decision:review": 6
+    },
+    "vol11": {
+     "occ": 103,
+     "admit": 96,
+     "flow": 100,
+     "pick": 41,
+     "decision:keep": 88,
+     "review": 7,
+     "decision:review": 10,
+     "decision:admit": 1,
+     "decision:demote": 1
+    },
+    "vol12": {
+     "occ": 189,
+     "admit": 183,
+     "flow": 189,
+     "pick": 66,
+     "decision:keep": 183,
+     "review": 6,
+     "decision:review": 6
+    },
+    "vol13": {
+     "occ": 281,
+     "admit": 249,
+     "flow": 275,
+     "pick": 118,
+     "decision:keep": 241,
+     "decision:review": 31,
+     "decision:admit": 2,
+     "review": 32,
+     "decision:demote": 1
+    },
+    "vol14": {
+     "occ": 236,
+     "review": 25,
+     "flow": 233,
+     "pick": 114,
+     "decision:review": 25,
+     "admit": 211,
+     "decision:keep": 200,
+     "decision:admit": 4,
+     "decision:demote": 4
+    },
+    "vol15": {
+     "occ": 202,
+     "admit": 190,
+     "flow": 196,
+     "pick": 116,
+     "decision:keep": 173,
+     "review": 12,
+     "decision:review": 21,
+     "decision:demote": 1,
+     "decision:admit": 1
+    },
+    "vol16": {
+     "occ": 152,
+     "admit": 132,
+     "flow": 146,
+     "pick": 48,
+     "decision:keep": 121,
+     "decision:review": 23,
+     "review": 20,
+     "decision:demote": 1,
+     "decision:admit": 1
+    },
+    "vol17": {
+     "occ": 200,
+     "admit": 184,
+     "flow": 197,
+     "pick": 108,
+     "decision:keep": 166,
+     "review": 16,
+     "decision:review": 25,
+     "decision:admit": 6
+    },
+    "vol18": {
+     "occ": 76,
+     "admit": 68,
+     "flow": 75,
+     "pick": 28,
+     "decision:keep": 66,
+     "review": 8,
+     "decision:review": 9
+    },
+    "vol19": {
+     "occ": 73,
+     "admit": 69,
+     "flow": 72,
+     "pick": 37,
+     "decision:keep": 65,
+     "decision:review": 7,
+     "review": 4
+    },
+    "vol20": {
+     "occ": 216,
+     "admit": 196,
+     "flow": 212,
+     "pick": 89,
+     "decision:keep": 186,
+     "review": 20,
+     "decision:review": 23,
+     "decision:demote": 1,
+     "decision:admit": 2
+    }
+   },
+   "labels": {
+    "shape": 101,
+    "central": 101,
+    "multi": 41,
+    "reading": 88,
+    "corrected": 8
+   },
+   "mismatch": [
+    {
+     "id": "vol04:60:9:6",
+     "admit": "日",
+     "label": "曰",
+     "channel": "match_ref"
+    },
+    {
+     "id": "vol09:24:3:13",
+     "admit": "曰",
+     "label": "日",
+     "channel": "match_ref"
+    },
+    {
+     "id": "vol09:251:4:3",
+     "admit": "曰",
+     "label": "日",
+     "channel": "group_flow"
+    }
+   ]
+  },
+  "rr": {
+   "name": "入人八",
+   "kind": "不同义",
+   "methods": "[ctx_rule → llm] ＋ custom:rr_img ＋ composite(crop(0.0, 1.0, 0.0, 0.5) → hog)",
+   "total": {
+    "occ": 4430,
+    "admit": 4396,
+    "flow": 4390,
+    "pick": 4347,
+    "decision:keep": 4322,
+    "checked": 59,
+    "review": 34,
+    "decision:demote": 26,
+    "decision:admit": 32,
+    "decision:review": 10,
+    "mismatch": 2
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 404,
+     "admit": 401,
+     "flow": 400,
+     "pick": 398,
+     "decision:keep": 394,
+     "checked": 20,
+     "review": 3,
+     "decision:demote": 1,
+     "decision:admit": 4,
+     "decision:review": 1
+    },
+    "vol05": {
+     "occ": 378,
+     "admit": 378,
+     "checked": 4,
+     "flow": 367,
+     "pick": 367,
+     "decision:keep": 366,
+     "decision:admit": 1
+    },
+    "vol06": {
+     "occ": 256,
+     "admit": 255,
+     "flow": 253,
+     "pick": 252,
+     "decision:keep": 251,
+     "checked": 7,
+     "decision:admit": 1,
+     "review": 1,
+     "decision:demote": 1
+    },
+    "vol07": {
+     "occ": 164,
+     "admit": 163,
+     "flow": 163,
+     "pick": 162,
+     "decision:keep": 161,
+     "checked": 5,
+     "review": 1,
+     "decision:demote": 1,
+     "decision:admit": 1
+    },
+    "vol08": {
+     "occ": 109,
+     "admit": 107,
+     "flow": 109,
+     "pick": 107,
+     "decision:keep": 106,
+     "checked": 6,
+     "review": 2,
+     "decision:demote": 1,
+     "decision:review": 1,
+     "decision:admit": 1
+    },
+    "vol09": {
+     "occ": 364,
+     "admit": 359,
+     "flow": 362,
+     "pick": 358,
+     "decision:keep": 355,
+     "checked": 9,
+     "review": 5,
+     "decision:demote": 4,
+     "decision:admit": 1,
+     "decision:review": 2,
+     "mismatch": 1
+    },
+    "vol10": {
+     "occ": 254,
+     "admit": 252,
+     "flow": 253,
+     "pick": 251,
+     "decision:keep": 250,
+     "checked": 8,
+     "decision:admit": 1,
+     "review": 2,
+     "decision:demote": 1,
+     "decision:review": 1,
+     "mismatch": 1
+    },
+    "vol11": {
+     "occ": 117,
+     "admit": 116,
+     "flow": 117,
+     "pick": 116,
+     "decision:keep": 116,
+     "review": 1,
+     "decision:demote": 1
+    },
+    "vol12": {
+     "occ": 230,
+     "admit": 229,
+     "flow": 229,
+     "pick": 228,
+     "decision:keep": 225,
+     "decision:admit": 3,
+     "review": 1,
+     "decision:demote": 1
+    },
+    "vol13": {
+     "occ": 276,
+     "admit": 275,
+     "flow": 276,
+     "pick": 273,
+     "decision:keep": 270,
+     "decision:admit": 4,
+     "decision:demote": 2,
+     "review": 1
+    },
+    "vol14": {
+     "occ": 334,
+     "review": 2,
+     "admit": 332,
+     "flow": 330,
+     "pick": 327,
+     "decision:keep": 326,
+     "decision:admit": 2,
+     "decision:review": 1,
+     "decision:demote": 1
+    },
+    "vol15": {
+     "occ": 228,
+     "admit": 228,
+     "flow": 227,
+     "pick": 227,
+     "decision:keep": 225,
+     "decision:admit": 2
+    },
+    "vol16": {
+     "occ": 276,
+     "admit": 274,
+     "flow": 275,
+     "pick": 273,
+     "decision:keep": 271,
+     "decision:admit": 2,
+     "review": 2,
+     "decision:demote": 2
+    },
+    "vol17": {
+     "occ": 232,
+     "admit": 227,
+     "flow": 230,
+     "pick": 222,
+     "decision:keep": 221,
+     "review": 5,
+     "decision:demote": 5,
+     "decision:admit": 3,
+     "decision:review": 1
+    },
+    "vol18": {
+     "occ": 197,
+     "admit": 195,
+     "flow": 197,
+     "pick": 193,
+     "decision:keep": 194,
+     "review": 2,
+     "decision:demote": 2,
+     "decision:admit": 1
+    },
+    "vol19": {
+     "occ": 238,
+     "review": 1,
+     "admit": 237,
+     "flow": 231,
+     "pick": 228,
+     "decision:keep": 229,
+     "decision:review": 1,
+     "decision:admit": 1
+    },
+    "vol20": {
+     "occ": 373,
+     "admit": 368,
+     "flow": 371,
+     "pick": 365,
+     "decision:keep": 362,
+     "review": 5,
+     "decision:review": 2,
+     "decision:admit": 4,
+     "decision:demote": 3
+    }
+   },
+   "labels": {
+    "reading": 78,
+    "shape": 65,
+    "central": 65,
+    "multi": 58,
+    "corrected": 4
+   },
+   "mismatch": [
+    {
+     "id": "vol09:169:5:13",
+     "admit": "八",
+     "label": "入",
+     "channel": "rare_ref"
+    },
+    {
+     "id": "vol10:133:7:12",
+     "admit": "人",
+     "label": "曰",
+     "channel": "match_ref"
+    }
+   ]
+  },
+  "wxs": {
+   "name": "戊戌戍",
+   "kind": "不同义",
+   "methods": "[ctx_rule → llm]",
+   "total": {
+    "occ": 171,
+    "admit": 167,
+    "flow": 124,
+    "pick": 111,
+    "decision:keep": 112,
+    "checked": 27,
+    "decision:admit": 9,
+    "decision:review": 2,
+    "review": 4,
+    "decision:demote": 1
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 18,
+     "admit": 18,
+     "flow": 12,
+     "pick": 12,
+     "decision:keep": 11,
+     "checked": 11,
+     "decision:admit": 1
+    },
+    "vol05": {
+     "occ": 32,
+     "admit": 32,
+     "flow": 22,
+     "pick": 20,
+     "decision:keep": 21,
+     "decision:review": 1
+    },
+    "vol06": {
+     "occ": 7,
+     "admit": 7,
+     "flow": 7,
+     "pick": 7,
+     "decision:keep": 6,
+     "checked": 5,
+     "decision:admit": 1
+    },
+    "vol07": {
+     "occ": 5,
+     "admit": 5,
+     "flow": 4,
+     "pick": 4,
+     "decision:keep": 4,
+     "checked": 3
+    },
+    "vol08": {
+     "occ": 5,
+     "admit": 5,
+     "flow": 3,
+     "pick": 3,
+     "decision:keep": 3,
+     "checked": 2
+    },
+    "vol09": {
+     "occ": 11,
+     "admit": 11,
+     "flow": 11,
+     "pick": 10,
+     "decision:keep": 11,
+     "checked": 3
+    },
+    "vol10": {
+     "occ": 3,
+     "admit": 3,
+     "flow": 3,
+     "pick": 3,
+     "decision:keep": 3,
+     "checked": 3
+    },
+    "vol11": {
+     "occ": 3,
+     "admit": 3,
+     "flow": 2,
+     "pick": 2,
+     "decision:admit": 1,
+     "decision:keep": 1
+    },
+    "vol12": {
+     "occ": 12,
+     "admit": 12,
+     "flow": 7,
+     "pick": 5,
+     "decision:keep": 7
+    },
+    "vol13": {
+     "occ": 11,
+     "admit": 11,
+     "flow": 6,
+     "pick": 6,
+     "decision:keep": 6
+    },
+    "vol14": {
+     "occ": 23,
+     "admit": 21,
+     "flow": 18,
+     "pick": 15,
+     "decision:keep": 14,
+     "review": 2,
+     "decision:admit": 3,
+     "decision:demote": 1
+    },
+    "vol15": {
+     "occ": 7,
+     "admit": 7,
+     "flow": 2,
+     "pick": 2,
+     "decision:keep": 2
+    },
+    "vol16": {
+     "occ": 12,
+     "admit": 10,
+     "flow": 11,
+     "pick": 8,
+     "decision:keep": 9,
+     "review": 2,
+     "decision:review": 1,
+     "decision:admit": 1
+    },
+    "vol17": {
+     "occ": 5,
+     "admit": 5,
+     "flow": 3,
+     "pick": 3,
+     "decision:admit": 1,
+     "decision:keep": 2
+    },
+    "vol18": {
+     "occ": 7,
+     "admit": 7,
+     "flow": 6,
+     "pick": 6,
+     "decision:keep": 5,
+     "decision:admit": 1
+    },
+    "vol19": {
+     "occ": 7,
+     "admit": 7,
+     "flow": 5,
+     "pick": 3,
+     "decision:keep": 5
+    },
+    "vol20": {
+     "occ": 3,
+     "admit": 3,
+     "flow": 2,
+     "pick": 2,
+     "decision:keep": 2
+    }
+   },
+   "labels": {
+    "shape": 48,
+    "central": 48,
+    "reading": 4,
+    "multi": 38,
+    "corrected": 1
+   },
+   "mismatch": []
+  },
+  "wm": {
+   "name": "未末",
+   "kind": "不同义",
+   "methods": "[ctx_rule → llm] ＋ custom:bars",
+   "total": {
+    "occ": 2030,
+    "admit": 2026,
+    "checked": 49,
+    "flow": 14,
+    "pick": 6,
+    "decision:review": 8,
+    "review": 4,
+    "decision:admit": 6
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 165,
+     "admit": 165,
+     "checked": 7,
+     "flow": 1,
+     "pick": 0,
+     "decision:review": 1
+    },
+    "vol05": {
+     "occ": 121,
+     "admit": 121,
+     "checked": 3
+    },
+    "vol06": {
+     "occ": 117,
+     "admit": 116,
+     "checked": 7,
+     "flow": 1,
+     "pick": 0,
+     "decision:review": 1,
+     "review": 1
+    },
+    "vol07": {
+     "occ": 97,
+     "admit": 97,
+     "checked": 6
+    },
+    "vol08": {
+     "occ": 42,
+     "admit": 42,
+     "checked": 7
+    },
+    "vol09": {
+     "occ": 191,
+     "admit": 191,
+     "checked": 12,
+     "flow": 1,
+     "pick": 1,
+     "decision:admit": 1
+    },
+    "vol10": {
+     "occ": 95,
+     "admit": 95,
+     "flow": 1,
+     "pick": 1,
+     "decision:admit": 1,
+     "checked": 7
+    },
+    "vol11": {
+     "occ": 81,
+     "admit": 81,
+     "flow": 1,
+     "pick": 0,
+     "decision:review": 1
+    },
+    "vol12": {
+     "occ": 102,
+     "admit": 102,
+     "flow": 1,
+     "pick": 0,
+     "decision:review": 1
+    },
+    "vol13": {
+     "occ": 141,
+     "admit": 141,
+     "flow": 1,
+     "pick": 1,
+     "decision:admit": 1
+    },
+    "vol14": {
+     "occ": 179,
+     "admit": 178,
+     "review": 1,
+     "flow": 1,
+     "pick": 0,
+     "decision:review": 1
+    },
+    "vol15": {
+     "occ": 96,
+     "admit": 96
+    },
+    "vol16": {
+     "occ": 118,
+     "admit": 117,
+     "review": 1,
+     "flow": 2,
+     "pick": 1,
+     "decision:review": 1,
+     "decision:admit": 1
+    },
+    "vol17": {
+     "occ": 138,
+     "admit": 138
+    },
+    "vol18": {
+     "occ": 78,
+     "admit": 78,
+     "flow": 1,
+     "pick": 0,
+     "decision:review": 1
+    },
+    "vol19": {
+     "occ": 86,
+     "admit": 86
+    },
+    "vol20": {
+     "occ": 183,
+     "admit": 182,
+     "flow": 3,
+     "pick": 2,
+     "decision:review": 1,
+     "decision:admit": 2,
+     "review": 1
+    }
+   },
+   "labels": {
+    "shape": 44,
+    "central": 44,
+    "multi": 36,
+    "reading": 25
+   },
+   "mismatch": []
+  },
+  "ts": {
+   "name": "土士",
+   "kind": "不同义",
+   "methods": "[ctx_rule → llm] ＋ custom:bars ＋ composite(crop(0.0, 0.5, 0.0, 1.0) → hog)",
+   "total": {
+    "occ": 998,
+    "admit": 988,
+    "review": 10,
+    "checked": 37,
+    "flow": 16,
+    "pick": 10,
+    "decision:admit": 10,
+    "mismatch": 2,
+    "decision:review": 6
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 86,
+     "admit": 85,
+     "review": 1,
+     "checked": 3
+    },
+    "vol05": {
+     "occ": 89,
+     "admit": 89,
+     "flow": 2,
+     "pick": 2,
+     "decision:admit": 2,
+     "checked": 3,
+     "mismatch": 2
+    },
+    "vol06": {
+     "occ": 37,
+     "admit": 37,
+     "checked": 4
+    },
+    "vol07": {
+     "occ": 41,
+     "admit": 41,
+     "checked": 8
+    },
+    "vol08": {
+     "occ": 20,
+     "admit": 18,
+     "checked": 4,
+     "review": 2,
+     "flow": 1,
+     "pick": 1,
+     "decision:admit": 1
+    },
+    "vol09": {
+     "occ": 86,
+     "admit": 86,
+     "checked": 9,
+     "flow": 1,
+     "pick": 1,
+     "decision:admit": 1
+    },
+    "vol10": {
+     "occ": 102,
+     "admit": 102,
+     "checked": 6
+    },
+    "vol11": {
+     "occ": 43,
+     "admit": 43,
+     "flow": 1,
+     "pick": 1,
+     "decision:admit": 1
+    },
+    "vol12": {
+     "occ": 74,
+     "admit": 73,
+     "flow": 1,
+     "pick": 1,
+     "decision:admit": 1,
+     "review": 1
+    },
+    "vol13": {
+     "occ": 100,
+     "admit": 98,
+     "review": 2,
+     "flow": 7,
+     "pick": 4,
+     "decision:review": 3,
+     "decision:admit": 4
+    },
+    "vol14": {
+     "occ": 73,
+     "admit": 72,
+     "review": 1,
+     "flow": 1,
+     "pick": 0,
+     "decision:review": 1
+    },
+    "vol15": {
+     "occ": 25,
+     "admit": 24,
+     "review": 1
+    },
+    "vol16": {
+     "occ": 60,
+     "admit": 60
+    },
+    "vol17": {
+     "occ": 41,
+     "admit": 41
+    },
+    "vol18": {
+     "occ": 46,
+     "admit": 46
+    },
+    "vol19": {
+     "occ": 19,
+     "admit": 17,
+     "review": 2,
+     "flow": 2,
+     "pick": 0,
+     "decision:review": 2
+    },
+    "vol20": {
+     "occ": 56,
+     "admit": 56
+    }
+   },
+   "labels": {
+    "shape": 36,
+    "central": 36,
+    "reading": 17,
+    "multi": 25
+   },
+   "mismatch": [
+    {
+     "id": "vol05:108:6:7",
+     "admit": "士",
+     "label": "歴",
+     "channel": "match_ref"
+    },
+    {
+     "id": "vol05:147:9:9",
+     "admit": "士",
+     "label": "土",
+     "channel": "context"
+    }
+   ]
+  },
+  "ly": {
+   "name": "論諭",
+   "kind": "不同义",
+   "methods": "[ctx_rule → llm] ＋ composite(crop(0.25, 0.75, 0.5, 1.0) → hog)",
+   "total": {
+    "occ": 1732,
+    "admit": 1720,
+    "flow": 1715,
+    "pick": 1196,
+    "decision:keep": 1659,
+    "checked": 26,
+    "decision:admit": 29,
+    "decision:review": 20,
+    "review": 12,
+    "decision:demote": 7
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 135,
+     "admit": 135,
+     "flow": 134,
+     "pick": 114,
+     "decision:keep": 132,
+     "checked": 6,
+     "decision:admit": 2
+    },
+    "vol05": {
+     "occ": 87,
+     "admit": 87,
+     "flow": 83,
+     "pick": 79,
+     "decision:keep": 79,
+     "decision:admit": 3,
+     "decision:review": 1
+    },
+    "vol06": {
+     "occ": 93,
+     "admit": 93,
+     "flow": 93,
+     "pick": 19,
+     "decision:keep": 91,
+     "checked": 5,
+     "decision:review": 1,
+     "decision:admit": 1
+    },
+    "vol07": {
+     "occ": 56,
+     "admit": 56,
+     "flow": 56,
+     "pick": 16,
+     "decision:keep": 55,
+     "decision:review": 1,
+     "checked": 3
+    },
+    "vol08": {
+     "occ": 42,
+     "admit": 42,
+     "flow": 42,
+     "pick": 4,
+     "decision:keep": 42,
+     "checked": 3
+    },
+    "vol09": {
+     "occ": 172,
+     "admit": 171,
+     "flow": 172,
+     "pick": 57,
+     "decision:keep": 170,
+     "checked": 7,
+     "decision:review": 2,
+     "review": 1
+    },
+    "vol10": {
+     "occ": 60,
+     "admit": 60,
+     "flow": 59,
+     "pick": 26,
+     "decision:keep": 58,
+     "decision:review": 1,
+     "checked": 2
+    },
+    "vol11": {
+     "occ": 35,
+     "admit": 34,
+     "flow": 34,
+     "pick": 28,
+     "decision:keep": 33,
+     "review": 1,
+     "decision:demote": 1
+    },
+    "vol12": {
+     "occ": 78,
+     "admit": 78,
+     "flow": 77,
+     "pick": 63,
+     "decision:keep": 74,
+     "decision:admit": 2,
+     "decision:review": 1
+    },
+    "vol13": {
+     "occ": 106,
+     "admit": 105,
+     "flow": 105,
+     "pick": 86,
+     "decision:keep": 100,
+     "decision:admit": 3,
+     "decision:review": 1,
+     "review": 1,
+     "decision:demote": 1
+    },
+    "vol14": {
+     "occ": 151,
+     "admit": 150,
+     "flow": 150,
+     "pick": 123,
+     "decision:keep": 146,
+     "decision:admit": 3,
+     "review": 1,
+     "decision:demote": 1
+    },
+    "vol15": {
+     "occ": 97,
+     "admit": 96,
+     "flow": 96,
+     "pick": 80,
+     "decision:keep": 91,
+     "decision:admit": 2,
+     "review": 1,
+     "decision:demote": 1,
+     "decision:review": 2
+    },
+    "vol16": {
+     "occ": 142,
+     "admit": 142,
+     "flow": 140,
+     "pick": 117,
+     "decision:keep": 139,
+     "decision:admit": 1
+    },
+    "vol17": {
+     "occ": 182,
+     "admit": 180,
+     "flow": 180,
+     "pick": 154,
+     "decision:keep": 173,
+     "decision:admit": 4,
+     "decision:review": 3,
+     "review": 2
+    },
+    "vol18": {
+     "occ": 94,
+     "admit": 92,
+     "flow": 92,
+     "pick": 79,
+     "decision:admit": 3,
+     "decision:keep": 87,
+     "review": 2,
+     "decision:demote": 1,
+     "decision:review": 1
+    },
+    "vol19": {
+     "occ": 126,
+     "admit": 124,
+     "flow": 126,
+     "pick": 91,
+     "decision:keep": 121,
+     "decision:review": 2,
+     "decision:admit": 1,
+     "review": 2,
+     "decision:demote": 2
+    },
+    "vol20": {
+     "occ": 76,
+     "admit": 75,
+     "flow": 76,
+     "pick": 60,
+     "decision:keep": 68,
+     "decision:review": 4,
+     "decision:admit": 4,
+     "review": 1
+    }
+   },
+   "labels": {
+    "shape": 46,
+    "central": 46,
+    "multi": 38,
+    "corrected": 1
+   },
+   "mismatch": []
+  },
+  "dt": {
+   "name": "大太",
+   "kind": "不同义",
+   "methods": "[ctx_rule → llm]",
+   "total": {
+    "occ": 3054,
+    "admit": 3047,
+    "flow": 3021,
+    "pick": 1176,
+    "decision:keep": 2999,
+    "checked": 16,
+    "mismatch": 5,
+    "decision:admit": 9,
+    "review": 7,
+    "decision:demote": 4,
+    "decision:review": 9
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 292,
+     "admit": 291,
+     "flow": 288,
+     "pick": 265,
+     "decision:keep": 284,
+     "checked": 6,
+     "mismatch": 3,
+     "decision:admit": 3,
+     "review": 1,
+     "decision:demote": 1
+    },
+    "vol05": {
+     "occ": 190,
+     "admit": 190,
+     "flow": 183,
+     "pick": 87,
+     "decision:keep": 179,
+     "decision:admit": 3,
+     "decision:review": 1
+    },
+    "vol06": {
+     "occ": 203,
+     "admit": 203,
+     "flow": 203,
+     "pick": 47,
+     "decision:keep": 203,
+     "checked": 4,
+     "mismatch": 1
+    },
+    "vol07": {
+     "occ": 136,
+     "admit": 136,
+     "flow": 135,
+     "pick": 46,
+     "decision:keep": 135,
+     "checked": 2
+    },
+    "vol08": {
+     "occ": 64,
+     "admit": 63,
+     "flow": 61,
+     "pick": 14,
+     "decision:keep": 61,
+     "review": 1,
+     "checked": 1
+    },
+    "vol09": {
+     "occ": 236,
+     "admit": 235,
+     "flow": 233,
+     "pick": 85,
+     "decision:keep": 232,
+     "checked": 1,
+     "review": 1,
+     "decision:demote": 1
+    },
+    "vol10": {
+     "occ": 166,
+     "admit": 166,
+     "flow": 163,
+     "pick": 58,
+     "decision:keep": 162,
+     "decision:review": 1,
+     "checked": 2,
+     "mismatch": 1
+    },
+    "vol11": {
+     "occ": 136,
+     "admit": 136,
+     "flow": 134,
+     "pick": 43,
+     "decision:keep": 133,
+     "decision:admit": 1
+    },
+    "vol12": {
+     "occ": 176,
+     "admit": 176,
+     "flow": 176,
+     "pick": 82,
+     "decision:keep": 175,
+     "decision:review": 1
+    },
+    "vol13": {
+     "occ": 273,
+     "admit": 273,
+     "flow": 273,
+     "pick": 78,
+     "decision:keep": 272,
+     "decision:review": 1
+    },
+    "vol14": {
+     "occ": 195,
+     "admit": 195,
+     "flow": 193,
+     "pick": 85,
+     "decision:keep": 193
+    },
+    "vol15": {
+     "occ": 114,
+     "admit": 114,
+     "flow": 114,
+     "pick": 38,
+     "decision:keep": 114
+    },
+    "vol16": {
+     "occ": 155,
+     "admit": 155,
+     "flow": 155,
+     "pick": 55,
+     "decision:keep": 155
+    },
+    "vol17": {
+     "occ": 171,
+     "admit": 169,
+     "flow": 169,
+     "pick": 52,
+     "decision:keep": 166,
+     "decision:admit": 1,
+     "review": 2,
+     "decision:demote": 2
+    },
+    "vol18": {
+     "occ": 175,
+     "admit": 175,
+     "flow": 175,
+     "pick": 60,
+     "decision:keep": 175
+    },
+    "vol19": {
+     "occ": 218,
+     "admit": 217,
+     "flow": 214,
+     "pick": 27,
+     "decision:keep": 209,
+     "decision:review": 4,
+     "decision:admit": 1,
+     "review": 1
+    },
+    "vol20": {
+     "occ": 154,
+     "admit": 153,
+     "flow": 152,
+     "pick": 54,
+     "decision:keep": 151,
+     "review": 1,
+     "decision:review": 1
+    }
+   },
+   "labels": {
+    "shape": 47,
+    "central": 47,
+    "multi": 21,
+    "reading": 2
+   },
+   "mismatch": [
+    {
+     "id": "vol04:14:6:3",
+     "admit": "大",
+     "label": "㫖",
+     "channel": "match_ref"
+    },
+    {
+     "id": "vol04:111:2:6",
+     "admit": "大",
+     "label": "㫖",
+     "channel": "match_ref"
+    },
+    {
+     "id": "vol04:185:3:3",
+     "admit": "大",
+     "label": "㫖",
+     "channel": "match_ref"
+    },
+    {
+     "id": "vol06:46:7:9",
+     "admit": "大",
+     "label": "抵",
+     "channel": "match_ref"
+    },
+    {
+     "id": "vol10:175:6:14",
+     "admit": "大",
+     "label": "抵",
+     "channel": "match_ref"
+    }
+   ]
+  },
+  "wj": {
+   "name": "問間",
+   "kind": "不同义",
+   "methods": "[ctx_rule → llm] ＋ composite(crop(0.25, 1.0, 0.25, 1.0) → hog)",
+   "total": {
+    "occ": 896,
+    "admit": 859,
+    "flow": 771,
+    "pick": 520,
+    "decision:keep": 744,
+    "checked": 30,
+    "review": 37,
+    "decision:review": 6,
+    "decision:admit": 4,
+    "decision:demote": 17
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 46,
+     "admit": 45,
+     "flow": 38,
+     "pick": 32,
+     "decision:keep": 38,
+     "checked": 6,
+     "review": 1
+    },
+    "vol05": {
+     "occ": 38,
+     "admit": 38,
+     "flow": 24,
+     "pick": 22,
+     "decision:keep": 24
+    },
+    "vol06": {
+     "occ": 39,
+     "admit": 38,
+     "flow": 35,
+     "pick": 11,
+     "decision:keep": 35,
+     "checked": 5,
+     "review": 1
+    },
+    "vol07": {
+     "occ": 23,
+     "admit": 23,
+     "flow": 21,
+     "pick": 9,
+     "decision:keep": 21,
+     "checked": 5
+    },
+    "vol08": {
+     "occ": 17,
+     "admit": 17,
+     "flow": 14,
+     "pick": 3,
+     "decision:keep": 14,
+     "checked": 5
+    },
+    "vol09": {
+     "occ": 104,
+     "admit": 100,
+     "flow": 89,
+     "pick": 25,
+     "decision:keep": 87,
+     "checked": 5,
+     "review": 4,
+     "decision:review": 2
+    },
+    "vol10": {
+     "occ": 47,
+     "admit": 44,
+     "flow": 37,
+     "pick": 9,
+     "decision:keep": 36,
+     "review": 3,
+     "checked": 4,
+     "decision:review": 1
+    },
+    "vol11": {
+     "occ": 34,
+     "admit": 33,
+     "flow": 29,
+     "pick": 23,
+     "decision:keep": 27,
+     "decision:admit": 1,
+     "review": 1,
+     "decision:demote": 1
+    },
+    "vol12": {
+     "occ": 64,
+     "admit": 54,
+     "flow": 60,
+     "pick": 48,
+     "decision:keep": 52,
+     "review": 10,
+     "decision:demote": 8
+    },
+    "vol13": {
+     "occ": 79,
+     "admit": 77,
+     "review": 2,
+     "flow": 74,
+     "pick": 64,
+     "decision:demote": 4,
+     "decision:keep": 70
+    },
+    "vol14": {
+     "occ": 68,
+     "admit": 67,
+     "flow": 59,
+     "pick": 53,
+     "decision:keep": 58,
+     "review": 1,
+     "decision:demote": 1
+    },
+    "vol15": {
+     "occ": 43,
+     "admit": 43,
+     "flow": 42,
+     "pick": 27,
+     "decision:keep": 41,
+     "decision:admit": 1
+    },
+    "vol16": {
+     "occ": 52,
+     "admit": 47,
+     "flow": 40,
+     "pick": 35,
+     "decision:keep": 38,
+     "review": 5,
+     "decision:demote": 1,
+     "decision:review": 1
+    },
+    "vol17": {
+     "occ": 99,
+     "admit": 96,
+     "flow": 87,
+     "pick": 67,
+     "decision:keep": 86,
+     "review": 3,
+     "decision:review": 1
+    },
+    "vol18": {
+     "occ": 62,
+     "admit": 59,
+     "flow": 53,
+     "pick": 41,
+     "decision:keep": 50,
+     "decision:admit": 1,
+     "review": 3,
+     "decision:demote": 2
+    },
+    "vol19": {
+     "occ": 39,
+     "admit": 38,
+     "flow": 32,
+     "pick": 24,
+     "decision:keep": 31,
+     "decision:admit": 1,
+     "review": 1
+    },
+    "vol20": {
+     "occ": 42,
+     "admit": 40,
+     "flow": 37,
+     "pick": 27,
+     "decision:keep": 36,
+     "review": 2,
+     "decision:review": 1
+    }
+   },
+   "labels": {
+    "shape": 48,
+    "central": 48,
+    "multi": 37
+   },
+   "mismatch": []
+  },
+  "zh": {
+   "name": "曾會㑹",
+   "kind": "不同义",
+   "methods": "[ctx_rule → llm] ＋ composite(crop(0.25, 1.0, 0.0, 0.5) → hog)",
+   "total": {
+    "occ": 504,
+    "admit": 488,
+    "flow": 491,
+    "pick": 393,
+    "decision:admit": 54,
+    "decision:keep": 426,
+    "checked": 94,
+    "review": 16,
+    "decision:review": 7,
+    "mismatch": 1,
+    "decision:demote": 4
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 36,
+     "admit": 35,
+     "flow": 36,
+     "pick": 31,
+     "decision:admit": 6,
+     "decision:keep": 29,
+     "checked": 23,
+     "review": 1,
+     "decision:review": 1
+    },
+    "vol05": {
+     "occ": 32,
+     "admit": 32,
+     "flow": 28,
+     "pick": 27,
+     "decision:keep": 26,
+     "checked": 12,
+     "decision:admit": 2
+    },
+    "vol06": {
+     "occ": 20,
+     "admit": 18,
+     "checked": 11,
+     "mismatch": 1,
+     "flow": 19,
+     "pick": 7,
+     "decision:keep": 16,
+     "decision:admit": 1,
+     "review": 2,
+     "decision:review": 2
+    },
+    "vol07": {
+     "occ": 25,
+     "admit": 24,
+     "flow": 24,
+     "pick": 12,
+     "decision:keep": 20,
+     "checked": 15,
+     "decision:admit": 4,
+     "review": 1
+    },
+    "vol08": {
+     "occ": 13,
+     "admit": 12,
+     "flow": 13,
+     "pick": 3,
+     "decision:keep": 12,
+     "checked": 6,
+     "review": 1,
+     "decision:review": 1
+    },
+    "vol09": {
+     "occ": 36,
+     "admit": 35,
+     "flow": 35,
+     "pick": 20,
+     "decision:review": 1,
+     "checked": 17,
+     "decision:keep": 33,
+     "review": 1,
+     "decision:admit": 1
+    },
+    "vol10": {
+     "occ": 20,
+     "admit": 20,
+     "flow": 20,
+     "pick": 9,
+     "decision:keep": 20,
+     "checked": 10
+    },
+    "vol11": {
+     "occ": 22,
+     "admit": 22,
+     "flow": 22,
+     "pick": 20,
+     "decision:keep": 19,
+     "decision:admit": 3
+    },
+    "vol12": {
+     "occ": 35,
+     "admit": 35,
+     "flow": 35,
+     "pick": 29,
+     "decision:keep": 34,
+     "decision:admit": 1
+    },
+    "vol13": {
+     "occ": 48,
+     "admit": 46,
+     "flow": 45,
+     "pick": 42,
+     "decision:keep": 43,
+     "decision:admit": 2,
+     "review": 2
+    },
+    "vol14": {
+     "occ": 47,
+     "admit": 46,
+     "flow": 46,
+     "pick": 44,
+     "decision:keep": 35,
+     "decision:admit": 11,
+     "review": 1
+    },
+    "vol15": {
+     "occ": 39,
+     "admit": 38,
+     "flow": 39,
+     "pick": 34,
+     "decision:admit": 5,
+     "review": 1,
+     "decision:demote": 1,
+     "decision:keep": 33
+    },
+    "vol16": {
+     "occ": 30,
+     "admit": 29,
+     "flow": 30,
+     "pick": 26,
+     "decision:keep": 23,
+     "decision:admit": 6,
+     "review": 1,
+     "decision:demote": 1
+    },
+    "vol17": {
+     "occ": 20,
+     "admit": 20,
+     "flow": 20,
+     "pick": 16,
+     "decision:keep": 17,
+     "decision:admit": 3
+    },
+    "vol18": {
+     "occ": 13,
+     "admit": 12,
+     "flow": 12,
+     "pick": 11,
+     "decision:keep": 10,
+     "decision:admit": 2,
+     "review": 1
+    },
+    "vol19": {
+     "occ": 11,
+     "admit": 11,
+     "flow": 11,
+     "pick": 11,
+     "decision:admit": 6,
+     "decision:keep": 5
+    },
+    "vol20": {
+     "occ": 57,
+     "admit": 53,
+     "flow": 56,
+     "pick": 51,
+     "decision:keep": 51,
+     "decision:admit": 1,
+     "review": 4,
+     "decision:review": 2,
+     "decision:demote": 2
+    }
+   },
+   "labels": {
+    "shape": 116,
+    "central": 38,
+    "multi": 28,
+    "corrected": 1
+   },
+   "mismatch": [
+    {
+     "id": "vol06:3:7:9",
+     "admit": "㑹",
+     "label": "會",
+     "channel": "seal"
+    }
+   ]
+  },
+  "yh": {
+   "name": "遺還",
+   "kind": "不同义",
+   "methods": "[ctx_rule → llm] ＋ hog",
+   "total": {
+    "occ": 321,
+    "admit": 316,
+    "flow": 299,
+    "pick": 249,
+    "decision:keep": 298,
+    "checked": 25,
+    "review": 5,
+    "decision:demote": 1
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 19,
+     "admit": 19,
+     "flow": 18,
+     "pick": 12,
+     "decision:keep": 18,
+     "checked": 7
+    },
+    "vol05": {
+     "occ": 13,
+     "admit": 13,
+     "flow": 7,
+     "pick": 3,
+     "decision:keep": 7
+    },
+    "vol06": {
+     "occ": 13,
+     "admit": 13,
+     "flow": 12,
+     "pick": 9,
+     "decision:keep": 12,
+     "checked": 5
+    },
+    "vol07": {
+     "occ": 10,
+     "admit": 10,
+     "flow": 9,
+     "pick": 4,
+     "decision:keep": 9,
+     "checked": 3
+    },
+    "vol08": {
+     "occ": 4,
+     "admit": 4,
+     "flow": 4,
+     "pick": 2,
+     "decision:keep": 4,
+     "checked": 3
+    },
+    "vol09": {
+     "occ": 33,
+     "admit": 33,
+     "flow": 32,
+     "pick": 19,
+     "decision:keep": 32,
+     "checked": 3
+    },
+    "vol10": {
+     "occ": 12,
+     "admit": 12,
+     "flow": 12,
+     "pick": 4,
+     "decision:keep": 12,
+     "checked": 4
+    },
+    "vol11": {
+     "occ": 15,
+     "admit": 15,
+     "flow": 14,
+     "pick": 14,
+     "decision:keep": 14
+    },
+    "vol12": {
+     "occ": 15,
+     "admit": 15,
+     "flow": 15,
+     "pick": 15,
+     "decision:keep": 15
+    },
+    "vol13": {
+     "occ": 18,
+     "admit": 18,
+     "flow": 17,
+     "pick": 15,
+     "decision:keep": 17
+    },
+    "vol14": {
+     "occ": 27,
+     "admit": 26,
+     "flow": 25,
+     "pick": 24,
+     "decision:keep": 25,
+     "review": 1
+    },
+    "vol15": {
+     "occ": 18,
+     "admit": 18,
+     "flow": 18,
+     "pick": 18,
+     "decision:keep": 18
+    },
+    "vol16": {
+     "occ": 35,
+     "admit": 33,
+     "flow": 33,
+     "pick": 33,
+     "decision:keep": 33,
+     "review": 2
+    },
+    "vol17": {
+     "occ": 28,
+     "admit": 28,
+     "flow": 27,
+     "pick": 23,
+     "decision:keep": 27
+    },
+    "vol18": {
+     "occ": 10,
+     "admit": 9,
+     "flow": 9,
+     "pick": 9,
+     "decision:keep": 9,
+     "review": 1
+    },
+    "vol19": {
+     "occ": 18,
+     "admit": 18,
+     "flow": 17,
+     "pick": 17,
+     "decision:keep": 17
+    },
+    "vol20": {
+     "occ": 33,
+     "admit": 32,
+     "flow": 30,
+     "pick": 28,
+     "decision:keep": 29,
+     "review": 1,
+     "decision:demote": 1
+    }
+   },
+   "labels": {
+    "shape": 33,
+    "central": 33,
+    "multi": 31
+   },
+   "mismatch": []
+  },
+  "xz": {
+   "name": "象彖𧰼",
+   "kind": "不同义",
+   "methods": "[ctx_rule → llm]",
+   "total": {
+    "occ": 696,
+    "admit": 682,
+    "flow": 674,
+    "pick": 369,
+    "decision:keep": 655,
+    "checked": 187,
+    "review": 14,
+    "decision:demote": 5,
+    "decision:admit": 8,
+    "mismatch": 9,
+    "decision:review": 6
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 259,
+     "admit": 254,
+     "flow": 257,
+     "pick": 204,
+     "decision:keep": 250,
+     "checked": 79,
+     "review": 5,
+     "decision:demote": 4,
+     "decision:admit": 2,
+     "mismatch": 4,
+     "decision:review": 1
+    },
+    "vol05": {
+     "occ": 195,
+     "admit": 195,
+     "flow": 178,
+     "pick": 135,
+     "decision:keep": 175,
+     "checked": 53,
+     "mismatch": 3,
+     "decision:admit": 3
+    },
+    "vol06": {
+     "occ": 132,
+     "admit": 130,
+     "flow": 132,
+     "pick": 13,
+     "decision:keep": 129,
+     "checked": 43,
+     "mismatch": 2,
+     "review": 2,
+     "decision:demote": 1,
+     "decision:admit": 1,
+     "decision:review": 1
+    },
+    "vol07": {
+     "occ": 7,
+     "admit": 7,
+     "flow": 7,
+     "pick": 0,
+     "decision:keep": 7,
+     "checked": 4
+    },
+    "vol08": {
+     "occ": 3,
+     "admit": 2,
+     "flow": 3,
+     "pick": 0,
+     "decision:keep": 2,
+     "checked": 2,
+     "review": 1,
+     "decision:review": 1
+    },
+    "vol09": {
+     "occ": 6,
+     "admit": 6,
+     "flow": 6,
+     "pick": 0,
+     "decision:keep": 6,
+     "checked": 4
+    },
+    "vol10": {
+     "occ": 4,
+     "admit": 4,
+     "flow": 4,
+     "pick": 1,
+     "decision:keep": 3,
+     "checked": 2,
+     "decision:admit": 1
+    },
+    "vol11": {
+     "occ": 20,
+     "review": 4,
+     "admit": 16,
+     "flow": 17,
+     "pick": 2,
+     "decision:keep": 16,
+     "decision:review": 1
+    },
+    "vol12": {
+     "occ": 3,
+     "admit": 3,
+     "flow": 3,
+     "pick": 0,
+     "decision:keep": 3
+    },
+    "vol13": {
+     "occ": 7,
+     "admit": 7,
+     "flow": 7,
+     "pick": 3,
+     "decision:keep": 7
+    },
+    "vol14": {
+     "occ": 7,
+     "admit": 7,
+     "flow": 7,
+     "pick": 1,
+     "decision:keep": 7
+    },
+    "vol15": {
+     "occ": 2,
+     "admit": 2,
+     "flow": 2,
+     "pick": 0,
+     "decision:keep": 2
+    },
+    "vol16": {
+     "occ": 19,
+     "admit": 19,
+     "flow": 19,
+     "pick": 3,
+     "decision:keep": 19
+    },
+    "vol17": {
+     "occ": 9,
+     "admit": 9,
+     "flow": 9,
+     "pick": 2,
+     "decision:keep": 9
+    },
+    "vol18": {
+     "occ": 2,
+     "admit": 2,
+     "flow": 2,
+     "pick": 1,
+     "decision:keep": 1,
+     "decision:admit": 1
+    },
+    "vol19": {
+     "occ": 7,
+     "admit": 5,
+     "flow": 7,
+     "pick": 1,
+     "decision:keep": 5,
+     "review": 2,
+     "decision:review": 2
+    },
+    "vol20": {
+     "occ": 14,
+     "admit": 14,
+     "flow": 14,
+     "pick": 3,
+     "decision:keep": 14
+    }
+   },
+   "labels": {
+    "shape": 224,
+    "central": 60,
+    "multi": 40,
+    "reading": 6,
+    "corrected": 2
+   },
+   "mismatch": [
+    {
+     "id": "vol04:77:3:15",
+     "admit": "象",
+     "label": "𧰼",
+     "channel": "group_flow"
+    },
+    {
+     "id": "vol04:82:7:9",
+     "admit": "象",
+     "label": "𧰼",
+     "channel": "group_flow"
+    },
+    {
+     "id": "vol04:156:8:11",
+     "admit": "象",
+     "label": "𧰼",
+     "channel": "match_ref"
+    },
+    {
+     "id": "vol04:166:7:4",
+     "admit": "象",
+     "label": "𧰼",
+     "channel": "match_ref"
+    },
+    {
+     "id": "vol05:89:1:10",
+     "admit": "象",
+     "label": "𧰼",
+     "channel": "match_ref"
+    },
+    {
+     "id": "vol05:115:6:14",
+     "admit": "象",
+     "label": "𧰼",
+     "channel": "group_flow"
+    },
+    {
+     "id": "vol05:115:9:8",
+     "admit": "象",
+     "label": "𧰼",
+     "channel": "group_flow"
+    },
+    {
+     "id": "vol06:68:3:15",
+     "admit": "𧰼",
+     "label": "象",
+     "channel": "context"
+    },
+    {
+     "id": "vol06:80:1:4",
+     "admit": "象",
+     "label": "𧰼",
+     "channel": "group_flow"
+    }
+   ]
+  },
+  "wyu": {
+   "name": "王玉",
+   "kind": "不同义",
+   "methods": "[ctx_rule → llm]",
+   "total": {
+    "occ": 1515,
+    "admit": 1509,
+    "flow": 1486,
+    "pick": 567,
+    "decision:keep": 1476,
+    "checked": 22,
+    "review": 6,
+    "decision:review": 7,
+    "decision:demote": 2,
+    "decision:admit": 1
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 91,
+     "admit": 91,
+     "flow": 89,
+     "pick": 86,
+     "decision:keep": 89,
+     "checked": 3
+    },
+    "vol05": {
+     "occ": 91,
+     "admit": 91,
+     "flow": 84,
+     "pick": 78,
+     "decision:keep": 84
+    },
+    "vol06": {
+     "occ": 67,
+     "admit": 67,
+     "flow": 67,
+     "pick": 32,
+     "decision:keep": 67,
+     "checked": 4
+    },
+    "vol07": {
+     "occ": 87,
+     "admit": 87,
+     "flow": 86,
+     "pick": 41,
+     "decision:keep": 86,
+     "checked": 4
+    },
+    "vol08": {
+     "occ": 29,
+     "admit": 29,
+     "flow": 27,
+     "pick": 7,
+     "decision:keep": 27,
+     "checked": 4
+    },
+    "vol09": {
+     "occ": 165,
+     "admit": 164,
+     "flow": 163,
+     "pick": 57,
+     "decision:keep": 162,
+     "review": 1,
+     "decision:review": 1,
+     "checked": 4
+    },
+    "vol10": {
+     "occ": 113,
+     "admit": 113,
+     "flow": 112,
+     "pick": 24,
+     "decision:keep": 111,
+     "checked": 3,
+     "decision:review": 1
+    },
+    "vol11": {
+     "occ": 59,
+     "admit": 59,
+     "flow": 55,
+     "pick": 29,
+     "decision:keep": 55
+    },
+    "vol12": {
+     "occ": 100,
+     "admit": 100,
+     "flow": 98,
+     "pick": 32,
+     "decision:keep": 97,
+     "decision:review": 1
+    },
+    "vol13": {
+     "occ": 149,
+     "admit": 149,
+     "flow": 149,
+     "pick": 49,
+     "decision:keep": 149
+    },
+    "vol14": {
+     "occ": 152,
+     "admit": 152,
+     "flow": 149,
+     "pick": 30,
+     "decision:keep": 149
+    },
+    "vol15": {
+     "occ": 85,
+     "admit": 85,
+     "flow": 84,
+     "pick": 16,
+     "decision:keep": 83,
+     "decision:review": 1
+    },
+    "vol16": {
+     "occ": 83,
+     "admit": 83,
+     "flow": 83,
+     "pick": 25,
+     "decision:keep": 83
+    },
+    "vol17": {
+     "occ": 61,
+     "admit": 60,
+     "review": 1,
+     "flow": 60,
+     "pick": 18,
+     "decision:demote": 1,
+     "decision:keep": 58,
+     "decision:admit": 1
+    },
+    "vol18": {
+     "occ": 65,
+     "admit": 65,
+     "flow": 65,
+     "pick": 17,
+     "decision:keep": 65
+    },
+    "vol19": {
+     "occ": 25,
+     "admit": 22,
+     "flow": 22,
+     "pick": 7,
+     "decision:keep": 22,
+     "review": 3
+    },
+    "vol20": {
+     "occ": 93,
+     "admit": 92,
+     "flow": 93,
+     "pick": 19,
+     "decision:keep": 89,
+     "decision:review": 3,
+     "review": 1,
+     "decision:demote": 1
+    }
+   },
+   "labels": {
+    "shape": 46,
+    "central": 46,
+    "multi": 29
+   },
+   "mismatch": []
+  },
+  "yt": {
+   "name": "圓圖",
+   "kind": "不同义",
+   "methods": "[ctx_rule → llm] ＋ composite(crop(0.25, 1.0, 0.0, 1.0) → hog)",
+   "total": {
+    "occ": 1161,
+    "admit": 1141,
+    "flow": 1092,
+    "pick": 800,
+    "decision:keep": 1070,
+    "decision:admit": 8,
+    "checked": 24,
+    "decision:review": 8,
+    "review": 20,
+    "decision:demote": 6
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 234,
+     "admit": 234,
+     "flow": 224,
+     "pick": 190,
+     "decision:keep": 219,
+     "decision:admit": 3,
+     "checked": 8,
+     "decision:review": 2
+    },
+    "vol05": {
+     "occ": 240,
+     "admit": 240,
+     "flow": 218,
+     "pick": 196,
+     "decision:keep": 217,
+     "decision:admit": 1
+    },
+    "vol06": {
+     "occ": 134,
+     "admit": 131,
+     "checked": 7,
+     "flow": 125,
+     "pick": 47,
+     "decision:keep": 125,
+     "review": 3
+    },
+    "vol07": {
+     "occ": 36,
+     "admit": 36,
+     "flow": 35,
+     "pick": 19,
+     "decision:keep": 35,
+     "checked": 2
+    },
+    "vol08": {
+     "occ": 23,
+     "admit": 23,
+     "flow": 23,
+     "pick": 6,
+     "decision:keep": 23,
+     "checked": 2
+    },
+    "vol09": {
+     "occ": 16,
+     "admit": 16,
+     "flow": 13,
+     "pick": 4,
+     "decision:keep": 13,
+     "checked": 2
+    },
+    "vol10": {
+     "occ": 48,
+     "admit": 47,
+     "flow": 48,
+     "pick": 3,
+     "decision:keep": 46,
+     "decision:review": 2,
+     "checked": 3,
+     "review": 1
+    },
+    "vol11": {
+     "occ": 52,
+     "admit": 51,
+     "flow": 50,
+     "pick": 41,
+     "decision:keep": 50,
+     "review": 1
+    },
+    "vol12": {
+     "occ": 25,
+     "admit": 23,
+     "flow": 22,
+     "pick": 19,
+     "decision:keep": 22,
+     "review": 2
+    },
+    "vol13": {
+     "occ": 46,
+     "admit": 45,
+     "flow": 45,
+     "pick": 40,
+     "decision:keep": 43,
+     "decision:admit": 2,
+     "review": 1
+    },
+    "vol14": {
+     "occ": 27,
+     "admit": 27,
+     "flow": 27,
+     "pick": 24,
+     "decision:keep": 27
+    },
+    "vol15": {
+     "occ": 12,
+     "admit": 11,
+     "flow": 11,
+     "pick": 11,
+     "decision:keep": 11,
+     "review": 1
+    },
+    "vol16": {
+     "occ": 73,
+     "admit": 69,
+     "flow": 69,
+     "pick": 53,
+     "decision:keep": 66,
+     "review": 4,
+     "decision:demote": 3
+    },
+    "vol17": {
+     "occ": 9,
+     "admit": 9,
+     "flow": 9,
+     "pick": 8,
+     "decision:keep": 9
+    },
+    "vol18": {
+     "occ": 19,
+     "admit": 19,
+     "flow": 19,
+     "pick": 15,
+     "decision:keep": 19
+    },
+    "vol19": {
+     "occ": 121,
+     "admit": 116,
+     "flow": 109,
+     "pick": 89,
+     "decision:keep": 102,
+     "review": 5,
+     "decision:review": 3,
+     "decision:demote": 2,
+     "decision:admit": 2
+    },
+    "vol20": {
+     "occ": 46,
+     "admit": 44,
+     "flow": 45,
+     "pick": 35,
+     "decision:keep": 43,
+     "review": 2,
+     "decision:demote": 1,
+     "decision:review": 1
+    }
+   },
+   "labels": {
+    "shape": 43,
+    "central": 43,
+    "multi": 31,
+    "reading": 1
+   },
+   "mismatch": []
+  },
+  "rm": {
+   "name": "日目",
+   "kind": "不同义",
+   "methods": "[ctx_rule → llm]",
+   "total": {
+    "occ": 1074,
+    "review": 168,
+    "admit": 906,
+    "flow": 545,
+    "pick": 229,
+    "decision:keep": 514,
+    "checked": 15,
+    "mismatch": 1,
+    "decision:review": 21,
+    "decision:admit": 6,
+    "decision:demote": 4
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 73,
+     "review": 5,
+     "admit": 68,
+     "flow": 37,
+     "pick": 27,
+     "decision:keep": 37,
+     "checked": 5,
+     "mismatch": 1
+    },
+    "vol05": {
+     "occ": 35,
+     "admit": 35,
+     "flow": 17,
+     "pick": 12,
+     "decision:keep": 16,
+     "decision:review": 1
+    },
+    "vol06": {
+     "occ": 43,
+     "review": 6,
+     "admit": 37,
+     "flow": 27,
+     "pick": 8,
+     "decision:keep": 25,
+     "decision:review": 1,
+     "checked": 2,
+     "decision:admit": 1
+    },
+    "vol07": {
+     "occ": 50,
+     "review": 7,
+     "admit": 43,
+     "checked": 3,
+     "flow": 18,
+     "pick": 9,
+     "decision:keep": 17,
+     "decision:review": 1
+    },
+    "vol08": {
+     "occ": 19,
+     "review": 3,
+     "admit": 16,
+     "flow": 7,
+     "pick": 4,
+     "decision:keep": 7,
+     "checked": 2
+    },
+    "vol09": {
+     "occ": 93,
+     "admit": 84,
+     "flow": 61,
+     "pick": 26,
+     "decision:keep": 59,
+     "review": 9,
+     "decision:admit": 1,
+     "checked": 2,
+     "decision:demote": 1
+    },
+    "vol10": {
+     "occ": 56,
+     "review": 7,
+     "admit": 49,
+     "flow": 35,
+     "pick": 10,
+     "decision:keep": 32,
+     "decision:review": 1,
+     "checked": 1,
+     "decision:admit": 2
+    },
+    "vol11": {
+     "occ": 52,
+     "review": 6,
+     "admit": 46,
+     "flow": 29,
+     "pick": 14,
+     "decision:keep": 28,
+     "decision:review": 1
+    },
+    "vol12": {
+     "occ": 71,
+     "review": 6,
+     "admit": 65,
+     "flow": 21,
+     "pick": 12,
+     "decision:keep": 20,
+     "decision:admit": 1
+    },
+    "vol13": {
+     "occ": 121,
+     "review": 27,
+     "admit": 94,
+     "flow": 53,
+     "pick": 28,
+     "decision:keep": 49,
+     "decision:review": 2,
+     "decision:demote": 2
+    },
+    "vol14": {
+     "occ": 97,
+     "review": 19,
+     "admit": 78,
+     "flow": 44,
+     "pick": 12,
+     "decision:keep": 42,
+     "decision:review": 2
+    },
+    "vol15": {
+     "occ": 68,
+     "review": 13,
+     "admit": 55,
+     "flow": 25,
+     "pick": 12,
+     "decision:keep": 21,
+     "decision:review": 3,
+     "decision:demote": 1
+    },
+    "vol16": {
+     "occ": 75,
+     "review": 20,
+     "admit": 55,
+     "flow": 37,
+     "pick": 11,
+     "decision:keep": 31,
+     "decision:review": 5,
+     "decision:admit": 1
+    },
+    "vol17": {
+     "occ": 63,
+     "review": 15,
+     "admit": 48,
+     "flow": 33,
+     "pick": 7,
+     "decision:keep": 32,
+     "decision:review": 1
+    },
+    "vol18": {
+     "occ": 46,
+     "review": 5,
+     "admit": 41,
+     "flow": 26,
+     "pick": 10,
+     "decision:keep": 26
+    },
+    "vol19": {
+     "occ": 21,
+     "review": 2,
+     "admit": 19,
+     "flow": 11,
+     "pick": 3,
+     "decision:keep": 11
+    },
+    "vol20": {
+     "occ": 91,
+     "admit": 73,
+     "flow": 64,
+     "pick": 24,
+     "decision:keep": 61,
+     "review": 18,
+     "decision:review": 3
+    }
+   },
+   "labels": {
+    "shape": 56,
+    "central": 56,
+    "multi": 26,
+    "reading": 22,
+    "corrected": 3
+   },
+   "mismatch": [
+    {
+     "id": "vol04:60:9:6",
+     "admit": "日",
+     "label": "曰",
+     "channel": "match_ref"
+    }
+   ]
+  },
+  "mz": {
+   "name": "目自",
+   "kind": "不同义",
+   "methods": "[ctx_rule → llm]",
+   "total": {
+    "occ": 2279,
+    "review": 39,
+    "admit": 2240,
+    "flow": 1690,
+    "pick": 721,
+    "decision:keep": 1673,
+    "checked": 24,
+    "mismatch": 1,
+    "decision:admit": 4,
+    "decision:review": 7,
+    "decision:demote": 6
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 173,
+     "review": 2,
+     "admit": 171,
+     "flow": 131,
+     "pick": 108,
+     "decision:keep": 131,
+     "checked": 6,
+     "mismatch": 1
+    },
+    "vol05": {
+     "occ": 158,
+     "admit": 158,
+     "flow": 135,
+     "pick": 62,
+     "decision:keep": 133,
+     "decision:admit": 2
+    },
+    "vol06": {
+     "occ": 121,
+     "review": 2,
+     "admit": 119,
+     "flow": 92,
+     "pick": 46,
+     "decision:keep": 91,
+     "checked": 4,
+     "decision:review": 1
+    },
+    "vol07": {
+     "occ": 100,
+     "review": 2,
+     "admit": 98,
+     "flow": 81,
+     "pick": 34,
+     "decision:keep": 80,
+     "checked": 4,
+     "decision:review": 1
+    },
+    "vol08": {
+     "occ": 57,
+     "review": 1,
+     "admit": 56,
+     "flow": 48,
+     "pick": 16,
+     "decision:keep": 47,
+     "decision:admit": 1,
+     "checked": 4
+    },
+    "vol09": {
+     "occ": 209,
+     "admit": 206,
+     "flow": 144,
+     "pick": 72,
+     "decision:keep": 144,
+     "checked": 3,
+     "review": 3
+    },
+    "vol10": {
+     "occ": 101,
+     "review": 2,
+     "admit": 99,
+     "flow": 66,
+     "pick": 28,
+     "decision:keep": 66,
+     "checked": 3
+    },
+    "vol11": {
+     "occ": 84,
+     "review": 2,
+     "admit": 82,
+     "flow": 54,
+     "pick": 23,
+     "decision:keep": 52,
+     "decision:demote": 1,
+     "decision:admit": 1
+    },
+    "vol12": {
+     "occ": 109,
+     "review": 1,
+     "admit": 108,
+     "flow": 85,
+     "pick": 25,
+     "decision:keep": 85
+    },
+    "vol13": {
+     "occ": 203,
+     "review": 4,
+     "admit": 199,
+     "flow": 148,
+     "pick": 46,
+     "decision:keep": 146,
+     "decision:review": 2
+    },
+    "vol14": {
+     "occ": 173,
+     "review": 3,
+     "admit": 170,
+     "flow": 127,
+     "pick": 41,
+     "decision:keep": 127
+    },
+    "vol15": {
+     "occ": 115,
+     "review": 2,
+     "admit": 113,
+     "flow": 89,
+     "pick": 47,
+     "decision:keep": 89
+    },
+    "vol16": {
+     "occ": 114,
+     "review": 1,
+     "admit": 113,
+     "flow": 76,
+     "pick": 28,
+     "decision:keep": 76
+    },
+    "vol17": {
+     "occ": 125,
+     "review": 2,
+     "admit": 123,
+     "flow": 90,
+     "pick": 31,
+     "decision:keep": 88,
+     "decision:demote": 1,
+     "decision:review": 1
+    },
+    "vol18": {
+     "occ": 108,
+     "review": 2,
+     "admit": 106,
+     "flow": 78,
+     "pick": 31,
+     "decision:keep": 77,
+     "decision:demote": 1
+    },
+    "vol19": {
+     "occ": 133,
+     "review": 5,
+     "admit": 128,
+     "flow": 116,
+     "pick": 36,
+     "decision:keep": 113,
+     "decision:demote": 2,
+     "decision:review": 1
+    },
+    "vol20": {
+     "occ": 196,
+     "admit": 191,
+     "flow": 130,
+     "pick": 47,
+     "decision:keep": 128,
+     "review": 5,
+     "decision:review": 1,
+     "decision:demote": 1
+    }
+   },
+   "labels": {
+    "shape": 49,
+    "central": 49,
+    "multi": 32,
+    "reading": 1
+   },
+   "mismatch": [
+    {
+     "id": "vol04:121:9:15",
+     "admit": "自",
+     "label": "讖",
+     "channel": "match_ref"
+    }
+   ]
+  },
+  "yr": {
+   "name": "一二",
+   "kind": "不同义",
+   "methods": "[ctx_rule → llm] ＋ hog",
+   "total": {
+    "occ": 7569,
+    "admit": 7475,
+    "flow": 7456,
+    "pick": 4600,
+    "decision:keep": 7329,
+    "checked": 10,
+    "review": 94,
+    "decision:review": 31,
+    "decision:demote": 64,
+    "decision:admit": 32
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 520,
+     "admit": 520,
+     "flow": 515,
+     "pick": 113,
+     "decision:keep": 515,
+     "checked": 3
+    },
+    "vol05": {
+     "occ": 445,
+     "admit": 444,
+     "flow": 437,
+     "pick": 81,
+     "decision:keep": 437,
+     "review": 1
+    },
+    "vol06": {
+     "occ": 377,
+     "admit": 377,
+     "flow": 376,
+     "pick": 53,
+     "decision:keep": 375,
+     "decision:review": 1,
+     "checked": 3
+    },
+    "vol07": {
+     "occ": 309,
+     "review": 1,
+     "admit": 308,
+     "flow": 304,
+     "pick": 48,
+     "decision:keep": 303,
+     "decision:review": 1,
+     "checked": 1
+    },
+    "vol08": {
+     "occ": 130,
+     "admit": 129,
+     "flow": 124,
+     "pick": 21,
+     "decision:keep": 123,
+     "checked": 1,
+     "review": 1,
+     "decision:review": 1
+    },
+    "vol09": {
+     "occ": 596,
+     "admit": 595,
+     "flow": 590,
+     "pick": 92,
+     "decision:keep": 589,
+     "review": 1,
+     "decision:review": 1,
+     "checked": 1
+    },
+    "vol10": {
+     "occ": 437,
+     "admit": 435,
+     "flow": 425,
+     "pick": 61,
+     "decision:keep": 424,
+     "review": 2,
+     "checked": 1,
+     "decision:review": 1
+    },
+    "vol11": {
+     "occ": 252,
+     "review": 4,
+     "admit": 248,
+     "flow": 244,
+     "pick": 219,
+     "decision:keep": 238,
+     "decision:demote": 2,
+     "decision:admit": 4
+    },
+    "vol12": {
+     "occ": 377,
+     "review": 8,
+     "admit": 369,
+     "flow": 374,
+     "pick": 341,
+     "decision:keep": 366,
+     "decision:demote": 7,
+     "decision:review": 1
+    },
+    "vol13": {
+     "occ": 550,
+     "review": 9,
+     "admit": 541,
+     "flow": 541,
+     "pick": 484,
+     "decision:keep": 535,
+     "decision:demote": 5,
+     "decision:review": 1
+    },
+    "vol14": {
+     "occ": 590,
+     "review": 16,
+     "admit": 574,
+     "flow": 580,
+     "pick": 494,
+     "decision:keep": 562,
+     "decision:demote": 9,
+     "decision:review": 5,
+     "decision:admit": 4
+    },
+    "vol15": {
+     "occ": 458,
+     "review": 11,
+     "admit": 447,
+     "flow": 452,
+     "pick": 405,
+     "decision:keep": 440,
+     "decision:review": 1,
+     "decision:demote": 9,
+     "decision:admit": 2
+    },
+    "vol16": {
+     "occ": 503,
+     "admit": 495,
+     "flow": 495,
+     "pick": 425,
+     "decision:keep": 485,
+     "review": 8,
+     "decision:demote": 5,
+     "decision:admit": 2,
+     "decision:review": 3
+    },
+    "vol17": {
+     "occ": 389,
+     "admit": 382,
+     "flow": 385,
+     "pick": 341,
+     "decision:keep": 377,
+     "review": 7,
+     "decision:demote": 7,
+     "decision:admit": 1
+    },
+    "vol18": {
+     "occ": 276,
+     "admit": 273,
+     "flow": 274,
+     "pick": 252,
+     "decision:keep": 270,
+     "review": 3,
+     "decision:demote": 3,
+     "decision:admit": 1
+    },
+    "vol19": {
+     "occ": 604,
+     "admit": 596,
+     "flow": 594,
+     "pick": 512,
+     "decision:keep": 565,
+     "decision:admit": 11,
+     "decision:review": 13,
+     "review": 8,
+     "decision:demote": 5
+    },
+    "vol20": {
+     "occ": 756,
+     "admit": 742,
+     "flow": 746,
+     "pick": 658,
+     "decision:keep": 725,
+     "review": 14,
+     "decision:demote": 12,
+     "decision:admit": 7,
+     "decision:review": 2
+    }
+   },
+   "labels": {
+    "shape": 46,
+    "central": 46,
+    "multi": 20,
+    "corrected": 1
+   },
+   "mismatch": []
+  },
+  "qg": {
+   "name": "千干",
+   "kind": "不同义",
+   "methods": "[ctx_rule → llm]",
+   "total": {
+    "occ": 314,
+    "admit": 292,
+    "flow": 282,
+    "pick": 183,
+    "decision:keep": 277,
+    "checked": 32,
+    "decision:admit": 3,
+    "review": 22,
+    "decision:review": 2
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 21,
+     "admit": 20,
+     "flow": 19,
+     "pick": 17,
+     "decision:keep": 18,
+     "checked": 7,
+     "decision:admit": 1,
+     "review": 1
+    },
+    "vol05": {
+     "occ": 9,
+     "admit": 9,
+     "flow": 3,
+     "pick": 3,
+     "decision:keep": 3
+    },
+    "vol06": {
+     "occ": 13,
+     "admit": 13,
+     "flow": 13,
+     "pick": 8,
+     "decision:keep": 13,
+     "checked": 3
+    },
+    "vol07": {
+     "occ": 12,
+     "admit": 12,
+     "flow": 12,
+     "pick": 10,
+     "decision:keep": 12,
+     "checked": 5
+    },
+    "vol08": {
+     "occ": 15,
+     "admit": 15,
+     "flow": 14,
+     "pick": 11,
+     "decision:keep": 14,
+     "checked": 4
+    },
+    "vol09": {
+     "occ": 24,
+     "admit": 23,
+     "flow": 23,
+     "pick": 15,
+     "decision:keep": 23,
+     "checked": 7,
+     "review": 1
+    },
+    "vol10": {
+     "occ": 13,
+     "admit": 10,
+     "flow": 10,
+     "pick": 5,
+     "decision:keep": 10,
+     "checked": 6,
+     "review": 3
+    },
+    "vol11": {
+     "occ": 4,
+     "admit": 4,
+     "flow": 4,
+     "pick": 2,
+     "decision:keep": 4
+    },
+    "vol12": {
+     "occ": 11,
+     "admit": 10,
+     "flow": 10,
+     "pick": 7,
+     "decision:keep": 9,
+     "decision:admit": 1,
+     "review": 1
+    },
+    "vol13": {
+     "occ": 15,
+     "admit": 11,
+     "flow": 11,
+     "pick": 9,
+     "decision:keep": 11,
+     "review": 4
+    },
+    "vol14": {
+     "occ": 23,
+     "admit": 20,
+     "flow": 20,
+     "pick": 13,
+     "decision:keep": 20,
+     "review": 3
+    },
+    "vol15": {
+     "occ": 14,
+     "admit": 13,
+     "flow": 12,
+     "pick": 8,
+     "decision:keep": 12,
+     "review": 1
+    },
+    "vol16": {
+     "occ": 23,
+     "admit": 22,
+     "flow": 22,
+     "pick": 15,
+     "decision:keep": 22,
+     "review": 1
+    },
+    "vol17": {
+     "occ": 13,
+     "admit": 11,
+     "flow": 11,
+     "pick": 8,
+     "decision:keep": 10,
+     "review": 2,
+     "decision:admit": 1
+    },
+    "vol18": {
+     "occ": 7,
+     "admit": 7,
+     "flow": 7,
+     "pick": 7,
+     "decision:keep": 7
+    },
+    "vol19": {
+     "occ": 21,
+     "admit": 19,
+     "flow": 20,
+     "pick": 10,
+     "decision:keep": 19,
+     "review": 2,
+     "decision:review": 1
+    },
+    "vol20": {
+     "occ": 76,
+     "admit": 73,
+     "flow": 71,
+     "pick": 35,
+     "decision:keep": 70,
+     "review": 3,
+     "decision:review": 1
+    }
+   },
+   "labels": {
+    "shape": 47,
+    "central": 47,
+    "multi": 38
+   },
+   "mismatch": []
+  },
+  "sb": {
+   "name": "十卜",
+   "kind": "不同义",
+   "methods": "[ctx_rule → llm]",
+   "total": {
+    "occ": 3642,
+    "admit": 3605,
+    "flow": 3550,
+    "pick": 3343,
+    "decision:keep": 3539,
+    "checked": 26,
+    "review": 37,
+    "decision:demote": 3,
+    "decision:review": 8
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 248,
+     "admit": 248,
+     "flow": 242,
+     "pick": 240,
+     "decision:keep": 242,
+     "checked": 7
+    },
+    "vol05": {
+     "occ": 215,
+     "admit": 215,
+     "flow": 205,
+     "pick": 195,
+     "decision:keep": 205
+    },
+    "vol06": {
+     "occ": 174,
+     "review": 1,
+     "admit": 173,
+     "flow": 171,
+     "pick": 163,
+     "decision:keep": 171,
+     "checked": 5
+    },
+    "vol07": {
+     "occ": 146,
+     "review": 1,
+     "admit": 145,
+     "flow": 144,
+     "pick": 137,
+     "decision:keep": 144,
+     "checked": 5
+    },
+    "vol08": {
+     "occ": 60,
+     "review": 2,
+     "admit": 58,
+     "flow": 57,
+     "pick": 54,
+     "decision:keep": 56,
+     "decision:demote": 1,
+     "checked": 2
+    },
+    "vol09": {
+     "occ": 249,
+     "admit": 247,
+     "flow": 242,
+     "pick": 227,
+     "decision:keep": 242,
+     "checked": 5,
+     "review": 2
+    },
+    "vol10": {
+     "occ": 242,
+     "review": 2,
+     "admit": 240,
+     "flow": 234,
+     "pick": 216,
+     "decision:keep": 234,
+     "checked": 2
+    },
+    "vol11": {
+     "occ": 128,
+     "review": 2,
+     "admit": 126,
+     "flow": 123,
+     "pick": 121,
+     "decision:keep": 123
+    },
+    "vol12": {
+     "occ": 152,
+     "review": 1,
+     "admit": 151,
+     "flow": 147,
+     "pick": 139,
+     "decision:keep": 147
+    },
+    "vol13": {
+     "occ": 358,
+     "review": 3,
+     "admit": 355,
+     "flow": 353,
+     "pick": 338,
+     "decision:keep": 351,
+     "decision:review": 1,
+     "decision:demote": 1
+    },
+    "vol14": {
+     "occ": 296,
+     "review": 2,
+     "admit": 294,
+     "flow": 287,
+     "pick": 282,
+     "decision:keep": 287
+    },
+    "vol15": {
+     "occ": 181,
+     "review": 1,
+     "admit": 180,
+     "flow": 178,
+     "pick": 170,
+     "decision:keep": 178
+    },
+    "vol16": {
+     "occ": 253,
+     "review": 8,
+     "admit": 245,
+     "flow": 247,
+     "pick": 229,
+     "decision:keep": 243,
+     "decision:review": 3,
+     "decision:demote": 1
+    },
+    "vol17": {
+     "occ": 154,
+     "review": 1,
+     "admit": 153,
+     "flow": 151,
+     "pick": 145,
+     "decision:keep": 151
+    },
+    "vol18": {
+     "occ": 111,
+     "review": 1,
+     "admit": 110,
+     "flow": 107,
+     "pick": 97,
+     "decision:keep": 107
+    },
+    "vol19": {
+     "occ": 329,
+     "review": 6,
+     "admit": 323,
+     "flow": 322,
+     "pick": 267,
+     "decision:keep": 319,
+     "decision:review": 3
+    },
+    "vol20": {
+     "occ": 346,
+     "admit": 342,
+     "flow": 340,
+     "pick": 323,
+     "decision:keep": 339,
+     "review": 4,
+     "decision:review": 1
+    }
+   },
+   "labels": {
+    "shape": 45,
+    "central": 45,
+    "multi": 37,
+    "reading": 1
+   },
+   "mismatch": []
+  },
+  "js": {
+   "name": "甲申",
+   "kind": "不同义",
+   "methods": "[ctx_rule → llm] ＋ hog",
+   "total": {
+    "occ": 326,
+    "admit": 322,
+    "flow": 295,
+    "pick": 244,
+    "decision:keep": 290,
+    "checked": 34,
+    "review": 4,
+    "decision:review": 2,
+    "decision:admit": 1,
+    "decision:demote": 2
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 27,
+     "admit": 27,
+     "flow": 24,
+     "pick": 23,
+     "decision:keep": 24,
+     "checked": 6
+    },
+    "vol05": {
+     "occ": 30,
+     "admit": 30,
+     "flow": 23,
+     "pick": 21,
+     "decision:keep": 23
+    },
+    "vol06": {
+     "occ": 21,
+     "admit": 20,
+     "flow": 21,
+     "pick": 19,
+     "decision:keep": 20,
+     "review": 1,
+     "decision:review": 1,
+     "checked": 6
+    },
+    "vol07": {
+     "occ": 7,
+     "admit": 7,
+     "flow": 7,
+     "pick": 4,
+     "decision:keep": 7,
+     "checked": 6
+    },
+    "vol08": {
+     "occ": 10,
+     "admit": 10,
+     "flow": 9,
+     "pick": 4,
+     "decision:keep": 9,
+     "checked": 6
+    },
+    "vol09": {
+     "occ": 49,
+     "admit": 49,
+     "flow": 46,
+     "pick": 24,
+     "decision:keep": 45,
+     "checked": 6,
+     "decision:review": 1
+    },
+    "vol10": {
+     "occ": 17,
+     "admit": 17,
+     "flow": 17,
+     "pick": 7,
+     "decision:keep": 17,
+     "checked": 4
+    },
+    "vol11": {
+     "occ": 7,
+     "admit": 7,
+     "flow": 7,
+     "pick": 7,
+     "decision:keep": 7
+    },
+    "vol12": {
+     "occ": 15,
+     "admit": 15,
+     "flow": 15,
+     "pick": 14,
+     "decision:keep": 15
+    },
+    "vol13": {
+     "occ": 29,
+     "admit": 28,
+     "flow": 26,
+     "pick": 26,
+     "decision:keep": 26,
+     "review": 1
+    },
+    "vol14": {
+     "occ": 29,
+     "admit": 29,
+     "flow": 27,
+     "pick": 25,
+     "decision:keep": 27
+    },
+    "vol15": {
+     "occ": 24,
+     "admit": 24,
+     "flow": 22,
+     "pick": 22,
+     "decision:keep": 21,
+     "decision:admit": 1
+    },
+    "vol16": {
+     "occ": 17,
+     "admit": 17,
+     "flow": 15,
+     "pick": 15,
+     "decision:keep": 15
+    },
+    "vol17": {
+     "occ": 7,
+     "admit": 7,
+     "flow": 6,
+     "pick": 6,
+     "decision:keep": 6
+    },
+    "vol18": {
+     "occ": 13,
+     "admit": 13,
+     "flow": 11,
+     "pick": 11,
+     "decision:keep": 11
+    },
+    "vol19": {
+     "occ": 6,
+     "admit": 4,
+     "flow": 6,
+     "pick": 4,
+     "decision:keep": 4,
+     "review": 2,
+     "decision:demote": 2
+    },
+    "vol20": {
+     "occ": 18,
+     "admit": 18,
+     "flow": 13,
+     "pick": 12,
+     "decision:keep": 13
+    }
+   },
+   "labels": {
+    "shape": 42,
+    "central": 42,
+    "multi": 40
+   },
+   "mismatch": []
+  },
+  "em": {
+   "name": "而面",
+   "kind": "不同义",
+   "methods": "[ctx_rule → llm] ＋ composite(crop(0.0, 1.0, 0.5, 1.0) → hog)",
+   "total": {
+    "occ": 5201,
+    "admit": 5184,
+    "flow": 5158,
+    "pick": 4633,
+    "decision:keep": 5131,
+    "checked": 29,
+    "decision:review": 16,
+    "review": 17,
+    "decision:admit": 5,
+    "decision:demote": 6
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 403,
+     "admit": 403,
+     "flow": 403,
+     "pick": 392,
+     "decision:keep": 402,
+     "checked": 3,
+     "decision:review": 1
+    },
+    "vol05": {
+     "occ": 343,
+     "admit": 343,
+     "flow": 340,
+     "pick": 259,
+     "decision:keep": 340
+    },
+    "vol06": {
+     "occ": 250,
+     "admit": 250,
+     "flow": 247,
+     "pick": 197,
+     "decision:keep": 247,
+     "checked": 2
+    },
+    "vol07": {
+     "occ": 199,
+     "admit": 199,
+     "flow": 198,
+     "pick": 135,
+     "decision:keep": 198,
+     "checked": 2
+    },
+    "vol08": {
+     "occ": 103,
+     "admit": 102,
+     "flow": 101,
+     "pick": 74,
+     "decision:keep": 101,
+     "review": 1,
+     "checked": 5
+    },
+    "vol09": {
+     "occ": 440,
+     "admit": 439,
+     "flow": 437,
+     "pick": 295,
+     "decision:keep": 436,
+     "checked": 3,
+     "review": 1,
+     "decision:admit": 1
+    },
+    "vol10": {
+     "occ": 304,
+     "admit": 304,
+     "flow": 301,
+     "pick": 175,
+     "decision:keep": 295,
+     "checked": 14,
+     "decision:review": 4,
+     "decision:admit": 2
+    },
+    "vol11": {
+     "occ": 191,
+     "admit": 191,
+     "flow": 189,
+     "pick": 189,
+     "decision:keep": 189
+    },
+    "vol12": {
+     "occ": 287,
+     "admit": 285,
+     "flow": 285,
+     "pick": 282,
+     "decision:keep": 282,
+     "decision:admit": 1,
+     "review": 2,
+     "decision:demote": 2
+    },
+    "vol13": {
+     "occ": 417,
+     "admit": 417,
+     "flow": 414,
+     "pick": 409,
+     "decision:keep": 411,
+     "decision:review": 2,
+     "decision:admit": 1
+    },
+    "vol14": {
+     "occ": 436,
+     "admit": 436,
+     "flow": 433,
+     "pick": 433,
+     "decision:keep": 433
+    },
+    "vol15": {
+     "occ": 311,
+     "admit": 307,
+     "flow": 308,
+     "pick": 306,
+     "decision:keep": 305,
+     "review": 4,
+     "decision:demote": 1,
+     "decision:review": 2
+    },
+    "vol16": {
+     "occ": 275,
+     "admit": 271,
+     "flow": 273,
+     "pick": 271,
+     "decision:keep": 270,
+     "review": 4,
+     "decision:demote": 2,
+     "decision:review": 1
+    },
+    "vol17": {
+     "occ": 274,
+     "admit": 273,
+     "flow": 271,
+     "pick": 271,
+     "decision:keep": 271,
+     "review": 1
+    },
+    "vol18": {
+     "occ": 206,
+     "admit": 205,
+     "flow": 203,
+     "pick": 200,
+     "decision:keep": 202,
+     "review": 1,
+     "decision:demote": 1
+    },
+    "vol19": {
+     "occ": 318,
+     "admit": 316,
+     "flow": 317,
+     "pick": 312,
+     "decision:keep": 312,
+     "decision:review": 5,
+     "review": 2
+    },
+    "vol20": {
+     "occ": 444,
+     "admit": 443,
+     "flow": 438,
+     "pick": 433,
+     "decision:keep": 437,
+     "decision:review": 1,
+     "review": 1
+    }
+   },
+   "labels": {
+    "shape": 42,
+    "central": 42,
+    "multi": 35
+   },
+   "mismatch": []
+  },
+  "fc": {
+   "name": "傅傳",
+   "kind": "不同义",
+   "methods": "[ctx_rule → llm] ＋ composite(crop(0.0, 1.0, 0.25, 0.75) → hog)",
+   "total": {
+    "occ": 3417,
+    "admit": 3410,
+    "checked": 20,
+    "flow": 3377,
+    "pick": 2797,
+    "decision:keep": 3338,
+    "decision:admit": 13,
+    "decision:review": 23,
+    "review": 7,
+    "decision:demote": 3
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 259,
+     "admit": 259,
+     "checked": 6,
+     "flow": 257,
+     "pick": 245,
+     "decision:keep": 254,
+     "decision:admit": 2,
+     "decision:review": 1
+    },
+    "vol05": {
+     "occ": 179,
+     "admit": 179,
+     "flow": 174,
+     "pick": 142,
+     "decision:keep": 173,
+     "decision:admit": 1
+    },
+    "vol06": {
+     "occ": 216,
+     "admit": 216,
+     "flow": 215,
+     "pick": 162,
+     "decision:keep": 213,
+     "checked": 4,
+     "decision:admit": 1,
+     "decision:review": 1
+    },
+    "vol07": {
+     "occ": 236,
+     "admit": 236,
+     "flow": 234,
+     "pick": 177,
+     "decision:keep": 230,
+     "checked": 5,
+     "decision:admit": 3,
+     "decision:review": 1
+    },
+    "vol08": {
+     "occ": 83,
+     "admit": 83,
+     "flow": 82,
+     "pick": 52,
+     "decision:keep": 82,
+     "checked": 1
+    },
+    "vol09": {
+     "occ": 409,
+     "admit": 409,
+     "flow": 406,
+     "pick": 281,
+     "decision:keep": 405,
+     "checked": 3,
+     "decision:review": 1
+    },
+    "vol10": {
+     "occ": 118,
+     "admit": 118,
+     "flow": 117,
+     "pick": 85,
+     "decision:keep": 117,
+     "checked": 1
+    },
+    "vol11": {
+     "occ": 78,
+     "admit": 78,
+     "flow": 76,
+     "pick": 66,
+     "decision:keep": 74,
+     "decision:review": 2
+    },
+    "vol12": {
+     "occ": 74,
+     "admit": 74,
+     "flow": 71,
+     "pick": 65,
+     "decision:keep": 69,
+     "decision:review": 2
+    },
+    "vol13": {
+     "occ": 428,
+     "admit": 427,
+     "flow": 424,
+     "pick": 378,
+     "decision:keep": 419,
+     "decision:review": 4,
+     "review": 1,
+     "decision:demote": 1
+    },
+    "vol14": {
+     "occ": 505,
+     "admit": 502,
+     "flow": 499,
+     "pick": 437,
+     "decision:keep": 489,
+     "decision:review": 7,
+     "review": 3,
+     "decision:demote": 2,
+     "decision:admit": 1
+    },
+    "vol15": {
+     "occ": 252,
+     "admit": 251,
+     "flow": 248,
+     "pick": 217,
+     "decision:keep": 247,
+     "review": 1,
+     "decision:review": 1
+    },
+    "vol16": {
+     "occ": 190,
+     "admit": 189,
+     "flow": 189,
+     "pick": 163,
+     "decision:keep": 187,
+     "review": 1,
+     "decision:admit": 2
+    },
+    "vol17": {
+     "occ": 119,
+     "admit": 119,
+     "flow": 118,
+     "pick": 101,
+     "decision:keep": 116,
+     "decision:review": 2
+    },
+    "vol18": {
+     "occ": 54,
+     "admit": 54,
+     "flow": 54,
+     "pick": 40,
+     "decision:keep": 54
+    },
+    "vol19": {
+     "occ": 46,
+     "admit": 46,
+     "flow": 44,
+     "pick": 39,
+     "decision:keep": 44
+    },
+    "vol20": {
+     "occ": 171,
+     "admit": 170,
+     "flow": 169,
+     "pick": 147,
+     "decision:keep": 165,
+     "decision:admit": 3,
+     "decision:review": 1,
+     "review": 1
+    }
+   },
+   "labels": {
+    "shape": 45,
+    "central": 45,
+    "multi": 32,
+    "corrected": 2
+   },
+   "mismatch": []
+  },
+  "mb": {
+   "name": "木本",
+   "kind": "不同义",
+   "methods": "[ctx_rule → llm]",
+   "total": {
+    "occ": 4507,
+    "admit": 4492,
+    "flow": 4459,
+    "pick": 3342,
+    "decision:keep": 4421,
+    "checked": 21,
+    "mismatch": 1,
+    "decision:admit": 5,
+    "decision:review": 21,
+    "review": 15,
+    "decision:demote": 12
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 421,
+     "admit": 421,
+     "flow": 416,
+     "pick": 401,
+     "decision:keep": 416,
+     "checked": 6,
+     "mismatch": 1
+    },
+    "vol05": {
+     "occ": 404,
+     "admit": 404,
+     "flow": 397,
+     "pick": 346,
+     "decision:keep": 397
+    },
+    "vol06": {
+     "occ": 277,
+     "admit": 277,
+     "flow": 276,
+     "pick": 219,
+     "decision:keep": 276,
+     "checked": 4
+    },
+    "vol07": {
+     "occ": 174,
+     "admit": 174,
+     "flow": 172,
+     "pick": 126,
+     "decision:keep": 172,
+     "checked": 3
+    },
+    "vol08": {
+     "occ": 100,
+     "admit": 100,
+     "flow": 99,
+     "pick": 80,
+     "decision:keep": 99,
+     "checked": 1
+    },
+    "vol09": {
+     "occ": 354,
+     "admit": 354,
+     "flow": 351,
+     "pick": 262,
+     "decision:keep": 346,
+     "checked": 4,
+     "decision:admit": 1,
+     "decision:review": 4
+    },
+    "vol10": {
+     "occ": 181,
+     "admit": 181,
+     "flow": 178,
+     "pick": 116,
+     "decision:keep": 177,
+     "decision:admit": 1,
+     "checked": 3
+    },
+    "vol11": {
+     "occ": 96,
+     "admit": 96,
+     "flow": 96,
+     "pick": 70,
+     "decision:keep": 95,
+     "decision:admit": 1
+    },
+    "vol12": {
+     "occ": 214,
+     "admit": 214,
+     "flow": 211,
+     "pick": 170,
+     "decision:keep": 209,
+     "decision:review": 2
+    },
+    "vol13": {
+     "occ": 350,
+     "admit": 350,
+     "flow": 346,
+     "pick": 241,
+     "decision:keep": 344,
+     "decision:review": 2
+    },
+    "vol14": {
+     "occ": 281,
+     "admit": 280,
+     "flow": 280,
+     "pick": 220,
+     "decision:keep": 277,
+     "review": 1,
+     "decision:demote": 1,
+     "decision:review": 2
+    },
+    "vol15": {
+     "occ": 223,
+     "admit": 223,
+     "flow": 222,
+     "pick": 167,
+     "decision:keep": 222
+    },
+    "vol16": {
+     "occ": 310,
+     "admit": 306,
+     "flow": 309,
+     "pick": 199,
+     "decision:keep": 300,
+     "decision:review": 3,
+     "review": 4,
+     "decision:demote": 4,
+     "decision:admit": 2
+    },
+    "vol17": {
+     "occ": 258,
+     "admit": 256,
+     "flow": 257,
+     "pick": 187,
+     "decision:keep": 253,
+     "decision:review": 2,
+     "review": 2,
+     "decision:demote": 2
+    },
+    "vol18": {
+     "occ": 238,
+     "admit": 237,
+     "flow": 236,
+     "pick": 190,
+     "decision:keep": 233,
+     "review": 1,
+     "decision:demote": 1,
+     "decision:review": 2
+    },
+    "vol19": {
+     "occ": 164,
+     "admit": 164,
+     "flow": 160,
+     "pick": 93,
+     "decision:keep": 160
+    },
+    "vol20": {
+     "occ": 462,
+     "admit": 455,
+     "flow": 453,
+     "pick": 255,
+     "decision:keep": 445,
+     "review": 7,
+     "decision:demote": 4,
+     "decision:review": 4
+    }
+   },
+   "labels": {
+    "shape": 44,
+    "central": 44,
+    "multi": 27
+   },
+   "mismatch": [
+    {
+     "id": "vol04:189:5:17",
+     "admit": "本",
+     "label": "㫖",
+     "channel": "match_ref"
+    }
+   ]
+  },
+  "yi_560": {
+   "name": "彝彛彜彞𢑱𢑴",
+   "kind": "同义",
+   "methods": "freq → ids",
+   "total": {
+    "occ": 276,
+    "admit": 269,
+    "checked": 1,
+    "mismatch": 1,
+    "flow": 76,
+    "pick": 75,
+    "decision:admit": 75,
+    "review": 7,
+    "decision:review": 1
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 30,
+     "admit": 30,
+     "checked": 1,
+     "mismatch": 1,
+     "flow": 1,
+     "pick": 1,
+     "decision:admit": 1
+    },
+    "vol05": {
+     "occ": 21,
+     "admit": 21,
+     "flow": 3,
+     "pick": 3,
+     "decision:admit": 3
+    },
+    "vol06": {
+     "occ": 21,
+     "admit": 21,
+     "flow": 2,
+     "pick": 2,
+     "decision:admit": 2
+    },
+    "vol07": {
+     "occ": 19,
+     "admit": 19,
+     "flow": 3,
+     "pick": 3,
+     "decision:admit": 3
+    },
+    "vol08": {
+     "occ": 6,
+     "admit": 6,
+     "flow": 2,
+     "pick": 2,
+     "decision:admit": 2
+    },
+    "vol09": {
+     "occ": 27,
+     "admit": 27,
+     "flow": 9,
+     "pick": 9,
+     "decision:admit": 9
+    },
+    "vol10": {
+     "occ": 14,
+     "admit": 14,
+     "flow": 2,
+     "pick": 2,
+     "decision:admit": 2
+    },
+    "vol11": {
+     "occ": 5,
+     "admit": 5
+    },
+    "vol12": {
+     "occ": 15,
+     "admit": 15,
+     "flow": 11,
+     "pick": 11,
+     "decision:admit": 11
+    },
+    "vol13": {
+     "occ": 30,
+     "admit": 27,
+     "flow": 18,
+     "pick": 18,
+     "decision:admit": 18,
+     "review": 3
+    },
+    "vol14": {
+     "occ": 35,
+     "admit": 33,
+     "review": 2,
+     "flow": 11,
+     "pick": 11,
+     "decision:admit": 11
+    },
+    "vol15": {
+     "occ": 3,
+     "admit": 3
+    },
+    "vol16": {
+     "occ": 10,
+     "admit": 9,
+     "review": 1,
+     "flow": 1,
+     "pick": 0,
+     "decision:review": 1
+    },
+    "vol17": {
+     "occ": 15,
+     "admit": 15,
+     "flow": 5,
+     "pick": 5,
+     "decision:admit": 5
+    },
+    "vol18": {
+     "occ": 7,
+     "admit": 7,
+     "flow": 3,
+     "pick": 3,
+     "decision:admit": 3
+    },
+    "vol19": {
+     "occ": 1,
+     "admit": 1
+    },
+    "vol20": {
+     "occ": 17,
+     "admit": 16,
+     "flow": 5,
+     "pick": 5,
+     "decision:admit": 5,
+     "review": 1
+    }
+   },
+   "labels": {
+    "parts": 87,
+    "shape": 45,
+    "central": 45,
+    "multi": 15,
+    "corrected": 1
+   },
+   "mismatch": [
+    {
+     "id": "vol04:174:3:8",
+     "admit": "𢑴",
+     "label": "彞",
+     "channel": "context"
+    }
+   ]
+  },
+  "mn": {
+   "name": "蒙𫎇",
+   "kind": "同义",
+   "methods": "freq → ids → custom:top1",
+   "total": {
+    "occ": 117,
+    "admit": 116,
+    "flow": 27,
+    "pick": 25,
+    "decision:admit": 25,
+    "review": 1,
+    "checked": 6,
+    "decision:review": 2
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 25,
+     "admit": 24,
+     "flow": 5,
+     "pick": 5,
+     "decision:admit": 5,
+     "review": 1,
+     "checked": 2
+    },
+    "vol05": {
+     "occ": 20,
+     "admit": 20,
+     "flow": 12,
+     "pick": 12,
+     "decision:admit": 12,
+     "checked": 4
+    },
+    "vol06": {
+     "occ": 11,
+     "admit": 11,
+     "flow": 1,
+     "pick": 1,
+     "decision:admit": 1
+    },
+    "vol07": {
+     "occ": 3,
+     "admit": 3
+    },
+    "vol08": {
+     "occ": 7,
+     "admit": 7
+    },
+    "vol09": {
+     "occ": 1,
+     "admit": 1
+    },
+    "vol11": {
+     "occ": 3,
+     "admit": 3
+    },
+    "vol12": {
+     "occ": 3,
+     "admit": 3,
+     "flow": 1,
+     "pick": 0,
+     "decision:review": 1
+    },
+    "vol13": {
+     "occ": 2,
+     "admit": 2,
+     "flow": 1,
+     "pick": 1,
+     "decision:admit": 1
+    },
+    "vol14": {
+     "occ": 1,
+     "admit": 1
+    },
+    "vol15": {
+     "occ": 4,
+     "admit": 4
+    },
+    "vol16": {
+     "occ": 3,
+     "admit": 3
+    },
+    "vol17": {
+     "occ": 8,
+     "admit": 8,
+     "flow": 1,
+     "pick": 0,
+     "decision:review": 1
+    },
+    "vol18": {
+     "occ": 4,
+     "admit": 4,
+     "flow": 1,
+     "pick": 1,
+     "decision:admit": 1
+    },
+    "vol19": {
+     "occ": 2,
+     "admit": 2
+    },
+    "vol20": {
+     "occ": 20,
+     "admit": 20,
+     "flow": 5,
+     "pick": 5,
+     "decision:admit": 5
+    }
+   },
+   "labels": {
+    "shape": 50,
+    "central": 45,
+    "multi": 6
+   },
+   "mismatch": []
+  },
+  "dian": {
+   "name": "點㸃",
+   "kind": "同义",
+   "methods": "freq → ids → custom:top1",
+   "total": {
+    "occ": 85,
+    "admit": 71,
+    "review": 14,
+    "flow": 26,
+    "pick": 15,
+    "decision:review": 11,
+    "decision:admit": 15
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 3,
+     "admit": 3
+    },
+    "vol05": {
+     "occ": 3,
+     "admit": 3
+    },
+    "vol06": {
+     "occ": 6,
+     "admit": 6
+    },
+    "vol07": {
+     "occ": 2,
+     "admit": 2
+    },
+    "vol08": {
+     "occ": 2,
+     "admit": 2
+    },
+    "vol09": {
+     "occ": 4,
+     "admit": 4
+    },
+    "vol10": {
+     "occ": 5,
+     "admit": 5
+    },
+    "vol11": {
+     "occ": 1,
+     "admit": 1
+    },
+    "vol12": {
+     "occ": 10,
+     "admit": 8,
+     "review": 2,
+     "flow": 2,
+     "pick": 0,
+     "decision:review": 2
+    },
+    "vol13": {
+     "occ": 3,
+     "admit": 3
+    },
+    "vol14": {
+     "occ": 4,
+     "admit": 4,
+     "flow": 4,
+     "pick": 4,
+     "decision:admit": 4
+    },
+    "vol15": {
+     "occ": 5,
+     "review": 3,
+     "admit": 2,
+     "flow": 2,
+     "pick": 1,
+     "decision:review": 1,
+     "decision:admit": 1
+    },
+    "vol16": {
+     "occ": 7,
+     "review": 3,
+     "flow": 4,
+     "pick": 1,
+     "decision:review": 3,
+     "admit": 4,
+     "decision:admit": 1
+    },
+    "vol17": {
+     "occ": 6,
+     "admit": 6,
+     "flow": 3,
+     "pick": 2,
+     "decision:admit": 2,
+     "decision:review": 1
+    },
+    "vol18": {
+     "occ": 6,
+     "review": 1,
+     "flow": 2,
+     "pick": 1,
+     "decision:review": 1,
+     "admit": 5,
+     "decision:admit": 1
+    },
+    "vol20": {
+     "occ": 18,
+     "admit": 13,
+     "flow": 9,
+     "pick": 6,
+     "decision:admit": 6,
+     "review": 5,
+     "decision:review": 3
+    }
+   },
+   "labels": {
+    "shape": 30,
+    "central": 30,
+    "multi": 23,
+    "corrected": 1
+   },
+   "mismatch": []
+  },
+  "can": {
+   "name": "參㕘叅",
+   "kind": "同义",
+   "methods": "freq → ids → custom:top1",
+   "total": {
+    "occ": 366,
+    "admit": 347,
+    "checked": 70,
+    "flow": 86,
+    "pick": 81,
+    "decision:admit": 81,
+    "review": 19,
+    "mismatch": 3,
+    "decision:review": 5
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 27,
+     "admit": 27,
+     "checked": 10,
+     "flow": 2,
+     "pick": 2,
+     "decision:admit": 2
+    },
+    "vol05": {
+     "occ": 28,
+     "admit": 28,
+     "checked": 10
+    },
+    "vol06": {
+     "occ": 30,
+     "admit": 29,
+     "checked": 17,
+     "flow": 6,
+     "pick": 6,
+     "decision:admit": 6,
+     "review": 1
+    },
+    "vol07": {
+     "occ": 15,
+     "admit": 15,
+     "checked": 4,
+     "flow": 1,
+     "pick": 1,
+     "decision:admit": 1
+    },
+    "vol08": {
+     "occ": 10,
+     "admit": 10,
+     "checked": 3,
+     "mismatch": 1
+    },
+    "vol09": {
+     "occ": 36,
+     "admit": 35,
+     "checked": 15,
+     "mismatch": 1,
+     "review": 1,
+     "flow": 3,
+     "pick": 3,
+     "decision:admit": 3
+    },
+    "vol10": {
+     "occ": 27,
+     "admit": 27,
+     "flow": 4,
+     "pick": 4,
+     "decision:admit": 4,
+     "checked": 11,
+     "mismatch": 1
+    },
+    "vol11": {
+     "occ": 15,
+     "admit": 13,
+     "flow": 8,
+     "pick": 8,
+     "decision:admit": 8,
+     "review": 2
+    },
+    "vol12": {
+     "occ": 18,
+     "admit": 16,
+     "flow": 10,
+     "pick": 9,
+     "decision:admit": 9,
+     "review": 2,
+     "decision:review": 1
+    },
+    "vol13": {
+     "occ": 19,
+     "admit": 18,
+     "flow": 6,
+     "pick": 5,
+     "decision:admit": 5,
+     "review": 1,
+     "decision:review": 1
+    },
+    "vol14": {
+     "occ": 25,
+     "admit": 23,
+     "review": 2,
+     "flow": 5,
+     "pick": 4,
+     "decision:admit": 4,
+     "decision:review": 1
+    },
+    "vol15": {
+     "occ": 25,
+     "review": 1,
+     "flow": 20,
+     "pick": 20,
+     "decision:admit": 20,
+     "admit": 24
+    },
+    "vol16": {
+     "occ": 24,
+     "admit": 21,
+     "flow": 8,
+     "pick": 6,
+     "decision:admit": 6,
+     "review": 3,
+     "decision:review": 2
+    },
+    "vol17": {
+     "occ": 15,
+     "admit": 15,
+     "flow": 2,
+     "pick": 2,
+     "decision:admit": 2
+    },
+    "vol18": {
+     "occ": 10,
+     "admit": 8,
+     "review": 2,
+     "flow": 1,
+     "pick": 1,
+     "decision:admit": 1
+    },
+    "vol19": {
+     "occ": 6,
+     "admit": 4,
+     "flow": 3,
+     "pick": 3,
+     "decision:admit": 3,
+     "review": 2
+    },
+    "vol20": {
+     "occ": 36,
+     "admit": 34,
+     "flow": 7,
+     "pick": 7,
+     "decision:admit": 7,
+     "review": 2
+    }
+   },
+   "labels": {
+    "shape": 98,
+    "central": 21,
+    "cut": 88,
+    "multi": 11,
+    "corrected": 1
+   },
+   "mismatch": [
+    {
+     "id": "vol08:5:5:15",
+     "admit": "㕘",
+     "label": "叅",
+     "channel": "context"
+    },
+    {
+     "id": "vol09:3:6:7",
+     "admit": "叅",
+     "label": "㕘",
+     "channel": "match_ref"
+    },
+    {
+     "id": "vol10:99:1:6",
+     "admit": "叅",
+     "label": "㕘",
+     "channel": "context"
+    }
+   ]
+  },
+  "chen": {
+   "name": "讖識䜟",
+   "kind": "同义",
+   "methods": "freq → ids → custom:top1",
+   "total": {
+    "occ": 134,
+    "admit": 133,
+    "flow": 9,
+    "pick": 7,
+    "decision:admit": 7,
+    "checked": 1,
+    "mismatch": 1,
+    "review": 1,
+    "decision:review": 2
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 23,
+     "admit": 23
+    },
+    "vol05": {
+     "occ": 5,
+     "admit": 5
+    },
+    "vol06": {
+     "occ": 9,
+     "admit": 9,
+     "flow": 2,
+     "pick": 2,
+     "decision:admit": 2,
+     "checked": 1,
+     "mismatch": 1
+    },
+    "vol07": {
+     "occ": 5,
+     "admit": 5,
+     "flow": 1,
+     "pick": 1,
+     "decision:admit": 1
+    },
+    "vol08": {
+     "occ": 2,
+     "admit": 2
+    },
+    "vol09": {
+     "occ": 19,
+     "admit": 19
+    },
+    "vol10": {
+     "occ": 7,
+     "admit": 7,
+     "flow": 1,
+     "pick": 1,
+     "decision:admit": 1
+    },
+    "vol11": {
+     "occ": 4,
+     "admit": 4
+    },
+    "vol12": {
+     "occ": 6,
+     "admit": 5,
+     "review": 1
+    },
+    "vol13": {
+     "occ": 6,
+     "admit": 6,
+     "flow": 2,
+     "pick": 1,
+     "decision:review": 1,
+     "decision:admit": 1
+    },
+    "vol14": {
+     "occ": 15,
+     "admit": 15,
+     "flow": 2,
+     "pick": 1,
+     "decision:review": 1,
+     "decision:admit": 1
+    },
+    "vol15": {
+     "occ": 3,
+     "admit": 3
+    },
+    "vol16": {
+     "occ": 8,
+     "admit": 8,
+     "flow": 1,
+     "pick": 1,
+     "decision:admit": 1
+    },
+    "vol17": {
+     "occ": 7,
+     "admit": 7
+    },
+    "vol18": {
+     "occ": 1,
+     "admit": 1
+    },
+    "vol19": {
+     "occ": 1,
+     "admit": 1
+    },
+    "vol20": {
+     "occ": 13,
+     "admit": 13
+    }
+   },
+   "labels": {
+    "shape": 23,
+    "central": 19,
+    "multi": 14
+   },
+   "mismatch": [
+    {
+     "id": "vol06:43:8:9",
+     "admit": "讖",
+     "label": "䜟",
+     "channel": "group_flow"
+    }
+   ]
+  },
+  "li": {
+   "name": "隸𨽾",
+   "kind": "同义",
+   "methods": "freq → ids → custom:top1",
+   "total": {
+    "occ": 90,
+    "admit": 73,
+    "checked": 3,
+    "review": 17,
+    "flow": 14,
+    "pick": 3,
+    "decision:review": 11,
+    "mismatch": 1,
+    "decision:admit": 3
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 8,
+     "admit": 8
+    },
+    "vol05": {
+     "occ": 3,
+     "admit": 3,
+     "checked": 1
+    },
+    "vol06": {
+     "occ": 3,
+     "review": 1,
+     "admit": 2
+    },
+    "vol07": {
+     "occ": 3,
+     "review": 3,
+     "flow": 1,
+     "pick": 0,
+     "decision:review": 1
+    },
+    "vol08": {
+     "occ": 2,
+     "admit": 2,
+     "checked": 1,
+     "mismatch": 1,
+     "flow": 1,
+     "pick": 1,
+     "decision:admit": 1
+    },
+    "vol09": {
+     "occ": 7,
+     "admit": 5,
+     "review": 2,
+     "flow": 1,
+     "pick": 0,
+     "decision:review": 1,
+     "checked": 1
+    },
+    "vol10": {
+     "occ": 5,
+     "admit": 4,
+     "flow": 2,
+     "pick": 2,
+     "decision:admit": 2,
+     "review": 1
+    },
+    "vol13": {
+     "occ": 5,
+     "review": 1,
+     "flow": 1,
+     "pick": 0,
+     "decision:review": 1,
+     "admit": 4
+    },
+    "vol14": {
+     "occ": 6,
+     "admit": 6
+    },
+    "vol15": {
+     "occ": 4,
+     "review": 2,
+     "flow": 1,
+     "pick": 0,
+     "decision:review": 1,
+     "admit": 2
+    },
+    "vol16": {
+     "occ": 4,
+     "review": 1,
+     "flow": 1,
+     "pick": 0,
+     "decision:review": 1,
+     "admit": 3
+    },
+    "vol17": {
+     "occ": 5,
+     "admit": 5
+    },
+    "vol18": {
+     "occ": 11,
+     "admit": 9,
+     "review": 2
+    },
+    "vol19": {
+     "occ": 1,
+     "admit": 1
+    },
+    "vol20": {
+     "occ": 23,
+     "admit": 19,
+     "flow": 6,
+     "pick": 0,
+     "decision:review": 6,
+     "review": 4
+    }
+   },
+   "labels": {
+    "shape": 28,
+    "central": 24,
+    "multi": 10
+   },
+   "mismatch": [
+    {
+     "id": "vol08:20:5:8a",
+     "admit": "𨽾",
+     "label": "隸",
+     "channel": "match_margin"
+    }
+   ]
+  },
+  "shen": {
+   "name": "慎愼",
+   "kind": "同义",
+   "methods": "freq → ids → custom:top1",
+   "total": {
+    "occ": 160,
+    "admit": 154,
+    "checked": 4,
+    "review": 6,
+    "flow": 15,
+    "pick": 14,
+    "decision:admit": 14,
+    "decision:review": 1
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 7,
+     "admit": 7,
+     "checked": 4
+    },
+    "vol06": {
+     "occ": 3,
+     "review": 1,
+     "admit": 2
+    },
+    "vol07": {
+     "occ": 2,
+     "admit": 2
+    },
+    "vol08": {
+     "occ": 4,
+     "admit": 4
+    },
+    "vol09": {
+     "occ": 4,
+     "admit": 4
+    },
+    "vol10": {
+     "occ": 2,
+     "admit": 2
+    },
+    "vol11": {
+     "occ": 6,
+     "admit": 6
+    },
+    "vol12": {
+     "occ": 12,
+     "admit": 10,
+     "flow": 3,
+     "pick": 3,
+     "decision:admit": 3,
+     "review": 2
+    },
+    "vol13": {
+     "occ": 7,
+     "admit": 7,
+     "flow": 2,
+     "pick": 2,
+     "decision:admit": 2
+    },
+    "vol14": {
+     "occ": 6,
+     "admit": 5,
+     "flow": 1,
+     "pick": 1,
+     "decision:admit": 1,
+     "review": 1
+    },
+    "vol15": {
+     "occ": 4,
+     "admit": 3,
+     "review": 1
+    },
+    "vol16": {
+     "occ": 18,
+     "admit": 17,
+     "flow": 2,
+     "pick": 1,
+     "decision:admit": 1,
+     "review": 1,
+     "decision:review": 1
+    },
+    "vol17": {
+     "occ": 6,
+     "admit": 6
+    },
+    "vol18": {
+     "occ": 15,
+     "admit": 15,
+     "flow": 1,
+     "pick": 1,
+     "decision:admit": 1
+    },
+    "vol20": {
+     "occ": 64,
+     "admit": 64,
+     "flow": 6,
+     "pick": 6,
+     "decision:admit": 6
+    }
+   },
+   "labels": {
+    "shape": 26,
+    "central": 23,
+    "cut": 11,
+    "multi": 22
+   },
+   "mismatch": []
+  },
+  "zhi": {
+   "name": "旨㫖",
+   "kind": "同义",
+   "methods": "freq → hog → custom:top1",
+   "total": {
+    "occ": 652,
+    "admit": 640,
+    "checked": 317,
+    "flow": 72,
+    "pick": 72,
+    "decision:admit": 72,
+    "mismatch": 13,
+    "review": 12
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 89,
+     "admit": 89,
+     "checked": 83,
+     "flow": 5,
+     "pick": 5,
+     "decision:admit": 5,
+     "mismatch": 5
+    },
+    "vol05": {
+     "occ": 70,
+     "admit": 70,
+     "checked": 68
+    },
+    "vol06": {
+     "occ": 54,
+     "admit": 54,
+     "checked": 52,
+     "flow": 1,
+     "pick": 1,
+     "decision:admit": 1,
+     "mismatch": 1
+    },
+    "vol07": {
+     "occ": 22,
+     "admit": 22,
+     "checked": 22,
+     "mismatch": 4
+    },
+    "vol08": {
+     "occ": 13,
+     "admit": 13,
+     "checked": 13,
+     "mismatch": 1
+    },
+    "vol09": {
+     "occ": 73,
+     "admit": 73,
+     "checked": 72,
+     "mismatch": 2
+    },
+    "vol10": {
+     "occ": 7,
+     "admit": 7,
+     "checked": 7
+    },
+    "vol11": {
+     "occ": 8,
+     "admit": 8,
+     "flow": 2,
+     "pick": 2,
+     "decision:admit": 2
+    },
+    "vol12": {
+     "occ": 20,
+     "admit": 20
+    },
+    "vol13": {
+     "occ": 40,
+     "review": 1,
+     "admit": 39,
+     "flow": 8,
+     "pick": 8,
+     "decision:admit": 8
+    },
+    "vol14": {
+     "occ": 58,
+     "admit": 54,
+     "flow": 12,
+     "pick": 12,
+     "decision:admit": 12,
+     "review": 4
+    },
+    "vol15": {
+     "occ": 47,
+     "admit": 46,
+     "review": 1,
+     "flow": 9,
+     "pick": 9,
+     "decision:admit": 9
+    },
+    "vol16": {
+     "occ": 23,
+     "review": 3,
+     "admit": 20,
+     "flow": 2,
+     "pick": 2,
+     "decision:admit": 2
+    },
+    "vol17": {
+     "occ": 42,
+     "admit": 42,
+     "flow": 10,
+     "pick": 10,
+     "decision:admit": 10
+    },
+    "vol18": {
+     "occ": 41,
+     "admit": 41,
+     "flow": 11,
+     "pick": 11,
+     "decision:admit": 11
+    },
+    "vol19": {
+     "occ": 23,
+     "admit": 22,
+     "review": 1,
+     "flow": 9,
+     "pick": 9,
+     "decision:admit": 9
+    },
+    "vol20": {
+     "occ": 22,
+     "admit": 20,
+     "flow": 3,
+     "pick": 3,
+     "decision:admit": 3,
+     "review": 2
+    }
+   },
+   "labels": {
+    "shape": 372,
+    "multi": 8,
+    "central": 22,
+    "corrected": 1
+   },
+   "mismatch": [
+    {
+     "id": "vol04:60:4:12",
+     "admit": "旨",
+     "label": "㫖",
+     "channel": "context"
+    },
+    {
+     "id": "vol04:93:3:10",
+     "admit": "旨",
+     "label": "㫖",
+     "channel": "match_solo"
+    },
+    {
+     "id": "vol04:103:5:4",
+     "admit": "旨",
+     "label": "㫖",
+     "channel": "match_solo"
+    },
+    {
+     "id": "vol04:203:4:19",
+     "admit": "旨",
+     "label": "㫖",
+     "channel": "context"
+    },
+    {
+     "id": "vol04:206:1:4",
+     "admit": "旨",
+     "label": "㫖",
+     "channel": "match_solo"
+    },
+    {
+     "id": "vol06:126:6:16",
+     "admit": "旨",
+     "label": "㫖",
+     "channel": "match_solo"
+    },
+    {
+     "id": "vol07:34:9:20",
+     "admit": "旨",
+     "label": "㫖",
+     "channel": "match_solo"
+    },
+    {
+     "id": "vol07:110:8:6",
+     "admit": "旨",
+     "label": "㫖",
+     "channel": "context"
+    },
+    {
+     "id": "vol07:121:8:15",
+     "admit": "旨",
+     "label": "㫖",
+     "channel": "match_solo"
+    },
+    {
+     "id": "vol07:133:4:21",
+     "admit": "旨",
+     "label": "㫖",
+     "channel": "match_solo"
+    },
+    {
+     "id": "vol08:3:7:4",
+     "admit": "旨",
+     "label": "㫖",
+     "channel": "match_solo"
+    },
+    {
+     "id": "vol09:107:8:10",
+     "admit": "旨",
+     "label": "㫖",
+     "channel": "context"
+    },
+    {
+     "id": "vol09:199:3:18",
+     "admit": "旨",
+     "label": "㫖",
+     "channel": "match_ref"
+    }
+   ]
+  },
+  "ji": {
+   "name": "即卽",
+   "kind": "同义",
+   "methods": "freq",
+   "total": {
+    "occ": 805,
+    "admit": 805,
+    "checked": 1,
+    "mismatch": 1,
+    "flow": 2,
+    "pick": 2,
+    "decision:admit": 2
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 62,
+     "admit": 62
+    },
+    "vol05": {
+     "occ": 49,
+     "admit": 49
+    },
+    "vol06": {
+     "occ": 36,
+     "admit": 36
+    },
+    "vol07": {
+     "occ": 27,
+     "admit": 27
+    },
+    "vol08": {
+     "occ": 15,
+     "admit": 15,
+     "checked": 1,
+     "mismatch": 1
+    },
+    "vol09": {
+     "occ": 66,
+     "admit": 66
+    },
+    "vol10": {
+     "occ": 43,
+     "admit": 43
+    },
+    "vol11": {
+     "occ": 31,
+     "admit": 31
+    },
+    "vol12": {
+     "occ": 52,
+     "admit": 52
+    },
+    "vol13": {
+     "occ": 60,
+     "admit": 60
+    },
+    "vol14": {
+     "occ": 62,
+     "admit": 62
+    },
+    "vol15": {
+     "occ": 42,
+     "admit": 42
+    },
+    "vol16": {
+     "occ": 35,
+     "admit": 35
+    },
+    "vol17": {
+     "occ": 39,
+     "admit": 39
+    },
+    "vol18": {
+     "occ": 40,
+     "admit": 40
+    },
+    "vol19": {
+     "occ": 58,
+     "admit": 58,
+     "flow": 1,
+     "pick": 1,
+     "decision:admit": 1
+    },
+    "vol20": {
+     "occ": 88,
+     "admit": 88,
+     "flow": 1,
+     "pick": 1,
+     "decision:admit": 1
+    }
+   },
+   "labels": {
+    "shape": 28,
+    "central": 28,
+    "multi": 1
+   },
+   "mismatch": [
+    {
+     "id": "vol08:9:8:6",
+     "admit": "卽",
+     "label": "愼",
+     "channel": "match_ref"
+    }
+   ]
+  },
+  "qing": {
+   "name": "卿𨜊",
+   "kind": "同义",
+   "methods": "freq",
+   "total": {
+    "occ": 168,
+    "admit": 164,
+    "flow": 2,
+    "pick": 2,
+    "decision:admit": 2,
+    "review": 4
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 11,
+     "admit": 11,
+     "flow": 1,
+     "pick": 1,
+     "decision:admit": 1
+    },
+    "vol05": {
+     "occ": 12,
+     "admit": 12
+    },
+    "vol06": {
+     "occ": 5,
+     "review": 1,
+     "admit": 4
+    },
+    "vol07": {
+     "occ": 5,
+     "admit": 4,
+     "review": 1,
+     "flow": 1,
+     "pick": 1,
+     "decision:admit": 1
+    },
+    "vol08": {
+     "occ": 2,
+     "admit": 2
+    },
+    "vol09": {
+     "occ": 25,
+     "admit": 25
+    },
+    "vol10": {
+     "occ": 10,
+     "admit": 10
+    },
+    "vol11": {
+     "occ": 15,
+     "admit": 15
+    },
+    "vol12": {
+     "occ": 15,
+     "admit": 15
+    },
+    "vol13": {
+     "occ": 11,
+     "admit": 11
+    },
+    "vol14": {
+     "occ": 18,
+     "admit": 17,
+     "review": 1
+    },
+    "vol15": {
+     "occ": 3,
+     "admit": 3
+    },
+    "vol16": {
+     "occ": 12,
+     "admit": 12
+    },
+    "vol17": {
+     "occ": 10,
+     "admit": 9,
+     "review": 1
+    },
+    "vol18": {
+     "occ": 6,
+     "admit": 6
+    },
+    "vol20": {
+     "occ": 8,
+     "admit": 8
+    }
+   },
+   "labels": {
+    "shape": 22,
+    "central": 22,
+    "multi": 18,
+    "corrected": 18
+   },
+   "mismatch": []
+  },
+  "bian": {
+   "name": "變𠮓",
+   "kind": "同义",
+   "methods": "freq",
+   "total": {
+    "occ": 578,
+    "admit": 549,
+    "checked": 3,
+    "review": 29,
+    "flow": 5,
+    "pick": 0,
+    "decision:review": 5
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 112,
+     "admit": 112,
+     "checked": 3
+    },
+    "vol05": {
+     "occ": 72,
+     "admit": 72
+    },
+    "vol06": {
+     "occ": 51,
+     "admit": 51
+    },
+    "vol07": {
+     "occ": 6,
+     "admit": 6
+    },
+    "vol08": {
+     "occ": 6,
+     "admit": 5,
+     "review": 1
+    },
+    "vol09": {
+     "occ": 28,
+     "admit": 28
+    },
+    "vol10": {
+     "occ": 8,
+     "admit": 8
+    },
+    "vol11": {
+     "occ": 9,
+     "admit": 8,
+     "review": 1
+    },
+    "vol12": {
+     "occ": 12,
+     "admit": 12
+    },
+    "vol13": {
+     "occ": 16,
+     "admit": 15,
+     "review": 1
+    },
+    "vol14": {
+     "occ": 20,
+     "admit": 19,
+     "review": 1
+    },
+    "vol15": {
+     "occ": 17,
+     "admit": 16,
+     "review": 1
+    },
+    "vol16": {
+     "occ": 21,
+     "review": 2,
+     "admit": 19,
+     "flow": 1,
+     "pick": 0,
+     "decision:review": 1
+    },
+    "vol17": {
+     "occ": 2,
+     "admit": 2
+    },
+    "vol18": {
+     "occ": 4,
+     "admit": 4
+    },
+    "vol19": {
+     "occ": 149,
+     "admit": 133,
+     "review": 16,
+     "flow": 3,
+     "pick": 0,
+     "decision:review": 3
+    },
+    "vol20": {
+     "occ": 45,
+     "admit": 39,
+     "review": 6,
+     "flow": 1,
+     "pick": 0,
+     "decision:review": 1
+    }
+   },
+   "labels": {
+    "shape": 29,
+    "central": 28,
+    "multi": 10,
+    "corrected": 10
+   },
+   "mismatch": []
+  },
+  "hui": {
+   "name": "彙彚",
+   "kind": "同义",
+   "methods": "freq",
+   "total": {
+    "occ": 73,
+    "admit": 72,
+    "review": 1
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 4,
+     "admit": 3,
+     "review": 1
+    },
+    "vol05": {
+     "occ": 8,
+     "admit": 8
+    },
+    "vol06": {
+     "occ": 4,
+     "admit": 4
+    },
+    "vol07": {
+     "occ": 3,
+     "admit": 3
+    },
+    "vol09": {
+     "occ": 8,
+     "admit": 8
+    },
+    "vol10": {
+     "occ": 2,
+     "admit": 2
+    },
+    "vol11": {
+     "occ": 1,
+     "admit": 1
+    },
+    "vol12": {
+     "occ": 5,
+     "admit": 5
+    },
+    "vol13": {
+     "occ": 7,
+     "admit": 7
+    },
+    "vol14": {
+     "occ": 7,
+     "admit": 7
+    },
+    "vol15": {
+     "occ": 9,
+     "admit": 9
+    },
+    "vol16": {
+     "occ": 3,
+     "admit": 3
+    },
+    "vol17": {
+     "occ": 1,
+     "admit": 1
+    },
+    "vol18": {
+     "occ": 5,
+     "admit": 5
+    },
+    "vol20": {
+     "occ": 6,
+     "admit": 6
+    }
+   },
+   "labels": {
+    "shape": 5,
+    "central": 5
+   },
+   "mismatch": []
+  },
+  "kan": {
+   "name": "刊刋",
+   "kind": "同义",
+   "methods": "freq",
+   "total": {
+    "occ": 312,
+    "admit": 305,
+    "flow": 3,
+    "pick": 3,
+    "decision:admit": 3,
+    "review": 7
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 16,
+     "admit": 16
+    },
+    "vol05": {
+     "occ": 11,
+     "admit": 11
+    },
+    "vol06": {
+     "occ": 12,
+     "admit": 12
+    },
+    "vol07": {
+     "occ": 10,
+     "admit": 10
+    },
+    "vol08": {
+     "occ": 5,
+     "admit": 5
+    },
+    "vol09": {
+     "occ": 12,
+     "admit": 12
+    },
+    "vol10": {
+     "occ": 10,
+     "admit": 10
+    },
+    "vol11": {
+     "occ": 10,
+     "admit": 10
+    },
+    "vol12": {
+     "occ": 7,
+     "admit": 7
+    },
+    "vol13": {
+     "occ": 25,
+     "admit": 25
+    },
+    "vol14": {
+     "occ": 19,
+     "admit": 19
+    },
+    "vol15": {
+     "occ": 33,
+     "admit": 33,
+     "flow": 2,
+     "pick": 2,
+     "decision:admit": 2
+    },
+    "vol16": {
+     "occ": 35,
+     "review": 4,
+     "admit": 31
+    },
+    "vol17": {
+     "occ": 38,
+     "admit": 37,
+     "review": 1,
+     "flow": 1,
+     "pick": 1,
+     "decision:admit": 1
+    },
+    "vol18": {
+     "occ": 11,
+     "admit": 11
+    },
+    "vol19": {
+     "occ": 2,
+     "admit": 2
+    },
+    "vol20": {
+     "occ": 56,
+     "admit": 54,
+     "review": 2
+    }
+   },
+   "labels": {
+    "shape": 54,
+    "central": 46,
+    "multi": 42
+   },
+   "mismatch": []
+  },
+  "jiw": {
+   "name": "既旣",
+   "kind": "同义",
+   "methods": "freq",
+   "total": {
+    "occ": 327,
+    "admit": 325,
+    "checked": 2,
+    "review": 2
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 19,
+     "admit": 19,
+     "checked": 2
+    },
+    "vol05": {
+     "occ": 19,
+     "admit": 19
+    },
+    "vol06": {
+     "occ": 14,
+     "admit": 14
+    },
+    "vol07": {
+     "occ": 21,
+     "admit": 21
+    },
+    "vol08": {
+     "occ": 4,
+     "admit": 4
+    },
+    "vol09": {
+     "occ": 27,
+     "admit": 27
+    },
+    "vol10": {
+     "occ": 30,
+     "admit": 30
+    },
+    "vol11": {
+     "occ": 17,
+     "admit": 17
+    },
+    "vol12": {
+     "occ": 19,
+     "admit": 19
+    },
+    "vol13": {
+     "occ": 27,
+     "admit": 27
+    },
+    "vol14": {
+     "occ": 24,
+     "admit": 24
+    },
+    "vol15": {
+     "occ": 15,
+     "admit": 15
+    },
+    "vol16": {
+     "occ": 15,
+     "review": 1,
+     "admit": 14
+    },
+    "vol17": {
+     "occ": 13,
+     "admit": 12,
+     "review": 1
+    },
+    "vol18": {
+     "occ": 12,
+     "admit": 12
+    },
+    "vol19": {
+     "occ": 18,
+     "admit": 18
+    },
+    "vol20": {
+     "occ": 33,
+     "admit": 33
+    }
+   },
+   "labels": {
+    "shape": 45,
+    "central": 37,
+    "multi": 36
+   },
+   "mismatch": []
+  },
+  "qx": {
+   "name": "清淸",
+   "kind": "同义",
+   "methods": "freq",
+   "total": {
+    "occ": 165,
+    "admit": 164,
+    "checked": 1,
+    "review": 1
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 9,
+     "admit": 9
+    },
+    "vol05": {
+     "occ": 8,
+     "admit": 8
+    },
+    "vol06": {
+     "occ": 3,
+     "admit": 3
+    },
+    "vol07": {
+     "occ": 4,
+     "admit": 4
+    },
+    "vol08": {
+     "occ": 2,
+     "admit": 2
+    },
+    "vol09": {
+     "occ": 8,
+     "admit": 8,
+     "checked": 1
+    },
+    "vol10": {
+     "occ": 6,
+     "admit": 6
+    },
+    "vol11": {
+     "occ": 3,
+     "admit": 3
+    },
+    "vol12": {
+     "occ": 8,
+     "admit": 8
+    },
+    "vol13": {
+     "occ": 8,
+     "admit": 8
+    },
+    "vol14": {
+     "occ": 5,
+     "admit": 5
+    },
+    "vol15": {
+     "occ": 1,
+     "admit": 1
+    },
+    "vol16": {
+     "occ": 6,
+     "admit": 6
+    },
+    "vol17": {
+     "occ": 4,
+     "admit": 4
+    },
+    "vol18": {
+     "occ": 3,
+     "admit": 3
+    },
+    "vol19": {
+     "occ": 66,
+     "admit": 66
+    },
+    "vol20": {
+     "occ": 21,
+     "admit": 20,
+     "review": 1
+    }
+   },
+   "labels": {
+    "shape": 32,
+    "central": 27,
+    "multi": 26,
+    "corrected": 1
+   },
+   "mismatch": []
+  },
+  "dx": {
+   "name": "顚顛",
+   "kind": "同义",
+   "methods": "freq",
+   "total": {
+    "occ": 33,
+    "admit": 31,
+    "flow": 3,
+    "pick": 3,
+    "decision:admit": 3,
+    "review": 2
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 4,
+     "admit": 4
+    },
+    "vol07": {
+     "occ": 6,
+     "admit": 6
+    },
+    "vol08": {
+     "occ": 1,
+     "admit": 1
+    },
+    "vol09": {
+     "occ": 2,
+     "admit": 2
+    },
+    "vol10": {
+     "occ": 2,
+     "admit": 2
+    },
+    "vol11": {
+     "occ": 1,
+     "admit": 1
+    },
+    "vol12": {
+     "occ": 1,
+     "admit": 1
+    },
+    "vol13": {
+     "occ": 3,
+     "admit": 3,
+     "flow": 2,
+     "pick": 2,
+     "decision:admit": 2
+    },
+    "vol14": {
+     "occ": 2,
+     "admit": 2,
+     "flow": 1,
+     "pick": 1,
+     "decision:admit": 1
+    },
+    "vol15": {
+     "occ": 2,
+     "admit": 2
+    },
+    "vol16": {
+     "occ": 1,
+     "admit": 1
+    },
+    "vol17": {
+     "occ": 3,
+     "admit": 3
+    },
+    "vol19": {
+     "occ": 1,
+     "review": 1
+    },
+    "vol20": {
+     "occ": 4,
+     "admit": 3,
+     "review": 1
+    }
+   },
+   "labels": {
+    "shape": 20,
+    "central": 19,
+    "multi": 15
+   },
+   "mismatch": []
+  },
+  "zx": {
+   "name": "淄湽",
+   "kind": "同义",
+   "methods": "freq",
+   "total": {
+    "occ": 16,
+    "admit": 16
+   },
+   "by_book": {
+    "vol07": {
+     "occ": 5,
+     "admit": 5
+    },
+    "vol08": {
+     "occ": 11,
+     "admit": 11
+    }
+   },
+   "labels": {
+    "shape": 16,
+    "central": 16,
+    "multi": 16
+   },
+   "mismatch": []
+  },
+  "qy": {
+   "name": "青靑",
+   "kind": "同义",
+   "methods": "freq",
+   "total": {
+    "occ": 69,
+    "admit": 66,
+    "review": 3,
+    "checked": 1,
+    "flow": 2,
+    "pick": 0,
+    "decision:review": 2
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 11,
+     "admit": 10,
+     "review": 1,
+     "checked": 1
+    },
+    "vol05": {
+     "occ": 4,
+     "admit": 4
+    },
+    "vol07": {
+     "occ": 1,
+     "admit": 1
+    },
+    "vol08": {
+     "occ": 2,
+     "admit": 2
+    },
+    "vol09": {
+     "occ": 5,
+     "admit": 5
+    },
+    "vol10": {
+     "occ": 4,
+     "admit": 4
+    },
+    "vol12": {
+     "occ": 14,
+     "admit": 14
+    },
+    "vol13": {
+     "occ": 2,
+     "admit": 2
+    },
+    "vol14": {
+     "occ": 4,
+     "admit": 2,
+     "review": 2,
+     "flow": 2,
+     "pick": 0,
+     "decision:review": 2
+    },
+    "vol15": {
+     "occ": 1,
+     "admit": 1
+    },
+    "vol16": {
+     "occ": 4,
+     "admit": 4
+    },
+    "vol17": {
+     "occ": 3,
+     "admit": 3
+    },
+    "vol18": {
+     "occ": 2,
+     "admit": 2
+    },
+    "vol19": {
+     "occ": 2,
+     "admit": 2
+    },
+    "vol20": {
+     "occ": 10,
+     "admit": 10
+    }
+   },
+   "labels": {
+    "shape": 19,
+    "central": 11,
+    "multi": 10
+   },
+   "mismatch": []
+  },
+  "wei": {
+   "name": "爲為",
+   "kind": "同义",
+   "methods": "freq",
+   "total": {
+    "occ": 6999,
+    "admit": 6999
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 485,
+     "admit": 485
+    },
+    "vol05": {
+     "occ": 379,
+     "admit": 379
+    },
+    "vol06": {
+     "occ": 319,
+     "admit": 319
+    },
+    "vol07": {
+     "occ": 324,
+     "admit": 324
+    },
+    "vol08": {
+     "occ": 165,
+     "admit": 165
+    },
+    "vol09": {
+     "occ": 692,
+     "admit": 692
+    },
+    "vol10": {
+     "occ": 402,
+     "admit": 402
+    },
+    "vol11": {
+     "occ": 257,
+     "admit": 257
+    },
+    "vol12": {
+     "occ": 340,
+     "admit": 340
+    },
+    "vol13": {
+     "occ": 544,
+     "admit": 544
+    },
+    "vol14": {
+     "occ": 529,
+     "admit": 529
+    },
+    "vol15": {
+     "occ": 332,
+     "admit": 332
+    },
+    "vol16": {
+     "occ": 376,
+     "admit": 376
+    },
+    "vol17": {
+     "occ": 355,
+     "admit": 355
+    },
+    "vol18": {
+     "occ": 245,
+     "admit": 245
+    },
+    "vol19": {
+     "occ": 584,
+     "admit": 584
+    },
+    "vol20": {
+     "occ": 671,
+     "admit": 671
+    }
+   },
+   "labels": {
+    "shape": 9,
+    "central": 9,
+    "multi": 2
+   },
+   "mismatch": []
+  },
+  "shuo": {
+   "name": "說説",
+   "kind": "同义",
+   "methods": "freq",
+   "total": {
+    "occ": 3346,
+    "admit": 3345,
+    "review": 1,
+    "flow": 9,
+    "pick": 9,
+    "decision:admit": 9
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 284,
+     "admit": 284
+    },
+    "vol05": {
+     "occ": 259,
+     "admit": 259
+    },
+    "vol06": {
+     "occ": 247,
+     "admit": 247
+    },
+    "vol07": {
+     "occ": 168,
+     "admit": 168
+    },
+    "vol08": {
+     "occ": 63,
+     "admit": 63
+    },
+    "vol09": {
+     "occ": 414,
+     "admit": 414
+    },
+    "vol10": {
+     "occ": 156,
+     "admit": 155,
+     "review": 1,
+     "flow": 1,
+     "pick": 1,
+     "decision:admit": 1
+    },
+    "vol11": {
+     "occ": 115,
+     "admit": 115
+    },
+    "vol12": {
+     "occ": 147,
+     "admit": 147
+    },
+    "vol13": {
+     "occ": 215,
+     "admit": 215
+    },
+    "vol14": {
+     "occ": 251,
+     "admit": 251,
+     "flow": 2,
+     "pick": 2,
+     "decision:admit": 2
+    },
+    "vol15": {
+     "occ": 171,
+     "admit": 171
+    },
+    "vol16": {
+     "occ": 197,
+     "admit": 197,
+     "flow": 3,
+     "pick": 3,
+     "decision:admit": 3
+    },
+    "vol17": {
+     "occ": 194,
+     "admit": 194
+    },
+    "vol18": {
+     "occ": 130,
+     "admit": 130,
+     "flow": 2,
+     "pick": 2,
+     "decision:admit": 2
+    },
+    "vol19": {
+     "occ": 127,
+     "admit": 127
+    },
+    "vol20": {
+     "occ": 208,
+     "admit": 208,
+     "flow": 1,
+     "pick": 1,
+     "decision:admit": 1
+    }
+   },
+   "labels": {
+    "shape": 12,
+    "central": 11,
+    "multi": 4
+   },
+   "mismatch": []
+  },
+  "xu": {
+   "name": "叙敘",
+   "kind": "同义",
+   "methods": "freq → ids",
+   "total": {
+    "occ": 92,
+    "admit": 90,
+    "checked": 1,
+    "flow": 4,
+    "pick": 3,
+    "decision:admit": 3,
+    "review": 2,
+    "decision:review": 1
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 1,
+     "admit": 1
+    },
+    "vol05": {
+     "occ": 4,
+     "admit": 4
+    },
+    "vol06": {
+     "occ": 12,
+     "admit": 12
+    },
+    "vol07": {
+     "occ": 9,
+     "admit": 9
+    },
+    "vol08": {
+     "occ": 5,
+     "admit": 5
+    },
+    "vol09": {
+     "occ": 5,
+     "admit": 5,
+     "checked": 1
+    },
+    "vol10": {
+     "occ": 4,
+     "admit": 4
+    },
+    "vol11": {
+     "occ": 3,
+     "admit": 3
+    },
+    "vol12": {
+     "occ": 7,
+     "admit": 7
+    },
+    "vol13": {
+     "occ": 7,
+     "admit": 7
+    },
+    "vol14": {
+     "occ": 11,
+     "admit": 11
+    },
+    "vol15": {
+     "occ": 5,
+     "admit": 5,
+     "flow": 2,
+     "pick": 2,
+     "decision:admit": 2
+    },
+    "vol16": {
+     "occ": 5,
+     "admit": 5
+    },
+    "vol17": {
+     "occ": 2,
+     "admit": 2
+    },
+    "vol18": {
+     "occ": 2,
+     "admit": 1,
+     "flow": 2,
+     "pick": 1,
+     "decision:admit": 1,
+     "review": 1,
+     "decision:review": 1
+    },
+    "vol19": {
+     "occ": 2,
+     "admit": 2
+    },
+    "vol20": {
+     "occ": 8,
+     "admit": 7,
+     "review": 1
+    }
+   },
+   "labels": {
+    "cut": 30,
+    "shape": 31,
+    "central": 27,
+    "multi": 26
+   },
+   "mismatch": []
+  },
+  "ce": {
+   "name": "冊册",
+   "kind": "同义",
+   "methods": "freq → ids",
+   "total": {
+    "occ": 61,
+    "admit": 54,
+    "checked": 1,
+    "flow": 6,
+    "pick": 0,
+    "decision:review": 6,
+    "review": 7
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 5,
+     "admit": 5,
+     "checked": 1
+    },
+    "vol05": {
+     "occ": 5,
+     "admit": 5
+    },
+    "vol06": {
+     "occ": 4,
+     "admit": 4
+    },
+    "vol07": {
+     "occ": 2,
+     "admit": 2
+    },
+    "vol08": {
+     "occ": 1,
+     "admit": 1
+    },
+    "vol09": {
+     "occ": 8,
+     "admit": 8,
+     "flow": 1,
+     "pick": 0,
+     "decision:review": 1
+    },
+    "vol10": {
+     "occ": 1,
+     "admit": 1
+    },
+    "vol11": {
+     "occ": 2,
+     "admit": 2
+    },
+    "vol12": {
+     "occ": 2,
+     "admit": 2
+    },
+    "vol13": {
+     "occ": 4,
+     "admit": 3,
+     "review": 1
+    },
+    "vol14": {
+     "occ": 2,
+     "admit": 2,
+     "flow": 1,
+     "pick": 0,
+     "decision:review": 1
+    },
+    "vol15": {
+     "occ": 2,
+     "admit": 2,
+     "flow": 1,
+     "pick": 0,
+     "decision:review": 1
+    },
+    "vol16": {
+     "occ": 4,
+     "review": 3,
+     "admit": 1
+    },
+    "vol17": {
+     "occ": 7,
+     "admit": 6,
+     "flow": 2,
+     "pick": 0,
+     "decision:review": 2,
+     "review": 1
+    },
+    "vol18": {
+     "occ": 1,
+     "admit": 1
+    },
+    "vol19": {
+     "occ": 2,
+     "admit": 2
+    },
+    "vol20": {
+     "occ": 9,
+     "admit": 7,
+     "flow": 1,
+     "pick": 0,
+     "decision:review": 1,
+     "review": 2
+    }
+   },
+   "labels": {
+    "shape": 16,
+    "central": 16,
+    "multi": 16
+   },
+   "mismatch": []
+  },
+  "jiao": {
+   "name": "教敎",
+   "kind": "同义",
+   "methods": "freq → ids",
+   "total": {
+    "occ": 178,
+    "admit": 175,
+    "checked": 2,
+    "review": 3
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 22,
+     "admit": 22
+    },
+    "vol05": {
+     "occ": 14,
+     "admit": 14,
+     "checked": 1
+    },
+    "vol06": {
+     "occ": 10,
+     "review": 1,
+     "admit": 9
+    },
+    "vol07": {
+     "occ": 8,
+     "admit": 8
+    },
+    "vol08": {
+     "occ": 1,
+     "admit": 1
+    },
+    "vol09": {
+     "occ": 12,
+     "admit": 12,
+     "checked": 1
+    },
+    "vol10": {
+     "occ": 5,
+     "admit": 5
+    },
+    "vol11": {
+     "occ": 6,
+     "admit": 5,
+     "review": 1
+    },
+    "vol12": {
+     "occ": 4,
+     "admit": 4
+    },
+    "vol13": {
+     "occ": 15,
+     "admit": 15
+    },
+    "vol14": {
+     "occ": 16,
+     "admit": 15,
+     "review": 1
+    },
+    "vol15": {
+     "occ": 10,
+     "admit": 10
+    },
+    "vol16": {
+     "occ": 11,
+     "admit": 11
+    },
+    "vol17": {
+     "occ": 9,
+     "admit": 9
+    },
+    "vol18": {
+     "occ": 8,
+     "admit": 8
+    },
+    "vol19": {
+     "occ": 16,
+     "admit": 16
+    },
+    "vol20": {
+     "occ": 11,
+     "admit": 11
+    }
+   },
+   "labels": {
+    "cut": 37,
+    "shape": 39,
+    "central": 30,
+    "multi": 28
+   },
+   "mismatch": []
+  },
+  "qik": {
+   "name": "啓啟",
+   "kind": "同义",
+   "methods": "freq → hog",
+   "total": {
+    "occ": 206,
+    "admit": 206,
+    "checked": 72
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 18,
+     "admit": 18
+    },
+    "vol05": {
+     "occ": 25,
+     "admit": 25,
+     "checked": 18
+    },
+    "vol06": {
+     "occ": 7,
+     "admit": 7,
+     "checked": 6
+    },
+    "vol07": {
+     "occ": 6,
+     "admit": 6,
+     "checked": 4
+    },
+    "vol08": {
+     "occ": 6,
+     "admit": 6,
+     "checked": 3
+    },
+    "vol09": {
+     "occ": 31,
+     "admit": 31,
+     "checked": 25
+    },
+    "vol10": {
+     "occ": 19,
+     "admit": 19,
+     "checked": 16
+    },
+    "vol11": {
+     "occ": 5,
+     "admit": 5
+    },
+    "vol12": {
+     "occ": 12,
+     "admit": 12
+    },
+    "vol13": {
+     "occ": 4,
+     "admit": 4
+    },
+    "vol14": {
+     "occ": 14,
+     "admit": 14
+    },
+    "vol15": {
+     "occ": 15,
+     "admit": 15
+    },
+    "vol16": {
+     "occ": 7,
+     "admit": 7
+    },
+    "vol17": {
+     "occ": 14,
+     "admit": 14
+    },
+    "vol18": {
+     "occ": 10,
+     "admit": 10
+    },
+    "vol19": {
+     "occ": 5,
+     "admit": 5
+    },
+    "vol20": {
+     "occ": 8,
+     "admit": 8
+    }
+   },
+   "labels": {
+    "shape": 98,
+    "central": 23,
+    "multi": 23
+   },
+   "mismatch": []
+  },
+  "lih": {
+   "name": "厯歴",
+   "kind": "同义",
+   "methods": "freq → composite(crop(0.0, 1.0, 0.5, 1.0) → hog)",
+   "total": {
+    "occ": 339,
+    "admit": 333,
+    "review": 6,
+    "flow": 2,
+    "pick": 0,
+    "decision:review": 2,
+    "checked": 1
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 20,
+     "admit": 19,
+     "review": 1,
+     "flow": 1,
+     "pick": 0,
+     "decision:review": 1,
+     "checked": 1
+    },
+    "vol05": {
+     "occ": 58,
+     "admit": 58
+    },
+    "vol06": {
+     "occ": 8,
+     "admit": 8
+    },
+    "vol07": {
+     "occ": 16,
+     "admit": 15,
+     "review": 1
+    },
+    "vol08": {
+     "occ": 12,
+     "admit": 12
+    },
+    "vol09": {
+     "occ": 25,
+     "admit": 25
+    },
+    "vol10": {
+     "occ": 10,
+     "admit": 10
+    },
+    "vol11": {
+     "occ": 11,
+     "admit": 11
+    },
+    "vol12": {
+     "occ": 15,
+     "admit": 15
+    },
+    "vol13": {
+     "occ": 31,
+     "admit": 30,
+     "review": 1
+    },
+    "vol14": {
+     "occ": 37,
+     "admit": 37
+    },
+    "vol15": {
+     "occ": 9,
+     "admit": 9
+    },
+    "vol16": {
+     "occ": 20,
+     "admit": 20
+    },
+    "vol17": {
+     "occ": 7,
+     "admit": 7
+    },
+    "vol18": {
+     "occ": 16,
+     "admit": 16
+    },
+    "vol19": {
+     "occ": 26,
+     "admit": 24,
+     "review": 2
+    },
+    "vol20": {
+     "occ": 18,
+     "admit": 17,
+     "review": 1,
+     "flow": 1,
+     "pick": 0,
+     "decision:review": 1
+    }
+   },
+   "labels": {
+    "shape": 130,
+    "central": 124,
+    "multi": 120
+   },
+   "mismatch": []
+  },
+  "jue": {
+   "name": "絕絶",
+   "kind": "同义",
+   "methods": "freq → ids",
+   "total": {
+    "occ": 103,
+    "admit": 102,
+    "review": 1,
+    "checked": 1
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 12,
+     "admit": 12
+    },
+    "vol05": {
+     "occ": 1,
+     "admit": 1
+    },
+    "vol06": {
+     "occ": 2,
+     "admit": 1,
+     "review": 1
+    },
+    "vol07": {
+     "occ": 9,
+     "admit": 9,
+     "checked": 1
+    },
+    "vol08": {
+     "occ": 2,
+     "admit": 2
+    },
+    "vol09": {
+     "occ": 9,
+     "admit": 9
+    },
+    "vol10": {
+     "occ": 5,
+     "admit": 5
+    },
+    "vol11": {
+     "occ": 6,
+     "admit": 6
+    },
+    "vol12": {
+     "occ": 4,
+     "admit": 4
+    },
+    "vol13": {
+     "occ": 11,
+     "admit": 11
+    },
+    "vol14": {
+     "occ": 7,
+     "admit": 7
+    },
+    "vol15": {
+     "occ": 6,
+     "admit": 6
+    },
+    "vol16": {
+     "occ": 7,
+     "admit": 7
+    },
+    "vol17": {
+     "occ": 1,
+     "admit": 1
+    },
+    "vol18": {
+     "occ": 1,
+     "admit": 1
+    },
+    "vol19": {
+     "occ": 2,
+     "admit": 2
+    },
+    "vol20": {
+     "occ": 18,
+     "admit": 18
+    }
+   },
+   "labels": {
+    "cut": 39,
+    "shape": 42,
+    "central": 42,
+    "multi": 41
+   },
+   "mismatch": []
+  },
+  "lv": {
+   "name": "呂吕",
+   "kind": "同义",
+   "methods": "freq → hog",
+   "total": {
+    "occ": 403,
+    "admit": 400,
+    "review": 3,
+    "flow": 2,
+    "pick": 1,
+    "decision:admit": 1,
+    "decision:review": 1
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 10,
+     "admit": 10
+    },
+    "vol05": {
+     "occ": 13,
+     "admit": 13
+    },
+    "vol06": {
+     "occ": 12,
+     "admit": 12
+    },
+    "vol07": {
+     "occ": 9,
+     "admit": 9
+    },
+    "vol08": {
+     "occ": 5,
+     "admit": 5
+    },
+    "vol09": {
+     "occ": 30,
+     "admit": 30
+    },
+    "vol10": {
+     "occ": 6,
+     "admit": 6
+    },
+    "vol11": {
+     "occ": 6,
+     "admit": 6
+    },
+    "vol12": {
+     "occ": 2,
+     "admit": 2
+    },
+    "vol13": {
+     "occ": 18,
+     "admit": 17,
+     "review": 1
+    },
+    "vol14": {
+     "occ": 10,
+     "admit": 9,
+     "review": 1
+    },
+    "vol15": {
+     "occ": 4,
+     "admit": 4
+    },
+    "vol16": {
+     "occ": 11,
+     "admit": 10,
+     "review": 1
+    },
+    "vol17": {
+     "occ": 8,
+     "admit": 8
+    },
+    "vol18": {
+     "occ": 6,
+     "admit": 6,
+     "flow": 1,
+     "pick": 1,
+     "decision:admit": 1
+    },
+    "vol19": {
+     "occ": 241,
+     "admit": 241
+    },
+    "vol20": {
+     "occ": 12,
+     "admit": 12,
+     "flow": 1,
+     "pick": 0,
+     "decision:review": 1
+    }
+   },
+   "labels": {
+    "shape": 75,
+    "central": 73,
+    "multi": 70,
+    "corrected": 2
+   },
+   "mismatch": []
+  },
+  "zheng": {
+   "name": "徵徴",
+   "kind": "同义",
+   "methods": "freq → composite(crop(0.28, 0.78, 0.15, 0.65) → hog)",
+   "total": {
+    "occ": 294,
+    "admit": 277,
+    "checked": 1,
+    "review": 17,
+    "flow": 3,
+    "pick": 2,
+    "decision:admit": 2,
+    "decision:review": 1
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 15,
+     "admit": 15
+    },
+    "vol05": {
+     "occ": 7,
+     "admit": 7
+    },
+    "vol06": {
+     "occ": 9,
+     "admit": 9,
+     "checked": 1
+    },
+    "vol07": {
+     "occ": 8,
+     "admit": 8
+    },
+    "vol08": {
+     "occ": 10,
+     "admit": 10
+    },
+    "vol09": {
+     "occ": 26,
+     "admit": 26
+    },
+    "vol10": {
+     "occ": 11,
+     "admit": 9,
+     "review": 2
+    },
+    "vol11": {
+     "occ": 7,
+     "admit": 7
+    },
+    "vol12": {
+     "occ": 9,
+     "admit": 8,
+     "review": 1
+    },
+    "vol13": {
+     "occ": 13,
+     "admit": 13
+    },
+    "vol14": {
+     "occ": 13,
+     "admit": 10,
+     "review": 3
+    },
+    "vol15": {
+     "occ": 7,
+     "admit": 7
+    },
+    "vol16": {
+     "occ": 11,
+     "admit": 11
+    },
+    "vol17": {
+     "occ": 11,
+     "admit": 10,
+     "review": 1
+    },
+    "vol18": {
+     "occ": 2,
+     "admit": 2
+    },
+    "vol19": {
+     "occ": 111,
+     "admit": 104,
+     "review": 7,
+     "flow": 3,
+     "pick": 2,
+     "decision:admit": 2,
+     "decision:review": 1
+    },
+    "vol20": {
+     "occ": 24,
+     "admit": 21,
+     "review": 3
+    }
+   },
+   "labels": {
+    "shape": 76,
+    "central": 76,
+    "multi": 76,
+    "corrected": 1
+   },
+   "mismatch": []
+  },
+  "zy": {
+   "name": "子于",
+   "kind": "不同义",
+   "methods": "hog",
+   "total": {
+    "occ": 3246,
+    "admit": 3230,
+    "flow": 35,
+    "pick": 27,
+    "decision:admit": 27,
+    "checked": 2,
+    "review": 16,
+    "decision:review": 8
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 188,
+     "admit": 187,
+     "flow": 1,
+     "pick": 1,
+     "decision:admit": 1,
+     "checked": 1,
+     "review": 1
+    },
+    "vol05": {
+     "occ": 163,
+     "admit": 163
+    },
+    "vol06": {
+     "occ": 149,
+     "admit": 149
+    },
+    "vol07": {
+     "occ": 113,
+     "admit": 113,
+     "flow": 1,
+     "pick": 1,
+     "decision:admit": 1
+    },
+    "vol08": {
+     "occ": 55,
+     "admit": 55
+    },
+    "vol09": {
+     "occ": 297,
+     "admit": 296,
+     "review": 1,
+     "flow": 3,
+     "pick": 2,
+     "decision:admit": 2,
+     "decision:review": 1,
+     "checked": 1
+    },
+    "vol10": {
+     "occ": 190,
+     "admit": 190,
+     "flow": 10,
+     "pick": 9,
+     "decision:admit": 9,
+     "decision:review": 1
+    },
+    "vol11": {
+     "occ": 130,
+     "admit": 130
+    },
+    "vol12": {
+     "occ": 156,
+     "admit": 155,
+     "review": 1
+    },
+    "vol13": {
+     "occ": 351,
+     "admit": 347,
+     "flow": 2,
+     "pick": 1,
+     "decision:admit": 1,
+     "review": 4,
+     "decision:review": 1
+    },
+    "vol14": {
+     "occ": 228,
+     "admit": 226,
+     "review": 2,
+     "flow": 7,
+     "pick": 6,
+     "decision:review": 1,
+     "decision:admit": 6
+    },
+    "vol15": {
+     "occ": 249,
+     "admit": 247,
+     "flow": 3,
+     "pick": 3,
+     "decision:admit": 3,
+     "review": 2
+    },
+    "vol16": {
+     "occ": 224,
+     "admit": 224,
+     "flow": 1,
+     "pick": 0,
+     "decision:review": 1
+    },
+    "vol17": {
+     "occ": 366,
+     "admit": 366,
+     "flow": 1,
+     "pick": 1,
+     "decision:admit": 1
+    },
+    "vol18": {
+     "occ": 178,
+     "admit": 177,
+     "review": 1,
+     "flow": 1,
+     "pick": 0,
+     "decision:review": 1
+    },
+    "vol19": {
+     "occ": 68,
+     "admit": 67,
+     "review": 1
+    },
+    "vol20": {
+     "occ": 141,
+     "admit": 138,
+     "review": 3,
+     "flow": 5,
+     "pick": 3,
+     "decision:admit": 3,
+     "decision:review": 2
+    }
+   },
+   "labels": {
+    "shape": 27,
+    "central": 26,
+    "multi": 8,
+    "corrected": 2
+   },
+   "mismatch": []
+  },
+  "sy": {
+   "name": "山由出",
+   "kind": "不同义",
+   "methods": "hog",
+   "total": {
+    "occ": 1544,
+    "admit": 1539,
+    "flow": 35,
+    "pick": 20,
+    "decision:admit": 20,
+    "review": 5,
+    "decision:review": 15
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 107,
+     "admit": 106,
+     "flow": 2,
+     "pick": 1,
+     "decision:admit": 1,
+     "review": 1,
+     "decision:review": 1
+    },
+    "vol05": {
+     "occ": 99,
+     "admit": 99,
+     "flow": 3,
+     "pick": 2,
+     "decision:admit": 2,
+     "decision:review": 1
+    },
+    "vol06": {
+     "occ": 81,
+     "admit": 80,
+     "review": 1
+    },
+    "vol07": {
+     "occ": 99,
+     "admit": 99,
+     "flow": 2,
+     "pick": 2,
+     "decision:admit": 2
+    },
+    "vol08": {
+     "occ": 67,
+     "admit": 67,
+     "flow": 1,
+     "pick": 1,
+     "decision:admit": 1
+    },
+    "vol09": {
+     "occ": 148,
+     "admit": 148,
+     "flow": 2,
+     "pick": 2,
+     "decision:admit": 2
+    },
+    "vol10": {
+     "occ": 83,
+     "admit": 82,
+     "review": 1,
+     "flow": 2,
+     "pick": 0,
+     "decision:review": 2
+    },
+    "vol11": {
+     "occ": 39,
+     "admit": 39
+    },
+    "vol12": {
+     "occ": 70,
+     "admit": 69,
+     "review": 1,
+     "flow": 1,
+     "pick": 0,
+     "decision:review": 1
+    },
+    "vol13": {
+     "occ": 91,
+     "admit": 91
+    },
+    "vol14": {
+     "occ": 115,
+     "admit": 115,
+     "flow": 3,
+     "pick": 0,
+     "decision:review": 3
+    },
+    "vol15": {
+     "occ": 85,
+     "admit": 85,
+     "flow": 2,
+     "pick": 2,
+     "decision:admit": 2
+    },
+    "vol16": {
+     "occ": 80,
+     "admit": 80
+    },
+    "vol17": {
+     "occ": 83,
+     "admit": 83,
+     "flow": 4,
+     "pick": 3,
+     "decision:admit": 3,
+     "decision:review": 1
+    },
+    "vol18": {
+     "occ": 63,
+     "admit": 63,
+     "flow": 3,
+     "pick": 3,
+     "decision:admit": 3
+    },
+    "vol19": {
+     "occ": 71,
+     "admit": 71,
+     "flow": 4,
+     "pick": 1,
+     "decision:review": 3,
+     "decision:admit": 1
+    },
+    "vol20": {
+     "occ": 163,
+     "admit": 162,
+     "review": 1,
+     "flow": 6,
+     "pick": 3,
+     "decision:review": 3,
+     "decision:admit": 3
+    }
+   },
+   "labels": {
+    "shape": 28,
+    "central": 22,
+    "multi": 11
+   },
+   "mismatch": []
+  },
+  "sz": {
+   "name": "宋朱未",
+   "kind": "不同义",
+   "methods": "hog",
+   "total": {
+    "occ": 3740,
+    "admit": 3734,
+    "flow": 27,
+    "pick": 14,
+    "decision:review": 13,
+    "checked": 26,
+    "mismatch": 1,
+    "decision:admit": 14,
+    "review": 6
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 290,
+     "admit": 290,
+     "flow": 1,
+     "pick": 0,
+     "decision:review": 1,
+     "checked": 5,
+     "mismatch": 1
+    },
+    "vol05": {
+     "occ": 203,
+     "admit": 203,
+     "flow": 3,
+     "pick": 2,
+     "decision:review": 1,
+     "checked": 1,
+     "decision:admit": 2
+    },
+    "vol06": {
+     "occ": 263,
+     "admit": 262,
+     "checked": 4,
+     "review": 1
+    },
+    "vol07": {
+     "occ": 193,
+     "admit": 192,
+     "flow": 3,
+     "pick": 3,
+     "decision:admit": 3,
+     "review": 1,
+     "checked": 3
+    },
+    "vol08": {
+     "occ": 63,
+     "admit": 61,
+     "checked": 4,
+     "review": 2,
+     "flow": 2,
+     "pick": 0,
+     "decision:review": 2
+    },
+    "vol09": {
+     "occ": 395,
+     "admit": 395,
+     "flow": 2,
+     "pick": 2,
+     "decision:admit": 2,
+     "checked": 4
+    },
+    "vol10": {
+     "occ": 198,
+     "admit": 198,
+     "checked": 5,
+     "flow": 3,
+     "pick": 0,
+     "decision:review": 3
+    },
+    "vol11": {
+     "occ": 165,
+     "admit": 165
+    },
+    "vol12": {
+     "occ": 134,
+     "admit": 134
+    },
+    "vol13": {
+     "occ": 318,
+     "admit": 318,
+     "flow": 2,
+     "pick": 1,
+     "decision:admit": 1,
+     "decision:review": 1
+    },
+    "vol14": {
+     "occ": 269,
+     "admit": 269
+    },
+    "vol15": {
+     "occ": 180,
+     "admit": 180,
+     "flow": 2,
+     "pick": 1,
+     "decision:review": 1,
+     "decision:admit": 1
+    },
+    "vol16": {
+     "occ": 220,
+     "admit": 220,
+     "flow": 2,
+     "pick": 1,
+     "decision:admit": 1,
+     "decision:review": 1
+    },
+    "vol17": {
+     "occ": 314,
+     "admit": 314,
+     "flow": 1,
+     "pick": 1,
+     "decision:admit": 1
+    },
+    "vol18": {
+     "occ": 168,
+     "admit": 168,
+     "flow": 2,
+     "pick": 2,
+     "decision:admit": 2
+    },
+    "vol19": {
+     "occ": 103,
+     "admit": 103
+    },
+    "vol20": {
+     "occ": 264,
+     "admit": 262,
+     "flow": 4,
+     "pick": 1,
+     "decision:review": 3,
+     "review": 2,
+     "decision:admit": 1
+    }
+   },
+   "labels": {
+    "shape": 49,
+    "central": 48,
+    "multi": 32,
+    "corrected": 2,
+    "reading": 10
+   },
+   "mismatch": [
+    {
+     "id": "vol04:196:2:6",
+     "admit": "朱",
+     "label": "𢑱",
+     "channel": "match_ref"
+    }
+   ]
+  },
+  "gm": {
+   "name": "各名",
+   "kind": "不同义",
+   "methods": "hog",
+   "total": {
+    "occ": 1831,
+    "admit": 1828,
+    "flow": 6,
+    "pick": 2,
+    "decision:admit": 2,
+    "review": 3,
+    "decision:review": 4
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 126,
+     "admit": 126
+    },
+    "vol05": {
+     "occ": 133,
+     "admit": 133
+    },
+    "vol06": {
+     "occ": 89,
+     "admit": 89
+    },
+    "vol07": {
+     "occ": 65,
+     "admit": 65
+    },
+    "vol08": {
+     "occ": 37,
+     "admit": 37
+    },
+    "vol09": {
+     "occ": 190,
+     "admit": 189,
+     "flow": 2,
+     "pick": 1,
+     "decision:admit": 1,
+     "review": 1,
+     "decision:review": 1
+    },
+    "vol10": {
+     "occ": 92,
+     "admit": 92
+    },
+    "vol11": {
+     "occ": 66,
+     "admit": 66
+    },
+    "vol12": {
+     "occ": 70,
+     "admit": 70
+    },
+    "vol13": {
+     "occ": 169,
+     "admit": 169,
+     "flow": 1,
+     "pick": 0,
+     "decision:review": 1
+    },
+    "vol14": {
+     "occ": 172,
+     "admit": 172
+    },
+    "vol15": {
+     "occ": 68,
+     "admit": 68
+    },
+    "vol16": {
+     "occ": 116,
+     "admit": 115,
+     "review": 1,
+     "flow": 1,
+     "pick": 1,
+     "decision:admit": 1
+    },
+    "vol17": {
+     "occ": 121,
+     "admit": 121,
+     "flow": 1,
+     "pick": 0,
+     "decision:review": 1
+    },
+    "vol18": {
+     "occ": 74,
+     "admit": 74,
+     "flow": 1,
+     "pick": 0,
+     "decision:review": 1
+    },
+    "vol19": {
+     "occ": 56,
+     "admit": 56
+    },
+    "vol20": {
+     "occ": 187,
+     "admit": 186,
+     "review": 1
+    }
+   },
+   "labels": {
+    "shape": 16,
+    "central": 16,
+    "multi": 2
+   },
+   "mismatch": []
+  },
+  "xb": {
+   "name": "心必",
+   "kind": "不同义",
+   "methods": "hog",
+   "total": {
+    "occ": 987,
+    "admit": 983,
+    "flow": 1,
+    "pick": 1,
+    "decision:admit": 1,
+    "review": 4
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 66,
+     "admit": 66
+    },
+    "vol05": {
+     "occ": 75,
+     "admit": 75
+    },
+    "vol06": {
+     "occ": 41,
+     "admit": 41
+    },
+    "vol07": {
+     "occ": 42,
+     "admit": 42
+    },
+    "vol08": {
+     "occ": 28,
+     "admit": 28,
+     "flow": 1,
+     "pick": 1,
+     "decision:admit": 1
+    },
+    "vol09": {
+     "occ": 88,
+     "admit": 88
+    },
+    "vol10": {
+     "occ": 51,
+     "admit": 51
+    },
+    "vol11": {
+     "occ": 37,
+     "admit": 37
+    },
+    "vol12": {
+     "occ": 56,
+     "admit": 56
+    },
+    "vol13": {
+     "occ": 62,
+     "admit": 62
+    },
+    "vol14": {
+     "occ": 76,
+     "admit": 75,
+     "review": 1
+    },
+    "vol15": {
+     "occ": 63,
+     "admit": 63
+    },
+    "vol16": {
+     "occ": 38,
+     "review": 2,
+     "admit": 36
+    },
+    "vol17": {
+     "occ": 70,
+     "admit": 70
+    },
+    "vol18": {
+     "occ": 83,
+     "admit": 83
+    },
+    "vol19": {
+     "occ": 40,
+     "admit": 40
+    },
+    "vol20": {
+     "occ": 71,
+     "admit": 70,
+     "review": 1
+    }
+   },
+   "labels": {
+    "shape": 7,
+    "central": 7,
+    "multi": 2
+   },
+   "mismatch": []
+  },
+  "weiw": {
+   "name": "衛衞",
+   "kind": "同义",
+   "methods": "composite(crop(0.25, 0.75, 0.5, 1.0) → hog)",
+   "total": {
+    "occ": 149,
+    "admit": 148,
+    "checked": 2,
+    "mismatch": 1,
+    "review": 1
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 3,
+     "admit": 3
+    },
+    "vol05": {
+     "occ": 2,
+     "admit": 2
+    },
+    "vol06": {
+     "occ": 3,
+     "admit": 3
+    },
+    "vol07": {
+     "occ": 3,
+     "admit": 3
+    },
+    "vol08": {
+     "occ": 4,
+     "admit": 4
+    },
+    "vol09": {
+     "occ": 31,
+     "admit": 31,
+     "checked": 2,
+     "mismatch": 1
+    },
+    "vol10": {
+     "occ": 4,
+     "admit": 4
+    },
+    "vol11": {
+     "occ": 5,
+     "admit": 5
+    },
+    "vol12": {
+     "occ": 3,
+     "admit": 3
+    },
+    "vol13": {
+     "occ": 13,
+     "admit": 13
+    },
+    "vol14": {
+     "occ": 34,
+     "admit": 34
+    },
+    "vol15": {
+     "occ": 21,
+     "admit": 21
+    },
+    "vol16": {
+     "occ": 9,
+     "admit": 9
+    },
+    "vol17": {
+     "occ": 5,
+     "admit": 4,
+     "review": 1
+    },
+    "vol19": {
+     "occ": 2,
+     "admit": 2
+    },
+    "vol20": {
+     "occ": 7,
+     "admit": 7
+    }
+   },
+   "labels": {
+    "shape": 58,
+    "central": 56,
+    "multi": 53,
+    "corrected": 3
+   },
+   "mismatch": [
+    {
+     "id": "vol09:210:4:17",
+     "admit": "衞",
+     "label": "衛",
+     "channel": "match_ref"
+    }
+   ]
+  },
+  "shan": {
+   "name": "刪删",
+   "kind": "同义",
+   "methods": "composite(crop(0.0, 0.5, 0.5, 1.0) → hog)",
+   "total": {
+    "occ": 268,
+    "admit": 257,
+    "checked": 31,
+    "flow": 1,
+    "pick": 0,
+    "decision:review": 1,
+    "review": 11
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 14,
+     "admit": 14,
+     "checked": 3
+    },
+    "vol05": {
+     "occ": 11,
+     "admit": 11,
+     "flow": 1,
+     "pick": 0,
+     "decision:review": 1,
+     "checked": 5
+    },
+    "vol06": {
+     "occ": 7,
+     "admit": 7,
+     "checked": 2
+    },
+    "vol07": {
+     "occ": 14,
+     "admit": 13,
+     "checked": 3,
+     "review": 1
+    },
+    "vol08": {
+     "occ": 4,
+     "admit": 4,
+     "checked": 2
+    },
+    "vol09": {
+     "occ": 34,
+     "admit": 33,
+     "checked": 9,
+     "review": 1
+    },
+    "vol10": {
+     "occ": 17,
+     "admit": 17,
+     "checked": 7
+    },
+    "vol11": {
+     "occ": 13,
+     "admit": 13
+    },
+    "vol12": {
+     "occ": 17,
+     "admit": 17
+    },
+    "vol13": {
+     "occ": 21,
+     "admit": 21
+    },
+    "vol14": {
+     "occ": 14,
+     "admit": 14
+    },
+    "vol15": {
+     "occ": 28,
+     "admit": 26,
+     "review": 2
+    },
+    "vol16": {
+     "occ": 16,
+     "review": 3,
+     "admit": 13
+    },
+    "vol17": {
+     "occ": 17,
+     "admit": 17
+    },
+    "vol18": {
+     "occ": 11,
+     "review": 2,
+     "admit": 9
+    },
+    "vol19": {
+     "occ": 3,
+     "admit": 2,
+     "review": 1
+    },
+    "vol20": {
+     "occ": 27,
+     "admit": 26,
+     "review": 1
+    }
+   },
+   "labels": {
+    "shape": 123,
+    "central": 88,
+    "multi": 82,
+    "corrected": 5
+   },
+   "mismatch": []
+  },
+  "di": {
+   "name": "扺抵",
+   "kind": "同义",
+   "methods": "composite(crop(0.0, 0.75, 0.5, 1.0) → hog)",
+   "total": {
+    "occ": 196,
+    "admit": 193,
+    "checked": 18,
+    "review": 3
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 21,
+     "admit": 21,
+     "checked": 4
+    },
+    "vol05": {
+     "occ": 19,
+     "admit": 19,
+     "checked": 4
+    },
+    "vol06": {
+     "occ": 16,
+     "admit": 16,
+     "checked": 4
+    },
+    "vol07": {
+     "occ": 8,
+     "admit": 8,
+     "checked": 2
+    },
+    "vol08": {
+     "occ": 9,
+     "admit": 9
+    },
+    "vol09": {
+     "occ": 17,
+     "admit": 17,
+     "checked": 3
+    },
+    "vol10": {
+     "occ": 7,
+     "admit": 7,
+     "checked": 1
+    },
+    "vol11": {
+     "occ": 7,
+     "admit": 7
+    },
+    "vol12": {
+     "occ": 6,
+     "admit": 6
+    },
+    "vol13": {
+     "occ": 12,
+     "admit": 11,
+     "review": 1
+    },
+    "vol14": {
+     "occ": 18,
+     "admit": 18
+    },
+    "vol15": {
+     "occ": 4,
+     "admit": 4
+    },
+    "vol16": {
+     "occ": 13,
+     "review": 1,
+     "admit": 12
+    },
+    "vol17": {
+     "occ": 8,
+     "admit": 8
+    },
+    "vol18": {
+     "occ": 8,
+     "admit": 8
+    },
+    "vol19": {
+     "occ": 6,
+     "admit": 6
+    },
+    "vol20": {
+     "occ": 17,
+     "admit": 16,
+     "review": 1
+    }
+   },
+   "labels": {
+    "shape": 102,
+    "central": 85,
+    "multi": 83,
+    "corrected": 1
+   },
+   "mismatch": []
+  },
+  "nei": {
+   "name": "內内",
+   "kind": "同义",
+   "methods": "codepoint",
+   "total": {
+    "occ": 488,
+    "admit": 485,
+    "review": 3
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 21,
+     "admit": 21
+    },
+    "vol05": {
+     "occ": 20,
+     "admit": 20
+    },
+    "vol06": {
+     "occ": 25,
+     "admit": 25
+    },
+    "vol07": {
+     "occ": 16,
+     "admit": 16
+    },
+    "vol08": {
+     "occ": 5,
+     "admit": 5
+    },
+    "vol09": {
+     "occ": 35,
+     "admit": 34,
+     "review": 1
+    },
+    "vol10": {
+     "occ": 57,
+     "admit": 57
+    },
+    "vol11": {
+     "occ": 22,
+     "admit": 22
+    },
+    "vol12": {
+     "occ": 24,
+     "admit": 24
+    },
+    "vol13": {
+     "occ": 39,
+     "admit": 39
+    },
+    "vol14": {
+     "occ": 28,
+     "review": 1,
+     "admit": 27
+    },
+    "vol15": {
+     "occ": 20,
+     "admit": 20
+    },
+    "vol16": {
+     "occ": 28,
+     "admit": 28
+    },
+    "vol17": {
+     "occ": 51,
+     "admit": 51
+    },
+    "vol18": {
+     "occ": 13,
+     "admit": 13
+    },
+    "vol19": {
+     "occ": 28,
+     "admit": 28
+    },
+    "vol20": {
+     "occ": 56,
+     "admit": 55,
+     "review": 1
+    }
+   },
+   "labels": {
+    "shape": 7,
+    "central": 7
+   },
+   "mismatch": []
+  },
+  "bie": {
+   "name": "別别",
+   "kind": "同义",
+   "methods": "codepoint",
+   "total": {
+    "occ": 652,
+    "admit": 650,
+    "checked": 6,
+    "flow": 1,
+    "pick": 1,
+    "decision:admit": 1,
+    "review": 2
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 56,
+     "admit": 56,
+     "checked": 6
+    },
+    "vol05": {
+     "occ": 33,
+     "admit": 33
+    },
+    "vol06": {
+     "occ": 24,
+     "admit": 24
+    },
+    "vol07": {
+     "occ": 31,
+     "admit": 31,
+     "flow": 1,
+     "pick": 1,
+     "decision:admit": 1
+    },
+    "vol08": {
+     "occ": 18,
+     "admit": 18
+    },
+    "vol09": {
+     "occ": 34,
+     "admit": 34
+    },
+    "vol10": {
+     "occ": 33,
+     "admit": 32,
+     "review": 1
+    },
+    "vol11": {
+     "occ": 27,
+     "admit": 27
+    },
+    "vol12": {
+     "occ": 41,
+     "admit": 41
+    },
+    "vol13": {
+     "occ": 80,
+     "review": 1,
+     "admit": 79
+    },
+    "vol14": {
+     "occ": 36,
+     "admit": 36
+    },
+    "vol15": {
+     "occ": 25,
+     "admit": 25
+    },
+    "vol16": {
+     "occ": 32,
+     "admit": 32
+    },
+    "vol17": {
+     "occ": 46,
+     "admit": 46
+    },
+    "vol18": {
+     "occ": 19,
+     "admit": 19
+    },
+    "vol19": {
+     "occ": 13,
+     "admit": 13
+    },
+    "vol20": {
+     "occ": 104,
+     "admit": 104
+    }
+   },
+   "labels": {
+    "shape": 47,
+    "central": 47,
+    "multi": 15,
+    "corrected": 1
+   },
+   "mismatch": []
+  },
+  "chu": {
+   "name": "出岀",
+   "kind": "同义",
+   "methods": "codepoint",
+   "total": {
+    "occ": 835,
+    "admit": 833,
+    "review": 2,
+    "flow": 5,
+    "pick": 1,
+    "decision:review": 4,
+    "decision:admit": 1
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 48,
+     "admit": 48
+    },
+    "vol05": {
+     "occ": 40,
+     "admit": 40
+    },
+    "vol06": {
+     "occ": 38,
+     "admit": 37,
+     "review": 1
+    },
+    "vol07": {
+     "occ": 49,
+     "admit": 49
+    },
+    "vol08": {
+     "occ": 25,
+     "admit": 24,
+     "review": 1
+    },
+    "vol09": {
+     "occ": 78,
+     "admit": 78,
+     "flow": 3,
+     "pick": 0,
+     "decision:review": 3
+    },
+    "vol10": {
+     "occ": 55,
+     "admit": 55
+    },
+    "vol11": {
+     "occ": 24,
+     "admit": 24
+    },
+    "vol12": {
+     "occ": 49,
+     "admit": 49
+    },
+    "vol13": {
+     "occ": 63,
+     "admit": 63
+    },
+    "vol14": {
+     "occ": 58,
+     "admit": 58
+    },
+    "vol15": {
+     "occ": 53,
+     "admit": 53
+    },
+    "vol16": {
+     "occ": 45,
+     "admit": 45,
+     "flow": 1,
+     "pick": 1,
+     "decision:admit": 1
+    },
+    "vol17": {
+     "occ": 55,
+     "admit": 55,
+     "flow": 1,
+     "pick": 0,
+     "decision:review": 1
+    },
+    "vol18": {
+     "occ": 34,
+     "admit": 34
+    },
+    "vol19": {
+     "occ": 25,
+     "admit": 25
+    },
+    "vol20": {
+     "occ": 96,
+     "admit": 96
+    }
+   },
+   "labels": {
+    "shape": 26,
+    "central": 18,
+    "multi": 8
+   },
+   "mismatch": []
+  },
+  "juan": {
+   "name": "卷巻",
+   "kind": "同义",
+   "methods": "codepoint",
+   "total": {
+    "occ": 3768,
+    "review": 25,
+    "admit": 3743
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 384,
+     "review": 2,
+     "admit": 382
+    },
+    "vol05": {
+     "occ": 330,
+     "admit": 330
+    },
+    "vol06": {
+     "occ": 228,
+     "review": 1,
+     "admit": 227
+    },
+    "vol07": {
+     "occ": 123,
+     "review": 1,
+     "admit": 122
+    },
+    "vol08": {
+     "occ": 90,
+     "review": 2,
+     "admit": 88
+    },
+    "vol09": {
+     "occ": 343,
+     "admit": 341,
+     "review": 2
+    },
+    "vol10": {
+     "occ": 153,
+     "review": 2,
+     "admit": 151
+    },
+    "vol11": {
+     "occ": 91,
+     "review": 2,
+     "admit": 89
+    },
+    "vol12": {
+     "occ": 142,
+     "review": 1,
+     "admit": 141
+    },
+    "vol13": {
+     "occ": 314,
+     "review": 1,
+     "admit": 313
+    },
+    "vol14": {
+     "occ": 250,
+     "review": 3,
+     "admit": 247
+    },
+    "vol15": {
+     "occ": 160,
+     "review": 1,
+     "admit": 159
+    },
+    "vol16": {
+     "occ": 313,
+     "review": 1,
+     "admit": 312
+    },
+    "vol17": {
+     "occ": 182,
+     "review": 1,
+     "admit": 181
+    },
+    "vol18": {
+     "occ": 207,
+     "review": 1,
+     "admit": 206
+    },
+    "vol19": {
+     "occ": 176,
+     "review": 2,
+     "admit": 174
+    },
+    "vol20": {
+     "occ": 282,
+     "admit": 280,
+     "review": 2
+    }
+   },
+   "labels": {
+    "shape": 47,
+    "central": 39,
+    "multi": 4,
+    "corrected": 1
+   },
+   "mismatch": []
+  },
+  "wan": {
+   "name": "晚晩",
+   "kind": "同义",
+   "methods": "codepoint",
+   "total": {
+    "occ": 46,
+    "admit": 42,
+    "review": 4
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 2,
+     "admit": 2
+    },
+    "vol05": {
+     "occ": 3,
+     "admit": 3
+    },
+    "vol06": {
+     "occ": 2,
+     "admit": 2
+    },
+    "vol07": {
+     "occ": 1,
+     "review": 1
+    },
+    "vol08": {
+     "occ": 4,
+     "admit": 4
+    },
+    "vol09": {
+     "occ": 4,
+     "admit": 4
+    },
+    "vol10": {
+     "occ": 4,
+     "admit": 2,
+     "review": 2
+    },
+    "vol11": {
+     "occ": 2,
+     "admit": 2
+    },
+    "vol12": {
+     "occ": 2,
+     "review": 1,
+     "admit": 1
+    },
+    "vol13": {
+     "occ": 4,
+     "admit": 4
+    },
+    "vol14": {
+     "occ": 4,
+     "admit": 4
+    },
+    "vol16": {
+     "occ": 1,
+     "admit": 1
+    },
+    "vol17": {
+     "occ": 6,
+     "admit": 6
+    },
+    "vol18": {
+     "occ": 4,
+     "admit": 4
+    },
+    "vol19": {
+     "occ": 2,
+     "admit": 2
+    },
+    "vol20": {
+     "occ": 1,
+     "admit": 1
+    }
+   },
+   "labels": {
+    "shape": 5,
+    "central": 5
+   },
+   "mismatch": []
+  },
+  "qin": {
+   "name": "禽會俞命舍",
+   "kind": "不同义",
+   "methods": "hog",
+   "total": {
+    "occ": 713,
+    "admit": 702,
+    "checked": 59,
+    "review": 11
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 47,
+     "admit": 46,
+     "checked": 13,
+     "review": 1
+    },
+    "vol05": {
+     "occ": 46,
+     "admit": 46,
+     "checked": 9
+    },
+    "vol06": {
+     "occ": 29,
+     "admit": 27,
+     "review": 2,
+     "checked": 8
+    },
+    "vol07": {
+     "occ": 43,
+     "admit": 42,
+     "checked": 10,
+     "review": 1
+    },
+    "vol08": {
+     "occ": 20,
+     "admit": 19,
+     "checked": 3,
+     "review": 1
+    },
+    "vol09": {
+     "occ": 46,
+     "admit": 46,
+     "checked": 9
+    },
+    "vol10": {
+     "occ": 40,
+     "admit": 40,
+     "checked": 7
+    },
+    "vol11": {
+     "occ": 21,
+     "admit": 21
+    },
+    "vol12": {
+     "occ": 54,
+     "admit": 54
+    },
+    "vol13": {
+     "occ": 60,
+     "admit": 59,
+     "review": 1
+    },
+    "vol14": {
+     "occ": 96,
+     "admit": 95,
+     "review": 1
+    },
+    "vol15": {
+     "occ": 39,
+     "admit": 38,
+     "review": 1
+    },
+    "vol16": {
+     "occ": 27,
+     "admit": 26,
+     "review": 1
+    },
+    "vol17": {
+     "occ": 26,
+     "admit": 26
+    },
+    "vol18": {
+     "occ": 29,
+     "admit": 28,
+     "review": 1
+    },
+    "vol19": {
+     "occ": 27,
+     "admit": 27
+    },
+    "vol20": {
+     "occ": 63,
+     "admit": 62,
+     "review": 1
+    }
+   },
+   "labels": {
+    "shape": 80,
+    "central": 27,
+    "multi": 15,
+    "corrected": 1
+   },
+   "mismatch": []
+  },
+  "shang": {
+   "name": "尙尚",
+   "kind": "同义",
+   "methods": "hog",
+   "total": {
+    "occ": 745,
+    "admit": 735,
+    "review": 10,
+    "checked": 1
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 46,
+     "admit": 45,
+     "review": 1
+    },
+    "vol05": {
+     "occ": 16,
+     "admit": 16
+    },
+    "vol06": {
+     "occ": 71,
+     "admit": 71,
+     "checked": 1
+    },
+    "vol07": {
+     "occ": 119,
+     "admit": 119
+    },
+    "vol08": {
+     "occ": 52,
+     "admit": 51,
+     "review": 1
+    },
+    "vol09": {
+     "occ": 42,
+     "admit": 42
+    },
+    "vol10": {
+     "occ": 44,
+     "admit": 42,
+     "review": 2
+    },
+    "vol11": {
+     "occ": 24,
+     "admit": 24
+    },
+    "vol12": {
+     "occ": 22,
+     "admit": 22
+    },
+    "vol13": {
+     "occ": 45,
+     "admit": 44,
+     "review": 1
+    },
+    "vol14": {
+     "occ": 49,
+     "admit": 49
+    },
+    "vol15": {
+     "occ": 25,
+     "admit": 24,
+     "review": 1
+    },
+    "vol16": {
+     "occ": 49,
+     "admit": 47,
+     "review": 2
+    },
+    "vol17": {
+     "occ": 38,
+     "admit": 38
+    },
+    "vol18": {
+     "occ": 21,
+     "admit": 21
+    },
+    "vol19": {
+     "occ": 17,
+     "admit": 16,
+     "review": 1
+    },
+    "vol20": {
+     "occ": 65,
+     "admit": 64,
+     "review": 1
+    }
+   },
+   "labels": {
+    "shape": 15,
+    "central": 4,
+    "multi": 1
+   },
+   "mismatch": []
+  },
+  "gai": {
+   "name": "蓋葢",
+   "kind": "同义",
+   "methods": "hog",
+   "total": {
+    "occ": 1061,
+    "admit": 1050,
+    "review": 11
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 88,
+     "admit": 88
+    },
+    "vol05": {
+     "occ": 80,
+     "admit": 80
+    },
+    "vol06": {
+     "occ": 48,
+     "admit": 48
+    },
+    "vol07": {
+     "occ": 47,
+     "admit": 46,
+     "review": 1
+    },
+    "vol08": {
+     "occ": 31,
+     "admit": 31
+    },
+    "vol09": {
+     "occ": 91,
+     "admit": 91
+    },
+    "vol10": {
+     "occ": 82,
+     "admit": 82
+    },
+    "vol11": {
+     "occ": 32,
+     "admit": 32
+    },
+    "vol12": {
+     "occ": 60,
+     "admit": 60
+    },
+    "vol13": {
+     "occ": 95,
+     "admit": 95
+    },
+    "vol14": {
+     "occ": 96,
+     "admit": 96
+    },
+    "vol15": {
+     "occ": 48,
+     "admit": 48
+    },
+    "vol16": {
+     "occ": 45,
+     "admit": 44,
+     "review": 1
+    },
+    "vol17": {
+     "occ": 73,
+     "admit": 70,
+     "review": 3
+    },
+    "vol18": {
+     "occ": 31,
+     "review": 1,
+     "admit": 30
+    },
+    "vol19": {
+     "occ": 41,
+     "review": 1,
+     "admit": 40
+    },
+    "vol20": {
+     "occ": 73,
+     "admit": 69,
+     "review": 4
+    }
+   },
+   "labels": {
+    "shape": 9,
+    "central": 9,
+    "multi": 3
+   },
+   "mismatch": []
+  },
+  "ba": {
+   "name": "䟦跋",
+   "kind": "同义",
+   "methods": "composite(crop(0.5, 1.0, 0.0, 1.0) → hog)",
+   "total": {
+    "occ": 101,
+    "admit": 63,
+    "review": 38
+   },
+   "by_book": {
+    "vol04": {
+     "occ": 6,
+     "admit": 5,
+     "review": 1
+    },
+    "vol05": {
+     "occ": 4,
+     "admit": 4
+    },
+    "vol06": {
+     "occ": 4,
+     "admit": 4
+    },
+    "vol07": {
+     "occ": 8,
+     "admit": 4,
+     "review": 4
+    },
+    "vol08": {
+     "occ": 1,
+     "admit": 1
+    },
+    "vol09": {
+     "occ": 8,
+     "admit": 8
+    },
+    "vol10": {
+     "occ": 3,
+     "admit": 3
+    },
+    "vol11": {
+     "occ": 6,
+     "admit": 6
+    },
+    "vol12": {
+     "occ": 4,
+     "review": 4
+    },
+    "vol13": {
+     "occ": 10,
+     "review": 8,
+     "admit": 2
+    },
+    "vol14": {
+     "occ": 5,
+     "admit": 4,
+     "review": 1
+    },
+    "vol15": {
+     "occ": 5,
+     "review": 5
+    },
+    "vol16": {
+     "occ": 6,
+     "admit": 4,
+     "review": 2
+    },
+    "vol17": {
+     "occ": 9,
+     "review": 5,
+     "admit": 4
+    },
+    "vol18": {
+     "occ": 5,
+     "admit": 4,
+     "review": 1
+    },
+    "vol19": {
+     "occ": 4,
+     "review": 4
+    },
+    "vol20": {
+     "occ": 13,
+     "admit": 10,
+     "review": 3
+    }
+   },
+   "labels": {
+    "shape": 15,
+    "central": 15
+   },
+   "mismatch": []
+  }
+ },
+ "date": "2026-10-24",
+ "tag": "本机-vol04-20",
+ "prods": [
+  "/home/user/prod0",
+  "/home/user/prod"
+ ],
+ "labels": "/home/user/open-guji-dataset/char-groups/labels/unified.jsonl",
+ "codepoints": "/root/.guji-data/main/siku-zongmu/config/codepoints.yaml"
+}
