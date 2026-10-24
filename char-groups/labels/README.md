@@ -3,10 +3,10 @@
 2026-10-22 起。`unified.jsonl` 把散在 `review/`、`variant/*/`、`variant/pair_review/` 和中心库 `feedback/events` 里的人裁归并成同一格式。
 **源文件不动**（它们各自的格式是历史原因）；本目录是汇总视图，由 `build_unified.py` 生成，可反复重跑（幂等）。
 
-    python char-groups/labels/build_unified.py [--events <feedback/events 目录>]
+    python char-groups/labels/build_unified.py [--events <feedback/events 目录>] [--cv <open-guji-cv 仓>]
 
-`--events` 缺省 `~/.guji-data/main/siku-zongmu/feedback/events`（`guji db pull` 拉下来的中心库人裁事件）。`group_members.json` 是 CV 仓
-`groups/registry.py` 注册的 51 组成员（字组变了要重新导出）。
+`--events` 缺省 `~/.guji-data/main/siku-zongmu/feedback/events`（`guji db pull` 拉下来的中心库人裁事件）。`group_members.json` 由 CV 仓注册表导出
+（`--cv` 给了就先重新导出；2026-10-24 为 68 组），不手改。规范总入口：CV 仓 `doc/字组/README.md`。
 
 ## 一行一格一种标注
 
@@ -24,9 +24,18 @@
 | `event` | 中心库事件 id（有时） |
 | `cut` `parts` `reading` `lib` `ref` `note` | 按 kind 才有：切线、部件、释读、库形／整理本字、备注 |
 
-同一格同一 `kind` 在多个来源出现时合并成一行，其余来源记在 `also`。**切线按 sheldon 要求必须存进数据集**：`kind=cut` 的行就是。
+同一格同一 `kind` 在多个来源出现时合并成一行（2026-10-24 起的规则）：
+- 结论取**日期最晚**的一条（同日时中心库事件优先），所以更正写进中心库、重建后就生效；其余来源记在 `also`；
+- `verified: {n, agree}`：独立来源数、结论是否一致；
+- `corrected_from: [{form, src, date}]`：与最终结论不同的早先结论（被更正过）；
+- `in_central`：有没有中心库来源；`central_form`：中心库最新一条与最终结论不同（本仓的更正还没写进中心库，流水线读到的是它）。
+中心库事件每条都收（以前只留每格最新一条），`by` 记事件的 `reviewer`。**切线按 sheldon 要求必须存进数据集**：`kind=cut` 的行就是。
 
-## 现状（2026-10-22 生成）
+## 现状（2026-10-24 重建）
+
+4,600 行：刻形 3,884 · 文意 382 · 切线 247 · 部件 87。多来源 1,814 行，其中来源之间结论不同（被更正过）96 行；结论与中心库不同 7 行。各组明细见 `../status/`。
+
+### 2026-10-22 首次生成时
 
 3,060 行：shape 2,385 · reading 341 · cut 247 · parts 87。其中 **736 行原来只在中心库、本仓没有**，这次补录进来
 （主要是 即卽、一二、大太、子于、旨㫖、王玉、木本、論諭、象彖𧰼、曾會㑹、問間、而面、土士、十卜、千干、圓圖、未末 等组在 vol01–03 的人裁）。
