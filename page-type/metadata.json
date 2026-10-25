@@ -9,7 +9,7 @@
  "eval_script": "open-guji-cv/scripts/eval_pagetype.py",
  "total_samples": 460,
  "sample_unit": "页",
- "coverage": "vol01 + vol02 **全书每一页**（394 页）；vol03–10 为抽样 66 页（批次 vol03-10-2026-10-25：每册封面/题签/特殊页人选＋正文随机抽样，stratum 区分，评测按 stratum_weight 加权，不当全书）",
+ "coverage": "vol01 + vol02 **全书每一页**（394 页）；vol03–10 为抽样 66 页（批次 vol03-10-2026-10-25：每册封面/题签/特殊页人选＋正文随机抽样，stratum 与 stratum_weight 随条目走（expected.json 与 items.jsonl 都有）；评测脚本暂未加权，请按 stratum 分开报，不当全书）",
  "sources": [
   "06061300.cn（武英殿刻本《欽定四庫全書總目》卷首一~四）"
  ],

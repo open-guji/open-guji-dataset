@@ -60,7 +60,8 @@ for (v, p), (t, o) in LABELS.items():
     else:
         it["stratum"] = "人选·非正文"; it["stratum_weight"] = 1.0
     items.append(it); byid[iid] = it
-    flat.append({"book": v, "page": str(p), "page_type": t, "label_origin": "human", "note": None, "schema_version": 1})
+    flat.append({"book": v, "page": str(p), "page_type": t, "label_origin": "human", "note": None, "schema_version": 1,
+                 "stratum": it["stratum"], "stratum_weight": it["stratum_weight"]})
 
 # 2) blank → body
 for it in items:
