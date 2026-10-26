@@ -7,5 +7,5 @@
 - **2026-10-26 补标（A24「压低參㕘叅送审」）**：`claude_labels_1026.jsonl` 630 格（㕘 258／叅 366／參 6），全书 vol02–99 小族格逐格看 char_patch 下部放大标的刻形，
   `crops/` 里同名图是线上同款 char_patch。实际看到的区别：钩右边（捺之下）只有一笔＝㕘；一点一撇两笔＝叅（sheldon 那两格 叅 也是这样）。
   与 sheldon 早先人裁 34 格一致 32（不一致的 vol04:47:1:6、vol09:3:6:7 不进模板）。vol02–20 多 㕘，vol21 起多 叅；整理本一律作 叅、字形库偏 㕘，都不能当标签。
-  看不清的 91 格没收。建库 open-guji-cv `research/m7/glyph_expand/build_can_dual.py`。
+  看不清的 92 格没收。建库 open-guji-cv `research/m7/glyph_expand/build_can_dual.py`。
 - 扩充与重训流程见 open-guji-cv `doc/design/M7-IDS路-扩展与训练增长.md`。
