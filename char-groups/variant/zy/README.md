@@ -13,3 +13,12 @@
 | `eval.md`（只在 zy） | 五组成绩 |
 
 重做：cv `research/m7/ctx/replay_groups.py`（回放，`--redo zy,qg`）→ `l2_new_groups.py make`（出批）→ 各模型跑 → `l2_new_groups.py ingest`（合表）→ 带 `--tables` 再回放。L1 规则怎么挖见 cv `research/m7/ctx/mine_l1/README.md`。
+
+## 2026-10-27 全册补表（A24「压低于千子干送审」）
+全 99 册统计里 zy 送审 89 格（vol02–20 15、21–50 28、51–99 46）。病根同 rr：中心库 `zy.json`（zy-l2-1）只有 vol04–20 的 64 格，vol21–99 查表全落空；另有 4 条 L1 规则在新册误判（见 cv `doc/字组/zy.md`）。
+只给要用的格补表（不全量批跑）：离线回放里进了 zy／yz 补放入口、表里没有的 169 格（`l2/vol02_99/zy`、`l2/vol02_99/yz`），加上旧表窗口对不上的 2 格与共字组 予子 要表态的 5 格（`l2/vol02_99/extra`）。haiku／opus（high effort）／sonnet 各一遍，按 `l2_panel` 合表。
+- `l2/zy.json`、`../yz/l2/yz.json`：**新表**，ver `zy-l2-1+v0299`／`yz-l2-1+v0299`（旧 64＋3 格原样保留，旧表窗口变了的 2 格用新窗口重判）。上线时换掉中心库 `config/groups/l2/{zy,yz}.json`。
+- `strong`：三遍同字、至少两遍 high（只标本轮新判的格）。
+- 三遍都说「其他」的格记 `abstain:other`（共字组联判要它：zy 定 于／干，yz 须明说不是 予子）。
+- 手工处理 1 格：yz `vol70:115:6:11`「益字【?】謙」改弃权（刻形与同页「予咸」的 予 几乎一样，三模型都不 strong）。
+- `labels.jsonl` 追加 183 行（`by=claude-a24-zy1027`）：回放里新放行、改判的每一格，逐格读过上下文、看过字块图，写依据、整理本字、原产物字。
