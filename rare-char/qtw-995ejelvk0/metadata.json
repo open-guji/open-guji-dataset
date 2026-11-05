@@ -1,0 +1,40 @@
+{
+ "name": "rare-char/qtw-995ejelvk0",
+ "version": "0.1.0",
+ "schema_version": 1,
+ "created": "2026-11-05",
+ "description": "全唐文（995ejelvk0）r9b 难认异体格：Sheldon 人裁定字、认不出、切分/非字；候选按出页时冻结",
+ "total_samples": 69,
+ "sample_unit": "字位",
+ "strata": {
+  "改字·候选有": 19,
+  "改字·候选无": 15,
+  "页上字对": 28,
+  "认不出": 3,
+  "切分或非字": 4
+ },
+ "changed_char_blocks": {
+  "扩B": 18,
+  "基本": 12,
+  "扩A": 4
+ },
+ "metric": "改字层 top-12 召回（按候选来源分报）；切分或非字层：管线能否先判出不该找字",
+ "baseline": {
+  "page_v1_top1": "0/20",
+  "page_v1_top3": "4/20",
+  "page_v1_top12": "9/20",
+  "a23_top1": "14/34",
+  "a23_top3": "17/34",
+  "a23_top12": "18/34",
+  "page_v2_top1": "0/14",
+  "page_v2_top3": "1/14",
+  "page_v2_top12": "8/14"
+ },
+ "notes": [
+  "参考答案全是 Sheldon 人点（H-hv-1105、H-hv-1105b），不用整理本当金标。",
+  "候选冻结：比较新算法时读 input.candidates，别用实时候选。",
+  "认不出层记 parts（人看得出的部件），用来测部件/IDS 检索；定字后挪到 char 层、版本加一。",
+  "patch 按 r11 cell_shrink 字框裁；anchor.bbox/content_sha 取自人裁事件锚，切分重跑后用它找回原格。"
+ ],
+ "build_command": "python scripts/build_rare_char_qtw.py"
+}
