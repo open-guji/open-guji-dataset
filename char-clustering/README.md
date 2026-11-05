@@ -27,13 +27,24 @@
 冻结的归一图上做，那已经过了归一化自己的清理）。分布：001 分片 clean 95%、
 002 分片 89%、人工层 54%（本来就是从问题簇里来的）。
 
-## 三个分片
+## 分片
 
 | 分片 | 来源 | 标注 | 实例 | 字类 | 难例对 |
 |---|---|---|---|---|---|
 | [001-vol01-body](samples/001-vol01-body) | vol01 正文页 | `align` | 3061 | 930 | 80 |
 | [002-vol02-body](samples/002-vol02-body) | vol02 正文页 | `align` | 3025 | 757 | 74 |
 | [003-book9all-human](samples/003-book9all-human) | 人工审查复核 | `human` | 91 | 24 | 65 |
+| [004-siku-v2-human](samples/004-siku-v2-human) | 殿本 96mid1ogzk 中心库人裁（v2 图源） | `human` | 3003 | 1274 | 102 |
+| [005-shiji-human](samples/005-shiji-human) | 史記 988g3f0wsu 中心库人裁 | `human` | 3001 | 1263 | 76 |
+| [006-qtw-human](samples/006-qtw-human) | 全唐文 995ejelvk0 中心库人裁 | `human` | 3002 | 880 | 70 |
+
+004–006 是 2026-11-05 冻结的**三书人裁金标**（A23，`open-guji-cv/scripts/build_book_human_shards.py`）。每个分片另带：
+
+- `rare.jsonl`：5b 生僻字集，收本书全部人裁，按 `strata` 分 `unseen`（本书人裁不超过 2 例）和 `oov`（不在 CNN r5 类表）。评测用 `scripts/eval_oov.py --bench <分片> --items rare.jsonl`。
+- `info.json`：抽样口径、偏差说明、已知局限，以及当时中心库 glyph.db 的 sha256。
+- 实例的 `selfcheck_flag`：字形库体检标过的人裁（噪声高），头条数排除它们。
+
+读数注意：人裁格是送审流程挑出来的难格，比全书随机字难，数不能当全书准确率读。全唐文有按读音标的异体（如褱标懷），史記抽查 50 例有 1 例标错（已被体检标出）。派生的阈值标定集在 `glyph-match/pairs-{siku-v2,shiji,qtw}`。
 
 一个分片 = **同一册**的一批实例（跨册刻工差异是另一个问题，别混进 purity）。
 字块以**归一图冻结在 `crops/`**：金标挂在图上，上游切分再改也不会漂。

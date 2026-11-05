@@ -1,0 +1,39 @@
+{
+ "id": "004-siku-v2-human",
+ "source": "96mid1ogzk",
+ "source_item": "96mid1ogzk",
+ "book": "96mid1ogzk",
+ "created": "2026-11-05",
+ "description": "96mid1ogzk 中心库人裁冻结：5a 分片 3003 实例 / 1274 字；5b rare.jsonl 3109 条",
+ "tags": [
+  "human",
+  "central-db",
+  "96mid1ogzk"
+ ],
+ "sampling": "admissions.provenance='human'，本书自有刻例（只收 v2: 新图源）；5a 按整页抽到 3000（seed 7），5b 全收（unseen=本书人裁 ≤2 例；oov=不在 CNN r5 类表）",
+ "bias": "人裁字位是审查流程挑出来的待审格，比全书随机字难；数不能当全书准确率读",
+ "known_limitation": "人裁有噪声，体检标出的 5 个实例带 selfcheck_flag，评测时分层或剔除",
+ "glyph_db_sha256": "6444e4e79c936256293055c93e7d855288fbfa8bfd1f62bcee9778da0a522a31",
+ "build_command": "python scripts/build_book_human_shards.py",
+ "stats": {
+  "n_human_total": 6871,
+  "n_instances": 3003,
+  "n_chars": 1274,
+  "n_pages": 1082,
+  "n_hard_pairs": 102,
+  "hard_pairs_by_origin": {
+   "near_form": 42,
+   "ink_extreme": 60
+  },
+  "tiers": {
+   "clean": 3003
+  },
+  "rare": {
+   "n": 3109,
+   "n_chars": 1866,
+   "unseen": 2174,
+   "oov": 1245
+  },
+  "n_selfcheck_flagged": 5
+ }
+}
