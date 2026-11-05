@@ -1,0 +1,243 @@
+{
+ "b1": {
+  "seed": 20261104,
+  "vols": [
+   "vol05",
+   "vol18",
+   "vol30",
+   "vol60",
+   "vol75",
+   "vol88"
+  ],
+  "per": 100,
+  "rule": "端格=列首(最小 slot<=1)/列尾(最大 slot>=21)；ratio=字块墨高/同册同字列中(slot3-19、已放行)墨高中位数；lo=<0.85(关或开)，hi=>1.12(关)，changed=开 inner_frame_cut 后字块变了，rest=其余；各层不重叠，按 lo→hi→changed→rest 先到先得",
+  "strata": {
+   "vol05": {
+    "lo": {
+     "pop": 12,
+     "picked": 12
+    },
+    "hi": {
+     "pop": 281,
+     "picked": 40
+    },
+    "changed": {
+     "pop": 281,
+     "picked": 20
+    },
+    "rest": {
+     "pop": 908,
+     "picked": 28
+    }
+   },
+   "vol18": {
+    "lo": {
+     "pop": 3,
+     "picked": 3
+    },
+    "hi": {
+     "pop": 222,
+     "picked": 40
+    },
+    "changed": {
+     "pop": 117,
+     "picked": 20
+    },
+    "rest": {
+     "pop": 599,
+     "picked": 37
+    }
+   },
+   "vol30": {
+    "lo": {
+     "pop": 11,
+     "picked": 11
+    },
+    "hi": {
+     "pop": 179,
+     "picked": 40
+    },
+    "changed": {
+     "pop": 133,
+     "picked": 20
+    },
+    "rest": {
+     "pop": 785,
+     "picked": 29
+    }
+   },
+   "vol60": {
+    "lo": {
+     "pop": 20,
+     "picked": 15
+    },
+    "hi": {
+     "pop": 47,
+     "picked": 40
+    },
+    "changed": {
+     "pop": 264,
+     "picked": 20
+    },
+    "rest": {
+     "pop": 677,
+     "picked": 25
+    }
+   },
+   "vol75": {
+    "lo": {
+     "pop": 7,
+     "picked": 7
+    },
+    "hi": {
+     "pop": 128,
+     "picked": 40
+    },
+    "changed": {
+     "pop": 308,
+     "picked": 20
+    },
+    "rest": {
+     "pop": 895,
+     "picked": 33
+    }
+   },
+   "vol88": {
+    "lo": {
+     "pop": 22,
+     "picked": 15
+    },
+    "hi": {
+     "pop": 81,
+     "picked": 40
+    },
+    "changed": {
+     "pop": 399,
+     "picked": 20
+    },
+    "rest": {
+     "pop": 997,
+     "picked": 25
+    }
+   }
+  }
+ },
+ "b2": {
+  "seed": 20261105,
+  "vols": [
+   "vol05",
+   "vol18",
+   "vol25",
+   "vol30",
+   "vol40",
+   "vol50",
+   "vol60",
+   "vol75",
+   "vol88",
+   "vol95"
+  ],
+  "rule": "第二批：只看开 inner_frame_cut 后的字块；lo2=新字块墨高/同字列中中位数<0.85，hi2=>1.12；去掉第一批已抽的格",
+  "strata": {
+   "vol05": {
+    "lo2": {
+     "pop": 0,
+     "picked": 0
+    },
+    "hi2": {
+     "pop": 195,
+     "picked": 22
+    }
+   },
+   "vol18": {
+    "lo2": {
+     "pop": 0,
+     "picked": 0
+    },
+    "hi2": {
+     "pop": 161,
+     "picked": 22
+    }
+   },
+   "vol25": {
+    "lo2": {
+     "pop": 4,
+     "picked": 4
+    },
+    "hi2": {
+     "pop": 184,
+     "picked": 22
+    }
+   },
+   "vol30": {
+    "lo2": {
+     "pop": 0,
+     "picked": 0
+    },
+    "hi2": {
+     "pop": 113,
+     "picked": 22
+    }
+   },
+   "vol40": {
+    "lo2": {
+     "pop": 43,
+     "picked": 8
+    },
+    "hi2": {
+     "pop": 123,
+     "picked": 22
+    }
+   },
+   "vol50": {
+    "lo2": {
+     "pop": 35,
+     "picked": 8
+    },
+    "hi2": {
+     "pop": 106,
+     "picked": 22
+    }
+   },
+   "vol60": {
+    "lo2": {
+     "pop": 5,
+     "picked": 5
+    },
+    "hi2": {
+     "pop": 4,
+     "picked": 4
+    }
+   },
+   "vol75": {
+    "lo2": {
+     "pop": 0,
+     "picked": 0
+    },
+    "hi2": {
+     "pop": 68,
+     "picked": 22
+    }
+   },
+   "vol88": {
+    "lo2": {
+     "pop": 4,
+     "picked": 4
+    },
+    "hi2": {
+     "pop": 31,
+     "picked": 22
+    }
+   },
+   "vol95": {
+    "lo2": {
+     "pop": 47,
+     "picked": 8
+    },
+    "hi2": {
+     "pop": 65,
+     "picked": 22
+    }
+   }
+  }
+ }
+}
