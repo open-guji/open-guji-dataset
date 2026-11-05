@@ -41,6 +41,7 @@
 | [char-segmentation/instances](char-segmentation/instances) | `chars`（图块自检）| 829（2026-09-11 实测，持续增量，此数会再涨） | 可用 | 真实图块四分类 + `defect` 子类（rule_bar/frame_bar），评管线自检能力。含历次实审回流（r1~r6）与隔壁进库审查的 149 条 |
 | [char-segmentation/frame-strip](char-segmentation/frame-strip) | `chars`（列端去框）| 65 | 可用 | 列端格「去框后」干净度：残余率/误剥率/字保全 |
 | [char-segmentation/side-rule](char-segmentation/side-rule) | `chars`（侧边去线）| 276（2026-09-11 实测） | 可用 | 图块左右缘的界行竖条剥没剥掉，字的边竖有没有被误剥 |
+| [char-segmentation/frame-end-crop](char-segmentation/frame-end-crop) | `chars`（列端去框）| 451 格（10 册）| 可用 | 殿本新图源列首列尾字块人点「干净／带框／切笔」，按字块指纹锚定；评 `inner_frame_cut` 等列端剥框改动 |
 | [char-segmentation/page-crop](char-segmentation/page-crop) | `segment`（上游裁切）| 6 页 | 可用 | 列窗越出页图多少＝最外列被 s3 吃掉多少（全自动，无需标注）|
 | [char-segmentation/text-band](char-segmentation/text-band) | `segment`（版面窗口）| 294 页 | 可用 | 窗口高 /（每列字数 × 书级格高）＝列的纵向窗口够不够装下一整列（全自动，无需标注）|
 | [char-segmentation/jiazhu-tail](char-segmentation/jiazhu-tail) | `chars`（夹注段端）| 57 | 可用 | 奇数字末行单字收编成 a 行 / 漏拆末行补拆，正文拒收（三分类，非对称零容忍）|
