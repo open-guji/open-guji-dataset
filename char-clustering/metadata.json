@@ -1,13 +1,13 @@
 {
  "name": "char-clustering-benchmark",
- "version": "0.6.0",
+ "version": "0.7.0",
  "schema_version": 1,
  "description": "保守聚类（同字合并）purity Benchmark 数据集",
  "created": "2026-08-21",
  "status": "可用",
  "eval_command": "cd open-guji-cv && python scripts/eval_clustering.py <dataset>",
  "eval_script": "open-guji-cv/scripts/eval_clustering.py",
- "total_samples": 3,
+ "total_samples": 6,
  "sample_unit": "册分片",
  "sources": [
   {
@@ -37,6 +37,42 @@
    "n_instances": 91,
    "n_chars": 24,
    "n_hard_pairs": 65
+  },
+  {
+   "shard": "004-siku-v2-human",
+   "book": "96mid1ogzk",
+   "label_origin": "human",
+   "n_instances": 3003,
+   "n_chars": 1274,
+   "n_pages": 1082,
+   "n_hard_pairs": 102,
+   "rare_items": 3109,
+   "frozen_at": "2026-11-05",
+   "glyph_db_sha256": "6444e4e79c936256293055c93e7d855288fbfa8bfd1f62bcee9778da0a522a31"
+  },
+  {
+   "shard": "005-shiji-human",
+   "book": "988g3f0wsu",
+   "label_origin": "human",
+   "n_instances": 3001,
+   "n_chars": 1263,
+   "n_pages": 694,
+   "n_hard_pairs": 76,
+   "rare_items": 1415,
+   "frozen_at": "2026-11-05",
+   "glyph_db_sha256": "7708b36e19e69e4ef3ba22c7e4a555a1b96c5fefab68b8c8a3cd1c5dcb9b4065"
+  },
+  {
+   "shard": "006-qtw-human",
+   "book": "995ejelvk0",
+   "label_origin": "human",
+   "n_instances": 3002,
+   "n_chars": 880,
+   "n_pages": 850,
+   "n_hard_pairs": 70,
+   "rare_items": 1271,
+   "frozen_at": "2026-11-05",
+   "glyph_db_sha256": "005e320ae076a792c63b817e802c4df2d86571a9807115d09e1832310eea2d73"
   }
  ],
  "provenance_fields": [

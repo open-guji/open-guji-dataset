@@ -1,0 +1,39 @@
+{
+ "id": "006-qtw-human",
+ "source": "995ejelvk0",
+ "source_item": "995ejelvk0",
+ "book": "995ejelvk0",
+ "created": "2026-11-05",
+ "description": "995ejelvk0 中心库人裁冻结：5a 分片 3002 实例 / 880 字；5b rare.jsonl 1271 条",
+ "tags": [
+  "human",
+  "central-db",
+  "995ejelvk0"
+ ],
+ "sampling": "admissions.provenance='human'，本书自有刻例；5a 按整页抽到 3000（seed 7），5b 全收（unseen=本书人裁 ≤2 例；oov=不在 CNN r5 类表）",
+ "bias": "人裁字位是审查流程挑出来的待审格，比全书随机字难；数不能当全书准确率读",
+ "known_limitation": "人裁有噪声，体检标出的 189 个实例带 selfcheck_flag，评测时分层或剔除",
+ "glyph_db_sha256": "005e320ae076a792c63b817e802c4df2d86571a9807115d09e1832310eea2d73",
+ "build_command": "python scripts/build_book_human_shards.py",
+ "stats": {
+  "n_human_total": 5066,
+  "n_instances": 3002,
+  "n_chars": 880,
+  "n_pages": 850,
+  "n_hard_pairs": 70,
+  "hard_pairs_by_origin": {
+   "near_form": 10,
+   "ink_extreme": 60
+  },
+  "tiers": {
+   "clean": 3002
+  },
+  "rare": {
+   "n": 1271,
+   "n_chars": 872,
+   "unseen": 1035,
+   "oov": 376
+  },
+  "n_selfcheck_flagged": 189
+ }
+}

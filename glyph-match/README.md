@@ -7,3 +7,6 @@ verify_pair_cov 排序）。与 `char-clustering`（聚类 purity）互补：
 | 分片 | 单元 | 数量 | 说明 |
 |---|---|---|---|
 | [triplets](triplets/) | 三元组 | 98（hard 38 / control 60）| 体检人裁产出的排序金标 |
+| [pairs-siku-v2](pairs-siku-v2/) | 图块对 | 27,370 | 殿本人裁金标（char-clustering 004）派生的阈值标定集，2026-11-05 冻结 |
+| [pairs-shiji](pairs-shiji/) | 图块对 | 23,884 | 史記人裁金标（005）派生 |
+| [pairs-qtw](pairs-qtw/) | 图块对 | 26,587 | 全唐文人裁金标（006）派生 |
