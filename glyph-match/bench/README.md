@@ -6,7 +6,7 @@
 | 文件 | 内容 |
 |---|---|
 | `tiers-<分片>.jsonl` | 每个实例一行：`id`、`flags`（clean/offset/edge/stain/heavy/thin，多标签）、`dx dy margin n_speck ink` 特征 |
-| `baseline-2026-11-06.json` | 三书当前基线（cv dev 6a2aca8，库为中心库当天 main） |
+| `baseline-2026-11-06.json` | 三书当前基线（cv dev 6a2aca8＋本基准脚本，含共识升档；库为中心库当天 main） |
 
 分档由 64×64 归一图算出（分片自带 `tier` 全是 clean，分不出）；规则与阈值在 cv `scripts/eval_match_bench.py` 头部常量，
 改规则要重出 tiers。heavy/thin 用**本书**墨比例最高/最低 10%。
