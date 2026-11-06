@@ -10,3 +10,4 @@ verify_pair_cov 排序）。与 `char-clustering`（聚类 purity）互补：
 | [pairs-siku-v2](pairs-siku-v2/) | 图块对 | 27,370 | 殿本人裁金标（char-clustering 004）派生的阈值标定集，2026-11-05 冻结 |
 | [pairs-shiji](pairs-shiji/) | 图块对 | 23,884 | 史記人裁金标（005）派生 |
 | [pairs-qtw](pairs-qtw/) | 图块对 | 26,587 | 全唐文人裁金标（006）派生 |
+| [bench](bench/) | 分档标注＋基线 | 3 书 | 新图×字形库 比对基准（查询用 char-clustering 三书人裁分片，2026-11-06） |
