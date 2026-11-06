@@ -2008,7 +2008,7 @@
   {
    "instance_id": "v2:01:16:7:6",
    "crop": "crops/v2_01_16_7_6.png",
-   "char": "人",
+   "char": "美",
    "label_origin": "human",
    "label_status": "admitted",
    "page": "10016",
@@ -2026,7 +2026,12 @@
    },
    "book_count": 12,
    "in_cnn_classes": true,
-   "selfcheck_flag": "human_conflict,outlier,rival,rival_xbook"
+   "selfcheck_flag": "human_conflict,outlier,rival,rival_xbook",
+   "label_fix": {
+    "from": "人",
+    "to": "美",
+    "note": "2026-11-06 A23 看图订正（5a 错例归因），Sheldon 11-06 同意"
+   }
   },
   {
    "instance_id": "v2:01:18:2:1",
@@ -5743,7 +5748,7 @@
   {
    "instance_id": "v2:01:37:4:19",
    "crop": "crops/v2_01_37_4_19.png",
-   "char": "史",
+   "char": "之",
    "label_origin": "human",
    "label_status": "admitted",
    "page": "10037",
@@ -5761,7 +5766,12 @@
    },
    "book_count": 17,
    "in_cnn_classes": true,
-   "selfcheck_flag": "human_conflict,rival,rival_xbook"
+   "selfcheck_flag": "human_conflict,rival,rival_xbook",
+   "label_fix": {
+    "from": "史",
+    "to": "之",
+    "note": "2026-11-06 A23 看图订正（5a 错例归因），Sheldon 11-06 同意"
+   }
   },
   {
    "instance_id": "v2:01:37:5:3",
@@ -66484,13 +66494,6 @@
    "note": "NEVER_MATCH_FAMILIES 人/入"
   },
   {
-   "a": "v2:01:16:7:6",
-   "b": "v2:02:129:8:12",
-   "relation": "diff",
-   "origin": "near_form",
-   "note": "NEVER_MATCH_FAMILIES 人/入"
-  },
-  {
    "a": "v2:01:29:5:2",
    "b": "v2:02:130:8:17",
    "relation": "diff",
@@ -66552,13 +66555,6 @@
    "relation": "same",
    "origin": "ink_extreme",
    "note": "墨色 0.216 vs 0.068"
-  },
-  {
-   "a": "v2:01:16:7:6",
-   "b": "v2:01:29:5:2",
-   "relation": "same",
-   "origin": "ink_extreme",
-   "note": "墨色 0.185 vs 0.055"
   },
   {
    "a": "v2:02:5:5:9b",
@@ -66811,13 +66807,6 @@
    "relation": "same",
    "origin": "ink_extreme",
    "note": "墨色 0.211 vs 0.139"
-  },
-  {
-   "a": "v2:08:21:8:2",
-   "b": "v2:01:37:4:19",
-   "relation": "same",
-   "origin": "ink_extreme",
-   "note": "墨色 0.180 vs 0.108"
   },
   {
    "a": "v2:03:153:5:17b",
