@@ -17,7 +17,7 @@
  "build_command": "python scripts/build_book_human_shards.py",
  "stats": {
   "n_human_total": 5066,
-  "n_instances": 3002,
+  "n_instances": 3001,
   "n_chars": 880,
   "n_pages": 850,
   "n_hard_pairs": 70,
@@ -35,5 +35,12 @@
    "oov": 376
   },
   "n_selfcheck_flagged": 189
- }
+ },
+ "corrections": [
+  {
+   "date": "2026-11-10",
+   "by": "Sheldon（库内刻例审阅页）",
+   "note": "按「同码即同形」订正 9 格：𠋫→侯 3、嚴→巖 3、两→兩 1、王→玉 1、室→窒 1；v2:009:104:1:5（亮）库里撤库（多半切坏），从 5a 实例中去掉（字块和 rare.jsonl 未动）"
+  }
+ ]
 }
