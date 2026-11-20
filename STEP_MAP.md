@@ -26,6 +26,7 @@
 | | [char-segmentation/column-level](char-segmentation/column-level) | 117 |
 | Step3 逐字切分 | [char-segmentation/touching-cuts](char-segmentation/touching-cuts)（主集，vol01/vol02/**vol03**） | 895 |
 | | [char-segmentation/cells](char-segmentation/cells)（合成逐像素金标） | 60 |
+| | [char-segmentation/book-columns](char-segmentation/book-columns)（各书切分难列，按书分开；脉经卷一） | 32 |
 | | [char-segmentation/cell-kind](char-segmentation/cell-kind) | 5 |
 | | [char-segmentation/seam](char-segmentation/seam) | 27 |
 | | [char-segmentation/char-drop](char-segmentation/char-drop) | 16 |
