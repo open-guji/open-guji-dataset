@@ -38,6 +38,7 @@
 | [page-geometry](page-geometry) | `segment`（版面几何）| 39 页 / 353 界行 | 可用 | 页面形变标定：错切/射影、列距列相位 |
 | [column-layout](column-layout) | `segment`（行列识别）| 36 页 / 322 列 | 可用 | 逐列刚性/弹性判别 + 统一输出格式 |
 | [char-segmentation/cells](char-segmentation/cells) | `segment`（格内净化）| 60 | 可用 | 合成逐像素金标：格内墨迹归属 |
+| [char-segmentation/book-columns](char-segmentation/book-columns) | `segment`（整列切分）| 32 列（脉经卷一，28 有金标） | 可用 | 各书切分难列，整列人定格表；按书分子目录、分书报分 |
 | [char-segmentation/instances](char-segmentation/instances) | `chars`（图块自检）| 829（2026-09-11 实测，持续增量，此数会再涨） | 可用 | 真实图块四分类 + `defect` 子类（rule_bar/frame_bar），评管线自检能力。含历次实审回流（r1~r6）与隔壁进库审查的 149 条 |
 | [char-segmentation/frame-strip](char-segmentation/frame-strip) | `chars`（列端去框）| 65 | 可用 | 列端格「去框后」干净度：残余率/误剥率/字保全 |
 | [char-segmentation/side-rule](char-segmentation/side-rule) | `chars`（侧边去线）| 276（2026-09-11 实测） | 可用 | 图块左右缘的界行竖条剥没剥掉，字的边竖有没有被误剥 |

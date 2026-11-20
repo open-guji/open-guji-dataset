@@ -1,0 +1,17 @@
+{
+  "name": "char-segmentation-book-columns",
+  "version": "0.1.0",
+  "schema_version": 1,
+  "description": "各书切分难列：整列人定格表（manual-cells 同源），按书分子目录、分书报分",
+  "created": "2026-11-20",
+  "status": "可用",
+  "parent": "char-segmentation",
+  "eval_command": "python char-segmentation/book-columns/score.py <书>/items.jsonl [预测.jsonl]",
+  "books": {"maijing": {"book_id": "99k3i35yww", "vols": ["01"], "items": 32, "gold": 28}},
+  "sample_unit": "列",
+  "label_origin_values": ["human", "human_note"],
+  "metrics": [
+    {"name": "column_exact", "direction": "higher_is_better", "description": "金标每格都 1 对 1 配上（IoU≥0.75）且没有多余格的列占比"},
+    {"name": "cell_f1", "direction": "higher_is_better", "description": "格级 P/R 的调和平均"}
+  ]
+}
