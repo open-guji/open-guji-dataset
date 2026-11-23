@@ -25,6 +25,7 @@ aside h4{margin:12px 0 6px;font-size:13px;color:var(--mute);font-weight:600}.row
  <button data-mode="new" title="依次点线上的点，Enter 或双击结束">新线</button>
  <button data-mode="gap" title="选中一条线后，点断口的起止两处">断口</button>
  <button id="fit">适应窗口</button>
+ <button id="simp" title="把近乎直线的折线化简成少数几个点（容差 1.5px），拐点保留">简化折点</button>
  <button id="done" class="pri">标完 ✓</button><button id="export">导出 items.jsonl</button>
  <span id="msg"></span>
 </header>
@@ -79,6 +80,7 @@ async function open(i){
   if(!cur){cur={doc:JSON.parse(JSON.stringify(drafts[pg.key]||{width:0,height:0,vlines:[],top:null,bottom:null,tags:[]})),done:false,type:(drafts[pg.key]||{}).page_type||"body",note:""}}
   const f=files[pg.file];if(!f){say("缺图 "+pg.file,true);return}
   imgEl=await new Promise((res,rej)=>{const im=new Image();im.onload=()=>res(im);im.onerror=rej;im.src=URL.createObjectURL(f)});
+  if(!store.get(lsKey()))simplifyDoc(cur.doc);
   cur.doc.width=imgEl.naturalWidth;cur.doc.height=imgEl.naturalHeight;
   sel={kind:"v",i:0,pt:-1};newPts=[];gapStart=null;fit();redraw();side();head();
 }
@@ -91,6 +93,11 @@ function resize(){const r=$("#stage").getBoundingClientRect(),d=devicePixelRatio
 addEventListener("resize",resize);
 function fit(){const r=$("#stage").getBoundingClientRect();if(!imgEl)return;view.s=Math.min(r.width/imgEl.naturalWidth,r.height/imgEl.naturalHeight);view.ox=(r.width-imgEl.naturalWidth*view.s)/2;view.oy=(r.height-imgEl.naturalHeight*view.s)/2;resize()}
 const toS=(x,y)=>[x*view.s+view.ox,y*view.s+view.oy],toD=(x,y)=>[(x-view.ox)/view.s,(y-view.oy)/view.s];
+function rdp(P,e){if(P.length<3)return P;const a=P[0],b=P[P.length-1];let m=0,k=0;
+  for(let i=1;i<P.length-1;i++){const dx=b[0]-a[0],dy=b[1]-a[1],L=Math.hypot(dx,dy)||1,d=Math.abs((P[i][0]-a[0])*dy-(P[i][1]-a[1])*dx)/L;if(d>m){m=d;k=i}}
+  if(m<=e)return[a,b];return rdp(P.slice(0,k+1),e).slice(0,-1).concat(rdp(P.slice(k),e))}
+function simplifyDoc(d,e){e=e||1.5;const sim=l=>{if(l&&l.pts&&l.pts.length>3)l.pts=rdp(l.pts,e).map(p=>[+p[0].toFixed(1),+p[1].toFixed(1)])};
+  d.vlines.forEach(sim);sim(d.top);sim(d.bottom);Object.values(d.frame||{}).forEach(f=>sim(f&&f.outer))}
 function lines(){return cur.doc.vlines}
 const SIDES=["top","bottom","left","right"],SIDEN={top:"上",bottom:"下",left:"左",right:"右"},KINDN={double:"内外双线",single:"只有一条线",none:"没有框线"};
 function frame(){if(!cur.doc.frame)cur.doc.frame={};return cur.doc.frame}
@@ -140,7 +147,7 @@ document.querySelectorAll("[data-mode]").forEach(b=>b.onclick=()=>setMode(b.data
 addEventListener("keydown",e=>{if(!pack||e.target.tagName==="INPUT"||e.target.tagName==="SELECT")return;
   if(e.key==="ArrowRight")open(idx+1);else if(e.key==="ArrowLeft")open(idx-1);else if(e.key==="Enter"&&mode==="new")finishNew();else if(e.key==="Escape")setMode("sel");
   else if((e.key==="Delete"||e.key==="Backspace")&&sel.pt>=0){const ln=target();if(ln&&ln.pts.length>2){ln.pts.splice(sel.pt,1);sel.pt=-1;save();redraw()}}});
-$("#prev").onclick=()=>open(idx-1);$("#next").onclick=()=>open(idx+1);$("#fit").onclick=fit;
+$("#prev").onclick=()=>open(idx-1);$("#next").onclick=()=>open(idx+1);$("#fit").onclick=fit;$("#simp").onclick=()=>{simplifyDoc(cur.doc);sel.pt=-1;save();side();redraw();say("已简化折点")};
 $("#done").onclick=()=>{if(!cur.done){const p=problems();if(p.length&&!confirm("有问题：\n"+p.join("\n")+"\n仍要标完吗？"))return}cur.done=!cur.done;save();head();side();if(cur.done)open(idx+1)};
 function problems(){const o=[];const L=cur.doc.vlines;L.forEach((l,i)=>{if((l.state==="broken"||l.state==="inferred")&&!(l.gaps&&l.gaps.length))o.push(`第${i+1}条线状态为${STN[l.state]}，没标断口`)});
   if(!cur.doc.top||!cur.doc.bottom)o.push("缺上或下版框");
