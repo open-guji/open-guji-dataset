@@ -1,0 +1,23 @@
+{
+  "name": "decide-bench/small",
+  "version": "0.1.0",
+  "schema_version": 1,
+  "description": "第四步定字（align_ref／context_decide／seed_admit）小型标注集：三册人裁金标，按原图框锚定，Sheldon 分层抽审 223 格",
+  "created": "2026-11-23",
+  "status": "可用",
+  "owner": "CV4",
+  "sample_unit": "格（按原图框对格，不随切分改号）",
+  "books": {"988g3f0wsu": "史記 03", "995ejelvk0": "全唐文 004", "siku-zongmu": "殿本（四库总目） vol01"},
+  "build": "ai-team domain/CV/A24/decide-bench/：select_gold.py（殿本加 --bind 用 cv 绑定表）→ stratify.py → build_review.py＋guji-manager review-pages gold_sample（check）→ apply_review.py → build_shard.py",
+  "provenance_fields": ["source_events", "label_origin", "stratum", "history"],
+  "label_origin_values": ["human", "human_audit"],
+  "selection": "只收：人在网页／artifact 上裁过且＝参校本（cls=agree_ref）、≠参校本但明确推翻（override_ref）、dataset 已有（dataset）。看图会话与代写的不收。stratum=抽审·分层 是按放行／拦住规则分层挑的难例（每条规则都有例子），不是随机样本，不能估全册错率",
+  "metrics": [
+    {"name": "wrong_admit", "target": "0", "description": "放行且字错（异体选形不同另计 variant_admit，不算错字）"},
+    {"name": "variant_admit", "direction": "lower_is_better", "description": "放行的字与金标只差异体选形"},
+    {"name": "admit_rate", "direction": "higher_is_better", "description": "放行格 ÷ 全部格"},
+    {"name": "review_top1_ok", "direction": "higher_is_better", "description": "落人审的格里首选字就对的比例（可救回）"}
+  ],
+  "fold_rule": "己已巳、日曰 组内任一字算对（Sheldon 定）",
+  "known_limitation": "评测须关人裁（use_human_verdicts=false），并且不带人裁来源的排除名单；殿本基线里 review:excluded 77 格就是冻结输入带进的人裁排除，不算算法规则。人裁多来自审查队列，易格偏多；只有正文页。"
+}
