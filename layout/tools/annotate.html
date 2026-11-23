@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>版面标注</title>
+<style>
+:root{--bg:#f6f5f1;--panel:#fff;--ink:#1d1d1b;--mute:#6b6a63;--line:#d9d6cc;--acc:#b3261e;--ok:#2e7d32;--sel:#1565c0}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#1b1b19;--panel:#262624;--ink:#ecebe4;--mute:#9d9b92;--line:#3a3935;--acc:#ff8a80;--ok:#81c784;--sel:#64b5f6}}
+
+:root[data-theme=dark]{--bg:#1b1b19;--panel:#262624;--ink:#ecebe4;--mute:#9d9b92;--line:#3a3935;--acc:#ff8a80;--ok:#81c784;--sel:#64b5f6}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 system-ui,"PingFang SC","Noto Sans CJK SC",sans-serif;height:100vh;display:flex;flex-direction:column}
+header{display:flex;gap:8px;align-items:center;padding:8px 12px;background:var(--panel);border-bottom:1px solid var(--line);flex-wrap:wrap}
+button,select,input[type=text]{font:inherit;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:4px 10px;cursor:pointer}
+button:hover{border-color:var(--sel)}button.on{background:var(--sel);color:#fff;border-color:var(--sel)}button.pri{background:var(--ok);color:#fff;border-color:var(--ok)}
+main{flex:1;display:flex;min-height:0}#stage{flex:1;position:relative;min-width:0;background:#888}canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none}
+aside{width:300px;max-width:42vw;overflow:auto;background:var(--panel);border-left:1px solid var(--line);padding:10px;font-size:13px}
+aside h4{margin:12px 0 6px;font-size:13px;color:var(--mute);font-weight:600}.row{display:flex;gap:6px;align-items:center;margin:3px 0;flex-wrap:wrap}
+.li{padding:3px 6px;border-radius:5px;cursor:pointer;border:1px solid transparent}.li.sel{border-color:var(--sel);background:color-mix(in srgb,var(--sel) 12%,transparent)}
+.tag{display:inline-flex;gap:3px;align-items:center;margin:2px 8px 2px 0}.mut{color:var(--mute)}.bad{color:var(--acc)}.good{color:var(--ok)}
+#msg{margin-left:auto;color:var(--mute)}#start{margin:40px auto;max-width:520px;background:var(--panel);padding:20px;border-radius:10px;border:1px solid var(--line)}
+@media (max-width:700px){main{flex-direction:column}aside{width:auto;max-width:none;max-height:40vh;border-left:0;border-top:1px solid var(--line)}}
+</style></head><body>
+<header id="hd" hidden>
+ <button id="prev">◀</button><span id="pos"></span><button id="next">▶</button>
+ <span class="mut">|</span>
+ <button data-mode="sel" class="on" title="拖点；Shift+点线加点；Alt+点点删点">选择</button>
+ <button data-mode="new" title="依次点线上的点，Enter 或双击结束">新线</button>
+ <button data-mode="gap" title="选中一条线后，点断口的起止两处">断口</button>
+ <button id="fit">适应窗口</button>
+ <button id="done" class="pri">标完 ✓</button><button id="export">导出 items.jsonl</button>
+ <span id="msg"></span>
+</header>
+<div id="start">
+ <h3 style="margin-top:0">版面金标标注</h3>
+ <p>选择标注包文件夹（含 pack.json、drafts.json 和页图）。已标的内容自动存在本机浏览器里，关掉再开不会丢；最后点「导出」得到 items.jsonl。</p>
+ <p><input type="file" id="pick" webkitdirectory multiple> <span class="mut">或多选全部文件：</span><input type="file" id="pick2" multiple></p>
+ <p class="mut">操作：拖圆点移线；Shift+点线加点；Alt+点圆点删点；滚轮缩放；拖空白处平移；←/→ 翻页；Delete 删选中点；双击线内文字区无效。红线=竖线（界行/左右版框），蓝线=上下内版框。点线选中，右侧改状态（完好/淡/破损/看不见）。破损或看不见的线要用「断口」标出断开的 y 区间。</p>
+</div>
+<main id="mn" hidden><div id="stage"><canvas id="cv"></canvas></div>
+<aside id="side"></aside></main>
+<script>
+"use strict";
+const $=s=>document.querySelector(s);
+let pack=null,drafts={},files={},idx=0,docs={},imgEl=null,cur=null,sel={kind:"v",i:0,pt:-1},mode="sel",view={s:1,ox:0,oy:0},newPts=[],gapStart=null,drag=null,sha={};
+const STATES=["intact","faint","broken","inferred"],STN={intact:"完好",faint:"淡",broken:"破损",inferred:"看不见（按栅格补）"};
+const TAGS=["faint","broken","seal","wide","inverted","ink","bent","headraise","gutter","other"];
+const TYPES=["body","roster","toc","cover","label","colophon","edict","table","uncertain"];
+const TYPE_POLICY={body:"standard",roster:"standard",toc:"standard",uncertain:"standard",edict:"custom",cover:"skip",label:"skip",colophon:"skip",table:"skip"};
+const store={get(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+function lsKey(){return "layoutgold:"+pack.id+":"+pack.pages[idx].key}
+async function load(list){
+  files={};for(const f of list){files[f.name]=f}
+  if(!files["pack.json"]||!files["drafts.json"]){alert("没找到 pack.json 或 drafts.json");return}
+  pack=JSON.parse(await files["pack.json"].text());drafts=JSON.parse(await files["drafts.json"].text());
+  $("#start").hidden=true;$("#hd").hidden=false;$("#mn").hidden=false;
+  const last=store.get("layoutgold:"+pack.id+":_idx");idx=last||0;await open(idx);
+}
+$("#pick").onchange=e=>load([...e.target.files]);$("#pick2").onchange=e=>load([...e.target.files]);
+async function open(i){
+  idx=Math.max(0,Math.min(pack.pages.length-1,i));store.set("layoutgold:"+pack.id+":_idx",idx);
+  const pg=pack.pages[idx];cur=store.get(lsKey());
+  if(!cur){cur={doc:JSON.parse(JSON.stringify(drafts[pg.key]||{width:0,height:0,vlines:[],top:null,bottom:null,tags:[]})),done:false,type:(drafts[pg.key]||{}).page_type||"body",note:""}}
+  const f=files[pg.file];if(!f){say("缺图 "+pg.file,true);return}
+  imgEl=await new Promise((res,rej)=>{const im=new Image();im.onload=()=>res(im);im.onerror=rej;im.src=URL.createObjectURL(f)});
+  cur.doc.width=imgEl.naturalWidth;cur.doc.height=imgEl.naturalHeight;
+  sel={kind:"v",i:0,pt:-1};newPts=[];gapStart=null;fit();redraw();side();head();
+}
+function save(){store.set(lsKey(),cur)}
+function head(){const n=pack.pages.length,d=pack.pages.filter(p=>(store.get("layoutgold:"+pack.id+":"+p.key)||{}).done).length;
+  $("#pos").textContent=`${idx+1}/${n}  ${pack.pages[idx].key}  已标 ${d}`;$("#done").textContent=cur.done?"已标完（点此撤销）":"标完 ✓"}
+function say(t,bad){const m=$("#msg");m.textContent=t;m.className=bad?"bad":"mut"}
+const cv=$("#cv"),ctx=cv.getContext("2d");
+function resize(){const r=$("#stage").getBoundingClientRect(),d=devicePixelRatio||1;cv.width=r.width*d;cv.height=r.height*d;redraw()}
+addEventListener("resize",resize);
+function fit(){const r=$("#stage").getBoundingClientRect();if(!imgEl)return;view.s=Math.min(r.width/imgEl.naturalWidth,r.height/imgEl.naturalHeight);view.ox=(r.width-imgEl.naturalWidth*view.s)/2;view.oy=(r.height-imgEl.naturalHeight*view.s)/2;resize()}
+const toS=(x,y)=>[x*view.s+view.ox,y*view.s+view.oy],toD=(x,y)=>[(x-view.ox)/view.s,(y-view.oy)/view.s];
+function lines(){return cur.doc.vlines}
+function target(){if(sel.kind==="v")return cur.doc.vlines[sel.i];return cur.doc[sel.kind==="t"?"top":"bottom"]}
+function redraw(){
+  if(!imgEl)return;const d=devicePixelRatio||1;ctx.setTransform(d,0,0,d,0,0);const r=$("#stage").getBoundingClientRect();ctx.clearRect(0,0,r.width,r.height);
+  ctx.drawImage(imgEl,view.ox,view.oy,imgEl.naturalWidth*view.s,imgEl.naturalHeight*view.s);
+  const draw=(ln,col,selected,dashGaps)=>{if(!ln||!ln.pts||ln.pts.length<2)return;ctx.lineWidth=selected?2.5:1.5;ctx.strokeStyle=col;
+    ctx.setLineDash([]);ctx.beginPath();ln.pts.forEach((p,k)=>{const [x,y]=toS(p[0],p[1]);k?ctx.lineTo(x,y):ctx.moveTo(x,y)});ctx.stroke();
+    if(dashGaps&&ln.gaps)for(const g of ln.gaps){ctx.strokeStyle="#ffb300";ctx.lineWidth=5;ctx.globalAlpha=.7;ctx.beginPath();
+      const ys=[g[0],g[1]];const xs=ys.map(y=>xAt(ln.pts,y));const a=toS(xs[0],ys[0]),b=toS(xs[1],ys[1]);ctx.moveTo(a[0],a[1]);ctx.lineTo(b[0],b[1]);ctx.stroke();ctx.globalAlpha=1}
+    if(selected){ctx.fillStyle=col;ln.pts.forEach((p,k)=>{const [x,y]=toS(p[0],p[1]);ctx.beginPath();ctx.arc(x,y,k===sel.pt?7:5,0,7);ctx.fill();ctx.strokeStyle="#fff";ctx.lineWidth=1.5;ctx.setLineDash([]);ctx.stroke()})}};
+  lines().forEach((l,i)=>draw(l,l.state==="intact"||!l.state?"#e53935":l.state==="faint"?"#fb8c00":"#8e24aa",sel.kind==="v"&&sel.i===i,true));
+  draw(cur.doc.top,"#1e88e5",sel.kind==="t");draw(cur.doc.bottom,"#1e88e5",sel.kind==="b");
+  if(newPts.length){ctx.strokeStyle="#00acc1";ctx.lineWidth=2;ctx.beginPath();newPts.forEach((p,k)=>{const [x,y]=toS(p[0],p[1]);k?ctx.lineTo(x,y):ctx.moveTo(x,y)});ctx.stroke()}
+}
+function xAt(pts,y){const q=[...pts].sort((a,b)=>a[1]-b[1]);if(y<=q[0][1])return q[0][0];for(let k=1;k<q.length;k++){if(y<=q[k][1]){const t=(y-q[k-1][1])/((q[k][1]-q[k-1][1])||1);return q[k-1][0]+t*(q[k][0]-q[k-1][0])}}return q[q.length-1][0]}
+function segDist(p,a,b){const dx=b[0]-a[0],dy=b[1]-a[1],L=dx*dx+dy*dy||1;let t=((p[0]-a[0])*dx+(p[1]-a[1])*dy)/L;t=Math.max(0,Math.min(1,t));return[Math.hypot(p[0]-a[0]-t*dx,p[1]-a[1]-t*dy),t]}
+function hitLine(dp){let best=null;const test=(ln,kind,i)=>{if(!ln||!ln.pts)return;for(let k=1;k<ln.pts.length;k++){const[d,t]=segDist(dp,ln.pts[k-1],ln.pts[k]);if(d*view.s<9&&(!best||d<best.d))best={d,kind,i,seg:k,t}}};
+  lines().forEach((l,i)=>test(l,"v",i));test(cur.doc.top,"t",0);test(cur.doc.bottom,"b",0);return best}
+function hitPt(dp){const ln=target();if(!ln)return-1;for(let k=0;k<ln.pts.length;k++){if(Math.hypot((ln.pts[k][0]-dp[0])*view.s,(ln.pts[k][1]-dp[1])*view.s)<9)return k}return-1}
+let pan=null;
+cv.addEventListener("pointerdown",e=>{const r=cv.getBoundingClientRect(),sp=[e.clientX-r.left,e.clientY-r.top],dp=toD(...sp);cv.setPointerCapture(e.pointerId);
+  if(mode==="new"){newPts.push(dp);redraw();return}
+  if(mode==="gap"){const ln=target();if(!ln||sel.kind!=="v"){say("先选一条竖线",true);return}
+    if(gapStart==null){gapStart=dp[1];say("再点断口的另一端")}else{const g=[Math.min(gapStart,dp[1]),Math.max(gapStart,dp[1])];ln.gaps=(ln.gaps||[]).concat([g]);if(ln.state==="intact")ln.state="broken";gapStart=null;save();side();redraw();say("已加断口")}return}
+  const k=hitPt(dp);
+  if(k>=0){if(e.altKey){target().pts.splice(k,1);sel.pt=-1;save();redraw();side();return}sel.pt=k;drag={k};redraw();return}
+  const h=hitLine(dp);
+  if(h){if(e.shiftKey&&h.kind===sel.kind&&h.i===sel.i){const ln=target();ln.pts.splice(h.seg,0,[+(ln.pts[h.seg-1][0]+h.t*(ln.pts[h.seg][0]-ln.pts[h.seg-1][0])).toFixed(1),+(ln.pts[h.seg-1][1]+h.t*(ln.pts[h.seg][1]-ln.pts[h.seg-1][1])).toFixed(1)]);sel.pt=h.seg;save();redraw();return}
+    sel={kind:h.kind,i:h.i,pt:-1};side();redraw();return}
+  pan={x:e.clientX,y:e.clientY,ox:view.ox,oy:view.oy}});
+cv.addEventListener("pointermove",e=>{const r=cv.getBoundingClientRect();
+  if(drag){const dp=toD(e.clientX-r.left,e.clientY-r.top),ln=target();ln.pts[drag.k]=[+dp[0].toFixed(1),+dp[1].toFixed(1)];redraw()}
+  else if(pan){view.ox=pan.ox+e.clientX-pan.x;view.oy=pan.oy+e.clientY-pan.y;redraw()}});
+cv.addEventListener("pointerup",()=>{if(drag){save();drag=null}pan=null});
+cv.addEventListener("dblclick",()=>{if(mode==="new")finishNew()});
+cv.addEventListener("wheel",e=>{e.preventDefault();const r=cv.getBoundingClientRect(),mx=e.clientX-r.left,my=e.clientY-r.top,f=e.deltaY<0?1.15:1/1.15,dp=toD(mx,my);view.s*=f;view.ox=mx-dp[0]*view.s;view.oy=my-dp[1]*view.s;redraw()},{passive:false});
+function finishNew(){if(newPts.length>=2){newPts.sort((a,b)=>a[1]-b[1]);cur.doc.vlines.push({pts:newPts.map(p=>[+p[0].toFixed(1),+p[1].toFixed(1)]),state:"intact",gaps:[]});sortLines();sel={kind:"v",i:cur.doc.vlines.length-1,pt:-1};save()}newPts=[];setMode("sel");side();redraw()}
+function mid(l){const ys=l.pts.map(p=>p[1]),m=(Math.min(...ys)+Math.max(...ys))/2;return xAt(l.pts,m)}
+function sortLines(){const s=target();cur.doc.vlines.sort((a,b)=>mid(b)-mid(a));if(s&&sel.kind==="v")sel.i=cur.doc.vlines.indexOf(s)}
+function setMode(m){mode=m;document.querySelectorAll("[data-mode]").forEach(b=>b.classList.toggle("on",b.dataset.mode===m));gapStart=null;if(m!=="new")newPts=[];redraw()}
+document.querySelectorAll("[data-mode]").forEach(b=>b.onclick=()=>setMode(b.dataset.mode));
+addEventListener("keydown",e=>{if(!pack||e.target.tagName==="INPUT"||e.target.tagName==="SELECT")return;
+  if(e.key==="ArrowRight")open(idx+1);else if(e.key==="ArrowLeft")open(idx-1);else if(e.key==="Enter"&&mode==="new")finishNew();else if(e.key==="Escape")setMode("sel");
+  else if((e.key==="Delete"||e.key==="Backspace")&&sel.pt>=0){const ln=target();if(ln&&ln.pts.length>2){ln.pts.splice(sel.pt,1);sel.pt=-1;save();redraw()}}});
+$("#prev").onclick=()=>open(idx-1);$("#next").onclick=()=>open(idx+1);$("#fit").onclick=fit;
+$("#done").onclick=()=>{if(!cur.done){const p=problems();if(p.length&&!confirm("有问题：\n"+p.join("\n")+"\n仍要标完吗？"))return}cur.done=!cur.done;save();head();side();if(cur.done)open(idx+1)};
+function problems(){const o=[];const L=cur.doc.vlines;L.forEach((l,i)=>{if((l.state==="broken"||l.state==="inferred")&&!(l.gaps&&l.gaps.length))o.push(`第${i+1}条线状态为${STN[l.state]}，没标断口`)});
+  if(!cur.doc.top||!cur.doc.bottom)o.push("缺上或下版框");return o}
+function side(){const d=cur.doc,s=$("#side");let h="";
+  h+=`<h4>竖线（右→左，共 ${d.vlines.length} 条，约 ${Math.max(d.vlines.length-1,0)} 列）</h4>`;
+  d.vlines.forEach((l,i)=>{h+=`<div class="li ${sel.kind==="v"&&sel.i===i?"sel":""}" data-sel="v${i}">#${i+1} ${STN[l.state||"intact"]} ${(l.gaps||[]).length?"· 断口×"+l.gaps.length:""}</div>`});
+  h+=`<div class="li ${sel.kind==="t"?"sel":""}" data-sel="t">上内版框 ${d.top?"":'<span class="bad">缺</span>'}</div><div class="li ${sel.kind==="b"?"sel":""}" data-sel="b">下内版框 ${d.bottom?"":'<span class="bad">缺</span>'}</div>`;
+  if(sel.kind==="v"&&d.vlines[sel.i]){const l=d.vlines[sel.i];h+=`<h4>选中：第 ${sel.i+1} 条竖线</h4><div class="row">状态 <select id="st">${STATES.map(s=>`<option value="${s}" ${l.state===s?"selected":""}>${STN[s]}</option>`).join("")}</select></div>`;
+    (l.gaps||[]).forEach((g,k)=>{h+=`<div class="row">断口 y ${g[0].toFixed(0)}–${g[1].toFixed(0)} <button data-delgap="${k}">删</button></div>`});
+    h+=`<div class="row"><button id="delline">删除这条线</button></div>`}
+  h+=`<h4>页型</h4><div class="row"><select id="pt">${TYPES.map(t=>`<option ${cur.type===t?"selected":""}>${t}</option>`).join("")}</select> <span class="mut">策略 ${TYPE_POLICY[cur.type]}</span></div>`;
+  h+=`<h4>标签</h4><div>${TAGS.map(t=>`<label class="tag"><input type="checkbox" data-tag="${t}" ${(d.tags||[]).includes(t)?"checked":""}>${t}</label>`).join("")}</div>`;
+  h+=`<h4>备注</h4><input type="text" id="note" style="width:100%" value="${(cur.note||"").replace(/"/g,"&quot;")}">`;
+  h+=`<h4>提示</h4><div class="mut">${pack.pages[idx].hint||""}</div>`;
+  s.innerHTML=h;
+  s.querySelectorAll("[data-sel]").forEach(el=>el.onclick=()=>{const v=el.dataset.sel;sel=v[0]==="v"?{kind:"v",i:+v.slice(1),pt:-1}:{kind:v,i:0,pt:-1};side();redraw()});
+  const st=$("#st");if(st)st.onchange=()=>{d.vlines[sel.i].state=st.value;save();side();redraw()};
+  s.querySelectorAll("[data-delgap]").forEach(b=>b.onclick=()=>{d.vlines[sel.i].gaps.splice(+b.dataset.delgap,1);save();side();redraw()});
+  const dl=$("#delline");if(dl)dl.onclick=()=>{d.vlines.splice(sel.i,1);sel={kind:"v",i:0,pt:-1};save();side();redraw()};
+  $("#pt").onchange=e=>{cur.type=e.target.value;save();side()};
+  s.querySelectorAll("[data-tag]").forEach(c=>c.onchange=()=>{const t=c.dataset.tag;d.tags=(d.tags||[]).filter(x=>x!==t);if(c.checked)d.tags.push(t);save()});
+  $("#note").onchange=e=>{cur.note=e.target.value;save()}}
+async function sha256(f){if(sha[f.name])return sha[f.name];const b=await f.arrayBuffer(),h=await crypto.subtle.digest("SHA-256",b);return sha[f.name]=[...new Uint8Array(h)].map(x=>x.toString(16).padStart(2,"0")).join("")}
+$("#export").onclick=async()=>{const out=[];for(const pg of pack.pages){const c=store.get("layoutgold:"+pack.id+":"+pg.key);if(!c||!c.done)continue;
+  const d=JSON.parse(JSON.stringify(c.doc));d.vlines.sort((a,b)=>mid(b)-mid(a));d.vlines.forEach(l=>{l.pts.sort((a,b)=>a[1]-b[1]);l.gaps=l.gaps||[];l.state=l.state||"intact"});
+  d.n_cols=Math.max(d.vlines.length-1,0);d.page_type=c.type;d.policy=TYPE_POLICY[c.type];d.rows_per_col=d.rows_per_col||null;d.tags=d.tags||[];delete d.book;delete d.stratum;delete d.expected_cols;
+  const f=files[pg.file];out.push(JSON.stringify({id:`${pg.book||pack.book}:${pg.page}`,anchor:{book:pg.book||pack.book,page:pg.page,source_rev:pack.source_rev},input:{image_sha256:await sha256(f),width:d.width,height:d.height,split:pg.split||null},
+    expected:d,label_origin:"human",status:"active",stratum:pg.stratum||null,source_events:[],history:[{change:"labeled",ts:new Date().toISOString(),why:"layout 标注工具"}],note:c.note||undefined}))}
+  if(!out.length){say("还没有标完的页",true);return}
+  const txt=out.join("\n")+"\n";try{const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([txt],{type:"application/jsonl"}));a.download=`items_${pack.id}.jsonl`;a.click()}catch(e){}
+  say(`已导出 ${out.length} 页`);showExport(txt,out.length)};
+function showExport(txt,n){let d=$("#exp");if(!d){d=document.createElement("div");d.id="exp";d.style.cssText="position:fixed;inset:6% 8%;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px;z-index:9;display:flex;flex-direction:column;gap:8px";document.body.appendChild(d)}
+  d.hidden=false;d.innerHTML=`<div>已标 ${n} 页。若浏览器没有自动下载，点「复制」后把内容粘贴给 Claude，或存成 items.jsonl。</div><textarea id="expt" style="flex:1;font:12px monospace;background:var(--bg);color:var(--ink);border:1px solid var(--line)"></textarea><div class="row"><button id="expc" class="pri">复制</button><button id="expx">关闭</button></div>`;
+  $("#expt").value=txt;$("#expc").onclick=async()=>{$("#expt").select();try{await navigator.clipboard.writeText(txt)}catch(e){document.execCommand("copy")}say("已复制")};$("#expx").onclick=()=>{d.hidden=true}}
+</script></body></html>
