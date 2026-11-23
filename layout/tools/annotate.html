@@ -4,6 +4,8 @@
 <style>
 :root{--bg:#f6f5f1;--panel:#fff;--ink:#1d1d1b;--mute:#6b6a63;--line:#d9d6cc;--acc:#b3261e;--ok:#2e7d32;--sel:#1565c0}
 @media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#1b1b19;--panel:#262624;--ink:#ecebe4;--mute:#9d9b92;--line:#3a3935;--acc:#ff8a80;--ok:#81c784;--sel:#64b5f6}}
+
+:root[data-theme=dark]{--bg:#1b1b19;--panel:#262624;--ink:#ecebe4;--mute:#9d9b92;--line:#3a3935;--acc:#ff8a80;--ok:#81c784;--sel:#64b5f6}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 system-ui,"PingFang SC","Noto Sans CJK SC",sans-serif;height:100vh;display:flex;flex-direction:column}
 header{display:flex;gap:8px;align-items:center;padding:8px 12px;background:var(--panel);border-bottom:1px solid var(--line);flex-wrap:wrap}
 button,select,input[type=text]{font:inherit;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:4px 10px;cursor:pointer}
@@ -144,5 +146,9 @@ $("#export").onclick=async()=>{const out=[];for(const pg of pack.pages){const c=
   const f=files[pg.file];out.push(JSON.stringify({id:`${pg.book||pack.book}:${pg.page}`,anchor:{book:pg.book||pack.book,page:pg.page,source_rev:pack.source_rev},input:{image_sha256:await sha256(f),width:d.width,height:d.height,split:pg.split||null},
     expected:d,label_origin:"human",status:"active",stratum:pg.stratum||null,source_events:[],history:[{change:"labeled",ts:new Date().toISOString(),why:"layout 标注工具"}],note:c.note||undefined}))}
   if(!out.length){say("还没有标完的页",true);return}
-  const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([out.join("\n")+"\n"],{type:"application/jsonl"}));a.download=`items_${pack.id}.jsonl`;a.click();say(`已导出 ${out.length} 页`)};
+  const txt=out.join("\n")+"\n";try{const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([txt],{type:"application/jsonl"}));a.download=`items_${pack.id}.jsonl`;a.click()}catch(e){}
+  say(`已导出 ${out.length} 页`);showExport(txt,out.length)};
+function showExport(txt,n){let d=$("#exp");if(!d){d=document.createElement("div");d.id="exp";d.style.cssText="position:fixed;inset:6% 8%;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px;z-index:9;display:flex;flex-direction:column;gap:8px";document.body.appendChild(d)}
+  d.hidden=false;d.innerHTML=`<div>已标 ${n} 页。若浏览器没有自动下载，点「复制」后把内容粘贴给 Claude，或存成 items.jsonl。</div><textarea id="expt" style="flex:1;font:12px monospace;background:var(--bg);color:var(--ink);border:1px solid var(--line)"></textarea><div class="row"><button id="expc" class="pri">复制</button><button id="expx">关闭</button></div>`;
+  $("#expt").value=txt;$("#expc").onclick=async()=>{$("#expt").select();try{await navigator.clipboard.writeText(txt)}catch(e){document.execCommand("copy")}say("已复制")};$("#expx").onclick=()=>{d.hidden=true}}
 </script></body></html>
