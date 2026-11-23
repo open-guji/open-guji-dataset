@@ -31,3 +31,31 @@
 | 史記 | 2,877 | 0 | 13 | 1 | 4 |
 | 全唐文 | 5,308 | 0 | 16 | 8 | 1 |
 | 殿本 | 944 | 0 | 19 | 17 | 115（含 77 格人裁排除名单带入，非算法） |
+
+## 怎么跑（一键跑分）
+
+脚本在 ai-team `domain/CV/A24/decide-bench/`：`run.py`（取快照、跑第四步、打分）、`score.py`（只打分）。
+
+```bash
+# 现行代码对上次结果，出翻转清单
+python run.py --shard <本仓>/decide-bench/small \
+  --ws 988g3f0wsu=<史記工作区> --ws 995ejelvk0=<全唐文工作区> --ws siku-zongmu=<殿本工作区> \
+  --work <工作目录> --name <名字> --against <上次的 <名字>-A.jsonl>
+# 改参数：A（现行）与 B（A＋参数）都跑，B 对 A 出翻转清单
+python run.py … --params '{"seed_admit": {"某参数": 值}}'
+```
+
+- 快照按 `small/bench.yaml` 的包标签从 R2 取（`guji products pack fetch --label`），取回核 digest。只重跑第四步（align_ref→context_decide→seed_admit），关人裁，不在线问 AI（只读裁定缓存）。
+- 输出：按书一行（放对／放成异体／放错字／拦住·首选对／拦住·首选错、放行率、人审首选对率），`wrong_admit` 必须为 0；`--against` 时列翻转格（好转／变坏／其它）并写 `*-flips.tsv`。
+- 只打分（已有产物）：`python score.py --items small/items.jsonl --run 03=<产物根/03> … --out r.jsonl [--against 上次.jsonl]`。
+- 耗时（4 核、装 torch）：史記 03 约 6 分钟，全唐文 004、殿本 vol01 各几分钟。
+
+### 备工作区（每书一次）
+空目录写 `workspace.yaml`（`id: <工作区 id>`）和 `.central.json`（`{"ws": "<id>", "branch": "main"}`），然后：
+`guji db pull -w . --exclude run`（设 `GUJI_DATA_HOME`）→ 拷书仓 `code/` 进来 → `guji model fetch -w .`（全唐文再跑一次不带 `-w` 的）→
+`guji glyph-db pin-build -w . --pin <册 yaml 的钉版号>` → `guji source pull <册> -w .`。要装 torch，否则文意 L2 静默弃权。
+cv 是 dev 版、册钉旧语料时设 `GUJI_CORPUS_DRIFT=warn`（run.py 已设）。
+
+### 已知限制
+- 册配置、模型、字形库、裁定缓存取工作区现行（钉版的照钉版），没有整包冻结；这些变了，基线要重跑一次再比。
+- 第四步不改切分，金标按冻结格号（`anchor.key_at_freeze`）对格；切分改了要按 `anchor.bbox` 重绑。
