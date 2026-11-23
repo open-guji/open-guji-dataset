@@ -31,6 +31,7 @@ aside h4{margin:12px 0 6px;font-size:13px;color:var(--mute);font-weight:600}.row
 <div id="start">
  <h3 style="margin-top:0">版面金标标注</h3>
  <p>选择标注包文件夹（含 pack.json、drafts.json 和页图）。已标的内容自动存在本机浏览器里，关掉再开不会丢；最后点「导出」得到 items.jsonl。</p>
+ <p class="mut">推荐：把 serve.py 放进包文件夹（和 pack.json 同级），双击运行，浏览器自动打开并把该文件夹当工作目录，导出也自动存回，不用再选文件夹。</p>
  <p><button id="pickdir" class="pri">选包文件夹（推荐，导出直接存回该文件夹）</button> <span class="mut">浏览器不支持时用下面的：</span></p>
  <p><input type="file" id="pick" webkitdirectory multiple> <span class="mut">或多选全部文件：</span><input type="file" id="pick2" multiple></p>
  <p class="mut">框型：右侧「框型与外框」每边选「内外双线／只有一条线／没有框线」；双线要拖绿线对准外框，并填内、外线的粗细（像素，量线两边缘之间）。脈經上下是「只有一条线」，上下「内框线」标那一条。</p>
@@ -55,10 +56,22 @@ async function load(list){
   $("#start").hidden=true;$("#hd").hidden=false;$("#mn").hidden=false;
   const last=store.get("layoutgold:"+pack.id+":_idx");idx=last||0;await open(idx);
 }
-let dirH=null;
+let dirH=null,httpMode=false;
+(async function autoHttp(){if(!/^https?:$/.test(location.protocol))return;
+  try{const names=await (await fetch("/_list")).json();if(!names.includes("pack.json"))return;
+    const list=[];for(const n of names){if(n==="annotate.html"||n==="serve.py")continue;const r=await fetch(encodeURI(n));list.push(new File([await r.blob()],n))}
+    httpMode=true;await load(list)}catch(e){}})();
+const idb={open:()=>new Promise((res,rej)=>{const r=indexedDB.open("layout-annotate",1);r.onupgradeneeded=()=>r.result.createObjectStore("h");r.onsuccess=()=>res(r.result);r.onerror=rej}),
+  async get(){try{const d=await this.open();return await new Promise(res=>{const q=d.transaction("h").objectStore("h").get("last");q.onsuccess=()=>res(q.result);q.onerror=()=>res(null)})}catch(e){return null}},
+  async set(h){try{const d=await this.open();d.transaction("h","readwrite").objectStore("h").put(h,"last")}catch(e){}}};
+async function openHandle(h){dirH=h;const list=[];for await(const [n,x] of h.entries()){if(x.kind==="file")list.push(await x.getFile())}await load(list)}
+(async function restoreLast(){if(!window.showDirectoryPicker||/^https?:$/.test(location.protocol))return;const h=await idb.get();if(!h)return;
+  const b=document.createElement("button");b.className="pri";b.textContent="继续上次的文件夹："+h.name;b.onclick=async()=>{try{if((await h.requestPermission({mode:"readwrite"}))==="granted")await openHandle(h)}catch(e){alert("无法打开："+e.message)}};
+  $("#start").insertBefore(b,$("#start").children[1]);
+  try{if((await h.queryPermission({mode:"readwrite"}))==="granted")await openHandle(h)}catch(e){}})();
 $("#pickdir").onclick=async()=>{if(!window.showDirectoryPicker){alert("这个浏览器不支持直接存文件夹，请用下面的选择框");return}
-  try{dirH=await window.showDirectoryPicker({mode:"readwrite"})}catch(e){return}
-  const list=[];for await(const [n,h] of dirH.entries()){if(h.kind==="file")list.push(await h.getFile())}await load(list)};
+  let h0;try{h0=await window.showDirectoryPicker({mode:"readwrite"})}catch(e){return}
+  await idb.set(h0);await openHandle(h0)};
 $("#pick").onchange=e=>load([...e.target.files]);$("#pick2").onchange=e=>load([...e.target.files]);
 async function open(i){
   idx=Math.max(0,Math.min(pack.pages.length-1,i));store.set("layoutgold:"+pack.id+":_idx",idx);
@@ -167,7 +180,8 @@ $("#export").onclick=async()=>{const out=[];for(const pg of pack.pages){const c=
   const skipped=pack.pages.filter(pg=>{const c=store.get("layoutgold:"+pack.id+":"+pg.key);return !c||!c.done}).map(pg=>pg.key);
   if(!out.length){say("还没有标完的页（每页标好后要点「标完 ✓」）",true);return}
   const txt=out.join("\n")+"\n",fname=`items_${pack.id}.jsonl`;let saved="";
-  if(dirH){try{const fh=await dirH.getFileHandle(fname,{create:true}),w=await fh.createWritable();await w.write(txt);await w.close();saved=`已存到所选文件夹：${fname}`}catch(e){saved="存文件夹失败："+e.message}}
+  if(httpMode){try{const r=await fetch("/_save?name="+encodeURIComponent(fname),{method:"POST",body:txt});saved=r.ok?`已存回包文件夹：${fname}`:"存文件夹失败："+r.status}catch(e){saved="存文件夹失败："+e.message}}
+  else if(dirH){try{const fh=await dirH.getFileHandle(fname,{create:true}),w=await fh.createWritable();await w.write(txt);await w.close();saved=`已存到所选文件夹：${fname}`}catch(e){saved="存文件夹失败："+e.message}}
   if(!saved){try{const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([txt],{type:"application/jsonl"}));a.download=fname;a.click()}catch(e){}}
   say(`已导出 ${out.length} 页`+(skipped.length?`；${skipped.length} 页没点「标完」未导出：${skipped.join("、")}`:""),skipped.length>0);showExport(txt,out.length,saved,skipped)};
 function showExport(txt,n,saved,skipped){let d=$("#exp");if(!d){d=document.createElement("div");d.id="exp";d.style.cssText="position:fixed;inset:6% 8%;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px;z-index:9;display:flex;flex-direction:column;gap:8px";document.body.appendChild(d)}
