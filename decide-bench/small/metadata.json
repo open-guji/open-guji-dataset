@@ -14,7 +14,7 @@
   "selection": "只收：人在网页／artifact 上裁过且＝参校本（cls=agree_ref）、≠参校本但明确推翻（override_ref）、dataset 已有（dataset）。看图会话与代写的不收。stratum=抽审·分层 是按放行／拦住规则分层挑的难例（每条规则都有例子），不是随机样本，不能估全册错率",
   "metrics": [
     {"name": "wrong_admit", "target": "0", "description": "放行且字错（异体选形不同另计 variant_admit，不算错字）"},
-    {"name": "variant_admit", "direction": "lower_is_better", "description": "放行的字与金标只差异体选形"},
+    {"name": "variant_admit", "direction": "lower_is_better", "description": "放行的字与金标只差异体选形（异体对＝cv variants 图 ∪ config/hanzi/core/edges.tsv 的 variant 边）"},
     {"name": "admit_rate", "direction": "higher_is_better", "description": "放行格 ÷ 全部格"},
     {"name": "review_top1_ok", "direction": "higher_is_better", "description": "落人审的格里首选字就对的比例（可救回）"}
   ],
