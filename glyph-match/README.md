@@ -52,6 +52,28 @@ verify_pair_cov 排序）。与 `char-clustering`（聚类 purity）互补：
 
 参考（非生产）：`--sim-model models/glyph_sim_qtw/model.pt` 的 CNN 一路殿本残笔首位 85.5%、误放 0。
 
+## nearform-qtw：形近字组（3a A6，CV3 2026-11-23 冻结）
+
+来源：ai-team `domain/CV/字形领域/形近字组字形判别基准-2026-11-18/data/`（OCR 研究 11-18 建，三轮人裁 11-17 夜并成最终标签）。
+全唐文 001–045 册，118 对（己已／已巳／己巳／望朢 整对不用）、34,041 格、40,259 个「字对×格」。
+`scripts/build_nearform_qtw.py` 按 `boxes.jsonl` 从原图（`guji source pull --book-id 995ejelvk0`，页表 r001）裁灰度块
+（x 从右起量，裁 `im[y0:y1, W-1-x1 : W-1-x0]`），cv `normalize_patch` 归一成 64×64，packbits 存 `crops.npz`；打分不碰原图。
+
+`items.jsonl`：`{pair, a, b, kind(异字/异体), ctrl, id(册:页:列:位), v, split(册号奇＝dev), fold(OCR 三折), released(放行字), gold, flipped, label_src, tier, hard}`。
+`label_src`：人裁（80 对有逐格改标：翻 1,841、不计 62 已剔）／放行字（对里没人改）／文意（千干、日曰、天夭：人看字形也分不开，标签由文意定，评测单列）。
+格号是 b1 切分的旧键（册:页:列:位），切分一改就对不上；框表和格号逐行对应，要换切分时按框重挂。
+
+基线（cv `scripts/eval_nearform.py`，全唐文生产嵌入 glyph_sim_qtw 对 11-22 中心库 main 全唐文库 74,739 例近邻，同一物理格的 3,417 个库刻例已去掉）：
+
+| 口径 | n | 全库首位对 | 对家误认 | 两字间判对 |
+|---|---|---|---|---|
+| 头条（不含文意三对） | 38,028 | 95.72% | 651（1.71%） | 98.01% |
+| 　dev／test | 19,813／18,215 | 95.53／95.93% | 361／290 | 97.90／98.13% |
+| 文意三对 | 2,231 | 85.30% | 309（13.85%） | 86.10% |
+
+对家误认最多：日曰 207/1339、千干 98/602、簡𥳑 51/290、卑皁 38/165、冑胄 36/110、迥迴 33/352。
+注意：glyph_sim_qtw 是用全唐文全库训的，库里含这批格的刻例，数偏乐观；比算法时只比 test、改模型时用 `train_exclude/` 那套隔离重训。
+
 ## train_exclude/：训练隔离清单（A23，2026-11-23）
 
 识字评测分片里的查询格（`<书>.cells.txt`）和对抗集留出字（`<书>.held_chars.txt`）不许进相似度 CNN 的训练，否则 CNN 一路的数偏乐观
