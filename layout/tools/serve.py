@@ -12,6 +12,17 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 PORT = int(os.environ.get("ANNOTATE_PORT", "8765"))
 
 
+class Srv(ThreadingHTTPServer):
+    # Windows 下 allow_reuse_address 会让多个进程同时监听同一端口（请求落到哪个进程不确定），必须关掉
+    allow_reuse_address = False
+
+    def server_bind(self):
+        if hasattr(__import__("socket"), "SO_EXCLUSIVEADDRUSE"):
+            import socket
+            self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_EXCLUSIVEADDRUSE, 1)
+        super().server_bind()
+
+
 class H(SimpleHTTPRequestHandler):
     def __init__(self, *a, **k):
         super().__init__(*a, directory=ROOT, **k)
@@ -48,7 +59,7 @@ if __name__ == "__main__":
     srv = None
     for port in range(PORT, PORT + 20):      # 端口被占（比如上一个包的服务还开着）就顺延
         try:
-            srv = ThreadingHTTPServer(("127.0.0.1", port), H)
+            srv = Srv(("127.0.0.1", port), H)
             break
         except OSError:
             continue
