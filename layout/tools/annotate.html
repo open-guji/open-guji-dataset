@@ -31,6 +31,7 @@ aside h4{margin:12px 0 6px;font-size:13px;color:var(--mute);font-weight:600}.row
 <div id="start">
  <h3 style="margin-top:0">版面金标标注</h3>
  <p>选择标注包文件夹（含 pack.json、drafts.json 和页图）。已标的内容自动存在本机浏览器里，关掉再开不会丢；最后点「导出」得到 items.jsonl。</p>
+ <p><button id="pickdir" class="pri">选包文件夹（推荐，导出直接存回该文件夹）</button> <span class="mut">浏览器不支持时用下面的：</span></p>
  <p><input type="file" id="pick" webkitdirectory multiple> <span class="mut">或多选全部文件：</span><input type="file" id="pick2" multiple></p>
  <p class="mut">操作：拖圆点移线；Shift+点线加点；Alt+点圆点删点；滚轮缩放；拖空白处平移；←/→ 翻页；Delete 删选中点；双击线内文字区无效。红线=竖线（界行/左右版框），蓝线=上下内版框。点线选中，右侧改状态（完好/淡/破损/看不见）。破损或看不见的线要用「断口」标出断开的 y 区间。</p>
 </div>
@@ -53,6 +54,10 @@ async function load(list){
   $("#start").hidden=true;$("#hd").hidden=false;$("#mn").hidden=false;
   const last=store.get("layoutgold:"+pack.id+":_idx");idx=last||0;await open(idx);
 }
+let dirH=null;
+$("#pickdir").onclick=async()=>{if(!window.showDirectoryPicker){alert("这个浏览器不支持直接存文件夹，请用下面的选择框");return}
+  try{dirH=await window.showDirectoryPicker({mode:"readwrite"})}catch(e){return}
+  const list=[];for await(const [n,h] of dirH.entries()){if(h.kind==="file")list.push(await h.getFile())}await load(list)};
 $("#pick").onchange=e=>load([...e.target.files]);$("#pick2").onchange=e=>load([...e.target.files]);
 async function open(i){
   idx=Math.max(0,Math.min(pack.pages.length-1,i));store.set("layoutgold:"+pack.id+":_idx",idx);
@@ -145,10 +150,13 @@ $("#export").onclick=async()=>{const out=[];for(const pg of pack.pages){const c=
   d.n_cols=Math.max(d.vlines.length-1,0);d.page_type=c.type;d.policy=TYPE_POLICY[c.type];d.rows_per_col=d.rows_per_col||null;d.tags=d.tags||[];delete d.book;delete d.stratum;delete d.expected_cols;
   const f=files[pg.file];out.push(JSON.stringify({id:`${pg.book||pack.book}:${pg.page}`,anchor:{book:pg.book||pack.book,page:pg.page,source_rev:pack.source_rev},input:{image_sha256:await sha256(f),width:d.width,height:d.height,split:pg.split||null},
     expected:d,label_origin:"human",status:"active",stratum:pg.stratum||null,source_events:[],history:[{change:"labeled",ts:new Date().toISOString(),why:"layout 标注工具"}],note:c.note||undefined}))}
-  if(!out.length){say("还没有标完的页",true);return}
-  const txt=out.join("\n")+"\n";try{const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([txt],{type:"application/jsonl"}));a.download=`items_${pack.id}.jsonl`;a.click()}catch(e){}
-  say(`已导出 ${out.length} 页`);showExport(txt,out.length)};
-function showExport(txt,n){let d=$("#exp");if(!d){d=document.createElement("div");d.id="exp";d.style.cssText="position:fixed;inset:6% 8%;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px;z-index:9;display:flex;flex-direction:column;gap:8px";document.body.appendChild(d)}
-  d.hidden=false;d.innerHTML=`<div>已标 ${n} 页。若浏览器没有自动下载，点「复制」后把内容粘贴给 Claude，或存成 items.jsonl。</div><textarea id="expt" style="flex:1;font:12px monospace;background:var(--bg);color:var(--ink);border:1px solid var(--line)"></textarea><div class="row"><button id="expc" class="pri">复制</button><button id="expx">关闭</button></div>`;
+  const skipped=pack.pages.filter(pg=>{const c=store.get("layoutgold:"+pack.id+":"+pg.key);return !c||!c.done}).map(pg=>pg.key);
+  if(!out.length){say("还没有标完的页（每页标好后要点「标完 ✓」）",true);return}
+  const txt=out.join("\n")+"\n",fname=`items_${pack.id}.jsonl`;let saved="";
+  if(dirH){try{const fh=await dirH.getFileHandle(fname,{create:true}),w=await fh.createWritable();await w.write(txt);await w.close();saved=`已存到所选文件夹：${fname}`}catch(e){saved="存文件夹失败："+e.message}}
+  if(!saved){try{const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([txt],{type:"application/jsonl"}));a.download=fname;a.click()}catch(e){}}
+  say(`已导出 ${out.length} 页`+(skipped.length?`；${skipped.length} 页没点「标完」未导出：${skipped.join("、")}`:""),skipped.length>0);showExport(txt,out.length,saved,skipped)};
+function showExport(txt,n,saved,skipped){let d=$("#exp");if(!d){d=document.createElement("div");d.id="exp";d.style.cssText="position:fixed;inset:6% 8%;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px;z-index:9;display:flex;flex-direction:column;gap:8px";document.body.appendChild(d)}
+  d.hidden=false;d.innerHTML=`<div>已标 ${n} 页。${saved||"若浏览器没有自动下载，点「复制」后把内容粘贴给 Claude，或存成 items.jsonl。"}${skipped&&skipped.length?`<br><b>没点「标完」未导出的 ${skipped.length} 页：${skipped.join("、")}</b>`:""}</div><textarea id="expt" style="flex:1;font:12px monospace;background:var(--bg);color:var(--ink);border:1px solid var(--line)"></textarea><div class="row"><button id="expc" class="pri">复制</button><button id="expx">关闭</button></div>`;
   $("#expt").value=txt;$("#expc").onclick=async()=>{$("#expt").select();try{await navigator.clipboard.writeText(txt)}catch(e){document.execCommand("copy")}say("已复制")};$("#expx").onclick=()=>{d.hidden=true}}
 </script></body></html>
