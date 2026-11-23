@@ -40,6 +40,11 @@ class H(SimpleHTTPRequestHandler):
 
 
 if __name__ == "__main__":
+    for st in (sys.stdout, sys.stderr):
+        try:
+            st.reconfigure(encoding="utf-8", errors="replace")
+        except Exception:
+            pass
     srv = ThreadingHTTPServer(("127.0.0.1", PORT), H)
     url = f"http://127.0.0.1:{PORT}/annotate.html"
     print("标注包文件夹：", ROOT, "\n打开：", url, "\n（关掉这个窗口即停止）")
