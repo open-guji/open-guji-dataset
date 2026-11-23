@@ -34,10 +34,19 @@
 | `n_cols` | 正文列数（页内竖线数 −1）；有人核过才写 |
 | `rows_per_col` | 每列字格数，右起；夹注列另记在 `tags` 里；没标写 null |
 | `page_type`、`policy` | 页型与网格策略（`standard`／`custom`／`skip`），口径见 `page-type/README` |
+| `frame` | 框型与外框（2026-11-23 起，可缺；缺＝没标过，不进框型指标）：`{top,bottom,left,right: {kind, outer, inner_w, outer_w}}`。`kind`：`double`（内外双线，`outer` 写外框折线）／`single`（只有一条线，如脈經上下；这条线记在 `top`/`bottom`）／`none`（没有，如装订侧）。`inner_w`、`outer_w` 线粗，像素（线两侧边缘间距，量不出写 null）。左右内框线是 `vlines[-1]`（左）、`vlines[0]`（右） |
 | `tags[]` | 分层标签：`faint` `broken` `seal`（印章遮线）`wide`（宽页）`inverted`（反色带）`ink`（彩图）`bent`（折线弯页）`headraise`（抬头框）`gutter`（书口）等 |
 
 `python -c "from open_guji_cv.eval.layout_gold import validate_doc"` 可体检一条（越界、乱序、
 `broken` 没写 `gaps`、`n_cols` 与线数不符）。
+
+## 框型与外框（2026-11-23）
+
+各书框型不同：殿本、全唐文、史記上下都是内外双线、左右只在纸边一侧有外框；脈經上下**只有一条线**
+（标在 `top`/`bottom`）、左右内外双线。金标写下每一边是哪种，评测量「框型认对没有」和「外框线位置偏差」
+（`frame.kind_acc`、`frame.outer_px`）。
+外框位置、粗细先由算法在内框线附近实测预填（`label_origin` 仍记 human 的是内框，外框历史里写明「frame prefilled」），
+有把握的页直接并入，拿不准的页（外框不明、墨浅、超出图边、非正文页）做成复核包给人重标。
 
 ## 怎么标
 
