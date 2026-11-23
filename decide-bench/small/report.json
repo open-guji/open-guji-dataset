@@ -1,5 +1,5 @@
 {
- "baseline": "cv dev 73133d89（v0.9.0 前）关人裁重跑 seed_admit，2026-11-23",
+ "baseline": "cv dev 73133d89（v0.9.0 前）关人裁重跑第四步（align_ref→seed_admit），2026-11-23；run.py base1123",
  "by_book_rule": {
   "史記": {
    "admit:rare_ref": {
@@ -25,7 +25,8 @@
     "放对": 17
    },
    "admit:follow_ref": {
-    "放对": 1
+    "放对": 4,
+    "放成异体": 1
    },
    "admit:ref_lib": {
     "放成异体": 2
@@ -34,7 +35,7 @@
     "拦住·首选对": 1
    },
    "admit:iron": {
-    "放对": 1
+    "放对": 4
    },
    "review:库 unsure(cov=0.943)": {
     "拦住·首选错": 1
@@ -46,13 +47,47 @@
     "拦住·首选错": 1
    },
    "admit:ref_ctx": {
-    "放对": 2
+    "放对": 7
    },
    "admit:group_flow": {
     "放对": 2
    },
    "review:库 unsure(cov=0.956)": {
     "拦住·首选错": 1
+   },
+   "admit:ref_lib_coord": {
+    "放对": 7
+   },
+   "review:护栏:conflict": {
+    "拦住·首选错": 5
+   },
+   "admit:symbol_ref_blank": {
+    "放对": 8
+   },
+   "admit:vis_ruling": {
+    "放对": 6
+   },
+   "admit:split_ref": {
+    "放对": 5
+   },
+   "review:护栏:never_match": {
+    "拦住·首选对": 1,
+    "拦住·首选错": 2
+   },
+   "admit:header_formula": {
+    "放对": 2
+   },
+   "review:shadow_veto": {
+    "拦住·首选对": 1
+   },
+   "admit:coord_fallback": {
+    "放对": 5
+   },
+   "review:库里没有这个字": {
+    "拦住·首选错": 1
+   },
+   "admit:match_solo": {
+    "放对": 1
    }
   },
   "全唐文": {
@@ -71,7 +106,8 @@
     "拦住·首选对": 1
    },
    "admit:near_knn": {
-    "放对": 1
+    "放对": 1,
+    "放成异体": 2
    },
    "admit:rare_ref": {
     "放对": 4
@@ -81,7 +117,8 @@
     "放对": 2
    },
    "admit:follow_ref": {
-    "放对": 1
+    "放对": 1,
+    "放成异体": 2
    },
    "review:护栏:never_match": {
     "拦住·首选对": 1
@@ -96,6 +133,31 @@
     "放对": 1
    },
    "review:库 unsure(cov=0.992)": {
+    "拦住·首选对": 1
+   },
+   "admit:iron": {
+    "放对": 2
+   },
+   "admit:book_knn": {
+    "放对": 8
+   },
+   "admit:match_solo": {
+    "放对": 2
+   },
+   "admit:split_ref": {
+    "放对": 1
+   },
+   "admit:ref_lib_coord": {
+    "放对": 1
+   },
+   "admit:vis_ruling": {
+    "放对": 1
+   },
+   "admit:edge_pair": {
+    "放对": 3,
+    "放成异体": 1
+   },
+   "review:护栏:conflict": {
     "拦住·首选对": 1
    }
   },
@@ -167,13 +229,13 @@
     "拦住·首选错": 2
    },
    "admit:split_ref": {
-    "放对": 1
+    "放对": 2
    },
    "review:occluded": {
     "拦住·首选对": 9
    },
    "admit:seal": {
-    "放对": 4
+    "放对": 5
    },
    "review:库 unsure(cov=0.902)": {
     "拦住·首选错": 1
@@ -194,7 +256,8 @@
     "拦住·首选错": 1
    },
    "admit:edge_pair": {
-    "放成异体": 1
+    "放成异体": 1,
+    "放对": 1
    },
    "review:库 unsure(cov=0.948)": {
     "拦住·首选对": 1
@@ -231,6 +294,29 @@
    },
    "review:库 unsure(cov=0.911)": {
     "拦住·首选错": 1
+   },
+   "admit:match_solo": {
+    "放错字": 1,
+    "放对": 4
+   },
+   "admit:iron": {
+    "放对": 2
+   },
+   "review:护栏:conflict": {
+    "拦住·首选对": 1,
+    "拦住·首选错": 1
+   },
+   "admit:vis_ruling": {
+    "放对": 1
+   },
+   "review:护栏:never_match": {
+    "拦住·首选对": 2
+   },
+   "admit:coord_fallback": {
+    "放对": 3
+   },
+   "admit:ref_ctx": {
+    "放对": 1
    }
   }
  }
