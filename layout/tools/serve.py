@@ -45,8 +45,16 @@ if __name__ == "__main__":
             st.reconfigure(encoding="utf-8", errors="replace")
         except Exception:
             pass
-    srv = ThreadingHTTPServer(("127.0.0.1", PORT), H)
-    url = f"http://127.0.0.1:{PORT}/annotate.html"
+    srv = None
+    for port in range(PORT, PORT + 20):      # 端口被占（比如上一个包的服务还开着）就顺延
+        try:
+            srv = ThreadingHTTPServer(("127.0.0.1", port), H)
+            break
+        except OSError:
+            continue
+    if srv is None:
+        sys.exit("8765 起的 20 个端口都被占用，请关掉之前的 serve.py 窗口再试")
+    url = f"http://127.0.0.1:{srv.server_address[1]}/annotate.html"
     print("标注包文件夹：", ROOT, "\n打开：", url, "\n（关掉这个窗口即停止）")
     threading.Timer(0.8, lambda: webbrowser.open(url)).start()
     try:
