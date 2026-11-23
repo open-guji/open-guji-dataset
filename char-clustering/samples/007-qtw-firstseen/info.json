@@ -1,0 +1,35 @@
+{
+ "id": "007-qtw-firstseen",
+ "book": "995ejelvk0",
+ "created": "2026-11-23",
+ "description": "全唐文 016–045 首次字头格（库例 0–2），Sheldon 按刻形逐格选字；3b 子基准 B2",
+ "source": "ai-team domain/CV/字形领域/首次字头格-2026-11-18（11-18 人审卡）",
+ "bias": "是人审流程挑出的低把握卡，比全书首见字难；81 格只有约 60 个不同的字（倐 8、玘 5），按字去重另看",
+ "glyph_db_sha256": "1a08b3ba333c798f16145adf41c91ae9d4e9e41f724ae49f5222df4a2493ebab",
+ "n": 81,
+ "n_chars": 61,
+ "strata": {
+  "firstseen": 81,
+  "oov": 57,
+  "extB+": 13
+ },
+ "skipped": [
+  {
+   "cell": "036:21:3:22a",
+   "why": "seg"
+  },
+  {
+   "cell": "036:78:9:1",
+   "why": "seg"
+  },
+  {
+   "cell": "040:163:9:9",
+   "why": "seg"
+  },
+  {
+   "cell": "044:86:5:5",
+   "why": "seg"
+  }
+ ],
+ "build_command": "python scripts/build_qtw_firstseen.py …"
+}

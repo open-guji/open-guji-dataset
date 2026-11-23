@@ -37,6 +37,7 @@
 | [004-siku-v2-human](samples/004-siku-v2-human) | 殿本 96mid1ogzk 中心库人裁（v2 图源） | `human` | 3003 | 1274 | 102 |
 | [005-shiji-human](samples/005-shiji-human) | 史記 988g3f0wsu 中心库人裁 | `human` | 3001 | 1263 | 76 |
 | [006-qtw-human](samples/006-qtw-human) | 全唐文 995ejelvk0 中心库人裁 | `human` | 3002 | 880 | 70 |
+| [007-qtw-firstseen](samples/007-qtw-firstseen) | 全唐文 016–045 首次字头格（库例 0–2），Sheldon 按刻形逐格选字 | `human` | 81（只有 `rare.jsonl`，3b 用） | 61 | — |
 
 004–006 是 2026-11-05 冻结的**三书人裁金标**（A23，`open-guji-cv/scripts/build_book_human_shards.py`）。每个分片另带：
 
@@ -45,6 +46,9 @@
 - 实例的 `selfcheck_flag`：字形库体检标过的人裁（噪声高），头条数排除它们。
 
 读数注意：人裁格是送审流程挑出来的难格，比全书随机字难，数不能当全书准确率读。全唐文有按读音标的异体（如褱标懷），史記抽查 50 例有 1 例标错（已被体检标出）。派生的阈值标定集在 `glyph-match/pairs-{siku-v2,shiji,qtw}`。
+
+007（A23，2026-11-23，`scripts/build_qtw_firstseen.py`）是 3b 子基准 B2「首次字头格」：来源 ai-team `domain/CV/字形领域/首次字头格-2026-11-18`，Sheldon 11-18 一格一卡选的刻形字（切分问题的 4 格不收）；字块按格号从全唐文库取，归一口径同 004–006。strata：firstseen 81、oov 57、extB+ 13。基线（cv c0e4bf7，r5 向量包 unicode-cjk-ab）emb top1 56.8%、top10 90.1%；extB+ top10 46.2%（字表缺省不含扩 B 以后的大部分字，是已知缺口）。
+
 
 一个分片 = **同一册**的一批实例（跨册刻工差异是另一个问题，别混进 purity）。
 字块以**归一图冻结在 `crops/`**：金标挂在图上，上游切分再改也不会漂。
