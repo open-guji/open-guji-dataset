@@ -1,0 +1,14 @@
+# decide-bench/small 冻结输入（2026-11-23）。跑分：ai-team domain/CV/A24/decide-bench/run.py
+# 快照＝冻结时各册的 main 产物包（R2，按 label 取回，digest 核对）；第四步（align_ref→seed_admit）从快照的第三步产物重跑。
+# 册配置、模型、字形库钉版、AI 裁定缓存取工作区现行（库里已钉版的照钉版）；评测关人裁。
+from: align_ref
+to: seed_admit
+eval:
+  use_human_verdicts: false
+books:
+  - {title: 史記, ws: 988g3f0wsu, vol: "03", pack: cv0.7.59-c10-g23-m2-k25-job5107-a3,
+     digest: 2076b27a78a01ec2a714cc22e565086de39f312603480a74df0ba35d678a84e6}
+  - {title: 全唐文, ws: 995ejelvk0, vol: "004", pack: cv0.7.93-c82-g-631101-k11-qtw004-vf1,
+     digest: 74e88e874ab69413a6aac96a1a2d828f19be36bdbcac97515f7dd1bfe15f1b75}
+  - {title: 殿本, ws: siku-zongmu, vol: vol01, pack: cv0.7.90-c19-g24-m2-r16-v0790,
+     digest: 9d061cf1d45cecfe576670ea3c12319afc2d5e1ab1b8b1141ace9a3e730a37ed}
