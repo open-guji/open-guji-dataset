@@ -51,6 +51,12 @@
 外框位置、粗细先由算法在内框线附近实测预填（`label_origin` 仍记 human 的是内框，外框历史里写明「frame prefilled」），
 有把握的页直接并入，拿不准的页（外框不明、墨浅、超出图边、非正文页）做成复核包给人重标。
 
+## 标注工具怎么开
+
+把 `tools/serve.py` 和 `tools/annotate.html` 放进标注包文件夹（和 pack.json 同级），运行 `python serve.py`：
+浏览器自动打开，把这个文件夹当工作目录，页图、草稿自动载入，导出自动存回（`items_<包id>.jsonl`），不用选文件夹。
+没有 Python 时仍可直接用 Chrome 打开 annotate.html、点「选包文件夹」（会记住上次的文件夹，下次一键继续）。
+
 ## 怎么标
 
 1. 用现役算法跑出草稿（`layout_gold.doc_from_borders`），连叠图一起给标注人；
