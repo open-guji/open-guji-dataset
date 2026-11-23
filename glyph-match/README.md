@@ -51,3 +51,11 @@ verify_pair_cov 排序）。与 `char-clustering`（聚类 purity）互补：
 | damaged-shiji | 95.4% | — | 90.2%（61） | 97.0%（200） | 28.7% | 3 |
 
 参考（非生产）：`--sim-model models/glyph_sim_qtw/model.pt` 的 CNN 一路殿本残笔首位 85.5%、误放 0。
+
+## train_exclude/：训练隔离清单（A23，2026-11-23）
+
+识字评测分片里的查询格（`<书>.cells.txt`）和对抗集留出字（`<书>.held_chars.txt`）不许进相似度 CNN 的训练，否则 CNN 一路的数偏乐观
+（现役 `glyph_sim_qtw`、`glyph_sim_base_v1` 训练时没有这份清单，对抗集与残损集的 CNN 数要当上限读）。
+`python scripts/build_train_exclude.py` 从各分片汇出；训练时给 cv `train_glyph_sim_cnn.py --exclude <书>.cells.txt --exclude-chars <书>.held_chars.txt`。
+
+dev／test：识字评测器按格号册号奇偶分（奇数册 dev、偶数册 test），调门槛、挑方法只看 dev，报数看 test。
