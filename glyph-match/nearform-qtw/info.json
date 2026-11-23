@@ -1,0 +1,31 @@
+{
+ "name": "nearform-qtw",
+ "book": "995ejelvk0",
+ "source": "ai-team domain/CV/字形领域/形近字组字形判别基准-2026-11-18/data",
+ "built_by": "open-guji-dataset scripts/build_nearform_qtw.py",
+ "n_cells": 34041,
+ "n_items": 40259,
+ "n_pairs": 118,
+ "labels": {
+  "翻": 1841,
+  "留": 38418,
+  "不计": 62
+ },
+ "page_sizes": {
+  "6065x4296": 7612,
+  "5676x4016": 1
+ },
+ "rules": {
+  "drop": [
+   "己已",
+   "己巳",
+   "已巳",
+   "望朢"
+  ],
+  "context_only": [
+   "千干",
+   "天夭",
+   "日曰"
+  ]
+ }
+}
