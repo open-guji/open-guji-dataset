@@ -11,7 +11,7 @@
 | `items.jsonl` | `human_checked` | 603（vol01 200、vol02 240、vol03 163；折线 540） | 能。迁移后逐条出图给人看过，判「对」才收 |
 | `migrated_unreviewed.jsonl` | `migrated_unreviewed` | 713（vol01 379、vol02 334；全是直线） | **不能当人核金标**。迁移后只过了墨谷筛（离最近墨谷 ≤3px），抽样估计约 4% 偏错；只当参考或弱监督用 |
 
-人审判「不对」的 47 条、「看不出（背景印章）」的 12 条不收。
+人审判「不对」的 58 条、「看不出（背景印章）」的 12 条不收。
 
 ## 字段
 - `anchor`：`{book, page, col, slot, space:"raw_page_px@top-right", source_rev:5}`，页号、格号都是 rev5 的。
