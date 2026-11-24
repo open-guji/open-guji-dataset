@@ -1,0 +1,51 @@
+{
+ "name": "decide-bench/large",
+ "version": "0.1.0",
+ "schema_version": 1,
+ "description": "第四步定字大型层：每书两整册冻结快照，整册全部人裁当金标（未逐格抽审，允许少量错），按原图框锚定",
+ "created": "2026-11-24",
+ "status": "可用",
+ "owner": "CV4",
+ "sample_unit": "格（按原图框对格，不随切分改号）",
+ "books": {
+  "988g3f0wsu": "史記 01、02",
+  "995ejelvk0": "全唐文 005、008",
+  "siku-zongmu": "殿本（四库总目） vol02、vol04"
+ },
+ "build": "ai-team domain/CV/A24/decide-bench/：select_gold.py --bind（史記、全唐文，cv 绑定表绑到快照）／gold_from_pack.py（殿本，取快照里已落格的人裁）→ build_large.py；放错字复核 gold_sample＋放行抽查 char_grid（sample_admit.py）",
+ "provenance_fields": [
+  "source_events",
+  "label_origin",
+  "stratum",
+  "history"
+ ],
+ "label_origin_values": [
+  "human",
+  "human_audit"
+ ],
+ "selection": "整册全部有字人裁（切坏／非字不收；看图会话与代写不收）。stratum 记来源与和参校本的关系（人裁·agree_ref／no_ref／differ_unclear／override_ref；殿本为 包内人裁·…）。基线放错字 27 格全部人审：14 格改金标、1 格看不清移出、12 格确认算法错（stratum 带 ·复核）",
+ "metrics": [
+  {
+   "name": "wrong_admit",
+   "target": "0",
+   "description": "放行且字错（异体选形不同另计 variant_admit，不算错字）"
+  },
+  {
+   "name": "variant_admit",
+   "direction": "lower_is_better",
+   "description": "放行的字与金标只差异体选形（异体对＝cv variants 图 ∪ config/hanzi/core/edges.tsv 的 variant 边）"
+  },
+  {
+   "name": "admit_rate",
+   "direction": "higher_is_better",
+   "description": "放行格 ÷ 全部格"
+  },
+  {
+   "name": "review_top1_ok",
+   "direction": "higher_is_better",
+   "description": "落人审的格里首选字就对的比例（可救回）"
+  }
+ ],
+ "fold_rule": "己已巳、日曰 组内任一字算对（Sheldon 定）",
+ "known_limitation": "金标未逐格审，可能有少量错；殿本两册旧人裁多因换图绑不上，改用冻结包里已落格的人裁（cv 冻结时的绑定），可能带进当时的绑定错。放行格里没有人裁的部分只能靠 char_grid 抽查估精度。评测须关人裁。"
+}
