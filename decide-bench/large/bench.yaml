@@ -1,0 +1,20 @@
+# decide-bench/large 冻结输入（2026-11-24）。跑分：ai-team domain/CV/A24/decide-bench/run.py --shard <这里>
+# 每书两整册，快照＝冻结时各册 main 产物包（R2，按 label 取回，digest 核对）；第四步（align_ref→seed_admit）从快照第三步产物重跑。
+# 金标＝整册全部人裁（未逐格抽审，允许少量错）；史記、全唐文按 cv 绑定表绑到快照，殿本取快照里已落格的人裁（见 README）。
+from: align_ref
+to: seed_admit
+eval:
+  use_human_verdicts: false
+books:
+  - {title: 史記, ws: 988g3f0wsu, vol: "01", pack: cv0.7.59-c10-g23-m2-k25-job5105,
+     digest: 277463abf5e8bea3dec6df1dfc0b8555290193684ce0ee9d376c09624d83b75e}
+  - {title: 史記, ws: 988g3f0wsu, vol: "02", pack: cv0.7.59-c10-g23-m2-k25-job5767,
+     digest: 400c43260a958be0f21cdd48b668f028cf610f1d4e7ec5d9b48fb106434e83f2}
+  - {title: 全唐文, ws: 995ejelvk0, vol: "005", pack: cv0.7.93-c82-g-631101-k11-qtw005-vf1,
+     digest: f01ad7d42f3b1c7de95f185fef77dcc09477ad10bf1ebc57ac00221f45b9bbc8}
+  - {title: 全唐文, ws: 995ejelvk0, vol: "008", pack: cv0.7.93-c83-g-254d03-k11-qtw008-vg1,
+     digest: 18c8bf834dbe8b7940d9ba3dfd4554ea679abe9c110c9b447077b501a5bfa8a1}
+  - {title: 殿本, ws: siku-zongmu, vol: vol02, pack: cv0.7.70-c19-g24-m2-r14var-a2,
+     digest: 38339ea348978950ae3512305cc589259b070226e4d85846e84f543b236f7080}
+  - {title: 殿本, ws: siku-zongmu, vol: vol04, pack: cv0.7.70-c23-g24-m2-r14var,
+     digest: c904594a9ed1d5b0dd1e97c9298ac9eff20b5c53da4b9b0c6d1cc5cff3a5cc22}
