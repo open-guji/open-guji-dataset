@@ -56,6 +56,7 @@
 | [context-correction](doc/context-correction.md) | `refine` / seed context 通道 | 11 页 / 1681 槽位 | 可用 | 上下文 + LM 纠正（候选冻结；vol01 进库协议金标，human 529 分层）。首轮基线：门槛化混合 LM +2.32%（救41/坏2）；无门槛重排任何 λ 净亏 |
 | [rough-bench](rough-bench) | `eval_rough_bench.py`（`guji exp` 重跑 seed_admit） | 196 页 / 972 格 | 可用 | 粗校基准（M9）：专家改动进 rc 前量正文送审率变化与新增错放（必须为 0） |
 | [decide-bench/small](decide-bench) | ai-team decide-bench `run.py`（只跑第四步、关人裁） | 9,422 格（3 册） | 可用 | 第四步定字小型标注集：人裁金标按原图框锚定，按放行／拦住规则分层抽审 223 格；错放字必须为 0，异体选形另计 |
+| [cut-lattice](cut-lattice) | 切分多备选 A/B/C 三层（CV2 覆盖、CV4 挑路与回放） | 154 列（4 书） | 可用 | 切分多备选评测集：现役切错 118 列＋好列 36 列，金标切线 L2 人审确认，分调参／盲测；好列误换、错放都必须为 0 |
 | [collation](doc/collation.md) | `collate`（规划中） | 0 | 框架 | 参考校对：对齐、参考质量 ρ 估计、分歧挖掘 |
 
 其余「框架」状态的数据集是刻本字符识别管线（open-guji-cv Phase 3~6）的模块化拆分，
