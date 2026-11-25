@@ -1,21 +1,44 @@
 {
   "name": "cut-lattice",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "schema_version": 1,
-  "description": "切分多备选（候选切线、挑路）评测集 v1：cut-bench 四本书现役切错的列与对照好列，金标切线经 Sheldon 人审确认（L2）",
+  "description": "切分多备选（候选切线、挑路）评测集 v1.1：cut-bench 四本书现役切错的列与对照好列，金标切线经 Sheldon 人审确认（L2）",
   "created": "2026-11-25",
   "status": "可用",
   "owner": "CV4（集与 B/C 层评测）；金标与 A 层由 CV2 维护",
   "sample_unit": "列（键 book:vol:page:col）",
-  "books": {"shiji": "史記 42（988g3f0wsu）", "dianben": "殿本 vol01（siku-zongmu）", "qtw": "全唐文 053（995ejelvk0）", "maijing": "脉经 01（99k3i35yww）"},
+  "books": {
+    "shiji": "史記 42（988g3f0wsu）",
+    "dianben": "殿本 vol01（siku-zongmu）",
+    "qtw": "全唐文 053（995ejelvk0）",
+    "maijing": "脉经 01（99k3i35yww）"
+  },
   "coord": "lines[].page_ends＝raw_page_px@top-right（同 quad_page，[右端点, 左端点]，以此为准）；lines[].y_col＝列图 y（COLUMN_PX，只在 col_img_sha 对得上时直接用）",
-  "splits": {"tune": "调参集", "blind": "盲测集：按 (书, group, 是否夹注) 分层、列键 sha1 排序每层取三分之一；只在定稿和上线前跑"},
-  "build": "ai-team domain/CV/A24/cut-lattice-1125/freeze.py，源 ai-team domain/CV/A22/cut-bench/cutset-1125/（提交 025825d5）",
+  "splits": {
+    "tune": "调参集",
+    "blind": "盲测集：按 (书, group, 是否夹注) 分层、列键 sha1 排序每层取三分之一；只在定稿和上线前跑"
+  },
+  "build": "ai-team domain/CV/A24/cut-lattice-1125/freeze.py，源 ai-team domain/CV/A22/cut-bench/cutset-1125/（提交 025825d5）；v1.1 追加 append_v11.py，源 cutset-1125/v1.1-add.jsonl（ai-team 6fe1b9dd）",
   "schema_doc": "ai-team domain/CV/A24/切分多备选-schema与benchmark-草案-2026-11-25.md",
   "metrics": [
-    {"layer": "A 候选覆盖（CV2）", "name": "line_cover / path_reach / cand_ratio / good_extra_cands", "description": "金标线 0.15 中位格高内有候选的比例；错列存在全由候选组成且条条在容差内的路；候选数相对真线倍数；好列多出的候选数。按书、按 err_tags 分报"},
-    {"layer": "B 挑路（CV4）", "name": "rescued / good_switched", "target": "good_switched=0（报时附好列列数）", "description": "可达错列里挑对几列；好列被换掉几列；弃权率；用不用参校字两版、参校字错开一位对照、纯几何对照"},
-    {"layer": "C 端到端（CV4，CV3 出识字读数）", "name": "wrong_admit", "target": "0", "description": "回放 align_ref＋seed_admit 错放格数；放行格靠字形背书／只靠坐标字；作废与转待审的人裁数；翻转清单"}
+    {
+      "layer": "A 候选覆盖（CV2）",
+      "name": "line_cover / path_reach / cand_ratio / good_extra_cands",
+      "description": "金标线 0.15 中位格高内有候选的比例；错列存在全由候选组成且条条在容差内的路；候选数相对真线倍数；好列多出的候选数。按书、按 err_tags 分报"
+    },
+    {
+      "layer": "B 挑路（CV4）",
+      "name": "rescued / good_switched",
+      "target": "good_switched=0（报时附好列列数）",
+      "description": "可达错列里挑对几列；好列被换掉几列；弃权率；用不用参校字两版、参校字错开一位对照、纯几何对照"
+    },
+    {
+      "layer": "C 端到端（CV4，CV3 出识字读数）",
+      "name": "wrong_admit",
+      "target": "0",
+      "description": "回放 align_ref＋seed_admit 错放格数；放行格靠字形背书／只靠坐标字；作废与转待审的人裁数；翻转清单"
+    }
   ],
-  "known_limitation": "好列每书只 8–10 列，「好列误换 0」样本小；err_tags 是 CV2 启发式预标，确认页上给过「错型不对点不确定」的口子但未逐项核；全唐文、脉经错列多为夹注列；金标有错的 12 列待修后作 v1.1 追加；殿本 p88 职名页 3 列不收"
+  "known_limitation": "好列每书只 8–10 列，「好列误换 0」样本小；err_tags 是 CV2 启发式预标，确认页上给过「错型不对点不确定」的口子但未逐项核；全唐文、脉经错列多为夹注列；v1 金标有错的 12 列：11 列修正后 v1.1 追加，史記 42:69:8 不收；殿本 p88 职名页 3 列不收；金标是 L2 直线，粘连处折线（L3）待标",
+  "updated": "2026-11-25"
 }
