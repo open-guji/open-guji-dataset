@@ -1,8 +1,8 @@
 {
   "name": "cut-lattice",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "schema_version": 1,
-  "description": "切分多备选（候选切线、挑路）评测集 v1.1：cut-bench 四本书现役切错的列与对照好列，金标切线经 Sheldon 人审确认（L2）",
+  "description": "切分多备选（候选切线、挑路）评测集 v1.2：cut-bench 四本书现役切错的列与对照好列，金标切线经 Sheldon 人审确认（L2）；v1.2 加 L3 折线（polylines.jsonl，覆盖文件）",
   "created": "2026-11-25",
   "status": "可用",
   "owner": "CV2（评测集、金标、L3 折线、A 层）；CV4 只负责 B/C 层挑路评测（Sheldon 11-25 定）",
@@ -18,7 +18,7 @@
     "tune": "调参集",
     "blind": "盲测集：按 (书, group, 是否夹注) 分层、列键 sha1 排序每层取三分之一；只在定稿和上线前跑"
   },
-  "build": "ai-team domain/CV/A24/cut-lattice-1125/freeze.py，源 ai-team domain/CV/A22/cut-bench/cutset-1125/（提交 025825d5）；v1.1 追加 append_v11.py，源 cutset-1125/v1.1-add.jsonl（ai-team 6fe1b9dd）",
+  "build": "ai-team domain/CV/A24/cut-lattice-1125/freeze.py，源 ai-team domain/CV/A22/cut-bench/cutset-1125/（提交 025825d5）；v1.1 追加 append_v11.py，源 cutset-1125/v1.1-add.jsonl（ai-team 6fe1b9dd）；v1.2 折线源 ai-team domain/CV/A22/cut-bench/cutset-1125/L3/（预填 prefill_poly.py、三轮人审 review-r1-1126.jsonl 等）",
   "schema_doc": "ai-team domain/CV/A24/切分多备选-schema与benchmark-草案-2026-11-25.md",
   "metrics": [
     {
@@ -39,6 +39,10 @@
       "description": "回放 align_ref＋seed_admit 错放格数；放行格靠字形背书／只靠坐标字；作废与转待审的人裁数；翻转清单"
     }
   ],
-  "known_limitation": "好列每书只 8–10 列，「好列误换 0」样本小；err_tags 是 CV2 启发式预标，确认页上给过「错型不对点不确定」的口子但未逐项核；全唐文、脉经错列多为夹注列；v1 金标有错的 12 列：11 列修正后 v1.1 追加，史記 42:69:8 不收；殿本 p88 职名页 3 列不收；金标是 L2 直线，粘连处折线（L3）待标",
-  "updated": "2026-11-25"
+  "known_limitation": "好列每书只 8–10 列，「好列误换 0」样本小；err_tags 是 CV2 启发式预标，确认页上给过「错型不对点不确定」的口子但未逐项核；全唐文、脉经错列多为夹注列；v1 金标有错的 12 列：11 列修正后 v1.1 追加，史記 42:69:8 不收；殿本 p88 职名页 3 列不收；L3 折线只覆盖沿 L2 直线墨占比≥0.15 的线（61 列 214 线），其余线直线即可；夹注收尾处跨格的 15 条线（between 跳格）不出折线",
+  "updated": "2026-11-26",
+  "files": {
+    "items.jsonl": "列与 L2 金标",
+    "polylines.jsonl": "L3 折线（v1.2，按 key+track+k 覆盖对应 L2 线）"
+  }
 }

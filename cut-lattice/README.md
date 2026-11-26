@@ -33,6 +33,13 @@ v1 里金标被点出有错的 12 列，CV2 两轮修正、Sheldon 两轮确认�
 
 - 金标级别：都是 **L2**（每条切线是直线，误差在 0.15 字高以内）。Sheldon 看过后说「大致没问题，还需要折线微调」：粘连处要折线才能把字分开，记为 L3，待标（方案见 ai-team cutset-1125/L3折线金标方案.md）。A、B 层照 L2 评；C 层裁图以后用 L3。
 
+## v1.2.0（2026-11-26，L3 折线 214 条）
+新文件 `polylines.jsonl`：粘连处的切线改成折线（L3）。它是覆盖文件，`items.jsonl` 一行不改；按 (`key`, `track`, `k`) 找到对应的 L2 线，有折线就用折线。
+- 范围：沿 L2 直线墨占比 ≥0.15 的线（Sheldon 11-26 定），共 229 条；其中 15 条是夹注收尾处跨格的线（`between` 跳了一格：本行少一字、对面行的字占满整格），横穿那个字，定不出折线，不收，照用 L2 直线。收 214 条，61 列。
+- 来源（`origin`）：`prefill` 205 条＝最少墨路径预填、Sheldon 逐线确认对；`cv2_fix` 6 条＝第一轮判不准、CV2 手改、第二轮确认对；`human_draw` 3 条＝两轮还不对、Sheldon 在审查页上直接画（脉经 11:2 k17、k18，58:11 k9）。
+- 字段：`polyline` 原图坐标 raw_page_px@top-right，从右端点到左端点，首末点 x 与 L2 `page_ends` 一致；`polyline_col` 同一条线在列图（COLUMN_PX）的坐标，用 cv `_warpmap.ColumnMapper` 反解，`col_img_sha` 对不上时按 `polyline` 重投；`since: "1.2.0"`。
+- 用法：A、B 层仍按 L2 评（切点 y 用 `page_ends`）；C 层裁字块、判「切进笔画」用折线。
+
 ## 字段（items.jsonl 一行一列）
 - `key`＝`book:vol:page:col`；`group` wrong（现役切错）／good（现役切对，对照）；`split` tune／blind。
 - `lines[]`：金标切线，`track` main 或夹注 a／b，`between` 上下格号，`k` 切点序号，`page_ends` 原图坐标 raw_page_px@top-right 的［右端点, 左端点］，`y_col` 列图 y。
