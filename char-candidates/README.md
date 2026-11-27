@@ -30,6 +30,9 @@
   不是字的格不算命中率，只单报个数。
 - 甲层带 `selfcheck_flag` 的格，评测时不计分。
 
+## 册号
+册身份是整数：`vol_n`，`id` 里也用它（`<层>:<书id>:<vol_n>:<页:列:格>`）。`vol` 只是建集时包里的写法，别拿它做键；比对一律按数值（1／01／001 同册，CV0 11-27 定）。
+
 ## 行格式（items.jsonl）
 ```
 {id, layer: A|B, book, book_title, vol, cell, u?, anchor?{bbox, space},
