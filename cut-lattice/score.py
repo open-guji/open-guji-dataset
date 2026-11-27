@@ -93,6 +93,18 @@ def _polys() -> dict:
     return {(p["key"], p["track"], int(p["k"])): p["polyline"] for p in map(json.loads, open(f, encoding="utf-8")) if p.get("polyline")}
 
 
+def _seam_ys(v):
+    """折线两种落盘写法：cv 2026-11-27 起游程 {"n", "runs": [[x, y], …]}，之前逐 x 表。"""
+    if v is None or isinstance(v, list):
+        return v
+    out = []
+    runs = v["runs"]
+    for i, (x, y) in enumerate(runs):
+        end = runs[i + 1][0] if i + 1 < len(runs) else v["n"]
+        out.extend([y] * (end - x))
+    return out
+
+
 def _affine(cells: list[dict]):
     """列图 (x, y) → 原图 (x_tr, y)：按格的 x0/y0/x1/y1 与 quad_page 角点配对，最小二乘。"""
     import numpy as np
@@ -121,7 +133,7 @@ def actual_col(item: dict, col: dict, polys: dict) -> dict | None:
         if k == 0 or k >= len(body):
             continue
         up, dn = body[k - 1], body[k]
-        sb = up.get("seam_bottom")
+        sb = _seam_ys(up.get("seam_bottom"))
         v = np.array(sb, float) if sb else np.full(int(round(x1 - x0)) + 1, (up["y1"] + dn["y0"]) / 2)
         u = np.arange(len(v)) + x0
         p = np.c_[u, v, np.ones(len(v))] @ _affine([up, dn])
