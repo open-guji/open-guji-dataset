@@ -1,0 +1,35 @@
+{
+ "name": "char-candidates",
+ "version": "0.1.0",
+ "schema_version": 1,
+ "created": "2026-11-27",
+ "owner": "CV3",
+ "description": "识字候选测试集：3c 按图给候选、4b 按上下文排序并补字、待审卡按钮；甲层＝三书人裁难格，乙层＝发过并有人裁的待审卡",
+ "total_samples": 7873,
+ "sample_unit": "字格",
+ "by_layer_book_status": {
+  "A|全唐文|char": 1352,
+  "A|史記|char": 1415,
+  "A|殿本|char": 3109,
+  "B|全唐文|char": 773,
+  "B|全唐文|figure": 2,
+  "B|全唐文|notchar": 2,
+  "B|全唐文|seg": 33,
+  "B|史記|char": 81,
+  "B|史記|seg": 9,
+  "B|殿本|char": 905,
+  "B|殿本|damaged": 1,
+  "B|殿本|figure": 124,
+  "B|殿本|notchar": 19,
+  "B|殿本|seg": 48
+ },
+ "label_origin": "human（reviewer/批次/来源带 AI 的不收）",
+ "eval_command": "PYTHONPATH=. python scripts/eval_cands.py <dataset>/char-candidates --out r.json --against baseline.json   # 或 guji eval run @cands",
+ "eval_script": "open-guji-cv scripts/eval_cands.py",
+ "build_command": "python scripts/build_char_candidates_set.py（见 README）",
+ "baseline": "baseline.json（2026-11-27，cv dev a5a06ce，r5 emb-807344bd，SikuRoBERTa@bb25260d，融合权重 0.005）",
+ "notes": [
+  "产物包里的 3a 是人裁入库后现跑的（金标已在库）：乙层用发卡时冻结的 lib_top，甲层不用 3a。",
+  "乙层人多半按参校字点：卡片指标按『金标≠参校字』『难』分层看。"
+ ]
+}
