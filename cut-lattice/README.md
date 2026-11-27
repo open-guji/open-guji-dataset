@@ -40,6 +40,11 @@ v1 里金标被点出有错的 12 列，CV2 两轮修正、Sheldon 两轮确认�
 - 字段：`polyline` 原图坐标 raw_page_px@top-right，从右端点到左端点，首末点 x 与 L2 `page_ends` 一致；`polyline_col` 同一条线在列图（COLUMN_PX）的坐标，用 cv `_warpmap.ColumnMapper` 反解，`col_img_sha` 对不上时按 `polyline` 重投；`since: "1.2.0"`。
 - 用法：A、B 层仍按 L2 评（切点 y 用 `page_ends`）；C 层裁字块、判「切进笔画」用折线。
 
+## 打分（score.py，2026-11-26）
+`python cut-lattice/score.py --pred <产物根> [--books shiji,qtw] [--split tune|blind|all] [--against <另一产物根>]`，产物根下按册放 `<vol>/row_segment/pNNNN.json`。
+只依赖本目录：逐轨（main／夹注 a、b）合成预测切线，金标线（`page_ends` y 均值）在 0.15×金标线间距中位内有预测线算对；报线对数、列线全对（全对上且不多线）、字数对（格位数＝`gold_n`）、错列修回、好列保住。口径细节见文件头。
+基线（cv dev 3698522＋史記判官，史記 42 全部 44 列）：线 789/874 → 开 `boundary_net` 808/874。
+
 ## 字段（items.jsonl 一行一列）
 - `key`＝`book:vol:page:col`；`group` wrong（现役切错）／good（现役切对，对照）；`split` tune／blind。
 - `lines[]`：金标切线，`track` main 或夹注 a／b，`between` 上下格号，`k` 切点序号，`page_ends` 原图坐标 raw_page_px@top-right 的［右端点, 左端点］，`y_col` 列图 y。
