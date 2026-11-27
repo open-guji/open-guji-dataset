@@ -1,8 +1,8 @@
 {
  "name": "decide-bench/large",
- "version": "0.1.0",
+ "version": "0.2.0",
  "schema_version": 1,
- "description": "第四步定字大型层：每书两整册冻结快照，整册全部人裁当金标（未逐格抽审，允许少量错），按原图框锚定",
+ "description": "第四步定字大型层：史記、全唐文、殿本每书两整册，脉经 01 一册冻结快照，整册全部人裁当金标（未逐格抽审，允许少量错），按原图框锚定",
  "created": "2026-11-24",
  "status": "可用",
  "owner": "CV4",
@@ -10,7 +10,8 @@
  "books": {
   "988g3f0wsu": "史記 01、02",
   "995ejelvk0": "全唐文 005、008",
-  "siku-zongmu": "殿本（四库总目） vol02、vol04"
+  "siku-zongmu": "殿本（四库总目） vol02、vol04",
+  "99k3i35yww": "脉经 01"
  },
  "build": "ai-team domain/CV/A24/decide-bench/：select_gold.py --bind（史記、全唐文，cv 绑定表绑到快照）／gold_from_pack.py（殿本，取快照里已落格的人裁）→ build_large.py；放错字复核 gold_sample＋放行抽查 char_grid（sample_admit.py）",
  "provenance_fields": [
