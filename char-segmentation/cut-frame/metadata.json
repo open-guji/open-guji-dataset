@@ -1,14 +1,23 @@
 {
   "name": "cut-frame",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "schema_version": 1,
   "description": "字与框切分评测集 v0.1：史記 42、全唐文 053 每列首字、尾字（上下版框处）的字紧框金标；左右不看。ok 格＝算法 cell_shrink 紧框经人审未标错，fixed 格＝人标错后 CV2 手修，excluded＝字被截断（归字间方向）或无效卡。",
   "created": "2026-11-26",
   "status": "可用（v0，ok 格精度只保证无明显带框切笔）",
   "owner": "CV2",
   "sample_unit": "格（列首、列尾端格；夹注 a/b 各一格）",
-  "books": {"shiji": "史記 42（988g3f0wsu）", "qtw": "全唐文 053（995ejelvk0）"},
+  "books": {
+    "shiji": "史記 42（988g3f0wsu）",
+    "qtw": "全唐文 053（995ejelvk0）"
+  },
   "coord": "raw_page_px@top-right，tight=[x0,y0,x1,y1]，与 cell_shrink bbox_page 同空间；原图见 cut-bench 冻结（ai-team domain/CV/A22/cut-bench/）",
-  "splits": {"tune": "调参集", "blind": "盲测集：列键 sha1 整数除 3 余 0；只在方案定稿和上线前跑，不用来调参"},
-  "build": "ai-team domain/CV/A22/cut-bench/cutframe-1126/（pick.py 抽样、items_ends.py 出卡、mk_gold_ends.py 收回人审结果；cv dev 现役 cell_shrink，不带人钉）"
+  "splits": {
+    "tune": "调参集",
+    "blind": "盲测集：列键 sha1 整数除 3 余 0；只在方案定稿和上线前跑，不用来调参"
+  },
+  "build": "ai-team domain/CV/A22/cut-bench/cutframe-1126/（pick.py 抽样、items_ends.py 出卡、mk_gold_ends.py 收回人审结果；cv dev 现役 cell_shrink，不带人钉）",
+  "changelog": [
+    "0.2.0（2026-11-27 CV2）：全唐文 7 个 ok 格金标换成 end_dash_row 新紧框（原金标是旧算法框，带内框线毛边；Sheldon 11-27 人审 28 格全对），tags 加 rechecked_1127"
+  ]
 }
