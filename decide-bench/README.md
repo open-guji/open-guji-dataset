@@ -67,16 +67,16 @@
 
 ```bash
 # 现行代码对上次结果，出翻转清单
-python run.py --shard <本仓>/decide-bench/small \
+python -m open_guji_cv.eval.decide_bench.run --shard <本仓>/decide-bench/small \
   --ws 988g3f0wsu=<史記工作区> --ws 995ejelvk0=<全唐文工作区> --ws siku-zongmu=<殿本工作区> \
   --work <工作目录> --name <名字> --against <上次的 <名字>-A.jsonl>
 # 改参数：A（现行）与 B（A＋参数）都跑，B 对 A 出翻转清单
-python run.py … --params '{"seed_admit": {"某参数": 值}}'
+python -m open_guji_cv.eval.decide_bench.run … --params '{"seed_admit": {"某参数": 值}}'
 ```
 
 - 快照按 `small/bench.yaml` 的包标签从 R2 取（`guji products pack fetch --label`），取回核 digest。只重跑第四步（align_ref→context_decide→seed_admit），关人裁，不在线问 AI（只读裁定缓存）。
 - 输出：按书一行（放对／放成异体／放错字／拦住·首选对／拦住·首选错、放行率、人审首选对率），`wrong_admit` 必须为 0；`--against` 时列翻转格（好转／变坏／其它）并写 `*-flips.tsv`。
-- 只打分（已有产物）：`python score.py --items small/items.jsonl --run 03=<产物根/03> … --out r.jsonl [--against 上次.jsonl]`。
+- 只打分（已有产物）：`python -m open_guji_cv.eval.decide_bench.score --items small/items.jsonl --run 03=<产物根/03> … --out r.jsonl [--against 上次.jsonl]`。
 - 耗时（4 核、装 torch）：史記 03 约 6 分钟，全唐文 004、殿本 vol01 各几分钟。
 
 ### 冻结包与 11-25 切字拆步（必读）
@@ -88,11 +88,11 @@ cv 11-25 起把切字拆成五小步（#1869），字块图要从新产物 `colu
 ## 动态层（dyn.py）
 
 ```bash
-python dyn.py --shard <本仓>/decide-bench/small --shard <本仓>/decide-bench/large \
+python -m open_guji_cv.eval.decide_bench.dyn --shard <本仓>/decide-bench/small --shard <本仓>/decide-bench/large \
   --ws …（同上） --work <目录> --name <名字> --warm-cv <拆步前的 cv 检出> [--books 03,005] [--against 上次.jsonl]
 ```
 
-- 每册取**现在标 main 的包**（不带 `--label`），关人裁重跑第四步；切分可能变了，金标按原图框 IoU 对现行格（`score.py --rebind`，对不上记「缺格」）。
+- 每册取**现在标 main 的包**（不带 `--label`），关人裁重跑第四步；切分可能变了，金标按原图框 IoU 对现行格（`score --rebind`，对不上记「缺格」）。
 - 册号跨书重名（史記 01／脉经 01）：快照、缓存、打分都按 `工作区id/册` 区分。
 - 逐册跑完就打分、删快照和缓存（每册几百 MB），只留 `keep/<ws>-<册>/` 的 seed_admit 与 row_segment；断点续跑。用了哪些包记在 `<名字>-packs.json`。
 - 各书 main 包是各书钉的 cv 线（如史記 0.7.x），也缺 `column_bands`，同样要 `--warm-cv`。
