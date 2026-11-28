@@ -40,14 +40,16 @@
 |---|---|---|---|---|---|
 | 2a 拉直 | `column_warp`（现代 `column_crop`、自由版式 `column_trace`） | [page-geometry](page-geometry) | 39 页（30 有效） | 殿本 | 页面形变标定：错切、射影、列距列相位；评测读 `column_windows` |
 | | | [char-segmentation/column-warp](char-segmentation/column-warp) | 146 | 殿本、北行 | 拉直后两侧残余界行、两端残墨清没清干净；现在量的是 2b、2c 的结果，以那两处为主 |
-| 2b 字带左右边 | `column_band` | [char-segmentation/side-rule](char-segmentation/side-rule) | 276 | 殿本 | 左右缘竖线剥没剥掉、字的竖笔有没有误伤（2e 也剥，两处共用） |
+| 2b 字带左右边 | `column_band` | [char-segmentation/band-ink](char-segmentation/band-ink) | 60 列 362 格 | 史記、全唐文 | 列中干净字的字身墨有没有被字带抹掉（v0.1，金标由人核格界＋连通域推出；CV2 11-28） |
+| | | [char-segmentation/side-rule](char-segmentation/side-rule) | 276 | 殿本 | 左右缘竖线剥没剥掉、字的竖笔有没有误伤（2e 也剥，两处共用） |
 | | | [char-segmentation/text-band](char-segmentation/text-band) | 2 | 殿本 | 列窗口够不够装下一整列（全自动量，无需标注） |
 | 2c 列端字 | `column_end` | [char-segmentation/cut-frame](char-segmentation/cut-frame) **主集** | 258 列端 | 史記、全唐文 | 列首、列尾字的紧框不带框线、不切笔画（CV2，11-26 起） |
 | | | [char-segmentation/frame-end-crop](char-segmentation/frame-end-crop) | 451 格 | 殿本（10 册） | 列端字块带框／切笔，按字块指纹锚定 |
 | | | [char-segmentation/column-end-class](char-segmentation/column-end-class) | 305 | 殿本 vol02 | 每列上下端削框前的形态类别 |
 | | | [char-segmentation/frame-strip](char-segmentation/frame-strip) | 65 | 殿本 | 列端格去框后的干净度 |
-| 列几何、出口闸 | `column_geometry`、`cut_gate` | 无 | — | — | 缺：闸的检出率、误报率回归例 |
+| 列几何、出口闸 | `column_geometry`、`cut_gate` | [char-segmentation/cut-bench](char-segmentation/cut-bench) | 155 页 1384 列 | 史記、全唐文、殿本、脉经 | 以 2d 列全对为真值量闸的检出率、误报率（cv `eval/cut_bench.py gate`，CV2 11-28） |
 | 2d 字间切分 | `row_segment`（现代 `row_segment_runs`、自由版式 `cell_cut`） | [cut-lattice](cut-lattice) **主集** | 165 列 | 脉经 57、史記 44、全唐文 44、殿本 20 | 切分多备选：现役切错列＋好列对照；好列误换、错放必须为 0（4a 挑路也用） |
+| | | [char-segmentation/cut-bench](char-segmentation/cut-bench) | 155 页 1384 列 | 史記、全唐文、殿本、脉经 | 第二步整步固定样本：字数（L1）、格四边形（L2），测试集分 random／hard（cv `eval/cut_bench.py`） |
 | | | [char-segmentation/book-columns](char-segmentation/book-columns) | 32 列 | 脉经 | 各书切分难列整列人定格表，按书分子目录 |
 | | | [char-segmentation/column-counts](char-segmentation/column-counts) | 14,987 列 | 殿本 vol01–10 | 逐列字数（双源一致） |
 | | | [char-segmentation/touching-cuts-rev5](char-segmentation/touching-cuts-rev5) | 603 | 殿本（现行图源 rev5） | 粘连格线的理想切点；**殿本用这份** |
@@ -62,7 +64,8 @@
 | | | [char-segmentation/jiazhu-tail](char-segmentation/jiazhu-tail) | 60 | 殿本 | 双行小注段端收编 |
 | | | [char-segmentation/jiazhu-short-note-miss](char-segmentation/jiazhu-short-note-miss) | 6 | 殿本 | 提要末尾短小注漏检（已知错例，待改） |
 | | | [column-layout](column-layout) | 36 列 | 殿本 | 列型：刚性／弹性排布 |
-| 2e 字框压缩 | `cell_shrink` | [char-segmentation/instances](char-segmentation/instances) **主集** | 1,264 | 殿本、北行 | 单字图块四分类＋缺陷子类 |
+| 2e 字框压缩 | `cell_shrink` | [char-segmentation/shrink-ink](char-segmentation/shrink-ink) | 301 格 | 史記、全唐文 | 列中干净字紧框切笔／带渣（v0.1，金标由人核格界＋连通域推出；CV2 11-28）；列端见 2c cut-frame |
+| | | [char-segmentation/instances](char-segmentation/instances) | 1,264 | 殿本、北行 | 单字图块四分类＋缺陷子类 |
 | | | [char-segmentation/right-cut](char-segmentation/right-cut) | 52 列 | 殿本 | 右缘穿边笔画要被图块盖住 |
 | | | [char-segmentation/left-cut](char-segmentation/left-cut) | 57 列 | 殿本 | 左缘镜像 |
 | | | [char-segmentation/cells](char-segmentation/cells) | 60 | 合成 | 格内墨迹归属，逐像素合成金标 |
@@ -120,8 +123,8 @@
 
 ## 缺口一览（对照 cv 验收标准 S12）
 
-- **没有任何分片的小步**：1a、1c、列几何与 `cut_gate`、3d、3e、识字收尾、定字 gate（4c 只有起步分片，缺 seal／occluded／seg_bad）。
-- **只有殿本的小步**：1b 闸·页型、2b、2e、3b（字组主集；3b 整体 bench3b 已有三书）、4b。验收标准要求「写明覆盖了哪几部书、缺哪部」，补别的书时在上表「覆盖的书」一列改掉。
+- **没有任何分片的小步**：1a、1c、3d、3e、识字收尾、定字 gate（4c 只有起步分片，缺 seal／occluded／seg_bad）。
+- **只有殿本的小步**：1b 闸·页型、3b（字组主集；3b 整体 bench3b 已有三书）、4b。验收标准要求「写明覆盖了哪几部书、缺哪部」，补别的书时在上表「覆盖的书」一列改掉。
 - 金标锚定：殿本两次换图源后，`touching-cuts` 等按旧图列图坐标记的分片对不上现行图，现行图用 `-rev5` 等迁移过的版本；新分片一律锚在原图页面坐标或字块指纹上（见 [README](README.md)「统一金标信封」）。
 
 ## 旧 Step 号对照

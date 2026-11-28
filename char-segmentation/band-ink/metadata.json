@@ -1,0 +1,15 @@
+{
+  "name": "band-ink",
+  "version": "0.1.0",
+  "schema_version": 1,
+  "description": "2b 字带左右边护栏：史記 42、全唐文 053 各 30 列中干净字的字身墨框，量 column_band 抹墨。",
+  "created": "2026-11-28",
+  "status": "可用（v0.1，金标由人核格界＋连通域推出，未经人看）",
+  "owner": "CV2",
+  "sample_unit": "列（列中干净格）",
+  "books": {"shiji": "史記 42（988g3f0wsu）", "qtw": "全唐文 053（995ejelvk0）"},
+  "coord": "raw_page_px@top-right",
+  "splits": {"tune": "调参集", "blind": "盲测：列键 sha1 整数除 3 余 0"},
+  "build": "cv open_guji_cv/eval/cut_ink.py build（seed 1128）",
+  "scorer": "cv open_guji_cv/eval/cut_ink.py band"
+}

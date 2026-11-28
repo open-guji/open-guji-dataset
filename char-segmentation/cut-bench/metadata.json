@@ -1,0 +1,14 @@
+{
+  "name": "cut-bench",
+  "version": "1.0.0",
+  "schema_version": 1,
+  "description": "第二步切字整步固定样本集：四书 155 页、人核 1384 列的字数（L1）与格四边形（L2）金标；按页一个 jsonl，测试集分 random／hard。",
+  "created": "2026-11-23",
+  "status": "可用",
+  "owner": "CV2",
+  "sample_unit": "列",
+  "books": {"shiji": "史記 42", "qtw": "全唐文 053", "dianben": "四库总目殿本 vol01", "maijing": "脉经 01"},
+  "coord": "raw_page_px@top-right",
+  "scorer": "cv open_guji_cv/eval/cut_bench.py（score：2d；gate：出口闸 cut_gate）",
+  "changelog": ["1.0.0（2026-11-28 CV2）：从 ai-team domain/CV/A22/cut-bench/gold/ 搬来，内容不改"]
+}
