@@ -23,6 +23,7 @@
 - 样本少（每书 60 列），样本 <20 的错型只报数，不据此调参。
 
 ## 评测
+2026-11-28 起打分脚本住 cv：`python -m open_guji_cv.eval.cut_frame --items cut-frame/items.jsonl --pred <产物根> [--against <旧产物根>]`（加切笔／带渣护栏与翻转格）；本目录 `score.py` 留作旧口径对照。
 `score.py <items.jsonl> <cell_shrink 产物根>`：按格比预测 bbox_page 与金标 tight，报每边偏差、IoU@0.9、越框格数，按书、按 split、按 tags 分报。算法提升另开会话，用 tune 调、blind 只做上线前验证。
 
 ## 基线（v0.1，cv dev 现役 cell_shrink，不带人钉；`score.py`）
