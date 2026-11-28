@@ -2,7 +2,9 @@
 # manager `guji eval guard` 读本文件：逐条跑评测器、取同名指标、和 limit 比；发版（cv、manager 的 rc）必须全过。
 #
 # 字段
-#   eval      评测器 id（guji eval list）；metric 指标名，和 `guji eval run` 报的一字不差
+#   bench／ws 统一接口的 bench id 与书 id（工作区 id）：`guji bench run <bench> --book <ws>` 按这两个键取本表护栏
+#             （cv `eval/benches/read.py::dataset_guards`，2026-11-28 起）；read-3a-e2e、read-3a-nearform、read-rare 未接完前仍走老框架
+#   eval      老评测器 id（guji eval list，P2 收口前 `guji eval guard` 还读）；metric 指标名，两边报的一字不差
 #   book／set 哪本书、哪个分片（只作说明；分片由评测器注册表定）
 #   dir       max＝不许超过 limit（误认、误放类）；min＝不许低于 limit（精度、召回类）
 #   baseline  量出时的值；limit 放宽后的门（计数类约 +10% 且至少 +1～2，百分比类约 −0.5 点）
@@ -13,28 +15,28 @@
 
 guards:
   # ── 3a A2 库外拒识：库里没有的字被生产判官判成 same（形近层题数）──
-  - {eval: advset,       book: 殿本,   set: glyph-match/advset-siku-v2, metric: 形近误认, dir: max, baseline: 34, limit: 37}
-  - {eval: advset_shiji, book: 史記,   set: glyph-match/advset-shiji,   metric: 形近误认, dir: max, baseline: 7,  limit: 9}
-  - {eval: advset_qtw,   book: 全唐文, set: glyph-match/advset-qtw,     metric: 形近误认, dir: max, baseline: 0,  limit: 2}
+  - {bench: read-3a-advset, ws: siku-zongmu, eval: advset,       book: 殿本,   set: glyph-match/advset-siku-v2, metric: 形近误认, dir: max, baseline: 34, limit: 37}
+  - {bench: read-3a-advset, ws: 988g3f0wsu, eval: advset_shiji, book: 史記,   set: glyph-match/advset-shiji,   metric: 形近误认, dir: max, baseline: 7,  limit: 9}
+  - {bench: read-3a-advset, ws: 995ejelvk0, eval: advset_qtw,   book: 全唐文, set: glyph-match/advset-qtw,     metric: 形近误认, dir: max, baseline: 0,  limit: 2}
 
   # ── 3a A3 归一图端到端（人裁分片作查询、本书库留一）──
-  - {eval: match_bench,       book: 殿本,   set: char-clustering/samples/004-siku-v2-human, metric: same 精度, dir: min, baseline: 96.84, limit: 96.3, lib: 96mid1ogzk, since: "11-22 g24 e9b0de42"}
-  - {eval: match_bench_shiji, book: 史記,   set: char-clustering/samples/005-shiji-human,   metric: same 精度, dir: min, baseline: 98.93, limit: 98.4, lib: 988g3f0wsu, since: "11-22 main 68a65cd4"}
-  - {eval: match_bench_qtw,   book: 全唐文, set: char-clustering/samples/006-qtw-human,     metric: same 精度, dir: min, baseline: 99.83, limit: 99.5, lib: 995ejelvk0, since: "11-22 main 1a08b3ba"}
-  - {eval: match_bench,       book: 殿本,   set: char-clustering/samples/004-siku-v2-human, metric: novel 误放, dir: max, baseline: 1, limit: 2, lib: 96mid1ogzk}
-  - {eval: match_bench_shiji, book: 史記,   set: char-clustering/samples/005-shiji-human,   metric: novel 误放, dir: max, baseline: 0, limit: 1, lib: 988g3f0wsu}
-  - {eval: match_bench_qtw,   book: 全唐文, set: char-clustering/samples/006-qtw-human,     metric: novel 误放, dir: max, baseline: 0, limit: 1, lib: 995ejelvk0}
+  - {bench: read-3a-e2e, ws: siku-zongmu, eval: match_bench,       book: 殿本,   set: char-clustering/samples/004-siku-v2-human, metric: same 精度, dir: min, baseline: 96.84, limit: 96.3, lib: 96mid1ogzk, since: "11-22 g24 e9b0de42"}
+  - {bench: read-3a-e2e, ws: 988g3f0wsu, eval: match_bench_shiji, book: 史記,   set: char-clustering/samples/005-shiji-human,   metric: same 精度, dir: min, baseline: 98.93, limit: 98.4, lib: 988g3f0wsu, since: "11-22 main 68a65cd4"}
+  - {bench: read-3a-e2e, ws: 995ejelvk0, eval: match_bench_qtw,   book: 全唐文, set: char-clustering/samples/006-qtw-human,     metric: same 精度, dir: min, baseline: 99.83, limit: 99.5, lib: 995ejelvk0, since: "11-22 main 1a08b3ba"}
+  - {bench: read-3a-e2e, ws: siku-zongmu, eval: match_bench,       book: 殿本,   set: char-clustering/samples/004-siku-v2-human, metric: novel 误放, dir: max, baseline: 1, limit: 2, lib: 96mid1ogzk}
+  - {bench: read-3a-e2e, ws: 988g3f0wsu, eval: match_bench_shiji, book: 史記,   set: char-clustering/samples/005-shiji-human,   metric: novel 误放, dir: max, baseline: 0, limit: 1, lib: 988g3f0wsu}
+  - {bench: read-3a-e2e, ws: 995ejelvk0, eval: match_bench_qtw,   book: 全唐文, set: char-clustering/samples/006-qtw-human,     metric: novel 误放, dir: max, baseline: 0, limit: 1, lib: 995ejelvk0}
 
   # ── 3a A5 退化：真实残损格被误放成别的字 ──
-  - {eval: match_pool,       book: 殿本, set: glyph-match/damaged-siku-v2, metric: 误放, dir: max, baseline: 9, limit: 11}
-  - {eval: match_pool_shiji, book: 史記, set: glyph-match/damaged-shiji,   metric: 误放, dir: max, baseline: 3, limit: 5}
+  - {bench: read-3a-damaged, ws: siku-zongmu, eval: match_pool,       book: 殿本, set: glyph-match/damaged-siku-v2, metric: 误放, dir: max, baseline: 9, limit: 11}
+  - {bench: read-3a-damaged, ws: 988g3f0wsu, eval: match_pool_shiji, book: 史記, set: glyph-match/damaged-shiji,   metric: 误放, dir: max, baseline: 3, limit: 5}
 
   # ── 3a A6 形近字组：首位落在本对对家字上（文意三对不计）──
-  - {eval: nearform, book: 全唐文, set: glyph-match/nearform-qtw, metric: 对家误认,      dir: max, baseline: 651, limit: 690, lib: 995ejelvk0, since: "11-22 main 1a08b3ba"}
-  - {eval: nearform, book: 全唐文, set: glyph-match/nearform-qtw, metric: test 对家误认, dir: max, baseline: 290, limit: 310, lib: 995ejelvk0}
+  - {bench: read-3a-nearform, ws: 995ejelvk0, eval: nearform, book: 全唐文, set: glyph-match/nearform-qtw, metric: 对家误认,      dir: max, baseline: 651, limit: 690, lib: 995ejelvk0, since: "11-22 main 1a08b3ba"}
+  - {bench: read-3a-nearform, ws: 995ejelvk0, eval: nearform, book: 全唐文, set: glyph-match/nearform-qtw, metric: test 对家误认, dir: max, baseline: 290, limit: 310, lib: 995ejelvk0}
 
-  # ── 3b 生僻字候选：库里没见过的字，答案进不进前 10 ──
-  - {eval: rare_siku_v2,       book: 殿本,   set: char-clustering/samples/004-siku-v2-human, metric: unseen top10, dir: min, baseline: 96.09, limit: 95.5}
-  - {eval: rare_shiji,         book: 史記,   set: char-clustering/samples/005-shiji-human,   metric: unseen top10, dir: min, baseline: 94.41, limit: 93.9}
-  - {eval: rare_qtw,           book: 全唐文, set: char-clustering/samples/006-qtw-human,     metric: unseen top10, dir: min, baseline: 98.55, limit: 98.0}
-  - {eval: rare_qtw_firstseen, book: 全唐文, set: char-clustering/samples/007-qtw-firstseen, metric: emb top10,    dir: min, baseline: 90.12, limit: 87.6}
+  # ── （旧）生僻字候选（rare_candidates，退役中）：库里没见过的字，答案进不进前 10 ──
+  - {bench: read-rare, ws: siku-zongmu, eval: rare_siku_v2,       book: 殿本,   set: char-clustering/samples/004-siku-v2-human, metric: unseen top10, dir: min, baseline: 96.09, limit: 95.5}
+  - {bench: read-rare, ws: 988g3f0wsu, eval: rare_shiji,         book: 史記,   set: char-clustering/samples/005-shiji-human,   metric: unseen top10, dir: min, baseline: 94.41, limit: 93.9}
+  - {bench: read-rare, ws: 995ejelvk0, eval: rare_qtw,           book: 全唐文, set: char-clustering/samples/006-qtw-human,     metric: unseen top10, dir: min, baseline: 98.55, limit: 98.0}
+  - {bench: read-rare-firstseen, ws: 995ejelvk0, eval: rare_qtw_firstseen, book: 全唐文, set: char-clustering/samples/007-qtw-firstseen, metric: emb top10,    dir: min, baseline: 90.12, limit: 87.6}
