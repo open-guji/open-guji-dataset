@@ -1,4 +1,4 @@
-# decide-bench/large 冻结输入（2026-11-24）。跑分：ai-team domain/CV/A24/decide-bench/run.py --shard <这里>
+# decide-bench/large 冻结输入（2026-11-24）。跑分：cv open_guji_cv/eval/decide_bench/run.py --shard <这里>
 # 每书两整册，快照＝冻结时各册 main 产物包（R2，按 label 取回，digest 核对）；第四步（align_ref→seed_admit）从快照第三步产物重跑。
 # 金标＝整册全部人裁（未逐格抽审，允许少量错）；史記、全唐文按 cv 绑定表绑到快照，殿本取快照里已落格的人裁（见 README）。
 from: align_ref

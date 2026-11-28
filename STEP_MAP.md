@@ -98,7 +98,7 @@
 | 4b 上下文 | `context_decide`、`context_rank` | [context-correction](context-correction)（用 `samples_v2/`） | 12 页／约 1,680 槽位 | 殿本 | 上下文＋LM 纠正，候选冻结 |
 | | | [confusable-context](confusable-context) | 154 | 殿本 | 形近对上下文消歧 |
 | | | [char-candidates](char-candidates) | 7,873 | 见 3c | 按上下文排序并补字 |
-| 4c 格况 | `cell_state` | 无（待建 `decide-bench/cell-state`） | — | — | 人裁 seg_defect 等约 2,200 格待绑框 |
+| 4c 格况 | `cell_state` | [decide-bench/cell-state](decide-bench/cell-state)（起步，v0.1.0） | char 9,422＋non_char 38 | 史記 03、全唐文 004、殿本（non_char 只有殿本） | 人裁 seg_defect 等约 2,200 格待绑框 |
 | 4d 字组 | `group_decision` | [char-groups](char-groups) | 见 3b | 殿本 | 字组定向金标先从全唐文三组起步 |
 | 定字收尾 | `char_decide`（旧名 `seed_admit`） | [decide-bench/small](decide-bench) **主集** | 9,422 格 | 全唐文 004、史記 03、殿本 vol01 | 只跑第四步、关人裁；错放字必须为 0 |
 | | | [decide-bench/large](decide-bench) | 11,355 格 | 史記 01–02、全唐文 005、殿本 vol02、脉经 01 等 | 同上，大样本 |
@@ -119,7 +119,7 @@
 
 ## 缺口一览（对照 cv 验收标准 S12）
 
-- **没有任何分片的小步**：1a、1c、列几何与 `cut_gate`、3d、3e、识字收尾、4c、定字 gate。
+- **没有任何分片的小步**：1a、1c、列几何与 `cut_gate`、3d、3e、识字收尾、定字 gate（4c 只有起步分片，缺 seal／occluded／seg_bad）。
 - **只有殿本的小步**：1b 闸·页型、2b、2e、3b、4b。验收标准要求「写明覆盖了哪几部书、缺哪部」，补别的书时在上表「覆盖的书」一列改掉。
 - 金标锚定：殿本两次换图源后，`touching-cuts` 等按旧图列图坐标记的分片对不上现行图，现行图用 `-rev5` 等迁移过的版本；新分片一律锚在原图页面坐标或字块指纹上（见 [README](README.md)「统一金标信封」）。
 
