@@ -1,70 +1,53 @@
 # open-guji-dataset
 
-古籍计算机视觉 Benchmark 数据集，用于评估 [open-guji-cv](https://github.com/open-guji/open-guji-cv) 各阶段命令的识别准确率。
+古籍计算机视觉 benchmark 数据集：给 [open-guji-cv](https://github.com/open-guji/open-guji-cv) 管线的**四大步、各小步**当固定尺子，改了某一步不用整册重跑就能知道变好还是变坏。
 
-> **本仓目录按功能模块命名，不按管线 Step0～Step8 命名。** 要按 Step 查测试集在哪，
-> 看 [STEP_MAP.md](STEP_MAP.md)。
+- **按大步、小步找测试集** → [STEP_MAP.md](STEP_MAP.md)（每个分片挂在哪个小步、多少条、覆盖哪几部书、缺口在哪）。
+- **每个小步跑哪个 benchmark、主指标、护栏、基线报告** → cv [`doc/bench登记表.md`](https://github.com/open-guji/open-guji-cv/blob/dev/doc/bench登记表.md)。
+- **验收标准**（小步 S1–S12、大步 B1–B6；本仓对应 S12：分片、信封、按书覆盖）→ cv [`doc/验收标准.md`](https://github.com/open-guji/open-guji-cv/blob/dev/doc/验收标准.md)。
+- 要新建测试集，先看 [doc/making-datasets.md](doc/making-datasets.md)；给已有分片补样本看 [doc/adding-samples.md](doc/adding-samples.md)。
 
-> **怎么用这些数据？走 open-guji-cv 的控制台**（2026-09-03 起）：
-> ```bash
-> cd ../open-guji-cv && .venv/Scripts/python -m open_guji_cv console   # → 127.0.0.1:8640
-> ```
-> 审查视图管人裁与金标（收割、路由、迁移、漂移检查），评测视图一键跑评测。
-> 后台脚本化用 `python -m open_guji_cv gold|eval|batch|events`，**别直接调
-> `open-guji-cv/scripts/eval_*.py`**——那些脚本的参数约定互相打架，新命令已抹平。
-> 用法见 [open-guji-cv/.claude/doc/console_manual.md](https://github.com/open-guji/open-guji-cv/blob/main/.claude/doc/console_manual.md)，
-> **有问题先查手册**。
->
-> **金标已统一成 `items.jsonl`**（2026-09-03，34 个分片 8879 条全部迁完，逐条校验零差异）。
-> 旧载体（`samples/`、`expected.json`、`verdicts_*.jsonl`、`cases.json`）**原样保留并存**，
-> 现有评测脚本照旧读它们；新代码一律读 `items.jsonl`。信封字段见下方「统一金标信封」。
->
-> **要新建一个测试集？先看 [doc/making-datasets.md](doc/making-datasets.md)**
-> ——测什么（能力还是输出）、金标怎么定义、样本怎么抽、报告怎么写，
-> 以及**哪些步骤可以并行开工**。给已有数据集补样本看
-> [doc/adding-samples.md](doc/adding-samples.md)。
->
-> **当前策略（2026-08 起）：只优化正文页。** 新建数据集要么只收正文页，
-> 要么标出页型分层报。正文页金标见 [page-type](page-type)
-> （`page_type == "body"`，vol01 108 页 / vol02 全书 186 页）。
+本仓目录按功能模块命名（`border-detection/`、`char-segmentation/`、`glyph-match/`…），不按步骤命名：一个分片可能同时量两个小步，小步重新划分时也不用搬目录。对应关系只在 [STEP_MAP.md](STEP_MAP.md) 一处维护。
 
-## 数据集
+## 四大步一览
 
-| 数据集 | 评估命令 | 样本数 | 状态 | 说明 |
-|--------|---------|--------|------|------|
-| [book-profile](doc/book-profile.md) | `recognize-profile` | 24 | 可用 | 古籍版面特征识别（布局、行数、颜色、边框等） |
-| [cut-page](doc/cut-page.md) | `cut` | 18 | 可用 | 页面切分类型检测（垂直/水平/无需切分） |
-| [page-type](page-type) | `segment`（页型闸门）| 394 页（全书） | 可用 | 八种页型 → 三种网格策略，防止非正文页产出垃圾 |
-| [page-geometry](page-geometry) | `segment`（版面几何）| 39 页 / 353 界行 | 可用 | 页面形变标定：错切/射影、列距列相位 |
-| [column-layout](column-layout) | `segment`（行列识别）| 36 页 / 322 列 | 可用 | 逐列刚性/弹性判别 + 统一输出格式 |
-| [char-segmentation/cells](char-segmentation/cells) | `segment`（格内净化）| 60 | 可用 | 合成逐像素金标：格内墨迹归属 |
-| [char-segmentation/book-columns](char-segmentation/book-columns) | `segment`（整列切分）| 32 列（脉经卷一，28 有金标） | 可用 | 各书切分难列，整列人定格表；按书分子目录、分书报分 |
-| [char-segmentation/instances](char-segmentation/instances) | `chars`（图块自检）| 829（2026-09-11 实测，持续增量，此数会再涨） | 可用 | 真实图块四分类 + `defect` 子类（rule_bar/frame_bar），评管线自检能力。含历次实审回流（r1~r6）与隔壁进库审查的 149 条 |
-| [char-segmentation/frame-strip](char-segmentation/frame-strip) | `chars`（列端去框）| 65 | 可用 | 列端格「去框后」干净度：残余率/误剥率/字保全 |
-| [char-segmentation/side-rule](char-segmentation/side-rule) | `chars`（侧边去线）| 276（2026-09-11 实测） | 可用 | 图块左右缘的界行竖条剥没剥掉，字的边竖有没有被误剥 |
-| [char-segmentation/frame-end-crop](char-segmentation/frame-end-crop) | `chars`（列端去框）| 451 格（10 册）| 可用 | 殿本新图源列首列尾字块人点「干净／带框／切笔」，按字块指纹锚定；评 `inner_frame_cut` 等列端剥框改动 |
-| [char-segmentation/page-crop](char-segmentation/page-crop) | `segment`（上游裁切）| 6 页 | 可用 | 列窗越出页图多少＝最外列被 s3 吃掉多少（全自动，无需标注）|
-| [char-segmentation/text-band](char-segmentation/text-band) | `segment`（版面窗口）| 294 页 | 可用 | 窗口高 /（每列字数 × 书级格高）＝列的纵向窗口够不够装下一整列（全自动，无需标注）|
-| [char-segmentation/jiazhu-tail](char-segmentation/jiazhu-tail) | `chars`（夹注段端）| 57 | 可用 | 奇数字末行单字收编成 a 行 / 漏拆末行补拆，正文拒收（三分类，非对称零容忍）|
-| [char-segmentation/right-cut](char-segmentation/right-cut) | `chars`（右缘救援）| 51 列 213 点 | 可用 | 贴界行书写的字，捺脚/横尾穿过右裁切边必须被图块盖住 |
-| [char-segmentation/left-cut](char-segmentation/left-cut) | `chars`（左缘救援）| 58 列 114 点 | 可用 | 镜像：撇尖/横笔左端穿过左裁切边必须被图块盖住（判据加横条/框线断段两道排除）|
-| [char-segmentation/seam](char-segmentation/seam) | `segment`（格线落点）| 294 页 | 可用 | 切缝墨率＝格线那一行的墨 / 上下两格字峰，量「这一刀是不是切在字上」（全自动，无需标注）|
-| [char-normalization](char-normalization) | `normalize`（纯函数） | 32（2026-09-11 实测；README 原写「35 字块＝32 verified + 3 已知缺陷」，实测 items.jsonl 只有 32 条 active，3 条缺陷未在当前分片里找到，需核实是否已挪走） | 可用 | 归一化 golden 回归门 |
-| [char-clustering](char-clustering) | `cluster` | 3 分片 / 6297 实例 | 可用 | 保守聚类 purity 集（align 两册 + 人工复核层 + 难例对）|
-| [glyph-match](glyph-match) | `match`/`verify` | 193 三元组（2026-09-11 实测）/ 5,915 对（`pairs` 子分片） | 可用 | 匹配排序：同字形须胜形近异字（体检人裁产出；hard 基线 0.079，control 护栏 1.0）|
-| [char-ocr](doc/char-ocr.md) | `label` / `bench-ocr` | 9,571（2026-09-11 实测） | 可用 | 单字识别 (图块, 金标字)，按册划分 train/test |
-| [context-correction](doc/context-correction.md) | `refine` / seed context 通道 | 11 页 / 1681 槽位 | 可用 | 上下文 + LM 纠正（候选冻结；vol01 进库协议金标，human 529 分层）。首轮基线：门槛化混合 LM +2.32%（救41/坏2）；无门槛重排任何 λ 净亏 |
-| [rough-bench](rough-bench) | `eval_rough_bench.py`（`guji exp` 重跑 seed_admit） | 196 页 / 972 格 | 可用 | 粗校基准（M9）：专家改动进 rc 前量正文送审率变化与新增错放（必须为 0） |
-| [decide-bench/small](decide-bench) | ai-team decide-bench `run.py`（只跑第四步、关人裁） | 9,422 格（3 册） | 可用 | 第四步定字小型标注集：人裁金标按原图框锚定，按放行／拦住规则分层抽审 223 格；错放字必须为 0，异体选形另计 |
-| [cut-lattice](cut-lattice) | 切分多备选 A/B/C 三层（CV2 覆盖、CV4 挑路与回放） | 165 列（4 书） | 可用 | 切分多备选评测集：现役切错 127 列＋好列 38 列，金标切线 L2 人审确认，分调参／盲测；好列误换、错放都必须为 0 |
-| [collation](doc/collation.md) | `collate`（规划中） | 0 | 框架 | 参考校对：对齐、参考质量 ρ 估计、分歧挖掘 |
+cv 管线分四大步（2026-11-22 起；小步 11-25 至 11-28 拆成独立 Step）。下表每个小步只列主集，全部分片见 [STEP_MAP.md](STEP_MAP.md)。
 
-其余「框架」状态的数据集是刻本字符识别管线（open-guji-cv Phase 3~6）的模块化拆分，
-规格见 [doc/modules-roadmap.md](doc/modules-roadmap.md)。目前只建了目录
-框架（metadata.json + doc + 占位样本），尚无真实样本；上表标「可用」的已有真实样本与基线。标注主要来源为
-整理本对齐自动标注，因此每份 `expected.json` **必须**带三个溯源字段
-`source_item` / `pipeline_version` / `label_origin`（`align` | `human` |
-`synth`）——align 标注有噪声，清洗与分层评测都依赖它。
+| 大步 | 小步（Step id） | 主集 | 覆盖的书 |
+|---|---|---|---|
+| **1 版面** `layout` | 1a 页面预检（`page_survey`、`invert_detect`） | 无 | — |
+| | 1b 版框界行（`border_detect`）＋页型闸 | [layout](layout)、[border-detection](border-detection)、[page-type](page-type) | 殿本为主；史記、全唐文、脉经各 10 页上下 |
+| | 1c 印章（`seal_detect`） | 无 | — |
+| **2 切字** `cut` | 2a 拉直（`column_warp`） | [page-geometry](page-geometry) | 殿本 |
+| | 2b 字带左右边（`column_band`） | [char-segmentation/side-rule](char-segmentation/side-rule) | 殿本 |
+| | 2c 列端字（`column_end`） | [char-segmentation/cut-frame](char-segmentation/cut-frame)、[frame-end-crop](char-segmentation/frame-end-crop) | 史記、全唐文；殿本 |
+| | 2d 字间切分（`row_segment`） | [cut-lattice](cut-lattice)、[char-segmentation/column-counts](char-segmentation/column-counts) | 殿本、史記、全唐文、脉经 |
+| | 2e 字框压缩（`cell_shrink`） | [char-segmentation/instances](char-segmentation/instances) | 殿本、北行 |
+| **3 识字** `read` | 3a 字形库匹配（`glyph_match`） | [glyph-match](glyph-match) advset／damaged／pairs | 殿本、史記、全唐文 |
+| | 3b 形近字组（`glyph_near`） | [char-groups](char-groups) | 殿本 |
+| | 3c 按图候选（`glyph_candidate`） | [char-candidates](char-candidates) | 殿本、全唐文、史記 |
+| | 3d 其他特征、3e 看图大模型、识字收尾 `glyph_analyzer` | 无 | — |
+| **4 定字** `decide` | 4a 参照对位（`align_ref`） | [decide-bench](decide-bench) 子步指标 | 见收尾 |
+| | 4b 上下文（`context_decide`、`context_rank`） | [context-correction](context-correction)、[confusable-context](confusable-context) | 殿本 |
+| | 4c 格况（`cell_state`） | 无（待建） | — |
+| | 4d 字组（`group_decision`） | [char-groups](char-groups) | 殿本 |
+| | 定字收尾（`char_decide`）、gate（`decide_gate`） | [decide-bench](decide-bench) small／large、[rough-bench](rough-bench) | 殿本、史記、全唐文、脉经 |
+
+## 怎么跑
+
+各小步的 benchmark 命令以 cv [`doc/bench登记表.md`](https://github.com/open-guji/open-guji-cv/blob/dev/doc/bench登记表.md) 为准，常用的几条：
+
+```bash
+python -m open_guji_cv.eval.layout_bench          # 1 版面（cv 仓），读 layout/
+guji eval list                                     # guji-manager 评测器登记的 bench（3a advset、match_pool、rare_* 等）
+guji eval run <bench id>
+```
+
+切字的 `cut_bench.py`、定字的 decide-bench `run.py`／`score.py`、`gate_bench.py` 现在还在 ai-team 仓，搬进跟版本走的仓之前以登记表写的住处为准。
+
+旧的 `python -m open_guji_cv console` 控制台和 `python -m open_guji_cv gold|eval|batch|events` 已退役（控制台拆成独立包 guji-console，人裁与金标收割走 guji-manager），不要再用；本仓根下的 `index.html`、`server.py`、`scripts/run_benchmark.py` 等是更早的标注与评测工具，只对 book-profile、cut-page 两个旧分片有效。
+
+> 当前策略（2026-08 起）：只优化正文页。新建分片要么只收正文页，要么按页型分层报；正文页判定见 [page-type](page-type)。
 
 ## 统一金标信封（items.jsonl）
 
@@ -95,79 +78,19 @@
 **`expected` 里只放金标内容**。`coord_space` 那种整段口径说明是给人看的文档，
 放进 `input`——混进 `expected` 会让「金标改没改」的比较变成比较散文。
 
-## 目录结构
 
-```
-open-guji-dataset/
-├── book-profile/              # 版面识别数据集
-│   ├── metadata.json
-│   ├── samples/001-024/       # 每个含 image.png + expected.json + info.json
-│   └── results/               # recognize-profile 输出 (gitignore)
-├── cut-page/                  # 页面切分数据集
-│   ├── samples/001-018/
-│   └── results/
-├── char-segmentation/         # 单字分拆（框架）
-│   ├── metadata.json
-│   ├── samples/000-example/   # 占位样本（placeholder: true）
-│   └── results/               # 评测输出 (gitignore)
-├── char-normalization/        # 归一化 golden 回归门（35 字块，两层）
-├── char-clustering/           # 保守聚类 purity（3 个册分片）
-├── glyph-match/               # 匹配排序三元组（体检人裁产出）
-├── char-ocr/                  # 单字识别（框架）
-├── context-correction/        # 上下文纠正（框架）
-├── collation/                 # 参考校对（框架）
-├── doc/                       # 数据格式文档
-│   ├── book-profile.md
-│   ├── cut-page.md
-│   ├── modules-roadmap.md
-│   ├── char-segmentation.md
-│   ├── char-normalization.md
-│   ├── char-clustering.md
-│   ├── char-ocr.md
-│   ├── context-correction.md
-│   └── collation.md
-├── feedback/                  # 人裁事件（2026-09 起）
-│   ├── events/<批次>.jsonl    #   只追加的统一事件；两种传输的裁决都汇到这里
-│   ├── consumed/<消费者>.jsonl #   幂等记账：哪些事件已被消费
-│   └── routes.yaml            #   路由表 kind × step → 消费者（缺省用内置）
-├── scripts/                   # benchmark 脚本
-├── index.html                 # 标注 Web UI（旧；新的人裁走 open-guji-cv 控制台）
-└── server.py                  # 标注服务器（已废弃，改用 File System Access API）
-```
+## 分片约定
 
-**每个分片现在都有 `items.jsonl`**（统一金标），与各自的旧载体并存。
+- 一个分片一个目录：`items.jsonl`（统一金标）＋`README.md`（测什么、金标口径、来源、基线）＋可选 `metadata.json`、`samples/`、`report.json`。`results/` 只留 `.gitkeep`，评测输出不入库。
+- README 第一段写清**量的是哪个小步**（用现行编号，如「2c 列端字」），以及覆盖了哪几部书、缺哪部。小步改划分时只改 [STEP_MAP.md](STEP_MAP.md)，不搬目录。
+- 多书的分片按书分子目录（如 `char-segmentation/book-columns/maijing/`、`rare-char/qtw-995ejelvk0/`）或在 `anchor` 里写 `book_id`，分书报分。
+- 随机页与难例分开放（`stratum` 字段或分开的子目录），否则估不出总体比例。
+- 金标锚在不随切分变的键上：原图页面坐标（注明图源 rev）、`bbox`＋`content_sha`、字块指纹或字格永久编号 u；不要只锚在格号上（重切后会挂到邻格）。
 
-新数据集统一布局：`metadata.json` + `samples/NNN/`（`expected.json` +
-`info.json` + 各自的输入文件）+ `results/`。`results/` 只保留 `.gitkeep`
-与 `.gitignore`，评测输出不入库（沿用 book-profile / cut-page 约定）。
 
-## 标注 Web UI
+## 旧分片的老载体
 
-直接用浏览器打开 `index.html`，选择本项目根目录即可浏览和编辑所有数据集的标注。
-
-功能：
-- 左侧样本列表，绿色勾/红色叉显示与识别结果的匹配状态
-- 右侧图片预览 + 标注表单，修改后自动保存
-- 顶部标签页切换不同数据集
-- 上下方向键快速切换样本
-- 目录句柄缓存在 IndexedDB，下次打开自动恢复
-
-## Benchmark 脚本
-
-```bash
-# 版面识别 benchmark
-python scripts/run_benchmark.py      # 对所有样本运行 recognize-profile
-python scripts/evaluate.py           # 评估准确率
-
-# 页面切分 benchmark
-python scripts/run_cut_benchmark.py  # 对所有样本运行 cut 检测
-```
-
-## 数据来源
-
-1. **open-guji-cv/data** — 内置测试数据（book1-book8）
-2. **AncientDoc** — 古籍图片分类数据集（15 个分类）
-3. **PDF 提取** — 续修四库全书总目提要、四库全书总目等
+早期分片（book-profile、cut-page 等）还有 `samples/NNN/` 老载体，2026-09-03 已全部迁成 `items.jsonl`，老载体原样保留；新代码一律读 `items.jsonl`。
 
 ## 每个样本的结构
 
@@ -216,3 +139,4 @@ samples/001/
 `label_origin` 不可省略：align 是唯一能规模化的标注来源，但它有噪声
 （对齐错位、用字差异、参考本讹误），清洗、分层评测、加权使用三件事
 全靠它区分。
+
