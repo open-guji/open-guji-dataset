@@ -24,7 +24,7 @@ cv 管线分四大步（2026-11-22 起；小步 11-25 至 11-28 拆成独立 Ste
 | | 2d 字间切分（`row_segment`） | [cut-lattice](cut-lattice)、[char-segmentation/column-counts](char-segmentation/column-counts) | 殿本、史記、全唐文、脉经 |
 | | 2e 字框压缩（`cell_shrink`） | [char-segmentation/instances](char-segmentation/instances) | 殿本、北行 |
 | **3 识字** `read` | 3a 字形库匹配（`glyph_match`） | [glyph-match](glyph-match) advset／damaged／pairs | 殿本、史記、全唐文 |
-| | 3b 形近字组（`glyph_near`） | [char-groups](char-groups) | 殿本 |
+| | 3b 形近字组（`glyph_near`） | [char-groups](char-groups)、[glyph-near/bench3b](glyph-near/bench3b)（整体：触发／覆盖／一致率／ECE／耗时） | 殿本；bench3b 殿本、史記、全唐文 |
 | | 3c 按图候选（`glyph_candidate`） | [char-candidates](char-candidates) | 殿本、全唐文、史記 |
 | | 3d 其他特征、3e 看图大模型、识字收尾 `glyph_analyzer` | 无 | — |
 | **4 定字** `decide` | 4a 参照对位（`align_ref`） | [decide-bench](decide-bench) 子步指标 | 见收尾 |

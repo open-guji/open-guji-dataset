@@ -1,0 +1,2322 @@
+{
+ "bench": "near-bench/1",
+ "bench_version": 1,
+ "cv": "0.9.0+e204d732",
+ "at": "2026-11-28T06:32:44Z",
+ "books": {
+  "995ejelvk0": {
+   "title": "全唐文",
+   "ws": "995ejelvk0",
+   "vols": {
+    "046": "test",
+    "031": "fit"
+   },
+   "skipped_methods": [],
+   "groups": {},
+   "models": {
+    "near_knn:_guard": {
+     "file": "config/groups/near_knn.json",
+     "sha256": "c53df8f77876381623abf2d90fc118339fa1b7f635b09204e8298711a440c442",
+     "pinned": "c53df8f77876381623abf2d90fc118339fa1b7f635b09204e8298711a440c442",
+     "pin_ok": true,
+     "load_s": 1.41,
+     "fingerprint": "near_knn=c53df8f778763816",
+     "model_sha": "c53df8f778763816",
+     "note": "刻例 77727 格 3000 字；按册留出 28237 格（887 对）：放 20952 错 5；guard=2.090"
+    },
+    "pair_shape:dt": {
+     "file": "config/groups/pair_shape_dt.json",
+     "sha256": "bac6b19ffc9883b2521a68dd49bbe69513e8f5738981d1917d8ee4f9512cba10",
+     "pinned": "bac6b19ffc9883b2521a68dd49bbe69513e8f5738981d1917d8ee4f9512cba10",
+     "pin_ok": true,
+     "load_s": 0.01,
+     "fingerprint": "pair_shape=37618a50a4c3c8cb",
+     "model_sha": "bac6b19ffc9883b2",
+     "note": "大太 多类 已放行 2615 格（{'太': 823, '大': 1792}），组外 1017 格；按册留出 给字 2608 错 1 弃权 7，组外漏 3；剔除 []"
+    },
+    "hou_shape:hou": {
+     "file": "config/groups/hou_shape.json",
+     "sha256": "6780644a103e1608adcfa687394b7c0492630a7359185f26175d785a9326788b",
+     "pinned": "6780644a103e1608adcfa687394b7c0492630a7359185f26175d785a9326788b",
+     "pin_ok": true,
+     "load_s": 0.01,
+     "fingerprint": "hou_shape=5608ab3353a1bdb4",
+     "model_sha": "6780644a103e1608",
+     "note": "形近字线 11-21：Sheldon 点选 222 格＋算法目看一致 134 格训练（剔 057:43:5:1 疑点错）；按册 5 折留出 t=0.98 Sheldon 标签覆盖 193/222 错 1（即该疑点格）"
+    },
+    "book_knn:men": {
+     "file": "config/groups/book_knn/men.json",
+     "sha256": "0b49ca87e4688143e9383f51f90337f05b31c6c5606c8b3aece7a39de78236dd",
+     "pinned": "0b49ca87e4688143e9383f51f90337f05b31c6c5606c8b3aece7a39de78236dd",
+     "pin_ok": true,
+     "load_s": 0.52,
+     "fingerprint": "book_knn=0b49ca87e4688143",
+     "model_sha": "0b49ca87e4688143",
+     "note": "men 刻例 15579（{'~': 12506, '聞': 808, '門': 559, '開': 403, '闕': 364, '問': 218, '閒': 206, '關': 118, '閑': 69, '闡': 63, '閭': 57, '闈': 50}…）；按册留出 15579 格：A 对2262 错0；B 对577 错0；弃234（guard=1.810）；背景 12506 格 组外误"
+    },
+    "stroke_veto:qg": {
+     "file": "config/groups/stroke_veto.json",
+     "sha256": "885de5ddaabedac2860763cbd7b67334cc50342abfd7b7ff462e88f52d618e71",
+     "pinned": "885de5ddaabedac2860763cbd7b67334cc50342abfd7b7ff462e88f52d618e71",
+     "pin_ok": true,
+     "load_s": 0.22,
+     "fingerprint": "stroke_veto=2aca5af76ac169a3",
+     "model_sha": "885de5ddaabedac2",
+     "note": ""
+    },
+    "rr_shape:rr": {
+     "file": "config/groups/rr_shape.json",
+     "sha256": "1d64fda3b16568cdd8e25cc5169ce1120ec51c89b66086d039359e88b362cd1f",
+     "pinned": "1d64fda3b16568cdd8e25cc5169ce1120ec51c89b66086d039359e88b362cd1f",
+     "pin_ok": true,
+     "load_s": 0.03,
+     "fingerprint": "rr_shape=d6e52b457740ca8f",
+     "model_sha": "1d64fda3b16568cd",
+     "note": "全唐文 04–15 已放行格 2470；按册留出 对2445 错1 弃24"
+    },
+    "wu_shape:wu": {
+     "file": "config/groups/wu_shape.json",
+     "sha256": "2c4f5e4c46ee03a3252c31d8a00455e0a1b35f00b40ed3c77a0a908572f9b635",
+     "pinned": "2c4f5e4c46ee03a3252c31d8a00455e0a1b35f00b40ed3c77a0a908572f9b635",
+     "pin_ok": true,
+     "load_s": 0.02,
+     "fingerprint": "wu_shape=4d05e637e0614bc2",
+     "model_sha": "2c4f5e4c46ee03a3",
+     "note": "全唐文 嗚鳴 刻形：右半部（口旁右）上 75%，64px，三个小卷积网取平均；按册 5 折留出 1,199 格（文意放行 1,183＋Sheldon 17 格刻形点选）两次各错 2、0；p≥0.99/≤0.01 覆盖约 98%、0 错（形近字线 11-14）"
+    },
+    "pair_shape:wyu": {
+     "file": "config/groups/pair_shape_wyu.json",
+     "sha256": "a5c1e9e5428fbbac65b66de20a0d142b1c08998b1c9590fd010028ae379db475",
+     "pinned": "a5c1e9e5428fbbac65b66de20a0d142b1c08998b1c9590fd010028ae379db475",
+     "pin_ok": true,
+     "load_s": 0.01,
+     "fingerprint": "pair_shape=85be683b9a52dfce",
+     "model_sha": "a5c1e9e5428fbbac",
+     "note": "王玉 多类 已放行 1920 格（{'王': 1722, '玉': 198}），组外 1976 格；按册留出 给字 1906 错 1 弃权 14，组外漏 8；剔除 ['005:201:9:21', '005:218:9:15', '005:91:8:3', '014:144:6:6']"
+    },
+    "pair_shape:yh": {
+     "file": "config/groups/pair_shape_yh.json",
+     "sha256": "5441f7140f336958eb58dba0ad0e2a260294677a514093cb3f2427074f353c68",
+     "pinned": "5441f7140f336958eb58dba0ad0e2a260294677a514093cb3f2427074f353c68",
+     "pin_ok": true,
+     "load_s": 0.0,
+     "fingerprint": "pair_shape=e27b539963cf2c3d",
+     "model_sha": "5441f7140f336958",
+     "note": "還遺 多类 已放行 384 格（{'還': 204, '遺': 180}），组外 900 格；按册留出 给字 380 错 0 弃权 4，组外漏 2；剔除 []"
+    }
+   },
+   "per_vol": {
+    "046": {
+     "role": "test",
+     "pack": "cv0.9.4-c79-g-a7720e-k13-qtw046-ms6",
+     "cells": 29729,
+     "labeled": {
+      "silver": 29556,
+      "gold": 77
+     },
+     "groups": {
+      "_guard": {
+       "triggered": 15571,
+       "by_trigger": {
+        "gap": 12709,
+        "guard": 1334,
+        "near_form": 1528
+       },
+       "methods": {
+        "near_knn": {
+         "patch": "char_patch",
+         "scored": 3237,
+         "no_img": 12334,
+         "patch_error": 0,
+         "empty_sims": 41,
+         "abstain": 41,
+         "abstain_rate": 0.0127,
+         "labeled": 3188,
+         "decided": 3148,
+         "right": 2851,
+         "wrong": 297,
+         "acc": 0.9057,
+         "labeled_abstain_rate": 0.0125,
+         "errors": [
+          {
+           "id": "046:4:6:20",
+           "truth": "五",
+           "pick": "互",
+           "a1": "五",
+           "gold": false
+          },
+          {
+           "id": "046:6:4:8",
+           "truth": "曾",
+           "pick": "會",
+           "a1": "曾",
+           "gold": false
+          },
+          {
+           "id": "046:6:9:2",
+           "truth": "王",
+           "pick": "亞",
+           "a1": "王",
+           "gold": false
+          },
+          {
+           "id": "046:8:7:9",
+           "truth": "何",
+           "pick": "付",
+           "a1": "何",
+           "gold": false
+          },
+          {
+           "id": "046:10:2:9",
+           "truth": "王",
+           "pick": "玉",
+           "a1": "王",
+           "gold": false
+          },
+          {
+           "id": "046:10:5:22",
+           "truth": "王",
+           "pick": "玉",
+           "a1": "王",
+           "gold": false
+          },
+          {
+           "id": "046:10:6:4",
+           "truth": "間",
+           "pick": "聞",
+           "a1": "間",
+           "gold": false
+          },
+          {
+           "id": "046:10:6:17",
+           "truth": "間",
+           "pick": "問",
+           "a1": "間",
+           "gold": false
+          },
+          {
+           "id": "046:10:6:21",
+           "truth": "間",
+           "pick": "問",
+           "a1": "間",
+           "gold": false
+          },
+          {
+           "id": "046:10:7:17",
+           "truth": "王",
+           "pick": "玉",
+           "a1": "王",
+           "gold": false
+          },
+          {
+           "id": "046:11:2:20",
+           "truth": "王",
+           "pick": "玉",
+           "a1": "王",
+           "gold": false
+          },
+          {
+           "id": "046:11:5:13",
+           "truth": "王",
+           "pick": "玉",
+           "a1": "王",
+           "gold": false
+          },
+          {
+           "id": "046:11:7:5",
+           "truth": "大",
+           "pick": "太",
+           "a1": "大",
+           "gold": false
+          },
+          {
+           "id": "046:11:7:11",
+           "truth": "間",
+           "pick": "閒",
+           "a1": "間",
+           "gold": false
+          },
+          {
+           "id": "046:12:5:15",
+           "truth": "夭",
+           "pick": "天",
+           "a1": "夭",
+           "gold": false
+          },
+          {
+           "id": "046:12:6:7",
+           "truth": "玉",
+           "pick": "王",
+           "a1": "玉",
+           "gold": false
+          },
+          {
+           "id": "046:12:7:22",
+           "truth": "間",
+           "pick": "聞",
+           "a1": "間",
+           "gold": false
+          },
+          {
+           "id": "046:13:3:9",
+           "truth": "間",
+           "pick": "閒",
+           "a1": "間",
+           "gold": false
+          },
+          {
+           "id": "046:13:3:22",
+           "truth": "嗚",
+           "pick": "鳴",
+           "a1": "嗚",
+           "gold": false
+          },
+          {
+           "id": "046:14:5:16",
+           "truth": "入",
+           "pick": "八",
+           "a1": "入",
+           "gold": false
+          }
+         ],
+         "ms_per_cell": 19.06,
+         "seconds": 61.71,
+         "repeat_equal": true
+        }
+       }
+      },
+      "dt": {
+       "triggered": 279,
+       "by_trigger": {
+        "cands": 279
+       },
+       "coverage": {
+        "silver": {
+         "n": 183,
+         "covered": 183,
+         "rate": 1.0
+        },
+        "gold": {
+         "n": 0,
+         "covered": 0,
+         "rate": null
+        }
+       },
+       "methods": {
+        "pair_shape": {
+         "patch": "char_patch",
+         "scored": 279,
+         "no_img": 0,
+         "patch_error": 0,
+         "empty_sims": 0,
+         "abstain": 64,
+         "abstain_rate": 0.2294,
+         "labeled": 183,
+         "decided": 178,
+         "right": 178,
+         "wrong": 0,
+         "acc": 1.0,
+         "labeled_abstain_rate": 0.0273,
+         "errors": [],
+         "ms_per_cell": 0.78,
+         "seconds": 0.22,
+         "repeat_equal": true
+        }
+       }
+      },
+      "hou": {
+       "triggered": 113,
+       "by_trigger": {
+        "cands": 113
+       },
+       "coverage": {
+        "silver": {
+         "n": 39,
+         "covered": 39,
+         "rate": 1.0
+        },
+        "gold": {
+         "n": 1,
+         "covered": 1,
+         "rate": 1.0
+        }
+       },
+       "methods": {
+        "hou_shape": {
+         "patch": "char_patch",
+         "scored": 113,
+         "no_img": 0,
+         "patch_error": 0,
+         "empty_sims": 0,
+         "abstain": 31,
+         "abstain_rate": 0.2743,
+         "labeled": 8,
+         "decided": 8,
+         "right": 7,
+         "wrong": 1,
+         "acc": 0.875,
+         "labeled_abstain_rate": 0.0,
+         "errors": [
+          {
+           "id": "046:95:9:13",
+           "truth": "𠋫",
+           "pick": "候",
+           "a1": "候",
+           "gold": true
+          }
+         ],
+         "ms_per_cell": 4.93,
+         "seconds": 0.56,
+         "repeat_equal": true
+        }
+       }
+      },
+      "men": {
+       "triggered": 307,
+       "by_trigger": {
+        "cands": 307
+       },
+       "coverage": {
+        "silver": {
+         "n": 243,
+         "covered": 243,
+         "rate": 1.0
+        },
+        "gold": {
+         "n": 0,
+         "covered": 0,
+         "rate": null
+        }
+       },
+       "methods": {
+        "book_knn": {
+         "patch": "char_patch",
+         "scored": 307,
+         "no_img": 0,
+         "patch_error": 0,
+         "empty_sims": 44,
+         "abstain": 185,
+         "abstain_rate": 0.6026,
+         "labeled": 243,
+         "decided": 122,
+         "right": 122,
+         "wrong": 0,
+         "acc": 1.0,
+         "labeled_abstain_rate": 0.4979,
+         "errors": [],
+         "ms_per_cell": 5.09,
+         "seconds": 1.56,
+         "repeat_equal": true
+        }
+       }
+      },
+      "qg": {
+       "triggered": 229,
+       "by_trigger": {
+        "cands": 229
+       },
+       "coverage": {
+        "silver": {
+         "n": 57,
+         "covered": 57,
+         "rate": 1.0
+        },
+        "gold": {
+         "n": 0,
+         "covered": 0,
+         "rate": null
+        }
+       },
+       "methods": {
+        "stroke_veto": {
+         "patch": "char_patch",
+         "scored": 229,
+         "no_img": 0,
+         "patch_error": 0,
+         "empty_sims": 70,
+         "abstain": 86,
+         "abstain_rate": 0.3755,
+         "labeled": 57,
+         "decided": 52,
+         "right": 47,
+         "wrong": 5,
+         "acc": 0.9038,
+         "labeled_abstain_rate": 0.0877,
+         "errors": [
+          {
+           "id": "046:78:3:19",
+           "truth": "千",
+           "pick": "干",
+           "a1": "干",
+           "gold": false
+          },
+          {
+           "id": "046:83:4:20a",
+           "truth": "干",
+           "pick": "千",
+           "a1": "干",
+           "gold": false
+          },
+          {
+           "id": "046:92:5:8",
+           "truth": "千",
+           "pick": "干",
+           "a1": "干",
+           "gold": false
+          },
+          {
+           "id": "046:101:7:11",
+           "truth": "千",
+           "pick": "干",
+           "a1": "干",
+           "gold": false
+          },
+          {
+           "id": "046:171:6:7",
+           "truth": "千",
+           "pick": "干",
+           "a1": "千",
+           "gold": false
+          }
+         ],
+         "ms_per_cell": 55.5,
+         "seconds": 12.71,
+         "repeat_equal": true
+        }
+       }
+      },
+      "rr": {
+       "triggered": 259,
+       "by_trigger": {
+        "cands": 259
+       },
+       "coverage": {
+        "silver": {
+         "n": 252,
+         "covered": 251,
+         "rate": 0.996
+        },
+        "gold": {
+         "n": 0,
+         "covered": 0,
+         "rate": null
+        }
+       },
+       "methods": {
+        "rr_shape": {
+         "patch": "char_patch",
+         "scored": 259,
+         "no_img": 0,
+         "patch_error": 0,
+         "empty_sims": 25,
+         "abstain": 25,
+         "abstain_rate": 0.0965,
+         "labeled": 251,
+         "decided": 232,
+         "right": 231,
+         "wrong": 1,
+         "acc": 0.9957,
+         "labeled_abstain_rate": 0.0757,
+         "errors": [
+          {
+           "id": "046:21:2:8",
+           "truth": "入",
+           "pick": "八",
+           "a1": "入",
+           "gold": false
+          }
+         ],
+         "ms_per_cell": 1.51,
+         "seconds": 0.39,
+         "repeat_equal": true
+        }
+       }
+      },
+      "wu": {
+       "triggered": 28,
+       "by_trigger": {
+        "cands": 28
+       },
+       "coverage": {
+        "silver": {
+         "n": 15,
+         "covered": 15,
+         "rate": 1.0
+        },
+        "gold": {
+         "n": 0,
+         "covered": 0,
+         "rate": null
+        }
+       },
+       "methods": {
+        "wu_shape": {
+         "patch": "char_patch",
+         "scored": 28,
+         "no_img": 0,
+         "patch_error": 0,
+         "empty_sims": 0,
+         "abstain": 3,
+         "abstain_rate": 0.1071,
+         "labeled": 15,
+         "decided": 15,
+         "right": 15,
+         "wrong": 0,
+         "acc": 1.0,
+         "labeled_abstain_rate": 0.0,
+         "errors": [],
+         "ms_per_cell": 5.97,
+         "seconds": 0.17,
+         "repeat_equal": true
+        }
+       }
+      },
+      "wyu": {
+       "triggered": 473,
+       "by_trigger": {
+        "cands": 473
+       },
+       "coverage": {
+        "silver": {
+         "n": 152,
+         "covered": 152,
+         "rate": 1.0
+        },
+        "gold": {
+         "n": 0,
+         "covered": 0,
+         "rate": null
+        }
+       },
+       "methods": {
+        "pair_shape": {
+         "patch": "char_patch",
+         "scored": 473,
+         "no_img": 0,
+         "patch_error": 0,
+         "empty_sims": 0,
+         "abstain": 315,
+         "abstain_rate": 0.666,
+         "labeled": 152,
+         "decided": 149,
+         "right": 145,
+         "wrong": 4,
+         "acc": 0.9732,
+         "labeled_abstain_rate": 0.0197,
+         "errors": [
+          {
+           "id": "046:17:5:12",
+           "truth": "玉",
+           "pick": "王",
+           "a1": "玉",
+           "gold": false
+          },
+          {
+           "id": "046:54:2:21",
+           "truth": "玉",
+           "pick": "王",
+           "a1": "玉",
+           "gold": false
+          },
+          {
+           "id": "046:163:2:7",
+           "truth": "玉",
+           "pick": "王",
+           "a1": "玉",
+           "gold": false
+          },
+          {
+           "id": "046:175:4:11",
+           "truth": "玉",
+           "pick": "王",
+           "a1": "王",
+           "gold": false
+          }
+         ],
+         "ms_per_cell": 0.61,
+         "seconds": 0.29,
+         "repeat_equal": true
+        }
+       }
+      },
+      "yh": {
+       "triggered": 64,
+       "by_trigger": {
+        "cands": 64
+       },
+       "coverage": {
+        "silver": {
+         "n": 26,
+         "covered": 26,
+         "rate": 1.0
+        },
+        "gold": {
+         "n": 0,
+         "covered": 0,
+         "rate": null
+        }
+       },
+       "methods": {
+        "pair_shape": {
+         "patch": "char_patch",
+         "scored": 64,
+         "no_img": 0,
+         "patch_error": 0,
+         "empty_sims": 0,
+         "abstain": 38,
+         "abstain_rate": 0.5938,
+         "labeled": 26,
+         "decided": 24,
+         "right": 24,
+         "wrong": 0,
+         "acc": 1.0,
+         "labeled_abstain_rate": 0.0769,
+         "errors": [],
+         "ms_per_cell": 0.81,
+         "seconds": 0.05,
+         "repeat_equal": true
+        }
+       }
+      }
+     },
+     "agreement": {
+      "vs_3a": {
+       "near_knn:_guard": {
+        "n": 3196,
+        "agree": 2867,
+        "rate": 0.8971
+       },
+       "pair_shape:dt": {
+        "n": 180,
+        "agree": 180,
+        "rate": 1.0
+       },
+       "hou_shape:hou": {
+        "n": 8,
+        "agree": 8,
+        "rate": 1.0
+       },
+       "book_knn:men": {
+        "n": 122,
+        "agree": 122,
+        "rate": 1.0
+       },
+       "stroke_veto:qg": {
+        "n": 62,
+        "agree": 53,
+        "rate": 0.8548
+       },
+       "rr_shape:rr": {
+        "n": 234,
+        "agree": 233,
+        "rate": 0.9957
+       },
+       "wu_shape:wu": {
+        "n": 15,
+        "agree": 15,
+        "rate": 1.0
+       },
+       "pair_shape:wyu": {
+        "n": 153,
+        "agree": 146,
+        "rate": 0.9542
+       },
+       "pair_shape:yh": {
+        "n": 24,
+        "agree": 24,
+        "rate": 1.0
+       }
+      },
+      "vs_label": {
+       "near_knn:_guard": {
+        "n": 3148,
+        "agree": 2851,
+        "rate": 0.9057
+       },
+       "pair_shape:dt": {
+        "n": 178,
+        "agree": 178,
+        "rate": 1.0
+       },
+       "hou_shape:hou": {
+        "n": 8,
+        "agree": 7,
+        "rate": 0.875
+       },
+       "book_knn:men": {
+        "n": 122,
+        "agree": 122,
+        "rate": 1.0
+       },
+       "stroke_veto:qg": {
+        "n": 52,
+        "agree": 47,
+        "rate": 0.9038
+       },
+       "rr_shape:rr": {
+        "n": 232,
+        "agree": 231,
+        "rate": 0.9957
+       },
+       "wu_shape:wu": {
+        "n": 15,
+        "agree": 15,
+        "rate": 1.0
+       },
+       "pair_shape:wyu": {
+        "n": 149,
+        "agree": 145,
+        "rate": 0.9732
+       },
+       "pair_shape:yh": {
+        "n": 24,
+        "agree": 24,
+        "rate": 1.0
+       }
+      },
+      "pairs": {
+       "book_knn:men|near_knn:_guard": {
+        "n": 108,
+        "agree": 108,
+        "rate": 1.0
+       },
+       "hou_shape:hou|near_knn:_guard": {
+        "n": 3,
+        "agree": 1,
+        "rate": 0.3333
+       },
+       "near_knn:_guard|pair_shape:dt": {
+        "n": 180,
+        "agree": 128,
+        "rate": 0.7111
+       },
+       "near_knn:_guard|pair_shape:wyu": {
+        "n": 145,
+        "agree": 106,
+        "rate": 0.731
+       },
+       "near_knn:_guard|pair_shape:yh": {
+        "n": 20,
+        "agree": 20,
+        "rate": 1.0
+       },
+       "near_knn:_guard|rr_shape:rr": {
+        "n": 234,
+        "agree": 231,
+        "rate": 0.9872
+       },
+       "near_knn:_guard|stroke_veto:qg": {
+        "n": 64,
+        "agree": 56,
+        "rate": 0.875
+       },
+       "near_knn:_guard|wu_shape:wu": {
+        "n": 13,
+        "agree": 12,
+        "rate": 0.9231
+       }
+      }
+     }
+    },
+    "031": {
+     "role": "fit",
+     "pack": "cv0.9.4-c80-g-a7720e-k13-qtw031-ms5",
+     "cells": 26402,
+     "labeled": {
+      "silver": 26249,
+      "gold": 13
+     },
+     "groups": {
+      "_guard": {
+       "triggered": 11883,
+       "by_trigger": {
+        "gap": 8703,
+        "guard": 2113,
+        "near_form": 1067
+       },
+       "methods": {
+        "near_knn": {
+         "patch": "char_patch",
+         "scored": 3346,
+         "no_img": 8537,
+         "patch_error": 0,
+         "empty_sims": 21,
+         "abstain": 21,
+         "abstain_rate": 0.0063,
+         "labeled": 3222,
+         "decided": 3201,
+         "right": 3047,
+         "wrong": 154,
+         "acc": 0.9519,
+         "labeled_abstain_rate": 0.0065,
+         "errors": [
+          {
+           "id": "031:1:1:3",
+           "truth": "全",
+           "pick": "金",
+           "a1": "全",
+           "gold": false
+          },
+          {
+           "id": "031:1:6:5",
+           "truth": "大",
+           "pick": "太",
+           "a1": "大",
+           "gold": false
+          },
+          {
+           "id": "031:2:9:10",
+           "truth": "闌",
+           "pick": "閑",
+           "a1": "闌",
+           "gold": false
+          },
+          {
+           "id": "031:6:3:12",
+           "truth": "太",
+           "pick": "大",
+           "a1": "太",
+           "gold": false
+          },
+          {
+           "id": "031:7:4:12",
+           "truth": "王",
+           "pick": "玉",
+           "a1": "王",
+           "gold": false
+          },
+          {
+           "id": "031:8:1:16",
+           "truth": "大",
+           "pick": "太",
+           "a1": "大",
+           "gold": false
+          },
+          {
+           "id": "031:8:2:9",
+           "truth": "全",
+           "pick": "金",
+           "a1": "全",
+           "gold": false
+          },
+          {
+           "id": "031:8:7:1",
+           "truth": "大",
+           "pick": "犬",
+           "a1": "大",
+           "gold": false
+          },
+          {
+           "id": "031:10:5:16",
+           "truth": "王",
+           "pick": "玉",
+           "a1": "王",
+           "gold": false
+          },
+          {
+           "id": "031:11:2:13",
+           "truth": "閤",
+           "pick": "閣",
+           "a1": "閤",
+           "gold": false
+          },
+          {
+           "id": "031:11:5:1",
+           "truth": "王",
+           "pick": "玉",
+           "a1": "王",
+           "gold": false
+          },
+          {
+           "id": "031:12:2:6",
+           "truth": "全",
+           "pick": "金",
+           "a1": "全",
+           "gold": false
+          },
+          {
+           "id": "031:13:7:2",
+           "truth": "王",
+           "pick": "玉",
+           "a1": "王",
+           "gold": false
+          },
+          {
+           "id": "031:13:9:4",
+           "truth": "大",
+           "pick": "太",
+           "a1": "大",
+           "gold": false
+          },
+          {
+           "id": "031:17:6:10",
+           "truth": "闌",
+           "pick": "閉",
+           "a1": "闌",
+           "gold": false
+          },
+          {
+           "id": "031:18:2:4",
+           "truth": "本",
+           "pick": "木",
+           "a1": "本",
+           "gold": false
+          },
+          {
+           "id": "031:18:7:14",
+           "truth": "本",
+           "pick": "木",
+           "a1": "本",
+           "gold": false
+          },
+          {
+           "id": "031:18:8:3",
+           "truth": "大",
+           "pick": "太",
+           "a1": "大",
+           "gold": false
+          },
+          {
+           "id": "031:19:7:8",
+           "truth": "本",
+           "pick": "木",
+           "a1": "本",
+           "gold": false
+          },
+          {
+           "id": "031:20:1:8",
+           "truth": "未",
+           "pick": "木",
+           "a1": "未",
+           "gold": false
+          }
+         ],
+         "ms_per_cell": 19.11,
+         "seconds": 63.94,
+         "repeat_equal": true
+        }
+       }
+      },
+      "dt": {
+       "triggered": 200,
+       "by_trigger": {
+        "cands": 200
+       },
+       "coverage": {
+        "silver": {
+         "n": 127,
+         "covered": 127,
+         "rate": 1.0
+        },
+        "gold": {
+         "n": 0,
+         "covered": 0,
+         "rate": null
+        }
+       },
+       "methods": {
+        "pair_shape": {
+         "patch": "char_patch",
+         "scored": 200,
+         "no_img": 0,
+         "patch_error": 0,
+         "empty_sims": 0,
+         "abstain": 42,
+         "abstain_rate": 0.21,
+         "labeled": 127,
+         "decided": 127,
+         "right": 127,
+         "wrong": 0,
+         "acc": 1.0,
+         "labeled_abstain_rate": 0.0,
+         "errors": [],
+         "ms_per_cell": 0.58,
+         "seconds": 0.12,
+         "repeat_equal": true
+        }
+       }
+      },
+      "hou": {
+       "triggered": 72,
+       "by_trigger": {
+        "cands": 72
+       },
+       "coverage": {
+        "silver": {
+         "n": 24,
+         "covered": 24,
+         "rate": 1.0
+        },
+        "gold": {
+         "n": 3,
+         "covered": 3,
+         "rate": 1.0
+        }
+       },
+       "methods": {
+        "hou_shape": {
+         "patch": "char_patch",
+         "scored": 72,
+         "no_img": 0,
+         "patch_error": 0,
+         "empty_sims": 0,
+         "abstain": 16,
+         "abstain_rate": 0.2222,
+         "labeled": 8,
+         "decided": 8,
+         "right": 8,
+         "wrong": 0,
+         "acc": 1.0,
+         "labeled_abstain_rate": 0.0,
+         "errors": [],
+         "ms_per_cell": 4.81,
+         "seconds": 0.35,
+         "repeat_equal": true
+        }
+       }
+      },
+      "men": {
+       "triggered": 264,
+       "by_trigger": {
+        "cands": 264
+       },
+       "coverage": {
+        "silver": {
+         "n": 218,
+         "covered": 218,
+         "rate": 1.0
+        },
+        "gold": {
+         "n": 0,
+         "covered": 0,
+         "rate": null
+        }
+       },
+       "methods": {
+        "book_knn": {
+         "patch": "char_patch",
+         "scored": 264,
+         "no_img": 0,
+         "patch_error": 0,
+         "empty_sims": 32,
+         "abstain": 102,
+         "abstain_rate": 0.3864,
+         "labeled": 218,
+         "decided": 162,
+         "right": 162,
+         "wrong": 0,
+         "acc": 1.0,
+         "labeled_abstain_rate": 0.2569,
+         "errors": [],
+         "ms_per_cell": 4.77,
+         "seconds": 1.26,
+         "repeat_equal": true
+        }
+       }
+      },
+      "qg": {
+       "triggered": 202,
+       "by_trigger": {
+        "cands": 202
+       },
+       "coverage": {
+        "silver": {
+         "n": 22,
+         "covered": 22,
+         "rate": 1.0
+        },
+        "gold": {
+         "n": 0,
+         "covered": 0,
+         "rate": null
+        }
+       },
+       "methods": {
+        "stroke_veto": {
+         "patch": "char_patch",
+         "scored": 202,
+         "no_img": 0,
+         "patch_error": 0,
+         "empty_sims": 70,
+         "abstain": 100,
+         "abstain_rate": 0.495,
+         "labeled": 22,
+         "decided": 21,
+         "right": 20,
+         "wrong": 1,
+         "acc": 0.9524,
+         "labeled_abstain_rate": 0.0455,
+         "errors": [
+          {
+           "id": "031:55:5:18",
+           "truth": "千",
+           "pick": "干",
+           "a1": "干",
+           "gold": false
+          }
+         ],
+         "ms_per_cell": 59.31,
+         "seconds": 11.98,
+         "repeat_equal": true
+        }
+       }
+      },
+      "rr": {
+       "triggered": 239,
+       "by_trigger": {
+        "cands": 239
+       },
+       "coverage": {
+        "silver": {
+         "n": 233,
+         "covered": 233,
+         "rate": 1.0
+        },
+        "gold": {
+         "n": 0,
+         "covered": 0,
+         "rate": null
+        }
+       },
+       "methods": {
+        "rr_shape": {
+         "patch": "char_patch",
+         "scored": 239,
+         "no_img": 0,
+         "patch_error": 0,
+         "empty_sims": 6,
+         "abstain": 6,
+         "abstain_rate": 0.0251,
+         "labeled": 233,
+         "decided": 233,
+         "right": 233,
+         "wrong": 0,
+         "acc": 1.0,
+         "labeled_abstain_rate": 0.0,
+         "errors": [],
+         "ms_per_cell": 1.6,
+         "seconds": 0.38,
+         "repeat_equal": true
+        }
+       }
+      },
+      "wu": {
+       "triggered": 7,
+       "by_trigger": {
+        "cands": 7
+       },
+       "coverage": {
+        "silver": {
+         "n": 5,
+         "covered": 5,
+         "rate": 1.0
+        },
+        "gold": {
+         "n": 0,
+         "covered": 0,
+         "rate": null
+        }
+       },
+       "methods": {
+        "wu_shape": {
+         "patch": "char_patch",
+         "scored": 7,
+         "no_img": 0,
+         "patch_error": 0,
+         "empty_sims": 0,
+         "abstain": 0,
+         "abstain_rate": 0.0,
+         "labeled": 5,
+         "decided": 5,
+         "right": 5,
+         "wrong": 0,
+         "acc": 1.0,
+         "labeled_abstain_rate": 0.0,
+         "errors": [],
+         "ms_per_cell": 7.14,
+         "seconds": 0.05,
+         "repeat_equal": true
+        }
+       }
+      },
+      "wyu": {
+       "triggered": 377,
+       "by_trigger": {
+        "cands": 377
+       },
+       "coverage": {
+        "silver": {
+         "n": 114,
+         "covered": 114,
+         "rate": 1.0
+        },
+        "gold": {
+         "n": 0,
+         "covered": 0,
+         "rate": null
+        }
+       },
+       "methods": {
+        "pair_shape": {
+         "patch": "char_patch",
+         "scored": 377,
+         "no_img": 0,
+         "patch_error": 0,
+         "empty_sims": 0,
+         "abstain": 263,
+         "abstain_rate": 0.6976,
+         "labeled": 114,
+         "decided": 114,
+         "right": 114,
+         "wrong": 0,
+         "acc": 1.0,
+         "labeled_abstain_rate": 0.0,
+         "errors": [],
+         "ms_per_cell": 0.51,
+         "seconds": 0.19,
+         "repeat_equal": true
+        }
+       }
+      },
+      "yh": {
+       "triggered": 136,
+       "by_trigger": {
+        "cands": 136
+       },
+       "coverage": {
+        "silver": {
+         "n": 19,
+         "covered": 19,
+         "rate": 1.0
+        },
+        "gold": {
+         "n": 0,
+         "covered": 0,
+         "rate": null
+        }
+       },
+       "methods": {
+        "pair_shape": {
+         "patch": "char_patch",
+         "scored": 136,
+         "no_img": 0,
+         "patch_error": 0,
+         "empty_sims": 0,
+         "abstain": 110,
+         "abstain_rate": 0.8088,
+         "labeled": 19,
+         "decided": 18,
+         "right": 18,
+         "wrong": 0,
+         "acc": 1.0,
+         "labeled_abstain_rate": 0.0526,
+         "errors": [],
+         "ms_per_cell": 0.91,
+         "seconds": 0.12,
+         "repeat_equal": true
+        }
+       }
+      }
+     },
+     "agreement": {
+      "vs_3a": {
+       "near_knn:_guard": {
+        "n": 3325,
+        "agree": 3148,
+        "rate": 0.9468
+       },
+       "pair_shape:dt": {
+        "n": 127,
+        "agree": 127,
+        "rate": 1.0
+       },
+       "hou_shape:hou": {
+        "n": 13,
+        "agree": 13,
+        "rate": 1.0
+       },
+       "book_knn:men": {
+        "n": 162,
+        "agree": 162,
+        "rate": 1.0
+       },
+       "stroke_veto:qg": {
+        "n": 21,
+        "agree": 19,
+        "rate": 0.9048
+       },
+       "rr_shape:rr": {
+        "n": 233,
+        "agree": 233,
+        "rate": 1.0
+       },
+       "wu_shape:wu": {
+        "n": 5,
+        "agree": 5,
+        "rate": 1.0
+       },
+       "pair_shape:wyu": {
+        "n": 114,
+        "agree": 114,
+        "rate": 1.0
+       },
+       "pair_shape:yh": {
+        "n": 18,
+        "agree": 18,
+        "rate": 1.0
+       }
+      },
+      "vs_label": {
+       "near_knn:_guard": {
+        "n": 3201,
+        "agree": 3047,
+        "rate": 0.9519
+       },
+       "pair_shape:dt": {
+        "n": 127,
+        "agree": 127,
+        "rate": 1.0
+       },
+       "hou_shape:hou": {
+        "n": 8,
+        "agree": 8,
+        "rate": 1.0
+       },
+       "book_knn:men": {
+        "n": 162,
+        "agree": 162,
+        "rate": 1.0
+       },
+       "stroke_veto:qg": {
+        "n": 21,
+        "agree": 20,
+        "rate": 0.9524
+       },
+       "rr_shape:rr": {
+        "n": 233,
+        "agree": 233,
+        "rate": 1.0
+       },
+       "wu_shape:wu": {
+        "n": 5,
+        "agree": 5,
+        "rate": 1.0
+       },
+       "pair_shape:wyu": {
+        "n": 114,
+        "agree": 114,
+        "rate": 1.0
+       },
+       "pair_shape:yh": {
+        "n": 18,
+        "agree": 18,
+        "rate": 1.0
+       }
+      },
+      "pairs": {
+       "book_knn:men|near_knn:_guard": {
+        "n": 131,
+        "agree": 131,
+        "rate": 1.0
+       },
+       "hou_shape:hou|near_knn:_guard": {
+        "n": 13,
+        "agree": 13,
+        "rate": 1.0
+       },
+       "near_knn:_guard|pair_shape:dt": {
+        "n": 125,
+        "agree": 87,
+        "rate": 0.696
+       },
+       "near_knn:_guard|pair_shape:wyu": {
+        "n": 114,
+        "agree": 87,
+        "rate": 0.7632
+       },
+       "near_knn:_guard|pair_shape:yh": {
+        "n": 16,
+        "agree": 16,
+        "rate": 1.0
+       },
+       "near_knn:_guard|rr_shape:rr": {
+        "n": 233,
+        "agree": 232,
+        "rate": 0.9957
+       },
+       "near_knn:_guard|stroke_veto:qg": {
+        "n": 21,
+        "agree": 20,
+        "rate": 0.9524
+       },
+       "near_knn:_guard|wu_shape:wu": {
+        "n": 5,
+        "agree": 4,
+        "rate": 0.8
+       }
+      }
+     }
+    }
+   },
+   "seconds": 174.0
+  },
+  "988g3f0wsu": {
+   "title": "史記",
+   "ws": "988g3f0wsu",
+   "vols": {
+    "05": "test",
+    "04": "fit"
+   },
+   "skipped_methods": [],
+   "groups": {},
+   "models": {
+    "pair_shape:zy": {
+     "file": "config/groups/pair_shape_zhy.json",
+     "sha256": "a11e29a408b3acd3b090b7e880724ba3a9dfb13a82aa8e8164fe0f518784f0ee",
+     "pinned": "a11e29a408b3acd3b090b7e880724ba3a9dfb13a82aa8e8164fe0f518784f0ee",
+     "pin_ok": true,
+     "load_s": 0.04,
+     "fingerprint": "pair_shape=d311118583119766",
+     "model_sha": "a11e29a408b3acd3",
+     "note": "['01', '02', '03'] 已放行格 1908；按册留出 对1899 错1 弃8"
+    }
+   },
+   "per_vol": {
+    "05": {
+     "role": "test",
+     "pack": "cv0.7.112-c11-g30-m2-k27-g30-a2",
+     "cells": 19902,
+     "labeled": {
+      "silver": 19876,
+      "gold": 281
+     },
+     "groups": {
+      "zy": {
+       "triggered": 494,
+       "by_trigger": {
+        "cands": 494
+       },
+       "coverage": {
+        "silver": {
+         "n": 389,
+         "covered": 389,
+         "rate": 1.0
+        },
+        "gold": {
+         "n": 0,
+         "covered": 0,
+         "rate": null
+        }
+       },
+       "methods": {
+        "pair_shape": {
+         "patch": "char_patch",
+         "scored": 494,
+         "no_img": 0,
+         "patch_error": 0,
+         "empty_sims": 0,
+         "abstain": 4,
+         "abstain_rate": 0.0081,
+         "labeled": 389,
+         "decided": 388,
+         "right": 388,
+         "wrong": 0,
+         "acc": 1.0,
+         "labeled_abstain_rate": 0.0026,
+         "errors": [],
+         "ms_per_cell": 1.2,
+         "seconds": 0.59,
+         "repeat_equal": true
+        }
+       }
+      }
+     },
+     "agreement": {
+      "vs_3a": {
+       "pair_shape:zy": {
+        "n": 387,
+        "agree": 387,
+        "rate": 1.0
+       }
+      },
+      "vs_label": {
+       "pair_shape:zy": {
+        "n": 388,
+        "agree": 388,
+        "rate": 1.0
+       }
+      },
+      "pairs": {}
+     }
+    },
+    "04": {
+     "role": "fit",
+     "pack": "cv0.7.112-c11-g30-m2-k27-g30-a2",
+     "cells": 28753,
+     "labeled": {
+      "silver": 28579,
+      "gold": 408
+     },
+     "groups": {
+      "zy": {
+       "triggered": 695,
+       "by_trigger": {
+        "cands": 695
+       },
+       "coverage": {
+        "silver": {
+         "n": 644,
+         "covered": 644,
+         "rate": 1.0
+        },
+        "gold": {
+         "n": 0,
+         "covered": 0,
+         "rate": null
+        }
+       },
+       "methods": {
+        "pair_shape": {
+         "patch": "char_patch",
+         "scored": 695,
+         "no_img": 0,
+         "patch_error": 0,
+         "empty_sims": 2,
+         "abstain": 3,
+         "abstain_rate": 0.0043,
+         "labeled": 644,
+         "decided": 643,
+         "right": 643,
+         "wrong": 0,
+         "acc": 1.0,
+         "labeled_abstain_rate": 0.0016,
+         "errors": [],
+         "ms_per_cell": 1.3,
+         "seconds": 0.9,
+         "repeat_equal": true
+        }
+       }
+      }
+     },
+     "agreement": {
+      "vs_3a": {
+       "pair_shape:zy": {
+        "n": 642,
+        "agree": 642,
+        "rate": 1.0
+       }
+      },
+      "vs_label": {
+       "pair_shape:zy": {
+        "n": 643,
+        "agree": 643,
+        "rate": 1.0
+       }
+      },
+      "pairs": {}
+     }
+    }
+   },
+   "seconds": 3.2
+  },
+  "96mid1ogzk": {
+   "title": "殿本總目",
+   "ws": "siku-zongmu",
+   "vols": {
+    "vol04": "test",
+    "vol06": "fit"
+   },
+   "skipped_methods": [],
+   "groups": {},
+   "models": {
+    "cnn_small:gong": {
+     "file": "models/glyph_near_gong",
+     "sha256": "dir:4e1c4312df27dbc1cc29eaef2cdab10daf9a22e8f131c8fb44a44f9048d3d242",
+     "pinned": "dir:4e1c4312df27dbc1cc29eaef2cdab10daf9a22e8f131c8fb44a44f9048d3d242",
+     "pin_ok": true,
+     "load_s": 0.0,
+     "fingerprint": "cnn_small=4e1c4312df27dbc1",
+     "model_sha": "4e1c4312df27dbc1",
+     "note": "",
+     "calib": {
+      "src": "随模型",
+      "version": null,
+      "temporary": false
+     }
+    },
+    "book_knn:men": {
+     "file": "config/groups/book_knn/men.json",
+     "sha256": "19a6e7ae0ab1901ec3af7a4a2829124d7962e04831b5f939aaea1bb60163ff0b",
+     "pinned": "19a6e7ae0ab1901ec3af7a4a2829124d7962e04831b5f939aaea1bb60163ff0b",
+     "pin_ok": true,
+     "load_s": 0.26,
+     "fingerprint": "book_knn=19a6e7ae0ab1901e",
+     "model_sha": "19a6e7ae0ab1901e",
+     "note": "men 刻例 9984（{'~': 3000, '間': 796, '門': 776, '閣': 749, '聞': 731, '開': 679, '問': 619, '闕': 556, '關': 390, '閩': 319, '閒': 242, '閱': 222}…）；按册留出 9984 格：A 对1880 错1；B 对2776 错0；弃2327（guard=2.225）；背景 3000 格 组"
+    }
+   },
+   "per_vol": {
+    "vol04": {
+     "role": "test",
+     "pack": "cv0.7.110-c23-g24-m2-ZM-colend-human-vol04-a3",
+     "cells": 34463,
+     "labeled": {
+      "silver": 34279,
+      "gold": 2095
+     },
+     "groups": {
+      "gong": {
+       "triggered": 85,
+       "by_trigger": {
+        "member": 85
+       },
+       "coverage": {
+        "silver": {
+         "n": 91,
+         "covered": 78,
+         "rate": 0.8571
+        },
+        "gold": {
+         "n": 30,
+         "covered": 17,
+         "rate": 0.5667
+        }
+       },
+       "methods": {
+        "cnn_small": {
+         "patch": "raw",
+         "scored": 85,
+         "no_img": 0,
+         "patch_error": 0,
+         "empty_sims": 0,
+         "abstain": 0,
+         "abstain_rate": 0.0,
+         "labeled": 78,
+         "decided": 78,
+         "right": 77,
+         "wrong": 1,
+         "acc": 0.9872,
+         "labeled_abstain_rate": 0.0,
+         "errors": [
+          {
+           "id": "vol04:128:9:13",
+           "truth": "官",
+           "pick": "宮",
+           "a1": "官",
+           "gold": false
+          }
+         ],
+         "ms_per_cell": 14.96,
+         "seconds": 1.27,
+         "repeat_equal": true,
+         "calib": {
+          "n": 78,
+          "ece": 0.013,
+          "brier": 0.0199,
+          "version": null,
+          "temporary": false
+         }
+        }
+       }
+      },
+      "men": {
+       "triggered": 628,
+       "by_trigger": {
+        "cands": 628
+       },
+       "coverage": {
+        "silver": {
+         "n": 198,
+         "covered": 164,
+         "rate": 0.8283
+        },
+        "gold": {
+         "n": 44,
+         "covered": 10,
+         "rate": 0.2273
+        }
+       },
+       "methods": {
+        "book_knn": {
+         "patch": "char_patch",
+         "scored": 628,
+         "no_img": 0,
+         "patch_error": 0,
+         "empty_sims": 129,
+         "abstain": 564,
+         "abstain_rate": 0.8981,
+         "labeled": 164,
+         "decided": 60,
+         "right": 60,
+         "wrong": 0,
+         "acc": 1.0,
+         "labeled_abstain_rate": 0.6341,
+         "errors": [],
+         "ms_per_cell": 3.02,
+         "seconds": 1.9,
+         "repeat_equal": true
+        }
+       }
+      }
+     },
+     "agreement": {
+      "vs_3a": {
+       "cnn_small:gong": {
+        "n": 84,
+        "agree": 65,
+        "rate": 0.7738
+       },
+       "book_knn:men": {
+        "n": 64,
+        "agree": 61,
+        "rate": 0.9531
+       }
+      },
+      "vs_label": {
+       "cnn_small:gong": {
+        "n": 78,
+        "agree": 77,
+        "rate": 0.9872
+       },
+       "book_knn:men": {
+        "n": 60,
+        "agree": 60,
+        "rate": 1.0
+       }
+      },
+      "pairs": {}
+     }
+    },
+    "vol06": {
+     "role": "fit",
+     "pack": "cv0.7.105-c21-g24-m3-u-on-a2",
+     "cells": 23461,
+     "labeled": {
+      "silver": 23314,
+      "gold": 1228
+     },
+     "groups": {
+      "gong": {
+       "triggered": 42,
+       "by_trigger": {
+        "member": 42
+       },
+       "coverage": {
+        "silver": {
+         "n": 39,
+         "covered": 37,
+         "rate": 0.9487
+        },
+        "gold": {
+         "n": 2,
+         "covered": 1,
+         "rate": 0.5
+        }
+       },
+       "methods": {
+        "cnn_small": {
+         "patch": "raw",
+         "scored": 42,
+         "no_img": 0,
+         "patch_error": 0,
+         "empty_sims": 0,
+         "abstain": 0,
+         "abstain_rate": 0.0,
+         "labeled": 37,
+         "decided": 37,
+         "right": 37,
+         "wrong": 0,
+         "acc": 1.0,
+         "labeled_abstain_rate": 0.0,
+         "errors": [],
+         "ms_per_cell": 1.05,
+         "seconds": 0.04,
+         "repeat_equal": true,
+         "calib": {
+          "n": 37,
+          "ece": 0.0032,
+          "brier": 0.0002,
+          "version": null,
+          "temporary": false
+         }
+        }
+       }
+      },
+      "men": {
+       "triggered": 415,
+       "by_trigger": {
+        "cands": 415
+       },
+       "coverage": {
+        "silver": {
+         "n": 127,
+         "covered": 104,
+         "rate": 0.8189
+        },
+        "gold": {
+         "n": 29,
+         "covered": 6,
+         "rate": 0.2069
+        }
+       },
+       "methods": {
+        "book_knn": {
+         "patch": "char_patch",
+         "scored": 415,
+         "no_img": 0,
+         "patch_error": 0,
+         "empty_sims": 105,
+         "abstain": 385,
+         "abstain_rate": 0.9277,
+         "labeled": 104,
+         "decided": 30,
+         "right": 30,
+         "wrong": 0,
+         "acc": 1.0,
+         "labeled_abstain_rate": 0.7115,
+         "errors": [],
+         "ms_per_cell": 3.09,
+         "seconds": 1.28,
+         "repeat_equal": true
+        }
+       }
+      }
+     },
+     "agreement": {
+      "vs_3a": {
+       "cnn_small:gong": {
+        "n": 41,
+        "agree": 31,
+        "rate": 0.7561
+       },
+       "book_knn:men": {
+        "n": 30,
+        "agree": 29,
+        "rate": 0.9667
+       }
+      },
+      "vs_label": {
+       "cnn_small:gong": {
+        "n": 37,
+        "agree": 37,
+        "rate": 1.0
+       },
+       "book_knn:men": {
+        "n": 30,
+        "agree": 30,
+        "rate": 1.0
+       }
+      },
+      "pairs": {}
+     }
+    }
+   },
+   "seconds": 7.2
+  }
+ },
+ "methods_sha": {
+  "995ejelvk0": "book_knn:men=book_knn=0b49ca87e4688143;hou_shape:hou=hou_shape=5608ab3353a1bdb4;near_knn:_guard=near_knn=c53df8f778763816;pair_shape:dt=pair_shape=37618a50a4c3c8cb;pair_shape:wyu=pair_shape=85be683b9a52dfce;pair_shape:yh=pair_shape=e27b539963cf2c3d;rr_shape:rr=rr_shape=d6e52b457740ca8f;stroke_veto:qg=stroke_veto=2aca5af76ac169a3;wu_shape:wu=wu_shape=4d05e637e0614bc2",
+  "988g3f0wsu": "pair_shape:zy=pair_shape=d311118583119766",
+  "96mid1ogzk": "book_knn:men=book_knn=19a6e7ae0ab1901e;cnn_small:gong=cnn_small=4e1c4312df27dbc1"
+ },
+ "headline": [
+  {
+   "book": "995ejelvk0",
+   "vol": "046",
+   "group": "_guard",
+   "method": "near_knn",
+   "cells": 29729,
+   "triggered": 15571,
+   "scored": 3237,
+   "decided": 3148,
+   "right": 2851,
+   "wrong": 297,
+   "acc": 0.9057,
+   "abstain_rate": 0.0127,
+   "ms_per_cell": 19.06,
+   "coverage": null,
+   "ece": null,
+   "ece_n": null,
+   "calib_version": null
+  },
+  {
+   "book": "995ejelvk0",
+   "vol": "046",
+   "group": "dt",
+   "method": "pair_shape",
+   "cells": 29729,
+   "triggered": 279,
+   "scored": 279,
+   "decided": 178,
+   "right": 178,
+   "wrong": 0,
+   "acc": 1.0,
+   "abstain_rate": 0.2294,
+   "ms_per_cell": 0.78,
+   "coverage": {
+    "n": 183,
+    "covered": 183,
+    "rate": 1.0
+   },
+   "ece": null,
+   "ece_n": null,
+   "calib_version": null
+  },
+  {
+   "book": "995ejelvk0",
+   "vol": "046",
+   "group": "hou",
+   "method": "hou_shape",
+   "cells": 29729,
+   "triggered": 113,
+   "scored": 113,
+   "decided": 8,
+   "right": 7,
+   "wrong": 1,
+   "acc": 0.875,
+   "abstain_rate": 0.2743,
+   "ms_per_cell": 4.93,
+   "coverage": {
+    "n": 39,
+    "covered": 39,
+    "rate": 1.0
+   },
+   "ece": null,
+   "ece_n": null,
+   "calib_version": null
+  },
+  {
+   "book": "995ejelvk0",
+   "vol": "046",
+   "group": "men",
+   "method": "book_knn",
+   "cells": 29729,
+   "triggered": 307,
+   "scored": 307,
+   "decided": 122,
+   "right": 122,
+   "wrong": 0,
+   "acc": 1.0,
+   "abstain_rate": 0.6026,
+   "ms_per_cell": 5.09,
+   "coverage": {
+    "n": 243,
+    "covered": 243,
+    "rate": 1.0
+   },
+   "ece": null,
+   "ece_n": null,
+   "calib_version": null
+  },
+  {
+   "book": "995ejelvk0",
+   "vol": "046",
+   "group": "qg",
+   "method": "stroke_veto",
+   "cells": 29729,
+   "triggered": 229,
+   "scored": 229,
+   "decided": 52,
+   "right": 47,
+   "wrong": 5,
+   "acc": 0.9038,
+   "abstain_rate": 0.3755,
+   "ms_per_cell": 55.5,
+   "coverage": {
+    "n": 57,
+    "covered": 57,
+    "rate": 1.0
+   },
+   "ece": null,
+   "ece_n": null,
+   "calib_version": null
+  },
+  {
+   "book": "995ejelvk0",
+   "vol": "046",
+   "group": "rr",
+   "method": "rr_shape",
+   "cells": 29729,
+   "triggered": 259,
+   "scored": 259,
+   "decided": 232,
+   "right": 231,
+   "wrong": 1,
+   "acc": 0.9957,
+   "abstain_rate": 0.0965,
+   "ms_per_cell": 1.51,
+   "coverage": {
+    "n": 252,
+    "covered": 251,
+    "rate": 0.996
+   },
+   "ece": null,
+   "ece_n": null,
+   "calib_version": null
+  },
+  {
+   "book": "995ejelvk0",
+   "vol": "046",
+   "group": "wu",
+   "method": "wu_shape",
+   "cells": 29729,
+   "triggered": 28,
+   "scored": 28,
+   "decided": 15,
+   "right": 15,
+   "wrong": 0,
+   "acc": 1.0,
+   "abstain_rate": 0.1071,
+   "ms_per_cell": 5.97,
+   "coverage": {
+    "n": 15,
+    "covered": 15,
+    "rate": 1.0
+   },
+   "ece": null,
+   "ece_n": null,
+   "calib_version": null
+  },
+  {
+   "book": "995ejelvk0",
+   "vol": "046",
+   "group": "wyu",
+   "method": "pair_shape",
+   "cells": 29729,
+   "triggered": 473,
+   "scored": 473,
+   "decided": 149,
+   "right": 145,
+   "wrong": 4,
+   "acc": 0.9732,
+   "abstain_rate": 0.666,
+   "ms_per_cell": 0.61,
+   "coverage": {
+    "n": 152,
+    "covered": 152,
+    "rate": 1.0
+   },
+   "ece": null,
+   "ece_n": null,
+   "calib_version": null
+  },
+  {
+   "book": "995ejelvk0",
+   "vol": "046",
+   "group": "yh",
+   "method": "pair_shape",
+   "cells": 29729,
+   "triggered": 64,
+   "scored": 64,
+   "decided": 24,
+   "right": 24,
+   "wrong": 0,
+   "acc": 1.0,
+   "abstain_rate": 0.5938,
+   "ms_per_cell": 0.81,
+   "coverage": {
+    "n": 26,
+    "covered": 26,
+    "rate": 1.0
+   },
+   "ece": null,
+   "ece_n": null,
+   "calib_version": null
+  },
+  {
+   "book": "988g3f0wsu",
+   "vol": "05",
+   "group": "zy",
+   "method": "pair_shape",
+   "cells": 19902,
+   "triggered": 494,
+   "scored": 494,
+   "decided": 388,
+   "right": 388,
+   "wrong": 0,
+   "acc": 1.0,
+   "abstain_rate": 0.0081,
+   "ms_per_cell": 1.2,
+   "coverage": {
+    "n": 389,
+    "covered": 389,
+    "rate": 1.0
+   },
+   "ece": null,
+   "ece_n": null,
+   "calib_version": null
+  },
+  {
+   "book": "96mid1ogzk",
+   "vol": "vol04",
+   "group": "gong",
+   "method": "cnn_small",
+   "cells": 34463,
+   "triggered": 85,
+   "scored": 85,
+   "decided": 78,
+   "right": 77,
+   "wrong": 1,
+   "acc": 0.9872,
+   "abstain_rate": 0.0,
+   "ms_per_cell": 14.96,
+   "coverage": {
+    "n": 91,
+    "covered": 78,
+    "rate": 0.8571
+   },
+   "ece": 0.013,
+   "ece_n": 78,
+   "calib_version": null
+  },
+  {
+   "book": "96mid1ogzk",
+   "vol": "vol04",
+   "group": "men",
+   "method": "book_knn",
+   "cells": 34463,
+   "triggered": 628,
+   "scored": 628,
+   "decided": 60,
+   "right": 60,
+   "wrong": 0,
+   "acc": 1.0,
+   "abstain_rate": 0.8981,
+   "ms_per_cell": 3.02,
+   "coverage": {
+    "n": 198,
+    "covered": 164,
+    "rate": 0.8283
+   },
+   "ece": null,
+   "ece_n": null,
+   "calib_version": null
+  }
+ ],
+ "temp_calib": {
+  "version": "tmp-2026-11-28.1",
+  "dir": "<calib-dir>",
+  "books": {
+   "995ejelvk0": {
+    "near_knn:_guard": {
+     "status": "no_calib_reader",
+     "why": "方法不读校准表（book_knn／near_knn 票份额只当证据；多类方法）"
+    },
+    "pair_shape:dt": {
+     "status": "ok",
+     "file": "995ejelvk0/config/groups/pair_shape_dt.calib.json",
+     "n_fit": 127,
+     "n_pos": 37,
+     "holdout": {
+      "vol": "046",
+      "n": 183,
+      "n_pos": 59,
+      "ece": 0.0173,
+      "brier": 0.006
+     },
+     "ece_in_sample": 0.0077,
+     "knots": 4,
+     "rule": null
+    },
+    "hou_shape:hou": {
+     "status": "too_few",
+     "n": 8,
+     "n_pos": 0,
+     "pos": "候",
+     "neg": "𠋫",
+     "why": "fit 册 031 可用格 8（候 0／𠋫 8），要 ≥30 且两类各 ≥5"
+    },
+    "book_knn:men": {
+     "status": "no_calib_reader",
+     "why": "方法不读校准表（book_knn／near_knn 票份额只当证据；多类方法）"
+    },
+    "stroke_veto:qg": {
+     "status": "too_few",
+     "n": 22,
+     "n_pos": 11,
+     "pos": "千",
+     "neg": "干",
+     "why": "fit 册 031 可用格 22（千 11／干 11），要 ≥30 且两类各 ≥5"
+    },
+    "rr_shape:rr": {
+     "status": "ok",
+     "file": "995ejelvk0/config/groups/rr_shape.calib.json",
+     "n_fit": 219,
+     "n_pos": 18,
+     "holdout": {
+      "vol": "046",
+      "n": 200,
+      "n_pos": 40,
+      "ece": 0.0089,
+      "brier": 0.001
+     },
+     "ece_in_sample": 0.0045,
+     "knots": 4,
+     "rule": {
+      "八": 0.9667
+     }
+    },
+    "wu_shape:wu": {
+     "status": "too_few",
+     "n": 5,
+     "n_pos": 4,
+     "pos": "鳴",
+     "neg": "嗚",
+     "why": "fit 册 031 可用格 5（鳴 4／嗚 1），要 ≥30 且两类各 ≥5"
+    },
+    "pair_shape:wyu": {
+     "status": "ok",
+     "file": "995ejelvk0/config/groups/pair_shape_wyu.calib.json",
+     "n_fit": 114,
+     "n_pos": 6,
+     "holdout": {
+      "vol": "046",
+      "n": 152,
+      "n_pos": 35,
+      "ece": 0.0364,
+      "brier": 0.0462
+     },
+     "ece_in_sample": 0.0081,
+     "knots": 4,
+     "rule": null
+    },
+    "pair_shape:yh": {
+     "status": "too_few",
+     "n": 19,
+     "n_pos": 11,
+     "pos": "遺",
+     "neg": "還",
+     "why": "fit 册 031 可用格 19（遺 11／還 8），要 ≥30 且两类各 ≥5"
+    }
+   },
+   "988g3f0wsu": {
+    "pair_shape:zy": {
+     "status": "ok",
+     "file": "988g3f0wsu/config/groups/pair_shape_zhy.calib.json",
+     "n_fit": 643,
+     "n_pos": 41,
+     "holdout": {
+      "vol": "05",
+      "n": 389,
+      "n_pos": 27,
+      "ece": 0.0022,
+      "brier": 0.0003
+     },
+     "ece_in_sample": 0.0015,
+     "knots": 4,
+     "rule": null
+    }
+   },
+   "96mid1ogzk": {
+    "cnn_small:gong": {
+     "status": "has_calib",
+     "why": "已有正式校准表（殿本 5 折留出），不出临时表"
+    },
+    "book_knn:men": {
+     "status": "no_calib_reader",
+     "why": "方法不读校准表（book_knn／near_knn 票份额只当证据；多类方法）"
+    }
+   }
+  }
+ }
+}

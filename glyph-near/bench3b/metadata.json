@@ -1,0 +1,29 @@
+{
+ "name": "glyph-near/bench3b",
+ "version": "1.0.0",
+ "schema_version": 1,
+ "format": "near-bench/1",
+ "description": "3b 形近字组（glyph_near）整体 benchmark：三书各一册 test＋一册 fit，冻结 3a 记录、放行字／人裁标签、被触发格的字块图；评触发量、覆盖率、方法间一致率、准确率／弃权率、ECE、每格耗时、方法指纹，并按册留出拟合临时校准表。",
+ "created": "2026-11-28",
+ "by": "CV3",
+ "status": "可用",
+ "sample_unit": "格（每册全部格；被某组触发的格另冻字块图）",
+ "eval": "open-guji-cv scripts/eval_near.py；manager `guji eval run @near`",
+ "builder": "open-guji-cv scripts/build_near_bench.py",
+ "books": {
+  "995ejelvk0": {"title": "全唐文", "test": "046", "fit": "031",
+                 "groups": ["rr", "wu", "hou", "dt", "wyu", "yh", "men", "qg", "_guard"]},
+  "988g3f0wsu": {"title": "史記", "test": "05", "fit": "04", "groups": ["zy"]},
+  "96mid1ogzk": {"title": "殿本總目", "ws": "siku-zongmu", "test": "vol04", "fit": "vol06", "groups": ["gong", "men"]}
+ },
+ "vols": {
+  "995ejelvk0/046": {"pack": "cv0.9.4-c79-g-a7720e-k13-qtw046-ms6", "pages": 172, "cells": 29729, "triggered_frozen": 3552, "admit": 29631, "gold": 77},
+  "995ejelvk0/031": {"pack": "cv0.9.4-c80-g-a7720e-k13-qtw031-ms5", "pages": 170, "cells": 26402, "triggered_frozen": 3703, "admit": 26394, "gold": 13},
+  "988g3f0wsu/05": {"pack": "cv0.7.112-c11-g30-m2-k27-g30-a2", "pages": 95, "cells": 19902, "triggered_frozen": 494, "admit": 19892, "gold": 281},
+  "988g3f0wsu/04": {"pack": "cv0.7.112-c11-g30-m2-k27-g30-a2", "pages": 141, "cells": 28753, "triggered_frozen": 695, "admit": 28736, "gold": 408},
+  "96mid1ogzk/vol04": {"pack": "cv0.7.110-c23-g24-m2-ZM-colend-human-vol04-a3", "pages": 216, "cells": 34463, "triggered_frozen": 713, "admit": 34460, "gold": 2095},
+  "96mid1ogzk/vol06": {"pack": "cv0.7.105-c21-g24-m3-u-on-a2", "pages": 148, "cells": 23461, "triggered_frozen": 457, "admit": 23452, "gold": 1228}
+ },
+ "images": 9741,
+ "label_origin": "seed_admit 放行字（去掉 bench.json labels.circular_channels 里 3b 方法自己的通道）＋人裁（human 通道；殿本另有 char-groups/labels/unified.jsonl 按格 id 对上）"
+}

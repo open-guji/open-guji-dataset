@@ -81,6 +81,7 @@
 | | | [char-clustering](char-clustering) | 3 分片 | 殿本、北行、三书人裁冻结 | 保守聚类 purity |
 | | | [char-normalization](char-normalization) | 32 | 殿本 | 字块归一化回归门（3a 的前处理） |
 | 3b 形近字组 | `glyph_near` | [char-groups](char-groups) **主集** | jys 695、ry 1,830、rr 2,442 格 | 殿本 | 己已巳、日曰、入人八，每组一个子目录；4d 也用 |
+| | | [glyph-near/bench3b](glyph-near/bench3b) | 6 册 162,710 格（触发冻图 9,614） | 全唐文、史記、殿本 | 3b 整体：各组触发量、覆盖率、方法间一致率、准确率／弃权、ECE、耗时；每书 test＋fit 两册，fit 册给临时校准按册留出 |
 | 3c 按图候选 | `glyph_candidate` | [char-candidates](char-candidates) **主集** | 7,873 | 殿本 4,206、全唐文 2,162、史記 1,505 | 甲层前 1、前 50 命中；4b 也用 |
 | （旧）生僻字候选 | `rare_candidates` | [rare-char](rare-char)、[rare-char/qtw-995ejelvk0](rare-char/qtw-995ejelvk0) | 21／69 | 殿本、全唐文 | 退役中，读口改读 3c |
 | 3d 其他特征 | `cell_traits` | 无 | — | — | 缺金标 |
@@ -120,7 +121,7 @@
 ## 缺口一览（对照 cv 验收标准 S12）
 
 - **没有任何分片的小步**：1a、1c、列几何与 `cut_gate`、3d、3e、识字收尾、定字 gate（4c 只有起步分片，缺 seal／occluded／seg_bad）。
-- **只有殿本的小步**：1b 闸·页型、2b、2e、3b、4b。验收标准要求「写明覆盖了哪几部书、缺哪部」，补别的书时在上表「覆盖的书」一列改掉。
+- **只有殿本的小步**：1b 闸·页型、2b、2e、3b（字组主集；3b 整体 bench3b 已有三书）、4b。验收标准要求「写明覆盖了哪几部书、缺哪部」，补别的书时在上表「覆盖的书」一列改掉。
 - 金标锚定：殿本两次换图源后，`touching-cuts` 等按旧图列图坐标记的分片对不上现行图，现行图用 `-rev5` 等迁移过的版本；新分片一律锚在原图页面坐标或字块指纹上（见 [README](README.md)「统一金标信封」）。
 
 ## 旧 Step 号对照

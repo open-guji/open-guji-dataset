@@ -1,0 +1,260 @@
+{
+ "format": "near-bench/1",
+ "version": 1,
+ "created": "2026-11-28",
+ "by": "CV3",
+ "doc": "3b glyph_near 整体 benchmark：每书一册 test（报数）＋一册 fit（只给临时校准拟合用，按册留出）。groups 是 3b 书配置写法，按 cv config/near_groups 登记表展开 ref、守 handling.methods。models 钉模型文件 sha256，评测时对不上照跑但在报告里标出。",
+ "labels": {
+  "circular_channels": [
+   "rr_shape",
+   "wu_shape",
+   "hou_shape",
+   "part_shape",
+   "pair_shape",
+   "book_knn",
+   "near_knn",
+   "stroke_veto",
+   "group_flow",
+   "near_p"
+  ]
+ },
+ "books": {
+  "995ejelvk0": {
+   "ws": "995ejelvk0",
+   "title": "全唐文",
+   "vols": {
+    "046": {
+     "role": "test",
+     "pack": "cv0.9.4-c79-g-a7720e-k13-qtw046-ms6"
+    },
+    "031": {
+     "role": "fit",
+     "pack": "cv0.9.4-c80-g-a7720e-k13-qtw031-ms5"
+    }
+   },
+   "groups": {
+    "rr": {
+     "ref": "rr",
+     "trigger": "cands",
+     "methods": {
+      "rr_shape": "config/groups/rr_shape.json"
+     }
+    },
+    "wu": {
+     "ref": "wu",
+     "trigger": "cands",
+     "methods": {
+      "wu_shape": "config/groups/wu_shape.json"
+     }
+    },
+    "hou": {
+     "ref": "hou",
+     "trigger": "cands",
+     "methods": {
+      "hou_shape": "config/groups/hou_shape.json"
+     }
+    },
+    "dt": {
+     "ref": "dt",
+     "trigger": "cands",
+     "methods": {
+      "pair_shape": {
+       "path": "config/groups/pair_shape_dt.json",
+       "pair": [
+        "大",
+        "太"
+       ]
+      }
+     }
+    },
+    "wyu": {
+     "ref": "wyu",
+     "trigger": "cands",
+     "methods": {
+      "pair_shape": {
+       "path": "config/groups/pair_shape_wyu.json",
+       "pair": [
+        "王",
+        "玉"
+       ]
+      }
+     }
+    },
+    "yh": {
+     "ref": "yh",
+     "trigger": "cands",
+     "methods": {
+      "pair_shape": {
+       "path": "config/groups/pair_shape_yh.json",
+       "pair": [
+        "還",
+        "遺"
+       ]
+      }
+     }
+    },
+    "men": {
+     "ref": "men",
+     "trigger": "cands",
+     "methods": {
+      "book_knn": "config/groups/book_knn/men.json"
+     }
+    },
+    "qg": {
+     "ref": "zy",
+     "chars": [
+      "千",
+      "干"
+     ],
+     "trigger": "cands",
+     "methods": {
+      "stroke_veto": {
+       "path": "config/groups/stroke_veto.json",
+       "group": "qg"
+      }
+     }
+    },
+    "_guard": {
+     "trigger": "guard",
+     "gap": true,
+     "methods": {
+      "near_knn": "config/groups/near_knn.json"
+     }
+    }
+   },
+   "models": {
+    "config/groups/rr_shape.json": {
+     "sha256": "1d64fda3b16568cdd8e25cc5169ce1120ec51c89b66086d039359e88b362cd1f",
+     "where": "中心库数据目录",
+     "note": "全唐文 04–15 已放行格 2470；按册留出 对2445 错1 弃24"
+    },
+    "config/groups/wu_shape.json": {
+     "sha256": "2c4f5e4c46ee03a3252c31d8a00455e0a1b35f00b40ed3c77a0a908572f9b635",
+     "where": "中心库数据目录",
+     "note": "全唐文 嗚鳴 刻形：右半部（口旁右）上 75%，64px，三个小卷积网取平均；按册 5 折留出 1,199 格（文意放行 1,183＋Sheldon 17 格刻形点选）两次各错 2、0；p≥0.99/≤0.01 覆盖约 98%、0 错（形近字线 11-14）"
+    },
+    "config/groups/hou_shape.json": {
+     "sha256": "6780644a103e1608adcfa687394b7c0492630a7359185f26175d785a9326788b",
+     "where": "中心库数据目录",
+     "note": "形近字线 11-21：Sheldon 点选 222 格＋算法目看一致 134 格训练（剔 057:43:5:1 疑点错）；按册 5 折留出 t=0.98 Sheldon 标签覆盖 193/222 错 1（即该疑点格）"
+    },
+    "config/groups/pair_shape_dt.json": {
+     "sha256": "bac6b19ffc9883b2521a68dd49bbe69513e8f5738981d1917d8ee4f9512cba10",
+     "where": "中心库数据目录",
+     "note": "大太 多类 已放行 2615 格（{'太': 823, '大': 1792}），组外 1017 格；按册留出 给字 2608 错 1 弃权 7，组外漏 3；剔除 []"
+    },
+    "config/groups/pair_shape_wyu.json": {
+     "sha256": "a5c1e9e5428fbbac65b66de20a0d142b1c08998b1c9590fd010028ae379db475",
+     "where": "中心库数据目录",
+     "note": "王玉 多类 已放行 1920 格（{'王': 1722, '玉': 198}），组外 1976 格；按册留出 给字 1906 错 1 弃权 14，组外漏 8；剔除 ['005:201:9:21', '005:218:9:15', '005:91:8:3', '014:144:6:6']"
+    },
+    "config/groups/pair_shape_yh.json": {
+     "sha256": "5441f7140f336958eb58dba0ad0e2a260294677a514093cb3f2427074f353c68",
+     "where": "中心库数据目录",
+     "note": "還遺 多类 已放行 384 格（{'還': 204, '遺': 180}），组外 900 格；按册留出 给字 380 错 0 弃权 4，组外漏 2；剔除 []"
+    },
+    "config/groups/book_knn/men.json": {
+     "sha256": "0b49ca87e4688143e9383f51f90337f05b31c6c5606c8b3aece7a39de78236dd",
+     "where": "中心库数据目录",
+     "note": "men 刻例 15579（{'~': 12506, '聞': 808, '門': 559, '開': 403, '闕': 364, '問': 218, '閒': 206, '關': 118, '閑': 69, '闡': 63, '閭': 57, '闈': 50}…）；按册留出 15579 格：A 对2262 错0；B 对577 错0；弃234（guard=1.810）；背景 12506 格 组外误"
+    },
+    "config/groups/stroke_veto.json": {
+     "sha256": "885de5ddaabedac2860763cbd7b67334cc50342abfd7b7ff462e88f52d618e71",
+     "where": "中心库数据目录",
+     "note": ""
+    },
+    "config/groups/near_knn.json": {
+     "sha256": "c53df8f77876381623abf2d90fc118339fa1b7f635b09204e8298711a440c442",
+     "where": "中心库数据目录",
+     "note": "刻例 77727 格 3000 字；按册留出 28237 格（887 对）：放 20952 错 5；guard=2.090"
+    }
+   }
+  },
+  "988g3f0wsu": {
+   "ws": "988g3f0wsu",
+   "title": "史記",
+   "vols": {
+    "05": {
+     "role": "test",
+     "pack": "cv0.7.112-c11-g30-m2-k27-g30-a2"
+    },
+    "04": {
+     "role": "fit",
+     "pack": "cv0.7.112-c11-g30-m2-k27-g30-a2"
+    }
+   },
+   "groups": {
+    "zy": {
+     "ref": "p:之矣",
+     "trigger": "cands",
+     "methods": {
+      "pair_shape": {
+       "path": "config/groups/pair_shape_zhy.json",
+       "pair": [
+        "之",
+        "矣"
+       ]
+      }
+     }
+    }
+   },
+   "models": {
+    "config/groups/pair_shape_zhy.json": {
+     "sha256": "a11e29a408b3acd3b090b7e880724ba3a9dfb13a82aa8e8164fe0f518784f0ee",
+     "where": "中心库数据目录",
+     "note": "['01', '02', '03'] 已放行格 1908；按册留出 对1899 错1 弃8"
+    }
+   }
+  },
+  "96mid1ogzk": {
+   "ws": "siku-zongmu",
+   "title": "殿本總目",
+   "vols": {
+    "vol04": {
+     "role": "test",
+     "pack": "cv0.7.110-c23-g24-m2-ZM-colend-human-vol04-a3"
+    },
+    "vol06": {
+     "role": "fit",
+     "pack": "cv0.7.105-c21-g24-m3-u-on-a2"
+    }
+   },
+   "gold": "char-groups/labels/unified.jsonl",
+   "groups": {
+    "gong": {
+     "chars": [
+      "宫",
+      "宮",
+      "官"
+     ],
+     "fold": {
+      "宮": "宫"
+     },
+     "trigger": "member",
+     "methods": {
+      "cnn_small": "models/glyph_near_gong"
+     }
+    },
+    "men": {
+     "ref": "men",
+     "trigger": "cands",
+     "methods": {
+      "book_knn": "config/groups/book_knn/men.json"
+     }
+    }
+   },
+   "models": {
+    "models/glyph_near_gong": {
+     "sha256": "dir:4e1c4312df27dbc1cc29eaef2cdab10daf9a22e8f131c8fb44a44f9048d3d242",
+     "where": "cv 仓（模型表）",
+     "note": ""
+    },
+    "config/groups/book_knn/men.json": {
+     "sha256": "19a6e7ae0ab1901ec3af7a4a2829124d7962e04831b5f939aaea1bb60163ff0b",
+     "where": "中心库数据目录",
+     "note": "men 刻例 9984（{'~': 3000, '間': 796, '門': 776, '閣': 749, '聞': 731, '開': 679, '問': 619, '闕': 556, '關': 390, '閩': 319, '閒': 242, '閱': 222}…）；按册留出 9984 格：A 对1880 错1；B 对2776 错0；弃2327（guard=2.225）；背景 3000 格 组"
+    }
+   }
+  }
+ }
+}
