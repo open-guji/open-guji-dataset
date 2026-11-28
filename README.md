@@ -29,7 +29,7 @@ cv 管线分四大步（2026-11-22 起；小步 11-25 至 11-28 拆成独立 Ste
 | | 3d 其他特征、3e 看图大模型、识字收尾 `glyph_analyzer` | 无 | — |
 | **4 定字** `decide` | 4a 参照对位（`align_ref`） | [decide-bench](decide-bench) 子步指标 | 见收尾 |
 | | 4b 上下文（`context_decide`、`context_rank`） | [context-correction](context-correction)、[confusable-context](confusable-context) | 殿本 |
-| | 4c 格况（`cell_state`） | 无（待建） | — |
+| | 4c 格况（`cell_state`） | [decide-bench/cell-state](decide-bench/cell-state)（起步） | 史記 03、全唐文 004、殿本 |
 | | 4d 字组（`group_decision`） | [char-groups](char-groups) | 殿本 |
 | | 定字收尾（`char_decide`）、gate（`decide_gate`） | [decide-bench](decide-bench) small／large、[rough-bench](rough-bench) | 殿本、史記、全唐文、脉经 |
 
@@ -43,7 +43,7 @@ guji eval list                                     # guji-manager 评测器登�
 guji eval run <bench id>
 ```
 
-切字的 `cut_bench.py`、定字的 decide-bench `run.py`／`score.py`、`gate_bench.py` 现在还在 ai-team 仓，搬进跟版本走的仓之前以登记表写的住处为准。
+切字的 `cut_bench.py` 现在还在 ai-team 仓；定字的 decide-bench `run`／`score`／`dyn`／`gate_bench` 已搬进 cv `open_guji_cv/eval/decide_bench/`（2026-11-28）。切字的搬进跟版本走的仓之前以登记表写的住处为准。
 
 旧的 `python -m open_guji_cv console` 控制台和 `python -m open_guji_cv gold|eval|batch|events` 已退役（控制台拆成独立包 guji-console，人裁与金标收割走 guji-manager），不要再用；本仓根下的 `index.html`、`server.py`、`scripts/run_benchmark.py` 等是更早的标注与评测工具，只对 book-profile、cut-page 两个旧分片有效。
 

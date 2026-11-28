@@ -63,7 +63,7 @@
 
 ## 怎么跑（一键跑分）
 
-脚本在 ai-team `domain/CV/A24/decide-bench/`：`run.py`（取快照、跑第四步、打分）、`score.py`（只打分）。
+脚本在 cv 仓 `open_guji_cv/eval/decide_bench/`（跟版本走，2026-11-28 从 ai-team 搬入）：`run`（取快照、跑第四步、打分）、`score`（只打分）、`dyn`（动态层）、`gate_bench`（decide_gate）。用法 `python -m open_guji_cv.eval.decide_bench.run`。
 
 ```bash
 # 现行代码对上次结果，出翻转清单
@@ -120,3 +120,7 @@ cv 是 dev 版、册钉旧语料时设 `GUJI_CORPUS_DRIFT=warn`（run.py 已设�
 ### 已知限制
 - 册配置、模型、字形库、裁定缓存取工作区现行（钉版的照钉版），没有整包冻结；这些变了，基线要重跑一次再比。
 - 第四步不改切分，金标按冻结格号（`anchor.key_at_freeze`）对格；切分改了要按 `anchor.bbox` 重绑。
+
+## cell-state（4c 格况，v0.1.0 起步）
+
+见 [cell-state/README.md](cell-state/README.md)：按书分子目录（史記、全唐文、殿本），char 9,422 格＋non_char 38 格，护栏是漏字为 0；seal／occluded／seg_bad 金标待补。

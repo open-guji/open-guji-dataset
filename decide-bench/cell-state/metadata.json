@@ -1,0 +1,50 @@
+{
+  "name": "decide-bench/cell-state",
+  "version": "0.1.0",
+  "schema_version": 1,
+  "created": "2026-11-28",
+  "status": "起步（只有 char 与 non_char）",
+  "owner": "CV4",
+  "sample_unit": "格",
+  "books": {
+    "988g3f0wsu": "史記",
+    "995ejelvk0": "全唐文",
+    "siku-zongmu": "殿本（四库总目）"
+  },
+  "layout": "按书分子目录：<工作区id>/items.jsonl",
+  "counts": {
+    "988g3f0wsu": {
+      "char": 2951
+    },
+    "995ejelvk0": {
+      "char": 5357
+    },
+    "siku-zongmu": {
+      "non_char": 38,
+      "char": 1114
+    }
+  },
+  "label_origin_values": [
+    "human",
+    "human_audit"
+  ],
+  "metrics": [
+    {
+      "name": "missed_char",
+      "target": "0",
+      "description": "金标 state=char 的格被 4c 判成 non_char／seal／occluded／seg_bad 且因此送审（漏字）"
+    },
+    {
+      "name": "non_char_recall",
+      "direction": "higher_is_better",
+      "description": "金标 state=non_char 的格被 4c 判成 non_char 的比例"
+    },
+    {
+      "name": "state_precision",
+      "direction": "higher_is_better",
+      "description": "4c 每种判定的精确率（金标有的状态才有）"
+    }
+  ],
+  "random_vs_hard": "char 层是人裁定字的格（易格偏多）；non_char 层是人标的难例；两者都不是随机样本，不能估全册率",
+  "known_gaps": "无 seal／occluded／seg_bad／blank 金标；non_char 只有殿本 vol01、vol02，且无 bbox；史記、全唐文无 non_char。Sheldon 11-28 起标注暂停，补标等恢复后由 CV4 用 review-pages 做。"
+}
